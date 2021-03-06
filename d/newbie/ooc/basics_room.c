@@ -6,6 +6,8 @@ void create() {
         ::create();
         set_property("indoors",1);
         set_property("no teleport",1);
+        set_travel(PAVED_ROAD);
+        set_terrain(VILLAGE);
         set_property("light",2);
         set_property("no sticks",1);
 	set_property("ooc room", 1);
