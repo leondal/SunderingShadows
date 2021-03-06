@@ -5,6 +5,8 @@ void create() {
    ::create();
    set_light(2);
    set_indoors(1);
+   set_travel(PAVED_ROAD);
+   set_terrain(STONE_BUILDING);
    set_short("War Museum");
    set_long(
 @FIST
