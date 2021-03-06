@@ -11,6 +11,8 @@ void create()
 
     set_property("indoors", 0);
     set_property("light", 1);
+    set_travel(FRESH_BLAZE);
+    set_terrain(LIGHT_FOREST);
 
     set_climate("temperate");
     set_short("A Quiet Pond");
