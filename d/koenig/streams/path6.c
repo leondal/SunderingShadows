@@ -8,15 +8,7 @@ void create()
 {
    ::create();
    set_long(
-	"This is a rocky path that winds slowly through the"
-" foothills of the mountains. The path has been mostly cleared"
-" of the larger rocks, but smaller stones make for rough"
-" traveling. The surrounding area is also rocky, not many plants"
-" seem to like the mountain climate, but a few %^GREEN%^bushes"
-" %^RESET%^appear to be growing here. A cool wind seems to be"
-" constantly blowing, and you can hear it whistling through the"
-" peaks far above. The path here isn't very steep, and it stays"
-" relatively close to the sheer mountain cliff.\n");
+	"This is a %^ORANGE%^ro%^BOLD%^c%^RESET%^%^ORANGE%^ky p%^BOLD%^a%^RESET%^%^ORANGE%^th %^WHITE%^that winds slowly through the %^GREEN%^foothills %^WHITE%^of the mountains. The path has been mostly cleared of the larger rocks, but smaller stones make for rough traveling. The surrounding area is also ro%^BOLD%^%^BLACK%^ck%^RESET%^y, not many %^BOLD%^%^GREEN%^p%^RESET%^%^GREEN%^l%^BOLD%^ant%^RESET%^%^GREEN%^s %^WHITE%^seem to like the mountain climate, but a few %^BOLD%^%^GREEN%^bushes %^RESET%^appear to be growing here. A cool %^BOLD%^%^CYAN%^w%^RESET%^%^CYAN%^ind %^WHITE%^seems to be constantly blowing, and you can hear it whistling through the %^BOLD%^peaks %^RESET%^far above. The path here isn't very steep, and it stays relatively close to the sheer %^BOLD%^%^BLACK%^m%^RESET%^o%^BOLD%^%^BLACK%^u%^RESET%^n%^BOLD%^%^BLACK%^t%^RESET%^a%^BOLD%^%^BLACK%^i%^RESET%^n cl%^BOLD%^%^BLACK%^if%^RESET%^f.\n");
 	set_search("default","There are a lot of rocks and dust on the trail, but"+
 	   " not much else.");
    set_search("default","A few bushes look out of place.");

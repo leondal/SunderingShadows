@@ -8,14 +8,7 @@ void create()
 	::create();
 	set_short("A rocky path leading to a gate");
 	set_long(
-	"This is a rocky path that winds slowly through the foothills of the"+
-	" mountains. The path has been mostly cleared of the larger rocks,"+
-	" but smaller stones make for rough traveling. The surrounding area is"+
-	" also rocky, not many plants seem to like the mountain climate. A cool"+
-	" wind seems to be constantly blowing, and you can hear it whistling through"+
-	" the peaks far above. The path here climbs steadily downward, leading right "+
-      "to a gate.  A small city looms just to the west, with a lonely tower rising "+
-      "to the north.\n"
+	"This is a %^ORANGE%^ro%^BOLD%^c%^RESET%^%^ORANGE%^ky p%^BOLD%^a%^RESET%^%^ORANGE%^th %^WHITE%^that winds slowly through the %^GREEN%^foothills %^WHITE%^of the mountains. The path has been mostly cleared of the larger rocks, but smaller stones make for rough traveling. The surrounding area is also ro%^BOLD%^%^BLACK%^ck%^RESET%^y, not many %^BOLD%^%^GREEN%^p%^RESET%^%^GREEN%^l%^BOLD%^ant%^RESET%^%^GREEN%^s %^WHITE%^seem to like the mountain climate. A cool %^BOLD%^%^CYAN%^w%^RESET%^%^CYAN%^ind %^WHITE%^seems to be constantly blowing, and you can hear it whistling through the %^BOLD%^peaks %^RESET%^far above.\n\nThe %^ORANGE%^p%^BOLD%^a%^RESET%^%^ORANGE%^th %^WHITE%^here climbs steadily downward, leading right to a %^YELLOW%^gate%^RESET%^. A %^BOLD%^%^CYAN%^small city %^RESET%^looms just to the west, with a %^MAGENTA%^lonely tow%^BOLD%^e%^RESET%^%^MAGENTA%^r %^WHITE%^rising to the north. \n"
 	);
       add_item("tower","The tower looms high above you, reaching towards the "+
          "dark clouds that loom over it.  The tower is made out of fine white "+
