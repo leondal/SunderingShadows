@@ -12,11 +12,7 @@ void create() {
    set_name("An old abandoned road");
    set_short("An old abandoned road");
    set_long(
-      "This narrow roadway leads deeper into the Quiet Forest.  "+
-      "While most of forest is pleasantly still, this section "+
-      "has an oppressive, eerie air that suggests "+
-      "all is not well here.  The trees press close to the deserted "+
-      "road, their full branches hanging not far overhead."+
+      "%^BOLD%^%^GREEN%^This %^BLACK%^na%^RESET%^rr%^BOLD%^o%^BLACK%^w r%^WHITE%^oa%^RESET%^dw%^BOLD%^%^BLACK%^ay %^GREEN%^leads deeper into the %^RESET%^%^CYAN%^Quiet Forest%^BOLD%^%^GREEN%^. While most of the forest is pleasantly still, this section has an %^BLACK%^o%^GREEN%^p%^BLACK%^pre%^GREEN%^s%^BLACK%^s%^GREEN%^i%^BLACK%^v%^GREEN%^e, e%^BLACK%^er%^GREEN%^ie a%^BLACK%^ir %^GREEN%^that suggests all is not well here.  The %^RESET%^%^CYAN%^trees %^BOLD%^%^GREEN%^press close to the %^RESET%^%^ORANGE%^deserted road%^BOLD%^%^GREEN%^, their full branches hanging not far overhead.%^RESET%^"+
       "\n");
    set_smell("default","The underlying fragrance of wildflowers is masked by the scent of decay.");
    set_listen("default","The only sounds are those you make.  Not even a bird sings here.");

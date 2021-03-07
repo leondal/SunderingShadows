@@ -6,14 +6,7 @@ inherit VILROADS;
 void create() {
    ::create();
    set_long(
-      "This narrow broken roadway leads through a ransacked village "+
-      "that has clearly been abandoned.  Just to the east, a house stands, "+
-      "though it can hardly be called such anymore.  There is no door on the "+
-      "hinges, and the wood has been charred and blackened.  The windows stand "+
-      "empty, allowing the wind to blow soot and ash out into the roadway.  "+
-      "Through the northern window, a wooden crib can be seen.  The road continues "+
-      "south into the village, or north into the forest pressing close around "+
-      "the buildings."+
+      "%^RESET%^%^ORANGE%^This %^BOLD%^%^BLACK%^na%^RESET%^rr%^BOLD%^o%^BLACK%^w b%^RESET%^r%^BOLD%^o%^RESET%^ke%^BOLD%^%^BLACK%^n r%^WHITE%^oa%^RESET%^dw%^BOLD%^%^BLACK%^ay %^RESET%^%^ORANGE%^leads through a %^CYAN%^ransacked village %^ORANGE%^that has clearly been %^CYAN%^abandoned%^ORANGE%^. Just to the east, a %^BOLD%^%^RED%^house %^RESET%^%^ORANGE%^stands, though it can hardly be called such anymore. There is no door on the hinges, and the wood has been %^BOLD%^%^BLACK%^charred and blackened%^RESET%^%^ORANGE%^. The windows stand %^CYAN%^empty%^ORANGE%^, allowing the %^BOLD%^%^CYAN%^w%^RESET%^%^CYAN%^ind %^ORANGE%^to blow %^BOLD%^%^BLACK%^soot and ash %^RESET%^%^ORANGE%^out into the roadway. Through the northern window, a wooden %^BOLD%^crib %^RESET%^%^ORANGE%^can be seen. The road continues south into the village, or north into the %^BOLD%^%^GREEN%^forest %^RESET%^%^ORANGE%^pressing close around the buildings.%^RESET%^"+
       "\n");
    add_item("windows","The empty window frames are charred and blackened by "+
       "flames that seem to have climbed up the side of the building.  Strange "+
