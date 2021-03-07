@@ -12,11 +12,7 @@ void create()
 	set_property("light",2);
 	set_short("A rocky path");
 	set_long(
-	"You have come to a fork in the road. The rocky path continues from the"+
-	" north and leads to the southeast. A trail that appears to be a bit"+
-	" better cleared of rocks leads away to the southwest. You can see"+
-	" mountains rising in the distance to the southeast, looming high into the"+
-	" air.\n"
+	"%^BOLD%^%^GREEN%^You have come to a %^WHITE%^f%^RESET%^ork %^BOLD%^i%^RESET%^n %^BOLD%^t%^RESET%^h%^BOLD%^e %^RESET%^roa%^BOLD%^d%^GREEN%^. The %^RESET%^%^ORANGE%^ro%^BOLD%^c%^RESET%^%^ORANGE%^ky p%^BOLD%^a%^RESET%^%^ORANGE%^th %^BOLD%^%^GREEN%^continues from the north and leads to the southeast. A %^ORANGE%^tra%^RESET%^%^ORANGE%^i%^BOLD%^l %^GREEN%^that appears to be a bit better cleared of rocks leads away to the southwest. You can see %^RESET%^%^GREEN%^mo%^BOLD%^%^BLACK%^u%^RESET%^n%^BOLD%^t%^RESET%^a%^BOLD%^%^BLACK%^i%^RESET%^%^GREEN%^ns %^BOLD%^rising in the distance to the southeast, looming high into the air.%^RESET%^"
 	);
 	set_smell("default","The mountain air is crisp and cool.");
 	set_listen("default","You can hear a stream in the northern distance.");
