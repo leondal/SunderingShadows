@@ -12,10 +12,7 @@ void create()
 	set_property("light",2);
 	set_short("A rocky path");
 	set_long(
-	   "This is a rocky path that comes to a stop in front of the stream."+
-	   " There is a ford in the middle of the water to the northwest, it looks"+
-	   " like the stream is shallow enough here to make it across to the other"+
-	   " bank. The path continues on to the south.\n"
+	   "%^CYAN%^This is a %^WHITE%^r%^ORANGE%^o%^WHITE%^ck%^ORANGE%^y %^WHITE%^pa%^ORANGE%^t%^WHITE%^h %^CYAN%^that comes to a stop in front of the %^BOLD%^stream%^RESET%^%^CYAN%^. There is a %^BOLD%^fo%^RESET%^%^CYAN%^r%^BOLD%^d %^RESET%^%^CYAN%^in the middle of the %^BOLD%^w%^RESET%^%^CYAN%^a%^BOLD%^ter %^RESET%^%^CYAN%^to the northwest, it looks like the stream is %^WHITE%^sh%^BOLD%^allo%^RESET%^w %^CYAN%^enough here to make it across to the other bank. The %^WHITE%^pa%^ORANGE%^t%^WHITE%^h %^CYAN%^continues on to the south.%^WHITE%^\n"
 	);
 	set_smell("default","You smell the fresh stream water.");
 	set_listen("default","You hear the sounds of rushing water.");
