@@ -6,14 +6,7 @@ inherit VILROADS;
 void create() {
    ::create();
    set_long(
-      "This narrow broken roadway leads through a ransacked village "+
-      "that has clearly been abandoned.  To the west is the front of an "+
-      "abandoned shop, its charred sign still reading 'General Store.'  "+
-      "Chains hang down in front of the windows and smashed pottery below "+
-      "reveals that the chains once held hanging baskets of flowers.  "+
-      "Now, little remains of the store though the roof overhead seems "+
-      "somewhat sturdy.  To the east, in the distance, another village home "+
-      "stands."+
+      "%^ORANGE%^This %^BOLD%^%^BLACK%^na%^RESET%^rr%^BOLD%^o%^BLACK%^w b%^RESET%^r%^BOLD%^o%^RESET%^ke%^BOLD%^%^BLACK%^n r%^WHITE%^oa%^RESET%^dw%^BOLD%^%^BLACK%^ay %^RESET%^%^ORANGE%^leads through a %^CYAN%^ransacked village %^ORANGE%^that has clearly been %^CYAN%^abandoned%^ORANGE%^. To the west is the front of an abandoned shop, its %^BOLD%^%^BLACK%^charred %^RESET%^%^ORANGE%^sign still reading '%^BOLD%^General Store%^RESET%^%^ORANGE%^.' Chains hang down in front of the windows and %^WHITE%^sm%^ORANGE%^a%^WHITE%^sh%^ORANGE%^e%^WHITE%^d %^ORANGE%^p%^WHITE%^o%^ORANGE%^t%^WHITE%^t%^ORANGE%^e%^WHITE%^ry %^ORANGE%^below reveals that the chains once held hanging baskets of flowers. Now, little remains of the store though the roof overhead seems somewhat sturdy. To the east, in the distance, another village home stands.%^RESET%^"+
       "\n");
    add_item("windows","The empty window frames are charred and blackened by "+
       "flames that seem to have climbed up the side of the building.  Strange "+
