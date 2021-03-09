@@ -1,1 +1,15 @@
-ranged_weapons
+%^CYAN%^%^ULINE%^Ranged weapons%^RESET%^
+
+ShadowGate provides a ranged weapon system. Ranged weapons refer to weapons that can engage an enemy from a distance. Here distanceis defined by rooms. Longbows, shortbows and crossbows as well as slings and other such items are all thought of as ranged weapons. Things like javelins, nets, boulders are ranged weapons but are dealt with separately.
+
+%^ORANGE%^<shoot %^ORANGE%^%^ULINE%^TARGET%^RESET%^ %^ORANGE%^%^ULINE%^DIRECTION%^RESET%^ [%^ORANGE%^%^ULINE%^DISTANCE%^RESET%^]>%^RESET%^
+
+%^CYAN%^N.B.%^RESET%^:  You must spell out the direction name, i.e. north, south not just n or s.
+
+Note it is possible to specify a direction without a distance, this will fire at the closest %^ORANGE%^<target>%^RESET%^ within the range of the weapon. 
+
+This will fire a piece of ammo in that direction. Each weapon has a type of ammunition. This ammunition can be depleted. The weapons have range. This is a concept of both a maximum distance you can fire, and distances over which you take penalties. Obviously the farther you fire the harder it is to hit something. Once you fire at something, if they are not in combat they will seek to find the person attacking them; they will move toward your position. If they have friends the friends will come too. When they move they cover approximately 1 room per round.
+
+The bow has a rate of fire set. That is the reload time for an average user. During this time an average user can fire 1 shot, a proficient user (100%) can fire 2, for specialized users there is an extra shot per 15% to a max of 8 per round. 
+
+%^CYAN%^See also%^RESET%^: throw, ranger, feats
