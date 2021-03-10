@@ -62,8 +62,8 @@ protected void logon()
     call_out("idle", LOGON_TIMEOUT);
     call_out("internal_remove", LOGON_TIMEOUT * 10);
 
-    message("logon", "  Host: shadowgate.org\n  Ports: 8080, 8443 (SSL)\n", this_object());
-    message("logon", "  E-mail: law@shadowgate.org\n", this_object());
+    message("logon", "  Host: sunderingshadows.com\n  Port: 8080 (SSL)\n", this_object());
+    message("logon", "  E-mail: admin@sunderingshadows.com\n", this_object());
     message("logon", "  This game is for adults (18+)", this_object());
     message("logon", "\n",this_object());
     message("logon", "\nWhat name do you choose? ", this_object());
