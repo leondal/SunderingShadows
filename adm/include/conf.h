@@ -1,5 +1,5 @@
 #define __nightmare__            3.2
-#define MUDLIB                   "ShadowGate"
+#define MUDLIB                   "Sundering Shadows"
 #define MUDLIB_VERSION           "999"
 
 #define MUD_IS_LOCKED 0
