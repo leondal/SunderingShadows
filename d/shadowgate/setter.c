@@ -12,7 +12,7 @@ void create() {
     set_property("no teleport", 1);
     set_property("training", 1);
     set_items(([
-        "room" : "The nothingness from which you will be born into Shadowgate.",
+        "room" : "The nothingness from which you will be born into Sundering Shadows.",
     ]));
 }
 
@@ -33,11 +33,11 @@ string my_long()
               "There are other spirits in the void with you, some are lost souls, "+
               "waiting for reincarnation. Suddenly the room is filled with a loud "+
               "voice. It informs you to %^YELLOW%^<press button> %^RESET%^%^CYAN%^to press the button on the "+
-              "wall to start your journey into the world of ShadowGate.\n\n"+
+              "wall to start your journey into the world of Sundering Shadows.\n\n"+
               "%^BOLD%^%^RED%^Note: %^BOLD%^%^WHITE%^If you are a veteran player, this is a good time to associate "+
               "your character with your account if you want to roll a restricted race.  "+
               "New players may want to read %^YELLOW%^<help account> %^BOLD%^%^WHITE%^for information about "+
-              "user accounts on Shadowgate.";
+              "user accounts on Sundering Shadows.";
     }
     else if(present("setter object", TP))
     {
@@ -45,11 +45,11 @@ string my_long()
               "There are other spirits in the void with you, some are lost souls, "+
               "waiting for reincarnation. Suddenly the room is filled with a loud "+
               "voice. It informs you to %^YELLOW%^<review> %^RESET%^%^CYAN%^to continue "+
-              "your journey into the world of ShadowGate.\n\n"+
+              "your journey into the world of Sundering Shadows.\n\n"+
               "%^BOLD%^%^RED%^Note: %^BOLD%^%^WHITE%^If you are a veteran player, this is a good time to associate "+
               "your character with your account if you want to roll a restricted race.  "+
               "New players may want to read %^YELLOW%^<help account> %^BOLD%^%^WHITE%^for information about "+
-              "user accounts on Shadowgate.";
+              "user accounts on Sundering Shadows.";
     }
     return ret;
 }

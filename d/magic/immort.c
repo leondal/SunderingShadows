@@ -22,7 +22,7 @@ home of thousands of texts of magic and mystery collected from all
 over the World.  Wizards come here to study their craft and research
 arcane spells and artifacts.  A heavy atmosphere of magic is in the
 air.  In front of you is the great register of Hallow's End, where 
-the High Mages of ShadowGate enumerate their knowledge.  
+the High Mages of Sundering Shadows enumerate their knowledge.  
 THORN
 );
     set_exits(
