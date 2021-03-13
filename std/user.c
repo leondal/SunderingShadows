@@ -3561,15 +3561,20 @@ void remove_all_pets() {
 }
 
 void reduce_my_skills(string myclass) {
+  
+  object player;
+  
+  player = this_object();
+  
   if (myclass == "thief" || myclass == "bard") {
-    TO->set_thief_skill("pick pockets",query_base_thief_skill("pick pockets")-3);
-    TO->set_thief_skill("detect noise",query_base_thief_skill("detect noise")-3);
-    TO->set_thief_skill("open lock",query_base_thief_skill("open lock")-3);
-    TO->set_thief_skill("find/remove traps",query_base_thief_skill("find/remove traps")-3);
-    TO->set_thief_skill("move silently",query_base_thief_skill("move silently")-3);
-    TO->set_thief_skill("hide in shadows",query_base_thief_skill("hide in shadows")-3);
-    TO->set_thief_skill("climb walls",query_base_thief_skill("climb walls")-3);
-    TO->set_thief_skill("read languages",query_base_thief_skill("read languages")-3);
+    player->set_thief_skill("pick pockets",query_base_thief_skill("pick pockets")-3);
+    player->set_thief_skill("detect noise",query_base_thief_skill("detect noise")-3);
+    player->set_thief_skill("open lock",query_base_thief_skill("open lock")-3);
+    player->set_thief_skill("find/remove traps",query_base_thief_skill("find/remove traps")-3);
+    player->set_thief_skill("move silently",query_base_thief_skill("move silently")-3);
+    player->set_thief_skill("hide in shadows",query_base_thief_skill("hide in shadows")-3);
+    player->set_thief_skill("climb walls",query_base_thief_skill("climb walls")-3);
+    player->set_thief_skill("read languages",query_base_thief_skill("read languages")-3);
   }
   return;
 }
@@ -3805,12 +3810,12 @@ string query_cap_name() {
 
   known = "$&$"+query_name()+"$&$";
 
-  if ((int)TO->query_disguised() == 1) {
-    if (user_exists(TO->query_vis_name())) {
+  if ((int)this_object()->query_disguised() == 1) {
+    if (user_exists(this_object()->query_vis_name())) {
 
-      return "$&$"+TO->query_vis_name()+"$&$";
+      return "$&$"+this_object()->query_vis_name()+"$&$";
     }
-    return "$&$"+TO->query_vis_name()+"$&$";
+    return "$&$"+this_object()->query_vis_name()+"$&$";
   }
   return known;
 }
@@ -3869,7 +3874,7 @@ int query_blinking() {
 void set_blinking(int i)
 {
     int num;
-    if(FEATS_D->usable_feat(TO,"slippery caster"))
+    if(FEATS_D->usable_feat(this_object(),"slippery caster"))
     {
         num = to_int(to_float(i) * 1.33);
         static_user["blinking"] = num;
@@ -4057,19 +4062,16 @@ void convert_relationships()
     string* names = ({});
     int i;
 
-    if (!objectp(TO)) {
+    if (!objectp(this_object()))
         return;
-    }
 
-    if (avatarp(TO)) {
+    if (avatarp(this_object()))
         return;
-    }
 
-    if (TO->query("relationships_converted")) {
+    if (this_object()->query("relationships_converted"))
         return;
-    }
 
-    temp = TP->getRelationships();
+    temp = this_player()->getRelationships();
     if (!sizeof(keys(temp))) {
         relationships = ([]);
     }
@@ -4082,9 +4084,9 @@ void convert_relationships()
 
     relationships = rels;
 
-    TO->set("relationships_converted", 1);
-    TO->set("relationship_profile", "default");
-    tell_object(TO, "%^B_RED%^%^BOLD%^%^CYAN%^Converting relationships... %^RESET%^");
+    this_object()->set("relationships_converted", 1);
+    this_object()->set("relationship_profile", "default");
+    tell_object(this_object(), "%^B_RED%^%^BOLD%^%^CYAN%^Converting relationships... %^RESET%^");
     return;
 }
 
@@ -4292,7 +4294,7 @@ string realNameVsProfile(string who)
         return outnames[0];
     } else {
         foreach(name in outnames) {
-            if (present(name, ETO)) {
+            if (present(name, environment(this_object()))) {
                 return name;
             }
         }
@@ -4312,15 +4314,15 @@ string getNameAsSeen(object ob)
     string known;
     if(!objectp(ob))
     {
-        if(objectp(TP))
+        if(objectp(this_player()))
         {
-            ob = TP;
+            ob = this_player();
         }
     }
 
     if(objectp(ob) && ob->knownAs(query_true_name()))
     {
-        if(wizardp(TO))
+        if(wizardp(this_object()))
         {
             known = query_name();
         }
@@ -4331,7 +4333,7 @@ string getNameAsSeen(object ob)
     }
     else
     {
-        if(wizardp(TO))
+        if(wizardp(this_object()))
         {
             known = query_name();
         }
@@ -4460,7 +4462,7 @@ void manual_perma_death()
     if (!D_BUG_D->perma_death_d()) {
         set("perma death length", time() + get_perma_death_flag());
     }else {
-        PERMA_DEATH_D->set_permadeath(TO->query_name(), time() + TO->get_perma_death_flag());
+        PERMA_DEATH_D->set_permadeath(this_object()->query_name(), time() + this_object()->get_perma_death_flag());
     }
 }
 
@@ -4478,7 +4480,7 @@ int get_perma_death()
     if (!D_BUG_D->perma_death_d()) {
         return query("perma death length");
     }else {
-        return PERMA_DEATH_D->get_permadeath(TO->query_name());
+        return PERMA_DEATH_D->get_permadeath(this_object()->query_name());
     }
 }
 
@@ -4499,12 +4501,12 @@ void set_pk_death_flag()
 
 void remove_pk_death_flag()
 {
-    if (objectp(TO)) {
-        TO->delete("pk_death_age");
-    }
-    if (objectp(TO)) {
+    if (objectp(this_object()))
+        this_object()->delete("pk_death_age");
+
+    if (objectp(TO))
         TO->delete("pk_death_time");
-    }
+
     pk_death_flag = 0;
 }
 
@@ -4516,9 +4518,8 @@ int get_pk_death_flag()
 int query_death_flag()
 {
 
-    if (query_login_time() + 600 > time()) {
+    if (query_login_time() + 600 > time())
         return 1;
-    }
 
     if (query("death level")) {
         if (query_base_character_level() >= (int)query("death level")) {
@@ -4540,7 +4541,7 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
   int _sight_bonus;
   int calc;
 
-  if (!objectp(TO)) {
+  if (!objectp(this_object())) {
       return 0;
   }
   if (!objectp(whichroom)) {
@@ -4568,7 +4569,7 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
       calc = _total_light;
   }
   if (D_BUG_D->calc_message()) {
-      tell_object(TO, "calc = " + calc);
+      tell_object(this_object(), "calc = " + calc);
   }
 
   if (member_array(query_race(), LIVING_D->night_races()) != -1) {
@@ -4601,19 +4602,23 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
           return (calc - 0);
       }
   }
-  tell_object(TO, "Light error!");
+  tell_object(this_object(), "Light error!");
   return 0;
 }
 
 int light_blind(int actionbonus)
 {
-    if (!objectp(TO)) {
+    object room;
+    
+    if (!objectp(this_object()))
         return 0;
-    }
-    if (!objectp(ETO)) {
+    
+    room = environment(this_object());
+    
+    if (!objectp(room))
         return 0;
-    }
-    return light_blind_remote(actionbonus, ETO, 0);
+
+    return light_blind_remote(actionbonus, room, 0);
 }
 
 string light_blind_fail_message(int blindlight)
@@ -4675,9 +4680,6 @@ int get_retinue_level(){
 void set_retinue_level(int l){
     retinue_level = l;
 }
-
-
-
 
 // Feat Stuff
 
@@ -4968,11 +4970,6 @@ void set_player_feats(string *feats)
     return;
 }
 
-/*string *query_player_feats()
-{
-    return player_feats;
-}*/
-
 // Patch fix: rewrite of function so that it's not reliant on the player_feats array - this is at the tail end of the user save file & is losing data at present. N, 9/15.
 string *query_player_feats() {
     mapping testmap;
@@ -5101,22 +5098,23 @@ void remove_temporary_feat(string feat)
     return;
 }
 
-
+// END FEATS SECTION
 
 string query_real_age_cat()
 {
     string myfile, myrace;
     int* agecats;
-    if (!objectp(TO)) {
+    
+    if (!objectp(this_object()))
         return 0;
-    }
-    if (avatarp(TO)) {
+
+    if (avatarp(this_object()))
         return "immortal";
-    }
-    myrace = (string)TO->query_race();
-    if (!myrace) {
+
+    myrace = (string)this_object()->query_race();
+    if (!myrace)
         return 0;
-    }
+
     myfile = "/std/races/" + myrace + ".c";
     if (!file_exists(myfile)) {
         return 0;
@@ -5170,13 +5168,11 @@ int age_mod(string stat) {
    VENERABLE = ({ -3, -3, -3,  3,  3,  3 });
    agebracket = query_real_age_cat();
 
-   if (TO->is_undead()) {
+   if (this_object()->is_undead())
        return 0;
-   }
 
-   if (TO->query_race() == "soulforged") {
+   if (this_object()->query_race() == "soulforged")
        return 0;
-   }
 
     switch(stat)
     {
@@ -5192,17 +5188,17 @@ int age_mod(string stat) {
     {
         case "child": return CHILD[i]; break;
         case "middle":
-            if((FEATS_D->usable_feat(TO, "timeless body")) &&
+            if((FEATS_D->usable_feat(this_object(), "timeless body")) &&
                MIDDLE[i] < 1)
                 return 0;
             return MIDDLE[i]; break;
         case "old":
-            if((FEATS_D->usable_feat(TO, "timeless body")) &&
+            if((FEATS_D->usable_feat(this_object(), "timeless body")) &&
                OLD[i] < 1)
                 return 0;
             return OLD[i]; break;
         case "venerable":
-            if((FEATS_D->usable_feat(TO, "timeless body")) &&
+            if((FEATS_D->usable_feat(this_object(), "timeless body")) &&
                VENERABLE[i] < 1)
                 return 0;
             return VENERABLE[i]; break;
@@ -5216,28 +5212,24 @@ int race_mod(string stat)
     string myfile, myrace, mysubrace;
 
 // these go as per /std/races: str, dex, con, int, wis, cha. Arrays list cumulative modifiers.
-    if (avatarp(TO)) {
+    if (avatarp(this_object()))
         return 0;
-    }
 
-    myrace = TO->query_race();
+    myrace = this_object()->query_race();
 
-    if (!myrace) {
+    if (!myrace)
         return 0;
-    }
 
-    mysubrace = TO->query("subrace");
+    mysubrace = this_object()->query("subrace");
     myfile = "/std/races/" + myrace + ".c";
 
-    if (!file_exists(myfile)) {
+    if (!file_exists(myfile))
         return 0;
-    }
 
-    mystats = myfile->stat_mods(mysubrace, TO);
+    mystats = myfile->stat_mods(mysubrace, this_object());
 
-    if (sizeof(mystats) != 6) {
+    if (sizeof(mystats) != 6)
         return 0;
-    }
 
     if (myfile->is_statmod_race(mysubrace)) {
         int smod;
@@ -5277,40 +5269,38 @@ int race_mod(string stat)
 }
 
 int reactivate(string str,int when){
-        TO->remove_property("inactive");
-        tell_object(TO, "You wake up from the slumber.\n");
+        this_object()->remove_property("inactive");
+        tell_object(this_object(), "You wake up from the slumber.\n");
         if((time()-when) <= 60)
-           tell_object(TO,"You have been napping for "+(time()-when)+" seconds.");
+           tell_object(this_object(),"You have been napping for "+(time()-when)+" seconds.");
         else
-           tell_object(TO,"You have been napping for "+((time()-when)/60)+" minutes.");
-        tell_room(environment(TO), TPQCN+" wakes up.\n", ({TO}) );
+           tell_object(this_object(),"You have been napping for "+((time()-when)/60)+" minutes.");
+        tell_room(environment(this_object()), TPQCN+" wakes up.\n", ({ this_object() }) );
         return 1;
    return 1;
 }
 
 int test_passive_perception()
 {
-    object* living, targ;
+    object* living, targ, player, room;
     int i, numnotvisible, ishidden, ismagic;
     int perception, stealth, spellcraft;
-    if (!objectp(TO)) {
+    
+    player = this_object();
+    player && room = environment(player);
+  
+    if (!player || !room)
         return;
-    }
-    if (!objectp(ETO)) {
+
+    if (player->query_watched() < 1)
         return;
-    }
 
-    if (TO->query_watched() < 1) {
-        return;
-    }
+    if (FEATS_D->usable_feat(player, "spot"))
+        perception = (int)player->query_skill("perception");
+    else
+        perception = (int)player->query_skill("perception") * 3 / 4;
 
-    if (FEATS_D->usable_feat(TO, "spot")) {
-        perception = (int)TO->query_skill("perception");
-    } else {
-        perception = (int)TO->query_skill("perception") * 3 / 4;
-    }
-
-    living = filter_array(all_living(ETO) - ({ TO }), "is_non_immortal", FILTERS_D);
+    living = filter_array(all_living(room) - ({ player }), "is_non_immortal", FILTERS_D);
     numnotvisible = 0;
 
     for (i = 0; i < sizeof(living); i++) {
@@ -5318,14 +5308,14 @@ int test_passive_perception()
         if (!objectp(targ)) {
             continue;
         }
-        if (targ->query_property("minion") == TO) {
+        if (targ->query_property("minion") == player) {
             continue;
         }
         ishidden = targ->query_hidden();
         ismagic = targ->query_magic_hidden();
         stealth = (int)targ->query_skill("stealth");
         spellcraft = (int)targ->query_skill("spellcraft");
-        if (FEATS_D->usable_feat(TO, "spot") && !TO->true_seeing()) {
+        if (FEATS_D->usable_feat(player, "spot") && !player->true_seeing()) {
             if (ishidden == 1 && ismagic == 0) {
                 if (perception > stealth) {
                     numnotvisible++;
@@ -5346,7 +5336,7 @@ int test_passive_perception()
         }
     }
     if (numnotvisible > 0) {
-        tell_object(TO, "%^BOLD%^%^CYAN%^You sense an unseen creature lurking nearby!%^RESET%^");
+        tell_object(player, "%^BOLD%^%^CYAN%^You sense an unseen creature lurking nearby!%^RESET%^");
     }
     return 1;
 }
@@ -5441,13 +5431,11 @@ int is_favored_enemy(object ob)
 {
     string* ids;
 
-    if (!ob && !objectp(ob)) {
+    if (!ob && !objectp(ob))
         return 0;
-    }
 
-    if (!sizeof(favored_enemy)) {
+    if (!sizeof(favored_enemy))
         return 0;
-    }
 
     ids = ob->query_id();
     ob->query_race() && ids += ({ ob->query_race() });
