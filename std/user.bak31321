@@ -2185,8 +2185,8 @@ void write_messages()
     int i;
 
     force_me("bboard info");
-    message("login", "\n%^WHITE%^-=%^BOLD%^<%^BOLD%^%^GREEN%^Voting for Sundering Shadows%^WHITE%^>%^RESET%^%^WHITE%^=-%^RESET%^\n", TO);
-    message("login", "%^BOLD%^%^GREEN%^ Consider voting for Sundering Shadows to bring in more players!%^RESET%^", TO);
+    message("login", "\n%^WHITE%^-=%^BOLD%^<%^BOLD%^%^GREEN%^Voting for ShadowGate%^WHITE%^>%^RESET%^%^WHITE%^=-%^RESET%^\n", TO);
+    message("login", "%^BOLD%^%^GREEN%^ Consider voting for ShadowGate to bring in more players!%^RESET%^", TO);
     message("login", "%^BOLD%^%^GREEN%^ Use %^WHITE%^<vote>%^GREEN%^%^BOLD%^ command to do it.%^RESET%^", TO);
     message("login", "", TO);
 
