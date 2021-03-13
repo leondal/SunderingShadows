@@ -4,7 +4,7 @@
 #include <options.h>
 
 #define __nightmare__               3.2
-#define MUDLIB                      "ShadowGate/Nightmare Mudlib"
+#define MUDLIB                      "SunderingShadows/Nightmare Mudlib"
 #define MUDLIB_VERSION              "1.5/3.2"
 
 #define MUD_IS_LOCKED               1

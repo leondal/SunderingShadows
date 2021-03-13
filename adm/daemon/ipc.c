@@ -84,7 +84,7 @@ void ipc_listen(int fd)
 
     debug("Conn attempt: " + identify(socket_status(this_conn_fd)));
 
-    if (socket_address(this_conn_fd)[0..8] != "127.0.0.1") {
+    if (socket_address(this_conn_fd)[0..8] != "127.0.0.1" && socket_address(this_conn_fd)[0..14] != "165.227.218.140") {
         debug("Rejected on conn: " + identify(socket_status(this_conn_fd)));
         socket_close(this_conn_fd);
         return;
@@ -112,7 +112,7 @@ void ipc_read(int fd, mixed data)
         return;
     }
 
-    if (socket_address(fd)[0..8] != "127.0.0.1" && socket_address(fd)[0..8] != "165.227.218.140") {
+    if (socket_address(fd)[0..8] != "127.0.0.1" && socket_address(fd)[0..14] != "165.227.218.140") {
         debug("Error non local spoof: " + identify(socket_status(fd)));
         socket_close(fd);
         return;
@@ -139,8 +139,9 @@ void ipc_read(int fd, mixed data)
         CHAT_D->ipc_chat(chan, nick, msg);
     }
 
+    /*
     if (data[0..4] == "HELP:") {
-        string helpstring;
+        //string helpstring;
 
         // helper=new(helper);
         // helper->force_me("help helpstring");
@@ -148,6 +149,7 @@ void ipc_read(int fd, mixed data)
         // hlper->remove();
         // ip_send_back(helpfile);
     }
+    */
 }
 
 int* query_ttys()

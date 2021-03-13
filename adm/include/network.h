@@ -15,7 +15,7 @@
 /*
 #define SERVER_ADDR   "129.10.114.86"
 */
-#define SERVER_ADDR   "199.199.122.10"
+#define SERVER_ADDR   "165.227.218.140"
 /*
 #define SERVER_PORT 5563
 */
