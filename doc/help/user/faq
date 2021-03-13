@@ -1,6 +1,6 @@
-%^CYAN%^%^ULINE%^Shadowgate FAQ%^RESET%^
+ng%^CYAN%^%^ULINE%^Sundering Shadows FAQ%^RESET%^
 
-The following list are most of the frequently asked questions people new to Shadowgate have. Be sure you have read this whole thing and know that your question is unanswered before you go asking someone else. Everyone here is happy to help you, but you must understand that answering the same question over and over again when it is well documented is a bit annoying. That is why we have this faq document.
+The following list are most of the frequently asked questions people new to Sundering Shadows have. 
 
 %^MAGENTA%^***%^RESET%^
 
@@ -22,7 +22,7 @@ People who have the ** around their name means that their next command is being 
 
 %^CYAN%^3.c. What does the letters K, A, and F after some names on the "who" list mean?
 
-In the spirit of fun and fairness, ShadowGate has implemented a system to determine who is an appropriate party member for you, as well as who you are able to participate in playerkilling with.
+In the spirit of fun and fairness, Sundering Shadows has implemented a system to determine who is an appropriate party member for you, as well as who you are able to participate in playerkilling with.
 
 A %^%^ORANGE%^%^ULINE%^BOLD%^RESET%^%^%^%^ORANGE%^%^ULINE%^GREEN%^RESET%^%^K%^%^ORANGE%^%^ULINE%^RESET%^RESET%^%^ means you are free to party with, and engage in pk with, that person.
 
@@ -44,7 +44,7 @@ This would probably indicate that you are a non-human race, and are speaking a l
 
 %^CYAN%^4.b. Okay, but doesn't this limit my %^ORANGE%^%^ULINE%^RP%^RESET%^?
 
-It is the opinion of the wizzes here on Shadowgate that everyone not knowing how to speak the same language at the outset causes more opportunities to play your role rather than less. Perhaps you will meet someone not of your race who knows your language, or perhaps you may not bother, or be able to learn common for some reason. You can use the %^ORANGE%^<teach>%^RESET%^ command to teach another player a language you know.
+It is the opinion of the wizzes here on Sundering Shadows that everyone not knowing how to speak the same language at the outset causes more opportunities to play your role rather than less. Perhaps you will meet someone not of your race who knows your language, or perhaps you may not bother, or be able to learn common for some reason. You can use the %^ORANGE%^<teach>%^RESET%^ command to teach another player a language you know.
 
 %^CYAN%^4.c. How do I customize my says?
 
@@ -54,13 +54,13 @@ There is a command called %^ORANGE%^<speech>%^RESET%^, which you can use to chan
 
 ...which is probably not what you wanted.
 
-%^CYAN%^5. How do I send and read mail on Shadowgate?
+%^CYAN%^5. How do I send and read mail on Sundering Shadows?
 
-To enter into the mail server system of Shadowgate, simply type: %^ORANGE%^<mail>%^RESET%^. This will enter you into the mailer system. To mail a letter, it is best to rather than type : mail, to instead type : mail %^ORANGE%^<player name>%^RESET%^. Mail is considered an out-of-character tool, however. There is an in game mail system in the city of Shadow.
+To enter into the mail server system of Sundering Shadows, simply type: %^ORANGE%^<mail>%^RESET%^. This will enter you into the mailer system. To mail a letter, it is best to rather than type : mail, to instead type : mail %^ORANGE%^<player name>%^RESET%^. Mail is considered an out-of-character tool, however. There is an in game mail system in the city of Shadow.
 
 %^CYAN%^6. How many quests do I have to do?
 
-Unlike many muds, within Shadowgate all quests are entirely optional. You do not have to do quests to advance in levels, with one major exception. There is a quest (Quest for the Swords) that is required to be completed by a level 19 player in order to advance to level 20. Other than that, quests will grant a reward of ability, xp, items, treasure, etc for being completed and generally are something worth solving if you can or so desire.
+Unlike many muds, within Sundering Shadows all quests are entirely optional. You do not have to do quests to advance in levels, with one major exception. There is a quest (Quest for the Swords) that is required to be completed by a level 19 player in order to advance to level 20. Other than that, quests will grant a reward of ability, xp, items, treasure, etc for being completed and generally are something worth solving if you can or so desire.
 
 %^CYAN%^6.b. What is a class?
 
@@ -68,7 +68,7 @@ A class is considered your general way of life, akin to the modern expression of
 
 If you are a multiclassed character, you are learning more than one trade at a time. This is slightly harder, but does have it's own benefits. You will need to often abide by the most restrictive of all of your classes when arm and armoring yourself. You may often find that, for mages, the armor allowed you by your other classes will interfere with your spellcasting abilities. Clerics will only be able to use blunt weapons to fight. Rogues will find their abilities impaired or impossible when wearing armor other than leather.
 
-You may also wish to read the individual help files for each class before making a decision. However, it should be noted that abandoning classes and beginning your training in a new one is permitted on ShadowGate.
+You may also wish to read the individual help files for each class before making a decision. However, it should be noted that abandoning classes and beginning your training in a new one is permitted on Sundering Shadows.
 
 %^CYAN%^7. Have you seen player X?
 
@@ -80,7 +80,7 @@ You may be trying to wield or wear something which is restricted to players of a
 
 %^CYAN%^9. Is player killing allowed?
 
-Playerkilling on ShadowGate is optional. All players are, by default, but to the exclusion of beast races, opted out of playerkilling. You can change this by typing %^ORANGE%^<flag player kill . off>%^RESET%^. It should be noted that there are certain circumstances which will temporarily flag you for non-pk again, such as a recent death or an extended absence. If you are not currently available to pk, you should avoid situations where the roleplay might turn aggressive. Additionally, you are only able to engage in pk with players who have a %^%^ORANGE%^%^ULINE%^BOLD%^RESET%^%^%^%^ORANGE%^%^ULINE%^GREEN%^RESET%^%^K%^%^ORANGE%^%^ULINE%^RESET%^RESET%^%^ next to their names on the wholist. If pk happens, we would appreciate it if you could send a %^ORANGE%^<pkmail>%^RESET%^ so we can better understand the circumstances that led to it, and if any consequences are warranted. Please see %^ORANGE%^<help pkmail>%^RESET%^ for more information.
+Playerkilling on Sundering Shadows is optional. All players are, by default, but to the exclusion of beast races, opted out of playerkilling. You can change this by typing %^ORANGE%^<flag player kill . off>%^RESET%^. It should be noted that there are certain circumstances which will temporarily flag you for non-pk again, such as a recent death or an extended absence. If you are not currently available to pk, you should avoid situations where the roleplay might turn aggressive. Additionally, you are only able to engage in pk with players who have a %^%^ORANGE%^%^ULINE%^BOLD%^RESET%^%^%^%^ORANGE%^%^ULINE%^GREEN%^RESET%^%^K%^%^ORANGE%^%^ULINE%^RESET%^RESET%^%^ next to their names on the wholist. If pk happens, we would appreciate it if you could send a %^ORANGE%^<pkmail>%^RESET%^ so we can better understand the circumstances that led to it, and if any consequences are warranted. Please see %^ORANGE%^<help pkmail>%^RESET%^ for more information.
 
 %^CYAN%^10. How do I know my stats?
 
@@ -102,7 +102,7 @@ Wisdom determines your resistance to offensive magic, as well as affects your pe
 
 Charisma factors into your ability to get by normally aggressive monsters and in the buying and selling of goods. It also helps to define your character's looks and personality. The higher the charisma, the charismatic your character should be. This could be in the way of appearance, influence, or reputation. Sorcerers, Bards and Warlocks base their casting power on charisma.
 
-You will find your experience on ShadowGate much better if you try to avoid dealing with the numbers and let the game handle most of these for you. This is not to say, however, that you will be able to get away with portraying yourself as a beauty queen with the sweetest personality with a Charisma score of 8.
+You will find your experience on Sundering Shadows much better if you try to avoid dealing with the numbers and let the game handle most of these for you. This is not to say, however, that you will be able to get away with portraying yourself as a beauty queen with the sweetest personality with a Charisma score of 8.
 
 %^CYAN%^10.c. How do I raise my stats?
 
@@ -126,7 +126,7 @@ If it is a simple idea for an area, use the %^ORANGE%^<idea>%^RESET%^ command. P
 
 %^CYAN%^15. Huh? An overseer rank? Well what are the staff ranks here then?
 
-It used to be quite complicated, but these days there are jsut two types of staff memebers: Avatars and Everyone Else. Avatars run plots and do your usual %^ORANGE%^%^ULINE%^GM%^RESET%^ stuff, while Everyone Else do Everything Else.
+It used to be quite complicated, but these days there are jsut two types of staff memebers: Avatars and Everyone Else. Avatars run plots and do your usual %^ORANGE%^%^ULINE%^GM%^RESET%^ stuff, while Everyone Else does Everything Else.
 
 %^CYAN%^16. Everyone is using strange abbreviations, what do they mean?
 
@@ -144,7 +144,7 @@ A list of abbreviations:
 
 %^CYAN%^17. How do I see in color?
 
-Since not all terminals are capable of seeing in colour, Shadowgate will ask for your preference in creation. But if you have a color terminal supporting ansi escape codes (like a vt100 emulation), then you will want to experience Shadowgate in colour. %^ORANGE%^<help set>%^RESET%^ will show you options for colors, amongst other things.
+Since not all terminals are capable of seeing in colour, Sundering Shadows will ask for your preference in creation. But if you have a color terminal supporting ansi escape codes (like a vt100 emulation), then you will want to experience Sundering Shadows in colour. %^ORANGE%^<help set>%^RESET%^ will show you options for colors, amongst other things.
 
 %^CYAN%^18. What are hp?
 
@@ -160,23 +160,23 @@ Basically this is reflecting, the more you run around and the more you fight, th
 
 %^CYAN%^18.d. Well ok but now I went and attacked a farmer and have only 3 hp left from my max of 24. What can I do to solve this health problem?
 
-First, you can type : heal %^ORANGE%^<your name>%^RESET%^ and try to use a natural ability that all players have to heal a few of you lost hps back. You can do this as much as you like but it takes time. Second, many of the major cities in Shadowgate have healers who, for a fee in gold, will provide healing services and sell healing potions. Third, certain players due to their class, will have healing spells or abilities. The regeneration feat also allows players to gain back their hp over time.
+First, you can type : heal %^ORANGE%^<your name>%^RESET%^ and try to use a natural ability that all players have to heal a few of you lost hps back. You can do this as much as you like but it takes time. Second, many of the major cities in Sundering Shadows have healers who, for a fee in gold, will provide healing services and sell healing potions. Third, certain players due to their class, will have healing spells or abilities. The regeneration feat also allows players to gain back their hp over time.
 
-Lastly, some items that you may find within the Shadowgate world have the ability to heal. The most common would be healing potions that most healers will sell, for varying prices.
+Lastly, some items that you may find within the Sundering Shadows world have the ability to heal. The most common would be healing potions that most healers will sell, for varying prices.
 
 %^CYAN%^19. Ummm...a lot of the stuff I have been picking up is junk. Should I just leave this stuff on the ground?
 
 No! It creates lag having useless items laying about. You should get removed from the game environment as soon as possible if it is `junk'. Either take the stuff you do not want to local stores and sell it as money is important and your character likely needs it, or type : offer %^ORANGE%^<item>%^RESET%^, and this will remove the item, as well as it may heal you a slight bit for each item you offer.
 
-There is also the command %^ORANGE%^<bury all>%^RESET%^ which will get rid of all corpses on the ground, emptying their contents. Command %^ORANGE%^<offerall>%^RESET%^ will clean the room and move contents of the corpses into it. It is safer to use %^ORANGE%^<bury all>%^RESET%^ for looting.
+There is also the command %^ORANGE%^<bury all>%^RESET%^ which will get rid of all corpses on the ground, emptying their contents. The %^ORANGE%^<offerall>%^RESET%^ command will clean the room and move contents of the corpses into it. It is safer to use %^ORANGE%^<bury all>%^RESET%^ for looting.
 
-%^CYAN%^20. Ok I know the game terms and I got a good idea on what is going on but Shadowgate seems really big and I am confused as to where to start adventuring, where to get equip, where not to go etc.
+%^CYAN%^20. Ok, I know the game terms and I got a good idea on what is going on, but Sundering Shadows seems really big and I am confused as to where to start adventuring, where to get equip, where not to go etc.
 
 Yes it is a big place, and yes high up players generally won't take you by the hand and lead you around. But asking them simple questions about things often will result in answers. But if you are a die hard soloist, it is suggested you find or make a map (see %^ORANGE%^<help mmap>%^RESET%^). You might want to pick up a weapon or some armour in the stores and perhaps a torch or lantern in case it gets dark while you are exploring. As a newbie, you will have a strange mass in your inventory that will provide you with helpful information as well as guide you through a few quests to help you learn the game. You will be rewarded with experience and gear for accomplishing the tasks it asks of you.
 
 %^CYAN%^21. Woo woo! I found some monsters and crushed a few skulls! Now though my experience needed to advance in the %^ORANGE%^<score>%^RESET%^%^CYAN%^ command list is in the negatives?!? Am I bugged or do I have to do something to advance in levels?
 
-No you are not bugged. Yes you must do something to advance. You go to any room with a posting board present, a church, or a dock, and type %^ORANGE%^<advance>%^RESET%^. If you have gained the proper experience, and met any other requirements, you will then receive your advancement of level. Every five levels, you will be prompted to seek out a special trainer, and there is a special quest which must be completed before advancing from 19th to 20th level.
+No you are not bugged. Yes you must do something to advance. You go to any room with a posting board present, a church, or a dock, and type %^ORANGE%^<advance>%^RESET%^. If you have gained the proper experience, and met any other requirements, you will then receive your advancement of level.
 
 %^CYAN%^22. I just got something that said "Error! Contact a WIZ?" How do I do that?
 
