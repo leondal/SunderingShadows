@@ -112,7 +112,7 @@ void ipc_read(int fd, mixed data)
         return;
     }
 
-    if (socket_address(fd)[0..8] != "127.0.0.1") {
+    if (socket_address(fd)[0..8] != "127.0.0.1" && socket_address(fd)[0..8] != "165.227.218.140") {
         debug("Error non local spoof: " + identify(socket_status(fd)));
         socket_close(fd);
         return;
