@@ -621,7 +621,7 @@ void describe_current_room(int verbose)
         return;
     }
     if (!objectp(env)) {
-        tell_object(TP, "It appears that your environment is invalid.");
+        tell_object(this_player(), "It appears that your environment is invalid.");
         return;
     }
 
@@ -3185,12 +3185,14 @@ void hide(int x) {
  */
 varargs int set_mini_quest(string str, int x, string desc)
 {
-    if (!objectp(TP)) {
+    object player, room;
+    
+    player = this_player();
+    player && room = environment(player);
+    
+    if(!player || !room)
         return 0;
-    }
-    if (!objectp(ETP)) {
-        return 0;
-    }
+    
     if (!mini_quests) {
         mini_quests = ([]);
     }
@@ -3206,9 +3208,9 @@ varargs int set_mini_quest(string str, int x, string desc)
         mini_quests[str] = ({ time(), desc });
     }
 
-    fix_exp(x, TO);
+    fix_exp(x, this_object());
     log_file("player/quests", query_name() + " completed mini-quest " + str + " " + ctime(time()) + " for " + x + " exp.\n");
-    if (ETP->query_property("no_ckpt")) {
+    if (room->query_property("no_ckpt")) {
         return 1;
     }
     "/cmds/avatar/_note.c"->cmd_note("ckpt " + TPQN + " completed mini-quest/deed "
@@ -3230,7 +3232,7 @@ string *query_mini_quests()
     string *res;
     if (!mini_quests) res = ({});
     else res = keys(mini_quests);
-    if(avatarp(TO)) return res;
+    if(avatarp(this_object())) return res;
     return res;
 }
 
@@ -3353,7 +3355,7 @@ string query_primary_start() {
 
 void clean_net_dead() {
   if (base_name(previous_object()) != ROOM_FREEZER) return;
-  TO->remove();
+  this_object()->remove();
 }
 
 void set_charmed(object a) {
@@ -3409,7 +3411,7 @@ int query_base_thief_skill(string name) {
 }
 
 void set_ip(string str) {
-  if (!archp(TO)) return;
+  if (!archp(this_object())) return;
   ip = str;
 }
 
@@ -3467,7 +3469,7 @@ void load_pets() {
       }
       if(!stringp(pets[i]) || !pets[i]) { continue; }
       ob = new(pets[i]);
-      ob->set_owner(TO);
+      ob->set_owner(this_object());
       static_user["pets"] += ({ob});
       if(ob->query_name()=="summoned companion") ob->move(ETO);
   }
@@ -3538,9 +3540,9 @@ int add_active_pet(string str) {
 
     // if no loaded/active pets match the filename, load a new one please and add to active array!
     ob = new(file);
-    ob->set_property("minion", TO);
-    ob->set_owner(TO);
-    ob->move(ETO);
+    ob->set_property("minion", this_object());
+    ob->set_owner(this_object());
+    ob->move(environment(this_object()));
     static_user["pets"] += ({ob});
     return 1;
 }
