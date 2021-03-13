@@ -2,18 +2,16 @@
 
 %^CYAN%^DESCRIPTION%^RESET%^
 
-Characters can choose from 4 different age categories on ShadowGate. Your actual age in years will depend on your race. Humans are considered adult at age 16, for example, while goblins reach adulthood at age 13. On the other extreme, elves are only considered adult at at about 120, although their biology matures at the same speed as humans. Whatever your age in years, note that your character %^RESET%^%^GREEN%^must%^RESET%^ be portrayed in accordance with the rules.
+Characters can choose from 4 different age categories on ShadowGate. Your actual age in years will depend on your race. Humans are considered adult at age 16, for example, while goblins reach adulthood at age 13. On the other extreme, elves are only considered adult at about 120, although their biology matures at the same speed as humans. Whatever your age in years, note that your character %^RESET%^%^GREEN%^must%^RESET%^ be portrayed in accordance with the rules.
 
 See the individual race help files for specifics: %^ORANGE%^<help %^ORANGE%^%^ULINE%^RACE%^RESET%^%^ORANGE%^>%^RESET%^.
 
-As the years pass, your character will age and have his/her age category change. On ShadowGate, age takes a toll on your body but sharpens your wits. The following changes are the cumulative effects of age and will be made to your character's attributes (stats) when he or she reaches that category:
+As the years pass, your character will age and have his/her age category change. On Sundering Shadows, age takes a toll on your body but sharpens your wits. The following changes are the cumulative effects of age and will be made to your character's attributes (stats) when he or she reaches that category:
 
  * Normal(adult): No change
  * Middle Age:    -1 str/dex/con and +1 int/wis/cha
  * Old Age:       -2 str/dex/con and +2 int/wis/cha
  * Venerable:     -3 str/dex/con and +3 int/wis/cha
-
-When you create a new character, you will have the option of selecting any of these age categories. The game will choose an appropriate number within that category. Should you not be happy with your chosen age, you can reset it using a device given to you upon creation. This device is only accessible to you while you are still a newbie.
 
 %^CYAN%^SEE ALSO%^RESET%^
 rules, stats, attributes, newbie, races, faq
