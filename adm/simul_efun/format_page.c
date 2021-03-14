@@ -103,8 +103,12 @@ string auto_format_page(string *output, object player)
 
     while(i < sizeof(output))
     {
-        result += format_page(output[i..(i + columns * scrl - 1)], columns, scrw, vertical) + "\n";
+        result += format_page(output[i..(i + columns * scrl - 1)], columns, scrw, vertical);
         i += columns * scrl;
+        if (i < sizeof(output)) {
+            result += "%^RESET%^---\n";
+        }
+
     }
 
     return result;
