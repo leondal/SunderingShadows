@@ -355,7 +355,7 @@ mapping index_castable_spells(object player, string myclass)
         pclass = "cleric";
     }
 
-    all_spells = query_index(pclass);  
+    all_spells = query_index(pclass);
 
     if (!sizeof(all_spells)) {
         return ([]);
@@ -404,6 +404,26 @@ mapping index_castable_spells(object player, string myclass)
                     continue;
             }
         }
+        
+        if(pclass == "druid")
+        {   
+            int success = 0;
+            
+            domain = spellIndex[spellfile]["divine_domain"];
+            
+            if(sizeof(domain))
+            {
+                foreach(string str in domain)
+                {
+                    if(member_array(str, player->query_divine_domain()) >= 0)
+                        success++;
+                }
+                
+                if(!success)
+                    continue;
+            }
+        }
+        
             
         if (pclass == "monk" &&
             !FEATS_D->usable_feat(player, "grandmaster of the way")) {

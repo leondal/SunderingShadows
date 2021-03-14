@@ -77,7 +77,7 @@ int cmd_cast(string str)
         str = replace_string(str, "as " + domain_name + " domain", "", 1);
     }
     */
-
+    
     if (regexp(str, implode(LIVING_D->list_classes(), "|") + "|innate")) {
         if (!sscanf(str, "%s %s", type, str2)) {
             return notify_fail("Syntax: <cast CLASS CAST_STRING>\n");
