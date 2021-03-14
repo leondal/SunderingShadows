@@ -34,6 +34,7 @@ void create(){
 "%^BOLD%^%^RED%^o%^RESET%^%^RED%^ne %^YELLOW%^marbled into the "
 "pommel.%^RESET%^");
    set_value(0);
+   set_damage_type("slashing");
    set_hit((:TO,"hit_func":));
 }
 

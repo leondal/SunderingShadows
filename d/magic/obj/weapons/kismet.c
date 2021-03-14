@@ -25,6 +25,7 @@ void create()
 "%^BOLD%^re %^ORANGE%^s%^RED%^ta%^ORANGE%^r%^WHITE%^. This divine chain radiates an aura of raw "+
 "%^CYAN%^magic%^WHITE%^.%^RESET%^");
         set_value(0);
+        set_damage_type("bludgeoning");
         set_hit((:TO,"hit_func":));
 }
 int hit_func(object targ){
@@ -42,7 +43,7 @@ int hit_func(object targ){
         tell_room(environment(ETO),"%^BOLD%^%^CYAN%^Motes of light within %^RED%^"+ETO->QCN+"%^CYAN%^'s "+
 "crystal chain begin to spin faster before releasing a %^RED%^f%^ORANGE%^i%^RESET%^%^RED%^e%^YELLOW%^r"+
 "%^RED%^y %^CYAN%^burst into %^ORANGE%^"+targ->QCN+"%^CYAN%^!%^RESET%^",({ETO,targ}));
-              
+
         return random(4)+8;
    }
 }

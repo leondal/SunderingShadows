@@ -20,7 +20,8 @@ void create()
 "and is engraved with a running %^WHITE%^r%^RESET%^a%^BOLD%^bb%^RESET%^i%^BOLD%^t%^CYAN%^. "+
 "The crossgaurd is made of a %^RESET%^%^ORANGE%^s%^BOLD%^%^BLACK%^pa%^RESET%^%^ORANGE%^r"+
 "%^BOLD%^%^BLACK%^ro%^RESET%^%^ORANGE%^w %^BOLD%^%^CYAN%^in flight, it's %^RESET%^%^ORANGE%^w"+
-"%^BOLD%^%^BLACK%^ing%^RESET%^%^ORANGE%^s %^BOLD%^%^CYAN%^wrapped around the blade. "); 
+"%^BOLD%^%^BLACK%^ing%^RESET%^%^ORANGE%^s %^BOLD%^%^CYAN%^wrapped around the blade. ");
+        set_damage_type("slashing");
         set_value(0);
         set_hit((:TO,"hit_func":));
 }
@@ -40,7 +41,7 @@ int hit_func(object targ){
 "%^BOLD%^b%^RESET%^i%^BOLD%^t %^CYAN%^on the hilt of %^GREEN%^"+ETO->QCN+"'s "+
 "%^CYAN%^sword %^GREEN%^g%^CYAN%^l%^ORANGE%^o%^CYAN%^w%^GREEN%^s%^CYAN%^, then "+
 "hops from the hilt and slams into %^WHITE%^"+targ->QCN+"%^RESET%^",({ETO,targ}));
-            
+
 
         return random(4)+4;;
    }

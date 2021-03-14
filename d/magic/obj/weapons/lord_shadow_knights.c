@@ -26,6 +26,7 @@ void create()
 "radiates around thi%^RESET%^%^MAGENTA%^s d%^BOLD%^%^BLACK%^i%^RESET%^%^MAGENTA%^v%^BOLD%^%^BLACK%^i"+
 "%^RESET%^%^MAGENTA%^n%^BOLD%^%^BLACK%^e blade.%^RESET%^");
         set_value(0);
+        set_damage_type("slashing");
         set_hit((:TO,"hit_func":));
 }
 int hit_func(object targ){
@@ -44,7 +45,7 @@ int hit_func(object targ){
         tell_room(environment(ETO),"%^MAGENTA%^Dark flames flare up off the surface of "+
 "%^BOLD%^%^BLACK%^"+ETO->QCN+"'s %^RESET%^%^MAGENTA%^sword and burn "+
 "%^BOLD%^"+targ->QCN+"%^RESET%^%^MAGENTA%^.%^WHITE%^",({ETO,targ}));
-          
+
         return random(4)+8;
    }
 }

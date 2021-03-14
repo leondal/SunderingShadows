@@ -22,6 +22,7 @@ void create()
 "offering protection to the wielder's hand.  The pommel of the blade has been wrapped with deep "+
 "%^RESET%^%^RED%^c%^MAGENTA%^rims%^RED%^on %^BOLD%^%^WHITE%^silk, adding to the beauty of this divine "+
 "rapier.%^RESET%^");
+        set_damage_type("slashing");
         set_value(0);
         set_hit((:TO,"hit_func":));
 }
@@ -40,7 +41,7 @@ int hit_func(object targ){
         tell_room(environment(ETO),"%^RED%^A burst of %^BOLD%^f%^ORANGE%^l"+
 "%^RED%^a%^CYAN%^m%^RED%^e%^ORANGE%^s %^RESET%^%^RED%^covers %^YELLOW%^"+ETO->QCN+"'s "+
 "%^RESET%^%^RED%^ivory rapier and burns %^BOLD%^%^GREEN%^"+targ->QCN+"%^RESET%^%^RED%^.%^RESET%^.",({ETO,targ}));
-           
+
         return random(4)+8;
    }
 }

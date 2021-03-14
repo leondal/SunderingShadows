@@ -28,6 +28,7 @@ void create()
 "%^BOLD%^%^BLACK%^w%^WHITE%^o%^BLACK%^l%^WHITE%^f%^BLACK%^'s %^RESET%^%^GREEN%^pawprint upon "+
 "a circle of %^BOLD%^g%^RESET%^%^GREEN%^r%^BOLD%^a%^RESET%^%^GREEN%^s%^BOLD%^s%^RESET%^");
         set_value(0);
+        set_damage_type("bludgeoning");
         set_hit((:TO,"hit_func":));
         set_property("able to cast",1);
 }
@@ -49,7 +50,7 @@ int hit_func(object targ){
 "%^BOLD%^%^GREEN%^s %^RESET%^%^GREEN%^from %^BOLD%^%^RED%^"+ETO->QCN+"'s%^BOLD%^s%^ORANGE%^t"+
 "%^GREEN%^a%^ORANGE%^f%^GREEN%^f %^RESET%^%^GREEN%^wrap around %^YELLOW%^"+targ->QCN+"'s"
     "body and begin to %^BOLD%^%^RED%^c%^RESET%^%^RED%^rus%^BOLD%^h%^YELLOW%^"+targ->QP+"!%^RESET%^",({ETO,targ}));
-       
+
         return random(4)+8;
    }
 }
