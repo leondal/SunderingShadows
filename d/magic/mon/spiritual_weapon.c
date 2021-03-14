@@ -9,7 +9,7 @@ void create(){
   ::create();
 
     set_name("spiritual weapon");
-    set_id(({"weapon","spiritual weapon"}));
+    set_id(({"weapon","spiritual weapon","summoned monster"}));
     set_short("%^CYAN%^a spiritual weapon%^RESET%^");
     set_long("%^CYAN%^Spiritual weapon.%^RESET%^");
     set_hd(4,1);
@@ -32,6 +32,7 @@ void create(){
     command("speak common");
     command("message floats in.");
     command("message floats $D.");
+    set_property("knock unconscious",1);
 }
 
 void setup_servant(object caster, int clevel)
