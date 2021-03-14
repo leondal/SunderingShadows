@@ -4,7 +4,7 @@ inherit DAEMON;
 
 int help()
 {
-	write("This command allows you to delete an exit from Shadowgate that leads into one of your "
+	write("This command allows you to delete an exit from Sundering Shadows that leads into one of your "
 		"created rooms to keep unwary players from meeting their demise when you don't yet "
 		"have your popcorn ready.  Syntax: delete <exit name>");
 	return 1;
@@ -35,7 +35,3 @@ int cmd_delete(string str)
 	ETP->remove_exit(str);
 	return 1;
 }
-
-
-
-
