@@ -341,19 +341,20 @@ mapping index_castable_spells(object player, string myclass)
     int lvl;
     string playerdisc = player->query_discipline();
     string playerway = player->query("monk way");
+    string classfile;
 
     // Pseudoclass for classes that use other classes spell lists, such as sorcerers.
     // Myclass -- player's real class.
     pclass = myclass;
     if (myclass == "sorcerer") {
         pclass = "mage";
-    }
+    } 
 
     if (myclass == "oracle") {
         pclass = "cleric";
     }
 
-    all_spells = query_index(pclass);
+    all_spells = query_index(pclass);  
 
     if (!sizeof(all_spells)) {
         return ([]);
@@ -383,7 +384,14 @@ mapping index_castable_spells(object player, string myclass)
                 continue;
             }
         }
-
+        
+        if(pclass == "cleric")
+        {
+            domain = spellIndex[spellfile]["domain"];
+            if(domain && member_array(domain, player->query_divine_domain()) < 0)
+                continue;
+        }
+            
         if (pclass == "monk" &&
             !FEATS_D->usable_feat(player, "grandmaster of the way")) {
             domain = spellIndex[spellfile]["way"];
@@ -393,6 +401,7 @@ mapping index_castable_spells(object player, string myclass)
                 continue;
             }
         }
+        
         tmp[spellfile] = lvl;
     }
     return tmp;
