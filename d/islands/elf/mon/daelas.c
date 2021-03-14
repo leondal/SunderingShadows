@@ -131,21 +131,28 @@ void special1(object targ)
 
 void heart_beat()
 {
+    object room;
+    
     ::heart_beat();
-    if (!objectp(TO)) {
+    if (!objectp(this_object()))
         return;
-    }
-    if ((TO->query_hp() < 1000) && (FLAG != 1)) {
+
+    room = environment(this_object());
+    
+    if(!room)
+        return;
+    
+    if ((this_object()->query_hp() < 1000) && (FLAG != 1)) {
         FLAG = 1;
-        TO->force_me("say %^BOLD%^%^RED%^I HAVEN'T BEEN HERE FOR CENTURIES TO DIE LIKE THIS!");
-        new("/cmds/spells/b/_blink")->use_spell(TO, TO, 50, 100, "mage");
-        TO->add_hp(random(500) + 675);
+        this_object()->force_me("say %^BOLD%^%^RED%^I HAVEN'T BEEN HERE FOR CENTURIES TO DIE LIKE THIS!");
+        new("/cmds/spells/b/_blink")->use_spell(this_object(), this_object(), 50, 100, "mage");
+        this_object()->add_hp(random(500) + 675);
     }
-    if (!TO->query_property("has_elemental") ) {
-        new("/cmds/spells/g/_gate")->use_spell(TO, "summoning", 50, 100, "mage"); 
-    }
-    if(present("corpse",ETO))
-    new("/cmds/spells/c/_create_greater_undead")->use_spell(TO, 0, 50, 100, "mage");
+    if (!this_object()->query_property("has_elemental") )
+        new("/cmds/spells/g/_gate")->use_spell(this_object(), "summoning", 50, 100, "mage"); 
+    
+    if(present("corpse",room))
+    new("/cmds/spells/c/_create_greater_undead")->use_spell(this_object(), 0, 50, 100, "mage");
     return;
 }
 init()
