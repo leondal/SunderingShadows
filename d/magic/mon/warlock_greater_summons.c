@@ -93,7 +93,7 @@ void setup_beastie(object caster, int beastheritage) {
         set_body_type("humanoid");
         set_attack_limbs(({"left hand","right hand"}));
         set_base_damage_type("bludgeoning");
-      break;   
+      break;
 	  case "star":
         set_id(({"the whispered","aberrant whispered","aberration","outsider","summoned monster","greater summon"}));
         set_short("%^RED%^a%^BOLD%^b%^RESET%^%^CYAN%^e%^BOLD%^rr%^RESET%^%^CYAN%^a%^BOLD%^%^RED%^n%^RESET%^%^RED%^t %^BLUE%^wh%^BOLD%^%^CYAN%^i%^RESET%^%^CYAN%^s%^BOLD%^%^WHITE%^pe%^RESET%^%^CYAN%^r%^BOLD%^%^WHITE%^e%^RESET%^%^BLUE%^d%^WHITE%^");
@@ -260,7 +260,7 @@ void defend(){
       if(member_array(tmp[num], (object *)TO->query_attackers()) != -1) continue;
       if(!objectp(TO)) continue;
       TO->kill_ob(tmp[num],1);
-      tell_room(cast,"%^BOLD%^%^RED%^The extraplanar creature attacks "+tmp[num]->QCN+"!");
+      tell_room(ETO,"%^BOLD%^%^RED%^The extraplanar creature attacks "+tmp[num]->QCN+"!");
    }
    return;
 }

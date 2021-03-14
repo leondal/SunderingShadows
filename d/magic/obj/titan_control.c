@@ -80,7 +80,7 @@ void defend()
         if(!objectp(attackers[i])) { continue; }
         if(member_array(attackers[i],(object *)controlled->query_attackers()) != -1) { continue; }
         controlled->kill_ob(attackers[i],1);
-        tell_room(environment(caster),"%^BOLD%^%^RED%^"+controlled->query_short()+" attacks "
+        tell_room(environment(controlled),"%^BOLD%^%^RED%^"+controlled->query_short()+" attacks "
             ""+attackers[i]->QCN+"!%^RESET%^");
     }
     return;
@@ -148,12 +148,12 @@ int dismiss(string str)
     if(str != "titan" && str != "armored titan") { return 1; }
 
     caster->set_property("armoredtitan_timer",time() + HOUR);
-    if(objectp(feat)) 
-    { 
-        caster->remove_property_value("active_feats",({feat})); 
+    if(objectp(feat))
+    {
+        caster->remove_property_value("active_feats",({feat}));
         feat->dest_effect();
     }
-    
+
 
     tell_object(caster,"%^BOLD%^You concentrate on the "+controlled->query_short()+" and send "
         "it away!%^RESET%^");
