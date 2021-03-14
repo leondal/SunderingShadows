@@ -68,13 +68,15 @@ int cmd_cast(string str)
     } else {
         healharm = 0;
     }
-
+    
+    /*
     if (regexp(str, "as [a-z]+ domain")) {
         domain = 1;
         sscanf(str, "%s as %s domain", str2, domain_name);
 
         str = replace_string(str, "as " + domain_name + " domain", "", 1);
     }
+    */
 
     if (regexp(str, implode(LIVING_D->list_classes(), "|") + "|innate")) {
         if (!sscanf(str, "%s %s", type, str2)) {
