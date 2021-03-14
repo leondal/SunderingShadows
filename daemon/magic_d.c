@@ -314,7 +314,7 @@ void build_index()
                         spelltable["way"] = str2->query_monk_way();
                         spelltable["discipline"] = str2->query_discipline();
                         spelltable["feats"] = str2->query_feats_required();
-                        spelltable["divine_domain"] = str2->query_divine_domain();
+                        spelltable["divine_domain"] = str2->query_domains();
                         spellIndex += ([ all_spells[x] : spelltable]);
                     }
                 }
@@ -387,10 +387,7 @@ mapping index_castable_spells(object player, string myclass)
         }
         
         if(pclass == "cleric")
-        {
-            if(myclass == "oracle")
-                continue;
-            
+        {   
             domain = spellIndex[spellfile]["divine_domain"];
             if(domain && member_array(domain, player->query_divine_domain()) < 0)
                 continue;
