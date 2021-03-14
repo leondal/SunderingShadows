@@ -388,8 +388,17 @@ mapping index_castable_spells(object player, string myclass)
         
         if(pclass == "cleric")
         {   
+            int success = 0;
+            
             domain = spellIndex[spellfile]["divine_domain"];
-            if(domain && member_array(domain, player->query_divine_domain()) < 0)
+            
+            foreach(string str in domain)
+            {
+                if(member_array(str, player->query_divine_domain()) >= 0)
+                    success++;
+            }
+            
+            if(!success)
                 continue;
         }
             
