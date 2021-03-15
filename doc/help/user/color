@@ -1,6 +1,6 @@
 %^CYAN%^NAME%^RESET%^
 
-Colors on Shadowgate
+Colors on Sundering Shadows
 
 %^CYAN%^SYNTAX%^RESET%^
 
@@ -9,13 +9,13 @@ Disable colors:  %^ORANGE%^<set term unknown>%^RESET%^
 
 %^CYAN%^DESCRIPTION%^RESET%^
 
-You can use %^ORANGE%^<set>%^RESET%^ to choose whether to play the game with, without colors, or without certain types of colors. We support many terminal options, and more can be added. See %^ORANGE%^<help set>%^RESET%^ for more customization options.
+You can use %^ORANGE%^<set>%^RESET%^ to choose whether to play the game with or without colors, or without certain types of colors. We support many terminal options, and more can be added. See %^ORANGE%^<help set>%^RESET%^ for more customization options.
 
 You can use colors to crayon your adjective and describe, as well as your say and speech pattern, emotes, books, letters, background and any item you craft. There are 15 colors available to players, all of which can be accessed using the color codes below. They were first developed for Nightmare Mud by Pinkfish@Discworld.
 
 %^CYAN%^%^ULINE%^Color Codes%^RESET%^
 
-The following color codes and their associated colors are available on Shadowgate:
+The following color codes and their associated colors are available on Sundering Shadows:
 
   %^RESET%^%^BLUE%^%%%^^^BLUE%%%^^^      %^BOLD%^%%%^^^BOLD%%%^^^%%%^^^BLUE%%%^^^     %^RESET%^%^B_BLUE%^%^BLACK%^%%%^^^B_BLUE%%%^^^%^RESET%^
   %^RESET%^%^CYAN%^%%%^^^CYAN%%%^^^      %^BOLD%^%%%^^^BOLD%%%^^^%%%^^^CYAN%%%^^^     %^RESET%^%^B_CYAN%^%^BLACK%^%%%^^^B_CYAN%%%^^^%^RESET%^
@@ -36,15 +36,6 @@ The following color codes and their associated colors are available on Shadowgat
  %^MAGENTA%^*%^RESET%^ Put a %%%^^^RESET%%%^^^ at the start and end of all your colored works.
  %^MAGENTA%^*%^RESET%^ If you use background color make sure you're using high contrast color. Otherwise many clients just won't see the text you've written. Most terminals default to bright colors for background colors.
 
-%^ULINE%^%^CYAN%^Trillet's "Color Code Editor"
-
-You may also want to look for the "Color Code Editor" created by %^BOLD%^%^CYAN%^Trillet%^RESET%^:
-
-%^ULINE%^https://shadowgate.org/wiki/color_editor
-
-Because Flash has been discontinued, you may need to use the debug Flash application.
-
-%^ULINE%^https://www.adobe.com/support/flashplayer/debug_downloads.html
 
 %^CYAN%^EXAMPLES%^RESET%^
 
