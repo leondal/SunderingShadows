@@ -1,7 +1,7 @@
 %^RESET%^%^CYAN%^Warlock:
 
 %^RESET%^%^CYAN%^Stat requirements:%^RESET%^ 14 charisma
-%^RESET%^%^CYAN%^Alignments allowed:%^RESET%^ any evil or chaotic
+%^RESET%^%^CYAN%^Alignments allowed:%^RESET%^ any evil or chaotic, and true neutral
 %^RESET%^%^CYAN%^Hitdice:%^RESET%^ d8
 %^RESET%^%^CYAN%^Saving throws:%^RESET%^ will strong, fort/reflex weak
 %^RESET%^%^CYAN%^Class Skills:%^RESET%^ academics, athletics, influence, spellcraft
@@ -20,7 +20,7 @@ Warlocks use the %^ORANGE%^<master>%^RESET%^ command to learn their invocations.
 
 Warlocks can cast in light armor, but they can't do so while wielding normal weapons. However, they can cast while wielding weapons they have summoned.
 
-Warlocks have a degree of versatility and can take both martial and spellcasting paths.
+Warlocks have a degree of versatility and can take both martial and spellcasting paths. Their magic prowess is based on their charisma score. 
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, master, warlock heritages, prestige classes
+%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, master, warlock heritages, prestige classes, new caster
 
