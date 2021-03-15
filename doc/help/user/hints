@@ -1,4 +1,3 @@
-%^CYAN%^A map of the entire mainland is available at: %^ULINE%^%^GREEN%^https://shadowgate.org/files/mainland.jpg%^RESET%^
 %^CYAN%^All heroes need a trusty sidekick! See %^GREEN%^<help horse guide> %^CYAN%^to learn more.
 %^CYAN%^Anything you attack (or that attacks you), is assigned the ID "attacker". If you are having difficulties targeting npcs or mobs with your spells or feats, try directing them at "attacker".
 %^CYAN%^Applying your skill points to a single craft is recommended if you want to create magical gear. See %^GREEN%^<help craft> %^CYAN%^for more information!
@@ -32,7 +31,7 @@
 %^CYAN%^Keep your health above zero.
 %^CYAN%^Kill your enemies to avoid being killed.
 %^CYAN%^Knocked out a bad guy (or a good guy, if YOU are the bad guy)? Use some rope to %^GREEN%^<bind> %^CYAN%^them before they regain consciousness! See %^GREEN%^<help bind> %^CYAN%^for more information and inspiration!
-%^CYAN%^Love ShadowGate and want to help us grow and thrive??! Please vote for us! Type %^GREEN%^<vote> %^RESET%^%^CYAN%^for information on how you can help. We truly appreciate it!
+%^CYAN%^Love Sundering Shadows and want to help us grow and thrive??! Please vote for us! Type %^GREEN%^<vote> %^RESET%^%^CYAN%^for information on how you can help. We truly appreciate it!
 %^CYAN%^Low on funds and can't afford to rent or buy a boat? Sea ferries are available with stops at the Mainland, Laerad, Deku and Graez. Look for the local seaports to view your options.
 %^CYAN%^Magical equipment has a chance of being cursed! Be sure to have it identified or evaluated at any of the local churches.
 %^CYAN%^Make your own maps using the %^GREEN%^<map> %^RESET%^%^CYAN%^command! See %^GREEN%^<help map> %^CYAN%^to learn more.
@@ -42,7 +41,7 @@
 %^CYAN%^Need a little extra help in combat, or just feeling a little lonely? Visit the mercenary camp west of Shadow, and tell Sault you need to hire a mercenary.
 %^CYAN%^Need to slander someone's good name, or let the world know of your heroic deeds? Try out the %^GREEN%^<gossip>  %^RESET%^%^CYAN%^command to learn how to spread some dirt.
 %^CYAN%^People die if you kill them.
-%^CYAN%^Please join us on Discord! %^ULINE%^%^GREEN%^https://bit.ly/discord-sg
+%^CYAN%^Please join us on Discord! %^ULINE%^%^GREEN%^https://discord.gg/4AzcyjKv28
 %^CYAN%^River ferries for the less walking-inclined connect Shadow and Tabor, and Tharis and Tabor. Docks can be found near their respective cities.
 %^CYAN%^Stuck in a dungeon and see no way out? Break a bloodshard, which can be bought at any general store. And if you don't have one? Well, there is always a final option... You can kill yourself with %^ORANGE%^<kill %^ORANGE%^%^ULINE%^YOURNAME%^RESET%^%^ORANGE%^>%^CYAN%^.%^RESET%^
 %^CYAN%^Tabor offers maps of its surrounding areas. Quite helpful for the well-prepared adventurer.
@@ -73,4 +72,4 @@
 %^CYAN%^You can manipulate your mood with %^GREEN%^<fortune>%^CYAN%^ command.
 %^CYAN%^You can track your own progress or keep character notes by using pcnotes. See %^GREEN%^<help pcnote> %^CYAN%^for more information!
 %^CYAN%^You can use the %^GREEN%^<forage> %^RESET%^%^CYAN%^command to find food in the wilderness. You can also drink from some ponds and fountains.
-%^CYAN%^You will die. A lot. (You should die in Shadowgate, it means you're experiencing danger!) Learn about death in %^GREEN%^<help death>%^CYAN%^.
+%^CYAN%^You will die. A lot. (You should die in Sundering Shadows, it means you're experiencing danger!) Learn about death in %^GREEN%^<help death>%^CYAN%^.
