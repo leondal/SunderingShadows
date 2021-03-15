@@ -15,7 +15,7 @@ object clothes, remote;
 void create() {
     ::create();
     set_spell_name("domination");
-    set_spell_level(([ "mage" : 5, "psion" : 4, "bard":4,]));
+    set_spell_level(([ "mage" : 5, "psion" : 4, "bard":4, "cleric" : 5 ]));
     set_domains(({"charm", "law", "vigilance"}));
     set_discipline("telepath");
     set_spell_sphere("enchantment_charm");
