@@ -1,13 +1,13 @@
-%^ULINE%^%^CYAN%^ShadowGate shops and vendors%^RESET%^
+%^ULINE%^%^CYAN%^Sundering Shadows shops and vendors%^RESET%^
 
 There are many vendors of various types scattered across the world.
 
-Most of vendors provide %^ORANGE%^<help shop>%^RESET%^ command while you're in the same room with them.
+Most vendors utilize the %^ORANGE%^<help shop>%^RESET%^ command while you're in the same room with them.
 
 In most bars and taverns you can %^ORANGE%^<read menu>%^RESET%^.
 
 Stables and animal pens should have a sign, displaying basic commands on how to use them.
 
-Some vendors are static and are set in certain places in the cities, some vendors wander around the world, selling their trade to anyone who can fin them, and few rare ones are hiding from your eyesight, providing their services to those capable enough to find them.
+Some vendors are static and can be found in the cities, while other vendors wander around the world, selling their trade to anyone who can find them. A few rare ones are hiding from your eyesight, providing their services to those capable enough to find them.
 
 %^CYAN%^See also:%^RESET%^ inventory, eq, money, score
