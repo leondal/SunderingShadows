@@ -22,7 +22,7 @@ Druids are versatile and they can take many paths in their lives: Powerful spell
 
 Druids prepare individual spells with the %^ORANGE%^<prepare>%^RESET%^ command from the druid spell list, which you can view with the %^ORANGE%^<spells druid (by level)>%^RESET%^ command. They can cast prepared spells with the %^ORANGE%^<cast>%^RESET%^ command. To see which spells you have prepared, use %^ORANGE%^<recall druid spells>%^RESET%^. To remove a spell from the list, use the %^ORANGE%^<forget>%^RESET%^ command. 
 
-Much like clerics, druids can utilize spontaneous casting of domain spells. They may choose one of the following domains: air, animal, earth, fire, plant, water or storms domains. To learn how to cast domain spells spontaneously refer to %^ORANGE%^<help cast>%^RESET%^.
+They may choose one domain from the following list: air, animal, earth, fire, plant, water, storm. The spells from that domain are added to their list of available spells and can be prepared normally.
 
 They can cast in any armor they can wear, but not while wielding anything. 
 
