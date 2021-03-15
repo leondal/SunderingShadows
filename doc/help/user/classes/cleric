@@ -22,6 +22,6 @@ Clerics of good and neutral alignments may also spontaneously cast any prepared 
 
 Additionally, clerics can choose a small number of domains. The spells in these domains are added to their cleric spell list and they can prepare and cast them as normal. See <help domains> for a list of available domains. 
 
-Clerics are versatile, they can choose both melee and spellcasting paths. Clerics can cast in any armor, but not while wielding anything. 
+Clerics are versatile, they can choose both melee and spellcasting paths. They are also able to <channel> positive or negative energy from a divine grace pool. Clerics can cast in any armor, but not while wielding anything. 
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes, new caster
+%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes, new caster, channel, divine grace
