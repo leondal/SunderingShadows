@@ -15,4 +15,7 @@ Civilized folk have always feared the night, barring themselves behind doors or 
 
 Shadowdancers exist in the boundary between light and darkness, where they weave together the shadows to become half-seen artists of deception. Unbound by any specified morality or traditional code, shadowdancers encompass a wide variety of adventuring types who have seen the value of the dark. Spellcasters use their abilities to safely cast spells from hiding and then move quickly away, while classes devoted to hand-to-hand combat enjoy the ability to attack foes with the element of surprise. Some even take the name of their kind quite literally, becoming eerie and mysterious performers and dancers, though more often the temptation presented by their talents with deception and infiltration causes shadowdancers to turn to lives of thievery.
 
-%^RESET%^%^CYAN%^See also: %^RESET%^feats, skills, spells, cast, prepare, combatstyle, stab
+Shadowdancers gain the spells listed in their prestige class feats when they gain the feat. They cast their spells at will, by using the %^ORANGE%^<cast>%^RESET%^ command. Their magic prowess depends on the same ability score as their base class. If the base class does not have magical powers, their magic prowess depends on their intelligence score. 
+
+
+%^RESET%^%^CYAN%^See also: %^RESET%^feats, skills, spells, cast, prepare, combatstyle, stab, new caster
