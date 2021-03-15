@@ -22,9 +22,9 @@ A psion's path in life is determined through his discipline. It defines a select
 
 Psions learn their powers with the %^ORANGE%^<master>%^RESET%^ command. When they %^ORANGE%^<cast>%^RESET%^ a power, they expend power points that they prepared using the %^ORANGE%^<prepare>%^RESET%^ command. To see how many power points you have prepared use %^ORANGE%^<recall psion spells>%^RESET%^. The amount of power points a psion expends depends on the spell power.
 
-Psions are essentially a pure caster class, although some of them learn to substitute their martial weakness with potent self-altering powers.
+Psions are essentially a pure caster class, although some of them learn to substitute their martial weakness with potent self-altering powers. Their spell-casting abilities depend on their intelligence score. 
 
 Psions can't cast in any armor or while wielding, but they can learn to do it.
 
-%^RESET%^%^CYAN%^See also:%^RESET%^ feats, stats, skills, spells, cast, prepare, buff, master, disciplines, discipline roleplay, prestige classes
+%^RESET%^%^CYAN%^See also:%^RESET%^ feats, stats, skills, spells, cast, prepare, buff, master, disciplines, discipline roleplay, prestige classes, new caster
 

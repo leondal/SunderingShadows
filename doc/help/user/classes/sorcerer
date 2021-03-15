@@ -10,13 +10,13 @@
  %^RESET%^L1: simple weapon proficiency, spell focus
  %^RESET%^Also: one bonus spellcraft feat at L1, and every five class levels thereafter
 
-Sorcerers are masters of arcane magic, but in a completely different way than mages. Where a wizard will study and call upon the weave by theory and ritual, sorcerers instead harness raw talent and instinct to produce such spell effects. A typical sorcerer turns to an adventurer's life to prove and improve their command of the magical arts. While the latent talent is inborn, a part of their soul, the development of such skill becomes a quest in and of itself for many. Many sorcerers, both good and evil, come to consider themselves above other, lesser mortals due to their talents.
+Sorcerers are masters of raw and spontaneous arcane magic. Where a wizard will study and call upon the weave by theory and ritual, sorcerers instead harness raw talent and instinct to produce such spell effects. A typical sorcerer turns to an adventurer's life to prove and improve their command of the magical arts. While the latent talent is inborn, a part of their soul, the development of such skill becomes a quest in and of itself for many. Many sorcerers, both good and evil, come to consider themselves above other, lesser mortals due to their talents.
 
 Sorcerers are spontaneous casters that use the %^ORANGE%^<master>%^RESET%^ command to learn new spells. They %^ORANGE%^<cast>%^RESET%^ any of spells they learned by expending a spell slot prepared with the %^ORANGE%^<prepare>%^RESET%^ command. They can see how many slots per level they have prepared using %^ORANGE%^<recall sorcerer spells>%^RESET%^. They can list all available spells for the class with the %^ORANGE%^<spells sorcerer>%^RESET%^ command.
 
 Sorcerers get bonus spells from bloodlines. To see available bloodlines use %^ORANGE%^<help bloodlines>%^RESET%^.
 
-Sorcerers cannot wield weapons while casting, they generally cannot wear armor. But with the proper feat they can learn to cast in light armor.
+Sorcerers cannot wield weapons while casting. They cannot use armor while casting, unless they have the applicable feats. 
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ bloodlines, feats, stats, skills, spells, cast, buff, prepare, master, prestige classes
+%^RESET%^%^CYAN%^See also: %^RESET%^ bloodlines, feats, stats, skills, spells, cast, buff, prepare, master, prestige classes, new caster
 

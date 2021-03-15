@@ -12,17 +12,16 @@
  %^RESET%^L15: leadership
  %^RESET%^Also: one bonus spellcraft feat at L21, and every five class levels thereafter
 
-Clerics are as diverse a class as the pantheon of the realm, united only in their service to their deity. They draw their powers from their god/dess and must serve that patron's cause, or they may lose those powers as they lose favor with the diety. They spend much of their time in prayer and meditation to gain their spells, and to attempt to discern what their god/dess expects of them. Their insight and use of their wisdom grows as they spend their lives learning to understand people and their god/dess' teachings, and apply them to day to day life and furthering their cause, which includes attempting to convert others to their faith.
+Clerics are as diverse a class as the pantheon of the realm, united only in their service to their deity. They draw their powers from their chosen deity and must serve their cause. Should they lose favor with their deity, they also lose their powers. They spend much of their time in prayer and meditation to gain their spells, and to attempt to discern what their deity expects of them. Their insight and use of their wisdom grow as they spend their lives learning to understand people and the teachings of their deity. They apply these teachings to their daily life, in order to further their deity’s cause.  This includes attempting to convert others to their faith.
 
-Wisdom is of the utmost importance to clerics and only those with the highest wisdom are going to be worthy to cast the highest level spells. It is also recommended that they have a decent constitution. Most are moderately capable in melee combat, but not so much as a trained warrior.
+Wisdom is of the utmost importance to clerics as it determines their spell casting ability. It is also recommended that they have a decent constitution. Most are moderately capable in melee combat, but not so much as a trained warrior.
 
-Clerics prepare their spells with the %^ORANGE%^<prepare>%^RESET%^ command. The %^ORANGE%^<spells cleric>%^RESET%^ command will show you every spell available to clerics. To cast they use the %^ORANGE%^<cast>%^RESET%^ command. Casting a spell will expend it from their memory. They can see currently prepared spells with %^ORANGE%^<recall cleric spells>%^RESET%^.
+Clerics prepare individual spells from the cleric spell list, using the %^ORANGE%^<prepare>%^RESET%^ command. See %^ORANGE%^<spells cleric (by level)>%^RESET%^. Use the %^ORANGE%^<cast>%^RESET%^ command to cast a prepared spell. To see which spells you have prepared, use %^ORANGE%^<recall cleric spells>%^RESET%^.
 
 Clerics of good and neutral alignments may also spontaneously cast any prepared spell as a healing spell of the same level. Neutral and evil clerics may do likewise, but they will cast such spells spontaneously as damaging equivalents instead. To learn how to do it refer to %^ORANGE%^<help cast>%^RESET%^.
 
-In addition to that, clerics can utilize spontaneous casting of domain spells. Domains clerics can pick are defined by their deity and are to be selected at shrines, churches or temples. Some domain spells can be cast only spontaneously. To learn how to cast domain spells spontaneously refer to %^ORANGE%^<help cast>%^RESET%^.
+Additionally, clerics can choose a small number of domains. The spells in these domains are added to their cleric spell list and they can prepare and cast them as normal. See <help domains> for a list of available domains. 
 
-Clerics are versatile, they can choose both melee and spellcasting paths. Clerics can cast in any armor, but they must not wield while doing so as their casting relies on gestures and speaking.
+Clerics are versatile, they can choose both melee and spellcasting paths. They are also able to <channel> positive or negative energy from a divine grace pool. Clerics can cast in any armor, but not while wielding anything. 
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes
-
+%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes, new caster, channel, divine grace

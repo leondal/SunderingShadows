@@ -21,10 +21,9 @@
  %^RESET%^L21: defensive roll
  %^RESET%^Also: one bonus hybrid feat at L21, and every five class levels thereafter
 
-The monk is an enlightened warrior, able to transcend many of the bodily limits that hamper most others. They are typically from one order or another and have an affinity for the strict procedures that such an order imparts on them.
+The monk is an enlightened warrior, able to transcend many of the bodily limits that hamper most mortals. They typically belong to an order or a monastery and have an affinity for the strict procedures that this imparts on them.
 
-They despise most tradional armor, finding that it gets in the way of their ability to perfect their inner self. Which is something that they dedicate their lives to. Most have an amazing ability to manipulate their own energies and that of others, which they refer to simply as "Ki", in profound ways, especially as they grow wiser.
-
+They despise most traditional armor as it gets in the way of their life-long dedication to perfect their inner self. Most have an amazing ability to manipulate their own energies and that of others, which they refer to simply as "Ki", in profound ways, especially as they grow wiser.
 Some monks use small weapons. Others limit themselves to using their bare hands.
 
 Unarmed monks use the following damage table:
@@ -47,5 +46,7 @@ Monk feats, abilities, and spells require ki. Most monks receive 1 ki point per 
 
 The %^ORANGE%^<ki>%^RESET%^ command is a command showing the abilities imparted to you by your dedication, your total and available ki, and how long until you passively regenerate more.
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, ki, way of the fist, way of the shadow, way of the elements, ki, prestige classes
+In addition to their special abilities, monks can cast a small number of spells by expending ki points. To see which spells you can cast, see the help file for your chosen way. To cast your spells, use the %^ORANGE%^<cast>%^RESET%^ command. 
+
+%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, ki, way of the fist, way of the shadow, way of the elements, ki, prestige classes, new caster
 

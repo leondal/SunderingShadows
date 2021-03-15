@@ -12,4 +12,6 @@
 
 Dwarves live and die among the stones, learning and living their secrets. It is said that the very earth itself whispers to them - and certainly, to a select few individuals, it does. These dwarves are known as Stonelords. Gaining a connection beyond even that of most of their kind, they can draw upon the infinite reserves of power hidden within the earth at their feet, shaping it to their will. While dwarven fighters and paladins are the most common stonelords, any class can take up this calling. They usually work within dwarven communities as protectors and leaders.
 
-%^RESET%^%^CYAN%^See also: %^RESET%^feats, skills, spells, innate, dwarf
+Stonelords gain the spells listed in their prestige class feats when they gain the feat. They cast their spells at will, by using the %^ORANGE%^<cast>%^RESET%^ command. Their magic prowess depends on the same ability score as their base class. If the base class does not have magical powers, their magic prowess depends on their intelligence score. 
+
+%^RESET%^%^CYAN%^See also: %^RESET%^feats, skills, spells, innate, dwarf, cast, new caster

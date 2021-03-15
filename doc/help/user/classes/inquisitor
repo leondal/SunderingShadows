@@ -19,11 +19,12 @@
  %^RESET%^L20: true judgement
  %^RESET%^Also: one bonus hybrid feat at L21, and every five class levels thereafter
 
-Grim and determined, the inquisitor roots out enemies of the faith, using trickery and guile when righteousness and purity is not enough. Although inquisitors are dedicated to a deity, they are above many of the normal rules and conventions of the church. They answer to their deity and their own sense of justice alone, and are willing to take extreme measures to meet their goals.
+Grim and determined, the inquisitor roots out enemies of the faith, using trickery and guile when righteousness and purity is not enough. Although inquisitors are dedicated to a deity, they are above many of the normal rules and conventions of the church. They answer to their deity and their own sense of justice alone and are willing to take extreme measures to meet their goals.
 
 Inquisitors tend to move from place to place, chasing down enemies and researching emerging threats. As a result, they often travel with others, if for no other reason than to mask their presence. Inquisitors work with members of their faith whenever possible, but even such allies are not above suspicion.
 
-Inquisitors are spontaneous casters that use %^ORANGE%^<master>%^RESET%^ command to learn new spells from inquisitor list you can view with %^ORANGE%^<spells inquisitor>%^RESET%^. They %^ORANGE%^<cast>%^RESET%^ any of spell they learned by expending spell slot prepared with %^ORANGE%^<prepare>%^RESET%^ command. They can see how many slots per level you have prepared with %^ORANGE%^<recall inquisitor spells>%^RESET%^. They base their casting and slot bonuses on the wisdom stat.
+Inquisitors are spontaneous casters that use %^ORANGE%^<master>%^RESET%^ command to learn new spells from the inquisitor spell list. See %^ORANGE%^<spells inquisitor (by level)>%^RESET%^. They can %^ORANGE%^<cast>%^RESET%^ any mastered spell by expending a spell slot, which is prepared with the %^ORANGE%^<prepare>%^RESET%^ command. To see how many spell slots you can prepare, use %^ORANGE%^<recall inquisitor spells>%^RESET%^. They base their casting abilities on the wisdom stat.
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, master, prestige classes
+They can cast in any armor they can wear, but not while wielding anything. 
 
+%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, master, prestige classes, new caster, recall

@@ -5,7 +5,6 @@
 %^RESET%^%^CYAN%^Hitdice:%^RESET%^ d8
 %^RESET%^%^CYAN%^Saving throws:%^RESET%^ will strong, fort/reflex weak
 %^RESET%^%^CYAN%^Class Skills:%^RESET%^ spellcraft
-%^RESET%^%^CYAN%^Restricted Races:%^RESET%^  beastman, ogre, ogre-mage, voadkyn, wemic 
 %^RESET%^%^CYAN%^Class Feats:%^RESET%^
  %^RESET%^L1: light armor proficiency, medium armor proficiency, simple weapon proficiency, shield proficiency, spell focus
  %^RESET%^L5: indomitable
@@ -19,11 +18,11 @@ Oracles do not usually associate with any one church or temple, instead preferri
 
 Each oracle draws upon a divine mystery to grant her spells and powers. This mystery can represent a devotion to one ideal, prayers to deities that support the concept, or a natural calling to champion a cause. For example, an oracle with the waves mystery might have been born at sea and found a natural calling to worship the gods of the oceans, rivers, and lakes, be they benign or malevolent. Regardless of its source, the mystery manifests in a number of ways as the oracle gains levels. An oracle must pick one mystery upon taking her first level of oracle.
 
-Oracles are spontaneous casters that use the %^ORANGE%^<master>%^RESET%^ command to learn new spells. They %^ORANGE%^<cast>%^RESET%^ any of spells they learned by expending a spell slot that was prepared using the %^ORANGE%^<prepare>%^RESET%^ command. They can see how many slots per level they have prepared with %^ORANGE%^<recall oracle spells>%^RESET%^. They can list all their available spells for the class with the %^ORANGE%^<spells oracle>%^RESET%^ command.
+Oracles are spontaneous casters that use the %^ORANGE%^<master>%^RESET%^ command to learn new spells. They %^ORANGE%^<cast>%^RESET%^ any of spells they learned by expending a spell slot that was prepared using the %^ORANGE%^<prepare>%^RESET%^ command. They can see how many slots per level they have prepared with %^ORANGE%^<recall oracle spells>%^RESET%^. They can list all their available spells for the class with the %^ORANGE%^<spells oracle (by level)>%^RESET%^ command.
 
 Oracles get bonus spells from mysteries. To see the available mysteries use %^ORANGE%^<help mysteries>%^RESET%^.
 
 Oracles can cast in any armor, but they must take the appropriate feats first. They cannot cast while wielding a weapon.
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ mysteries, feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes
+%^RESET%^%^CYAN%^See also: %^RESET%^ mysteries, feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes, new caster
 

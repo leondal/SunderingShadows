@@ -14,17 +14,17 @@ Mages are people who have devoted their lives to learning magic for the same rea
 
 Mages are a pure caster class. They are quite complicated and are hard to master.
 
-The spellbook is the main instrument a mage uses. A mage can %^ORANGE%^<transcribe>%^RESET%^ scrolls into their spellbook, and then %^ORANGE%^<prepare>%^RESET%^ that spell to commit it into their memory. A mage can view already prepared spells with the %^ORANGE%^<recall mage spells>%^RESET%^ command. When a mage uses %^ORANGE%^<cast>%^RESET%^, she expends the prepared spell. A mage can %^ORANGE%^<forget>%^RESET%^ an already prepared spell to free a spell slot for another spell. Various abilities you learn, like scribe and enchant, can expand the amount of spells availabe for you to cast. They base their casting and slot bonuses on their intelligence stat.
+The spell book is the main instrument a mage uses. A mage can %^ORANGE%^<transcribe>%^RESET%^ scrolls into their spell book, and then %^ORANGE%^<prepare>%^RESET%^ that spell to commit it into their memory. A mage can view already prepared spells with the %^ORANGE%^<recall mage spells>%^RESET%^ command. When a mage uses %^ORANGE%^<cast>%^RESET%^, she expends the prepared spell. A mage can %^ORANGE%^<forget>%^RESET%^ an already prepared spell to free a spell slot for another spell. Various abilities you learn, like scribe and enchant, can expand the amount of spells available for you to cast. They base their casting and slot bonuses on their intelligence stat.
 
-A spellbook offers an additional interface to your spells. Refer to %^ORANGE%^<help spellbook>%^RESET%^ when you hold one.
+A spell book offers an additional interface to your spells. Refer to %^ORANGE%^<help spell book>%^RESET%^ when you hold one.
 
-Mages are able to learn spells through %^ORANGE%^<master>%^RESET%^ once in a while. Such spells are automatically added to their spellbook.
+Mages are able to learn spells through %^ORANGE%^<master>%^RESET%^ once in a while. Such spells are automatically added to their spell book.
 
 Mages must not wear any armor or wield any weapons while casting, but they can learn to cast in light armor.
 
 Mages can select a school of dedication. Refer to %^ORANGE%^<help magic school>%^RESET%^ for details.
 
-%^RESET%^%^CYAN%^See also: %^RESET%^prepare, feats, stats, skills, spells, cast, buff, magic school, master, prestige classes, archmage
+%^RESET%^%^CYAN%^See also: %^RESET%^prepare, feats, stats, skills, spells, cast, buff, magic school, master, prestige classes, archmage, new caster
 
-%^CYAN%^If you have a spellbook, you may also see %^RESET%^<help book>%^CYAN%^.%^RESET%^
+%^CYAN%^If you have a spell book, you may also see %^RESET%^<help book>%^CYAN%^.%^RESET%^
 
