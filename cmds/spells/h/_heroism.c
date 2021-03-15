@@ -11,7 +11,7 @@ void create()
     ::create();
     set_author("nienne");
     set_spell_name("heroism");
-    set_spell_level(([ "mage" : 3, "bard" : 4, "inquisitor" : 3, "oracle" : 3, "magus" : 3, "cleric" : 3 ]));
+    set_spell_level(([ "mage" : 3, "bard" : 4, "inquisitor" : 3, "oracle" : 3, "magus" : 3, "cleric" : 4 ]));
     set_domains(({"charm", "vigilance"}));
     set_mystery("ancestor");
     set_spell_sphere("enchantment_charm");
