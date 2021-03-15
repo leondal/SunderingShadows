@@ -40,13 +40,10 @@ In addition to that, rangers use different pre-set combat styles they can choose
  L13: light weapon
  L17: strenght of arm
 
-The ranger is a hunter and woodsman who lives by not only his sword or bow, but also his wits. Rangers, like nature itself, can be of any alignment. Their role and outlook changes depending upon their alignment, but they all have a few things in common. They are more comfortable in the wilderness than the city, and they have a strong affinity for nature that defines
-them.
+The ranger is a hunter and woodsman who lives by not only his sword or bow, but also his wits. Rangers, like nature itself, can be of any alignment. Their role and outlook changes depending upon their alignment, but they all have a few things in common. They are more comfortable in the wilderness than the city, and they have a strong affinity for nature that defines them.
 
-Although rangers have the basic combat skills of a warrior, they have several other abilities to aid their survival. They gain lesser divine spellcraft based on their wisdom score. They %^ORANGE%^<prepare>%^RESET%^ spells from list of ranger spells you can see with %^ORANGE%^<spells ranger>%^RESET%^ command. They %^ORANGE%^<cast>%^RESET%^ spell by expending spell from memory. You can see spells commited to memory with %^ORANGE%^<recall ranger spells>%^RESET%^ command and remove undesired spell with the %^ORANGE%^<forget>%^RESET%^ command.
+Rangers have the basic combat skills of a warrior, as well as several other abilities to aid their survival. They gain lesser divine spells based on their wisdom score. They %^ORANGE%^<prepare>%^RESET%^ spells from the ranger spell list, which can be viewed with the %^ORANGE%^<spells ranger (by level)>%^RESET%^ command. They %^ORANGE%^<cast>%^RESET%^ the spell by expending a prepared spell from memory. To see which spells you have prepared, use %^ORANGE%^<recall ranger spells>%^RESET%^. To remove a spell from the list, use the %^ORANGE%^<forget>%^RESET%^ command.
 
-Rangers can cast in any armor they can wear, but must not wield while doing so.
+Rangers can cast in any armor they can wear, but not while wielding anything. 
 
-%^RESET%^%^CYAN%^See also:%^RESET%^ ranged weapons, ranger roleplay, feats, stats, skills, spells, cast, prepare, buff, combatstyle, prestige classes
-
-%^CYAN%^Once you have chosen this class and finished creation, please refer to the class bboard for information and updates by typing%^RESET%^ <bboard ranger list>%^CYAN%^.%^RESET%^
+%^RESET%^%^CYAN%^See also:%^RESET%^ ranged weapons, ranger roleplay, feats, stats, skills, spells, cast, prepare, buff, combatstyle, prestige classes, new caster
