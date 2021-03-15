@@ -1,4 +1,4 @@
-Shadowgate FAQ (Updated August 20, 2019)
+Sundering Shadows FAQ (Updated March 15, 2021)
 
 1) What is legal here?
 
@@ -18,7 +18,7 @@ People who have the ** around their name means that their next command is being 
 
 3c) What does the letters K, A, and F after some names on the "who" list mean?
 
-In the spirit of fun and fairness, ShadowGate has implemented a system to determine who is an appropriate party member for you, as well as who you are able to participate in playerkilling with.
+In the spirit of fun and fairness, Sundering Shadows has maintained a system to determine who is an appropriate party member for you, as well as who you are able to participate in playerkilling with.
 
 A %^BOLD%^%^GREEN%^K%^RESET%^ means you are free to party with, and engage in pk with, that person.
 
@@ -40,7 +40,7 @@ This would probably indicate that you are a non-human race, and are speaking a l
 
 4b) Okay, but doesn't this limit my RP?
 
-It is the opinion of the wizzes here on Shadowgate that everyone not knowing how to speak the same language at the outset causes more opportunities to RP rather than less. Perhaps you will meet someone not of your race who knows your language, or perhaps you may not bother, or be able to learn common for some reason. You can use the <teach> command to teach another player a language you know.
+It is the opinion of the wizzes here on Sundering Shadows that everyone not knowing how to speak the same language at the outset causes more opportunities to RP rather than less. Perhaps you will meet someone not of your race who knows your language, or perhaps you may not bother, or be able to learn common for some reason. You can use the <teach> command to teach another player a language you know.
 
 4c) How do I customize my says?
 
@@ -50,13 +50,13 @@ There is a command called <speech>, which you can use to change how your speech 
 
 ...which is probably not what you wanted.
 
-5) How do I send and read mail on Shadowgate?
+5) How do I send and read mail on Sundering Shadows?
 
-To enter into the mail server system of Shadowgate, simply type: <mail>. This will enter you into the mailer system. To mail a letter, it is best to rather than type : mail, to instead type : mail <player name>. Mail is considered an out-of-character tool, however. There is an IG mail system in the city of Shadow.
+To enter into the mail server system of Sundering Shadows, simply type: <mail>. This will enter you into the mailer system. To mail a letter, it is best to rather than type : mail, to instead type : mail <player name>. Mail is considered an out-of-character tool, however. There is an IG mail system in the city of Shadow.
 
 6) How many quests do I have to do?
 
-Unlike many muds, within Shadowgate all quests are entirely optional. You do not have to do quests to advance in levels, with one major exception. There is a quest (Quest for the Swords) that is required to be completed by a level 19 player in order to advance to level 20. Other than that, quests will grant a reward of ability, xp, items, treasure, etc for being completed and generally are something worth solving if you can or so desire.
+Unlike many muds, within Sundering Shadows all quests are entirely optional. You do not have to do quests to advance in levels. However, quests generally will grant a reward of ability, xp, items, treasure, etc for being completed and generally are something worth solving if you can or so desire.
 
 6b) What is a class?
 
@@ -76,7 +76,7 @@ You may be trying to wield or wear something which is restricted to players of a
 
 9) Is player killing allowed?
 
-Playerkilling on ShadowGate is optional. All players are, by default, but to the exclusion of beast races, opted out of playerkilling. You can change this by typing <flag player kill . off>. It should be noted that there are certain circumstances which will temporarily flag you for non-pk again, such as a recent death or an extended absence. If you are not currently available to pk, you should avoid situations where the roleplay might turn aggressive. Additionally, you are only able to engage in pk with players who have a %^BOLD%^%^GREEN%^K%^RESET%^ next to their names on the wholist. If pk happens, we would appreciate it if you could send a <pkmail> so we can better understand the circumstances that led to it, and if any consequences are warranted. Please see <help pkmail> for more information.
+Playerkilling on Sundering Shadows is optional. All players are, by default, but to the exclusion of beast races, opted out of playerkilling. You can change this by typing <flag player kill . off>. It should be noted that there are certain circumstances which will temporarily flag you for non-pk again, such as a recent death or an extended absence. If you are not currently available to pk, you should avoid situations where the roleplay might turn aggressive. Additionally, you are only able to engage in pk with players who have a %^BOLD%^%^GREEN%^K%^RESET%^ next to their names on the wholist. If pk happens, we would appreciate it if you could send a <pkmail> so we can better understand the circumstances that led to it, and if any consequences are warranted. Please see <help pkmail> for more information.
 
 10) How do I know my stats?
 
@@ -120,16 +120,9 @@ The first people you should talk to is other players. They are most familiar wit
 
 If it is a simple idea for an area, use the <idea> command. Please read <help game> for information on how to suggest an idea, report a typo, report a bug, or send some praise. You may also post in our forums, or bring up the topic for discussion on the OOG lines, as well as the Discord channel.
 
-15) Huh? An overseer rank? Well what are the immortal ranks here then?
+15) Huh? A creator rank? 
 
-The hierarchy is as follows: 
-
-Apprentices
-Avatars 
-Creators 
-Overseers 
-Elders
-Arches
+Creators are immortals that contribute to code, balance, etc. of the mud.
 
 16) Everyone is using strange abbreviations, what do they mean?
 
@@ -146,7 +139,7 @@ IG - In Game
 
 17) How do I see in color?
 
-Since not all terminals are capable of seeing in colour, Shadowgate will ask for your preference in creation. But if you have a color terminal supporting ansi escape codes (like a vt100 emulation), then you will want to experience Shadowgate in colour. <help set> will show you options for colors, amongst other things.
+Since not all terminals are capable of seeing in colour, Sundering Shadows will ask for your preference in creation. But if you have a color terminal supporting ansi escape codes (like a vt100 emulation), then you will want to experience Shadowgate in colour. <help set> will show you options for colors, amongst other things.
 
 18) What are hp?
 
