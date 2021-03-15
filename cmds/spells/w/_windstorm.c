@@ -16,7 +16,7 @@ void create()
     ::create();
     set_author("ares");
     set_spell_name("windstorm");
-    set_spell_level(([ "druid":8, "oracle" : 8 ]));
+    set_spell_level(([ "druid":8, "oracle" : 8, "cleric" : 8 ]));
     set_mystery("wind");
     set_spell_sphere("invocation_evocation");
     set_domains("air");
