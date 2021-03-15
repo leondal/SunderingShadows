@@ -15,7 +15,7 @@ void create()
 {
     ::create();
     set_spell_name("elemental swarm");
-    set_spell_level(([ "druid" : 9, "oracle" : 9, ]));
+    set_spell_level(([ "druid" : 9, "oracle" : 9, "cleric" : 9 ]));
     set_mystery("elemental");
     set_domains(({ "earth", "fire", "air" }));
     set_spell_sphere("conjuration_summoning");
