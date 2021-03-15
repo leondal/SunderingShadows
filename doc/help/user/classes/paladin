@@ -29,11 +29,11 @@ A paladin serves someone or some cause. They serve a lord or nobility, or the or
 
 Paladins are granted a subset of divine utility spells based on their charisma score. You can see their spell list with %^ORANGE%^<spells paladin>%^RESET%^. Paladins %^ORANGE%^<prepare>%^RESET%^ spells from this list and commit it to memory. You can see a list of spells in your memory with %^ORANGE%^<recall paladin spells>%^RESET%^. When they %^ORANGE%^<cast>%^RESET%^ a spell, they expend that spell from their memory. They can remove undesired prepared spell with the %^ORANGE%^<forget>%^RESET%^ command.
 
-Paladins can cast their spells in any armor, but they must not wield while doing so as they rely both on speaking and gesturing while casting.
+Paladins can cast their spells in any armor, but they cannot wield anything while doing so.
 
 Paladins rely on melee combat and don't make good casters. Their combat powers come from the martial feat tree.
 
 In addition to spell casting, Paladins also draw from a Divine Grace pool, which is used to fuel their combat feats and enhancements.
 
-%^RESET%^%^CYAN%^See also:%^RESET%^ feats, stats, skills, spells, cast, prepare, buff, deities, prestige classes, divine grace
+%^RESET%^%^CYAN%^See also:%^RESET%^ feats, stats, skills, spells, cast, prepare, buff, deities, prestige classes, divine grace, new caster
 
