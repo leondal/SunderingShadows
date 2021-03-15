@@ -13,9 +13,9 @@ object sword;
 void create() {
     ::create();
     set_spell_name("earth reaver");
-    set_spell_level(([ "cleric" : 5, "innate" : 5 ]));
+    set_spell_level(([ "cleric" : 5, "innate" : 5, "druid" : 5 ]));
     set_spell_sphere("alteration");
-    set_domains("earth");
+    set_domains(({ "earth", "cavern" }));
     set_mystery("stone");
     set_syntax("cast CLASS earth reaver on TARGET");
     set_description("This spell will cause the ground around the target to erupt and throw dirt and rocks at the target.");
