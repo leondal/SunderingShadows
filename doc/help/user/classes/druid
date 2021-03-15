@@ -14,17 +14,18 @@
  %^RESET%^L15: timeless body
  %^RESET%^Also: one bonus hybrid feat at L21, and every five class levels thereafter
 
-Druids are champions of nature, though they claim no power over it. Instead, a druid's power comes from being one with the natural world, revelling in the awesome destructive power of a storm and finding strength in the gentle rejuvenating potential of a calm pool. Druids are a mixed lot, following the paths of various deities and even holding to diverse truths about the natural world. As such, any two druids may not see eye-to-eye on many matters, including the very essence of nature itself. Many druids prefer to be solitary.
+Druids are champions of nature, though they claim no power over it. Instead, a druid's power comes from being one with the natural world: Reveling in the awesome destructive power of a storm and finding strength in the gentle rejuvenating potential of a calm pool. Druids are a mixed lot, following the paths of various deities and even holding to diverse truths about the natural world. As such, any two druids may not see eye-to-eye on many matters, including the very essence of nature itself. Many druids prefer to be solitary.
 
-%^CYAN%^Druidic oaths:%^RESET%^ Druids train with natural weapons and armor, and they further take traditional oaths that restrict them from using metal armor. Druids avoid carrying much worked metal at all, believing that it interferes with the pure nature of the wilds. The reasoning behind these oaths depend on the druid's background.
+Druids are versatile and they can take many paths in their lives: Powerful spellcasters, fearsome beasts or martial warriors. To learn how to take on the form of an animal, see %^ORANGE%^<help shapeshift>%^RESET%^. 
 
-Druids prepare their spells with the %^ORANGE%^<prepare>%^RESET%^ command. The %^ORANGE%^<spells druid>%^RESET%^ command will show you every spell available to druids. To cast they use the %^ORANGE%^<cast>%^RESET%^ command. They expend prepared spells from their memory when they cast. They can see currently prepared spells with %^ORANGE%^<recall druid spells>%^RESET%^.
+%^CYAN%^Druidic oaths:%^RESET%^ Druids train with natural weapons and armor, and they further take traditional oaths that restrict them from using metal armor. Druids avoid carrying much worked metal at all, believing that it interferes with the pure nature of the wilds. The reasoning behind these oaths depends on the druid's background.
 
-Much like clerics, druids can utilize spontaneous casting of domain spells, however choice of domains they can pick is not defined by their deity. Druids choose one of air, animal, earth, fire, plant, water or storms domains. To learn how to cast domain spells spontaneously refer to %^ORANGE%^<help cast>%^RESET%^.
+Druids prepare individual spells with the %^ORANGE%^<prepare>%^RESET%^ command from the druid spell list, which you can view with the %^ORANGE%^<spells druid (by level)>%^RESET%^ command. They can cast prepared spells with the %^ORANGE%^<cast>%^RESET%^ command. To see which spells you have prepared, use %^ORANGE%^<recall druid spells>%^RESET%^. To remove a spell from the list, use the %^ORANGE%^<forget>%^RESET%^ command. 
 
-Druids are versatile and they can take many paths in their lives, becoming powerful spellcasters or preferring a feral life in the shapes of fearsome beasts, or even using their potential for martial combat in their humanoid form.
+Much like clerics, druids can utilize spontaneous casting of domain spells. They may choose one of the following domains: air, animal, earth, fire, plant, water or storms domains. To learn how to cast domain spells spontaneously refer to %^ORANGE%^<help cast>%^RESET%^.
 
-They can cast in any armour they can wear, but must not wield while casting.
+They can cast in any armor they can wear, but not while wielding anything. 
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, shapeshift, prestige classes
+%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, shapeshift, prestige classes, new caster
+
 
