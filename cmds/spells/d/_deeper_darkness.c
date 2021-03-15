@@ -8,8 +8,9 @@ inherit "/cmds/spells/d/_darkness";
 void create() {
     ::create();
     set_spell_name("deeper darkness");
-    set_spell_level(([ "mage" : 3, "cleric" : 3,  "assassin": 3, "inquisitor" : 3,]));
+    set_spell_level(([ "mage" : 3, "cleric" : 3, "druid" : 3, "assassin": 3, "inquisitor" : 3,]));
     set_mystery(({"darkness","shadow"}));
+    set_domains("cavern");
     set_syntax("cast CLASS deeper darkness on TARGET");
     set_description("This will create a globe of darkness, which will overcome normal light sources. You can cast it on an object or player which it will follow, instead of the caster.");
     set_verbal_comp();
