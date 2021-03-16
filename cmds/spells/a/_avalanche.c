@@ -11,7 +11,7 @@ void create()
 {
     ::create();
     set_spell_name("avalanche");
-    set_spell_level(([ "mage" : 7, "druid" : 7, "cleric" : 7]));
+    set_spell_level(([ "mage" : 7, "druid" : 8, "cleric" : 8 ]));
     set_domains("cold");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS avalanche on TARGET");
