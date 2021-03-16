@@ -10,7 +10,6 @@ void create()
     set_spell_name("fear");
     set_spell_level(([ "bard" : 3, "mage" : 4, "psion" : 6, "inquisitor":4, "oracle":5 ]));
     set_spell_sphere("necromancy");
-    set_domains("destruction");
     set_mystery("dragon");
     set_syntax("cast CLASS fear");
     set_description("Fear sends a wave of horrid thoughts and images out toward the foes around the caster, possibly terrifying them. An invisible cone of terror causes each living creature in the area to become panicked unless it succeeds on a Will save. If cornered, a panicked creature begins cowering. If the Will save succeeds, the creature is shaken for 1 round.");
