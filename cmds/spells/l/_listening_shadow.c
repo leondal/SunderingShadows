@@ -17,9 +17,8 @@ string theName;
 void create(){
     ::create();
     set_spell_name("listening shadow");
-    set_spell_level(([ "assassin" : 4,]));
+    set_spell_level(([ "assassin" : 4, "mage" : 8 ]));
     set_spell_sphere("divination");
-    set_domains("darkness");
     set_syntax("cast CLASS listening shadow on TARGET");
     set_description("This will move your shadow to listen to the room you're in or to follow the player indicated. You "
 "receive everything heard by the shadow.");
