@@ -8,7 +8,7 @@ void create()
 {
     ::create();
     set_spell_name("soften earth");
-    set_spell_level(([ "druid" : 2, "oracle" : 2, ]));
+    set_spell_level(([ "druid" : 2, "oracle" : 2, "cleric" : 2 ]));
     set_spell_sphere("alteration");
     set_domains("earth");
     set_mystery("stone");
