@@ -12,7 +12,8 @@ void create()
 {
     ::create();
     set_spell_name("delayed fireball");
-    set_spell_level(([ "mage" : 7,]));
+    set_spell_level(([ "mage" : 7, "cleric" : 7 ]));
+    set_domains("destruction");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS delayed fireball on TARGET");
     set_damage_desc("delayed fire");
