@@ -9,7 +9,7 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("horrid wilting");
-    set_spell_level(([ "mage" : 8, "oracle" : 8,]));
+    set_spell_level(([ "mage" : 8, "oracle" : 8, "cleric" : 8 ]));
     set_domains(({"water", "destruction"}));
     set_spell_sphere("necromancy");
     set_mystery(({"reaper","bones"}));
