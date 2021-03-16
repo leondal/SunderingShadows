@@ -13,7 +13,7 @@ int mybonus;
 void create() {
     ::create();
     set_spell_name("rage");
-    set_spell_level(([ "bard" : 2, "mage": 3, "oracle" : 3, "magus" : 3 ]));
+    set_spell_level(([ "bard" : 2, "mage": 3, "oracle" : 3, "magus" : 3, "cleric" : 3 ]));
     set_mystery("lunar");
     set_domains("destruction");
     set_spell_sphere("enchantment_charm");
