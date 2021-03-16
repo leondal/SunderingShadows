@@ -5,7 +5,7 @@ void create()
 {
     ::create();
     set_spell_name("glacier");
-    set_spell_level(([ "mage" : 9, "druid":9]));
+    set_spell_level(([ "mage" : 9, "druid":9, "cleric" : 9 ]));
     set_spell_sphere("invocation_evocation");
     set_domains("cold");
     set_syntax("cast CLASS glacier on TARGET");
