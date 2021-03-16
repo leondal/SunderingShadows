@@ -7,7 +7,7 @@ int thebonus;
 void create() {
     ::create();
     set_spell_name("true strike");
-    set_spell_level(([ "mage" : 1, "inquisitor" : 1, "magus" : 1 ]));
+    set_spell_level(([ "mage" : 1, "inquisitor" : 1, "magus" : 1, "cleric" : 1 ]));
     set_spell_sphere("divination");
     set_domains(({"destruction", "knowledge", "fate"}));
     set_syntax("cast CLASS true strike on TARGET");
