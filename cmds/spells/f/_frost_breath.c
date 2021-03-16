@@ -14,7 +14,6 @@ void create(){
     set_spell_level(([ "druid":6, "oracle" : 6 ]));
     set_mystery("winter");
     set_spell_sphere("invocation_evocation");
-    set_domains("cold");
     set_syntax("cast CLASS frost breath on TARGET");
     set_description("This spell sends a wave of cold shards out in a cone shapped pattern from the caster's cupped hands"
 ".  It will hit any enemies who are not able to get out of the way.  The extreme cold can sometimes damage enemies who "

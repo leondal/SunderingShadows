@@ -12,7 +12,7 @@ void create()
 {
     ::create();
     set_spell_name("cone of cold");
-    set_spell_level(([ "mage" : 5, "monk" : 15, "oracle" : 5, "magus" : 5 ]));
+    set_spell_level(([ "mage" : 5, "monk" : 15, "oracle" : 5, "magus" : 5, "cleric" : 5, "druid" : 5]));
     set_mystery("winter");
     set_spell_sphere("invocation_evocation");
     set_monk_way("way of the elements");
