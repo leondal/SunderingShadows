@@ -1,10 +1,10 @@
 %^CYAN%^STATUS EFFECTS%^RESET%^
 
 %^CYAN%^Attack bonus%^RESET%^
-This effects adds to chance of your melee attacks to land a hit.
+This effect increases the chance of your melee attack landing a hit.
 
 %^CYAN%^Damage bonus%^RESET%^
-This effects adds directly to damage of your melee attacks.
+This effect directly increases the damage of your melee attacks.
 
 %^ULINE%^%^CYAN%^FEAR EFFECTS%^RESET%^
 
@@ -23,7 +23,7 @@ A panicked creature must drop anything it holds and flee at top speed from the s
 Panicked is a more extreme state of fear than %^CYAN%^shaken%^RESET%^ or %^CYAN%^frightened%^RESET%^.
 
 %^CYAN%^Shaken%^RESET%^
-All core skills, attack bonus, saves are reduced by lvl/12+1.
+All core skills, attack bonuses, and saves are reduced by lvl/12+1.
 
 %^ULINE%^%^CYAN%^VISION EFFECTS%^RESET%^
 
@@ -31,37 +31,37 @@ All core skills, attack bonus, saves are reduced by lvl/12+1.
 You see some stars and your vision is restricted. You take lvl/18+1 penalty on perception, thievery skills and attack bonus.
 
 %^CYAN%^Staggered%^RESET%^
-A staggered creature can only take one base attack action each round, however class modifiers apply. It cannot cast or use feats.
+A staggered creature can only take one base attack action each round. However, class modifiers apply. It cannot cast or use feats.
 
 %^CYAN%^Sight bonus%^RESET%^
-This effects adds to the light value of the room, but only for the caster.
+This effect adds to the light value of the room, but only for the caster.
 
 %^CYAN%^Temporary blinded%^RESET%^
-Blinded creatures can not see or target other creatures unless it can navigate by other means, like sound or smell. They also loose their dexterity bonus to AC, and take additional penalty of lvl/12 on their armor class.
+Blinded creatures can not see or target other creatures unless it can navigate by other means, like sound or smell. They also loose their dexterity bonus to AC, and take an additional penalty of lvl/12 on their armor class.
 
 %^ULINE%^%^CYAN%^TIREDNESS%^RESET%^
 
 %^CYAN%^Exhausted%^RESET%^
-You take a penalty of 4 points on on strength and dexterity. If either of these stats falls below 0 you die. Exhausted characters can't become %^CYAN%^fatigued%^RESET%^.
+You take a penalty of 4 points on strength and dexterity. If either of these stats falls below 0 you die. Exhausted characters can't become %^CYAN%^fatigued%^RESET%^.
 
 %^CYAN%^Fatigued%^RESET%^
-You take a penalty of 2 points on on strength and dexterity. Fatigued characters can become %^CYAN%^exhausted%^RESET%^.
+You take a penalty of 2 points on strength and dexterity. Fatigued characters can become %^CYAN%^exhausted%^RESET%^.
 
 %^ULINE%^%^CYAN%^INVISIBILITY%^RESET%^
 
 %^CYAN%^Hidden%^RESET%^
-Hidden creatures can not be seen by others, as they are hiding in shadows. The room must have less than 3 light levels for anyone to be able to hide in it. You can <search> the room for hidden creatures or use glitterdust to reveal them. <search> reveals the hidden creatures only for you. Hidden creatures are marked with %^ORANGE%^(hid)%^RESET%^ before their name when revealed. Passive perception check works with stealth against hidden creatures. Hidden creatures use stealth against passive perception checks and checker must have a spot feat for passive perception to apply.
+Hidden creatures cannot be seen by others, as they are hiding in shadows. The room must have less than 3 light levels for anyone to be able to hide in it. You can <search> the room for hidden creatures or use glitterdust to reveal them. <search> reveals the hidden creatures only for you. Hidden creatures are marked with %^ORANGE%^(hid)%^RESET%^ before their name when revealed. Passive perception check works with stealth against hidden creatures. Hidden creatures use stealth against passive perception checks, and the checker must have the spot feat for passive perception to apply.
 
 %^CYAN%^Invisible%^RESET%^
-Invisible creatures can not be seen by other creatures unless they have the true sight or other ways to detect invisibility. In addition they ignore their opponents dexterity bonus to armor class if they are not detecting invisible and gain +2 to attack rolls. Glitterdust and similar effects will reveal invisible creatures too. Invisible creatures are marked with %^CYAN%^(inv)%^RESET%^ before their name, that is, if you are able to see them. Invisible creatures use spellcraft against passive perception checks.
+Invisible creatures can not be seen by other creatures unless they have true sight or other ways to detect invisibility. In addition they ignore their opponent's dexterity bonus to armor class if they are not detecting invisibility and gain +2 to attack rolls. Glitterdust and similar effects will reveal invisible creatures, too. Invisible creatures are marked with %^CYAN%^(inv)%^RESET%^ before their name, that is, if you are able to see them. Invisible creatures use spellcraft against passive perception checks.
 
 %^ULINE%^%^CYAN%^CORPUS%^RESET%^
 
 %^CYAN%^Daze%^RESET%^
-You see stars and unable to do anything. Daze usually is short duration.
+You see stars and are unable to do anything. Daze is usually only for a short duration.
 
 %^CYAN%^Fast healing%^RESET%^
-A creature with the fast healing special quality regains hit points at an exceptional rate. This gives (grade)d(lvl/2) points of passive regeneration each round. For example, fast healing 2 gives 2d2 hp regeneration to a level 10 monster per round.
+A creature with the fast healing effect regains hit points at an exceptional rate. This gives (grade)d(lvl/2) points of passive regeneration each round. For example, fast healing 2 gives 2d2 hp regeneration to a level 10 monster per round.
 
 %^CYAN%^Paralysis%^RESET%^
 A paralyzed creature cannot act. Paralyzed players can not enter many commands. They loose their dexterity bonus to armor class.
@@ -70,33 +70,33 @@ A paralyzed creature cannot act. Paralyzed players can not enter many commands. 
 Prone or staggered creatures can not use most weapons for the duration of the effect. They loose their dexterity bonus to armor class.
 
 %^CYAN%^Regeneration%^RESET%^
-A creature gets 1d(lvl/2) health poins of regeneration per round as part of its innate ability to heal.
+A creature gets 1d(lvl/2) health points of regeneration per round as part of its innate ability to heal.
 
 %^CYAN%^Sickened%^RESET%^
-All core skills, attack, damage bonus, saves are reduced by lvl/12+1. The effect is cumulative but usually won't last for long.
+All core skills, attack bonuses, damage bonuses, and saves are reduced by lvl/12+1. The effect is cumulative but usually won't last for long.
 
 %^CYAN%^Sleeping%^RESET%^
-An asleep creature functions like under paralysis, but any attack directed at will %^ORANGE%^<wake>%^RESET%^ them and stop the effect. Asleep creatures loose their dexterity bonus to armor class.
+A sleeping creature functions as if under paralysis, but any attack will %^ORANGE%^<wake>%^RESET%^ them and stop the effect. Sleeping creatures loose their dexterity bonus to armor class.
 
 %^CYAN%^Unconscious%^RESET%^
-An unconscious creature won't able to act, attack or respond to any action. This status can be caused by various external conditions, including drastic loss of health, head damage or even special magical effects. There is no universal way to regain consciousness.
+An unconscious creature won't be able to act, attack or respond to any actions. This status can be caused by various external conditions, including drastic loss of health, head damage or even special magical effects. There is no universal way to regain consciousness.
 
 %^CYAN%^Max health points bonus%^RESET%^
-This effect adds its power directly to maximum of your health points. Its value, however, can't exceed base value of your maximum health points.
+This effect adds its power directly to maximize your health points. Its value, however, can't exceed the base value of your maximum health points.
 
 %^ULINE%^%^CYAN%^ENERGY FLOW%^RESET%^
 
 %^CYAN%^Energy type resistance%^RESET%^
-Such effects as fire resistance or silver resistance subtract their value from damage received. I.e. 50 points of fire resistance would make 150 points of fire damage as 100.
+Such effects as fire resistance or silver resistance subtract their value from the damage received. I.e. 50 points of fire resistance would make 150 points of fire damage as 100.
 
 %^CYAN%^Magic resistance/spell penetration%^RESET%^
-Magic resistance increases your chance to disperse spell targeted at you while spell penetration increases chance of your spells not to be dispersed. All creatures gain innate magic resistance and penetration of their caster levels.
+Magic resistance increases your chance to disperse spells targeted at you, while spell penetration increases the chance of your spells to not be dispersed. All creatures gain innate magic resistance and penetration of their caster levels.
 
 %^CYAN%^Spell damage resistance/damage resistance%^RESET%^
-These effects subtract their value from damage or spell damage received.
+These effects subtract their value from the damage or spell damage received.
 
 %^CYAN%^Negative level%^RESET%^
-Temporary negative level reduces your skills, attack bonus, save throws and all effective spell caster level. It can't be applied if you already have five negative levels.
+A temporary negative level reduces your skills, attack bonus, save throws and all effective spell caster level. It can't be applied if you already have five negative levels.
 
 %^ULINE%^%^CYAN%^MIND%^RESET%^
 
