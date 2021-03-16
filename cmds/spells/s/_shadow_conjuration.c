@@ -4,7 +4,7 @@ void create()
 {
     ::create();
     set_spell_name("shadow conjuration");
-    set_spell_level(([ "mage" : 4, "bard" : 4, "oracle" : 4, "magus" : 4 ]));
+    set_spell_level(([ "mage" : 4, "bard" : 4, "oracle" : 4, "magus" : 4, "cleric" : 4 ]));
     set_mystery("darkness");
     set_domains("darkness");
     set_spell_sphere("illusion");
