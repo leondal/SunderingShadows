@@ -10,7 +10,7 @@ int reversed;
 void create() {
     ::create();
     set_spell_name("stoneskin");
-    set_spell_level(([ "mage" : 4, "druid" : 5, "monk" : 11, "inquisitor" : 4, "bard":4, "oracle":6, "magus" : 4 ]));
+    set_spell_level(([ "mage" : 4, "druid" : 4, "monk" : 11, "inquisitor" : 4, "bard":4, "oracle":6, "magus" : 4, "cleric" : 4 ]));
     set_domains(({"earth", "strength"}));
     set_spell_sphere("abjuration");
     set_monk_way("way of the elements");
