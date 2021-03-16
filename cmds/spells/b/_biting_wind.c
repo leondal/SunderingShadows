@@ -7,7 +7,7 @@ void create()
 {
     ::create();
     set_spell_name("biting wind");
-    set_spell_level(([ "mage" : 1, "oracle" : 1 ]));
+    set_spell_level(([ "mage" : 1, "oracle" : 1, "cleric" : 1 ]));
     set_mystery("wind");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS biting wind");
