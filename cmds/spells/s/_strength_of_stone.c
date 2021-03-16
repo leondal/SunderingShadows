@@ -11,7 +11,7 @@ void create() {
     ::create();
     set_author("ares");
     set_spell_name("strength of stone");
-    set_spell_level(([ "druid" : 3 ]));
+    set_spell_level(([ "druid" : 3, "cleric" : 3 ]));
     set_spell_sphere("alteration");
     set_domains("earth");
     set_syntax("cast CLASS strength of stone");
@@ -55,7 +55,7 @@ void spell_effect(int prof) {
 
     target->add_damage_bonus(bonus);
     target->add_attack_bonus(bonus);
-    target->set_property("empowered",bonus);
+    //target->set_property("empowered",bonus);
     addSpellToCaster();
     target->set_property("spelled",({TO}));
     target->set_property("blessed",1); //using this property so it won't stack with similar spells
