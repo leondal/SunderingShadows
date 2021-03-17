@@ -15,9 +15,9 @@ void create()
     set_spell_level(([ "innate" : 1 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS weretiger shape on weretiger|tiger");
-    set_description("With this power weretiger can transform itself into another form, that being of a huge tiger or humanoid tiger-like being. First form acts much like your common tiger in combat, with powerful specials. Hybrid form looks a lot like original humanoid form, with tiger-like ears and soft fur cover. Both forms provide bonuses to physical attributes and armor class, sight, attack, damage, perception, survival bonuses and weakness to silver.
+    set_description("With this power, a weretiger can transform itself into a huge tiger, or a humanoid tiger-like being. The tiger form acts much like a common tiger in combat, with powerful specials. The hybrid form looks a lot like the original humanoid form, but with tiger-like ears and soft fur. Both forms provide bonuses to physical attributes, armor class, sight, attack, damage, perception, and survival bonuses. They also develop a weakness to silver.
 
-%^BOLD%^%^RED%^N.B.%^RESET%^ You can set alternative description, speech string and adjective for these forms.");
+%^BOLD%^%^RED%^N.B.%^RESET%^ You can an set alternative description, speech string and adjective for these forms.");
     set_arg_needed();
     set_helpful_spell(1);
 }
