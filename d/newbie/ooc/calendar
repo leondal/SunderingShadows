@@ -1,10 +1,10 @@
-%^BOLD%^BLUE%^> The SG Calendar <%^RESET%^
-Time in the realms of ShadowGate is divided in the following way:
+%^BOLD%^BLUE%^> The SuS Calendar <%^RESET%^
+Time in the realms of Sundering Shadows is divided in the following way:
    20 seconds in one minute             6 days in one week
    60 minutes in one hour               4 weeks in one month
    20 hours in one day                 10 months in one year
 
-(This comes out to 3.6 SG days passing in one RL day.)
+(This comes out to 3.6 SuS days passing in one RL day.)
    
 The days of the week are named after the process of the creation of the realms:
    Shadowday - all the universe was empty darkness
@@ -26,5 +26,5 @@ The months of the year are named for the seasons and activities of the realms:
    Autumnstime
    Colddays
 
-Typing %^BOLD%^<date>%^RESET%^ will let you see both the current SG date and time as well as the mud date/time.
+Typing %^BOLD%^<date>%^RESET%^ will let you see both the current SuS date and time as well as the mud date/time.
 The %^BOLD%^<weather>%^RESET%^ command lets you easily see the time of day, season, current weather, and average temperature for the area.
