@@ -15,9 +15,9 @@ void create()
     set_spell_level(([ "innate" : 1 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS werewolf shape on werewolf|wolf");
-    set_description("With this power werewolf can transform itself into another form, that being of a huge wolf or humanoid wolf-like being. First form acts much like your common wolf in combat, with powerful specials. Hybrid form looks a lot like original humanoid form, with wolf-like ears and soft fur cover. Both forms provide bonuses to physical attributes and armor class, sight, attack, damage, perception, survival bonuses and weakness to silver.
+    set_description("With this power, a werewolf can transform itself into a huge wolf, or into a humanoid wolf-like being. The wolf form acts much like a common wolf in combat, with powerful specials. The hybrid form looks a lot like the original humanoid form, with wolf-like ears and soft fur. Both forms provide bonuses to physical attributes, armor class, sight, attack, damage, perception, and survival. They also develop a weakness to silver.
 
-%^BOLD%^%^RED%^N.B.%^RESET%^ You can set alternative description, speech string and adjective for these forms.");
+%^BOLD%^%^RED%^N.B.%^RESET%^ You can set an alternative description, speech string and adjective for these forms.");
     set_arg_needed();
     set_helpful_spell(1);
 }
