@@ -45,7 +45,7 @@ create()
     set_spell_sphere("invocation_evocation");
     set_domains("chaos");
     set_syntax("cast CLASS word of chaos on TARGET");
-    set_description("You shout some gibberish. Upon hearing it, the target may be briefly stunned, confused, or even die from such nonsense. Will save will negate some of the effects.");
+    set_description("You shout some gibberish. Upon hearing it, the target may be briefly stunned, confused, or even die from such nonsense. A will save will negate some of the effects.");
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);
@@ -54,7 +54,7 @@ create()
 
 string query_cast_string()
 {
-    tell_object(caster,"%^BOLD%^You can feel a chaotic pressence building inside, as you chant the words of chaos.");
+    tell_object(caster,"%^BOLD%^You can feel a chaotic presence building inside as you chant the words of chaos.");
     tell_room(place,"%^BOLD%^"+caster->QCN+" chants some gibberish.",caster);
     return "display";
 }
@@ -70,9 +70,9 @@ void spell_effect()
 
     if(!do_save(target,4))
     {
-        tell_room(place,"%^BOLD%^"+target->QCN+" stops for a moment with thoughtful expression.",target);
+        tell_room(place,"%^BOLD%^"+target->QCN+" stops for a moment with a thoughtful expression.",target);
     tell_object(target,"%^BOLD%^%^You are stunned by this utter nonsense.");
-    target->set_paralyzed(8*2,"You are stunned by gibberish you just heard.");
+    target->set_paralyzed(8*2,"You are stunned by the gibberish you just heard.");
     }
 
     if(ldiff>4)
