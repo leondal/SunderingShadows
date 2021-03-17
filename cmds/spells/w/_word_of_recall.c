@@ -15,7 +15,7 @@ void create()
     set_spell_level(([ "druid" : 8, "cleric" : 6, "inquisitor" : 5]));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS word of recall to LOCATION");
-    set_description("The word of recall spell will allow to travel to a location that she has previously  remembered from the 'remembered location' list.  To remember a new location use 'remember here as <location>', to see a list of all remembered locations, use 'recall locations'.\nThis spell must be cast while at peace.\nSee also: remember, unremember, recall");
+    set_description("The word of recall spell will allow travel to a previously remembered location from the 'remembered location' list.  To remember a new location use 'remember here as <location>', to see a list of all remembered locations, use 'recall locations'.\nThis spell must be cast while at peace.\nSee also: remember, unremember, recall");
     set_verbal_comp();
     set_arg_needed();
     set_peace_needed(1);
