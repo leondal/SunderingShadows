@@ -15,7 +15,7 @@ void create()
     set_syntax("cast CLASS wail of the banshee");
     set_damage_desc("sonic");
     set_domains(({ "repose" }));
-    set_description("A caster invokes a horrible arcane scream that may kill everything living in sight, mostly targets closest to caster. Those who withstand the scream still suffer a little.");
+    set_description("A caster invokes a horrible arcane scream that may kill every living thing in sight, but it mostly targets those closest to the caster. Those who withstand the scream still suffer a little bit.");
     set_verbal_comp();
     set_somatic_comp();
     set_save("fort");
@@ -24,7 +24,7 @@ void create()
 
 string query_cast_string()
 {
-    return "%^BLUE%^" + caster->QCN + " starts to chant in tongues fell, a feeling of otherwordly horror fills the place.";
+    return "%^BLUE%^" + caster->QCN + " starts to chant in fell tongues, and a feeling of otherwordly horror fills the area.";
 }
 
 void spell_effect(int prof)
@@ -32,8 +32,8 @@ void spell_effect(int prof)
     object* foes, foe;
     int max;
 
-    tell_object(caster, "%^BLUE%^You concentrate and release a HORRIBLE SCREAM in tongues of unlife.");
-    tell_room(place, "%^BLUE%^" + caster->QCN + " releases a HORRIBLE SCREAM in fell tongues, you feel your soul is being ripped from your body.", caster);
+    tell_object(caster, "%^BLUE%^You concentrate and release a HORRIBLE SCREAM in the language of unlife.");
+    tell_room(place, "%^BLUE%^" + caster->QCN + " releases a HORRIBLE SCREAM in fell tongues. You feel your soul being ripped from your body.", caster);
     message("info", "%^BLUE%^You hear a horrible high-pitched scream.", nearbyRoom(place, 2));
 
     foes = target_selector();
@@ -48,8 +48,8 @@ void spell_effect(int prof)
                 damage_targ(foe, foe->return_target_limb(), sdamage, "sonic");
                 continue;
             }
-            tell_object(foe, "%^BOLD%^%^BLUE%^You scream as your soul is carved out from the body!");
-            tell_room(place, "%^BOLD%^%^BLUE%^" + foe->QCN + " screams as " + foe->QP + " soul is carved out from the body!", foe);
+            tell_object(foe, "%^BOLD%^%^BLUE%^You scream as your soul is carved out from your body!");
+            tell_room(place, "%^BOLD%^%^BLUE%^" + foe->QCN + " screams as " + foe->QP + " soul is carved out from their body!", foe);
             damage_targ(foe, foe->return_target_limb(), foe->query_max_hp() * 2, "sonic");
             max -= foe->query_level();
         }
