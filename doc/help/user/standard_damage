@@ -1,6 +1,6 @@
 %^CYAN%^STANDARD DAMAGE%^RESET%^
 
-To scale damage successfully to fifty levels ShadowGate engine employs dice rules for spells of different levels across classes. When using damaging spells you may expect the next dies to roll when damage is applied:
+Each spell level utilizes a different die when calculating damage. The table per spell level is as follows:
 
 %^CYAN%^%^ULINE%^All classes:
 %^CYAN%^L0:%^RESET%^  1d5
@@ -18,7 +18,7 @@ To scale damage successfully to fifty levels ShadowGate engine employs dice rule
 %^CYAN%^Splash Spell:%^RESET%^ -2 level
 %^CYAN%^Burst Spell:%^RESET%^  -4 levels
 
-Various feats and conditions may shift damage table further.
+Various feats and conditions may shift the damage table further.
 
 %^CYAN%^Area of effect:%^RESET%^  1d6 + 1d6 per every 2 caster levels
 
