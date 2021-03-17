@@ -73,7 +73,7 @@ void ipc_monitor_self()
         debug("Error socket down.");
     }
 
-    call_out("ip_monitor_self", 30);
+    call_out("ipc_monitor_self", 30);
 }
 
 void ipc_listen(int fd)

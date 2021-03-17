@@ -21,7 +21,7 @@ void create()
 
 string query_cast_string()
 {
-    return "%^BOLD%^%^WHITE%^" + caster->QCN + " extens  " + caster->QP + " arm, an army of tiny spiders starts crawl out of " +caster->QP+" sleeves.";
+    return "%^BOLD%^%^WHITE%^" + caster->QCN + " extends  " + caster->QP + " arm, and an army of tiny spiders starts crawling out of " +caster->QP+" sleeves.";
 }
 
 
@@ -33,10 +33,10 @@ void spell_effect(int prof)
     }
 
     if (interactive(caster)) {
-        tell_object(caster, "%^BOLD%^%^WHITE%^Spiders attach to each other, forming a whip that extends from your hand.");
+        tell_object(caster, "%^BOLD%^%^WHITE%^The spiders attach to each other, forming a whip that extends from your hand.");
     }
 
-    tell_room(place, "%^BOLD%^%^WHITE%^Spiders on " + caster->QCN + "'s hands attach to each other, forming a whip!", caster);
+    tell_room(place, "%^BOLD%^%^WHITE%^The spiders on " + caster->QCN + "'s hand attaches to each other, forming a whip!", caster);
 
     mywpn = new("/d/magic/obj/whip_of_spiders");
     mywpn->make_me(TO);
@@ -53,7 +53,7 @@ void dest_effect()
 {
     if (objectp(mywpn) && objectp(caster)) {
         mywpn->remove();
-        tell_room(ENV(caster), "%^BOLD%^%^WHITE%^Spiders fall to the ground and quickly disperse around...");
+        tell_room(ENV(caster), "%^BOLD%^%^WHITE%^The spiders fall to the ground and quickly disperse...");
     }
     ::dest_effect();
     if (objectp(TO)) {
