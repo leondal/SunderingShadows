@@ -6,7 +6,7 @@ void create(){
    ::create();
    set_long(
 @STYX
-This is a series of posters, each with a name by topic for easy reference.  They have been designed to help guide new ShadowGate players through learning commands and how to make a memorable character to have the most fun while here.  You can read them according to their topic (type '%^BOLD%^read basics%^RESET%^' etc.).  The topics are:
+This is a series of posters, each with a name by topic for easy reference.  They have been designed to help guide new Sundering Shadows players through learning commands and how to make a memorable character to have the most fun while here.  You can read them according to their topic (type '%^BOLD%^read basics%^RESET%^' etc.).  The topics are:
 
 %^BOLD%^basics         %^RESET%^Survival - eat/drink, movement, finding your way
 %^BOLD%^communication  %^RESET%^Languages, lines, parties
