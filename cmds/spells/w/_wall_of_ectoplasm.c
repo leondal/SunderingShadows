@@ -63,7 +63,7 @@ void spell_effect(int prof) {
             wall2->move(outside);
             wall2->block(caster,ins[i]);
             tell_room(outside,"%^CYAN%^A shimmering field suddenly "+
-                      "spring up, blocking the "+
+                      "springs up, blocking the "+
                       ins[i]+"!%^RESET%^");
 /*
             tell_room(outside,"%^CYAN%^A shimmering field suddenly "+
