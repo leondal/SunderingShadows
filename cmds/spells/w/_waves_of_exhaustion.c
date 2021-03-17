@@ -22,7 +22,7 @@ void create() {
 }
 
 string query_cast_string() {
-    return "%^BLUE%^"+caster->QCN+" spells an incantation in eldritch tongue.";
+    return "%^BLUE%^"+caster->QCN+" spells an incantation in an eldritch tongue.";
 }
 
 void spell_effect(int prof){
@@ -30,7 +30,7 @@ void spell_effect(int prof){
     int i,admg;
     attackers = target_selector();
 
-    tell_room(place, "%^BOLD%^%^BLACK%^" + caster->QCN + " raises hand and releases waves of darkness!%^RESET%^");
+    tell_room(place, "%^BOLD%^%^BLACK%^" + caster->QCN + " raises a hand and releases waves of darkness!%^RESET%^");
     if (!sizeof(attackers)) {
         tell_object(caster, "%^BOLD%^%^BLACK%^The area is washed in fell waves but nothing else happens.%^RESET%^");
         dest_effect();
