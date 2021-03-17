@@ -17,9 +17,9 @@ void create()
     set_spell_level(([ "innate" : 1 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS wererat shape on wererat|rat");
-    set_description("With this power infected with the wererat plague can morph at will into a powerful, sneaky hybrid wererat form, resembling a larger, more powerful, version of a ratkin, or into a form of a dire rat.
+    set_description("With this power, those infected with the wererat plague can morph at will into a powerful form that resembles a larger, more powerful, version of a ratkin, or into the form of a dire rat.
 
-%^BOLD%^%^RED%^N.B.%^RESET%^ You can set alternative description, speech string and adjective for these forms.
+%^BOLD%^%^RED%^N.B.%^RESET%^ You can set an alternative description, speech string and adjective for these forms.
 
 %^BOLD%^%^RED%^See also:%^RESET%^ wererat, ratkin");
     set_arg_needed();
