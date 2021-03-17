@@ -9,7 +9,7 @@ void create() {
     set_spell_name("true strike");
     set_spell_level(([ "mage" : 1, "inquisitor" : 1, "magus" : 1, "cleric" : 1 ]));
     set_spell_sphere("divination");
-    set_domains(({"destruction", "knowledge", "fate"}));
+    set_domains(({"destruction", "fate"}));
     set_syntax("cast CLASS true strike on TARGET");
     set_damage_desc("clevel/3 to attack bonus for clevel/12+1 rounds");
     set_description("Gaining insight on future events, caster can grant anyone knowledge of how to exploit it to make a strikes unlikely to miss for the next few rounds
