@@ -18,7 +18,7 @@ create()
     set_discipline("shaper");
     set_syntax("cast CLASS web on TARGET");
     set_damage_desc("tripped for 3d4 rounds");
-    set_description("When a victim is unfortunate enough to be victim of a web spell, he/she might as well get a new hobby. If the web is successful, the victim will be immobilized within a massive web.");
+    set_description("When someone is unfortunate enough to be the victim of a web spell, they might as well get a new hobby. If the web is successful, the victim will be immobilized within a massive web.");
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);
