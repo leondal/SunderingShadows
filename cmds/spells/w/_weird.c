@@ -15,7 +15,7 @@ void create()
     set_spell_sphere("illusion");
     set_syntax("cast CLASS weird");
     set_damage_desc("mental, cowering");
-    set_description("With this spell, caster extends fears and horrors of own mind into material plane, causing pain and suffering to everything in sight. Only a strong will can withstand this power, and only to avoid some of the suffering..");
+    set_description("With this spell, the caster extends fears and horrors from their own mind into the material plane, causing pain and suffering to everything in sight. Only a strong will can withstand this power, and even then will only avoid some of the suffering..");
     set_verbal_comp();
     set_somatic_comp();
     splash_spell(2);
