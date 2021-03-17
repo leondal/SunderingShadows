@@ -10,14 +10,18 @@ void create(){
     set_property("indoors",1);
     set_light(-1);
     set_short("%^BOLD%^%^BLACK%^Underpaths entrance%^RESET%^");
-    set_long(query_short() + "\n" + "%^ORANGE%^This is a rough tunnel dug in the soil and stone you're in. It is not cramped and appears to be well-maintained. All wooden beams that support the tunnel seems to be in decent condition, with no sign of rot. Floor of this tunnel is layered with stone. There is a ladder that leads up into a dark hole in the ceiling.\n");
-    set_smell("default", "%^CYAN%^Breeze of fresh air flows from the hole in the ceiling.");
-    set_listen("default", "Earth silences all distant sounds.");
+    set_long(query_short() + "\n" + "%^ORANGE%^Soil and stone have been forcibly "+
+    "plowed through in order to create this tunnel. The well-maintained passageway is wide "+ 
+    "enough that you don't feel cramped here. Wooden beams support the walls and "+ 
+    "ceiling, and show no signs of rot. The floor is made from rough stones. "+ 
+    "A ladder leads up to a dark hole in the ceiling.\n");
+    set_smell("default", "%^CYAN%^A breeze of fresh air flows down from above.");
+    set_listen("default", "The earth silences all distant sounds.");
     set_items(([
-                   ({"floor", "road", "stone road"}):"Stones cut flat and placed to form a road.",
-                   "beams":"Lumber that supports this tunnels is of various quality, but placed thoroughly.",
-                   "soil":"Dirt plants take roots in.",
-                   "roots":"Some roots, some are long and thick, some hang from the ceiling. Most of them are cut to clear the tunnel.",
+                   ({"floor", "road", "stone road"}):"Flat stones form the path beneath your feet.",
+                   "beams":"Lumber that supports this tunnel is of various quality, but placed thoroughly.",
+                   "soil":"Roots push through the soil from the surface overhead.",
+                   "roots":"Roots, some rather long and thick, hang from the ceiling. Most of them are cut back to keep the path clear.",
                    ({"hole", "ladder"}):"The ladder leads many paces up.",
                    "tunnel":"You're in the tunnel. This is it. A tunnel. And you're in it.",
                    ]));

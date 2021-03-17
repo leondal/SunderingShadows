@@ -4,14 +4,17 @@
 inherit ROOM;
 
 string * features = ({
-        "Some of the beams here have been recently replaced, old ones still lie on the side of the tunnel.",
-            "Walls of the tunnel here had been reinforced with volcanic concrete.",
-            "Drops of %^RED%^blood%^ORANGE%^ can be seen on the road here.",
-            "Ceiling here had been reinforced with concrete, drops of water hint that there is body of water above.",
-            "It seems entrance to side tunnel recently collapsed here.",
-            "Walls of this part of the tunnel is entwined with unusual abundance of thick roots.",
-            "Stones in the earth here are covered with lichen.",
-            "This part is unusually stony, with almost no earth.",
+        "Some of the beams here have been recently replaced." 
+        "Old, rotting beams lay discarded lay along the sides of the path.",
+        "Volcanic concrete reinforces some of the walls where they'd started to crumble.",
+        "There's a bit of blood smeared over the road.",
+        "The ceiling above your head is reinforced with concrete." 
+        "Drips of water hint at a body of water above.",
+        "The entrance to a side tunnel has collapsed here, and the way is blocked with debris.",
+        "The walls are entwined with an unusual abundance of thick roots.",
+        "The stone pathway is covered with lichen.",
+        "The terrain here is mostly all rocks, with almost no soil to soften your step.",
+        "Bugs wriggle away into the walls, irritated at your trespassing.",
     });
 
 void create(){
@@ -24,14 +27,17 @@ void create(){
     if (random(3)) {
         set_property("no teleport", 1);
     }
-    set_long(query_short() + "\n" + "%^ORANGE%^This is a rough tunnel dug in the %^MAGENTA%^soil%^ORANGE%^ and %^WHITE%^stone%^ORANGE%^ you're in. It is not cramped and appears to be well-maintained. All wooden %^WHITE%^beams%^ORANGE%^ that support the tunnel seems to be in decent condition, with no sign of rot. Floor of this tunnel is layered with stone road." + make_fdesc() + "\n");
+    set_long(query_short() + "\n" + "%^ORANGE%^Soil and stone have been forcibly "+
+    "plowed through in order to create this tunnel. The well-maintained passageway is wide "+ 
+    "enough that you don't feel cramped here. Wooden beams support the walls and "+ 
+    "ceiling, and show no signs of rot. The floor is made from rough stones.\n");
     set_smell("default", "The air smells of roots and soil.");
-    set_listen("default", "Earth silences all distant sounds");
+    set_listen("default", "The earth silences all distant sounds.");
     set_items(([
-                   ({"floor", "road", "stone road"}):"Stones cut flat and placed to form a road.",
-                   "beams":"Lumber that supports this tunnels is of various quality, but placed thoroughly.",
-                   "soil":"Dirt plants take roots in.",
-                   "roots":"Some roots, some are long and thick, some hang from the ceiling. Most of them are cut to clear the tunnel.",
+                   ({"floor", "road", "stone road"}):"Flat stones form the path beneath your feet.",
+                   "beams":"The lumber that supports this tunnel is of various quality, but placed thoroughly.",
+                   "soil":"Roots push through the soil from the surface overhead.",
+                   "roots":"Roots, some rather long and thick, hang from the ceiling. Most of them are cut back to keep the path clear.",
                    "tunnel":"You're in the tunnel. This is it. A tunnel. And you're in it.",
                    ]));
 }

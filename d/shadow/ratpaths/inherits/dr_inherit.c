@@ -10,15 +10,20 @@ void create(){
     set_light(1);
     set_short("%^BOLD%^%^BLACK%^The Deep Roads%^RESET%^");
     set_property("no teleport", 1);
-    set_long(query_short() + "\n" + "%^CYAN%^This tunnel is enormous, with pristine ancient %^WHITE%^masonry%^CYAN%^ forming all of its surfaces. Faded %^ORANGE%^basreliefs%^CYAN%^ on the walls depict undecipherable stories visually telling history of dwarven people. Being ancient it is nearly impossible to tell what they say nowdays. Although abandoned, worn and unmaintained, these tunnels did not crumble over the ages. Wide roads still can host an army marching through. The path is lit with glowing stone %^ORANGE%^lamps%^CYAN%^ on the ceiling.");
-    set_listen("default", "%^BLUE%^Rumble of the earth resonates of the stone.");
+    set_long(query_short() + "\n" + "%^CYAN%^This tunnel is enormous, with wide roads that could easily host an "+
+"entire army marching through. Basreliefs on the walls once depicted the history "+ 
+"of the dwarven people, but they are so old and worn now, that it is nearly impossible "+
+"to decipher any meaning from them. Although the tunnels have long since been abandoned, "+ 
+"they still provide safe passage, and stand as a true testament to the "+ 
+"mastery of the masons who built them, so many ages ago. The path is lit with %^BOLD%^glowing "+
+"stone lamps%^CYAN%^ hanging from the ceiling.");set_listen("default", "%^BLUE%^Rumble of the earth resonates of the stone.");
     set_items(([
-                   "masonry":"Simple but masterful masonry features stones of various shapes fit together to form regular shapes of roads, walls, ceiling and columns in this tunnel.",
-                   "tunnels":"You're on the deep roads, basreliefs hint you these paths were constucted by ancient dwarves.",
-                   "road":"This road still can host many people marching in the same direction, so wide it is.",
-                   "ceiling":"Ceiling so far above these tunnels can host a dragon or two.",
-                   "basreliefs":"These no doubt would puzzle historians, if only they were a couple of thousand years not so faded.",
-                   "lamps":"These bright lamps are made of glowing stone. It is hard to say what craft powers them.",
+                   "masonry":"Simple but masterful masonry features stones of various shapes fit together to form the roads, walls, ceiling and columns in this tunnel.",
+                   "tunnels":"You're on the deep roads. Basreliefs hint that these paths were constucted by ancient dwarves.",
+                   "road":"This road is so wide, it can host many people marching in the same direction.",
+                   "ceiling":"The ceiling is so far overhead, that these tunnels could host a dragon or two.",
+                   "basreliefs":"These no doubt would puzzle historians. If only they were a couple of thousand years less faded.",
+                   "lamps":"These bright lamps are made of glowing stones. It is hard to say what craft powers them.",
                    ]));
 
 
