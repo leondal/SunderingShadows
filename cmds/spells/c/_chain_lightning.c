@@ -12,8 +12,8 @@ void create()
 {
     ::create();
     set_spell_name("chain lightning");
-    set_spell_level(([ "mage" : 6, "oracle" : 6, "magus" : 6, "cleric" : 6 ]));
-    set_domains("air");
+    set_spell_level(([ "mage" : 6, "oracle" : 6, "magus" : 6 ]));
+    set_domains("storms");
     set_mystery("heavens");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS chain lightning on TARGET");
