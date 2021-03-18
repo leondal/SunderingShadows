@@ -20,10 +20,10 @@ void create()
 {
     ::create();
     set_spell_name("earthquake");
-    set_spell_level(([ "innate" : 8 ]));
+    set_spell_level(([ "innate" : 8, "cleric" : 8, "druid" : 8 ]));
     set_spell_sphere("invocation_evocation");
     set_mystery("battle");
-    set_domains(({ "cavern", "earth" }));
+    set_domains(({ "earth" }));
     set_syntax("cast CLASS earthquake");
     set_description("By unleashing this spell, the caster calls forth a mighty earthquake to trip and damage his foes.  "
         "The spell will last several rounds depending upon the level of the priest, and the priest must remain present for the "
