@@ -1,13 +1,22 @@
+%^CYAN%^RACES ON SUNDERING SHADOWS%^RESET%^
+
 %^CYAN%^Standard rollable races:%^RESET%^
- Beastkin Dwarf Elf Firbolg Gnome Half-Elf Half-Orc Halfling Human Saurian Squole
 
-%^CYAN%^Races experienced players can roll:%^RESET%^
- Barrus Centaur Dryad Faery Half-Ogre Nymph Ogre-Mage Satyr Voadkyn Wemic Yuan-Ti Kitsune
+Beastkin, dwarf, elf, firbolg, gnome, half-elf, half-orc, halfling, human, saurian, voadkyn, wemic. All applicable subraces. 
 
-%^CYAN%^Experienced players can also roll monster races:%^RESET%^
- Bugbear Deva Drow Gnoll Goblin Half-Drow Hobgoblin Kobold Minotaur Ogre Orc Ratkin Shade Soulforged Troll
+%^CYAN%^PK races available to those with a 30+ account.%^RESET%^
 
-Your race determines your make-up. Some races are predisposed to being stronger, sturdier, more intelligent, more sensitive to light, etc. than other races. In addition, different races are physically different from others, having different limbs and other types of body parts. In real life, you had no choice. You were born human. In ShadowGate reality, you do get a choice. Do you want a magical character? Or do you want to play the game by brute force? Or perhaps deception or skullduggery? What do you prefer to explore? Do you like dark, enclosed areas? Or do you like well lit castles or the open outdoors? All these questions face you now. Whatever choice you make, so long as it fits the style in which you like to play, will be rewarding. There is neither a best pick nor a worst pick. There is only what is best or worst for your style.
+Bugbear, drow, fey'ri gnoll, goblin, half-drow, hobgoblin, kobold, ogre, orc, troll yuan-ti, half-ogre, ogre-mage, dhampir, were-creatures. All applicable subraces.
+
+%^RED%^Warning:%^RESET%^ PK races start play with their NOPK flag turned off by default. Enter the realm of PK at your own risk!
+
+%^CYAN%^Templates that may be gained through RP or by request%^RESET%^
+
+Undead (vampire etc.), deva, shade
+
+%^CYAN%^General Information%^RESET%^
+
+Your race determines your make-up. Some races are predisposed to being stronger, sturdier, more intelligent, more sensitive to light, etc. than other races. In addition, different races are physically different from others, having different limbs and other types of body parts. In real life, you had no choice. You were born human. In Sundering Shadows' reality, you do get a choice. Do you want a magical character? Or do you want to play the game by brute force? Or perhaps deception or skullduggery? What do you prefer to explore? Do you like dark, enclosed areas? Or do you like well lit castles or the open outdoors? All these questions face you now. Whatever choice you make, so long as it fits the style in which you like to play, will be rewarding. There is neither a best pick nor a worst pick. There is only what is best or worst for your style.
 
 Towards that end, here are some clues:
  * Intelligence and wisdom make the best magic users.
@@ -18,4 +27,4 @@ Each race has its own help file. For example, to find out about humans, type %^O
 
 %^ORANGE%^This is not the 20th century and an enlightened society. Racial hatreds and differences, people looking down on bastard half-races (including half-elves) and so forth is a way of life and even a requirement for survival.%^RESET%^
 
-%^CYAN%^See also:%^RESET%^ individual help files for races, rules, pkilling, undead, vampire
+%^CYAN%^SEE ALSO:%^RESET%^ individual help files for races, rules, pk rules, post pk rules, undead, vampire
