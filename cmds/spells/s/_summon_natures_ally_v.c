@@ -8,7 +8,6 @@ void create()
     ::create();
     set_spell_name("summon natures ally v");
     set_spell_level(([ "druid" : 5,]));
-    set_domains("animal");
     set_syntax("cast CLASS summon natures ally v");
 }
 
