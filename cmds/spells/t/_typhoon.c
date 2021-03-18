@@ -12,7 +12,8 @@ void create()
 {
     ::create();
     set_spell_name("typhoon");
-    set_spell_level(([ "druid" : 9, "mage" :9,]));
+    set_spell_level(([ "druid" : 9, "mage" :9, "cleric" : 9 ]));
+    set_domains("air");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS typhoon");
     set_damage_desc("bludgeoning, tripped");
