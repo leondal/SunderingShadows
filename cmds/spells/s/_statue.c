@@ -8,7 +8,7 @@ void create()
 {
     ::create();
     set_spell_name("statue");
-    set_spell_level(([ "oracle" : 7, "mage" : 7 ]));
+    set_spell_level(([ "oracle" : 7, "mage" : 7, "cleric" : 7 ]));
     set_spell_sphere("alteration");
     set_domains("cavern");
     set_mystery( ({ "stone", "metal" }) );
