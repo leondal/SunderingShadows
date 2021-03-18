@@ -10,7 +10,7 @@ void execute_me();
 void create() {
     ::create();
     set_spell_name("magic fang");
-    set_spell_level(([ "ranger" : 1, "cleric" : 1, "druid" : 1]));
+    set_spell_level(([ "ranger" : 1 ]));
     set_domains("animal");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS magic fang");
