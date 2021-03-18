@@ -12,6 +12,7 @@ void create() {
     ::create();
     set_spell_name("greater magic fang");
     set_spell_level(([ "ranger" : 3 ]));
+    set_domains("animal");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS greater magic fang");
     set_description("This spell lets the caster siphon some of his own will into his creatures, giving them bonuses in "
