@@ -11,7 +11,6 @@ void create()
     set_spell_name("protection from alignment");
     set_spell_level(([ "inquisitor" : 1, "cleric" : 1, "mage":1, "paladin":1]));
     set_spell_sphere("abjuration");
-    set_domains(({"good", "evil", "chaos", "law"}));
     set_syntax("cast CLASS protection from alignment on good|evil|chaos|law");
     set_damage_desc("+2 to saves");
     set_description("This spell allows you to ward yourself from spells originating at casters with specified alignment. You must belong to opposing alignment group to be able to use this spell.");
