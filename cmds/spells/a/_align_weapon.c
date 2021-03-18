@@ -11,7 +11,6 @@ void create()
     set_spell_name("align weapon");
     set_spell_level(([ "inquisitor" : 2, "cleric" : 2 ]));
     set_spell_sphere("alteration");
-    set_domains(({"good", "evil", "chaos", "law"}));
     set_syntax("cast CLASS align weapon on good|evil|chaos|law");
     set_description("Align weapon makes you able to bypass physical damage reduction of creatures with opposing alignment. You must belong to opposing group to be able to use this spell.");
     set_verbal_comp();
