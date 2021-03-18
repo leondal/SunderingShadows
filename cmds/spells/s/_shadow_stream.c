@@ -7,7 +7,7 @@ void create()
 {
     ::create();
     set_spell_name("shadow stream");
-    set_spell_level(([ "mage" : 1, "cleric" : 1 ]));
+    set_spell_level(([ "mage" : 1, ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS shadow stream on TARGET");
     set_mystery("darkness");
