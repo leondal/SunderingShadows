@@ -15,7 +15,6 @@ void create()
     set_spell_name("airbolt");
     set_spell_level(([ "cleric" : 5 ]));
     set_spell_sphere("invocation_evocation");
-    set_domains("air");
     set_syntax("cast CLASS airbolt on TARGET");
     set_damage_desc("bludgeoning");
     set_description("This spell enables a priest to concentrate the air around him into a powerful gust of wind. The "
