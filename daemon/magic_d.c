@@ -445,6 +445,12 @@ mapping index_castable_spells(object player, string myclass)
             if(success)
             {
                 lvl = spellIndex[spellfile]["levels"]["mage"];
+                if(!lvl)
+                    lvl = spellIndex[spellfile]["levels"]["innate"];
+                if(!lvl)
+                    lvl = spellIndex[spellfile]["levels"]["ranger"] * 2;
+                if(!lvl)
+                    lvl = spellIndex[spellfile]["levels"]["bard"];
                 tmp[spellfile] = lvl;
             }
         }
