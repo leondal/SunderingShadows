@@ -372,25 +372,6 @@ mapping index_castable_spells(object player, string myclass)
     all_spell_names = keys(spellIndex);
     all_spells = ([]);
     tmp = ([]);
-    
-    if(myclass == "cleric" || myclass == "druid")
-    {
-        int success = 0;
-        
-        foreach(spellfile in keys(domain_spells))
-        {
-            domain = spellIndex[spellfile]["divine_domain"];
-            
-            foreach(string str in domain)
-            {
-                if(member_array(str, player->query_divine_domain()) >= 0)
-                    success++;
-            }
-            
-            if(success)
-                all_spell_names += ({ spellfile });        
-        }
-    }
             
     foreach(spellfile in all_spell_names)
     {
@@ -446,6 +427,29 @@ mapping index_castable_spells(object player, string myclass)
         
         tmp[spellfile] = lvl;
     }
+
+    if(myclass == "cleric" || myclass == "druid")
+    {
+        int success = 0;
+        
+        foreach(spellfile in keys(domain_spells))
+        {
+            domain = spellIndex[spellfile]["divine_domain"];
+            
+            foreach(string str in domain)
+            {
+                if(member_array(str, player->query_divine_domain()) >= 0)
+                    success++;
+            }
+            
+            if(success)
+            {
+                lvl = spellIndex[spellfile]["levels"]["mage"];
+                tmp[spellfile] = lvl;
+            }
+        }
+    }
+    
     return tmp;
 }
 
