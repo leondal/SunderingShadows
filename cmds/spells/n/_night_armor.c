@@ -11,7 +11,7 @@ int mybonus;
 void create() {
     ::create();
     set_spell_name("night armor");
-    set_spell_level(([ "mage" : 4, "cleric" : 4 ]));
+    set_spell_level(([ "mage" : 4 ]));
     set_domains("cavern");
     set_spell_sphere("illusion");
     set_syntax("cast CLASS night armor on TARGET");
