@@ -8,7 +8,7 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("hold animal");
-    set_spell_level(([ "ranger" : 2,"druid" : 2, "cleric" : 2 ]));
+    set_spell_level(([ "ranger" : 2 ]));
     set_spell_sphere("enchantment_charm");
     set_domains("animal");
     set_syntax("cast CLASS hold animal on TARGET");
