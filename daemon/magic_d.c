@@ -574,7 +574,7 @@ mapping query_domain_spells()
 int is_valid_domain_spell(object player, string spell, string myclass)
 {
    int lvl, success;
-   string *domain;
+   string *domain, cls;
    
    lvl = 0;
    success = 0;
@@ -583,6 +583,9 @@ int is_valid_domain_spell(object player, string spell, string myclass)
        return 0;
       
     domain = spellIndex[spell]["divine_domain"];
+    
+    if(!sizeof(domain))
+        return 0;
             
     foreach(string str in domain)
     {
@@ -594,7 +597,8 @@ int is_valid_domain_spell(object player, string spell, string myclass)
         return 0;
     
     //lvl = spellIndex[spell]["levels"]["mage"];
-    lvl = keys(spellIndex[spell]["levels"])[0];
+    cls = keys(spellIndex[spell]["levels"])[0];
+    lvl = spellIndex[spell]["levels"][cls];
   
     return lvl;
 }
