@@ -18,8 +18,7 @@ int is_curse()
 void create() {
     ::create();
     set_spell_name("garble");
-    set_spell_level(([ "mage" : 3, "bard" : 2, "cleric":3]));
-    set_domains("chaos");
+    set_spell_level(([ "mage" : 3, "bard" : 2 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS garble on TARGET");
     set_description("This will remove from the target the ability to understand, both read and write any language. This should not change the ability to teach the language.");
