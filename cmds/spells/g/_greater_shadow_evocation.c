@@ -4,7 +4,7 @@ void create()
 {
     ::create();
     set_spell_name("greater shadow evocation");
-    set_spell_level(([ "mage" : 8, "oracle" : 8, "cleric" : 8 ]));
+    set_spell_level(([ "mage" : 8, "oracle" : 8 ]));
     set_mystery(({"darkness","shadow"}));
     set_domains("darkness");
     set_spell_sphere("illusion");
