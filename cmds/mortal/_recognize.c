@@ -88,7 +88,7 @@ Recognizing someone for the first time grants you a small amount of exp towards 
 
 You can recall list of recognized people with <recall relationships>.
 
-%^CYAN%^SEE ALSO%^RESET% ^
+%^CYAN%^SEE ALSO%^RESET%^
 
 recall, who, mail
 "
