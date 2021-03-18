@@ -11,7 +11,7 @@ void create(){
     ::create();
     set_author("nienne");
     set_spell_name("shadow travel");
-    set_spell_level(([ "innate" : 1, "assassin": 4, "monk": 15, "oracle" : 6, "cleric" : 6 ]));
+    set_spell_level(([ "innate" : 1, "assassin": 4, "monk": 15, "oracle" : 6 ]));
     set_mystery(({"darkness","shadow"}));
     set_domains("darkness");
     set_spell_sphere("alteration");
