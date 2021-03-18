@@ -345,7 +345,7 @@ mapping query_index_row(string spell)
 mapping index_castable_spells(object player, string myclass)
 {
     mapping all_spells, tmp;
-    string* all_spell_names, spellfile, featneeded, domain, pclass;
+    string* all_spell_names, spellfile, featneeded, *domain, pclass;
     int lvl;
     string playerdisc = player->query_discipline();
     string playerway = player->query("monk way");
@@ -592,6 +592,11 @@ mixed* query_index(string myclass)
         theclass = "cleric";
     }
     return allSpells[theclass];
+}
+
+mapping query_domain_spells()
+{
+    return domain_spells;
 }
 
 mapping *query_global_index()
