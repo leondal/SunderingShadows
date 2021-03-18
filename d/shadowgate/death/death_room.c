@@ -250,7 +250,6 @@ void begin_trial(object tp){
     "time of judgement has come.\n");
     call_out("bane1", 7, tp);
     TP->remove_property("trial");
-    TP->set("pk_trial", 1);
     WHICH_CALL_OUT = "bane1";
     attempt_raise();
     return;
