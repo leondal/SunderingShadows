@@ -9,7 +9,7 @@ int current;
 void create() {
     ::create();
     set_spell_name("powerword blind");
-    set_spell_level(([ "mage" : 7, "cleric" : 7 ]));
+    set_spell_level(([ "mage" : 7 ]));
     set_domains(({"knowledge", "war", "darkness"}));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS powerword blind on TARGET");
