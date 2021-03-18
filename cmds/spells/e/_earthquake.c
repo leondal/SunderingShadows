@@ -20,7 +20,7 @@ void create()
 {
     ::create();
     set_spell_name("earthquake");
-    set_spell_level(([ "cleric" : 8, "druid" : 8 ]));
+    set_spell_level(([ "innate" : 8 ]));
     set_spell_sphere("invocation_evocation");
     set_mystery("battle");
     set_domains(({ "cavern", "earth" }));
