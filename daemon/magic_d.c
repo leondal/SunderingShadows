@@ -609,6 +609,11 @@ mapping query_domain_spells()
     return domain_spells;
 }
 
+string *spell_domains(string spell)
+{
+    return spellIndex[spell]["divine_domain"];
+}
+
 mapping *query_global_index()
 {
     return spellIndex;
@@ -621,6 +626,8 @@ mapping *filter_global_index(function filter)
 
 int query_spell_level(string myclass, string spell)
 {
+    int lvl;
+    
     if (myclass == "sorcerer") {
         myclass = "mage";
     }
@@ -632,7 +639,8 @@ int query_spell_level(string myclass, string spell)
     }
     if (!allSpells[myclass][spell]) {
         return 0;
-    }
+    }       
+    
     return allSpells[myclass][spell];
 }
 

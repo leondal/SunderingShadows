@@ -336,8 +336,8 @@ int query_memorized(string myclass, string spell)
 
 int can_memorize(string myclass, string spell)
 {
-    int lvl, max, curr, class_level;
-    string mystat, subrace;
+    int lvl, max, curr, class_level, success;
+    string mystat, subrace, *domains;
 
     if (!spells_memorized) {
         resetMemorized();
@@ -352,6 +352,33 @@ int can_memorize(string myclass, string spell)
         }
     }else {
         lvl = MAGIC_D->query_spell_level(myclass, spell);
+        
+        if(!lvl)
+        {
+            if(myclass == "cleric" || myclass == "druid")
+            {
+                success = 0;
+                domains = MAGIC_D->spell_domains(spell);
+                
+                foreach(string str in domains)
+                {
+                    if(member_array(str, this_object()->query_divine_domain()) >= 0)
+                        success++;
+                }
+                
+                if(!success)
+                    return 0;
+                
+                lvl = MAGIC_D->query_spell_level("mage", spell);
+                if(!lvl)
+                    lvl = MAGIC_D->query_spell_level("innate", spell);
+                if(!lvl)
+                    lvl = MAGIC_D->query_spell_level("bard", spell);
+                if(!lvl)
+                    lvl = MAGIC_D->query_spell_level("ranger", spell);
+            }            
+        }
+        
         if (!lvl) {
             return 0;
         }
