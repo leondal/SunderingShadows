@@ -403,11 +403,6 @@ mapping index_castable_spells(object player, string myclass)
             }
         }
         
-        if(pclass == "cleric" || pclass == "druid")
-        {
-            if(!is_valid_domain_spell(player, spellfile, pclass))
-                
-        
         tmp[spellfile] = lvl;
     }
       
