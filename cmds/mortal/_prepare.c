@@ -233,7 +233,22 @@ int cmd_prepare(string str)
     }
     else
     {
-        if (sscanf(spellname, cannot prepare that spell.\n"); }
+        if (sscanf(spellname, "level %d", sl) != 1) { return notify_fail("As a spontaneous caster, you need to <prepare myclass level x [times x]>.\n"); }
+    }
+
+    if (times < 1) { return notify_fail("You need to memorize " + spellname + " at least once.\n"); }
+
+    if (myclass != "bard" &&
+        myclass != "inquisitor" &&
+        myclass != "oracle" &&
+        myclass != "magus" &&
+        myclass != "sorcerer") { sl = spells[spellname]; }
+
+    rst = TP->can_memorize(myclass,spellname);
+    if (rst == TOO_MANY)            { return notify_fail("You have prepared all of the spells allowed.\n"); }
+    if (rst == SPELL_RESTRICTED)    { return notify_fail("Your use of this spell has been restricted!\n"); }
+    if (rst == TOO_STUPID)          { return notify_fail("You do not meet the stat requirement to use that spell.\n"); }
+    if (rst != MEM_OK)              { return notify_fail("You cannot prepare that spell.\n"); }
 
 // start mem'ing the spell!
     temp = sl * MEMORIZE_DELAY;
