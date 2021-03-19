@@ -484,6 +484,7 @@ mixed* query_all_memorized(string myclass)
     if (!mapp(spells_memorized[myclass])) {
         add_mem_class(myclass);
     }
+    
     return spells_memorized[myclass];
 }
 

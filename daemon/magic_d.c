@@ -403,6 +403,11 @@ mapping index_castable_spells(object player, string myclass)
             }
         }
         
+        if(pclass == "cleric" || pclass == "druid")
+        {
+            if(!is_valid_domain_spell(player, spellfile, pclass))
+                
+        
         tmp[spellfile] = lvl;
     }
       
@@ -585,7 +590,7 @@ int is_valid_domain_spell(object player, string spell, string myclass)
     domain = spellIndex[spell]["divine_domain"];
     
     if(!sizeof(domain))
-        return 0;
+        return 1;
             
     foreach(string str in domain)
     {
@@ -600,7 +605,9 @@ int is_valid_domain_spell(object player, string spell, string myclass)
     cls = keys(spellIndex[spell]["levels"])[0];
     lvl = spellIndex[spell]["levels"][cls];
   
-    return lvl;
+    //return lvl;
+    
+    return 0;
 }
 
 string *spell_domains(string spell)
