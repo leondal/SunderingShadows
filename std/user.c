@@ -4211,6 +4211,10 @@ int isKnown(string who)
         profile = "default";
     }
     profiles = relationships[who];
+    
+    if(!mapp(profiles))
+        return 0;
+    
     profile_names = keys(profiles);
     if (member_array(profile, profile_names) == -1) {
         return 0;
