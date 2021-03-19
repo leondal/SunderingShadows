@@ -8,7 +8,7 @@ void create()
 {
     ::create();
     set_spell_name("antilife shell");
-    set_spell_level(([ "innate" : 6 ]));
+    set_spell_level(([ "cleric" : 6, "druid" : 6 ]));
     set_domains("animal");
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS antilife shell");
