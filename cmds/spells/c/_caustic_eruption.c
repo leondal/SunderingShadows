@@ -14,7 +14,8 @@ void create()
     ::create();
     set_author("odin");
     set_spell_name("caustic eruption");
-    set_spell_level((["mage" : 7 ]));
+    set_spell_level((["mage" : 7, "cleric" : 7 ]));
+    set_domains("suffering");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS caustic eruption");
     set_damage_desc("acid");
