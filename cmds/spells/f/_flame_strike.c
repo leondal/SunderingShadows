@@ -19,7 +19,7 @@ void damage();
 void create() {
     ::create();
     set_spell_name("flame strike");
-    set_spell_level(([ "druid" : 4, "inquisitor":5]));
+    set_spell_level(([ "druid" : 4, "inquisitor":5, "cleric" : 4 ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS flame strike on TARGET");
     set_description("This spell will call down a pillar of flame to engulf your foes.  It can be used in two ways - when "
