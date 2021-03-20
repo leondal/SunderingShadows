@@ -10,7 +10,6 @@ void create() {
     ::create();
     set_spell_name("unholy smite");
     set_spell_level(([ "cleric" : 4, "inquisitor" : 4 ]));
-    set_domains(({"evil"}));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS unholy smite");
     set_damage_desc("untyped on neutral and good");
