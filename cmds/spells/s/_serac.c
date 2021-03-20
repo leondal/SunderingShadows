@@ -5,7 +5,7 @@ void create()
 {
     ::create();
     set_spell_name("serac");
-    set_spell_level(([ "mage" : ]));
+    set_spell_level(([ "mage" : 2 ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS serac on TARGET");
     set_damage_desc("half cold half bludgeoning");
