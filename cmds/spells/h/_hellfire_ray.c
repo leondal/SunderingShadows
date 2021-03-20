@@ -6,6 +6,7 @@ void create()
     ::create();
     set_spell_name("hellfire ray");
     set_spell_level(([ "mage" : 6, "cleric" : 6, "magus" : 6 ]));
+    set_domains("evil");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS hellfire ray on TARGET");
     set_damage_desc("half fire, half divine");
