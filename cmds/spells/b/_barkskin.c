@@ -9,7 +9,6 @@ void create()
     ::create();
     set_spell_name("barkskin");
     set_spell_level(([ "ranger" : 2,"druid" : 2, "oracle":2]));
-    set_domains("plant");
     set_mystery("nature");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS barkskin");
