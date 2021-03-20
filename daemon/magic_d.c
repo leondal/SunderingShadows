@@ -28,6 +28,7 @@ inherit DAEMON;
 
 void index_spells();
 mapping allSpells;
+mapping domain_spells;
 mapping spellIndex;
 
 mapping quick_names;
@@ -286,6 +287,7 @@ void build_index()
     mapping level, spelltable;
 
     spellIndex = ([]);
+    domain_spells = ([]);
 
     quick_names = ([]);
 
@@ -314,7 +316,11 @@ void build_index()
                         spelltable["way"] = str2->query_monk_way();
                         spelltable["discipline"] = str2->query_discipline();
                         spelltable["feats"] = str2->query_feats_required();
-                        spelltable["divine_domain"] = str2->query_domains();
+                        if(sizeof(str2->query_divine_domains()))
+                        {                          
+                            spelltable["divine_domain"] = str2->query_domains();
+                            domain_spells += ([ all_spells[x] : spelltable ]);
+                        }
                         spellIndex += ([ all_spells[x] : spelltable]);
                     }
                 }
