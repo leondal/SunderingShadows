@@ -316,7 +316,7 @@ void build_index()
                         spelltable["way"] = str2->query_monk_way();
                         spelltable["discipline"] = str2->query_discipline();
                         spelltable["feats"] = str2->query_feats_required();
-                        if(sizeof(str2->query_divine_domains()))
+                        if(sizeof(str2->query_domains()))
                         {                          
                             spelltable["divine_domain"] = str2->query_domains();
                             domain_spells += ([ all_spells[x] : spelltable ]);
