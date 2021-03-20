@@ -11,6 +11,7 @@ void create()
     ::create();
     set_spell_name("infernal healing");
     set_spell_level(([ "mage" : 1, "cleric" : 1, "warlock": 1, "magus" : 1 ]));
+    set_domains("evil");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS infernal healing [on TARGET]");
     set_damage_desc("fast healing 1");
