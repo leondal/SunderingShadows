@@ -13,8 +13,8 @@ void create()
 {
     ::create();
     set_spell_name("mind blank");
-    set_spell_level(([ "psywarrior" : 6, "psion" : 7, "mage" : 8,]));
-    set_domains(({"plant", "protection"}));
+    set_spell_level(([ "psywarrior" : 6, "psion" : 7, "mage" : 8, "cleric" : 8]));
+    set_domains("mentalism");
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS mind blank");
     set_description("This power shields the character's mind. The mental fortress provides the same benefits as the Escape Detection or Protection from scrying power as well as offering additional protection against mind-affecting spells and powers.");
