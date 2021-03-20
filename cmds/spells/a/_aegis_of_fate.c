@@ -11,7 +11,7 @@ void create()
 {
     ::create();
     set_spell_name("aegis of fate");
-    set_spell_level(([ "cleric" : 6 ]))
+    set_spell_level(([ "cleric" : 6 ]));
     set_domains("fate");
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS aegis of fate on TARGET");
