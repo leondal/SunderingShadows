@@ -10,7 +10,8 @@ void create()
 {
     ::create();
     set_spell_name("weird");
-    set_spell_level(([ "mage" : 9, "oracle" : 9 ]));
+    set_spell_level(([ "mage" : 9, "oracle" : 9, "cleric" : 9 ]));
+    set_domains("madness");
     set_mystery("whimsy");
     set_spell_sphere("illusion");
     set_syntax("cast CLASS weird");
