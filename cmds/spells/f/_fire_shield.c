@@ -11,7 +11,7 @@ void create(){
     ::create();
     set_author("nienne");
     set_spell_name("fire shield");
-    set_spell_level(([ "mage" : 4, "magus" : 4 ]));
+    set_spell_level(([ "mage" : 4, "magus" : 4, "cleric" : 4 ]));
     set_spell_sphere("invocation_evocation");
     set_domains("fire");
     set_syntax("cast CLASS fire shield [on chill|warm]");
