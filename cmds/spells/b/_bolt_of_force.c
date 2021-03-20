@@ -8,7 +8,6 @@ void create(){
     set_spell_name("bolt of force");
     set_spell_level( ([ "cleric" : 6, "psion" : 6 ]) );
     set_spell_sphere("invocation_evocation");
-    set_domains("mentalism");
     set_discipline("kineticist");
     set_syntax("cast CLASS bolt of force on TARGET");
     set_description("This spell produces a bolt of pure force in the form of a wave of mental energy that is projected in "
