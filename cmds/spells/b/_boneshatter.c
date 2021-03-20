@@ -10,6 +10,7 @@ void create()
     set_spell_name("boneshatter");
     set_spell_level(([ "mage" : 4, "cleric" : 4, "oracle" : 4 ]));
     set_spell_sphere("necromancy");
+    set_domains("suffering");
     set_mystery("bones");
     set_syntax("cast CLASS boneshatter on TARGET");
     set_damage_desc("untyped, exhausted or fatigued on save");
