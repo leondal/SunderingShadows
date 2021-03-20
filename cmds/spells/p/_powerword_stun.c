@@ -14,7 +14,6 @@ void create() {
     ::create();
     set_spell_name("powerword stun");
     set_spell_level(([ "mage" : 8,]));
-    set_domains(({"knowledge", "war", "creation"}));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS powerword stun on TARGET");
     set_description("When the powerword stun spell is uttered, any creature of the caster's choice is stunned, reeling "
