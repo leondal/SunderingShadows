@@ -393,6 +393,8 @@ string *generate_race()
         choices = filter_array(choices, (:!(("/std/races/") + $1)->is_restricted():));
     }
 
+    choices = filter_array(choices, (:(("/std/races/") + $1)->is_rollable():));
+
     {
         string choice;
         string subrace, *subraces;
@@ -463,6 +465,8 @@ string *generate_template()
     {
         choices = map(filter_array(map(get_dir("/std/acquired_template/*.c"),(:"/std/acquired_template/" + $1:)), (:member_array($2, arrayp($1->races_allowed()) ? $1->races_allowed() : ({$2})) != -1:), char_sheet["race"]), (: replace_string(replace_string($1, "/std/acquired_template/", ""), ".c", "") :));
     }
+
+    choices = filter_array(choices, (:(("/std/acquired_template/") + $1)->is_rollable():));
 
     choices += ({"none"});
     choices = distinct_array(choices);

@@ -18,6 +18,8 @@ int *stat_mods(string subrace) { return ({ 4, 0, 4, -2, 0, -4}); }
 
 int is_restricted() { return 1; } // restricted races by approval
 
+int is_rollable() { return 1; } // rollable in creation
+
 mapping skill_mods(string subrace) { return ([ "perception" : 2 ]); }
 
 

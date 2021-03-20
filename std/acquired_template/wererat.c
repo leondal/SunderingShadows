@@ -5,6 +5,8 @@ string *races_allowed()
     return ({"human", "ratkin"});
 }
 
+int is_rollable() { return 0; } // rollable in creation
+
 /*
   Bostly homebrew, some things are based on rules in Lords of the wild
   Wererat plague lycanthropy powers are in wererat shapes

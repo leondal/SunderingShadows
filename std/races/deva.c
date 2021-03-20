@@ -90,6 +90,8 @@ int is_restricted()
     return 1;
 }                                 // restricted races by approval
 
+int is_rollable() { return 0; } // rollable in creation
+
 string race_name()
 {
     return "deva";

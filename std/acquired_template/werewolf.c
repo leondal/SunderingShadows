@@ -11,6 +11,8 @@ string *races_allowed()
     return ({"human", "elf", "half-elf", "drow", "half-drow", "half-orc", "beastkin", "dwarf", "half-dwarf"});
 }
 
+int is_rollable() { return 1; } // rollable in creation
+
 mapping innate_spells()
 {
     return ([ "commune with nature" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),

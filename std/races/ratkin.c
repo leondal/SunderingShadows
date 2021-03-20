@@ -83,6 +83,8 @@ int is_restricted()
     return 1;
 }
 
+int is_rollable() { return 0; } // rollable in creation
+
 // Stuff needed to replace what was in the old race database
 
 string race_name()
