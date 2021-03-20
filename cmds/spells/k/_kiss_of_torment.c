@@ -6,6 +6,7 @@ void create() {
     ::create();
     set_spell_name("kiss of torment");
     set_spell_level(([ "cleric" : 5 ]));
+    set_domains("suffering");
     set_spell_sphere("necromancy");
     set_syntax("cast CLASS kiss of torment on TARGET");
     set_description("A simple touch from this spell will deal extreme torment to the victim, leaving them in agony and distress.");
