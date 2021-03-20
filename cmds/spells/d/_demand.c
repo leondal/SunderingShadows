@@ -10,7 +10,7 @@ void create()
     set_spell_name("demand");
     set_spell_level(([ "cleric" : 8, "mage" : 8, ]));
     set_spell_sphere("enchantment_charm");
-    set_domains("charm");
+    set_domains("madness");
     set_syntax("cast CLASS demand on TAGET to COMMAND");
     set_description("This spell acts like sending and command merged together. There is a delay between attempts and your target will be aware where you are.");
     set_save("will");
