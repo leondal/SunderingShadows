@@ -4,7 +4,7 @@ void create()
 {
     ::create();
     set_spell_name("shades");
-    set_spell_level(([ "mage" : 9, "oracle" : 9 ]));
+    set_spell_level(([ "mage" : 9, "oracle" : 9, "cleric" : 9 ]));
     set_mystery("shadow");
     set_domains("darkness");
     set_spell_sphere("illusion");
