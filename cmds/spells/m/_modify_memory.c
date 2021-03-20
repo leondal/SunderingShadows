@@ -8,7 +8,7 @@ create()
     set_spell_name("modify memory");
     set_spell_level(([ "assassin" : 4, "bard" : 4, "psion" : 4, "oracle" : 4]));
     set_mystery("lore");
-    set_domains(({ "mentalism" }));
+    set_domains(({ "trickery" }));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS modify memory on TARGET");
     set_description("This spell alters victim's memory so they won't remember who you are. Should their will falter they will forget your name and will be momentarily dazed.");
