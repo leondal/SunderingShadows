@@ -12,7 +12,7 @@ void create() {
     ::create();
     set_spell_name("stormwinds");
     set_spell_level(([ "cleric" : 5, "druid":5, "oracle" : 5 ]));
-    set_domains("air");
+    set_domains(({ "air", "storms" }));
     set_mystery("wind");
     set_spell_sphere("elemental air");
     set_domains("storms");
