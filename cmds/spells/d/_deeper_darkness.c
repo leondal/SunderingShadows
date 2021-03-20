@@ -8,7 +8,7 @@ inherit "/cmds/spells/d/_darkness";
 void create() {
     ::create();
     set_spell_name("deeper darkness");
-    set_spell_level(([ "mage" : 3, "assassin": 3, "inquisitor" : 3, "cleric" : 3 ]));
+    set_spell_level(([ "mage" : 3, "assassin": 3, "inquisitor" : 3, "cleric" : 3, "oracle" : 3 ]));
     set_mystery(({"darkness","shadow"}));
     set_domains(({ "cavern", "darkness" }));
     set_syntax("cast CLASS deeper darkness on TARGET");
