@@ -39,7 +39,9 @@ int *min_stats() { return ({ 11, 6, 11, 3, 3, 3 }); }
 int *max_stats() { return ({ 19, 17, 18, 18, 18, 18 }); }
 int *stat_adj() { return ({ 1, -1, 0, 0, 0, 0 }); }
 
-int is_restricted() { return 1; } // restricted races by approval
+int is_restricted() { return 0; } // restricted races by approval
+
+int is_rollable() { return 1; } // rollable in creation
 
 // Stuff needed to replace what was in the old race database
 

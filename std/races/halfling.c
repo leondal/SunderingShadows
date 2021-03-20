@@ -70,6 +70,8 @@ int *stat_adj() { return ({ -1, 1, 0, 0, 0, 0 }); }
 
 int is_restricted() { return 0; } // restricted races by approval
 
+int is_rollable() { return 1; } // rollable in creation
+
 // Stuff needed to replace what was in the old race database
 
 string race_name() { return "halfling"; }

@@ -199,6 +199,8 @@ int is_restricted()
     return 0;
 }                                 // restricted races by approval
 
+int is_rollable() { return 1; } // rollable in creation
+
 // Stuff needed to replace what was in the old race database
 
 string race_name()
@@ -374,12 +376,13 @@ string* query_eye_colors(string subrace, int cha)
 string* query_subraces(object who)
 {
     string* subraces;
-    subraces = ({ "moon elf", "wood elf", "sun elf" });
+    subraces = ({ "moon elf", "wood elf", "sun elf", "wild elf" });
     if (OB_ACCOUNT->is_experienced(who->query_true_name()) ||
         OB_ACCOUNT->is_high_mortal(who->query_true_name()) ||
         avatarp(who) ||
         who->query("is_valid_npc")) {
-        subraces += ({ "wild elf", "fey'ri", "szarkai", "aquatic elf", "sildruath"});
+        //subraces += ({"fey'ri", "szarkai", "aquatic elf", "sildruath"}); //remove subraces without game world lore yet
+        subraces += ({ "fey'ri", "szarkai"});
     }
     return subraces;
 }
