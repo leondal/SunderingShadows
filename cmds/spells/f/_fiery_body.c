@@ -29,8 +29,9 @@ void create()
 {
     ::create();
     set_spell_name("fiery body");
-    set_spell_level(([ "mage" : 9, "oracle" : 9, "warlock" : 4 ]));
+    set_spell_level(([ "mage" : 9, "oracle" : 9, "warlock" : 4, "cleric" : 9 ]));
     set_mystery("flame");
+    set_domains("fire");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS fiery body");
     set_damage_desc("levitating, 133% resistance to fire, 50% to acid and electricity, -50% to cold, 6 dex bonus");
