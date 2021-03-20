@@ -15,7 +15,6 @@ void create() {
     ::create();
     set_spell_name("produce flame");
     set_spell_level(([ "druid" : 1, "cleric":2]));
-    set_domains("fire");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS produce flame on TARGET");
     set_description("The druid opens his hand, palm up, and a flame as "
