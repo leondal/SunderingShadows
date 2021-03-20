@@ -11,7 +11,7 @@ void create()
     ::create();
     set_spell_name("insanity");
     set_spell_level(([ "mage" : 7, "psion" : 7, "cleric" : 7 ]));
-    set_domains("charm");
+    set_domains("madness");
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS insanity on TARGET");
     set_damage_desc("continuously confuses target");
