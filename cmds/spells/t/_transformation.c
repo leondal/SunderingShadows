@@ -11,7 +11,6 @@ void create() {
     set_author("nienne");
     set_spell_name("transformation");
     set_spell_level(([ "mage" : 6, "oracle" : 6, "magus" : 6 ]));
-    set_domains(({"war"}));
     set_mystery("battle");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS transformation");
