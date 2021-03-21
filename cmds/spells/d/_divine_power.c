@@ -12,6 +12,7 @@ void create()
     ::create();
     set_spell_name("divine power");
     set_spell_level(([ "cleric" : 4, "inquisitor":4]));
+    set_domains("war");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS divine power");
     set_description("This spell will fill the caster with the rage of war, causing him to berserk madly. The strength of the caster's deity and a blessed speed result in blind fighting and reckless fearlessness. This spell does not work in conjunction with similar magical effects, such as rally, rage, haste, transformation, dance of a thousand cuts, or fell flight.%^RESET%^");
