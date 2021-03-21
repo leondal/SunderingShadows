@@ -16,25 +16,11 @@ Reading and understanding the rules is a great place to start. We also have many
 
 People on the who listing are currently unknown to you. You will first have to %^ORANGE%^<recognize>%^RESET%^ them, before you will be able to call them by name (including yourself). This allows for player's to provide nicknames, or even false names, rather than their real name. Please see %^ORANGE%^<help recognize>%^RESET%^ for more information.
 
-%^CYAN%^3.b. What do the ** before and after a person's name on who list mean?
+%^CYAN%^3b. What do the ** before and after a person's name on who list mean?
 
 People who have the ** around their name means that their next command is being processed. In other words, they are either editing, posting on a bulletin board, or mailing (or something of that nature). It is considered polite not to bother someone who is in one of these situations, unless it is really important, or you know they won't mind.
 
-%^CYAN%^3.c. What does the letters K, A, and F after some names on the "who" list mean?
-
-In the spirit of fun and fairness, Sundering Shadows has implemented a system to determine who is an appropriate party member for you, as well as who you are able to participate in playerkilling with.
-
-A %^%^ORANGE%^%^ULINE%^BOLD%^RESET%^%^%^%^ORANGE%^%^ULINE%^GREEN%^RESET%^%^K%^%^ORANGE%^%^ULINE%^RESET%^RESET%^%^ means you are free to party with, and engage in pk with, that person.
-
-An %^%^ORANGE%^%^ULINE%^YELLOW%^RESET%^%^A%^%^ORANGE%^%^ULINE%^RESET%^RESET%^%^ means you may adventure with, but not playerkill, that person.
-
-An %^%^ORANGE%^%^ULINE%^BOLD%^RESET%^%^%^%^ORANGE%^%^ULINE%^RED%^RESET%^%^F%^%^ORANGE%^%^ULINE%^RESET%^RESET%^%^ means you are forbidden to participate in both parties
-
-and playerkilling with that person.
-
-Please see %^ORANGE%^<help wholist>%^RESET%^ for more information.
-
-%^CYAN%^3.d. What does "Inactive" after a player's name on who list mean?
+%^CYAN%^3c. What does "Inactive" after a player's name on who list mean?
 
 By typing %^ORANGE%^<inactive>%^RESET%^, a player can indicate they've gone afk and are not currently active participants in the world. Likewise, someone who has idled for too long will automatically be put into inactive mode.
 
@@ -42,11 +28,11 @@ By typing %^ORANGE%^<inactive>%^RESET%^, a player can indicate they've gone afk 
 
 This would probably indicate that you are a non-human race, and are speaking a language other than the one that your parents raised you with. This makes it somewhat more challenging to play a non-human (common-speaking) race. %^ORANGE%^<languages>%^RESET%^ will list the languages you do speak, and you can use the %^ORANGE%^<speak>%^RESET%^ command to change your language to one that you can speak fluently.
 
-%^CYAN%^4.b. Okay, but doesn't this limit my %^ORANGE%^%^ULINE%^RP%^RESET%^?
+%^CYAN%^4b. Okay, but doesn't this limit my %^ORANGE%^%^ULINE%^RP%^RESET%^?
 
 It is the opinion of the wizzes here on Sundering Shadows that everyone not knowing how to speak the same language at the outset causes more opportunities to play your role rather than less. Perhaps you will meet someone not of your race who knows your language, or perhaps you may not bother, or be able to learn common for some reason. You can use the %^ORANGE%^<teach>%^RESET%^ command to teach another player a language you know.
 
-%^CYAN%^4.c. How do I customize my says?
+%^CYAN%^4c. How do I customize my says?
 
 There is a command called %^ORANGE%^<speech>%^RESET%^, which you can use to change how your speech will look. Please note that the before the first space of your speech pattern, an 's' will be appended to that word, so that:
 
@@ -80,7 +66,7 @@ You may be trying to wield or wear something which is restricted to players of a
 
 %^CYAN%^9. Is player killing allowed?
 
-Playerkilling on Sundering Shadows is optional. All players are, by default, but to the exclusion of beast races, opted out of playerkilling. You can change this by typing %^ORANGE%^<flag player kill . off>%^RESET%^. It should be noted that there are certain circumstances which will temporarily flag you for non-pk again, such as a recent death or an extended absence. If you are not currently available to pk, you should avoid situations where the roleplay might turn aggressive. Additionally, you are only able to engage in pk with players who have a %^%^ORANGE%^%^ULINE%^BOLD%^RESET%^%^%^%^ORANGE%^%^ULINE%^GREEN%^RESET%^%^K%^%^ORANGE%^%^ULINE%^RESET%^RESET%^%^ next to their names on the wholist. If pk happens, we would appreciate it if you could send a %^ORANGE%^<pkmail>%^RESET%^ so we can better understand the circumstances that led to it, and if any consequences are warranted. Please see %^ORANGE%^<help pkmail>%^RESET%^ for more information.
+Playerkilling on Sundering Shadows is optional. All players are, by default, but to the exclusion of beast races, opted out of playerkilling. You can change this by typing %^ORANGE%^<flag player kill . off>%^RESET%^. It should be noted that there are certain circumstances which will temporarily flag you for non-pk again, such as a recent death or an extended absence. If you are not currently available to pk, you should avoid situations where the roleplay might turn aggressive. If pk happens, we would appreciate it if you could send a %^ORANGE%^<pkmail>%^RESET%^ so we can better understand the circumstances that led to it, and if any consequences are warranted. Please see %^ORANGE%^<help pkmail>%^RESET%^ for more information.
 
 %^CYAN%^10. How do I know my stats?
 
