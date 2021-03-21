@@ -6,7 +6,7 @@ void create() {
     ::create();
     set_name("armageddon");
     set_id( ({ "armageddon", "crasher", "game crasher", "armageddon the game crasher" }) );
-    set_short("Game crasher Armageddon of ShadowGate");
+    set_short("Game crasher Armageddon of Sundering Shadows);
     set_long("He appears once and briefly only to cause doom to the mud.\n");
     set_level(19);
     set_hd(19,0);
