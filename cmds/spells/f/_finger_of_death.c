@@ -8,7 +8,9 @@ void create()
 {
     ::create();
     set_spell_name("finger of death");
-    set_spell_level(([ "mage" : 7, "druid" : 8, ]));
+    set_spell_level(([ "mage" : 7, "cleric" : 8 ]));
+    set_domains("evil");
+    evil_spell(1);
     set_spell_sphere("necromancy");
     set_syntax("cast CLASS finger of death on TARGET");
     set_damage_desc("negative energy");
