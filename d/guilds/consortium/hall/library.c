@@ -18,7 +18,7 @@ void create(){
    " history of days past seem to leap out of the books that bind them.  There are"+
     " many study areas set up around the room as well as tables and chairs for more"+
    " leisurely reading.  Off to your north is the documentation of the history of"+
-   " Shadowgate and how the times have changed. To the south is the museum of warfare.\n"
+   " the realms and how the times have changed. To the south is the museum of warfare.\n"
    );
 
    set_smell("default","You can smell the chemicals used to preserve the paperbound books.");
