@@ -12,7 +12,7 @@ void create() {
     set_long("%^RESET%^%^ORANGE%^Lines of text have been scrawled upon the sign to read.  Beneath them, there is a "
 "%^YELLOW%^map%^RESET%^%^ORANGE%^ that you could %^RESET%^read%^ORANGE%^.\n\n"
 "%^RESET%^The town of Offestry is the center of this small valley, and serves as the entry point to the wider world of "
-"Shadowgate.  Here, life is easier and simpler, so that you may learn your way before you progress onwards.  Newbie "
+"Sundering Shadows.  Here, life is easier and simpler, so that you may learn your way before you progress onwards.  Newbie "
 "status will end when you find your trainer or pass through the last gate far to the south.  Help is readily available "
 "via the 'newbie' and 'inform' lines, and even the shopkeepers will try to answer some of your questions.\n\n"
 "%^BOLD%^It is required that the rules be observed and that you roleplay from the beginning.  Reading  <help rules>, "
