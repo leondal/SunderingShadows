@@ -8,7 +8,6 @@ void create() {
     ::create();
     set_spell_name("magic weapon");
     set_spell_level(([ "mage" : 1, "cleric" : 1, "inquisitor" : 1, "oracle" : 1, "paladin":1, "magus" : 1 ]));
-    set_domains("war");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS magic weapon on OBJECT");
     set_description("With this spell you can make any non-cursed, non-enchanted weapon +1.
