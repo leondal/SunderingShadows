@@ -13,7 +13,6 @@ void create() {
     set_spell_name("magic vestments");
     set_spell_level(([ "cleric" : 3,"inquisitor" : 3, "oracle" : 3 ]));
     set_mystery("battle");
-    set_domains(({"strength", "war",}));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS magic vestments");
     set_description("Calling for a blessing from their deity, the cleric can recieve magical vestments that will protect "
