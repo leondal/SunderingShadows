@@ -12,11 +12,11 @@ void create() {
         set_short("%^MAGENTA%^Character info. room");
         set_long(
 @STYX
-This room is designed to help players learn how to make their characters more memorable and also comply with the role-playing aspects of ShadowGate.  There are several posters on the walls here to help you with syntax and information about useful commands and how to play here.  Type %^BOLD%^<look posters>%^RESET%^ to see the topics they cover and how to read them. 
+This room is designed to help players learn how to make their characters more memorable and also comply with the role-playing aspects of Sundering Shadows.  There are several posters on the walls here to help you with syntax and information about useful commands and how to play here.  Type %^BOLD%^<look posters>%^RESET%^ to see the topics they cover and how to read them. 
 STYX
         );
         set_smell("default","The room smells like vanilla-scented candles.");
-        set_listen("default","The room is quiet except for the conversations about how to play in ShadowGate.");
+        set_listen("default","The room is quiet except for the conversations about how to play in Sundering Shadows.");
         set_items(([
         ]));
         set_exits(([
