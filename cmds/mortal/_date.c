@@ -22,7 +22,7 @@ int cmd_date(string str)
     }else {
         write("%^BOLD%^%^CYAN%^Current time " + str + ": %^YELLOW%^" + ctime(borg));
     }
-    write("%^BOLD%^%^BLUE%^Current ShadowGate time: %^GREEN%^" + hour(time()) + ":" + (minutes(time()) > 9?minutes(time()):"0" + minutes(time())) + " " + day(time()) + ", " + date(time()) + " " + month(time()) + ", " + year(time()) + " SG");
+    write("%^BOLD%^%^BLUE%^Current Sundering Shadows time: %^GREEN%^" + hour(time()) + ":" + (minutes(time()) > 9?minutes(time()):"0" + minutes(time())) + " " + day(time()) + ", " + date(time()) + " " + month(time()) + ", " + year(time()) + " SG");
     write("%^BOLD%^%^RED%^-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
     return 1;
 }
