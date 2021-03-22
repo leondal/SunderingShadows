@@ -12,7 +12,6 @@ void create()
     set_spell_name("holy aura");
     set_spell_level(([ "cleric" : 8, "mage":8]));
     set_spell_sphere("abjuration");
-    set_domains("good");
     set_syntax("cast CLASS holy aura");
     set_damage_desc("divine damage, 4 AC, 4 to all saves");
     set_description("You are surrounded by an aura of good that will harm all your opponents and will slightly protect you. This is nimbus-family spell that won't work with other nimbuses.");
