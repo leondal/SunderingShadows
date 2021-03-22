@@ -16,6 +16,7 @@ void create() {
     set_spell_name("dispel magic");
     set_spell_level(([ "mage" : 3, "cleric" : 3, "paladin" : 3, "bard" : 3, "druid" : 4,"inquisitor" : 3, "oracle": 3, "magus" : 3 ]));
     set_mystery("spellscar");
+    set_domains("magic");
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS dispel magic (on TARGET)");
     set_description("Dispel Magic, when cast, will destroy any spell enchantments, any magical summonings, and anything conjured.  The chances of each dispelling depends on both the dispeller's casting level and the casting level of the wizard or priest that created whatever is being dispelled, whether it be an enchantment, summoning, or conjuration.");
