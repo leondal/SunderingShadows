@@ -17,7 +17,8 @@ void create()
 {
     ::create();
     set_spell_name("prismatic sphere");
-    set_spell_level(([ "mage" : 9 ]));
+    set_spell_level(([ "mage" : 9, "cleric" : 9 ]));
+    set_domains("protection");
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS prismatic sphere");
     set_save("reflex");
