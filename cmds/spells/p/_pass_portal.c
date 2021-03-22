@@ -14,7 +14,6 @@ void create() {
     set_spell_level(([ "cleric" : 6, "oracle" : 6 ]));
     set_mystery("waves");
     set_spell_sphere("alteration");
-    set_domains("travel");
     set_syntax("cast CLASS pass portal on <direction>");
     set_description("A priest with the travel domain may use this spell to bypass many doors and barriers found blocking "
 "her path.  Some rooms may be enchanted to prevent such magic, but most are not.  If the priest is visible when casting "
