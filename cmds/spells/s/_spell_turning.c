@@ -13,7 +13,6 @@ void create()
     set_spell_level(([ "mage" : 7, "oracle" : 7 ]));
     set_mystery("spellscar");
     set_spell_sphere("abjuration");
-    set_domains("protection");
     set_damage_desc("clevel/6+5 spell reflection chance.");
     set_syntax("cast CLASS spell turning");
     set_description("The most skilled of abjurationists can use such a spell to raise a protective ward around themselves"
