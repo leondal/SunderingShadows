@@ -10,7 +10,6 @@ void create() {
     set_spell_name("resurrection");
     set_spell_level(([ "cleric" : 9,"druid":9 ]));
     set_spell_sphere("healing");
-    set_domains("renewal");
     set_syntax("cast CLASS resurrection on TARGET");
     set_description("Praying to their diety for a miracle, a priest can attempt to resurrect a slainally back to life. The resurrection, if successful, will restore the corpseback to life and full of health. The spell is somewhat draining on the priest,for channeling large ammounts of divine power can be exhausting. The targetwill suffer significantly less from the death due to theintervention of the priest. Unlike lower spells this spell will work on targets whose corpse is not present.
 
