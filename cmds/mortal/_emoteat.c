@@ -144,9 +144,9 @@ emoteat - directs an emote towards a living target.
 
 %^CYAN%^SYNOPSIS%^RESET%^
 
-%^ORANGE%^emoteat TARGET MESSAGE CODE
+%^ORANGE%^emoteat TARGET MESSAGE CODE%^RESET%^
 
-%^ORANGE%^emoteat TARGET MESSAGE CODE ''SPOKEN WORDS''
+%^ORANGE%^emoteat TARGET MESSAGE CODE ''SPOKEN WORDS''%^RESET%^
 
 %^CYAN%^DESCRIPTION%^RESET%^
 
