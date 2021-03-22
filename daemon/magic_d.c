@@ -453,10 +453,15 @@ mapping index_castable_spells(object player, string myclass)
  */
 mapping index_masterable_spells(object player, string myclass)
 {
+    
     mapping all_spells, tmp;
     string* all_spell_names, spellfile, featneeded, domain, pclass;
     int lvl;
-
+    
+    {
+    return index_castable_spells(player, myclass);
+    }
+    
     pclass = myclass;
     if (pclass == "sorcerer") {
         pclass = "mage";
