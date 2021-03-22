@@ -14,7 +14,6 @@ void create()
     set_spell_name("aura of healing");
     set_spell_level(([ "cleric" : 7 ]));
     set_spell_sphere("healing");
-    set_domains("renewal");
     set_syntax("cast CLASS aura of healing");
     set_description("This spell heals wounds on party members. The amount and length of the spell are dependent on the strength of the caster. The party members must remain with the caster to receive the effect. This effect uses positive or negative depending on whether the caster is undead.");
     set_verbal_comp();
