@@ -10,7 +10,8 @@ void create()
 {
     ::create();
     set_spell_name("vortex");
-    set_spell_level(([ "mage" : 7, "druid" : 7, "oracle" : 7 ]));
+    set_spell_level(([ "mage" : 7, "druid" : 7, "oracle" : 7, "cleric" : 7 ]));
+    set_domains("water");
     set_mystery("waves");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS vortex");
