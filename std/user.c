@@ -1361,6 +1361,7 @@ void setup()
         sight_bonus = (int)RACE_D->query_sight_bonus(query("race"));
 
         if(member_array("cavern", TO->query_divine_domain()) >= 0 ||
+           member_array("moon", this_object()->query_divine_domain()) >= 0 ||
            member_array("darkness", TO->query_divine_domain()) >= 0)
             sight_bonus += 2;
 
