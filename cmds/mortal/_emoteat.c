@@ -144,31 +144,31 @@ emoteat - directs an emote towards a living target.
 
 %^CYAN%^SYNOPSIS%^RESET%^
 
-%^ORANGE%^emoteat %^ORANGE%^%^ULINE%^TARGET%^RESET%^ %^ORANGE%^%^ULINE%^STRING%^RESET%^
+%^ORANGE%^emoteat TARGET MESSAGE CODE
 
-%^ORANGE%^emoteat %^ORANGE%^%^ULINE%^TARGET%^RESET%^ %^ORANGE%^%^ULINE%^STRING%^RESET%^ %^ORANGE%^%^ULINE%^''SPOKEN WORDS''%^RESET%^ %^ORANGE%^%^ULINE%^STRING%^RESET%^.
+%^ORANGE%^emoteat TARGET MESSAGE CODE ''SPOKEN WORDS''
 
 %^CYAN%^DESCRIPTION%^RESET%^
 
-%^CYAN%^%^ULINE%^Summary:%^RESET%^
+%^CYAN%^Summary:%^RESET%^
 
-Emoteat is an extension of emote (%^ORANGE%^<help emote>%^RESET%^) that allows you to %^CYAN%^emote at%^RESET%^ someone by directing your action towards that person (your target).  By using the codes below, you tell your target and everyone else in the room exactly who you are adressing.  We feel this increases immersion and improves communication.  It uses the recognize system (%^ORANGE%^<help recognize>%^RESET%^), so it is seen differently depending on which names people have you and your target recognized as.  It is also seen differently by you, your target and everyone else in the room respectively.
+Emoteat is an extension of emote (%^ORANGE%^<help emote>%^RESET%^) that allows you to %^CYAN%^emote at%^RESET%^ someone by directing your action towards that person (your target).  By using the codes below, you tell your target and everyone else in the room exactly who you are adressing. This increases immersion and improves communication. It uses the recognize system (%^ORANGE%^<help recognize>%^RESET%^), so it is seen differently depending on which names people have you and your target recognized as. It is also seen differently by you, your target and everyone else in the room respectively.
 
-%^ORANGE%^%^ULINE%^TARGET%^RESET%^ is the creature you are directing your emote at. %^ORANGE%^%^ULINE%^STRING%^RESET%^ is the action you wish to describe. Your name will be added to the start of the emote automatically.
+%^ORANGE%^TARGET%^RESET%^ is the creature you are directing your emote at. %^ORANGE%^STRING%^RESET%^ is the action you wish to describe. %^ORANGE%^CODE%^RESET%^ is the code you use to replace pronouns. Your name will be added to the start of the emote automatically.
 
-%^CYAN%^%^ULINE%^Speech Within Emotes:%^RESET%^
+%^CYAN%^Speech Within Emotes:%^RESET%^
 
 It is possible to use speech within emotes when using the emoteat tool.  To do so, put the text you wish to say inside quotation marks.  The spoken text will be displayed in the language you are currently speaking (%^ORANGE%^<help languages>%^RESET%^).
 
-%^CYAN%^%^ULINE%^A Word of Caution:%^RESET%^
+%^CYAN%^A Word of Caution:%^RESET%^
 
 While you are free to emote at any living target (including NPCs and mounts), please remember that you only control your own character and any extensions thereof (your followers, your familiar, your horse, etc).  Refrain from using emoteat to feign control over coded NPC's in the game world (see %^ORANGE%^<help emoteat guide>%^RESET%^ for clarification).
 
-%^CYAN%^%^ULINE%^Codes:%^RESET%^
+%^CYAN%^Codes:%^RESET%^
 
-Refer to the list below for the %^CYAN%^codes %^WHITE%^that can be used with emoteat. The column named %^CYAN%^Result%^RESET%^ shows how the code will be seen by %^GREEN%^you%^WHITE%^, %^MAGENTA%^your target %^WHITE%^and %^BOLD%^%^BLACK%^everyone else in the room %^RESET%^respectively.
+Refer to the list below for the %^ORANGE%^codes %^WHITE%^that can be used with emoteat. The column named %^CYAN%^Result%^RESET%^ shows how the code will be seen by %^GREEN%^you%^WHITE%^, %^MAGENTA%^your target %^WHITE%^and %^BOLD%^%^BLACK%^everyone else in the room %^RESET%^respectively.
 
- CODE     DESCRIPTION     RESULT AS SEEN BY:  %^GREEN%^You %^WHITE%^| %^MAGENTA%^Your Target %^WHITE%^| %^BOLD%^%^BLACK%^Room
+ CODE   DESCRIPTION       RESULT AS SEEN BY:  %^GREEN%^You %^WHITE%^| %^MAGENTA%^Your Target %^WHITE%^| %^BOLD%^%^BLACK%^Room
 %^RESET%^
  %^MAGENTA%^$N   %^WHITE%^-  Your target's name                -  %^GREEN%^Name %^WHITE%^| %^MAGENTA%^You %^WHITE%^| %^BOLD%^%^BLACK%^Name
  %^BOLD%^%^MAGENTA%^$np  %^RESET%^-  Target's name in possessive form  -  %^GREEN%^Name's %^WHITE%^| %^MAGENTA%^Your %^WHITE%^| %^BOLD%^%^BLACK%^Name's
@@ -216,7 +216,7 @@ For more examples and nifty ways to use emoteat, please visit our emoteat guide 
 
 %^CYAN%^SEE ALSO%^RESET%^
 
-emote, emoteat guide, emoteat codes, pose, colors, languages, recognize, say, whisper, yell
+emote, emoteat guide, emoteat codes, pose, colors, languages, recognize, say, whisper, yell, roleplaying
 OLI
     );
         return 1;
