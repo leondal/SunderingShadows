@@ -3,7 +3,7 @@
 For a list of horse commands, please see %^ORANGE%^<help horses>%^RESET%^.
 
 %^CYAN%^INTRODUCTION
-The world of Shadowgate MUD offer a variety of horses and other mounts to ease your travels.  Travelling by horseback requires less stamina and may shorten the duration of your trip.  Specially trained war horses and even flying mounts are available at selected stables.  Visit your local stable-hand today for a good deal!  %^CYAN%^Note:%^RESET%^  Stables can be found in most major cities and some rural areas, but the selection varies greatly from city to city.  Should you already own a mount, this is the polite place to leave it before enjoying a night at the local inn.
+The world of Sundering Shadows offer a variety of horses and other mounts to ease your travels.  Travelling by horseback requires less stamina and may shorten the duration of your trip.  Specially trained war horses and even flying mounts are available at selected stables.  Visit your local stable-hand today for a good deal!  %^CYAN%^Note:%^RESET%^  Stables can be found in most major cities and some rural areas, but the selection varies greatly from city to city.  Should you already own a mount, this is the polite place to leave it before enjoying a night at the local inn.
 
 %^CYAN%^SKILL: ATHLETICS%^RESET%^ 
 
@@ -19,7 +19,7 @@ There are several commands available, listed in %^ORANGE%^<help horses>%^RESET%^
  
 %^CYAN%^DESCRIPTIONS:
 
-Shadowgate allows you describe the mounts that you buy, by setting their short (adjective) and long descriptions (describe). As of now, short and long descriptions do not save.  We recommend you use an alias to set these more easily upon login.  See %^ORANGE%^<help alias>%^RESET%^. 
+Sundering Shadows allows you describe the mounts that you buy, by setting their short (adjective) and long descriptions (describe). As of now, short and long descriptions do not save.  We recommend you use an alias to set these more easily upon login.  See %^ORANGE%^<help alias>%^RESET%^. 
 
 %^BOLD%^%^CYAN%^Please note: 
 %^GREEN%^Your mount's adjective (name mount) must be RP-appropriate and include the race and/or type of the animal in question ("pony", "horse", "camel" etc).  While you may give your mount a name, we prefer that you do not.  "Spot, a spotted pony" is an ok adjective, but "A brown spotted pony" is better.  Just "Spot" is not allowed, because passersby cannot identify it as a pony.
