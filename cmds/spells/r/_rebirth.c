@@ -12,10 +12,9 @@ inherit SPELL;
 void create(){
     ::create();
     set_spell_name("rebirth");
-    set_spell_level(([ "cleric" : 8, "psion" : 7 ]));
+    set_spell_level(([ "cleric" : 7, "psion" : 7 ]));
     set_spell_sphere("healing");
     set_discipline("shaper");
-    set_domains("renewal");
     set_syntax("cast CLASS rebirth");
     set_description("This spell provides the caster with a certain amount of protection, allowing him to ressurrect "
 "himself should he die.  The priest will be given a choice at the moment of death and may accept the rebirth offered from "
