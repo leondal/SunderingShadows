@@ -7,6 +7,8 @@ void create() {
     set_spell_name("mass cure critical wounds");
     set_spell_level(([ "cleric" : 8,"druid" : 9,"inquisitor":5 ]));
     set_affixed_spell_level(5);
+    set_domains(({}));
+    set_mystery(({}));
     set_spell_sphere("healing");
     set_syntax("cast CLASS mass cure critical wounds on TARGET");
     set_description("This is a stronger version of the priest spell, cure critical wounds.  When cast without a target or "

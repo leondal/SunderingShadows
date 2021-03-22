@@ -9,8 +9,9 @@ void create()
 {
     ::create();
     set_spell_name("heal");
-    set_spell_level(([ "cleric" : 6, "druid" : 7,"inquisitor":6,"oracle":6 ]));
+    set_spell_level(([ "cleric" : 6,"inquisitor":6,"oracle":6 ]));
     set_mystery("life");
+    set_domains("renewal");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS heal on TARGET");
     set_damage_desc("positive energy");

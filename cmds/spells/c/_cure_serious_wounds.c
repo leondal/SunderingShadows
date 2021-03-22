@@ -8,6 +8,8 @@ void create()
     set_author("pator");
     set_spell_name("cure serious wounds");
     set_spell_level(([ "cleric" : 3, "bard" : 3, "paladin" : 4, "ranger" : 4,"druid" : 4,"inquisitor":3 ]));
+    set_domains(({}));
+    set_mystery(({}));
     set_affixed_spell_level(3);
     set_spell_sphere("healing");
     set_syntax("cast CLASS cure serious wounds on TARGET");
