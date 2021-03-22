@@ -99,7 +99,7 @@ int GoThroughDoor()
         "%^YELLOW%^help describe%^BOLD%^%^WHITE%^ if you need a reminder of how the "+
         "command to set your describe works. \n\nYou may also type "+
         "%^YELLOW%^examples describe%^BOLD%^%^WHITE%^ while in this room to "+
-        "see some examples of real describess that ShadowGate players have set "+
+        "see some examples of real describess that Sundering Shadows players have set "+
         "for their characters.%^RESET%^");
         return 0;
     }
@@ -110,7 +110,7 @@ int GoThroughDoor()
         "%^YELLOW%^help adjective%^BOLD%^%^WHITE%^ if you need a reminder of how the "+
         "command to set your adjective works. \n\nYou may also type "+
         "%^YELLOW%^examples adjective%^BOLD%^%^WHITE%^ while in this room to "+
-        "see some examples of real adjectives that ShadowGate players have set "+
+        "see some examples of real adjectives that Sundering Shadows players have set "+
         "for their characters.%^RESET%^");
         return 0;
     }
@@ -153,14 +153,14 @@ int GoThroughDoor()
         }
 
         tell_object(TP, "%^BOLD%^%^YELLOW%^\n\nYou are now entering the large world of "+
-        "ShadowGate. There are many commands and help files that have not been covered by "+
+        "Sundering Shadows. There are many commands and help files that have not been covered by "+
         "this tutorial. \n\nFeel free to ask over the lines, particularly the %^CYAN%^<ooc>%^ORANGE%^ line, if "+
         "you find something that you do not understand. "+
         "\n\nThere are also nuances of the game that you will only learn in time and with "+
         "experience. A good many players who give the game time learn that they love it, "+
         "particularly the depth from the roleplay, but also the exploration and the "+
         "different mechanics.\n\nIt is our hope that you will become one of those players!\n\n"+
-        "%^B_CYAN%^%^YELLOW%^Welcome to ShadowGate!%^RESET%^\n\n");
+        "%^B_CYAN%^%^YELLOW%^Welcome to Sundering Shadows!%^RESET%^\n\n");
         //make map appear in inventory
         if(TP->query("advance place")) TP->set("advance place", 0);
         TP->move_player(TO->query_exit("portal"));
