@@ -9,7 +9,7 @@ void create()
 {
     ::create();
     set_spell_name("wail of the banshee");
-    set_spell_level(([ "mage" : 9, "oracle" : 9 ]));
+    set_spell_level(([ "mage" : 9, "oracle" : 9, "cleric" : 9 ]));
     set_spell_sphere("necromancy");
     set_mystery(({ "reaper", "bones" }));
     set_syntax("cast CLASS wail of the banshee");
