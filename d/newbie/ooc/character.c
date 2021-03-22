@@ -11,7 +11,7 @@ create() {
    	set_race("human");
       set_gender("male");
       set("short", "Riley, a player helper");
-   	set("long","Riley is here to help you learn how to make your character memorable.  He will try to answer questions you may have but if you simply listen to what he says you will learn things you might not even think to ask about.  He will also point out some important things you need to do or consider in order to comply with the role-playing aspects of playing here in Shadowgate.");
+   	set("long","Riley is here to help you learn how to make your character memorable.  He will try to answer questions you may have but if you simply listen to what he says you will learn things you might not even think to ask about.  He will also point out some important things you need to do or consider in order to comply with the role-playing aspects of playing here in Sundering Shadows.");
       set_level(20);
 		set_class("fighter");
       add_search_path("/cmds/fighter");
