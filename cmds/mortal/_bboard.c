@@ -14,6 +14,9 @@ string * BBOARDS=({
             "newbie",
             "lawboard",
             "avatarmail",
+            "pkmail",
+            "bugsboard",
+            "ideasboard",
             });
 
 
@@ -81,6 +84,12 @@ int check_access(string my_command, string which_board)
                     return 1;
                     break;
             }
+        case "bugsboard" : case "ideasboard" :
+            if(wizardp(this_player()))
+                return 1;
+            else
+                return 0;
+            break;
         case "avatarmail": case "lawboard":
             if(avatarp(TP)) return 1;
             else return 0;
