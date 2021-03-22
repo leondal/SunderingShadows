@@ -11,7 +11,7 @@ void create()
 {
     ::create();
     set_spell_name("orb of the void");
-    set_spell_level(([ "mage" : 8,]));
+    set_spell_level(([ "mage" : 8, "cleric" : 8 ]));
     set_spell_sphere("necromancy");
     set_syntax("cast CLASS orb of the void");
     set_damage_desc("mass negative levels on living");
