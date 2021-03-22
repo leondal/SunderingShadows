@@ -26,9 +26,9 @@ void create(){
    set_id(({"man","crier","town crier",name}));
    set_short("%^RESET%^%^GREEN%^"+capitalize(name)+" the town crier%^RESET%^");
    set_long("%^GREEN%^"+capitalize(name)+" is the newest town crier "
-      "of Shadow. He wanders the city of Shadow and surrounding "
-      "realms informing people of news of the land. He is also well "
-      "known for his knowledges about the realms of ShadowGate.");
+      "of Shadow. He wanders the city of Shadow and the surrounding "
+      "areas informing people of news of the land. He is also well "
+      "known for his knowledge about the realms.");
    set_gender("male");
    set_hd(5,1);
    set_size(2);
