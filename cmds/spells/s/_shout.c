@@ -12,8 +12,7 @@ create() {
     ::create();
     set_author("cythera");
     set_spell_name("shout");
-    set_spell_level(([ "mage" : 4, "bard" : 4, "magus" : 4, "cleric" : 4 ]));
-    set_domains("destruction");
+    set_spell_level(([ "mage" : 4, "bard" : 4, "magus" : 4 ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS shout on TARGET");
     set_description("This spell allows for the mage to magically enchant and enhance their voice to deliver a strong sonic attack against one target.  The amplified voice can knock some targets off balance for a moment, forcing them to spend some time for the ringing in their ears to pass.");
