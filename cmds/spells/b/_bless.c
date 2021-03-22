@@ -12,7 +12,7 @@ void create() {
     ::create();
     set_author("ares");
     set_spell_name("bless");
-    set_spell_level(([ "cleric" : 1,"inquisitor" : 1 ]));
+    set_spell_level(([ "cleric" : 1,"inquisitor" : 1, "paladin" : 1 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS bless on TARGET");
     set_damage_desc("clevel / 24 + 1 to damage and attack bonus, but no more than 2");
