@@ -130,7 +130,7 @@ void start_exam(string str) {
       remove();
       return;
    }
-   if(((int)TP->query_lowest_level() < 10)) {
+   if(((int)TP->query_lowest_level() < 6)) {
       reply_snarl("I CAN NOT LET YOU PASS!! You are clearly too inexperienced to be venturing into this place as yet.  BE GONE and be thankful I saved you from your doom for now!!");
       tell_room(ETO,"The Gatekeeper turns around and "
                 "marches back into the gatehouse, cursing under his breath.");
