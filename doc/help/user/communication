@@ -1,46 +1,35 @@
-The following commands help anyone communicate:
-%^BOLD%^%^BLUE%^    tell    say    yell    reply%^RESET%^
+%^CYAN%^COMMUNICATION%^RESET%^
 
-Type %^ORANGE%^<help %^ULINE%^COMMAND%^RESET%^%^ORANGE%^>%^RESET%^ to find out more about each.
-Do not type the %^ORANGE%^<>%^RESET%^ or %^ORANGE%^COMMAND%^RESET%^.
-    %^ORANGE%^<>%^RESET%^ means what is enclosed is the command.
-    %^ORANGE%^COMMAND%^RESET%^ means that you do not use the word command literally, but substitute the appropriate command name. See %^ORANGE%^<help help>%^RESET%^ about this syntax.
+There are many ways of communication on Sundering Shadows. Some commands are for IC communication, while others are used to communicate OOC.
 
-In addition, there are a number of 'lines' available to help aid communication.
+%^CYAN%^In Character Communication%^RESET%^
 
-%^MAGENTA%^What is a 'line'?%^RESET%^
+%^ORANGE%^<say MESSAGE>%^RESET%^           Say something in your normal voice.
+%^ORANGE%^<yell MESSAGE>%^RESET%^          Yell something. This can be heard a few rooms away.
+%^ORANGE%^<tell NAME MESSAGE>%^RESET%^     When using a telepathy spell, use <tell NAME> to direct a message at a player or staff-member.
+%^ORANGE%^<reply>%^RESET%^                 If someone is contacting you through telepathy, use <reply> to answer them directly.
+%^ORANGE%^<whisper NAME MESSAGE>%^RESET%^  Whisper something to someone. Only the target of your whisper can hear you, but others might <eavesdrop> on you.
+%^ORANGE%^<emote>%^RESET%^                 To communicate something non-verbally, like a gesture or an action.
 
-A line is a communication channel, which allows you to chat with the other players and immortals (staff members) on the game. To use a line you type %^ORANGE%^<%^ORANGE%^%^ULINE%^LINENAME%^RESET%^ %^ORANGE%^%^ULINE%^MESSAGE%^RESET%^%^ORANGE%^>%^RESET%^. E.g to ask a question on the 'newbie' line you might type:
+%^ORANGE%^<help COMMAND>%^RESET%^ will tell you more about each command.
 
-newbie How do I train to use my sword better?
+%^CYAN%^Out of Character Communication%^RESET%^
 
-If a character called Bumblebore were to type that, everyone who had access to the newbie line would see:
+In addition, there are a number of <lines>%^RESET%^ available to communicate on OOC. When you use a line, it shows up in the game and on our discord. Be polite over the lines and do not share any IC information. See %^ORANGE%^<help line use>%^RESET%^ for more information. The most common lines are:
 
-%^BLUE%^[%^BOLD%^%^CYAN%^newbie%^RESET%^%^BLUE%^] %^GREEN%^< %^BOLD%^Bumblebore%^RESET%^%^GREEN%^> %^ORANGE%^How do I train to use my sword better?%^WHITE%^
+%^ORANGE%^newbie%^RESET%^       Use this line to ask questions about the game, mechanics, rules, roleplay, etc.
 
-If you see a 'someone' in place of the character name on a line message, that means that the person who is speaking is an immortal, one of the administrators of the game. Please pay attention to what they say; the immortals are in charge of the game.
+%^ORANGE%^ooc%^RESET%^          General OOC chatter. 
 
-%^MAGENTA%^What lines are there?%^RESET%^
+%^ORANGE%^wiz%^RESET%^          This is used to communicate with our creators and/or discuss code.
 
-The lines that are available to players include:
+%^ORANGE%^discuss%^RESET%^      This line can be activated by staff and is used to discuss issues with players. 
 
-%^ORANGE%^newbie%^RESET%^
-    The best line to ask generic questions about the game, mechanics and roleplay should go here.
+To speak on a line, use %^ORANGE%^<LINE MESSAGE>%^RESET%^. For example: %^ORANGE%^<ooc Hey everyone>%^RESET%^ will let you say "Hey everyone" on the ooc line.
 
-%^ORANGE%^ooc%^RESET%^
-    General ooc chatter. You might want to disable this line if you prefer more immersive environment.
-
-%^ORANGE%^rp%^RESET%^
-    This line is for planning and arranging roleplay events.
-
-%^ORANGE%^inform%^RESET%^
-    General communication line, usually available to everyone who is logged in at the time. As a courtesy to the other players, this line is best used sparingly, to avoid interrupting everyone's game. See if you can find the information you need in a help file or faq before asking here. You are allowed to use this line to make party requests. Type %^ORANGE%^<help line use>%^RESET%^ for more information on how to do this.
-
-%^ORANGE%^discuss%^RESET%^
-    A line sometimes used by immortals to discuss issues with players. You will only have access to this line if an immortal has deliberately brought you onto the line.
+To disable or enable your lines, type its name without an argument. 
 
 Type %^ORANGE%^<lines>%^RESET%^ to see all lines available to you.
 
-To disable/enable a line just type its name without an argument.
 
-%^CYAN%^Also see:%^RESET%^ line use, thought, say
+%^CYAN%^SEE ALSO:%^RESET%^ line use, lines, thought, say, emote, emoteat, rules, yell, reply, tell, whisper
