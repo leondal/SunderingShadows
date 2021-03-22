@@ -13,8 +13,7 @@ create()
 {
     ::create();
     set_spell_name("web");
-    set_spell_level(([ "mage" : 2, "assassin" : 2, "psion" : 3, "magus" : 2, "cleric" : 2 ]));
-    set_domains("creation");
+    set_spell_level(([ "mage" : 2, "assassin" : 2, "psion" : 3, "magus" : 2 ]));
     set_spell_sphere("conjuration_summoning");
     set_discipline("shaper");
     set_syntax("cast CLASS web on TARGET");
