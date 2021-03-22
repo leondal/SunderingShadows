@@ -23,6 +23,7 @@ void create()
     set_somatic_comp();
     splash_spell(2);
     set_save("reflex");
+    set_feats_required(([ "mage" : "gift of the shadows"]));
 }
 
 

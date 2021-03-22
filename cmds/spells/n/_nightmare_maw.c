@@ -17,6 +17,7 @@ void create()
     set_somatic_comp();
     set_target_required(1);
     set_save("fort");
+    set_feats_required(([ "mage" : "gift of the shadows"]));
 }
 
 string query_cast_string()

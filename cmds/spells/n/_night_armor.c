@@ -21,6 +21,7 @@ void create() {
     set_somatic_comp();
     set_target_required(1);
     set_helpful_spell(1);
+    set_feats_required(([ "mage" : "gift of the shadows"]));
 }
 
 int preSpell()

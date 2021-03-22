@@ -19,6 +19,7 @@ void create()
     set_target_required(1);
     splash_spell(1);
     set_save("reflex");
+    set_feats_required(([ "mage" : "gift of the shadows"]));
 }
 
 int preSpell()

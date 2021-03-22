@@ -181,7 +181,7 @@ void shadow_effects(object obj)
 
     case 8..14: //damage
 
-        damage = roll_dice(clevel, 2);
+        damage = roll_dice(clevel, 3);
         if (obj->fort_save(clevel)) {
             damage = damage / 2;
         }
