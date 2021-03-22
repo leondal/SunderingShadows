@@ -12,6 +12,7 @@ void create(){
     set_spell_name("moonbeam");
     set_spell_level(([ "cleric" : 5, "oracle" : 4 ]));
     set_mystery("lunar");
+    set_domains("moon");
     set_spell_sphere("combat");
     set_syntax("cast CLASS moonbeam on TARGET");
     set_description("This spell begins by the caster fanning out her hands while chanting the spell.  Bolts of moonlight "
