@@ -18,7 +18,7 @@ void create() {
     set_spell_level(([ "cleric" : 7,"druid" : 7, "mage" : 7,"inquisitor" : 5, "psion" : 5, "magus" : 5 ]));
     set_spell_sphere("divination");
     set_spell_domain("magic");
-    set_domains(({"magic"}));
+    set_domains("knowledge");
     set_mystery("dragon");
     set_syntax("cast CLASS true seeing");
     set_description("This spell will allow the caster to see through all magical and non magical attempts at "
