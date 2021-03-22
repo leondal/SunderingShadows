@@ -8,7 +8,6 @@ void create()
     set_spell_level(([ "cleric" : 7 ]));
     set_spell_sphere("necromancy");
     set_mystery("reaper");
-    set_domains("repose");
     set_syntax("cast CLASS destruction on TARGET");
     set_damage_desc("divine");
     set_description("This spell instantly delivers untyped damage to the target. If the target's health points fall below zero it instantly dies. Successful save halves the damage.");
