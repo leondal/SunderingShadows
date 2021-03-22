@@ -462,6 +462,7 @@ mapping index_masterable_spells(object player, string myclass)
     return index_castable_spells(player, myclass);
     }
     
+    /*
     pclass = myclass;
     if (pclass == "sorcerer") {
         pclass = "mage";
@@ -502,6 +503,8 @@ mapping index_masterable_spells(object player, string myclass)
         tmp[spellfile] = lvl;;
     }
     return tmp;
+    
+    */
 }
 
 /**
