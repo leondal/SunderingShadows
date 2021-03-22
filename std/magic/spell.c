@@ -2389,7 +2389,7 @@ void define_clevel()
                 if (spell_sphere == "necromancy" ||
                     spell_sphere == "illusion" ||
                     spell_sphere == "enchantment_charm") {
-                    clevel += 1;
+                    clevel += 2;
                 }
             }
         }
