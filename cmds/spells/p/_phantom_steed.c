@@ -19,7 +19,6 @@ void create(){
     set_mystery("whimsy");
     set_discipline("nomad");
     set_spell_sphere("conjuration_summoning");
-    set_domains("repose");
     set_syntax("cast CLASS phantom steed");
     set_description("By means of this spell, the caster calls upon his god to send forth a ghostly horse to serve as his "
 "faithful mount and to help defend them.\n\nThis spell will not work if you are already mounted.");
