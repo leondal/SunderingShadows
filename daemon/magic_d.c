@@ -395,6 +395,7 @@ mapping index_castable_spells(object player, string myclass)
         if(pclass == "cleric" || pclass == "druid")
         {   
             int success = 0;
+            int exclude = 0;
             
             domain = spellIndex[spellfile]["divine_domain"];
             
@@ -404,6 +405,12 @@ mapping index_castable_spells(object player, string myclass)
                 {
                     if(member_array(str, player->query_divine_domain()) >= 0)
                         success++;
+                    
+                    if(pclass == "druid")
+                    {
+                        if(str == "sun" || str == "cold" || str == "knowledge")
+                            success++;
+                    }
                 }
                 
                 if(!success)
