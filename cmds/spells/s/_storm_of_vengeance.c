@@ -16,7 +16,6 @@ void create() {
     set_spell_name("storm of vengeance");
     set_spell_level(([ "druid" : 9, "cleric" :9, "oracle" : 9 ]));
     set_mystery("wind");
-    set_domains("storms");
     set_mystery("battle");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS storm of vengeance");
