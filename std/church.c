@@ -508,7 +508,7 @@ int select_domain(string str)
         }
 
         if (TP->is_class("druid")) {
-            possible_domains += ({ "air", "animal", "earth", "fire", "plant", "cold" });
+            possible_domains += ({ "air", "animal", "earth", "fire", "plant", "cold", "sun" });
         }
 
         possible_domains = distinct_array(possible_domains);
