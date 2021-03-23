@@ -21,7 +21,6 @@ void create(){
     set_spell_name("inner eye");
     set_spell_level(([ "cleric" : 8 ]));
     set_spell_sphere("divination");
-    set_domains("mentalism");
     set_syntax("cast CLASS inner eye on TARGET");
     set_description("Upon casting this spell, the priest focuses his inner eye and commands it to watch a particular "
 "place for him.  Without an argument, the eye will watch the room the priest is currently in.  When targeted upon a "
