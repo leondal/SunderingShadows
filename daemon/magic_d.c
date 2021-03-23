@@ -405,12 +405,6 @@ mapping index_castable_spells(object player, string myclass)
                 {
                     if(member_array(str, player->query_divine_domain()) >= 0)
                         success++;
-                    
-                    if(pclass == "druid")
-                    {
-                        if(str == "sun")
-                            success++;
-                    }
                 }
                 
                 if(!success)
