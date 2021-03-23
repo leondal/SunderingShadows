@@ -3,7 +3,7 @@
 As its name implies, the charm domain focuses upon enchantment. The charms range from simple enhancements in combat to charming the most difficult beasts to aid the caster.
 
 Clerics with the Charm Domain gain the following benefits:
-- +2 to their charisma stat.
+- A +1 bonus to caster level when casting spells of the enchantment_charm sphere.
 - %^BOLD%^MAGENTA%^Dazing Touch%^RESET%^ as an innate spell.
 
 The charm domain contains the following spells:
