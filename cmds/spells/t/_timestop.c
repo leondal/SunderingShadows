@@ -8,7 +8,6 @@ void create() {
     set_author("nienne");
     set_spell_name("timestop");
     set_spell_level(([ "mage" : 9, "bard" : 6, "oracle":9, "psion" : 9 ]));
-    set_domains("trickery");
     set_discipline("nomad");
     set_mystery("lore");
     set_spell_sphere("alteration");
