@@ -14,6 +14,7 @@ void create(){
     set_spell_name("forbiddance");
     set_spell_level(([ "cleric" : 6, "inquisitor" : 6]));
     set_spell_sphere("abjuration");
+    set_domains("law");
     set_syntax("cast CLASS forbiddance");
     set_description("This spell creates an oppressive aura of protection throughout the area, forbidding anyone from "
 "teleporting into or out of it.  The magic will last for a short time, until the caster leaves the area, or until it is "

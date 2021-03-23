@@ -10,7 +10,6 @@ void create()
     set_spell_name("slay living");
     set_spell_level(([ "cleric" : 5, ]));
     set_spell_sphere("necromancy");
-    set_domains(({ "evil", "repose" }));
     set_mystery(({ "reaper", "bones" }));
     set_syntax("cast CLASS slay living on TARGET");
     set_description("This spell is necromantic in nature and allows the caster to call forth beings from the land of the "

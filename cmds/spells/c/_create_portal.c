@@ -16,7 +16,6 @@ void create()
     set_spell_name("create portal"); // just portal in srds
     set_spell_level((["mage" : 7, "cleric":7]));
     set_spell_sphere("conjuration_summoning");
-    set_domains("travel");
     set_syntax("cast CLASS create portal on DESTINATION");
     set_description("This power allows the priest to call on the power of his deity to open a portal from his current "
                     "location to any place that he has remembered before.  The portal can not open unless both rooms may be teleported to "

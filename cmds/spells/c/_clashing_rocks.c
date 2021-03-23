@@ -12,7 +12,6 @@ void create()
     set_spell_name("clashing rocks");
     set_spell_level(([ "mage" : 9, "druid":9,]));
     set_mystery("stone");
-    set_domains("magic");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS clashing rocks on TARGET");
     set_damage_desc("bludgeoning");

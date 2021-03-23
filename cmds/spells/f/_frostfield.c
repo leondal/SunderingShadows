@@ -7,8 +7,9 @@ void create()
 {
     ::create();
     set_spell_name("frostfield");
-    set_spell_level(([ "mage" : 2, "druid" : 2, "oracle" : 2, "magus" : 2 ]));
+    set_spell_level(([ "mage" : 2, "druid" : 2, "oracle" : 2, "magus" : 2, "cleric" : 2 ]));
     set_mystery("winter");
+    set_domains("cold");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS frostfield");
     set_damage_desc("tripped for 1d4 rounds");

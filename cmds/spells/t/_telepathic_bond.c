@@ -12,7 +12,6 @@ void create() {
     set_author("nienne");
     set_spell_name("telepathic bond");
     set_spell_level(([ "mage" : 5, "inquisitor" : 5, "oracle":5, "magus" : 5 ]));
-    set_domains(({"mentalism"}));
     set_mystery("lore");
     set_spell_sphere("divination");
     set_syntax("cast CLASS telepathic bond to TARGET");

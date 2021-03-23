@@ -12,7 +12,6 @@ void create() {
     ::create();
     set_spell_name("night armor");
     set_spell_level(([ "mage" : 4 ]));
-    set_domains("cavern");
     set_spell_sphere("illusion");
     set_syntax("cast CLASS night armor on TARGET");
     set_damage_desc("10 damage, cold and silver resistance");
@@ -21,6 +20,7 @@ void create() {
     set_somatic_comp();
     set_target_required(1);
     set_helpful_spell(1);
+    set_feats_required(([ "mage" : "gift of the shadows"]));
 }
 
 int preSpell()

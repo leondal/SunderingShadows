@@ -15,7 +15,8 @@ void create()
 {
     ::create();
     set_spell_name("detect scrying");
-    set_spell_level(([ "mage" : 4, "bard" : 4, "inquisitor" : 4 ]));
+    set_spell_level(([ "mage" : 4, "bard" : 4, "inquisitor" : 4, "cleric" : 4 ]));
+    set_domains("knowledge");
     set_spell_sphere("divination");
     set_syntax("cast CLASS detect scrying");
     set_description("By means of this spell, the wizard immediately becomes aware of any attempt to observe him by means of clairvoyance, clairaudience, or magic mirror.  This also reveals the use of crystal balls or other magical scrying devices, provided the attempt is within the area of effect of the spell.  Since the spell is centered on the spellcaster, it moves with him, enabling him to 'sweep' areas for the duration of the spell.\n\nWhen a scrying attempt is detected, the scryer must immediately roll a saving throw.  If this is failed, the appearance and general location of the scryer immediately become known to the wizard who cast this spell. The general location is the room and area where the scryer is located at the time.\n\nThis spell does not protect from scrying, however.  Despite the fact that you have detected the scrying, you cannot end the scrying without casting a spell or using an object that protects from scrying.");

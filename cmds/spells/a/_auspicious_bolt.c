@@ -15,6 +15,7 @@ void create()
     ::create();
     set_spell_name("auspicious bolt");
     set_spell_level(([ "cleric" : 3 ]));
+    set_domains("fate");
     set_spell_sphere("combat");
     set_syntax("cast CLASS auspicious bolt on TARGET");
     set_damage_desc("Random clevel + 1 HP, Random clevel / 10 + 1 DMG and ATK bonus.");

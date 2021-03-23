@@ -16,8 +16,9 @@ void create()
 {
     ::create();
     set_spell_name("irresistible dance");
-    set_spell_level(([ "bard" : 6, "mage" : 8, "oracle" : 8 ]));
+    set_spell_level(([ "bard" : 6, "mage" : 8, "oracle" : 8, "cleric" : 8 ]));
     set_mystery("whimsy");
+    set_domains("chaos");
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS irresistible dance on TARGET");
     set_damage_desc("-clevel/8 to reflex save and AC");

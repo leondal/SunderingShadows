@@ -12,6 +12,7 @@ void create()
     set_spell_name("mass heal");
     set_spell_level(([ "cleric" : 9, "oracle" : 9 ]));
     set_mystery("life");
+    set_domains("renewal");
     set_affixed_spell_level(6);
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS mass heal on TARGET");

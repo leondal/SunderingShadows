@@ -7,7 +7,8 @@ void create() {
     ::create();
     set_author("nienne");
     set_spell_name("flare");
-    set_spell_level(([ "bard" : 1,"druid" : 1, "mage":1, "magus" : 1 ]));
+    set_spell_level(([ "bard" : 1,"druid" : 1, "mage":1, "magus" : 1, "cleric" : 1 ]));
+    set_domains("sun");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS flare on TARGET");
     set_description("This minor spell creates an abrupt flash of light, which if cast immediately in front of a creature, can dazzle them and cause difficulties with their vision.

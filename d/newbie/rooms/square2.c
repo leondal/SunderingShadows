@@ -13,8 +13,8 @@ void create() {
 @NEWBIE
 %^BOLD%^%^RED%^Offestry town square%^RESET%^ 
 This is the town square for the city of Offestry. Offestry is the largest
-civilized area in the demi-plane that welcomes newcomers to ShadowGate.  
-Here life is much as it is in the world of ShadowGate only a little slower,
+civilized area in the demi-plane that welcomes newcomers to Sundering Shadows.  
+Here life is much as it is in the world of Sundering Shadows only a little slower,
 fewer pressures, and overall easier lives.  A person could live his entire 
 life here in quiet contentment.  There is a grand %^CYAN%^statue%^RESET%^ here 
 in the square. Its puzzling expression begs you to look it over.  There 

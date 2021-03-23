@@ -17,8 +17,8 @@ void create() {
 	"plates are backed by padding and chainmail. The weight is well "
 	"distributed. The armor is crafted exclusively by holy dwarven "
 	"smiths and blessed by clerics of renown power lending it a "
-	"quality of cooled temperature and light weight. It is worn by "
-	"the loyal order of Paladins found within Shadowgate."
+	"quality of cooled temperature and light weight. It is favored by "
+	"the loyal order of Paladins."
     );
     set_value(6000);
     set_property("enchantment",5);
@@ -43,6 +43,6 @@ int wearit() {
 }
 
 int removeit() {
-    tell_object(ETO,"You feel less protected from the darkness of Shadowgate.");
+    tell_object(ETO,"You feel less protected from the darkness.");
     return 1;
 }

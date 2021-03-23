@@ -8,8 +8,9 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("daylight");
-    set_spell_level(([ "cleric" : 3, "bard" : 3, "paladin" : 3, "druid" : 3, "inquisitor" : 3, "oracle" : 3, "mage" : 3, "magus" : 3 ]));
+    set_spell_level(([ "cleric" : 3, "bard" : 3, "paladin" : 3, "inquisitor" : 3, "oracle" : 3, "mage" : 3, "magus" : 3 ]));
     set_spell_sphere("invocation_evocation");
+    set_domains("sun");
     set_mystery(({"heavens","solar"}));
     set_syntax("cast CLASS daylight");
     set_description("Will add semi-permanent light to a room up to daylight levels.");

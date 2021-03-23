@@ -181,14 +181,14 @@ void shadow_effects(object obj)
 
     case 8..14: //damage
 
-        damage = roll_dice(clevel, 2);
+        damage = roll_dice(clevel, 4);
         if (obj->fort_save(clevel)) {
             damage = damage / 2;
         }
 
         tell_object(obj, cm("A bolt of black lightning strikes out from the vortex surrounding " + caster->QCN + " striking you painfully!"));
         obj->cause_typed_damage(obj, obj->return_target_limb(), damage, "untyped");
-        caster->add_hp(damage / 6);
+        caster->add_hp(damage / 5);
         break;
     }
     return;

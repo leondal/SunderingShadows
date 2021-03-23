@@ -13,7 +13,7 @@ void create()
     ::create();
     set_author("tlaloc");
     set_spell_name("lunar veil");
-    set_spell_level(([ "mage" : 7 ]));
+    set_spell_level(([ "mage" : 7, "cleric" : 7 ]));
     set_domains("moon");
     set_spell_sphere("illusion");
     set_syntax("cast CLASS lunar veil");

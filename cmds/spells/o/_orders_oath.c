@@ -11,7 +11,6 @@ void create()
     set_spell_name("orders oath");
     set_spell_level(([ "paladin" : 2 ]));
     set_spell_sphere("combat");
-    set_domains("vigilance");
     set_syntax("cast CLASS orders oath on TARGET");
     set_damage_desc("paralyzed for 2d4 rounds");
     set_description("This spell magically enhances the power of the caster's voice.  The spell takes the form of a single "

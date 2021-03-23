@@ -13,7 +13,6 @@ void create(){
     set_spell_name("tremor");
     set_spell_level(([ "cleric" : 5, "inquisitor" : 2, "psion" : 5, "magus" : 3 ]));
     set_spell_sphere("combat");
-    set_domains("destruction");
     set_syntax("cast CLASS tremor");
     set_description("This spell causes a great quake to shake the ground, doing some damage to the caster's enemies, and having a chance to knock them down to the ground.");
     set_verbal_comp();

@@ -7,7 +7,8 @@ void create()
 {
     ::create();
     set_spell_name("analyze dweomer");
-    set_spell_level(([ "mage" : 6, "bard" : 6]));
+    set_spell_level(([ "mage" : 6, "bard" : 6, "cleric" : 6 ]));
+    set_domains("magic");
     set_spell_sphere("divination");
     set_syntax("cast CLASS analyze dweomer on TARGET");
     set_description("This spell allows you to sense what spells and magical afflictions affect the target. An ally will always fail the save, and there is always a chance the target will detect your probe.");

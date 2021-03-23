@@ -13,7 +13,8 @@ void create()
     ::create();
     set_author("cythera");
     set_spell_name("acid orb");
-    set_spell_level(([ "mage" : 3 ]));
+    set_spell_level(([ "mage" : 3, "cleric" : 3 ]));
+    set_domains("elements");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS acid orb on TARGET");
     set_description("This spell allows a mage to tap into the Para-Elemental Plane of Ooze and borrow some of its energy "

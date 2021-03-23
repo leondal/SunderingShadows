@@ -9,7 +9,8 @@ void create()
 {
     ::create();
     set_spell_name("precognitive perception");
-    set_spell_level(([ "mage" : 4, "magus" : 4, "bard" : 4, "psion" : 3 ]));
+    set_spell_level(([ "mage" : 4, "magus" : 4, "bard" : 4, "psion" : 3, "cleric" : 4 ]));
+    set_domains("fate");
     set_spell_sphere("divination");
     set_syntax("cast CLASS precognitive perception on TARGET");
     set_damage_desc("half of clevel perception skill");

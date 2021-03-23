@@ -1,7 +1,8 @@
 #include <std.h>
 #include <new_exp_table.h>
 
-#define DELAY 2 * 24 * 60 * 60
+//#define DELAY 2 * 24 * 60 * 60
+#define DELAY 60 * 60
 
 int cmd_reward(string str)
 {
@@ -74,7 +75,7 @@ reward %^ORANGE%^%^ULINE%^TARGET%^RESET%^
 
 %^CYAN%^DESCRIPTION%^RESET%^
 
-This command will allow you to reward anyone with 12.5% of exp towards their next level. The reason for doing so is left to your discretion. The player won't know who rewarded them, but will see the message about the reward. They also must be present in the room with you. You can do it only once per two days.
+This command will allow you to reward anyone with 12.5% of exp towards their next level. The reason for doing so is left to your discretion. The player won't know who rewarded them, but will see the message about the reward. They also must be present in the room with you. You can do it only once per hour.
 
 Player may opt out from receiving rewards with noreward setting in %^ORANGE%^<set>%^RESET%^ command. If they did so, your attempt to reward them won't count.
 

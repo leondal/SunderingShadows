@@ -11,7 +11,6 @@ void create()
     ::create();
     set_spell_name("unholy aura");
     set_spell_level(([ "cleric" : 8, "mage":8]));
-    set_domains("evil");
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS unholy aura");
     set_damage_desc("divine damage, 4 AC, 4 to all saves");

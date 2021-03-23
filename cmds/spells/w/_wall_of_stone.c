@@ -9,9 +9,9 @@ create()
 {
     ::create();
     set_spell_name("wall of stone");
-    set_spell_level(([ "mage" : 5, "monk" : 9, "oracle" : 6, "magus" : 5 ]));
+    set_spell_level(([ "mage" : 5, "monk" : 9, "oracle" : 6, "magus" : 5, "druid" : 5, "cleric" : 5 ]));
     set_spell_sphere("conjuration_summoning");
-    set_domains( ({ "earth", "cavern" }) );
+    set_domains( ({ "earth" }) );
     set_mystery("stone");
     set_monk_way("way of the elements");
     set_syntax("cast CLASS wall of stone on <exit>");

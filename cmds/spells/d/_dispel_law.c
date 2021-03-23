@@ -16,7 +16,6 @@ void create() {
     set_spell_name("dispel law");
     set_spell_level(([ "cleric" : 5, "inquisitor":5, "paladin":4]));
     set_spell_sphere("abjuration");
-    set_domains("chaos");
     set_syntax("cast CLASS dispel law on TARGET");
     set_description("Dispel Law can only be cast by users of chaotic alignment and it only effects targets of lawful "
 "alignment.  When cast at a target of the correct alignment, it will disrupt the harmonics of their soul and wrack their "

@@ -14,7 +14,7 @@ void create()
 {
     ::create();
     set_spell_name("animate plants");
-    set_spell_level(([ "druid" : 7,"oracle":7]));
+    set_spell_level(([ "druid" : 7,"oracle":7, "cleric" : 7 ]));
     set_domains("plant");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS animate plants");

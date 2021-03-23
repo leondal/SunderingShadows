@@ -7,11 +7,10 @@ void create()
 {
     ::create();
     set_spell_name("biting wind");
-    set_spell_level(([ "mage" : 1, "oracle" : 1, "cleric" : 1 ]));
+    set_spell_level(([ "mage" : 1, "oracle" : 1 ]));
     set_mystery("wind");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS biting wind");
-    set_domains("cold");
     set_damage_desc("cold");
     set_description("A stream of cold releases out from you in all directions, biting everything in sight with cold.");
     set_verbal_comp();

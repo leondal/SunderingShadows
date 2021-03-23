@@ -6,7 +6,8 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("wave of pain");
-    set_spell_level(([ "mage" : 3, "bard":3]));
+    set_spell_level(([ "mage" : 3, "bard":3, "cleric" : 3 ]));
+    set_domains("suffering");
     set_spell_sphere("illusion");
     set_syntax("cast CLASS wave of pain");
     set_description("Through this spell, the caster sends out a great wave of pain that can harm, kill, and/or paralyze "

@@ -11,9 +11,9 @@ int reversed;
 void create() {
     ::create();
     set_spell_name("displacement");
-    set_spell_level(([ "bard" : 3, "mage" : 3, "magus" : 3 ]));
+    set_spell_level(([ "bard" : 3, "mage" : 3, "magus" : 3, "cleric" : 3 ]));
     set_spell_sphere("illusion");
-    set_domains("trickery");
+    set_domains("illusion");
     set_syntax("cast CLASS displacement");
     set_damage_desc("20% miss chance");
     set_description("Using the power of illusion, the caster calls forth a distortion of her form, making her harder to "

@@ -8,7 +8,8 @@ void create()
 {
     ::create();
     set_spell_name("thorn spray");
-    set_spell_level(([ "cleric" : 7, "druid" : 6]));
+    set_spell_level(([ "cleric" : 6, "druid" : 6]));
+    set_domains("plant");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS thorn spray on TARGET");
     set_description("This spell will cause a number of sharp thorns to fly from the caster's hand toward the target.");

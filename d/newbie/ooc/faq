@@ -16,21 +16,7 @@ People on the who listing are currently unknown to you. You will first have to <
 
 People who have the ** around their name means that their next command is being processed. In other words, they are either editing, posting on a bulletin board, or mailing (or something of that nature). It is considered polite not to bother someone who is in one of these situations, unless it is really important, or you know they won't mind.
 
-3c) What does the letters K, A, and F after some names on the "who" list mean?
-
-In the spirit of fun and fairness, Sundering Shadows has maintained a system to determine who is an appropriate party member for you, as well as who you are able to participate in playerkilling with.
-
-A %^BOLD%^%^GREEN%^K%^RESET%^ means you are free to party with, and engage in pk with, that person.
-
-An %^YELLOW%^A%^RESET%^ means you may adventure with, but not playerkill, that person.
-
-An %^BOLD%^%^RED%^F%^RESET%^ means you are forbidden to participate in both parties
-
-and playerkilling with that person.
-
-Please see <help wholist> for more information.
-
-3d) What does "Inactive" after a player's name on who list mean?
+3c) What does "Inactive" after a player's name on who list mean?
 
 By typing <inactive>, a player can indicate they've gone afk and are not currently active participants in the world. Likewise, someone who has idled for too long will automatically be put into inactive mode.
 
@@ -76,7 +62,7 @@ You may be trying to wield or wear something which is restricted to players of a
 
 9) Is player killing allowed?
 
-Playerkilling on Sundering Shadows is optional. All players are, by default, but to the exclusion of beast races, opted out of playerkilling. You can change this by typing <flag player kill . off>. It should be noted that there are certain circumstances which will temporarily flag you for non-pk again, such as a recent death or an extended absence. If you are not currently available to pk, you should avoid situations where the roleplay might turn aggressive. Additionally, you are only able to engage in pk with players who have a %^BOLD%^%^GREEN%^K%^RESET%^ next to their names on the wholist. If pk happens, we would appreciate it if you could send a <pkmail> so we can better understand the circumstances that led to it, and if any consequences are warranted. Please see <help pkmail> for more information.
+Playerkilling on Sundering Shadows is optional. All players are, by default, but to the exclusion of beast races, opted out of playerkilling. You can change this by typing <flag player kill . off>. It should be noted that there are certain circumstances which will temporarily flag you for non-pk again, such as a recent death or an extended absence. If you are not currently available to pk, you should avoid situations where the roleplay might turn aggressive. If pk happens, we would appreciate it if you could send a <pkmail> so we can better understand the circumstances that led to it, and if any consequences are warranted. Please see <help pkmail> for more information.
 
 10) How do I know my stats?
 
@@ -157,7 +143,7 @@ Basically this is reflecting, the more you run around and the more you fight, th
 
 First, you can type : heal <your name> and try to use a natural ability that all players have to heal a few of you lost hps back. You can do this as much as you like but it takes time. Second, many of the major cities in Shadowgate have healers who, for a fee in gold, will provide healing services and sell healing potions. Third, certain players due to their class, will have healing spells or abilities. The regeneration feat also allows players to gain back their hp over time.
 
-Lastly, some items that you may find within the Shadowgate world have the ability to heal. The most common would be healing potions that most healers will sell, for varying prices.
+Lastly, some items that you may find within the Sundering Shadows world have the ability to heal. The most common would be healing potions that most healers will sell, for varying prices.
 
 19) Ummm...a lot of the stuff I have been picking up is junk. Should I just leave this stuff on the ground?
 

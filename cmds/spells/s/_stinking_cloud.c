@@ -12,10 +12,10 @@ void create()
 {
     ::create();
     set_spell_name("stinking cloud");
-    set_spell_level(([ "mage" : 3, "magus" : 3 ]));
+    set_spell_level(([ "mage" : 3, "magus" : 3, "cleric" : 3 ]));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS stinking cloud");
-    set_domains("water");
+    set_domains("creation");
     set_description("This spell creates a cloud of sickening fumes that perpetually causes everyone in the area to be sickened.");
     set_verbal_comp();
     set_somatic_comp();

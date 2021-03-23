@@ -6,7 +6,7 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("umbral strike");
-    set_spell_level(([ "druid" : 7, "mage" : 7,"inquisitor":6, "magus" : 6, "oracle":7]));
+    set_spell_level(([ "druid" : 7, "mage" : 7,"inquisitor":6, "magus" : 6, "oracle":7, "cleric" : 7]));
     set_mystery("shadow");
     set_spell_sphere("necromancy");
     set_syntax("cast CLASS umbral strike on TARGET");

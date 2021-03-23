@@ -11,7 +11,7 @@ void execute_me();
 void create() {
     ::create();
     set_spell_name("greater magic fang");
-    set_spell_level(([ "ranger" : 3 ]));
+    set_spell_level(([ "ranger" : 3, "cleric" : 3, "druid" : 3 ]));
     set_domains("animal");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS greater magic fang");

@@ -12,7 +12,7 @@ void create() {
     ::create();
     set_author("nienne");
     set_spell_name("blindness");
-    set_spell_level(([ "mage" : 2, "bard" : 2, "paladin" : 3, "inquisitor" : 3 ]));
+    set_spell_level(([ "mage" : 2, "bard" : 2, "paladin" : 3, "inquisitor" : 3, "cleric" : 3 ]));
     set_spell_sphere("necromancy");
     set_domains("darkness");
     set_syntax("cast CLASS blindness on TARGET");

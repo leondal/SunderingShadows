@@ -10,8 +10,9 @@ void create()
 {
     ::create();
     set_spell_name("scintillating pattern");
-    set_spell_level(([ "mage" : 8 ]));
+    set_spell_level(([ "mage" : 8, "cleric" : 8 ]));
     set_spell_sphere("illusion");
+    set_domains("illusion");
     set_syntax("cast CLASS scintillating pattern");
     set_damage_desc("mass confusion for clevel/5 + 1 rounds on enemies");
     set_description("This casting summons forward illusionary patter that briefly captivates and confuses enemies that are weaker than the spell.");

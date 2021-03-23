@@ -7,11 +7,10 @@ void create()
 {
     ::create();
     set_spell_name("shadow stream");
-    set_spell_level(([ "mage" : 1, ]));
+    set_spell_level(([ "mage" : 1, "oracle" : 1 ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS shadow stream on TARGET");
     set_mystery("darkness");
-    set_domains("darkness");
     set_damage_desc("cold");
     set_description("A twisting stream of inky darkness sprays from your outstretched hand. Any creature caught in the area of the shadows takes cold damage. A Reflex save halves the damage.");
     set_verbal_comp();

@@ -17,8 +17,7 @@ void create()
     ::create();
     set_author("cythera");
     set_spell_name("freezing sphere");
-    set_spell_level(([ "mage" : 6, "magus" : 6, "cleric" : 6 ]));
-    set_domains("cold");
+    set_spell_level(([ "mage" : 6, "magus" : 6 ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS freezing sphere on TARGET");
     set_description("Freezing sphere creates a frigid globe of cold energy that streaks from your fingertips to the location you select, where it explodes in a burst, dealing cold damage to each creature in the area.");

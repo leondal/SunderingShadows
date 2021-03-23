@@ -9,7 +9,6 @@ void create()
     ::create();
     set_spell_name("divine favor");
     set_spell_level(([ "paladin" : 3, "inquisitor" : 1, "cleric" : 1]));
-    set_domains(({"protection", "vigilance"}));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS divine favor");
     set_damage_desc("clevel / 24 + 1 to damage and attack bonus");

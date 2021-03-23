@@ -11,7 +11,7 @@ void create() {
     set_spell_name("mirror image");
     set_spell_level(([ "mage" : 2, "bard":2, "magus" : 2, "innate" : 5 ]));
     set_spell_sphere("illusion");
-    set_domains( ({ "creation", "illusion" }) );
+    set_domains( ({ "illusion" }) );
     set_syntax("cast CLASS mirror image");
     set_description("Several illusory duplicates of you pop into being, making it difficult for enemies to know which target to attack. The figments stay near you and disappear when struck. Cleric with the Illusion domain cast this as an innate spell and must spend one Divine Grace point to cast it.
 

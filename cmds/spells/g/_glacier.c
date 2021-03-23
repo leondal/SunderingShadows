@@ -5,9 +5,8 @@ void create()
 {
     ::create();
     set_spell_name("glacier");
-    set_spell_level(([ "mage" : 9, "druid":9, "cleric" : 9 ]));
+    set_spell_level(([ "mage" : 9, "druid":9 ]));
     set_spell_sphere("invocation_evocation");
-    set_domains("cold");
     set_syntax("cast CLASS glacier on TARGET");
     set_damage_desc("half cold, half bludgeoning");
     set_description("With this spell functions exactly like serac, but the platform is humongous.");

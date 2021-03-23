@@ -10,7 +10,6 @@ void create() {
     set_spell_name("hold animal");
     set_spell_level(([ "ranger" : 2 ]));
     set_spell_sphere("enchantment_charm");
-    set_domains("animal");
     set_syntax("cast CLASS hold animal on TARGET");
     set_description("This will magically hold most types of animals.  It will hold for longer, as your levels increase.  "
 "They will be able to hear, but not look or fight.");

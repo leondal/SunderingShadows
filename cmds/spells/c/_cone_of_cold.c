@@ -12,11 +12,10 @@ void create()
 {
     ::create();
     set_spell_name("cone of cold");
-    set_spell_level(([ "mage" : 5, "monk" : 15, "oracle" : 5, "magus" : 5, "cleric" : 5, "druid" : 5]));
+    set_spell_level(([ "mage" : 5, "monk" : 15, "oracle" : 5, "magus" : 5 ]));
     set_mystery("winter");
     set_spell_sphere("invocation_evocation");
     set_monk_way("way of the elements");
-    set_domains(({"water", "cold"}));
     set_syntax("cast CLASS cone of cold on TARGET");
     set_damage_desc("delayed cold");
     set_description("By casting this spell, you form a massive white cone of icy cold towards your target.  Not only does "

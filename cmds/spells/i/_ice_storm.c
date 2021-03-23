@@ -13,11 +13,11 @@ string target_limb, element;
 void create() {
     ::create();
     set_spell_name("ice storm");
-    set_spell_level(([ "mage" : 4, "druid" : 4, "oracle" : 4, "magus" : 4 ]));
+    set_spell_level(([ "mage" : 4, "druid" : 4, "oracle" : 4, "magus" : 4, "cleric" : 4 ]));
     set_mystery( ({ "apocalypse", "winter", "waves" }) );
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS ice storm");
-    set_domains(({"water", "storms"}));
+    set_domains(({"cold"}));
     set_description("When the ice storm spell is cast, the mage summons storm clouds above that rain hail and ice down "
 "upon anything in the area.  The spell will not damage the caster and lasts for a number of rounds equal to the caster's "
 "level. A versatile arcanist can manipulate the base element of this spell.");

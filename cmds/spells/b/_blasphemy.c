@@ -16,9 +16,9 @@ void create(){
     set_author("ares");
     set_spell_name("blasphemy");
     set_spell_level(([ "cleric" : 7, "inquisitor" : 6 ]));
-    set_domains("evil");
     set_spell_sphere("enchantment_charm");
     set_spell_domain("evil");
+    evil_spell(1);
     set_syntax("cast CLASS blasphemy");
     set_description("This spell channels unholy magic directly to the caster and releases it at a target in the form of a silent "
 "explosion.  Those of good hearts have the additional chance to be blinded and/or stunned, while those of neutral bent may be "

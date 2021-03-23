@@ -15,8 +15,8 @@ void see_changes();
 void create() {
     ::create();
     set_spell_name("detect invisibility");
-    set_spell_level(([ "mage" : 2, "bard" : 3, "inquisitor" : 2, "magus" : 3 ]));
-    set_domains("sun");
+    set_spell_level(([ "mage" : 2, "bard" : 3, "inquisitor" : 2, "magus" : 3, "cleric" : 3 ]));
+    set_domains(({"law"}));
     set_spell_sphere("divination");
     set_syntax("cast CLASS detect invisibility");
     set_description("Detect invisibility will let a mage see all magically invisible and even hidden people in the near vicinity. The spell's duration gets longer as the mage grows in level.");

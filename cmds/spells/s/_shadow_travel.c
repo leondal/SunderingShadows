@@ -13,7 +13,6 @@ void create(){
     set_spell_name("shadow travel");
     set_spell_level(([ "innate" : 1, "assassin": 4, "monk": 15, "oracle" : 6 ]));
     set_mystery(({"darkness","shadow"}));
-    set_domains("darkness");
     set_spell_sphere("alteration");
     set_monk_way("way of the shadow");
     set_syntax("cast CLASS shadow travel to <location>");

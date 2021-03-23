@@ -12,7 +12,7 @@ void create() {
         set_short("%^MAGENTA%^OOC area hub to info. rooms");
         set_long(
 @STYX
-This room is a hub to various rooms with posters of information about how to get started and get the most from playing and roleplay (RP) in ShadowGate.  When you have reviewed the information and are ready to begin your adventure, %^BOLD%^<out>%^RESET%^ will take you back to the beginning of the ooc area.  You can return here anytime to look for answers to other questions you may have or refresh your memory.
+This room is a hub to various rooms with posters of information about how to get started and get the most from playing and roleplay (RP) in Sundering Shadows.  When you have reviewed the information and are ready to begin your adventure, %^BOLD%^<out>%^RESET%^ will take you back to the beginning of the ooc area.  You can return here anytime to look for answers to other questions you may have or refresh your memory.
 STYX
         );
         set_items(([

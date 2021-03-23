@@ -9,7 +9,6 @@ void create()
     set_spell_name("shield other");
     set_spell_level(([ "cleric" : 2, "inquisitor" : 2, "paladin" : 2, "psion" : 2 ]));
     set_spell_sphere("abjuration");
-    set_domains("protection");
     set_syntax("cast CLASS shield other on TARGET");
     set_damage_desc("shares damage done to target");
     set_save("will");

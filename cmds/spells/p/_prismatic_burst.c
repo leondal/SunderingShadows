@@ -12,8 +12,7 @@ void create()
 {
     ::create();
     set_spell_name("prismatic burst");
-    set_spell_level(([ "mage" : 9, "cleric" : 9 ]));
-    set_domains(({"sun", "chaos"}));
+    set_spell_level(([ "mage" : 9 ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS prismatic burst");
     set_damage_desc("random chance to roll one of 8 rays at all attackers");

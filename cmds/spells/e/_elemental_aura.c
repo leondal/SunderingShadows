@@ -28,7 +28,8 @@ void create()
 {
     ::create();
     set_spell_name("elemental aura");
-    set_spell_level(([ "mage" : 3, "oracle" : 3, "magus" : 3 ]));
+    set_spell_level(([ "mage" : 3, "oracle" : 3, "magus" : 3, "cleric" : 3 ]));
+    set_domains("elements");
     set_mystery("elemental");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS elemental aura on [acid|cold|electricity|fire]");

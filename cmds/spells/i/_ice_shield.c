@@ -15,7 +15,6 @@ void create() {
     set_spell_name("ice shield");
     set_spell_level(([ "cleric" : 4 ]));
     set_spell_sphere("invocation_evocation");
-    set_domains("cold");
     set_damage_desc("cold, 2 AC");
     set_syntax("cast CLASS ice shield");
     set_description("This spell will protect the caster in a field of bitter cold actic air.  It gives a slight bonus to "

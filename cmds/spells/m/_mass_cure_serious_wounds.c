@@ -7,6 +7,8 @@ void create() {
     set_author("ares");
     set_spell_name("mass cure serious wounds");
     set_spell_level(([ "cleric" : 7,"druid" : 8 ]));
+    set_domains(({}));
+    set_mystery(({}));
     set_affixed_spell_level(4);
     set_spell_sphere("healing");
     set_syntax("cast CLASS mass cure serious wounds on TARGET");

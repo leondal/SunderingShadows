@@ -11,7 +11,6 @@ void create() {
     ::create();
     set_spell_name("teleport");
     set_spell_level(([ "mage" : 5, "magus" : 5 ]));
-    set_domains("travel");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS teleport on LOCATION");
     set_description("The teleport spell will move the caster from his current location to a specified 'remembered "

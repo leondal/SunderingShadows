@@ -12,7 +12,6 @@ void create()
     set_spell_name("shield of law");
     set_spell_level(([ "cleric":8, "mage":8]));
     set_mystery("godclaw");
-    set_domains("law");
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS shield of law");
     set_damage_desc("divine damage, 4 AC, 4 to all saves");

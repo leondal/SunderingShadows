@@ -11,7 +11,7 @@ void create(){
     set_spell_name("cometfall");
     set_spell_level(([ "cleric" : 7 ]));
     set_spell_sphere("combat");
-    set_domains("creation");
+    set_domains("stars");
     set_syntax("cast CLASS cometfall");
     set_description("By chanting this spell, the priest calls into being a horde of comets, blanketing a small area.  "
 "Those within the area risk being knocked to the ground and seared by the molten rock.");

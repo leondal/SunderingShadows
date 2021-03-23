@@ -1,6 +1,6 @@
-%^CYAN%^%^ULINE%^Ranged weapons%^RESET%^
+g%^CYAN%^%^ULINE%^Ranged weapons%^RESET%^
 
-ShadowGate provides a ranged weapon system. Ranged weapons refer to weapons that can engage an enemy from a distance. Here distanceis defined by rooms. Longbows, shortbows and crossbows as well as slings and other such items are all thought of as ranged weapons. Things like javelins, nets, boulders are ranged weapons but are dealt with separately.
+Sundering Shadows provides a ranged weapon system. Ranged weapons refer to weapons that can engage an enemy from a distance. Here distanceis defined by rooms. Longbows, shortbows and crossbows as well as slings and other such items are all thought of as ranged weapons. Things like javelins, nets, boulders are ranged weapons but are dealt with separately.
 
 %^ORANGE%^<shoot %^ORANGE%^%^ULINE%^TARGET%^RESET%^ %^ORANGE%^%^ULINE%^DIRECTION%^RESET%^ [%^ORANGE%^%^ULINE%^DISTANCE%^RESET%^]>%^RESET%^
 

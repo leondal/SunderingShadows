@@ -10,7 +10,7 @@ object dest;
 void create() {
     ::create();
     set_spell_name("phase door");
-    set_spell_level(([ "psion" : 7, "mage" : 7,]));
+    set_spell_level(([ "psion" : 7, "mage" : 7, "cleric" : 7]));
     set_domains("travel");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS phase door on DIRECTION");

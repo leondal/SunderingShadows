@@ -13,7 +13,7 @@ string *dir_listing(string tempfil);
 void create() {
     ::create();
     set_spell_name("wall of fire");
-    set_spell_level(([ "mage" : 4, "monk" : 13, "oracle" : 4, "magus" : 4, "druid" : 5 ]));
+    set_spell_level(([ "mage" : 4, "monk" : 13, "oracle" : 4, "magus" : 4, "druid" : 5, "cleric" : 5 ]));
     set_mystery(({"battle","flame"}));
     set_domains("fire");
     set_spell_sphere("invocation_evocation");

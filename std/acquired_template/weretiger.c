@@ -5,6 +5,8 @@ string* races_allowed()
     return ({"human", "half-elf", "half-drow", "half-orc", "elf", "drow"});
 }
 
+int is_rollable() { return 1; } // rollable in creation
+
 mapping innate_spells()
 {
     return ([

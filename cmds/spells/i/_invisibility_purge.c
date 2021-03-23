@@ -13,7 +13,7 @@ void create() {
     set_spell_name("invisibility purge");
     set_spell_level(([ "cleric" : 3, "inquisitor" : 3 ]));
     set_spell_sphere("abjuration");
-    set_domains("protection");
+    set_domains("vigilance");
     set_syntax("cast CLASS invisibility purge");
     set_description("This spell reveals all invisible and hiding beings in the room where the caster has cast his spell.");
     set_verbal_comp();

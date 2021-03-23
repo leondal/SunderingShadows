@@ -13,7 +13,6 @@ void create() {
     set_spell_name("faerie fire");
     set_spell_level(([ "druid" : 1,"oracle":1 ]));
     set_spell_sphere("combat");
-    set_domains(({"moon", "sun"}));
     set_mystery(({"whimsy","solar"}));
     set_syntax("cast CLASS faerie fire on TARGET");
     set_description("This spell will outline the target in harmless violet flames.  It makes the target easier to hit "

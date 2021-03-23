@@ -16,7 +16,6 @@ create()
     set_spell_name("touch of sickening");
     set_spell_level(([ "mage" : 1, "cleric":1, "druid":1, "magus" : 1 ]));
     set_spell_sphere("necromancy");
-    set_domains(({"water"}));
     set_syntax("cast CLASS touch of sickening on TARGET");
     set_damage_desc("sickened for clevel/4+1 rounds");
     set_description("With this spell you touch the victim, channeling negative energy through your hand and sickening them.");

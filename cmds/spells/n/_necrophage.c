@@ -10,7 +10,8 @@ void create()
 {
     ::create();
     set_spell_name("necrophage");
-    set_spell_level(([ "mage" : 2 ]));
+    set_spell_level(([ "mage" : 2, "cleric" : 2 ]));
+    set_domains("undeath");
     set_spell_sphere("necromancy");
     set_syntax("cast CLASS necrophage on TARGET");
     set_damage_desc("acid");

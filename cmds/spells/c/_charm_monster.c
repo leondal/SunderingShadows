@@ -21,7 +21,6 @@ void create() {
     set_spell_sphere("enchantment_charm");
     set_discipline("telepath");
     set_mystery("nature");
-    set_domains(({"animal", "charm"}));
     set_syntax("cast CLASS charm monster on TARGET");
     set_description("Casting this divine prayer will allow a priest to attempt to charm a mob.  If the mob falls prey to "
 "the charm, they will stand in defense of the caster, and follow them around.  Caution should be exercised, for if you "

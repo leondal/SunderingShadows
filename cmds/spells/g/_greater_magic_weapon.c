@@ -8,6 +8,7 @@ void create() {
     ::create();
     set_spell_name("greater magic weapon");
     set_spell_level(([ "mage" : 3, "cleric" : 4, "inquisitor" : 3, "paladin":3, "oracle" : 5, "magus" : 3 ]));
+    set_domains("war");
     set_mystery("metal");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS greater magic weapon on OBJECT");

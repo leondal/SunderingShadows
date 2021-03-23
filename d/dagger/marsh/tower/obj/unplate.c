@@ -19,8 +19,8 @@ void create() {
 	"plates are backed by padding and chainmail. The weight is well "
 	"distributed. The armor is crafted exclusively by unholy drow elves "
 	"smiths and smiten with evil power by vile clerics of renown power lending it a "
-	"quality of cooled temperature and light weight. It is worn by "
-	"the order of dark Paladins found within Shadowgate."
+	"quality of cooled temperature and light weight. It is favored by "
+	"the order of dark Paladins."
     );
     set_weight(50);
     set_value(6000);
@@ -48,7 +48,6 @@ int wearit() {
 }
 
 int removeit() {
-    tell_object(ETO,  "You feel less protected from the holy beings of "
-        "Shadowgate.");
+    tell_object(ETO,  "You feel less protected from guardians of the light.");
     return 1;
 }

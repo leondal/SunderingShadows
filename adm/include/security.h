@@ -26,9 +26,9 @@
 #define UID_HM "HighMortal"
 #define UID_SHUTDOWN "Shutdown"
 #define UID_LAW "UidLaw"
-#define UID_LAWP ({"saide", "nienne", "ares"})
+#define UID_LAWP ({"tsera", "yves", "tlaloc", "kismet", "chernobog"})
 #define UID_APPROVAL "Approval"
-#define UID_GOD "saide"
+#define UID_GOD "tlaloc"
 
 /* Generalized euid groupings (set at time of special use, return to uid) */
 

@@ -14,9 +14,8 @@ void create() {
     ::create();
     set_author("cythera");
     set_spell_name("lightning touch");
-    set_spell_level(([ "cleric" : 2, "cleric":2]));
+    set_spell_level(([ "cleric" : 2 ]));
     set_spell_sphere("invocation_evocation");
-    set_domains("storms");
     set_syntax("cast CLASS lightning touch on TARGET");
     set_description("Wrapping their hand with crackling bolts of lightning, with this spell the caster tries to deliever "
 "a shocking attack onto a foe.  If the caster fails to touch the target, the lighting dispurses into a flashy, but "

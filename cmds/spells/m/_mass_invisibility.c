@@ -9,8 +9,8 @@ create()
 {
     ::create();
     set_spell_name("mass invisibility");
-    set_spell_level(([ "mage" : 7, "assassin" : 4,]));
-    set_domains("trickery");
+    set_spell_level(([ "mage" : 7, "assassin" : 4, "cleric" : 7]));
+    set_domains("illusion");
     set_spell_sphere("illusion");
     set_syntax("cast CLASS mass invisibility");
     set_description("This spell applies invisibility spell to all your followers and party members. Note that maintaining this spell is much harder than common invisibility.");

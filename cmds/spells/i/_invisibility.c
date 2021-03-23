@@ -12,9 +12,9 @@ create()
 {
     ::create();
     set_spell_name("invisibility");
-    set_spell_level(([ "mage" : 2, "bard" : 2, "assassin" : 2, "inquisitor" : 2, "oracle" : 2, "magus" : 2 ]));
+    set_spell_level(([ "mage" : 2, "bard" : 2, "assassin" : 2, "inquisitor" : 2, "oracle" : 2, "magus" : 2, "cleric" : 2 ]));
     set_mystery("shadow");
-    set_domains("trickery");
+    set_domains("illusion");
     set_spell_sphere("illusion");
     set_syntax("cast CLASS invisibility [on TARGET]");
     set_description("Although called invisibility, this spell doesn't turn target invisible. Instead, it alters perception of everyone around them, making target unnoticeable in minds of others. This spell requires target to move with some caution and will break itself if target enters into combat. Creatures that can see beyond this illusion will be able to attack the target.

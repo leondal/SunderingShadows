@@ -11,8 +11,7 @@ void create()
 {
     ::create();
     set_spell_name("prayer");
-    set_spell_level(([ "cleric" : 3, "inquisitor" : 3, "paladin":3]));
-    set_domains(({"good", "law"}));
+    set_spell_level(([ "cleric" : 3, "inquisitor" : 3, "paladin":3 ]));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS prayer");
     set_damage_desc("clevel/16+1 to attack, damage bonus, positive to allies, negative to enemies");

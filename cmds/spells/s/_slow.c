@@ -8,8 +8,9 @@ int power;
 void create() {
     ::create();
     set_spell_name("slow");
-    set_spell_level(([ "bard": 3, "mage": 3, "magus" : 3 ]));
+    set_spell_level(([ "bard": 3, "mage": 3, "magus" : 3, "cleric" : 3 ]));
     set_spell_sphere("alteration");
+    set_domains("law");
     set_damage_desc("clevel/20 + 1 to attack rolls, ac, and reflex damage, staggered for clevel / 25 + 1 rounds");
     set_syntax("cast CLASS slow on TARGET");
     set_description("An affected creature moves and attacks at a drastically slowed rate. Its number of accacs becomes reduced, it becomes staggered and slow to move.");

@@ -12,11 +12,11 @@ void create() {
         set_short("%^MAGENTA%^FAQ room");
         set_long(
 @STYX
-This room is packed full of the answers to the questions most frequently asked by newcomers to ShadowGate.  There are several posters on the walls here that have the information broken down from the faq help file.  Type %^BOLD%^<look posters>%^RESET%^ to see the topics they cover and how to read them. 
+This room is packed full of the answers to the questions most frequently asked by newcomers to Sundering Shadows.  There are several posters on the walls here that have the information broken down from the faq help file.  Type %^BOLD%^<look posters>%^RESET%^ to see the topics they cover and how to read them. 
 STYX
         );
         set_smell("default","The room smells like ripe apples.");
-        set_listen("default","The room buzzes with questions and answers about life in ShadowGate.");
+        set_listen("default","The room buzzes with questions and answers about life in Sundering Shadows.");
         set_items(([
         ]));
         set_exits(([

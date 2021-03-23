@@ -16,7 +16,6 @@ void create() {
     set_spell_name("glyph of warding");
     set_spell_level(([ "cleric" : 4 ]));
     set_spell_sphere("conjuration_summoning");
-    set_domains("creation");
     set_syntax("cast CLASS glyph of warding");
     set_description("By casting this spell, the priest uses his powers of generation to create a mystical glyph that will "
 "protect a small circle around the area in which he stands.  The glyph will alert the caster should any creature enter "

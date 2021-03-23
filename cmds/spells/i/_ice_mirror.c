@@ -8,7 +8,6 @@ void create()
     set_spell_level(([ "druid" : 8, "cleric" : 8]));
     set_mystery("winter");
     set_spell_sphere("divination");
-    set_domains("cold");
     set_syntax("cast CLASS ice mirror on TARGET");
     set_description("This spells functions exactly like magic mirror, and requires a mirror to use.");
     set_verbal_comp();

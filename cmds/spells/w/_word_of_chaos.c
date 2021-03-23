@@ -43,7 +43,6 @@ create()
     set_spell_name("word of chaos");
     set_spell_level(([ "cleric" : 7, "inquisitor" : 6 ]));
     set_spell_sphere("invocation_evocation");
-    set_domains("chaos");
     set_syntax("cast CLASS word of chaos on TARGET");
     set_description("You shout some gibberish. Upon hearing it, the target may be briefly stunned, confused, or even die from such nonsense. A will save will negate some of the effects.");
     set_verbal_comp();

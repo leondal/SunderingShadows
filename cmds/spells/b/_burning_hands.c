@@ -19,7 +19,6 @@ void create() {
     set_spell_name("burning hands");
     set_spell_level(([ "mage" : 1, "monk" : 3, "oracle" : 1, "magus" : 1 ]));
     set_mystery("flame");
-    set_domains("fire");
     set_spell_sphere("alteration");
     set_monk_way("way of the elements");
     set_syntax("cast CLASS burning hands on TARGET");

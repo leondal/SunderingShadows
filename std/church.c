@@ -246,11 +246,6 @@ int pray()
             TP->clear_feats();
             TP->delete("free_feat_wipe");
             TP->set_general_exp(myclass, total_exp_for_level(6));
-        } else if (TP->query("pk_trial")) {
-            if (thelevel > 11) {
-                TP->set_general_exp(myclass, total_exp_for_level(((thelevel - 1) / 10) * 10));
-            }
-            TP->delete("pk_trial");
         } else {
             if (exp - exploss <= total_exp_for_level(6)) {
                 exploss = exp - total_exp_for_level(6);

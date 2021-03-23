@@ -17,6 +17,8 @@ string *races_allowed()
     return ({"human", "elf", "half-elf", "half-orc", "half-ogre", "ogre", "yuan-ti", "drow", "half-drow", "minotaur", "saurian"});
 }
 
+int is_rollable() { return 0; } // rollable in creation
+
 int query_unbound_age()
 {
     return 1;

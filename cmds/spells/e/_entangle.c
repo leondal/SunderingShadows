@@ -12,7 +12,7 @@ void create()
     ::create();
     set_author("ares");
     set_spell_name("entangle");
-    set_spell_level(([ "ranger" : 1, "druid" : 1, "mage" : 1, "oracle" : 1]));
+    set_spell_level(([ "ranger" : 1, "druid" : 1, "mage" : 1, "oracle" : 1, "cleric" : 1 ]));
     set_spell_sphere("conjuration_summoning");
     set_domains("plant");
     set_syntax("cast CLASS entangle");

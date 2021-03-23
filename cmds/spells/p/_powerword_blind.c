@@ -9,8 +9,8 @@ int current;
 void create() {
     ::create();
     set_spell_name("powerword blind");
-    set_spell_level(([ "mage" : 7 ]));
-    set_domains(({"knowledge", "war", "darkness"}));
+    set_spell_level(([ "mage" : 7, "cleric" : 7 ]));
+    set_domains("war");
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS powerword blind on TARGET");
     set_description("When the powerword stun blind is uttered, any creature of the caster's choice is blinded, reeling and unable to think coherently or to act for a duration dependent on the creature's current hit points.");
