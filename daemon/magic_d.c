@@ -408,7 +408,7 @@ mapping index_castable_spells(object player, string myclass)
                     
                     if(pclass == "druid")
                     {
-                        if(str == "sun" || str == "cold" || str == "knowledge")
+                        if(str == "sun")
                             success++;
                     }
                 }
