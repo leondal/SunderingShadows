@@ -1322,8 +1322,6 @@ int query_stats(string stat)
     {
         if(stat == "strength" && member_array("strength", TO->query_divine_domain()) >= 0)
             res += 2;
-        if(stat == "charisma" && member_array("charm", TO->query_divine_domain()) >= 0)
-            res += 2;
     }
 
     if(stat == "charisma" && FEATS_D->usable_feat(TO, "spiritual body"))

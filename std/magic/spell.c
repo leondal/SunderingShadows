@@ -2323,7 +2323,7 @@ void define_clevel()
             break;
 
             case "enchantment_charm":
-            if(member_array("tyranny", domains) >= 0)
+            if(member_array("charm", domains) >= 0)
                 clevel += 1;
             break;
 
@@ -2332,19 +2332,19 @@ void define_clevel()
                 clevel += 1;
 
             case "conjuration_summoning":
-            if(member_array("creation", domains) >= 0)
+            if(member_array("animal", domains) >= 0)
                 clevel += 1;
 
             case "healing":
             if(member_array("renewal", domains) >= 0)
-                clevel += 1;
+                clevel += 2;
 
             case "abjuration":
-            if(member_array("mentalism", domains) >= 0)
+            if(member_array("magic", domains) >= 0)
                 clevel += 1;
 
             case "invocation_evocation":
-            if(member_array("elements", domains) >= 0)
+            if(member_array("destruction", domains) >= 0)
                 clevel += 1;
         }
 
