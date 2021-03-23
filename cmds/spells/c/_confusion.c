@@ -15,7 +15,7 @@ void create(){
     set_spell_name("confusion");
     set_spell_level(([ "oracle" : 4, "bard" : 3, "mage" : 4, "cleric" : 4 ]));
     set_mystery("whimsy");
-    set_domains(({ "chaos", "madness" }));
+    set_domains(({ "chaos" }));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS confusion on TARGET");
     set_damage_desc("confusion for clevel/5 + 1 rounds on target");
