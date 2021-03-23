@@ -17,7 +17,7 @@ void create() {
     set_mystery( ({ "apocalypse", "winter", "waves" }) );
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS ice storm");
-    set_domains(({"water", "cold"}));
+    set_domains(({"cold"}));
     set_description("When the ice storm spell is cast, the mage summons storm clouds above that rain hail and ice down "
 "upon anything in the area.  The spell will not damage the caster and lasts for a number of rounds equal to the caster's "
 "level. A versatile arcanist can manipulate the base element of this spell.");
