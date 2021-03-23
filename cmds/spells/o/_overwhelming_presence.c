@@ -10,7 +10,6 @@ void create() {
     set_spell_sphere("enchantment_charm");
     set_mystery("dragon");
     set_discipline("telepath");
-    set_domains("vigilance");
     set_syntax("cast CLASS overwhelming presence");
     set_damage_desc("trips attackers, 1d6 to wisdom");
     set_description("Your presence inspires incredible awe in your enemies. Those who fail to overcome it, will fall to their knees and prostrate themselves before you. Their mental abilities will suffer for a long while.");
