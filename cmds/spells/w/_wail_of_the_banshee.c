@@ -14,7 +14,7 @@ void create()
     set_mystery(({ "reaper", "bones" }));
     set_syntax("cast CLASS wail of the banshee");
     set_damage_desc("sonic");
-    set_domains(({ "repose" }));
+    set_domains(({ "repose", "undeath" }));
     set_description("A caster invokes a horrible arcane scream that may kill every living thing in sight, but it mostly targets those closest to the caster. Those who withstand the scream still suffer a little bit.");
     set_verbal_comp();
     set_somatic_comp();
