@@ -8,9 +8,8 @@ void create()
 {
     ::create();
     set_spell_name("statue");
-    set_spell_level(([ "oracle" : 7, "mage" : 7, "cleric" : 7 ]));
+    set_spell_level(([ "oracle" : 7, "mage" : 7 ]));
     set_spell_sphere("alteration");
-    set_domains("cavern");
     set_mystery( ({ "stone", "metal" }) );
     set_syntax("cast CLASS statue on TARGET");
     set_description("You attempt to turn your target into stone. For the duration of the spell they will be a stone statue, able to hear and understand everything, but being unable to act. They'll have resilience that of a stone statue and will retain their hp.");
