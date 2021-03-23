@@ -3,7 +3,7 @@
 // Occult gods are in this file for multiclassing only. People that MC
 // with cleric will have to deal with lack of domains
 #define SPELL_DOMAINS (([\
- "callamir" : ({ "charm", "travel", "good", "chaos"}), \
+ "callamir" : ({ "charm", "travel", "good", "illusion"}), \
  "cevahir" : ({ "strength", "war", "repose", "knowledge" }) , \
  "jarmila" : ({ "renewal", "sun", "fire", "good", }) , \
  "khyron" : ({ "fire", "destruction", "suffering", "chaos", }) , \
