@@ -15,9 +15,8 @@ void create(){
     ::create();
     set_author("ares");
     set_spell_name("vicarious view");
-    set_spell_level(([ "cleric" : 4, "paladin" : 4, "bard":4, "mage":4, "psion":4]));
+    set_spell_level(([ "paladin" : 4, "bard":4, "mage":4, "psion":4]));
     set_spell_sphere("divination");
-    set_domains(({"vigilance"}));
     set_syntax("cast CLASS vicarious view on TARGET");
     set_description("This spell allows the caster to attempt to plant a mark of justice on the target.  This mark is mostly inconspicuous, being more an outpouring of the caster's energy than a physical mark.  It will allow the caster to <observe mark> once while the spell is in effect, giving the caster a means to scry the target.  It is often used in investigations of suspicious persons, and as such, it has been developed to be somewhat quietly cast.");
     set_verbal_comp();
