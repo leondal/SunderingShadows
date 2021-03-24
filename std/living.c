@@ -2257,6 +2257,22 @@ int is_were()
     return 0;
 }
 
+int is_shade()
+{
+    if(query_acquired_template() == "shade")
+        return 1;
+    
+    return 0;
+}
+
+int is_deva()
+{
+    if(query_acquired_template() == "deva")
+        return 1;
+    
+    return 0;
+}
+
 void reset_all_status_effects()
 {
     object* myFeats;

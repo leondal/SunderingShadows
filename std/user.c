@@ -5173,11 +5173,12 @@ int age_mod(string stat) {
    VENERABLE = ({ -3, -3, -3,  3,  3,  3 });
    agebracket = query_real_age_cat();
 
-   if (this_object()->is_undead())
+   if (this_object()->is_undead() || this_object()->is_deva() || this_object()->is_shade())
        return 0;
 
    if (this_object()->query_race() == "soulforged")
        return 0;
+   
 
     switch(stat)
     {
@@ -5447,6 +5448,9 @@ int is_favored_enemy(object ob)
     if (ob->is_undead() || ob->query_property("undead")) {
         ids += ({ "undead" });
     }
+    
+    if(ob->is_deva() || ob->is_shade())
+        ids += ({ "outsider" });
 
     foreach(string favored_type in favored_enemy)
     {
