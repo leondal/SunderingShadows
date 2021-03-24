@@ -765,11 +765,18 @@ int query_resistance(string res)
         }
     }              
 
-    if (TO->query_race() == "shade" || TO->is_shade()) {
+    if (TO->query_race() == "shade") {
         if (res == "cold" || res == "electricity") {
             myres += 10;
         }
     }
+    if (TO->query_race() == "deva") {
+        if (res == "acid" || res == "fire") {
+            myres += 10;
+        }
+    }
+    
+    
 
     if (FEATS_D->usable_feat(TO, "no fear of the flame") && res == "fire") {
         myres += 10;
@@ -784,6 +791,13 @@ int query_resistance_percent(string res)
     if (!valid_resistance(res)) {
         return 0;
     }
+    if(TO->is_shade())
+        if(res == "electricity" || res == "cold")
+            mod += 25;
+    if(TO->is_deva())
+        if(res == "fire" || res == "acid")
+            mod += 25;
+        
     if (TO->is_undead()) {
         if (res == "fire") {
             mod += -25;
@@ -812,15 +826,6 @@ int query_resistance_percent(string res)
     {
         if(res == "electricity" || res == "cold" || res == "acid")
             mod = 100;
-    }
-
-    if(TO->is_class("cleric"))
-    {
-        if(res == "fire" || res == "cold" || res == "acid" || res == "electricity")
-        {
-            if(member_array("elements", TO->query_divine_domain()) >= 0 )
-                mod += 25;
-        }
     }
     
     //Mage is invulnerable for duration of prismatic sphere
