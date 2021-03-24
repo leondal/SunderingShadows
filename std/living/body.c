@@ -765,9 +765,9 @@ int query_resistance(string res)
         }
     }              
 
-    if (TO->query_race() == "shade") {
+    if (TO->query_race() == "shade" || TO->is_shade()) {
         if (res == "cold" || res == "electricity") {
-            myres += 5;
+            myres += 10;
         }
     }
 
