@@ -9,7 +9,7 @@ void create()
 {
     ::create();
     set_spell_name("enlarge person");
-    set_spell_level(([ "mage" : 1, "oracle" : 1, "magus" : 1 ]));
+    set_spell_level(([ "mage" : 1, "oracle" : 1, "magus" : 1, "cleric" : 1 ]));
     set_spell_sphere("alteration");
     set_domains("strength");
     set_mystery("battle");

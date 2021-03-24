@@ -10,7 +10,6 @@ void create() {
     ::create();
     set_spell_name("distressing tone");
     set_spell_level(([ "bard" : 2, "inquisitor" : 2,]));
-    set_domains("strength");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS distressing tone");
     set_damage_desc("mass sickening");
