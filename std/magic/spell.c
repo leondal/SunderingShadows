@@ -3232,7 +3232,7 @@ object *target_selector()
     object * foes = caster->query_attackers();
     object * everyone = all_living(place);
     object * slctd = ({});
-    int aff;
+    int aff, max, statbonus;
     int slevel = query_spell_level(spell_type);
 
     everyone = target_filter(everyone);
@@ -3241,22 +3241,23 @@ object *target_selector()
     shuffle(everyone);
 
     slevel = slevel < 1 ? 1 : slevel;
+    max = 6 + BONUS_D->query_stat_bonus(caster, query_casting_stat());
 
     if (splash_spell == 2) {
         aff = random(slevel) + 1;
-        aff = aff > 6 ? 6 : aff;
+        aff = aff > max ? max : aff;
         slctd += foes[0..aff];
     } else if (splash_spell == 3 || aoe_spell) {
         aff = random(slevel) + 1;
-        aff = aff > 8 ? 8 : aff;
+        aff = aff > max ? max : aff;
         slctd += everyone[0..aff];
     } else if (traveling_spell || traveling_aoe_spell) {
         aff = random(slevel) + 1;
-        aff = aff > 6 ? 6 : aff;
+        aff = aff > max ? max : aff;
         slctd += foes[0..aff];
     } else {
         aff = random(slevel) + 1;
-        aff = aff > 4 ? 4 : aff;
+        aff = aff > max ? max : aff;
         slctd += foes[0..aff];
         if (roll_dice(1, 20) > (clevel / 3)) {
             slctd += everyone[0..(48 / clevel + 1)];
