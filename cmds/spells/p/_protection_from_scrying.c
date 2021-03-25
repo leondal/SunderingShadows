@@ -20,8 +20,9 @@ object blocker;
 void create() {
     ::create();
     set_spell_name("protection from scrying");
-    set_spell_level(([ "mage" : 3, "assassin" : 3, "inquisitor" : 3, "magus" : 3 ]));
+    set_spell_level(([ "mage" : 3, "assassin" : 3, "inquisitor" : 3, "magus" : 3, "cleric" : 3 ]));
     set_spell_sphere("abjuration");
+    set_domains("protection");
     set_syntax("cast CLASS protection from scrying [on TARGET]");
     set_description("The target of this spell can be a room or a person.  If cast on a person, the spell effect moves "
 "with them, sweeping the areas they pass though.  If cast without a target, the effect is centered on the room and "
