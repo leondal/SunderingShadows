@@ -58,7 +58,7 @@ void reset(){
 	::reset();
    if(!present("tabor guard")) {
       new("/d/darkwood/tabor/mon/guard")->move(TO);
-      new("/d/darkwood/tabor/mon/guard")->move(TO);
+      new("/d/darkwood/tabor/mon/guard_guide")->move(TO);
    }
   if(!present("street_light",TO))
     new("/d/common/obj/misc/street_light")->move(TO);
