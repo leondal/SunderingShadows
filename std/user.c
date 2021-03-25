@@ -3187,13 +3187,13 @@ void hide(int x) {
 varargs int set_mini_quest(string str, int x, string desc)
 {
     object player, room;
-    
+
     player = this_player();
     player && room = environment(player);
-    
+
     if(!player || !room)
         return 0;
-    
+
     if (!mini_quests) {
         mini_quests = ([]);
     }
@@ -3562,11 +3562,11 @@ void remove_all_pets() {
 }
 
 void reduce_my_skills(string myclass) {
-  
+
   object player;
-  
+
   player = this_object();
-  
+
   if (myclass == "thief" || myclass == "bard") {
     player->set_thief_skill("pick pockets",query_base_thief_skill("pick pockets")-3);
     player->set_thief_skill("detect noise",query_base_thief_skill("detect noise")-3);
@@ -4212,10 +4212,12 @@ int isKnown(string who)
         profile = "default";
     }
     profiles = relationships[who];
-    
-    if(!mapp(profiles))
+
+    if(!mapp(profiles)) {
+        convert_relationships();
         return 0;
-    
+    }
+
     profile_names = keys(profiles);
     if (member_array(profile, profile_names) == -1) {
         return 0;
@@ -4614,12 +4616,12 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
 int light_blind(int actionbonus)
 {
     object room;
-    
+
     if (!objectp(this_object()))
         return 0;
-    
+
     room = environment(this_object());
-    
+
     if (!objectp(room))
         return 0;
 
@@ -5109,7 +5111,7 @@ string query_real_age_cat()
 {
     string myfile, myrace;
     int* agecats;
-    
+
     if (!objectp(this_object()))
         return 0;
 
@@ -5178,7 +5180,7 @@ int age_mod(string stat) {
 
    if (this_object()->query_race() == "soulforged")
        return 0;
-   
+
 
     switch(stat)
     {
@@ -5291,10 +5293,10 @@ int test_passive_perception()
     object* living, targ, player, room;
     int i, numnotvisible, ishidden, ismagic;
     int perception, stealth, spellcraft;
-    
+
     player = this_object();
     player && room = environment(player);
-  
+
     if (!player || !room)
         return;
 
@@ -5448,7 +5450,7 @@ int is_favored_enemy(object ob)
     if (ob->is_undead() || ob->query_property("undead")) {
         ids += ({ "undead" });
     }
-    
+
     if(ob->is_deva() || ob->is_shade())
         ids += ({ "outsider" });
 
