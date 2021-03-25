@@ -37,9 +37,11 @@ void init() {
    add_action("withdraw", "withdraw");
    add_action("balance", "balance");
    add_action("exchange", "exchange");
-   add_action("admdeposit", "admdeposit");
-   add_action("admwithdraw", "admwithdraw");
-   add_action("cell_action","cell");
+   if (avatarp(TP)) {
+       add_action("admdeposit", "admdeposit");
+       add_action("admwithdraw", "admwithdraw");
+   }
+   /* add_action("cell_action","cell"); */
 }
 
 object load_cell(object player)
