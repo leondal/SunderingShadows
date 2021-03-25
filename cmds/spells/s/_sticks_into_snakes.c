@@ -23,7 +23,6 @@ void create()
     ::create();
     set_spell_name("sticks into snakes"); // snakestaff
     set_spell_level(([ "cleric" : 5, "druid" : 5]));
-    set_domains("creation");
     set_spell_sphere("alteration");
     set_syntax("cast CLASS sticks into snakes");
     set_description("This spell allows the caster to create snakes from sticks in the surrounding area. There must be sticks present for this spell to be successful.");

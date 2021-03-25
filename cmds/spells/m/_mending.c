@@ -10,7 +10,6 @@ void create()
     set_spell_level(([ "bard" : 1, "druid" : 1, "cleric" : 1, "mage" : 1, "oracle" : 1, "psion" : 1, "warlock" : 1, "magus" : 1, "cleric" : 1 ]));
     set_affixed_spell_level(3);
     set_mystery(({ "life", "metal" }));
-    set_domains("creation");
     set_spell_sphere("alteration");
     set_syntax(
         "cast CLASS mending on OBJECT
