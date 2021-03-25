@@ -152,6 +152,7 @@ void shadow_effects(object obj)
         tell_object(obj, cm("A shadowy tendril lashes out from " + caster->QCN + "'s vortex of shadows and tries to grasp you!"));
         if (!obj->reflex_save(clevel) && !obj->query_property("no trip")) {
             tell_object(obj, cm("The shadowy tendril wraps around your ankle and pulls you from your feet!"));
+            obj->set_tripped(roll_dice(1, 4) * 4, cm("You are trying to regain your feet"));
         }else {
             tell_object(obj, cm("You managed to sidestep the grasping tendril!"));
         }
@@ -181,7 +182,7 @@ void shadow_effects(object obj)
 
     case 8..14: //damage
 
-        damage = roll_dice(clevel, 4);
+        damage = roll_dice(clevel, 6);
         if (obj->fort_save(clevel)) {
             damage = damage / 2;
         }
