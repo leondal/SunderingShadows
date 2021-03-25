@@ -32,6 +32,7 @@ void create(){
 "%^RESET%^%^WHITE%^a%^BOLD%^%^BLACK%^dy of B%^WHITE%^o%^RESET%^n"
 "%^BOLD%^%^BLACK%^es.%^RESET%^");
    set_value(0);
+   set_damage_type("bludgeoning");
    set_hit((:TO,"hit_func":));
    set_property("able to cast",1);
 }

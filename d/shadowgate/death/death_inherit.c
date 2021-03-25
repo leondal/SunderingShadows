@@ -15,6 +15,8 @@ void create()
     set_property("no teleport", 1);
     set_property("indoors", 1);
     set_long("You are floating in a strange room...");
+    set_terrain(WOOD_BUILDING);
+    set_travel(DIRT_ROAD);
 }
 
 void attempt_raise()

@@ -28,6 +28,7 @@ void create(){
    "support %^BLACK%^s%^WHITE%^pi%^BLACK%^k%^WHITE%^e%^BLACK%^d %^ORANGE%^spheres of fever iron that "+
    "are used to rake the skin of an opponent.%^RESET%^");
    set_value(0);
+        set_damage_type("slashing");
    set_hit((:TO,"hit_func":));
 }
 int hit_func(object targ){
@@ -41,7 +42,7 @@ int hit_func(object targ){
          "the khopesh against %^RED%^"+targ->QP+"%^ORANGE%^ skin!%^RESET%^");
       tell_object(targ,"%^ORANGE%^As %^CYAN%^"+ETOQCN+" %^ORANGE%^slices into "+
          "you with %^CYAN%^"+ETO->QP+" %^ORANGE%^khopesh, small spheres of "+
-         "fever iron tear into your flesh as well!%^RESET%^"); 
+         "fever iron tear into your flesh as well!%^RESET%^");
       tell_room(EETO,"%^CYAN%^"+ETOQCN+" slices %^CYAN%^"+ETO->QP+" "+
          "khopesh deeply into%^RED%^ "+targ->QCN+",%^ORANGE%^ the movement causing "+
          "small spheres of fever iron to "+

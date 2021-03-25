@@ -66,6 +66,8 @@ void create()
     set_property("no starve",1);
     set_property("no magic",1);
     set_property("no steal",1);
+    set_travel(PAVED_ROAD);
+    set_terrain(VILLAGE);
     //set_pre_exit_functions(({"out"}),({"GoThroughDoor"}));
 	//set_light(2);
     isSetup = 0;

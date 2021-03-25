@@ -53,6 +53,8 @@ void spell_effect(int prof)
     int mylevel;
 
     myname = caster->QCN;
+    
+    spell_successful();
 
     tell_object(caster, "%^CYAN%^BOLD%^You lash out at " + target->QCN + ", assaulting " + target->query_possessive() + " ego!");
     tell_object(target, "%^BOLD%^" + " lashes out at you, assaulting your ego!");
@@ -61,13 +63,13 @@ void spell_effect(int prof)
     amount = roll_dice(1, 8);
 
     target->set_property("idiocied", 1);
-    target->ser_stat_bonus(-amount);
+    target->set_stat_bonus(-amount);
+    spell_kill(target, caster);
 
     if(!do_save(target, 0))
         target->set_paralyzed(3, "%^BOLD%^You are dazed by the mental attack!");
-
+    
     call_out("dest_effect", 3);
-    spell_successful();
 }
 
 void dest_effect()

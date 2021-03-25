@@ -84,7 +84,7 @@ void execute_attack()
         attackers[i]->remove_attacker(caster);
         caster->remove_attacker(attackers[i]);
     }
-    prepend_to_combat_cycle(place);
+    prepend_to_combat_cycle(room);
 }
 
 void dest_effect(){

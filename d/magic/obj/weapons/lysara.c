@@ -25,6 +25,7 @@ void create()
 "%^WHITE%^d%^BOLD%^%^CYAN%^i%^RESET%^v%^BOLD%^%^CYAN%^i%^RESET%^n%^BOLD%^%^CYAN%^e "+
 "%^RESET%^%^CYAN%^blade radiates a feeling of strength.%^WHITE%^");
         set_value(0);
+        set_damage_type("slashing");
         set_hit((:TO,"hit_func":));
 }
 int hit_func(object targ){
@@ -43,7 +44,7 @@ int hit_func(object targ){
 "%^BOLD%^%^BLACK%^n %^RESET%^%^CYAN%^on %^YELLOW%^"+ETO->QCN+"'s %^RESET%^%^CYAN%^blade begins to "+
 "%^YELLOW%^g%^WHITE%^lo%^ORANGE%^w %^RESET%^%^CYAN%^as %^YELLOW%^"+ETO->QS+" %^RESET%^%^CYAN%^slashes "+
 "through %^BOLD%^%^WHITE%^"+targ->QCN+"%^RESET%^%^CYAN%^!",({ETO,targ}));
-           
+
         return random(4)+8;
    }
 }

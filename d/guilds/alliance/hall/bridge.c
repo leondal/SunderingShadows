@@ -11,6 +11,8 @@ void create()
 
     ::create();
     set_indoors(0);
+    set_travel(PAVED_ROAD);
+    set_terrain(VILLAGE);
     set_light(2);
     set_property("teleport proof", "/daemon/player_housing"->get_phouse_tp_proof("legendary"));
     set_short("On the Drawbridge");

@@ -20,7 +20,7 @@ void create()
 }
 
 int observe_cairn(string str) {
-   if(str != "cairn") {
+   if(str != "cairn" && str != "cairns") {
    return 0;
    }
    if(TP->is_class("ranger") || TP->is_class("druid")) {

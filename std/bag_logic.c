@@ -182,13 +182,13 @@ int put_into(string str)
 
                 if (tht->receive_objects()) {
                     if (!tht->item_allowed(ths)) {
-                        notify_fail("You fail to put " + ths->query_short() + " in " + tht->query_short() + ".\n");
+                        tell_object(TP, "You fail to put " + ths->query_short() + " in " + tht->query_short() + ".\n");
                         return 0;
                     }
 
 
                     if (ths->is_baggy() && sizeof(all_inventory(ths))) {
-                        notify_fail("You realize " + ths->query_short() + " is too full to fit into " + tht->query_short() + ".\n");
+                        tell_object(TP, "You realize " + ths->query_short() + " is too full to fit into " + tht->query_short() + ".\n");
                         return 0;
                     }
 

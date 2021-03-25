@@ -32,6 +32,7 @@ void create()
 "each swing%^WHITE%^, %^MAGENTA%^or turn, or just a move the b%^BOLD%^%^BLACK%^lad%^RESET%^%^MAGENTA%^e "+
 "leaves a trail of s%^BOLD%^%^BLACK%^hadow%^RESET%^%^MAGENTA%^s behind.%^WHITE%^");
         set_value(0);
+        set_damage_type("slashing");
         set_hit((:TO,"hit_func":));
 }
 int hit_func(object targ){

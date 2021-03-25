@@ -21,24 +21,26 @@ void create() {
    set_weight(0);
    set_value(0);
    set_property("no curse",1);
-   set_type("piercing");
+   set_type("divine");
+   set_prof_type("magic weapons");
+   set_weapon_prof("simple");
    set_damage_type("piercing");
    set_hit((:TO,"hit_fun":));
    set_property("able to cast",1);
 }
 
 void __ActuallyUnwield() {
-   ::__ActuallyUnwield();
-   if(objectp(claw)) { if((int)claw->query_wielded()) {
-     claw->__ActuallyUnwield();
-   }}
-   if(objectp(bracer)) {
-     if((int)bracer->query_status()) {
-       tell_room(EETO,"%^BLUE%^The shadowy claws shimmer and disappear.%^RESET%^");
-       bracer->do_reset();
-     }
-   }
-   TO->remove();
+    ::__ActuallyUnwield();
+    if(objectp(claw)) { if((int)claw->query_wielded()) {
+            claw->__ActuallyUnwield();
+        }}
+    if(objectp(bracer)) {
+        if((int)bracer->query_status()) {
+            tell_room(EETO,"%^BLUE%^The shadowy claws shimmer and disappear.%^RESET%^");
+            bracer->do_reset();
+        }
+    }
+    TO->remove();
 }
 
 void set_claw(object ob1) { claw = ob1; }

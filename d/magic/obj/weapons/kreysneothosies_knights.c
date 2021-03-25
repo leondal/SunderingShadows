@@ -21,6 +21,7 @@ void create()
 "white blade s%^ORANGE%^h%^WHITE%^in%^ORANGE%^e%^WHITE%^s brightly in the light, almost as "+
 "it was a %^ORANGE%^b%^WHITE%^eaco%^ORANGE%^n%^WHITE%^.%^RESET%^");
         set_value(0);
+        set_damage_type("slashing");
         set_hit((:TO,"hit_func":));
 }
 int hit_func(object targ){
@@ -39,7 +40,7 @@ int hit_func(object targ){
         tell_room(environment(ETO),"%^BOLD%^"+ETO->QCN+" %^RED%^sl%^ORANGE%^a%^RESET%^%^ORANGE%^s%^RED%^h"+
 "%^YELLOW%^e%^RED%^s %^WHITE%^"+ETO->QP+"'s b%^ORANGE%^l%^RESET%^%^ORANGE%^a%^BOLD%^d%^WHITE%^e "+
 "%^ORANGE%^through %^RESET%^%^RED%^"+targ->QCN+" %^YELLOW%^with a steady and true hand.%^RESET%^",({ETO,targ}));
- 
+
         return random(4)+8;
    }
 }

@@ -49,12 +49,12 @@ void drain(object targ)
 {
     int i, j;
 
-    if (!"daemon/saving_d"->saving_throw(targ, "spell")) {
+    if (!"/daemon/saving_d"->fort_save(targ, -20)) {
         tell_object(targ, "%^BOLD%^%^CYAN%^The chilling touch of the spectre" +
                     " freezes your flesh, leaving you paralyzed!");
         tell_room(ETO, "%^BOLD%^%^CYAN%^The spectre reaches out and touches" +
                   " " + targ->query_cap_name() + ", leaving " + targ->query_objective() + " paralyzed!", targ);
-        targ->set_paralyzed(20, "You are frozen from the touch of the spectre!");
+        targ->set_paralyzed(roll_dice(1, 4) * 8, "You are frozen from the touch of the spectre!");
         targ->do_damage("torso", random(5) + 6);
         return 1;
     }else {

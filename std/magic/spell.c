@@ -1046,7 +1046,7 @@ void wizard_interface(object user, string type, string targ)
             return;
         }
     }
-            
+
     if (caster->query_property("shapeshifted")) {
         shapeob = caster->query_property("shapeshifted");
         if (!objectp(shapeob)) {

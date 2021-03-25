@@ -127,7 +127,7 @@ void defend()
             continue;
         }
         TO->kill_ob(tmp[num], 1);
-        tell_room(caster, "%^BOLD%^%^RED%^The treant attacks " + tmp[num]->QCN + "!");
+        tell_room(ETO, "%^BOLD%^%^RED%^The treant attacks " + tmp[num]->QCN + "!");
     }
     return;
 }
