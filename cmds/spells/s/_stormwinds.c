@@ -15,7 +15,6 @@ void create() {
     set_domains(({ "air" }));
     set_mystery("wind");
     set_spell_sphere("elemental air");
-    set_domains("storms");
     set_syntax("cast CLASS stormwinds on TARGET");
     set_description("This spell causes a great sphere of swirling winds to appear around the target. Lightning bolts "
 "come forth from the mass of air to strike them.");
