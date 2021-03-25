@@ -193,7 +193,7 @@ void negative_effects(object obj)
         break;
 
     case 4..15:
-        damage = roll_dice(1, clevel) * 3 / 2;
+        damage = roll_dice(clevel, 5);
         if (obj->fort_save(clevel)) {
             damage = damage / 2;
         }
