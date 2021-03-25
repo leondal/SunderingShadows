@@ -2417,6 +2417,12 @@ void define_clevel()
             clevel += 3;
         }
     }
+    
+    if(caster->is_class("versatile_arcanist"))
+    {
+        if(member_array(caster->query("elementalist"), query_immunities()) >= 0)
+            clevel += 2;
+    }
 
     if ((int)caster->query_property("empowered")) {
         clevel += (int)caster->query_property("empowered");
@@ -2438,9 +2444,6 @@ void define_base_spell_level_bonus()
     if (splash_spell > 1) {
         sdamage_adjustment -= 4;
     }
-    
-    if(member_array(caster->query("elementalist"), query_immunities()) >= 0)
-        sdamage_adjustment += 1;
 
     if ((spell_type == "mage" || spell_type == "sorcerer" || spell_type == "psion")
         && FEATS_D->usable_feat(caster, "apoapsis of power")) {

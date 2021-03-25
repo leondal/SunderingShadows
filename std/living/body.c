@@ -776,10 +776,14 @@ int query_resistance(string res)
         }
     }
     
+    if(FEATS_D->usable_feat(this_object(), "master of elements"))
+    {
+        if(this_object()->query("elementalist") == res)
+            myres += 30;
+    }
     
-
     if (FEATS_D->usable_feat(TO, "no fear of the flame") && res == "fire") {
-        myres += 10;
+        myres += 30;
     }
     return (myres + EQ_D->gear_bonus(TO, res));
 }
@@ -792,8 +796,14 @@ int query_resistance_percent(string res)
         return 0;
     }
     if(TO->is_shade())
-        if(res == "electricity" || res == "cold")
-            mod += 25;
+    {
+        //Shades only get their benefits in darkness
+        if(environment(this_object())->query_light() < 1)
+        {
+            if(res == "electricity" || res == "cold")
+                mod += 50;
+        }
+    }
     if(TO->is_deva())
         if(res == "fire" || res == "acid")
             mod += 25;
