@@ -1,3 +1,4 @@
+/*
 #include <std.h>
 #include <levelcheck.h>
 
@@ -105,3 +106,4 @@ The difference in power is defined by the weakest character. To engage in advent
 rules, pkilling, who, threaten, flag
 ");
 }
+*/
