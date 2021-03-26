@@ -328,6 +328,10 @@ void catch_say(string str){
     }
     if (!stringp(str) || strlen(str)<1) return;
     details = ({num, language, speech, describe});
+    
+    if(!sizeof(details))
+        return;
+    
     sayings[str] = details;
   }
   return;
