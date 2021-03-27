@@ -112,7 +112,7 @@ void execute_attack()
             continue;
         }
 
-        damage = roll_dice(flevel, 2);
+        damage = roll_dice(flevel, 4);
 
         party[i]->cause_typed_damage(party[i], party[i]->return_target_limb(), damage, "positive energy");
         if (party[i] != caster) {
