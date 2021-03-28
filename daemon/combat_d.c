@@ -860,7 +860,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
 {
     int attacker_size, damage, mod;
     int res, eff_ench, ench;
-    int i, j, mysize;
+    int i, j, mysize, sneak;
     int speed, enchantment, fired = 0, cant_shot=0, bonus_hit_damage = 0;// added for new stamina formula -Ares
     object* armor, shape, ammo, paladin;
     string ammoname;
@@ -948,7 +948,29 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         //Aura of Fury adds smite bonus of +2 to rest of party for duration
         if(LIVING_D->check_aura(attacker, "fury") == 2)
             damage += 2;
-    }   
+    }
+    
+    /*
+    //Sneak attack dice section
+    sneak = attacker->query_prestige_level("thief");
+    
+    if(sneak && !FEAT_D->usable_feat(targ, "mighty resilience"))
+    {
+        
+        if(targ->query_paralyzed() ||
+           targ->query_blind() ||
+           targ->query_tripped() ||
+           targ->query_current_attacker() != attacker)
+        {
+            sneak /= 2;
+            if(FEAT_D->usable_feat(targ, "undead graft"))
+                sneak /= 2;
+               
+            tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
+            damage += roll_dice(sneak, 6);
+        }
+    }
+    */
     
     damage = damage_done(attacker, weapon, damage, fired);
     if (!objectp(targ)) {
@@ -1001,6 +1023,23 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
 
     //Brutalize wounds causes victim to take extra damage from physical attacks.
     bonus_hit_damage += this_object()->query_property("brutalized");
+    
+    sneak = attacker->query_prestige_level("thief");
+    
+    if(sneak)
+    {
+        if(targ->query_current_attacker() != attacker ||
+           targ->query_paralyzed() ||
+           targ->query_tripped() ||
+           targ->query_blinded())
+        {
+            sneak /= 2;
+            sneak = roll_dice(sneak, 6);
+        }
+        
+        bonus_hit_damage += sneak;
+    }
+    
 
     damage += bonus_hit_damage;
     new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot);
