@@ -10,6 +10,7 @@ void create(){
    set_long("%^RESET%^%^MAGENTA%^The blade of this %^BOLD%^enormous sword %^RESET%^%^MAGENTA%^seems to have been fashioned from a single a%^BOLD%^m%^WHITE%^e%^MAGENTA%^t%^RESET%^%^MAGENTA%^h%^BOLD%^y%^WHITE%^s%^RESET%^%^MAGENTA%^t, though its light weight hints at a more %^CYAN%^mystical creation%^MAGENTA%^. Crystalline f%^BOLD%^a%^WHITE%^c%^MAGENTA%^e%^RESET%^%^MAGENTA%^ts catch the light, sending beams of %^BOLD%^%^WHITE%^white %^RESET%^%^MAGENTA%^and %^BOLD%^purple %^RESET%^%^MAGENTA%^light across the wielder's face, and the %^YELLOW%^golden pommel %^RESET%^%^MAGENTA%^is engraved with a precise formation of %^BOLD%^%^BLACK%^b%^YELLOW%^e%^BLACK%^e%^YELLOW%^s%^RESET%^%^MAGENTA%^.%^RESET%^");
    set_damage_type("slashing");
    set_value(0);
+   set_size(3);
    set_hit((:TO,"hit_func":));
 }
 

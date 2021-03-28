@@ -63,6 +63,11 @@ void spell_effect(int prof)
             dwpn->set_property("enchantment", ench);
         }
         dwpn->move(caster);
+        
+        if(normalizedDeity == "cevahir")
+            dwpn->set_size(TP->query_size() + 1);
+        else
+            dwpn->set_size(TP->query_size());
 
         caster->remove_paralyzed();
         addSpellToCaster();
