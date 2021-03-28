@@ -50,6 +50,10 @@ void spell_effect(int prof)
         }else {
             dwpn = new("/d/magic/obj/weapons/" + normalizedDeity + "");
         }
+        if(normalizedDeity == "cevahir")
+            dwpn->set_size(caster->query_size() + 1);
+        else
+            dwpn->set_size(caster->query_size());
         ench = clevel / 7;
         if (ench < 0) {
             ench = 0;
@@ -63,15 +67,10 @@ void spell_effect(int prof)
             dwpn->set_property("enchantment", ench);
         }
         dwpn->move(caster);
-        
-        if(normalizedDeity == "cevahir")
-            dwpn->set_size(TP->query_size() + 1);
-        else
-            dwpn->set_size(TP->query_size());
 
         caster->remove_paralyzed();
         addSpellToCaster();
-        caster->force_me("wield weapon in left hand");
+        caster->force_me("wield weapon");
         spell_successful();
         return;
     }else {
