@@ -1025,21 +1025,6 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     bonus_hit_damage += this_object()->query_property("brutalized");
     
     sneak = attacker->query_prestige_level("thief");
-    
-    if(sneak)
-    {
-        if(targ->query_current_attacker() != attacker ||
-           targ->query_paralyzed() ||
-           targ->query_tripped() ||
-           targ->query_blinded())
-        {
-            sneak /= 2;
-            sneak = roll_dice(sneak, 6);
-        }
-        
-        bonus_hit_damage += sneak;
-    }
-    
 
     damage += bonus_hit_damage;
     new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot);
