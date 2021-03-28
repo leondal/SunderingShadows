@@ -550,7 +550,7 @@ int cmd_feats(string str)
                 continue;
             }
             tmp = (string)TP->query_combat_spec(required[bonus]);         // new combat spec code, N 1/14.
-            classfeats = category->class_featmap(tmp);
+            classfeats = category->class_featmap(tmp, TP);
             if (!mapp(classfeats)) {
                 continue;
             }
