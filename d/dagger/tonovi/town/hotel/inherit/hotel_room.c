@@ -27,9 +27,9 @@ void create(){
         "%^RESET%^have been placed nearby, greedily absorbing the warmth. The %^BOLD%^"+
         "%^BLACK%^st%^WHITE%^o%^BLACK%^ne wal%^WHITE%^l%^BLACK%^s %^RESET%^have been "+
         "adorned with a few tasteful %^GREEN%^pa%^BOLD%^in%^CYAN%^t%^WHITE%^i%^CYAN%^n"+
-        "%^RESET%^%^CYAN%^gs %^WHITE%^to complete the decor.%^RESET%^");
-    set_smell("The air carries a mix of white tea and vanilla, with a hint of cedar.");
-    set_listen("It is peacefully quiet here.");
+        "%^RESET%^%^CYAN%^gs %^WHITE%^to complete the decor.%^RESET%^\n");
+    set_smell("default","The air carries a mix of white tea and vanilla, with a hint of cedar.");
+    set_listen("default","It is peacefully quiet here.");
     set_items(([
         "bed" : "%^RESET%^%^CYAN%^Worked from %^ORANGE%^solid oak%^CYAN%^, this king "+
             "size bed has four posts rising up to support a %^MAGENTA%^s%^BOLD%^i"+

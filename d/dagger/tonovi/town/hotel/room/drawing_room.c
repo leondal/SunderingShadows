@@ -32,9 +32,9 @@ void create(){
         "potted %^GREEN%^p%^BOLD%^l%^RESET%^%^GREEN%^a%^ORANGE%^n%^BOLD%^%^GREEN%^t"+
         "%^RESET%^%^GREEN%^s %^WHITE%^serve to disrupt the expanse of %^BOLD%^"+
         "%^BLACK%^st%^RESET%^o%^BOLD%^%^BLACK%^ne wal%^RESET%^l%^BOLD%^%^BLACK%^s"+
-        "%^RESET%^, parting for an archway that leads further into the bedroom.");
-    set_smell("The air carries a mix of white tea and vanilla, with a hint of cedar.");
-    set_listen("It is pleasantly quiet in here.");
+        "%^RESET%^, parting for an archway that leads further into the bedroom.\n");
+    set_smell("default","The air carries a mix of white tea and vanilla, with a hint of cedar.");
+    set_listen("default","It is pleasantly quiet in here.");
     set_items(([
         ({"wall", "walls"}) : "%^RESET%^%^CYAN%^Uneven %^BOLD%^%^BLACK%^stones "+
             "%^RESET%^%^CYAN%^of %^BOLD%^%^BLACK%^black %^RESET%^%^CYAN%^and %^WHITE%^"+

@@ -26,9 +26,9 @@ void create(){
         "%^WHITE%^o%^RESET%^n%^BOLD%^es %^RESET%^in the ceiling provide the ambient "+
         "lighting. An archway leads back into the %^YELLOW%^m%^RESET%^%^ORANGE%^a"+
         "%^BOLD%^%^BLACK%^i%^ORANGE%^n h%^BLACK%^a%^RESET%^%^ORANGE%^l%^BOLD%^l "+
-        "%^RESET%^of the hotel. A few menus have been left out on the tables.");
-    set_smell("The aroma of gourmet cooking fills the air.");
-    set_listen("You can hear the soft murmur of other patrons' conversations.");
+        "%^RESET%^of the hotel. A few menus have been left out on the tables.\n");
+    set_smell("default","The aroma of gourmet cooking fills the air.");
+    set_listen("default","You can hear the soft murmur of other patrons' conversations.");
     set_items(([
         ({"wall", "walls"}) : "%^RESET%^%^CYAN%^Uneven %^BOLD%^%^BLACK%^stones "+
             "%^RESET%^%^CYAN%^of %^BOLD%^%^BLACK%^black %^RESET%^%^CYAN%^and %^WHITE%^"+

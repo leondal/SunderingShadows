@@ -26,9 +26,9 @@ void create(){
         "table %^WHITE%^to the side with a %^BOLD%^gl%^RESET%^a%^BOLD%^ss %^RESET%^a"+
         "%^BOLD%^sht%^RESET%^r%^BOLD%^ay%^RESET%^. An impressive %^BOLD%^%^MAGENTA%^p"+
         "%^RED%^o%^MAGENTA%^rtr%^RED%^a%^MAGENTA%^it %^RESET%^peers down from its "+
-        "place above the mantle.");
-    set_smell("Cigar smoke wafts lazily in the air.");
-    set_listen("There is the occasional crackle and pop from the fireplace.");
+        "place above the mantle.\n");
+    set_smell("default","Cigar smoke wafts lazily in the air.");
+    set_listen("default","There is the occasional crackle and pop from the fireplace.");
     set_items(([
         ({"wall", "walls"}) : "%^RESET%^%^CYAN%^Uneven %^BOLD%^%^BLACK%^stones "+
             "%^RESET%^%^CYAN%^of %^BOLD%^%^BLACK%^black %^RESET%^%^CYAN%^and %^WHITE%^"+

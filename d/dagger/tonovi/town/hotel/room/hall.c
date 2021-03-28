@@ -35,9 +35,9 @@ void create(){
         "%^BLACK%^lls%^RESET%^, and the accompanying %^GREEN%^p%^BOLD%^l%^RESET%^"+
         "%^ORANGE%^a%^GREEN%^n%^BOLD%^t%^RESET%^%^GREEN%^s %^WHITE%^break the monotony"+
         " from their %^ORANGE%^ce%^RED%^ra%^ORANGE%^mi%^RED%^c p%^ORANGE%^ot%^RED%^s"+
-        "%^RESET%^.");
-    set_smell("The air carries a mix of white tea and vanilla, with a hint of cedar.");
-    set_listen("You hear the gentle susurrus of patrons coming and going.");
+        "%^RESET%^.\n");
+    set_smell("default","The air carries a mix of white tea and vanilla, with a hint of cedar.");
+    set_listen("default","You hear the gentle susurrus of patrons coming and going.");
     set_items(([
         ({"wall", "walls"}) : "%^RESET%^%^CYAN%^Uneven %^BOLD%^%^BLACK%^stones "+
             "%^RESET%^%^CYAN%^of %^BOLD%^%^BLACK%^black %^RESET%^%^CYAN%^and %^WHITE%^"+

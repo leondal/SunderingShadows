@@ -8,7 +8,7 @@ inherit INH+"hallway";
 void create(){
     ::create();
     set_long(::query_long()+" The hallway continues from here, or returns to the grand "+
-        "staircase.");
+        "staircase.\n");
     set_exits(([
         "north" : ROOMS "hallway2",
         "west" : ROOMS "hotel_room1",

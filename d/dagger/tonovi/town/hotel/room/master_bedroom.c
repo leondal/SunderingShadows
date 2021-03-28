@@ -27,9 +27,9 @@ void create(){
         "%^CYAN%^s%^RESET%^l%^BOLD%^%^CYAN%^i%^WHITE%^v%^CYAN%^e%^RESET%^r%^BOLD%^"+
         "%^CYAN%^s %^RESET%^of %^BOLD%^%^CYAN%^cr%^WHITE%^y%^CYAN%^st%^RESET%^a"+
         "%^BOLD%^%^CYAN%^l%^RESET%^, quietly illuminating the room like the stars in "+
-        "a %^MAGENTA%^night sky%^RESET%^.");
-    set_smell("The air carries a mix of white tea and vanilla, with a hint of cedar.");
-    set_listen("It is pleasantly quiet in here.");
+        "a %^MAGENTA%^night sky%^RESET%^.\n");
+    set_smell("default","The air carries a mix of white tea and vanilla, with a hint of cedar.");
+    set_listen("default","It is pleasantly quiet in here.");
     set_items(([
         "bed" : "%^RESET%^%^CYAN%^This bed is absolutely gigantic. Supported on a "+
             "platform that requires a %^ORANGE%^small %^BOLD%^c%^RESET%^%^ORANGE%^u"+

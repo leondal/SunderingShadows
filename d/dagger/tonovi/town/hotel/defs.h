@@ -3,8 +3,8 @@
 
 #include <std.h>
 
-#define ROOMS "/d/dagger/tonovi/town/hotel/room/"
-#define OBJ "/d/dagger/tonovi/town/hotel/obj/"
-#define INH "/d/dagger/tonovi/town/hotel/inherit/"
-#define MON "/d/dagger/tonovi/town/hotel/mon/"
-#define STOR "/d/dagger/tonovi/town/hotel/storage/"
+#define ROOMS "/realms/chernobog/hotel/room/"
+#define OBJ "/realms/chernobog/hotel/obj/"
+#define INH "/realms/chernobog/hotel/inherit/"
+#define MON "/realms/chernobog/hotel/mon/"
+#define STOR "/realms/chernobog/hotel/storage/"

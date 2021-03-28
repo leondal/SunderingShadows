@@ -22,9 +22,9 @@ void create(){
         "%^WHITE%^. There is a small bench on the far wall to take a seat, and some "+
         "%^YELLOW%^t%^RESET%^%^ORANGE%^o%^BOLD%^%^BLACK%^we%^RESET%^%^ORANGE%^l"+
         "%^BOLD%^s %^RESET%^hanging nearby on the wall. An odd %^ORANGE%^lever "+
-        "%^WHITE%^protrudes from the wall.");
-    set_smell("It smells humid and moist in here.");
-    set_listen("There is an odd mix of dripping water and muffled curses.");
+        "%^WHITE%^protrudes from the wall.\n");
+    set_smell("default","It smells humid and moist in here.");
+    set_listen("default","There is an odd mix of dripping water and muffled curses.");
     set_items(([
         "hatch" : "%^RESET%^%^CYAN%^Cracking the %^ORANGE%^hatch %^CYAN%^open, you see "+
             "a small chamber surrounded by a circle of odd %^BOLD%^%^BLACK%^s%^RESET%^y"+

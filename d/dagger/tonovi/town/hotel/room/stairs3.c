@@ -8,7 +8,7 @@ inherit INH+"stairs";
 void create(){
     ::create();
     set_long(::query_long()+" This landing is brought short by a %^ORANGE%^large oak "+
-        "door%^RESET%^, standing solid and imposing.");
+        "door%^RESET%^, standing solid and imposing.\n");
     set_exits(([
         "north" : ROOMS "drawing_room",
         "down" : ROOMS "stairs2",
