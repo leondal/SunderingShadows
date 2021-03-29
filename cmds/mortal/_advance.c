@@ -304,7 +304,7 @@ int add_class_feats(object ob,string myclass)
 
     myspec = (string)ob->query_combat_spec(myclass); // new combat spec code, N 1/14.
     if(myclass == "monk") myspec = (string)ob->query("monk way");
-    featsmap = (mapping)file->class_featmap(myspec);
+    featsmap = (mapping)file->class_featmap(myspec, ob);
     mapkeys = keys(featsmap);
     feats = ({});
     mylev = (int)ob->query_base_class_level(myclass);
