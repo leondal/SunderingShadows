@@ -72,7 +72,7 @@ void make_me()
             set_short("%^CYAN%^s%^RESET%^t%^CYAN%^ee%^RESET%^l wand of "+ spell);
             break;
         case "slender willow":
-            set_long("%^RESET%^A slender %^ORANGE%^w%^RESET%^i%^ORANGE%^ll%^RESET%^o%^ORANGE%^w %^RESET%^ wand. A few faint runes are carved into the side of the wand.");
+            set_long("%^RESET%^A slender %^ORANGE%^w%^RESET%^i%^ORANGE%^ll%^RESET%^o%^ORANGE%^w%^RESET%^ wand. A few faint runes are carved into the side of the wand.");
             set_short("%^ORANGE%^w%^RESET%^i%^ORANGE%^ll%^RESET%^o%^ORANGE%^w %^RESET%^ wand of " + spell);
             break;
         case "white tipped black":
