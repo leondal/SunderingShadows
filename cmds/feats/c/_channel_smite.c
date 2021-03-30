@@ -10,7 +10,7 @@ void create()
     feat_name("channel smite");
     feat_prereq("Channel");
     feat_classes(({"paladin", "cleric"}));
-    feat_desc("This power allows a divine caster to channel primal energies (negative or positive) through their weapon, causing it to become infused with divine wrath, striking at their current attacker. The type of energy will depend on your alignment, e.g. evil will channel negative energy while good and neutral will channel positive energy. This feat will auto determine which type of energy is applied to the foe. You must spend one Divine Grace point to use Channel Smite. The damage is based on your Channel dice. Note : This is not a free feat.");
+    feat_desc("This power allows a divine caster to channel primal energies (divine) through their weapon, causing it to become infused with divine wrath, striking at their current attacker, causing divine damage. You must spend one Divine Grace point to use Channel Smite. The damage is based on your Channel dice. Note : This is not a free feat.");
     feat_syntax("channel_smite");
     set_target_required(0);
 }
@@ -132,12 +132,14 @@ void execute_attack()
 
     //Evil channel negative energy
     if (caster->query_true_align() % 3 == 0) {
-        energy_type = "negative energy";
+        //energy_type = "negative energy";
         color = "%^BLACK%^";
     } else {
-        energy_type = "positive energy";
+        //energy_type = "positive energy";
         color = "%^WHITE%^";
     }
+    
+    energy_type = "divine";
 
     if(BONUS_D->process_hit(caster, attacker, 1, 0, 0, 0) <= 0)
         tell_room(ENV(caster), caster->QCN + " tries to strike + " + attacker->QCN + " with their divine-infused weapon but misses!");
