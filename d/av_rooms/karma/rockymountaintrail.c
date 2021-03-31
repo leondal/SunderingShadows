@@ -25,4 +25,9 @@ void create()
 The air is crisp and fresh.");
     set_listen("default","You hear your footsteps echo through the pass.");
 
+
+    set_exits(([ 
+		"north" : "/d/av_rooms/karma/rockytemple",
+	]));
+
 }

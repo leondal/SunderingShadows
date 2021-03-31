@@ -40,7 +40,7 @@ set_items(([
 	]));
 
     set_exits(([ 
-		"south" : "/d/av_rooms/karma/rockymountainpath",
+		"south" : "/d/av_rooms/karma/rockymountaintrail",
 		"down" : "/d/av_rooms/karma/rockybasement",
 	]));
 
