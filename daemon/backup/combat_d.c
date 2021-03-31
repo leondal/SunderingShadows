@@ -950,10 +950,11 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             damage += 2;
     }
     
+    /*
     //Sneak attack dice section
     sneak = attacker->query_prestige_level("thief");
     
-    if(sneak && !FEATS_D->usable_feat(targ, "mighty resilience"))
+    if(sneak && !FEAT_D->usable_feat(targ, "mighty resilience"))
     {
         
         if(targ->query_paralyzed() ||
@@ -962,13 +963,14 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
            targ->query_current_attacker() != attacker)
         {
             sneak /= 2;
-            if(FEATS_D->usable_feat(targ, "undead graft"))
+            if(FEAT_D->usable_feat(targ, "undead graft"))
                 sneak /= 2;
                
             tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
             damage += roll_dice(sneak, 6);
         }
     }
+    */
     
     damage = damage_done(attacker, weapon, damage, fired);
     if (!objectp(targ)) {
@@ -3126,7 +3128,6 @@ void internal_execute_attack(object who)
         return;
     }
 
-    /*
     if (FEATS_D->usable_feat(who, "combat reflexes") &&
         who->is_ok_armour("thief") &&
         !who->query_casting() &&
@@ -3157,7 +3158,6 @@ void internal_execute_attack(object who)
             who->set_scrambling(2);
         }
     }
-    */
 
     who->adjust_combat_mapps("static vars", "lastHand", 1, 1);
     who->adjust_combat_mapps("static vars", "attacking", 0);

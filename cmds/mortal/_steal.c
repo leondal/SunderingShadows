@@ -78,11 +78,11 @@ int cmd_steal(string str) {
         return 0;
     }
     if (!TP->ok_to_kill(victim)) return notify_fail("Super natural forces prevent you.\n");
-    if ((victim->is_player()) && (TP->query("no pk"))){
-        notify_fail("You cannot steal while under No PK protection.\n");
-        return 0;
+    if (victim->ok_to_kill(TP)){
+        write("You cannot steal with a NoPK flag\n");
+        return 1;
     }
-    
+
 //    TP->set_disable(2*sizeof(TP->query_classes()),victim);
 
     if (wizardp(victim)) {

@@ -22,26 +22,19 @@ int cmd_pp(string str) {
     	notify_fail("You cannot do that in your immaterial state.\n");
     	return 0;
     }
-
     if (TP->query_bound() || TP->query_tripped()) {
 	    TP->send_paralyzed_message("info",TP);
 	    return 1;
     }
-
-/*    if(!TP->is_class("thief") && !TP->is_class("bard")) {
-        notify_fail("Too bad you don't know how to do that.\n");
-        return 0;
-    } */
-
     if (!str) {
 	    notify_fail("Pick whom?\n");
 	    return 0;
     }
-
     if (TP->query_current_attacker()) {
 	    notify_fail("You can't do that while in combat!\n");
 	    return 0;
     }
+    
     ob = present(str, ETP);
 
     if (!ob) ob = parse_objects(ETP, str);
@@ -49,40 +42,31 @@ int cmd_pp(string str) {
 	    notify_fail("No "+str+" here!\n");
 	    return 0;
     }
-
     if (!living(ob)) {
 	    notify_fail(capitalize(str)+" is not a living thing!\n");
 	    return 0;
     }
-
     if (wizardp(ob)) {
 	    notify_fail("That is not adviseable.\n");
 	    return 0;
     }
-
     if (ob->is_player() && !interactive(ob)) return 0;
-
     if (ob==TP) {
 	    notify_fail("You cannot pick your own purse!\n");
 	    return 0;
     }
-
     if(ETP->query_property("no steal")) {
         notify_fail("A magic force prevents you from doing that!\n");
         return 0;
     }
-
     if(ob->query_property("no steal")) {
         notify_fail((string)ob->query_cap_name()+" cannot be stolen from!\n");
         return 0;
     }
-
     if (!TP->ok_to_kill(ob)) return notify_fail("Supernatural forces prevent you.\n");
-
-    /* Calculations */
-/*    steal = (int)TP->query_thief_skill("pick pockets");
-    if (!TP->is_ok_armour("thief")) {
-        steal -= 10000;   //it just doesn't work
+    if ((ob->is_player()) && (ob->ok_to_kill(TP))){
+        write("You cannot steal with a NoPK flag\n");
+        return 1;
     }
 
     if (!TP->is_ok_armour("mage")) steal -= 30; // Mages can wear clothing magic and nothing at all
@@ -122,7 +106,8 @@ int cmd_pp(string str) {
 
     if (!platinum && !gold && !silver && !electrum && !copper) {
 	    write("You fail to get anything from "+ob->query_cap_name()+"'s purse.");
-	} else {
+	} 
+    else {
 	    ob->add_money("platinum", -platinum);
 	    ob->add_money("gold", -gold);
 	    ob->add_money("electrum", -electrum);
@@ -134,7 +119,7 @@ int cmd_pp(string str) {
 	    TP->add_money("silver", silver);
 	    TP->add_money("copper", copper);
 	    write("You pick some money from "+ob->query_cap_name()+
-        "'s purse.");
+            "'s purse.");
         amt = gold + platinum*5 + electrum/2 + silver/10 + copper/100;
         amt_string = "gold";
         if(!amt) {
@@ -158,8 +143,8 @@ int cmd_pp(string str) {
 	i = check_caught(roll,ob, sLevel);
 	if(TP->query("stolen money")){
 	    TP->set("stolen money",(int)TP->query("stolen money")+amt);
-	} else {
-
+	} 
+    else {
 	    TP->set("stolen money",amt);
 	}
 	return 1;
@@ -167,8 +152,7 @@ int cmd_pp(string str) {
 
 void help() {
     write(
-"
-%^CYAN%^NAME%^RESET%^
+"%^CYAN%^NAME%^RESET%^
 
 pp - pickpocket someone
 
@@ -182,8 +166,8 @@ This command will attempt to steal some money from %^ORANGE%^%^ULINE%^TARGET%^RE
 
 %^CYAN%^SEE ALSO%^RESET%^
 
-stealth, steal, spy, look, glance, pkilling, flee
-");
+stealth, steal, spy, look, glance, pkilling, flee"
+        );
 }
 
 void check_caught(int roll, object target, int sLevel){
@@ -205,8 +189,7 @@ void check_caught(int roll, object target, int sLevel){
 	    if(TP->query_magic_hidden()) {
             if (TP->is_thief()) bonus = 5;
             else bonus = 0;
-            if ((int)target->query_stats("wisdom") > (random(INVIS_CHECK_DIE) + bonus))
-	        {
+            if ((int)target->query_stats("wisdom") > (random(INVIS_CHECK_DIE) + bonus)) {
 	            TP->force_me("appear");
 	            TP->set_magic_hidden(0);
 	        }
@@ -220,25 +203,25 @@ void check_caught(int roll, object target, int sLevel){
         for(i=0;i<sizeof(inven);i++){
 	        if(objectp(inven[i])) inven[i]->check_caught(TP,target,roll);
         }
-
 	    if (!interactive(target)) target->kill_ob(TP,0);
 	    else
 		    log_file("player/theft", TPQN+"("+sLevel+") was caught stealing from "+target->query_name()+"("+target->query_lowest_level()+") on "+ctime(time())+"\n");
-            if (TP->is_singleClass()) {
-                TP->set_disable(2,target);
-            } else {
-                TP->set_disable(2*sizeof(TP->query_classes()),target);
+        if (TP->is_singleClass()) {
+            TP->set_disable(2,target);
+        } 
+        else {
+            TP->set_disable(2*sizeof(TP->query_classes()),target);
+        }
+	    if (interactive(TP)) {
+		    pkills = TP->query_pkilled();
+		    if (member_array(target->query_name(),pkills) == -1) {
+                pkills += ({target->query_name()});
+                TP->set_pkilled(pkills);
             }
-	        if (interactive(TP)) {
-		        pkills = TP->query_pkilled();
-		        if (member_array(target->query_name(),pkills) == -1) {
-		            pkills += ({target->query_name()});
-		            TP->set_pkilled(pkills);
-		        }
-	        }
-	        do_caught(target);
-	}
-	return test;
+        }
+            do_caught(target);
+    }
+    return test;
 }
 
 void do_caught(object victim){
@@ -246,3 +229,4 @@ void do_caught(object victim){
     TP->set_static("caught",([victim:time()]));
 
 }
+
