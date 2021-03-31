@@ -18,16 +18,11 @@ void create()
 
     set_long("This is a rocky path that winds slowly through the foothills of the mountains. The path has been mostly cleared of the larger rocks, but smaller stones make for rough traveling. The surrounding area i"
 	"s also rocky, not many plants seem to like the mountain climate. A cool wind seems to be constantly blowing, and you can hear it whistling through the peaks far above. The path here isn't very steep, "
-	"and it stays relatively close to the sheer mountain cliff."
+	"and it stays relatively close to the sheer mountain cliff. There is a shrine to the north."
 	);
 
     set_smell("default","
 The air is crisp and fresh.");
     set_listen("default","You hear your footsteps echo through the pass.");
-
-
-    set_exits(([ 
-		"north" : "/d/av_rooms/karma/rockytemple",
-	]));
 
 }
