@@ -1019,7 +1019,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
            targ->query_tripped() ||
            targ->query_current_attacker() != attacker)
         {              
-            tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
+            //tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
             damage += roll_dice(sneak, 6);
         }
     }
@@ -1029,7 +1029,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
 
     damage += bonus_hit_damage;
     
-    new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot);
+    new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot, sneak);
 
     if (!objectp(weapon) || attacker->query_property("shapeshifted")) {
         attacker->increment_stamina(1);
@@ -1239,7 +1239,7 @@ int get_hand_damage(object attacker, string limb1, int damage, object attacked)
     return (damage + (int)attacker->query_unarmed_damage());
 }
 
-void send_messages(object attacker, int magic, object weapon, string what, int x, object victim, int fired, string ammo, int critical_message, int cant_shot)
+void send_messages(object attacker, int magic, object weapon, string what, int x, object victim, int fired, string ammo, int critical_message, int cant_shot, int sneak)
 {
     string your_name, my_name, me, you, others, used, type, * verb, * adverb, * attack_limbs, * limbs;
     int i, verbose, num;
@@ -1404,6 +1404,13 @@ your " + used + "!%^RESET%^";
         others = "%^BOLD%^%^RED%^(Critical) %^RESET%^" + others;
         attacker->reset_critical();
     }
+    
+    if(sneak)
+    {
+        me = me + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
+        you = you + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
+        others = others + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
+    }
 
     if (objectp(attacker)) {
         tell_object(attacker, me);
@@ -1416,7 +1423,7 @@ your " + used + "!%^RESET%^";
     }
 }
 
-void new_struck(int damage, object weapon, object attacker, string limb, object victim, int fired, string ammo, int critical_hit, int cant_shot)
+void new_struck(int damage, object weapon, object attacker, string limb, object victim, int fired, string ammo, int critical_hit, int cant_shot, int sneak)
 {
     string damage_type, tmp, type;
     object shape;
@@ -1477,7 +1484,7 @@ void new_struck(int damage, object weapon, object attacker, string limb, object 
     }
 
     if (objectp(attacker)) {
-        send_messages(attacker, 0, weapon, limb, damage_num, victim, fired, ammo, critical_hit, cant_shot);
+        send_messages(attacker, 0, weapon, limb, damage_num, victim, fired, ammo, critical_hit, cant_shot, sneak);
     }
     if (objectp(victim)) {
         victim->remove_property("beingDamagedBy");
