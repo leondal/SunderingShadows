@@ -953,7 +953,10 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     //Sneak attack dice section
     sneak = attacker->query_prestige_level("thief");
     
-    if(sneak && !FEATS_D->usable_feat(targ, "mighty resilience"))
+    if(FEATS_D->usable_feat(targ, "mighty resilience"))
+        sneak = 0;
+    
+    if(sneak)
     {
         
         if(targ->query_paralyzed() ||
@@ -3133,6 +3136,7 @@ void internal_execute_attack(object who)
         (int)who->query_property("stabs_available") > 0 &&
         !who->query_paralyzed() && !who->query_tripped()) {
         who->set_property("stabs_available", -1);
+        /*
         if (victim->query_property("stab_resilience")) {
             victim->set_property("stab_resilience", -1);
             tell_object(who, "%^BOLD%^%^YELLOW%^You successfully position yourself to strike where " + victim->QCN + " is vulnerable, but " + victim->QS + " seems unaffected.%^RESET%^");
@@ -3151,13 +3155,13 @@ void internal_execute_attack(object who)
             "/cmds/mortal/_stab"->scramble_stab(who, victim);
         }
     }
-
+    */
+    
     if (((int)who->query_scrambling() == 1) && who->is_ok_armour("thief") && who->is_class("thief")) {
         if (D_BUG_D->scramble_change()) {
             who->set_scrambling(2);
         }
     }
-    */
 
     who->adjust_combat_mapps("static vars", "lastHand", 1, 1);
     who->adjust_combat_mapps("static vars", "attacking", 0);
