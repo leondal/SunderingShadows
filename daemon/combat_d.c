@@ -962,7 +962,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     if(FEATS_D->usable_feat(targ, "undead graft"))
         sneak /= 2;
     
-    if(sneak)
+    if(sneak && damage)
     {
         
         if(targ->query_paralyzed() ||
@@ -1026,8 +1026,6 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
 
     //Brutalize wounds causes victim to take extra damage from physical attacks.
     bonus_hit_damage += this_object()->query_property("brutalized");
-    
-    sneak = attacker->query_prestige_level("thief");
 
     damage += bonus_hit_damage;
     new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot);
