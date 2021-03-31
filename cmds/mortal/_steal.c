@@ -47,22 +47,15 @@ int cmd_steal(string str) {
         notify_fail("You cannot do that in your immaterial state.\n");
         return 0;
     }
-
     if (TP->query_bound() || TP->query_tripped()) {
         TP->send_paralyzed_message("info",TP);
         return 1;
     }
-/*   if(!TP->is_class("thief") && !TP->is_class("bard")) {
-      notify_fail("Too bad you don't know how to do that.\n");
-      return 0;
-   } */
-
     if (!str) {
         notify_fail("Steal what from whom?\n");
         return 0;
     }
     if (TP->query_disable()) return 1;
-
     if (sscanf(str, "%s from %s", what, whom) != 2) {
         notify_fail("Steal what from whom?\n");
         return 0;
@@ -76,7 +69,6 @@ int cmd_steal(string str) {
         notify_fail(capitalize(whom)+" is not here!\n");
         return 0;
     }
-
     if (!living(victim)) {
         notify_fail(capitalize(whom)+" is not a living thing!\n");
         return 0;
@@ -85,9 +77,12 @@ int cmd_steal(string str) {
         notify_fail("You cannot steal from link-dead players.\n");
         return 0;
     }
-
     if (!TP->ok_to_kill(victim)) return notify_fail("Super natural forces prevent you.\n");
-
+    if ((victim->is_player()) && (TP->query("no pk"))){
+        notify_fail("You cannot steal while under No PK protection.\n");
+        return 0;
+    }
+    
 //    TP->set_disable(2*sizeof(TP->query_classes()),victim);
 
     if (wizardp(victim)) {
@@ -97,14 +92,14 @@ int cmd_steal(string str) {
     }
 
    if(victim == TP) {
-      notify_fail("Steal from yourself?\n");
-      return 0;
-   }
+        notify_fail("Steal from yourself?\n");
+        return 0;
+    }
 
 //    if ((total_light(TP)+TP->query_sight_bonus()) < -1) {
-   if (TP->light_blind(-1)) {
-      notify_fail(TP->light_blind_fail_message(TP->light_blind(-1))+"\n");
-      return 0;
+    if (TP->light_blind(-1)) {
+        notify_fail(TP->light_blind_fail_message(TP->light_blind(-1))+"\n");
+        return 0;
     }
 
 
@@ -144,43 +139,38 @@ int cmd_steal(string str) {
         write((string)victim->query_cap_name()+"'s "+(string)ob->query_name()+" cannot possibly be stolen.");
         return 1;
     }
-
-   if (ETP->query_property("no steal")) {
-       notify_fail("A magic force prevents you from doing that!\n");
-       return 0;
-   }
-
-   if (victim->query_property("no steal")) {
-       notify_fail((string)victim->query_cap_name()+" cannot be stolen from!\n");
-      return 0;
-   }
-   if (ob->query_wielded() || ob->query_worn()) {
-       notify_fail("That would be impossible!\n");
-       return 0;
-   }
-
-   if (TP->is_singleClass()) {
-       TP->set_disable(2,victim);
-   } else {
-       TP->set_disable(2*sizeof(TP->query_classes()),victim);
-   }
+    if (ETP->query_property("no steal")) {
+        notify_fail("A magic force prevents you from doing that!\n");
+        return 0;
+    }
+    if (victim->query_property("no steal")) {
+        notify_fail((string)victim->query_cap_name()+" cannot be stolen from!\n");
+        return 0;
+    }
+    if (ob->query_wielded() || ob->query_worn()) {
+        notify_fail("That would be impossible!\n");
+        return 0;
+    }
+    if (TP->is_singleClass()) {
+        TP->set_disable(2,victim);
+    } 
+    else {
+        TP->set_disable(2*sizeof(TP->query_classes()),victim);
+    }
 
 /* Calculations */
-  steal = TP->query_skill("thievery") + roll_dice(1,20);
-  if(sizeof(TP->query_armour("torso"))) steal += TP->skill_armor_mod(TP->query_armour("torso"));
+    steal = TP->query_skill("thievery") + roll_dice(1,20);
+    if(sizeof(TP->query_armour("torso"))) steal += TP->skill_armor_mod(TP->query_armour("torso"));
 
     if (victim->query_invis()) steal -= INVIS_PENALTY;
     if ((int)ob->query_weight() > 50 ) steal -= WEIGHT_PENALTY;
-/*    if (!TP->is_class("thief") && !TP->is_class("bard")) {
-        notify_fail("AHH ask a thief how.\n");
-        return 1;
-    } */
+
 /* Display messages */
     x = victim->query_skill("perception") + roll_dice(1,20);
     //tell_object(TP,"x = "+x+" steal = "+steal);
     if (x<steal && (!TP->get_static("caught") ||  time() - (int)((mapping)TP->get_static("caught"))[victim] > 150)) {
         write("You successfully steal "+victim->query_cap_name()+"'s "+
-              ob->query_name()+".\nYou are not sure if anyone noticed.");
+            ob->query_name()+".\nYou are not sure if anyone noticed.");
         if (ob->move(TP)) {
             write("You cannot carry that!\nYou drop "+ob->query_name()+".");
             say(TPQCN+" drops "+ob->query_name()+".", TP);
@@ -188,16 +178,17 @@ int cmd_steal(string str) {
         }
         i = check_caught(x,victim,ob,steal);
         //if (interactive(victim))
-            log_file("player/theft", TPQN+"("+TP->query_level()+") stole "+ob->query_short()+" from "+victim->query_name()+"("+victim->query_lowest_level()+") on "+ctime(time())+" with difficulty "+i+"\n");
+        log_file("player/theft", TPQN+"("+TP->query_level()+") stole "+ob->query_short()+" from "+victim->query_name()+"("+victim->query_lowest_level()+") on "+ctime(time())+" with difficulty "+i+"\n");
         flag_stolen(ob,i);//ob->set_property("stolen",([TPQN:(["difficulty":i,"max value":ob->query_value()])]));
         return 1;
 
-    } else {
+    } 
+    else {
         if (TP->get_static("caught") && (int)((mapping)TP->get_static("caught"))[victim] - time() < 150) {
             x=0;
         }
         write("You fail to steal "+victim->query_cap_name()+"'s "+
-              ob->query_name()+", but you are unsure if it went unnoticed.");
+            ob->query_name()+", but you are unsure if it went unnoticed.");
         check_caught(x,victim,ob,steal);
         return 1;
     }
@@ -235,6 +226,7 @@ thievery, perception, skills, pp, glance, spy, thief, stab, stealth
 "
         );
 }
+
 int check_caught(int roll, object target, object ob, int sLevel){
     int test;
     int i;
@@ -254,23 +246,22 @@ int check_caught(int roll, object target, object ob, int sLevel){
     if ((100 - roll)<test) {
         TP->set_hidden(0);
 // I know I said I didn't want this to happen -- glad my opinion means something - T
-    if(TP->query_magic_hidden()) {
-        if (TP->is_thief()) bonus = 5;
-        else bonus = 0;
-        if ((int)target->query_stats("wisdom") > (random(INVIS_CHECK_DIE) + bonus)) {
-          TP->force_me("appear");
-          TP->set_magic_hidden(0);
+        if(TP->query_magic_hidden()) {
+            if (TP->is_thief()) bonus = 5;
+            else bonus = 0;
+            if ((int)target->query_stats("wisdom") > (random(INVIS_CHECK_DIE) + bonus)) {
+                TP->force_me("appear");
+                TP->set_magic_hidden(0);
+            }
         }
-    }
 
         tell_object(target,"You catch "+TPQCN+" with "+TP->query_possessive()+" hand in your pocket.\n");
         //tell_object(target,capitalize(TP->query_subjective())+" was stealing from you.\n");
         tell_object(TP,"You get caught.");
-        tell_room(environment(TP),"You see "+target->query_cap_name()+" catch "+TPQCN+" with a hand in "+target->query_possessive()+" pocket.",({TP,target}));
-      inven = all_living(ETP);
-      for(i=0;i<sizeof(inven);i++){
-          if(objectp(inven[i])) inven[i]->check_caught(TP,target,roll);
-     }
+        tell_room(environment(TP),"You see "+target->query_cap_name()+" catch "+TPQCN+" with a hand in "+target->query_possessive()+" pocket.",({TP,target}));     inven = all_living(ETP);
+        for(i=0;i<sizeof(inven);i++){
+            if(objectp(inven[i])) inven[i]->check_caught(TP,target,roll);
+        }
 
         if (!interactive(target)) target->kill_ob(TP,0);
         else
@@ -300,3 +291,4 @@ void do_caught(object victim){
     TP->set_static("caught",([victim:time()]));
 
 }
+
