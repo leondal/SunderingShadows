@@ -1024,10 +1024,36 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         damage = crit_damage(attacker, targ, weapon, attacker_size, damage, cant_shot);
     }
 
+    //Sneak attack dice section
+    sneak = attacker->query_prestige_level("thief") / 2;
+    
+    if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
+        sneak = 0;
+    
+    if(FEATS_D->usable_feat(targ, "mighty resilience"))
+        sneak = 0;
+    
+    if(FEATS_D->usable_feat(targ, "undead graft"))
+        sneak /= 2;
+    
+    if(sneak && damage)
+    {
+        
+        if(targ->query_paralyzed() ||
+           (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
+           targ->query_tripped() ||
+           targ->query_current_attacker() != attacker)
+        {              
+            tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
+            damage += roll_dice(sneak, 6);
+        }
+    }
+    
     //Brutalize wounds causes victim to take extra damage from physical attacks.
     bonus_hit_damage += this_object()->query_property("brutalized");
 
     damage += bonus_hit_damage;
+    
     new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot);
 
     if (!objectp(weapon) || attacker->query_property("shapeshifted")) {
