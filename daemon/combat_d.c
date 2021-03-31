@@ -951,23 +951,25 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     }
     
     //Sneak attack dice section
-    sneak = attacker->query_prestige_level("thief");
+    sneak = attacker->query_prestige_level("thief") / 2;
+    
+    if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
+        sneak = 0;
     
     if(FEATS_D->usable_feat(targ, "mighty resilience"))
         sneak = 0;
+    
+    if(FEATS_D->usable_feat(targ, "undead graft"))
+        sneak /= 2;
     
     if(sneak)
     {
         
         if(targ->query_paralyzed() ||
-           targ->query_blind() ||
+           (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
            targ->query_tripped() ||
            targ->query_current_attacker() != attacker)
-        {
-            sneak /= 2;
-            if(FEATS_D->usable_feat(targ, "undead graft"))
-                sneak /= 2;
-               
+        {              
             tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
             damage += roll_dice(sneak, 6);
         }

@@ -231,6 +231,7 @@ void heart_beat() {
 void stab(object targ) {
     int mod;
     mod = 3;
+/*
 if(TP->is_class("mage")) mod = 2;
         write("%^BOLD%^%^RED%^"
 	    "Someone executes an assassin like stab upon you!"
@@ -305,6 +306,7 @@ if(TP->is_class("mage")) mod = 2;
         new( OPATH "blood.c" )->move(environment(TO));
         command( "kill "+targ->query_name() );
         TP->add_follower(TO);
+*/
 }
 void sic_em(object targ) {
     if((string)TO->query_current_attacker() != targ) {
