@@ -193,7 +193,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         if(ob->query_class_level("cleric"))
         {
             //Fate domain has a chance to add 1d4 to save and try again
-            if(member_array("fate", ob->query_divine_domain()) && !random(5))
+            if(member_array("fate", ob->query_divine_domain()) >= 0)
             {
                 roll1 += roll_dice(1, 4);
                 if(roll1 + save + dc >= 0)
