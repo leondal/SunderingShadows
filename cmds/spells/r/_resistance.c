@@ -13,7 +13,7 @@ void create()
     set_spell_level(([ "bard" : 1, "druid" : 1, "paladin" : 1, "mage" : 1, "cleric" : 1, "psywarrior" : 1, "psion" : 1, "inquisitor" : 1, "magus" : 1 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS resistance");
-    set_damage_desc("clevel / 35 + 1 to saving throws");
+    set_damage_desc("+1 to all saving throws");
     set_description("By this spell, the caster imbues themselves with a small amount of resistance to harm.  The spell grants small bonus to will, fortitude and reflex.
 
 %^BOLD%^%^RED%^See also:%^RESET%^ resistance *feats");
@@ -51,9 +51,14 @@ spell_effect(int prof)
         tell_object(caster, "%^GREEN%^As the last note fades, you feel a light prickling of protection across your skin.");
         tell_room(place, "%^GREEN%^The last note fades as " + caster->QCN + " glances around.", caster);
     }
+    
+    /*
     bonus = clevel / 35 + 1;
     bonus = bonus < 1 ? 1 : bonus;
     bonus = bonus > 4 ? 4 : bonus;
+    */
+    
+    bonus = 1;
 
     caster->add_saving_bonus("all", bonus);
     caster->set_property("morale-boost", 1);

@@ -99,8 +99,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
                 ob->query("subrace") == "maalish") {
                 mod += 1;
             }
-            if(member_array("stars", ob->query_divine_domain()) >= 0)
-                mod += 2;
+
             if(LIVING_D->check_aura(ob, "courage") == 2)
                 mod += 2;
             if(LIVING_D->check_aura(ob, "resolve") == 2)
@@ -127,8 +126,6 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         if (FEATS_D->usable_feat(ob, "shadow master") && objectp(ENV(ob)) && ENV(ob)->query_light() < 2) {
             num += 2;
         }
-        if(member_array("madness", ob->query_divine_domain()) >= 0)
-            num -= roll_dice(1, 4);
 
         save_info["misc_modifiers"] = mod;
         {
