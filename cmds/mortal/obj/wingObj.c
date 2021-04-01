@@ -54,12 +54,11 @@ void flystep(string destination, object flyee)
         return;
     }
 
-    if (!objectp(destobj)) {
+    if (!objectp(destobj))
         destobj = find_object("" + destination, 1);
-    }
 
     //Forces a load on the destination
-    loaded = call_other(destobj, "???");
+    destobj && loaded = call_other(destobj, "???");
 
     if (!objectp(flroom) || !objectp(destobj))
     {

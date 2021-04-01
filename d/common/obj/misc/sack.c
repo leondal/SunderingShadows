@@ -22,7 +22,7 @@ void init()
 
 void check_sack_count() {
     // Intentionally not deep_inventory
-    if (collapse_array(all_inventory(TP)->is_sack()) > 5) {
+    if (TP && collapse_array(all_inventory(TP)->is_sack()) > 5) {
         write("%^B_CYAN%^%^BOLD%^%^GREEN%^You have too many containers. Lower the amount held as soon as roleplay permits.%^RESET%^");
         call_out("check_sack_count", 30);
         return;
