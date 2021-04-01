@@ -14,7 +14,7 @@ void create()
   set_long("%^RESET%^%^GREEN%^Offestry town square%^RESET%^\n"
 "You are standing in the middle of the town of Offestry, where four cobblestone %^ORANGE%^streets %^RESET%^converge upon "
 "this town square.  A light but constant stream of %^CYAN%^traffic %^RESET%^passes through, day and night, as the town "
-"serves as a waypoint to the people passing into the greater realm of Shadowgate.  The "
+"serves as a waypoint to the people passing into the greater realm of Sundering Shadows.  The "
 "atmosphere is relatively slow and relaxed, in this quiet but prosperous town.  All around you rise a jumbled array of "
 "%^RED%^buildings%^RESET%^.  There is a grand "
 "%^BOLD%^%^WHITE%^statue%^RESET%^ standing here, drawing the eyes of travellers as they pass by.  Upon the front wall, a "
