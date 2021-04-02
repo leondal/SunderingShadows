@@ -69,6 +69,15 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
         }
     }
     MissChance = (int)victim->query_missChance();
+    
+    if(attacker->query_blinded() || total_light(attacker) < 1)
+    {
+        if(FEATS_D->usable_feat(attacker, "blindfight"))
+            MissChance += 25;
+        else
+            MissChance += 50;
+    }
+    
     if (mount && FEATS_D->usable_feat(rider, "mounted shield")) {
         ShieldMissChance = (int)rider->query_shieldMiss();
     }else {
@@ -1010,6 +1019,9 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     
     if(FEATS_D->usable_feat(targ, "undead graft"))
         sneak /= 2;
+    
+    if(attacker->query_blind() || total_light(attacker))
+        sneak = 0;
     
     if(sneak && damage)
     {
