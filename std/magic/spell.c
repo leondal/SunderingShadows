@@ -2418,7 +2418,7 @@ void define_clevel()
         }
     }
     
-    if(caster->is_class("versatile_arcanist") && immune)
+    if(caster->is_class("versatile_arcanist") && sizeof(immune))
     {
         if(member_array(caster->query("elementalist"), immune) >= 0)
             clevel += 2;
