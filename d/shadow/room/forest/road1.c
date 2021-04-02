@@ -2,24 +2,24 @@
 inherit ROOM;
 
 string * features = ({
-        "%^GREEN%^Someone replaced washed out dirt with %^BOLD%^%^BLACK%^pebbles%^RESET%^%^GREEN%^ here.%^RESET%^",
-            "%^GREEN%^An abandoned farm sits back in an overgrown field. The buildings have collapsed on themselves.",
-            "%^GREEN%^A %^ORANGE%^fallen tree%^GREEN%^ partially blocks the road.%^GREEN%^",
-            "%^GREEN%^The road passes through a %^MAGENTA%^flowery meadow%^GREEN%^.",
-            "%^GREEN%^Some riders passed through here recently. Deep horse tracks mark the road.%^RESET%^",
-            "%^ORANGE%^A dirty creek meanders alongside the road.%^GREEN%^",
-            "%^ORANGE%^The road curves around some %^BOLD%^%^BLACK%^huge boulders%^RESET%^%^GREEN%^.%^RESET%^",
-            "%^ORANGE%^A newly constructed %^ORANGE%^wooden watchtower%^GREEN%^ stands erect here. Nobody seems to be inside.%^RESET%^%^",
-            "%^ORANGE%^Nettle grows on the sides of the road.%^RESET%^",
-            "%^GREEN%^A wooden sign with the emblem of Shadow City pokes up from the ground.%^RESET%^",
-            "%^ORANGE%^Hornets swarm around their hive, high in the trees.%^RESET%^",
-            "%^ORANGE%^A couple of bunnies watch you from the bushes.%^RESET%^",
-            "%^ORANGE%^The road curves around an ancient stone pillar here.%^RESET%^",
-            "%^ORANGE%^Some bird nests are built into the trees.%^RESET%^",
-            "%^ORANGE%^Yellow %^WHITE%^animal bones%^GREEN%^ are strewn alongside the road.%^RESET%^",
-            "%^ORANGE%^Smoke can be seen above the trees from somewhere deep in the forest.%^RESET%^",
-            "%^ORANGE%^Someone cleared back the forest to make a small field. It looks as if they have planted some peas.%^RESET%^",
-            "%^ORANGE%^You see deer tracks passing from the one side of the road to the other.%^RESET%^",
+        "%^ORANGE%^Pebbles are strewn alongside the road, washed out by recent rains.%^RESET%^",
+        "%^ORANGE%^An abandoned farm sits back in an overgrown field, the buildings decrepit and in disrepair.%^RESET%^",
+        "%^ORANGE%^A fallen tree partially blocks the road.%^RESET%^",
+        "%^ORANGE%^The road passes through a pretty meadow.%^RESET%^",
+        "%^ORANGE%^Deep horse tracks mark the road where riders have recently passed through.%^RESET%^",
+        "%^ORANGE%^A dirty creek meanders alongside the road.%^RESET%^",
+        "%^ORANGE%^The road curves around some huge boulders.%^RESET%^",
+        "%^ORANGE%^Nettle grows on the sides of the road.%^RESET%^",
+        "%^ORANGE%^Hornets swarm around their hive, high in the trees.%^RESET%^",
+        "%^ORANGE%^A couple of rabbits watch you from the bushes.%^RESET%^",
+        "%^ORANGE%^The road curves sharply around an ancient stone pillar.%^RESET%^",
+        "%^ORANGE%^Birds sing from high up in the tree's branches.%^RESET%^",
+        "%^ORANGE%^A menacing growl comes from somewhere deeper into the trees.%^RESET%^",
+        "%^ORANGE%^The foliage of the forest is suddenly stirred as something darts off the road and vanishes.%^RESET%^",
+        "%^ORANGE%^An old carcass, long past the point of being recognizable, lays withering in the weeds.%^RESET%^",
+        "%^ORANGE%^Smoke can be seen above the trees from somewhere deep in the forest.%^RESET%^",
+        "%^ORANGE%^Some of the forest has been cleared away, opening into a dirt field.%^RESET%^",
+        "%^ORANGE%^You see deer tracks passing from the one side of the road to the other.%^RESET%^",
     });
 
 
@@ -29,24 +29,25 @@ void create(){
    set_travel(DIRT_ROAD);
     set_property("light" , 2);
     set_property("indoors" , 0);
-    set_short("%^RESET%^%^GREEN%^On the Quiet %^BOLD%^%^GREEN%^Fo%^RESET%^%^GREEN%^r%^GREEN%^e%^BOLD%^%^GREEN%^s%^RESET%^%^GREEN%^t %^ORANGE%^R%^BOLD%^%^ORANGE%^o%^ORANGE%^a%^ORANGE%^d%^RESET%^");
-    set_long("
-%^RESET%^%^GREEN%^On the Quiet %^BOLD%^%^GREEN%^Fo%^RESET%^%^GREEN%^r%^GREEN%^e%^BOLD%^%^GREEN%^s%^RESET%^%^GREEN%^t %^ORANGE%^R%^BOLD%^%^ORANGE%^o%^ORANGE%^a%^ORANGE%^d%^RESET%^
-%^RESET%^%^GREEN%^A %^ORANGE%^dirty road %^GREEN%^leads through f%^BOLD%^o%^RESET%^%^GREEN%^r%^BOLD%^e%^RESET%^%^GREEN%^st und%^BOLD%^e%^RESET%^%^GREEN%^rg%^BOLD%^row%^RESET%^%^GREEN%^th. The forest is not very dense here, and the path is visible for a good distance."+make_fdesc());
+    set_short("%^BOLD%^%^GREEN%^Quiet Forest Road%^RESET%^%^GREEN%^"%^WHITE%^);
 
+set_long("%^GREEN%^A wide %^ORANGE%^dirt trail %^GREEN%^has been cut through the forest here, and shows signs of wear "+
+	 "from the many travellers who have passed this way before you. The %^BOLD%^trees %^RESET%^%^GREEN%^are not "+
+	 "very dense, allowing glimpses of the %^CYAN%^sky %^GREEN%^overhead through the swaying treetops."+make_fdesc());%^WHITE%^
+
+%^WHITE%^
     set_items(([
-	"road":"A new road through the forest.",
-	"forest":"A quiet forest, for sure. Only the sounds of birds."
+	"road":"This dirt road cuts through a quiet forest.",
+	"forest":"This is an aptly named road through a quiet forest. You hear only the occasional bird song."
 	]));
 
     set_exits(([
         "east" : VILLAGEDIR+"mainroad6",
 	"west" : FORESTDIR+"road2"
    	]));
-    set_smell("default","You smell fresh air and the odor of %^GREEN%^w%^BOLD%^i%^MAGENTA%^l%^RESET%^%^MAGENTA%^d%^BOLD%^fl%^RESET%^%^MAGENTA%^o%^BOLD%^we%^RESET%^%^MAGENTA%^r%^BOLD%^s%^ORANGE%^.");
-    set_smell("flowers","The odor of the flowers is overwhelming, you nearly pass out.");
+    set_smell("default","%^CYAN%^The fresh scent of the forest surrounds you.%^WHITE%^");
     set_listen("default","You can hear birds singing.");
-    set_listen("birds","They seems to sing songs of love.");
+    set_listen("birds","They seem to sing songs of love - or murder - depending on your mood.");
 
     if (!random(8)) {
         new(MONDIR + "bandits")->move(TO);
