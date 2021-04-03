@@ -29,13 +29,11 @@ void create(){
    set_travel(DIRT_ROAD);
     set_property("light" , 2);
     set_property("indoors" , 0);
-    set_short("%^BOLD%^%^GREEN%^Quiet Forest Road%^RESET%^%^GREEN%^"%^WHITE%^);
+    set_short("%^BOLD%^%^GREEN%^Quiet Forest Road%^RESET%^%^GREEN%^");
 
 set_long("%^GREEN%^A wide %^ORANGE%^dirt trail %^GREEN%^has been cut through the forest here, and shows signs of wear "+
 	 "from the many travellers who have passed this way before you. The %^BOLD%^trees %^RESET%^%^GREEN%^are not "+
-	 "very dense, allowing glimpses of the %^CYAN%^sky %^GREEN%^overhead through the swaying treetops."+make_fdesc());%^WHITE%^
-
-%^WHITE%^
+	 "very dense, allowing glimpses of the %^CYAN%^sky %^GREEN%^overhead through the swaying treetops."+make_fdesc());
     set_items(([
 	"road":"This dirt road cuts through a quiet forest.",
 	"forest":"This is an aptly named road through a quiet forest. You hear only the occasional bird song."
