@@ -20,7 +20,7 @@ object base_class_ob(object ob)
 }
 
 
-string *query_base_classes() { return ({ "mage","sorcerer" }); }
+string *query_base_classes() { return ({ "mage","sorcerer","oracle","cleric" }); }
 
 int is_prestige_class() { return 1; }
 
@@ -43,8 +43,8 @@ string requirements() // string version, maybe we'll need this, maybe not, can r
 {
     string str;
     str = "Prerequisites:\n"
-        "    20 Mage or Sorcerer levels\n"
-        "    20 Intelligence or Charisma stat, before equipment modifiers\n";
+        "    20 Mage, Sorcerer, Cleric, or Oracle levels\n"
+        "    20 Intelligence, Wisdom or Charisma stat, before equipment modifiers\n";
 
     return str;
 }
@@ -73,12 +73,26 @@ int prerequisites(object player)
         if(player->query_base_stats("charisma") < 20) { return 0; }
         player->set("base_class","sorcerer");
     }
+    if(player->is_class("cleric"))
+    {
+        if( (player->query_class_level("cleric")) < 20) { return 0; }
+        if(player->query_base_stats("wisdom") < 20) { return 0; }
+        player->set("base_class","cleric");
+    }
+    if(player->is_class("sorcerer"))
+    {
+        if( (player->query_class_level("oracle")) < 20) { return 0; }
+        if(player->query_base_stats("charisma") < 20) { return 0; }
+        player->set("base_class","oracle");
+    }
+    
     return 1;
 }
 
 mapping stat_requirements(object ob)
 {
     if(!objectp(ob) || ob->is_class("mage")) { return ([ "intelligence" : 20 ]); }
+    if(ob->is_class("cleric")) { return ([ "wisdom" : 20 ]); }
     return ([ "charisma" : 20 ]);
 }
 
@@ -91,27 +105,16 @@ string *class_feats(string myspec) { return base_class_ob(0)->class_feats(myspec
 int caster_level_calcs(object player, string the_class)
 {
     int level;
-    if(!objectp(player)) { return 0; }
-    switch(the_class)
-    {
-        case "mage":
-            level = player->query_class_level("mage");
-            level += player->query_class_level("shadow_adept");
-            return level;
-        case "sorcerer":
-            level = player->query_class_level("sorcerer");
-            level += player->query_class_level("shadow_adept");
-            return level;
-        case "shadow_adept":
-            level = player->query_class_level("shadow_adept");
-            level += player->query_class_level("mage");
-            level += player->query_class_level("sorcerer");
-            return level;
+    string base;
 
-        default:
-            return player->query_class_level(the_class);
+    if (!objectp(player)) {
+        return 0;
     }
-    return 0;
+    base = player->query("base_class");
+
+    level = player->query_class_level(base);
+    level += player->query_class_level("shadow adept");
+    return level;
 }
 
 mapping class_featmap(string myspec) {
