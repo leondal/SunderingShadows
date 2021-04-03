@@ -79,7 +79,7 @@ int prerequisites(object player)
         if(player->query_base_stats("wisdom") < 20) { return 0; }
         player->set("base_class","cleric");
     }
-    if(player->is_class("sorcerer"))
+    if(player->is_class("oracle"))
     {
         if( (player->query_class_level("oracle")) < 20) { return 0; }
         if(player->query_base_stats("charisma") < 20) { return 0; }
