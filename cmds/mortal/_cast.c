@@ -69,7 +69,7 @@ int cmd_cast(string str)
         healharm = 0;
     }
     
-    if (regexp(str, implode(LIVING_D->list_classes(), "|") + "|innate")) {
+    if (regexp(str, implode(LIVING_D->list_classes(), "|") + "|innate|cantrip")) {
         if (!sscanf(str, "%s %s", type, str2)) {
             return notify_fail("Syntax: <cast CLASS CAST_STRING>\n");
         }

@@ -1522,7 +1522,7 @@ mixed WildMagicArea(object where)
 varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string classtype)
 {
     string msg, whatsit, whatdo, * myclasses;
-    mixed innate_spells;
+    mixed innate_spells, cantrips;
 
     if (!objectp(TO)) {
         return;
@@ -1534,6 +1534,21 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
     set_caster(ob);
     clevel = ob_level;
     seteuid(getuid());
+    
+    if(classtype == "cantrip")
+    {
+        cantrips = caster->query_cantrip_spells();
+        
+        if(!sizeof(cantrips) || member_array(spell_name, cantrips) < 0)
+        {
+            tell_object(caster, "You have no cantrips named " + spell_name + ".");
+            this_object()->remove();
+            return;
+        }
+        
+        if(clevel < 1)
+            clevel = 1;
+    }
 
     if (classtype == "innate") {
         if (!(innate_spells = caster->query_innate_spells())) {
@@ -1579,7 +1594,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         spell_type = myclasses[0];
     }
 
-    if (member_array(spell_type, myclasses) == -1 && spell_type != "innate" && spell_type != "potion") {
+    if (member_array(spell_type, myclasses) == -1 && spell_type != "innate" && spell_type != "potion" && spell_type != "cantrip") {
         tell_object(caster, "Invalid caster class specified to " +
                     "invoke this spell, contact a wiz.");
         TO->remove();
@@ -1592,6 +1607,9 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
     }else if (spell_type == "innate") {
         whatdo = "use";
         whatsit = "innate spell";
+    }else if(spell_type == "cantrip") {
+        whatdo = "use";
+        whatsit = "cantrip";
     }else {
         whatdo = "cast";
         whatsit = "spell";
@@ -1709,7 +1727,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
 
     if (living(caster) && base_name(PO) != "/d/magic/obj/contingency") {
         tell_object(caster, "You begin to " + whatdo + " " + spell_name + "!");
-        if (spell_type != "innate" && !silent_casting) {
+        if (spell_type != "innate" && spell_type != "cantrip" && !silent_casting) {
             tell_room(environment(caster), caster->QCN +
                       " begins to " + whatdo + " a " + whatsit + "!", caster);
         }
