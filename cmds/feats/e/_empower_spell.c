@@ -48,7 +48,7 @@ int prerequisites(object ob)
     return ::prerequisites(ob);
 }
 
-int cmd_spell_recall(string str)
+int cmd_empower_spell(string str)
 {
     object feat;
     if(!objectp(this_player())) { return 0; }

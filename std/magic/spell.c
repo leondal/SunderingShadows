@@ -2474,7 +2474,7 @@ void define_base_damage(int adjust)
         
         if(caster->query_property("empower spell"))
         {
-            slevel += 2;
+            slevel += 1;
             caster->remove_property("empower spell");
             tell_object(caster, "%^BOLD%^Your spell is empowered.%^RESET%^");
         }
