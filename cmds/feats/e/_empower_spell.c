@@ -12,7 +12,7 @@ void create()
     feat_type("instant");
     feat_category("MetaMagic");
     feat_name("empower spell");
-    feat_prereq("Any Spellcaster");
+    feat_prereq("31 levels in any single spellcaster class");
     feat_syntax("empower_spell");
     feat_desc("This Meta Magic feat will cause your next spell to behave as though it were two spell levels higher. This feat has a long cooldown");
     set_required_for(({ }));
@@ -32,8 +32,13 @@ int prerequisites(object ob)
     classes = ob->query_classes();
 
     foreach(string cls in classes)
+    {
         if(member_array(cls, allowed) >= 0)
-            success = 1;
+        {
+            if(ob->query_class_level(cls) > 30)
+                success = 1;
+        }
+    }
         
     if(!success)
     {
@@ -68,7 +73,7 @@ void execute_feat()
     
     if(caster->cooldown("empower spell"))
     {
-        tell_object(player, "You can't use empower spell yet.");
+        tell_object(caster, "You can't use empower spell yet.");
         return;
     }
 

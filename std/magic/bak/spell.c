@@ -1596,6 +1596,10 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         return;
     }
 
+
+
+
+
     if (targ) {
         if (arg_needed) {
             arg = targ;
@@ -1694,14 +1698,6 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
     }
 
     if (spell_type == "potion") {
-        TO->spell_effect(prof);
-        return 1;
-    }
-    
-    if(caster->query_property("quicken spell"))
-    {
-        caster->remove_property("quicken spell");
-        tell_object(caster, "%^BOLD%^Your spell is quickened.%^RESET%^");
         TO->spell_effect(prof);
         return 1;
     }
@@ -2352,6 +2348,19 @@ void define_clevel()
                 clevel += 1;
         }
 
+        //Stars domain gets caster level bonus at night, and penalty during the day
+        if(member_array("stars", domains) >= 0)
+        {
+            if(hour(date()) < 6 || hour(date()) >= 18)
+                clevel += 1;
+            else
+                clevel -= 1;
+        }
+
+        //Madness domain gets caster level bonus with saving throw penalty
+        if(member_array("madness", domains) >= 0)
+            clevel += 1;
+
         if(evil_spell)
         {
             if(member_array("evil", domains) >= 0)
@@ -2405,7 +2414,7 @@ void define_clevel()
     if (FEATS_D->usable_feat(caster, "ragecaster")) {
         clevel = caster->query_base_character_level(); // CHECK ME!
         if (caster->query_property("raged")) {
-            clevel += 2;
+            clevel += 3;
         }
     }
     
@@ -2471,37 +2480,16 @@ void define_base_damage(int adjust)
 
         slevel += adjust;
         slevel += sdamage_adjustment;
-        
-        if(caster->query_property("empower spell"))
-        {
-            slevel += 2;
-            caster->remove_property("empower spell");
-            tell_object(caster, "%^BOLD%^Your spell is empowered.%^RESET%^");
-        }
-        
         slevel = slevel < 1 ? 1 : slevel;
 
         if (slevel < 1) {
             sdamage = roll_dice(clevel, 5);
-            if(caster->query_property("maximize spell"))
-                sdamage = clevel * 5;
         }else if (slevel > 0 && slevel < 20) {
             sdamage = roll_dice(clevel, 5 + slevel);
-            if(caster->query_property("maximize spell"))
-                sdamage = clevel * (slevel + 5);
         } else {
             sdamage = roll_dice(clevel, 8);
-            if(caster->query_property("maximize spell"))
-                sdamage = clevel * 8;
         }
     }
-    
-    if(caster->query_property("maximize spell"))
-    {
-        caster->remove_property("maximize spell");
-        tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
-    }
-
     if (!wasreflected) {
         if (FEATS_D->is_active(caster, "spell combat") && caster->query_property("magus spell")) {
             int magus, crit_range;
@@ -2993,9 +2981,7 @@ varargs int do_save(object targ, int mod)
 
     type = get_save();
     target_level = (int)targ->query_level();
-    classlvl = caster->query_prestige_level(spell_type);
-    classlvl = max( ({ caster->query_level() - 10, classlvl }) );
-    caster_bonus = (int)caster->query_property("spell dcs");
+    caster_bonus += (int)caster->query_property("spell dcs");
 
     if (save_debug) {
         tell_object(caster, "Presenting saving throw debug info:\n");
@@ -3006,9 +2992,13 @@ varargs int do_save(object targ, int mod)
         tell_object(caster, "Bonus from spell dcs property: " + caster_bonus + "");
     }
 
+    casting_level = query_spell_level(spell_type);
+
+    if (spell_type == "monk" || spell_type == "warlock") {
+        casting_level = 6;
+    }
+
     caster_bonus += 10; // initial DC of 10 for opposed spells, all the other caster mods gets added to this
-    caster_bonus += classlvl / 2;
-    
     if (save_debug) {
         tell_object(caster, "%^BOLD%^%^RED%^Bonus per 3.xx rules for d20 roll: 10");
     }
@@ -3023,9 +3013,45 @@ varargs int do_save(object targ, int mod)
     if (save_debug) {
         tell_object(caster, "Bonus from level of spell: " + casting_level + "");
     }
-    
-    //Spells above level 5 get a bonus to DC
-    caster_bonus += (casting_level > 5 ? casting_level - 5 : 0);
+    caster_bonus += casting_level;
+
+    myclasses = caster->query_classes();
+    num = 0;
+
+    if (sizeof(myclasses)) {
+        for (i = 0; i < sizeof(myclasses); i++) {
+            if (myclasses[i] == spell_type) { // only give bonuses for current caster class past L20
+                classlvl = caster->query_class_level(spell_type);
+                classlvl -= 20;
+                if (classlvl < 0) {
+                    classlvl = 0;
+                }
+                if (is_caster(spell_type)) {
+                    num += (classlvl + 1) / 2;
+                } else {
+                    num += classlvl / 3;
+                }
+            }else {
+                if (caster->query("new_class_type")) { // don't run this for 2e style classing, eg/ mobs; they already have full in all classes.
+                    classlvl = caster->query_class_level(myclasses[i]);
+                    if (classlvl < 0) {
+                        classlvl = 0;
+                    }
+                    if (is_caster(spell_type)) {
+                        num += (classlvl + 1) / 2;
+                    } else {
+                        num += classlvl / 3;
+                    }
+                }
+            }
+        }
+    }
+
+    if (save_debug) {
+        tell_object(caster, "Bonus from non-class and L20+ class levels: " + num + "");
+    }
+    caster_bonus += num;
+    num = 0;
 
     // Class and feat specific stuff here
     if (FEATS_D->usable_feat(caster, "surprise spells") &&

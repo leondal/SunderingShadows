@@ -12,7 +12,7 @@ void create()
     feat_type("instant");
     feat_category("MetaMagic");
     feat_name("maximize spell");
-    feat_prereq("Any Spellcaster");
+    feat_prereq("31 levels in any single spellcaster class");
     feat_syntax("maximize_spell");
     feat_desc("This Meta Magic feat will cause your next spell to behave as if its die rolls had the maximum result. This does not apply to spell DC or saving throw rolls. This feat has a long cooldown");
     set_required_for(({ }));
@@ -32,9 +32,14 @@ int prerequisites(object ob)
     classes = ob->query_classes();
 
     foreach(string cls in classes)
+    {
         if(member_array(cls, allowed) >= 0)
-            success = 1;
-        
+        {
+            if(ob->query_class_level(cls) > 30)
+                success = 1;
+        }
+    }
+    
     if(!success)
     {
         dest_effect();
@@ -68,7 +73,7 @@ void execute_feat()
     
     if(caster->cooldown("maximize spell"))
     {
-        tell_object(player, "You can't use maximize spell yet.");
+        tell_object(caster, "You can't use maximize spell yet.");
         return;
     }
 
