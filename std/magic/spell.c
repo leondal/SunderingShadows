@@ -1337,7 +1337,7 @@ void wizard_interface(object user, string type, string targ)
         caster->remove_property("quicken spell");
         tell_object(caster, "%^BOLD%^Your spell is quickened.%^RESET%^");
         TO->spell_effect(TO->calculate_prof_state());
-        place->set_round(TO, place->query_stage());
+        caster->set_casting(0);
         return;
     }
 
