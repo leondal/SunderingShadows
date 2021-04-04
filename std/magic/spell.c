@@ -1331,6 +1331,15 @@ void wizard_interface(object user, string type, string targ)
         TO->remove();
         return;
     }
+    
+    if(caster->query_property("quicken spell"))
+    {
+        caster->remove_property("quicken spell");
+        tell_object(caster, "%^BOLD%^Your spell is quickened.%^RESET%^");
+        TO->spell_effect(TO->calculate_prof_state());
+        place->set_round(TO, place->query_stage());
+        return;
+    }
 
     if (cast_time) {
         place->set_round(TO, (int)place->query_stage() + cast_time);
@@ -1694,14 +1703,6 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
     }
 
     if (spell_type == "potion") {
-        TO->spell_effect(prof);
-        return 1;
-    }
-    
-    if(caster->query_property("quicken spell"))
-    {
-        caster->remove_property("quicken spell");
-        tell_object(caster, "%^BOLD%^Your spell is quickened.%^RESET%^");
         TO->spell_effect(prof);
         return 1;
     }
