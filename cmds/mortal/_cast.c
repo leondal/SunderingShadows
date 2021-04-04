@@ -69,15 +69,6 @@ int cmd_cast(string str)
         healharm = 0;
     }
     
-    /*
-    if (regexp(str, "as [a-z]+ domain")) {
-        domain = 1;
-        sscanf(str, "%s as %s domain", str2, domain_name);
-
-        str = replace_string(str, "as " + domain_name + " domain", "", 1);
-    }
-    */
-    
     if (regexp(str, implode(LIVING_D->list_classes(), "|") + "|innate")) {
         if (!sscanf(str, "%s %s", type, str2)) {
             return notify_fail("Syntax: <cast CLASS CAST_STRING>\n");
@@ -97,7 +88,7 @@ int cmd_cast(string str)
         }
     }
 
-    if (!TP->is_class(type) && !avatarp(TP) && type != "innate") {
+    if (!TP->is_class(type) && !avatarp(TP) && type != "innate" && type != "cantrip") {
         return notify_fail("You can't cast spells as a " + type + "!\n");
     }
 
@@ -297,12 +288,16 @@ int cmd_cast(string str)
         targ->set_silent_casting(1);
     }
 
-    if (type != "innate") {
+    if (type != "innate" && type != "cantrip") {
         targ->wizard_interface(TP, type, tar);
     }
     if (type == "innate") {
         targ->use_spell(TP, tar, (int)TP->query_innate_ability_level(str2), 100, "innate");
     }
+    if (type == "cantrip") {
+        targ->use_spell(this_player(), tar, 1, 100, "cantrip");
+    }
+    
     return 1;
 }
 
@@ -360,6 +355,10 @@ Negative energy harms living and heals undead.
 %^CYAN%^INNATE CASTING%^RESET%^
 Some spells are innate.   They can be cast without preparing them.
 EX:   cast innate undeath ward
+
+%^CYAN%^CANTRIP CASTING%^RESET%^
+Casting classes also get a few cantrip spells, which can be cast without preparation.
+EX:   cast cantrip acid splash
 
 Would cast undeath ward if you are a crypt stalker with enough levels for that ability.
 

@@ -19,6 +19,7 @@ string* masteredspells;
 int* masterable;
 int mypp, mymax, myneeded;
 mapping InnateAbilities;
+mapping Cantrips;
 
 int magic_arsenal_feat(int num)
 {
@@ -1057,6 +1058,35 @@ void clear_targeted_spells()
 
 void reset_racial_innate() { TO->delete("racial innate"); }
 
+void InitCantrips()
+{
+    mapping cantrip_spells;
+    string *classes, MyClassFile;
+    
+    //Class Cantrips will be drawn from the class files here.
+    classes = this_object()->query_classes();
+    
+    if(sizeof(classes))
+    {
+        mapping testclass;
+        
+        foreach(string cur in classes)
+        {
+            MyClassFile = DIR_CLASSES + "/" + cur + ".c";
+            
+            if(!file_exists(MyClassFile))
+                continue;
+            
+            testclass = MyClassFile->query_cantrip_spells(this_object());
+            
+            if(sizeof(testclass))
+                cantrip_spells += testclass;
+        }
+    }
+    
+    Cantrips = cantrip_spells;
+}
+    
 void InitInnate()
 {
     string MyRaceFile,*oldmap,*newmap, MyClassFile, *classes;
@@ -1274,6 +1304,19 @@ void add_bonus_innate(mapping BonusInnate)
     InnateAbilities += BonusInnate;
 }
 
+mixed query_cantrip_spells()
+{
+    string *tmp;
+    
+    if(!mapp(Cantrips))
+        InitCantrips();
+    if(!mapp(Cantrips))
+        return;
+    
+    tmp = keys(Cantrips);
+    
+    return tmp;
+}
 
 mixed query_innate_spells()
 {
