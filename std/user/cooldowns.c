@@ -88,8 +88,12 @@ void heart_beat()
 {
     if (sizeof(cooldowns)) {
         foreach(string key in(keys(cooldowns)))
+        {
+            tell_object(find_player("tlaloc"), "Attempting to process " + key);
             process_cooldowns(key, cooldowns[key]);
-    }else {
+        }    
+    }
+    else {
         cooldowns = ([]);
     }
 }
