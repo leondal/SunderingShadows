@@ -1120,11 +1120,11 @@ int damage_done(object attacker, object weap, int damage, int isranged)
             }
         }else if (attacker->validate_combat_stance("two hander")) {
             if (FEATS_D->usable_feat(attacker, "strength of arm")) {
-                prof = to_int(prof * 1.40);
+                prof = to_int(prof * 1.30);
             }
         }else if (attacker->validate_combat_stance("weapon and shield")) {
             if (FEATS_D->usable_feat(attacker, "counter") && (int)attacker->query_shieldMiss()) {
-                prof = to_int(prof * 1.20);
+                prof = to_int(prof * 1.10);
             }
         }else if (attacker->validate_combat_stance("one hander")) {
             if (FEATS_D->usable_feat(attacker, "opportunity strikes")) {
@@ -1135,8 +1135,6 @@ int damage_done(object attacker, object weap, int damage, int isranged)
             }
         }
     }
-
-    //prof += (random(30) - random(30)); //Commenting out because I see no logical reason to add variance here when it's already handled through weapon die rolls - Odin 4/30/20
 
     if (prof == 0) {
         return 0;
