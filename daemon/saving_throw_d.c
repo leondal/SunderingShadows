@@ -31,7 +31,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             
             //Have to do a third here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 3);
+                statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 2);
             
             mod += ob->query_saving_bonus("fortitude");
         
@@ -46,7 +46,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             
             //Have to do a third here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 3);
+                statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 2);
             
             mod += ob->query_saving_bonus("reflex");
             
@@ -64,7 +64,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             
             //Have to do a third here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 3);
+                statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 2);
             
             mod += ob->query_saving_bonus("will");
         
