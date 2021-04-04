@@ -1124,7 +1124,7 @@ int damage_done(object attacker, object weap, int damage, int isranged)
             }
         }else if (attacker->validate_combat_stance("weapon and shield")) {
             if (FEATS_D->usable_feat(attacker, "counter") && (int)attacker->query_shieldMiss()) {
-                prof = to_int(prof * 1.10);
+                prof = to_int(prof * 1.30);
             }
         }else if (attacker->validate_combat_stance("one hander")) {
             if (FEATS_D->usable_feat(attacker, "opportunity strikes")) {
