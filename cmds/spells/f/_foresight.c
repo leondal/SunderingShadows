@@ -17,7 +17,7 @@ void create() {
     set_discipline("seer");
     set_mystery("battle");
     set_syntax("cast CLASS foresight [on TARGET]");
-    set_damage_desc("clvel/16 to armor bonus, clevel/12 to reflex save, death ward feat");
+    set_damage_desc("+2 to armor bonus, +2 to reflex save, death ward feat");
     set_description("The caster uses this spell to heighten their awareness for a time, allowing them to perceive fragments of their immediate future. This allows them to react pre-emptively to many threats, defending better against attacks that they can see coming before they actually land, and they may even be able avoid the death itself.");
     set_verbal_comp();
     set_somatic_comp();
@@ -45,8 +45,10 @@ void spell_effect(int prof)
 {
 
     duration = (clevel + roll_dice(1, 20)) * ROUND_LENGTH * 7;
-    abonus = 1 + (clevel / 16);
-    rbonus = 1 + (clevel / 12);
+    abonus = 2;
+    //abonus = 1 + (clevel / 16);
+    rbonus = 2;
+    //rbonus = 1 + (clevel / 12);
 
     if (!target)
         target = caster;

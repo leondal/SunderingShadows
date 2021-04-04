@@ -25,13 +25,13 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         case "fortitude": case "fort":
             save_info["save_type"] = "fort";
             if(ob->is_undead())
-                statbonus = BONUS_D->query_stat_bonus("charisma");
+                statbonus = BONUS_D->query_stat_bonus(ob, "charisma");
             else
-                statbonus = BONUS_D->query_stat_bonus("constitution");
+                statbonus = BONUS_D->query_stat_bonus(ob, "constitution");
             
             //Have to do a third here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stats_bonus("charisma") / 3);
+                statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 3);
             
             mod += ob->query_saving_bonus("fortitude");
         
@@ -42,11 +42,11 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         //REFLEX SAVES
         case "reflex":
             save_info["save_type"] = "reflex";
-            statbonus = BONUS_D->query_stat_bonus("dexterity");
+            statbonus = BONUS_D->query_stat_bonus(ob, "dexterity");
             
             //Have to do a third here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stats_bonus("charisma") / 3);
+                statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 3);
             
             mod += ob->query_saving_bonus("reflex");
             
@@ -57,15 +57,14 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         //WILL SAVES
         case "will":
             save_info["save_type"] = "will";
-            //Force of Personality and Divine Grace do not stack
-            if(FEATS_D->usable_feat(ob, "force of personality") && !FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus = BONUS_D->query_stat_bonus("charisma");
+            if(FEATS_D->usable_feat(ob, "force of personality"))
+                statbonus = BONUS_D->query_stat_bonus(ob, "charisma");
             else
-                statbonus = BONUS_D->query_stat_bonus("wisdom");
+                statbonus = BONUS_D->query_stat_bonus(ob, "wisdom");
             
             //Have to do a third here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stats_bonus("charisma") / 3);
+                statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 3);
             
             mod += ob->query_saving_bonus("will");
         
