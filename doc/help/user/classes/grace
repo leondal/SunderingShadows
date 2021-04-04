@@ -1,0 +1,13 @@
+Name: %^CYAN%^Grace%^RESET%^
+Type: Permanent
+Prerequisites: Paladin or Cleric
+
+Paladins and Clerics are able to draw upon a divine pool of resources to enhance their natural combat abilities. This pool is known as their %^CYAN%^Grace%^RESET%^ pool.
+
+This pool fuels the paladin's ability to %^CYAN%^Smite%^RESET%^ their foes, to %^CYAN%^Channel Divine Energy%^RESET%^, %^CYAN%^Lay on Hands%^RESET%^, and utilize their %^CYAN%^Bonded Weapon, Bonded Armor, and Bonded Steed%^RESET%^ class features.
+
+Clerics also use Grace to fuel the spell-like abilities granted by their domains or to %^CYAN%^Channel Divine Energy%^RESET%^. 
+
+Divine Grace will replenish itself over time. To show your grace pool, please type 'help prompt'.
+
+%^CYAN%^See also:%^RESET%^ paladin, channel, smite, layonhands, weapon bond, armor bond, bonded steed.
