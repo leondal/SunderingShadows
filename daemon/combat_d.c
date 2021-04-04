@@ -1116,19 +1116,19 @@ int damage_done(object attacker, object weap, int damage, int isranged)
     if (pointerp(wielded = (object*)attacker->query_wielded()) && !attacker->query_property("shapeshifted")) {
         if (isranged) {
             if (FEATS_D->usable_feat(attacker, "deadeye")) {
-                prof = to_int(prof * 1.50);
+                prof = to_int(prof * 1.30);
             }
         }else if (attacker->validate_combat_stance("two hander")) {
             if (FEATS_D->usable_feat(attacker, "strength of arm")) {
-                prof = to_int(prof * 1.50);
+                prof = to_int(prof * 1.40);
             }
         }else if (attacker->validate_combat_stance("weapon and shield")) {
             if (FEATS_D->usable_feat(attacker, "counter") && (int)attacker->query_shieldMiss()) {
-                prof = to_int(prof * (1.25 + ((int)attacker->query_property("shieldwall") * 0.10)));
+                prof = to_int(prof * 1.20);
             }
         }else if (attacker->validate_combat_stance("one hander")) {
             if (FEATS_D->usable_feat(attacker, "opportunity strikes")) {
-                prof = to_int(prof * 1.60);
+                prof = to_int(prof * 1.30);
             }
             if (FEATS_D->usable_feat(attacker, "artful precision")) {
                 prof = to_int(prof * 1.20);
