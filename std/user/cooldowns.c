@@ -54,7 +54,7 @@ int remove_cooldown(string str)
     if(!mapp(cooldowns))
         cooldowns = ([  ]);
     
-    if (!member_array(str, keys(cooldowns)) >= 0) {
+    if (member_array(str, keys(cooldowns)) < 0) {
         return 0;
     }
 

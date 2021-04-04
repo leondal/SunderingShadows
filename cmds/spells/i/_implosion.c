@@ -10,7 +10,8 @@ void create()
     set_discipline("shaper");
     set_syntax("cast CLASS implosion on TARGET");
     set_damage_desc("untyped");
-    set_description("With this spell caster attempts to crush opponent.");
+    set_save("fort");
+    set_description("With this spell caster attempts to crush opponent. A successful fortitude save cuts the damage in half.");
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);
@@ -28,6 +29,14 @@ spell_effect(int prof)
         tell_object(caster, "%^BOLD%^%^WHITE%^You extend your hand and will to crush " + target->QCN + "!");
         tell_room(place, "%^BOLD%^%^WHITE%^" + caster->QCN + " extends hand and wills to crush " + target->QCN + " with " + caster->QP + " spell!", ({ caster }));
     }
+    
+    if(do_save(target))
+    {
+        tell_room(place, target->QCN + " is able to resist some of the crushing force!", ({ target }));
+        tell_object(target, "You are able to resist some of the crushing force!");
+        sdamage /= 2;
+    }
+    
     damage_targ(target, target->return_target_limb(), sdamage, "untyped");
     TO->dest_effect();
 }
