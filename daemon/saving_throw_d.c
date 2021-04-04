@@ -29,7 +29,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             else
                 statbonus = BONUS_D->query_stat_bonus(ob, "constitution");
             
-            //Have to do a third here, otherwise it completely zeros chances with 30 cha
+            //Have to do half here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 2);
             
@@ -44,7 +44,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             save_info["save_type"] = "reflex";
             statbonus = BONUS_D->query_stat_bonus(ob, "dexterity");
             
-            //Have to do a third here, otherwise it completely zeros chances with 30 cha
+            //Have to do half here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 2);
             
@@ -57,14 +57,15 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         //WILL SAVES
         case "will":
             save_info["save_type"] = "will";
-            if(FEATS_D->usable_feat(ob, "force of personality"))
+            //These don't stack
+            if(FEATS_D->usable_feat(ob, "force of personality") && !FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus = BONUS_D->query_stat_bonus(ob, "charisma");
             else
                 statbonus = BONUS_D->query_stat_bonus(ob, "wisdom");
             
-            //Have to do a third here, otherwise it completely zeros chances with 30 cha
+            //Have to do half here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 2);
+                statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 2);
             
             mod += ob->query_saving_bonus("will");
         
