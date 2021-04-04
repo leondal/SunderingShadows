@@ -3025,7 +3025,8 @@ varargs int do_save(object targ, int mod)
     }
     
     //Spells above level 5 get a bonus to DC
-    caster_bonus += (casting_level > 5 ? casting_level - 5 : 0);
+    //caster_bonus += casting_level;
+    //caster_bonus += (casting_level > 5 ? casting_level - 5 : 0);
 
     // Class and feat specific stuff here
     if (FEATS_D->usable_feat(caster, "surprise spells") &&

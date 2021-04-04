@@ -26,6 +26,10 @@ int preSpell()
         tell_object(caster, "You are still affected by cloak of chaos or another nimbus spell.");
         return 0;
     }
+    if (caster->query_property("protection from spells")) {
+        tell_object(caster, "You are already affected by similar magic.");
+        return 0;
+    }
     if (!(align == 7 || align == 8 || align == 9)) {
         tell_object(caster, "You are of improper alignment to use this spell!");
         return 0;
@@ -43,6 +47,7 @@ void spell_effect(int prof)
 
     caster->set_property("spelled", ({ TO }));
     caster->set_property("nimbus", 1);
+    caster->set_property("protection from spells", 1);
     caster->set_property("added short", ({ "%^BOLD%^%^WHITE%^ %^RED%^(%^ORANGE%^i%^CYAN%^n %^BOLD%^%^RED%^a %^ORANGE%^r%^CYAN%^a%^RESET%^%^ORANGE%^n%^BOLD%^%^GREEN%^d%^RED%^o%^RESET%^%^CYAN%^m %^BOLD%^%^BLUE%^p%^GREEN%^a%^RESET%^%^RED%^t%^GREEN%^t%^BOLD%^%^CYAN%^e%^RED%^r%^RESET%^%^ORANGE%^n %^BOLD%^o%^RESET%^%^RED%^f %^ORANGE%^c%^BOLD%^%^MAGENTA%^o%^ORANGE%^l%^GREEN%^o%^RESET%^%^RED%^r%^GREEN%^s%^RED%^)%^RESET%^" }));
     addSpellToCaster();
     spell_successful();
@@ -110,6 +115,7 @@ void dest_effect()
     if (objectp(caster)) {
         tell_object(caster, "%^RESET%^%^MAGENTA%^The chaos around you fades.");
         caster->remove_property("nimbus");
+        caster->remove_property("protection from spells");
         caster->add_ac_bonus(-4);
         caster->add_saving_bonus("all", -4);
         caster->remove_property_value("added short", ({ "%^BOLD%^%^WHITE%^ %^RED%^(%^ORANGE%^i%^CYAN%^n %^BOLD%^%^RED%^a %^ORANGE%^r%^CYAN%^a%^RESET%^%^ORANGE%^n%^BOLD%^%^GREEN%^d%^RED%^o%^RESET%^%^CYAN%^m %^BOLD%^%^BLUE%^p%^GREEN%^a%^RESET%^%^RED%^t%^GREEN%^t%^BOLD%^%^CYAN%^e%^RED%^r%^RESET%^%^ORANGE%^n %^BOLD%^o%^RESET%^%^RED%^f %^ORANGE%^c%^BOLD%^%^MAGENTA%^o%^ORANGE%^l%^GREEN%^o%^RESET%^%^RED%^r%^GREEN%^s%^RED%^)%^RESET%^" }));

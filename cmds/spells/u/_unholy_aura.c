@@ -27,6 +27,11 @@ int preSpell()
         tell_object(caster, "You are still affected by shield of law or another nimbus spell.");
         return 0;
     }
+    if(caster->query_property("protection from spells"))
+    {
+        tell_object(caster, "You are already affected by similar magic.");
+        return 0;
+    }
     if (!(align == 3 || align == 6 || align == 9)) {
         tell_object(caster, "You are of improper alignment to use this spell!");
         return 0;
@@ -44,6 +49,7 @@ void spell_effect(int prof)
 
     caster->set_property("spelled", ({TO}));
     caster->set_property("nimbus",1);
+    caster->set_property("protection from spells", 1);
     caster->set_property("added short",({"%^BOLD%^%^BLACK%^ (in a fell halo)%^RESET%^"}));
     addSpellToCaster();
     spell_successful();
@@ -113,6 +119,7 @@ void dest_effect()
     {
         tell_object(caster,"%^RESET%^%^BOLD%^The halo around you fades.");
         caster->remove_property("nimbus");
+        caster->remove_property("protection from spells");
         caster->add_ac_bonus(-4);
         caster->add_saving_bonus("all",-4);
 	    caster->remove_property_value("added short",({"%^BOLD%^%^BLACK%^ (in a fell halo)%^RESET%^"}));
