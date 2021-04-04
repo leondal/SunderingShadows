@@ -1783,6 +1783,16 @@ void heart_beat()
             TO->set_property("stab_resilience",(TO->query_level()+9)/20);
         }
     }
+    
+    if (sizeof(cooldowns)) {
+        foreach(string key in(keys(cooldowns)))
+        {
+            process_cooldowns(key, cooldowns[key]);
+        }    
+    }
+    else {
+        cooldowns = ([]);
+    }
 
     //Once per round
     /* if(!(user_ticker%3)) */

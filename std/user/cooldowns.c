@@ -84,6 +84,8 @@ mapping query_cooldowns()
 /**
  * Checks cooldown every heart beat
  */
+ 
+ /*
 void heart_beat()
 {
     if (sizeof(cooldowns)) {
@@ -97,3 +99,4 @@ void heart_beat()
         cooldowns = ([]);
     }
 }
+*/
