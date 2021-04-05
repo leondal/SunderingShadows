@@ -23,4 +23,7 @@ They are flexible and dabble in many areas of combat, rather than being a master
 
 Bards are spontaneous casters that prepare spell levels in place of individual spells. They use the %^ORANGE%^<master>%^RESET%^ command to learn new spells from the bard spell list. See %^ORANGE%^<spells bard (by level)>%^RESET%^. They can %^ORANGE%^<cast>%^RESET%^ a spell they have mastered by expending a spell slot, which they can prepare with the %^ORANGE%^<prepare>%^RESET%^ command. To see how many slots you can prepare, use %^ORANGE%^<recall bard spells>%^RESET%^. 
 
+Bards also get the following cantrip spells (type 'recall cantrip spells'):
+Daze, Detect Magic, Dancing Lights, Mending, Flare, Resistance
+
 %^RESET%^%^CYAN%^See also: %^RESET%^feats, stats, skills, spells, cast, buff, prepare, story, song, lore, prestige classes, new caster, recall, master
