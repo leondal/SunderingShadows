@@ -46,6 +46,11 @@ mapping class_featmap(string myspec) {
     return ([ 1:({ "simple weapon proficiency", "martial weapon proficiency", "light armor proficiency","shield proficiency", "spell focus","inspire","inspire courage", "dodge", "countersong"}), 3:({"inspire competence"}), 8:({"dirge of doom"}), 9:({"inspire greatness"}), 10:({ "tools of the trade" }), 12:({"soothing song"}), 14:({"frightening tune"}), 15:({"inspire heroics"}), 20:({"deadly song"})]);
 }
 
+mapping query_cantrip_spells(object ob)
+{
+    return ([ "flare" : 1, "detect magic" : 1, "daze" : 1, "dancing lights" : 1, "resistance" : 1, "mending" : 1 ]);
+}
+
 string *class_skills()
 {
     return ({ "academics","thievery","influence","spellcraft","athletics" });
