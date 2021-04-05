@@ -13,7 +13,7 @@ create()
     ::create();
     set_author("pator");
     set_spell_name("create water");
-    set_spell_level(([ "cleric" : 1, "paladin" : 1,"druid" : 1, "inquisitor" : 1 ]));
+    set_spell_level(([ "cantrip" : 1, "paladin" : 1 ]));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS create water");
     set_description("This spell creates a pool of drinkable water. You can drink from the pool, to quench your thirst.");
