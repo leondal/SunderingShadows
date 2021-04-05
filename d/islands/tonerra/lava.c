@@ -1,4 +1,4 @@
-//lava tubes inheritable
+//lava tubes inheritable - /d/islands/tonerra/lava.c
 //Heavily modified by dinji on 2/11/09 after modifications by Styx & Garrett
 //rewritten to get rid of obsolete code and hopefully stop some persistent bugs -Ares 08/14/09
 
@@ -12,17 +12,17 @@ string what;
 object room;
 int flag,party,trap,getmobs;
 
-string * features = ({
-        "Molten rock creates stalagmite formation here.",
-            "There are several tiles forming a patch of ancient road here.",
-            "There is a pool of %^BOLD%^%^RED%^magma%^RESET%^%^RED%^ on the side of the pathway.",
-            "Humanoid %^RESET%^%^WHITE%^bones%^RESET%^%^RED%^ form a pile on the side.",
-            "It is very hot out here, almost deadly hot.",
-            "The ground slowly shakes in tone with rumbling of magma streams down below.",
-            "The sulfurous odor of lava permeates the air, with puffs of smoke and ash clouding your vision.",
-            "A ruddy red light of small rivulets of molten lava flowing through channels in the floor illuminate the darkness of the cavernous tubes.",
-            "Large boulder lies on the side, ready to be shot out of the crater.",
-    });
+//string * features = ({
+//        "Molten rock creates stalagmite formation here.",
+//            "There are several tiles forming a patch of ancient road here.",
+//            "There is a pool of %^BOLD%^%^RED%^magma%^RESET%^%^RED%^ on the side of the pathway.",
+//            "Humanoid %^RESET%^%^WHITE%^bones%^RESET%^%^RED%^ form a pile on the side.",
+//            "It is very hot out here, almost deadly hot.",
+//            "The ground slowly shakes in tone with rumbling of magma streams down below.",
+//            "The sulfurous odor of lava permeates the air, with puffs of smoke and ash clouding your vision.",
+//            "A ruddy red light of small rivulets of molten lava flowing through channels in the floor illuminate the darkness of the cavernous tubes.",
+//            "Large boulder lies on the side, ready to be shot out of the crater.",
+//    });
 
 
 void pick_critters()
@@ -84,8 +84,17 @@ void create()
     set_indoors(1);
     set_terrain(NAT_TUNNEL);
     set_travel(FOOT_PATH);
-    set_short("%^BOLD%^%^BLACK%^L%^RESET%^%^RED%^a%^RED%^v%^RED%^a %^RED%^T%^BOLD%^%^BLACK%^ube%^RESET%^%^RED%^s%^RESET%^");
-    set_long(query_short() + "\n%^RED%^Molten rock forms these pathways deep below the surface. When the volcano is active, these tubes carry molten magma towards the surface, to the sea."+make_fdesc() + "\n");
+    set_short("%^BOLD%^%^RED%^L%^RESET%^%^RED%^a%^BOLD%^%^BLACK%^v%^RED%^a T%^BLACK%^u%^RED%^b%^RESET%^%^RED%^e%^BOLD%^s%^RESET%^");
+    set_long(query_short() + "\n%^BOLD%^%^BLACK%^Cyclindrical walls formed by the "+
+"explosion of angry of lava rise up around you, "+
+"%^RESET%^%^ORANGE%^s%^WHITE%^t%^ORANGE%^r%^BOLD%^%^BLACK%^ia%^RESET%^%^ORANGE%^t%^WHITE%^e%^ORANGE%^d "+
+"%^BOLD%^%^BLACK%^and dark. Lava drips, now no more potent than a "+
+"%^RESET%^memory%^BOLD%^%^BLACK%^, hang from the ceiling, and jagged rocks "+
+"rise up from the ground making your passage precarious. Pools of "+
+"%^RED%^l%^RESET%^%^RED%^a%^BOLD%^va %^BLACK%^bubble up from somewhere below, "+
+"filling the air with the choking scent of %^RESET%^sulfer %^BOLD%^%^BLACK%^and "+
+"%^RESET%^smoke%^BOLD%^%^BLACK%^. Your eyes burn. The heat is so oppressive, and "+
+"you long for a breath of fresh air.%^RESET%^\n");
     set_listen("default","%^RED%^The lava flowing under your feet makes a strange buzzing sound.");
     set_smell("default","%^BLACK%^%^BOLD%^You smell the burning %^RED%^l%^RED%^a%^BOLD%^%^BLACK%^va%^RESET%^%^RED%^ and %^BOLD%^%^BLACK%^hot %^RESET%^%^RED%^r%^BOLD%^%^BLACK%^ocks.%^RESET%^");
     set_property("no teleport",1);
@@ -191,22 +200,22 @@ string query_long(string str)
     return hold;
 }
 
-string make_fdesc()
-{
-    int* featurearr;
-    int i;
-    string fdesc;
-    fdesc = "";
-    featurearr = distinct_array(
-        map_array(
-            explode(
-                crypt(file_name(TO),
-                      "$1$")[4..6],
-                ""),
-            (: atoi(sprintf("%d", $1[0])) % $2:),
-            sizeof(features)));
-    for (i = 0; i < sizeof(featurearr); ++i) {
-        fdesc += " " + features[featurearr[i]];
-    }
-    return fdesc;
-}
+//string make_fdesc()
+//{
+//    int* featurearr;
+//    int i;
+//    string fdesc;
+//    fdesc = "";
+//    featurearr = distinct_array(
+//        map_array(
+//            explode(
+//                crypt(file_name(TO),
+//                      "$1$")[4..6],
+//                ""),
+//            (: atoi(sprintf("%d", $1[0])) % $2:),
+//            sizeof(features)));
+//    for (i = 0; i < sizeof(featurearr); ++i) {
+//        fdesc += " " + features[featurearr[i]];
+//    }
+//    return fdesc;
+//}
