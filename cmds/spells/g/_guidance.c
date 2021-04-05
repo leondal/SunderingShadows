@@ -11,7 +11,7 @@ int bonus;
 void create() {
     ::create();
     set_spell_name("guidance");
-    set_spell_level(([ "druid" : 1,"oracle":1 ]));
+    set_spell_level(([ "cantrip":1 ]));
     set_mystery(({"elemental", "nature"}));
     set_spell_sphere("alteration");
     set_syntax ("cast CLASS guidance on TARGET");
@@ -60,7 +60,7 @@ void spell_effect(int prof)
     god = (string)caster->query_diety();
     if(!god) { god = "nature"; }
 
-    bonus = clevel/24+1;
+    bonus = 1;
     bonus = bonus>2?2:bonus;
 	if(target == caster)
     {
@@ -81,7 +81,6 @@ void spell_effect(int prof)
     }
     target->add_damage_bonus(bonus);
     target->add_attack_bonus(bonus);
-    target->set_property("empowered",bonus);
     addSpellToCaster();
     target->set_property("spelled",({TO}));
     target->set_property("blessed",1);
