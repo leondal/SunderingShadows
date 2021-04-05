@@ -17,7 +17,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
     
     save = 0;
     mod = 0;
-    level = ob->query_level() / 2;
+    level = ob->query_level() / 5;
     
     switch(type)
     {
@@ -29,11 +29,10 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             else
                 statbonus = BONUS_D->query_stat_bonus(ob, "constitution");
             
-            //Have to do half here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 2);
+                statbonus += 5;
             
-            mod += min(({ ob->query_saving_bonus("fortitude"), 10 }));
+            mod += ob->query_saving_bonus("fortitude");
         
             if(ob->query("subrace") == "aesatri")
                 mod += 1;
@@ -44,11 +43,10 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             save_info["save_type"] = "reflex";
             statbonus = BONUS_D->query_stat_bonus(ob, "dexterity");
             
-            //Have to do half here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 2);
+                statbonus += 5;
             
-            mod += min(({ ob->query_saving_bonus("reflex"), 10 }));
+            mod += ob->query_saving_bonus("reflex");
             
             if(ob->query("subrace") == "senzokuan")
                 mod += 1;
@@ -63,11 +61,10 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             else
                 statbonus = BONUS_D->query_stat_bonus(ob, "wisdom");
             
-            //Have to do half here, otherwise it completely zeros chances with 30 cha
             if(FEATS_D->usable_feat(ob, "divine grace"))
-                statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 2);
+                statbonus += 5;
             
-            mod += min(({ ob->query_saving_bonus("will"), 10 }));
+            mod += ob->query_saving_bonus("will");
         
             if(ob->query("subrace") == "maalish")
                 mod += 1;

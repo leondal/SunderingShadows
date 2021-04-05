@@ -10,7 +10,7 @@ void create() {
     set_spell_name("casters lament");
     set_spell_level(([ "warlock" : 4 ]));
     set_spell_sphere("abjuration");
-    set_damage_desc("clevel / 6 + 2 but no more than 8 to all saves OR shatters magic on cursed item");
+    set_damage_desc("clevel / 6 + 2 but no more than 5 to all saves OR shatters magic on cursed item");
     set_syntax("cast CLASS casters lament (on <object> [at <player>])");
     set_description("This invocation harnesses the greatest of a warlock's natural aptitude for manipulating "
 "magical energies and items. For the first, if cast with no target, it will imbue the warlock with a considerable "
@@ -42,8 +42,9 @@ void spell_effect(int prof) {
       tell_object(caster,"%^MAGENTA%^You press your hands together and the energy r%^CYAN%^i%^MAGENTA%^pp%^RED%^l%^BOLD%^%^MAGENTA%^e%^RESET%^%^MAGENTA%^s and flows back over itself, down your arms and over your body to encase you in protective spellcraft!%^RESET%^");
       tell_room(place,"%^MAGENTA%^"+caster->QCN+" presses "+caster->QP+" hands together and the energy r%^CYAN%^i%^MAGENTA%^pp%^RED%^l%^BOLD%^%^MAGENTA%^e%^RESET%^%^MAGENTA%^s and flows back over itself, down "+caster->QP+" arms and over "+caster->QP+" body!%^RESET%^",caster);
       wasbuff = 1;
-      lower = clevel / 6 + 2;
-      lower = lower > 8 ? 8 : lower;
+      lower = 5;
+      //lower = clevel / 6 + 2;
+      //lower = lower > 8 ? 8 : lower;
       caster->add_saving_bonus("all",lower);
       caster->set_property("protection from spells", 1);
       addSpellToCaster();

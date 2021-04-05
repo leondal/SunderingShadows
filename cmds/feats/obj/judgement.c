@@ -143,6 +143,7 @@ void judgement_protection(object targ, int direction, int power)
 {
     int bonus;
     bonus = power / 9 + 1;
+    bonus = bonus > 5 ? 5 : bonus;
     targ->add_ac_bonus(bonus * direction);
 }
 
@@ -150,6 +151,7 @@ void judgement_purity(object targ, int direction, int power)
 {
     int bonus;
     bonus = power / 9 + 1;
+    bonus = bonus > 5 ? 5 : bonus;
     targ->add_saving_bonus("all", bonus * direction);
 }
 

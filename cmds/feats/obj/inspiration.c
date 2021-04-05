@@ -240,7 +240,7 @@ void inspire_courage(object ally, int direction)
 {
     int power;
     power = clevel / 6 + 1;
-    power = power > 6 ? 6 : power;
+    power = power > 5 ? 5 : power;
 
     ally->add_attack_bonus(power * direction);
     ally->add_damage_bonus(power * direction);
@@ -271,7 +271,7 @@ void inspire_greatness(object ally, int direction)
     int power;
 
     power = clevel / 8 + 1;
-    power = power > 6 ? 6 : power;
+    power = power > 5 ? 5 : power;
 
     ally->add_max_hp_bonus((clevel * 3 / 2) * direction);
     ally->add_attack_bonus(power * direction);
@@ -284,7 +284,7 @@ void inspire_heroics(object ally, int direction)
     int power;
 
     power = clevel / 4 + 1;
-    power = power > 8 ? 8 : power;
+    power = power > 5 ? 5 : power;
 
     ally->add_saving_bonus("all", power * direction);
     ally->add_ac_bonus(power * direction);
