@@ -24,6 +24,9 @@ Druids prepare individual spells with the %^ORANGE%^<prepare>%^RESET%^ command f
 
 They may choose one domain from the following list: air, animal, earth, fire, plant, water, storm. The spells from that domain are added to their list of available spells and can be prepared normally.
 
+Druids also get the following cantrips (type 'recall cantrip spells'):
+Create Water, Detect Magic, Detect Poison, Guidance, Resistance, Light, Mending
+
 They can cast in any armor they can wear, but not while wielding anything. 
 
 %^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, shapeshift, prestige classes, new caster
