@@ -7,7 +7,7 @@
 void create() {
     ::create();
     set_spell_name("detect magic");
-    set_spell_level(([ "mage" : 1, "bard" : 1, "cleric" : 1, "druid" : 1, "warlock" : 1, "inquisitor" : 1, "magus" : 1 ]));
+    set_spell_level(([ "cantrip" : 1, "warlock" : 1 ]));
     set_spell_sphere("divination");
     set_syntax("cast CLASS detect magic");
     set_description("Will allow the caster to view an aura of magic around objects or creatures they observe. The more "
