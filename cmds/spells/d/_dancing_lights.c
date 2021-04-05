@@ -9,7 +9,7 @@ void create()
 {
     ::create();
     set_spell_name("dancing lights");
-    set_spell_level(([ "bard" : 1, "mage" : 1, "druid" : 1 ]));
+    set_spell_level(([ "cantrip" : 1 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS dancing lights");
     set_description("This will create a small gathering of swirling lights, which will illuminate your way.");
