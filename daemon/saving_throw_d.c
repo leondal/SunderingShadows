@@ -33,7 +33,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             if(FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus += (BONUS_D->query_stats_bonus(ob, "charisma") / 2);
             
-            mod += ob->query_saving_bonus("fortitude");
+            mod += min(({ ob->query_saving_bonus("fortitude"), 10 }));
         
             if(ob->query("subrace") == "aesatri")
                 mod += 1;
@@ -48,7 +48,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             if(FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 2);
             
-            mod += ob->query_saving_bonus("reflex");
+            mod += min(({ ob->query_saving_bonus("reflex"), 10 }));
             
             if(ob->query("subrace") == "senzokuan")
                 mod += 1;
@@ -67,7 +67,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             if(FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus += (BONUS_D->query_stat_bonus(ob, "charisma") / 2);
             
-            mod += ob->query_saving_bonus("will");
+            mod += min(({ ob->query_saving_bonus("will"), 10 }));
         
             if(ob->query("subrace") == "maalish")
                 mod += 1;
