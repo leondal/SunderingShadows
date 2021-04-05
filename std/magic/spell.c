@@ -2161,7 +2161,7 @@ void dest_effect()
         caster->remove_property("travaoe");
     }
     
-    caster->remove_property(bonus_type);
+    caster && caster->remove_property(bonus_type);
 
     before_cast_dest_effect();
     return;
