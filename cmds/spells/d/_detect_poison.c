@@ -8,7 +8,7 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("detect poison");
-    set_spell_level(([ "cleric" : 1, "paladin" : 1, "ranger" : 1, "druid" : 1, "assassin" : 1, "mage" : 1, "psion" : 2 ]));
+    set_spell_level(([ "cantrip" : 1, "paladin" : 1, "ranger" : 1, "mage" : 1, "assassin" : 1, "psion" : 2 ]));
     set_spell_sphere("divination");
     set_syntax("cast CLASS detect poison on TARGET");
     set_description("Will detect if any poisons are present on an "+
