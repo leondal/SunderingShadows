@@ -98,7 +98,6 @@ void dest_effect()
             "away.");
         target->add_damage_bonus(-1*bonus);
         target->add_attack_bonus(-1*bonus);
-        target->set_property("empowered",(-1*bonus));
         target->remove_property("blessed");
     }
     ::dest_effect();
