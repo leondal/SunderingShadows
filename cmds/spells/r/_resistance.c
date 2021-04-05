@@ -10,7 +10,7 @@ void create()
 {
     ::create();
     set_spell_name("resistance");
-    set_spell_level(([ "bard" : 1, "druid" : 1, "paladin" : 1, "mage" : 1, "cleric" : 1, "psywarrior" : 1, "psion" : 1, "inquisitor" : 1, "magus" : 1 ]));
+    set_spell_level(([ "cantrip" : 1, "paladin" : 1, "psywarrior" : 1, "psion" : 1 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS resistance");
     set_damage_desc("+1 to all saving throws");
