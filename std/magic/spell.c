@@ -2302,6 +2302,9 @@ void define_clevel()
     string *domains;
 
     clevel = caster->query_guild_level(spell_type);
+    
+    if(spell_type == "cantrip")
+        clevel = caster->query_level();
 
     if (spell_type == "assassin") {
         clevel = caster->query_guild_level(caster->query("base_class"));
@@ -2513,6 +2516,9 @@ void define_base_damage(int adjust)
             if(caster->query_property("maximize spell"))
                 sdamage = clevel * 8;
         }
+        
+        if(spell_type == "cantrip")
+            sdamage = roll_dice(1 + clevel / 2, 6);
     }
     
     if(caster->query_property("maximize spell"))
