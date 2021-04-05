@@ -1060,7 +1060,7 @@ void reset_racial_innate() { TO->delete("racial innate"); }
 
 void InitCantrips()
 {
-    mapping cantrip_spells;
+    mapping cantrip_spells = ([  ]);
     string *classes, MyClassFile;
     
     //Class Cantrips will be drawn from the class files here.

@@ -120,6 +120,11 @@ int cmd_recall(string str)
             return 1;
         }
     }
+    if(str == "cantrip spells")
+    {
+        if(recall_cantrips(TP))
+            return 1;
+    }
     if (str == "monk spells") {
         tell_object(TP, "See <help ki>");
         return 1;
