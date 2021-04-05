@@ -3079,8 +3079,7 @@ varargs int do_save(object targ, int mod)
         tell_object(caster, "Bonus from level of spell: " + casting_level + "");
     }
     
-    //Spells above level 5 get a bonus to DC
-    //caster_bonus += casting_level;
+    caster_bonus += casting_level;
     //caster_bonus += (casting_level > 5 ? casting_level - 5 : 0);
 
     // Class and feat specific stuff here
