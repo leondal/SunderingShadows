@@ -38,7 +38,8 @@ string spell_name,
        description,
        casting_stat,
        psyclass,
-       aoe_message;
+       aoe_message,
+       bonus_type;
 
 nosave int FULL_EFFECT = 100;
 
@@ -343,6 +344,17 @@ void set_syntax(string synt)
 string query_syntax()
 {
     return syntax;
+}
+
+string set_bonus_type(string str)
+{
+    bonus_type = str;
+    return bonus_type;
+}
+
+string query_bonus_type()
+{
+    return bonus_type;
 }
 
 void set_damage_desc(string desc)
@@ -1660,6 +1672,15 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
             place = environment(environment(caster));
         }
     }
+    
+    if(strlen(bonus_type))
+    {
+        if(targ->query_property(bonus_type))
+        {
+            tell_object(caster, "That target is already benefitting from a  " + bonus_type + " bonus.");
+            return;
+        }
+    }
 
     if (!objectp(place)) {
         TO->remove();
@@ -2093,6 +2114,9 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
         }
         mycost = 0; // on the off chance something calls spell_successful() more than once, don't charge them twice
     }
+    
+    if(strlen(bonus_type))
+        caster->set_property(bonus_type, 1);
 
     return 1;
 }
@@ -2136,6 +2160,8 @@ void dest_effect()
         objectp(caster)) {
         caster->remove_property("travaoe");
     }
+    
+    caster->remove_property(bonus_type);
 
     before_cast_dest_effect();
     return;
@@ -2155,6 +2181,10 @@ int remove()
         objectp(caster)) {
         caster->remove_property("travaoe");
     }
+    
+    if(strlen(bonus_type))
+        caster->remove_property(bonus_type);
+    
     return ::remove();
 }
 
