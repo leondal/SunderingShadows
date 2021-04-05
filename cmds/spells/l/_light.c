@@ -13,7 +13,7 @@ create()
 {
     ::create();
     set_spell_name("light");
-    set_spell_level(([ "mage" : 1, "cleric" : 1, "paladin" : 1, "assassin" : 1, "inquisitor" : 1, "magus" : 1 ]));
+    set_spell_level(([ "cantrip" : 1, "paladin" : 1, "assassin" : 1 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS light on TARGET");
     set_description("This will create a small ball of light, which will light your way. You can cast it on an object or "
