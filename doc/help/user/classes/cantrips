@@ -1,0 +1,13 @@
+Name: %^CYAN%^Cantrips%^RESET%^
+Type: Permanent
+Prerequisites: Bard, Cleric, Druid, Inquisitor, Mage, Magus, Oracle, Sorcerer
+
+Certain classes learn a variety of useful, but simple spells as part of their rudimentary training. These spells are called %^CYAN%^Cantrips%^RESET%^.
+
+These spells require very little effort or concentration to cast and can be cast at will by the caster.
+
+You can see your cantrip spells by typing 'recall cantrip spells'. 
+
+You can cast your cantrips by typing 'cast cantrip <name>'.
+
+%^CYAN%^See also:%^RESET%^ classes
