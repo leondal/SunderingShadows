@@ -1693,7 +1693,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         {
             if(target->query_property(type))
             {
-                tell_object(caster, "That target is already benefitting from a  " + type + " bonus.");
+                tell_object(caster, "That target is already benefitting from a " + type + " bonus.");
                 return;
             }
         }
@@ -3092,7 +3092,7 @@ varargs int do_save(object targ, int mod)
     }
 
     caster_bonus += 10; // initial DC of 10 for opposed spells, all the other caster mods gets added to this
-    caster_bonus += classlvl / 2;
+    caster_bonus += classlvl / 5;
     
     if (save_debug) {
         tell_object(caster, "%^BOLD%^%^RED%^Bonus per 3.xx rules for d20 roll: 10");
