@@ -14,7 +14,8 @@ void create()
     set_spell_level(([ "cleric" : 3, "inquisitor" : 3, "paladin":3 ]));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS prayer");
-    set_damage_desc("clevel/16+1 to attack, damage bonus, positive to allies, negative to enemies");
+    set_bonus_type("luck");
+    set_damage_desc("+2 to attack, damage bonus, positive to allies, negative to enemies");
     set_description("Allies in the place of the time of casting become blessed, enemies become cursed. This spell is short duration.");
     set_verbal_comp();
     set_somatic_comp();
@@ -32,8 +33,9 @@ int spell_effect()
 
     duration = ROUND_LENGTH * (clevel / 12 + 1);
 
-    bonus = clevel / 16 + 1;
-
+    //bonus = clevel / 16 + 1;
+    bonus = 2;
+    
     allies = ({});
     allies = ob_party(caster) + (caster->query_followers() - caster->query_attackers()) + ({ caster });
     allies = distinct_array(allies);
@@ -45,6 +47,9 @@ int spell_effect()
     foreach(ally in allies)
     {
         if(!objectp(ally))
+            continue;
+        
+        if(ally->query_property("luck"))
             continue;
 
         tell_object(ally,"%^WHITE%^You feel you grow stronger as %^ORANGE%^t%^BOLD%^%^WHITE%^h%^RESET%^%^ORANGE%^e %^WHITE%^r%^ORANGE%^a%^BOLD%^%^WHITE%^d%^RESET%^%^ORANGE%^i%^BOLD%^%^WHITE%^a%^RESET%^%^ORANGE%^n%^BOLD%^%^WHITE%^ce%^RESET%^%^WHITE%^ touches you.");

@@ -19,6 +19,7 @@ void create()
     set_spell_name("prescience");
     set_spell_level(([ "psion" : 7 ]));
     set_spell_sphere("combat");
+    set_bonus_type("insight");
     set_syntax("cast CLASS prescience");
     set_description("This power will allow the psion foreknowledge, granting him additional prowess in battle.  The power "
         "gives the psion a bonus to hit and damage his opponents for a time, as well as a chance for an extra attack. "

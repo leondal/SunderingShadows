@@ -17,9 +17,9 @@ inherit SPELL;
 void effect(int direction)
 {
     if(direction > 0)
-        caster->set_property("castspellresistance", 1);
+        //caster->set_property("castspellresistance", 1);
     else
-        caster->remove_property("castspellresistance");
+        //caster->remove_property("castspellresistance");
     
     caster->set_resistance("mental", 13 * direction);
 }
@@ -32,6 +32,7 @@ void create()
     set_spell_name("thought shield");
     set_spell_level( ([ "psion" : 2, "psywarrior" : 2 ]) );
     set_spell_sphere("alteration");
+    set_bonus_type("circumstance");
     set_syntax("cast CLASS thought shield");
     set_damage_desc("+13 to mental resistance");
     set_description("The caster fortifies her mind from hostile intrusions, gaining 13 resistance to mental damage.");
@@ -40,11 +41,13 @@ void create()
 
 int preSpell()
 {
+    /*
    if(caster->query_property("castspellresist") || caster->query_property("fiery body"))
    {
       tell_object(caster,"You already have protection of this nature!");
       return 0;
    }
+   */
    
    return 1;
 }

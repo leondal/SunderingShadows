@@ -7,6 +7,7 @@ void create() {
     set_spell_name("shield of shadows");
     set_spell_level(([ "mage" : 1, "cleric" : 1 ]));
     set_spell_sphere("illusion");
+    set_bonus_type("shield");
     set_syntax("cast CLASS shield of shadows");
     set_description("This spell calls a protective shield into existance before the caster, crafted of the stuff of "
 "shadows. While it may seem intangible, it will negate magic missiles, and provides a small bonus to armor class for "

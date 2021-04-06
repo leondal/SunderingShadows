@@ -12,6 +12,7 @@ void create()
     set_spell_name("unholy aura");
     set_spell_level(([ "cleric" : 8, "mage":8]));
     set_spell_sphere("abjuration");
+    set_bonus_type(({ "resistance", "deflection" }));
     set_syntax("cast CLASS unholy aura");
     set_damage_desc("divine damage, 4 AC, 4 to all saves");
     set_description("You are surrounded by an aura of evil that will harm all your opponents and will slightly protect you. This is nimbus-family spell that won't work with other nimbuses.");

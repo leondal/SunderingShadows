@@ -9,6 +9,7 @@ void create() {
     set_spell_name("true strike");
     set_spell_level(([ "mage" : 1, "inquisitor" : 1, "magus" : 1, "cleric" : 1 ]));
     set_spell_sphere("divination");
+    set_bonus_type("insight");
     set_domains(({"destruction", "fate"}));
     set_syntax("cast CLASS true strike on TARGET");
     set_damage_desc("clevel/3 to attack bonus for clevel/12+1 rounds");

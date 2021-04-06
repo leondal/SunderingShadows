@@ -11,6 +11,7 @@ void create()
     set_spell_name("righteous might");
     set_spell_level(([ "cleric" : 5, "inquisitor" : 5, "oracle" : 5 ]));
     set_mystery("battle");
+    set_bonus_type("size");
     set_spell_sphere("alteration");
     set_domains("strength");
     set_syntax("cast CLASS righteous might");
