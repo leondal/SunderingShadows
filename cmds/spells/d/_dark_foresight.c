@@ -13,6 +13,7 @@ void create() {
     set_spell_name("dark foresight");
     set_spell_level(([ "warlock" : 4 ]));
     set_spell_sphere("divination");
+    set_bonus_type("insight");
     set_syntax("cast CLASS dark foresight");
     set_damage_desc("clvel/16 to armor bonus, clevel/12 to reflex save");
     set_description("The warlock uses this invocation to utilize the forbidden and arcane knowledge, granted by their patron, to see the very fabric of existence. The causality of the universe becomes plain to them and they have the ability to see what the future holds.");
@@ -25,11 +26,13 @@ void create() {
 
 int preSpell()
 {
+    /*
     if(caster->query_property("foresighted"))
     {
         tell_object(caster,"%^BOLD%^%^BLACK%^You feel your spell repelled...");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -40,11 +43,13 @@ void spell_effect(int prof)
     abonus = 1 + (clevel / 16);
     rbonus = 1 + (clevel / 12);
 
+    /*
     if (caster->query_property("foresighted"))
     {
         tell_object(caster,"%^CYAN%^The spell is repelled by its own magic.%^RESET%^\n");
         TO->remove();
     }
+    */
 
     spell_successful();
 
@@ -54,7 +59,7 @@ void spell_effect(int prof)
     caster->add_ac_bonus(abonus);
     caster->add_saving_bonus("reflex",rbonus);
     caster->set_property("spelled", ({TO}) );
-    caster->set_property("foresighted",1);
+    //caster->set_property("foresighted",1);
     addSpellToCaster();
     call_out("test", 10);
     spell_duration = duration;
@@ -85,7 +90,7 @@ void dest_effect()
             caster->add_saving_bonus("reflex",- rbonus);
         caster->remove_property_value("spelled", ({TO}) );
         tell_object(caster, "%^MAGENTA%^BOLD%^The fabric of reality no longer is present in your mind.");
-        caster->remove_property("foresighted");
+        //caster->remove_property("foresighted");
     }
 
     ::dest_effect();

@@ -2119,7 +2119,7 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
     }
     
     if(strlen(bonus_type))
-        caster->set_property(bonus_type, 1);
+        target->set_property(bonus_type, 1);
 
     return 1;
 }
@@ -2185,8 +2185,8 @@ int remove()
         caster->remove_property("travaoe");
     }
     
-    if(strlen(bonus_type) && objectp(caster))
-        caster->remove_property(bonus_type);
+    if(strlen(bonus_type) && objectp(target))
+        target->remove_property(bonus_type);
     
     return ::remove();
 }
