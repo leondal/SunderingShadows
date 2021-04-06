@@ -1558,6 +1558,9 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
             return;
         }
         
+        if(!clevel)
+            define_clevel();
+        
         if(clevel < 1)
             clevel = 1;
     }
@@ -2161,7 +2164,7 @@ void dest_effect()
         caster->remove_property("travaoe");
     }
     
-    caster && caster->remove_property(bonus_type);
+    caster->remove_property(bonus_type);
 
     before_cast_dest_effect();
     return;
@@ -3049,7 +3052,7 @@ varargs int do_save(object targ, int mod)
     type = get_save();
     target_level = (int)targ->query_level();
     classlvl = caster->query_prestige_level(spell_type);
-    classlvl = max( ({ caster->query_level() - 5, classlvl }) );
+    classlvl = max( ({ caster->query_level() - 10, classlvl }) );
     caster_bonus = (int)caster->query_property("spell dcs");
 
     if (save_debug) {
@@ -3062,7 +3065,7 @@ varargs int do_save(object targ, int mod)
     }
 
     caster_bonus += 10; // initial DC of 10 for opposed spells, all the other caster mods gets added to this
-    caster_bonus += classlvl / 5;
+    caster_bonus += classlvl / 2;
     
     if (save_debug) {
         tell_object(caster, "%^BOLD%^%^RED%^Bonus per 3.xx rules for d20 roll: 10");
