@@ -27,6 +27,7 @@ void create() {
 
 int preSpell(){
     if(!target) { target = caster; }
+    /*
     if(target->query_property("blessed")){
      tell_object(caster,"%^ORANGE%^Your target has already blessed.");
         return 0;
@@ -35,6 +36,7 @@ int preSpell(){
      tell_object(caster,"%^ORANGE%^Your target has already received guidance.");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -84,7 +86,7 @@ void spell_effect(int prof)
     target->add_attack_bonus(bonus);
     addSpellToCaster();
     target->set_property("spelled",({TO}));
-    target->set_property("blessed",1);
+    //target->set_property("blessed",1);
     spell_duration = duration;
     set_end_time();
     call_out("dest_effect",spell_duration);
@@ -99,7 +101,7 @@ void dest_effect()
             "away.");
         target->add_damage_bonus(-1*bonus);
         target->add_attack_bonus(-1*bonus);
-        target->remove_property("blessed");
+        //target->remove_property("blessed");
     }
     ::dest_effect();
     if(objectp(TO)) TO->remove();

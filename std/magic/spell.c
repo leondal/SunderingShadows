@@ -2164,7 +2164,7 @@ void dest_effect()
         caster->remove_property("travaoe");
     }
     
-    caster->remove_property(bonus_type);
+    caster && caster->remove_property(bonus_type);
 
     before_cast_dest_effect();
     return;
@@ -2185,7 +2185,7 @@ int remove()
         caster->remove_property("travaoe");
     }
     
-    if(strlen(bonus_type))
+    if(strlen(bonus_type) && objectp(caster))
         caster->remove_property(bonus_type);
     
     return ::remove();
@@ -3625,6 +3625,9 @@ void help()
     }
     if (save_type) {
         write("%^BOLD%^%^RED%^Saving throw:%^RESET%^ " + save_type);
+    }
+    if(stringp(bonus_type)) {
+        write("%^BOLD%^%^RED%^Bonus type:%^RESET%^ " + bonus_type);
     }
     if (stringp(damage_desc)) {
         write("%^BOLD%^%^RED%^Spell effect:%^RESET%^ " + damage_desc);
