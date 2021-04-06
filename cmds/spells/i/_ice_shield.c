@@ -16,6 +16,7 @@ void create() {
     set_spell_level(([ "cleric" : 4 ]));
     set_spell_sphere("invocation_evocation");
     set_damage_desc("cold, 2 AC");
+    set_bonus_type("deflection");
     set_syntax("cast CLASS ice shield");
     set_description("This spell will protect the caster in a field of bitter cold actic air.  It gives a slight bonus to "
 "the caster's armor, additionally, any enemies attacking the caster must make a saving throw or suffer damage from the "
@@ -50,7 +51,7 @@ void spell_effect(int prof){
         "encased in a haze of arctic air.",caster);
     tell_object(caster,"%^BOLD%^%^CYAN%^You complete your prayer and are encased in the ice "
         "cold air of the arctic.");
-    caster->set_property("ice shield",1);
+    //caster->set_property("ice shield",1);
     caster->set_property("spelled", ({TO}) );
     caster->add_ac_bonus(2);
     caster->add_property("added short",({"%^BOLD%^%^CYAN%^ (enfolded in frost)"}));
@@ -100,7 +101,7 @@ void dest_effect(){
         tell_room(environment(caster),"%^BOLD%^%^CYAN%^The shield of bitter cold air surrounding "
             ""+caster->QCN+" fades away, leaving "+caster->QP+" vulnerable once "
             "again.",caster);
-        caster->remove_property("ice shield");
+        //caster->remove_property("ice shield");
         caster->add_ac_bonus(-2);
 	    caster->remove_property_value("added short",({"%^BOLD%^%^CYAN%^ (enfolded in frost)"}));
     }

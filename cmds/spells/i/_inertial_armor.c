@@ -12,6 +12,7 @@ void create() {
     set_spell_name("inertial armor");
     set_spell_level(([ "psion" : 1, "psywarrior" : 1 ]));
     set_spell_sphere("abjuration");
+    set_bonus_type("armor");
     set_syntax("cast CLASS inertial armor");
     set_description("When a psion manifests inertial armor, his psionic energy streams through a gem, where it coalesces "
 "and forms a shield about the psion.  This shield of protection offers an AC bonus that grows with the psion as his "

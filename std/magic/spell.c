@@ -39,7 +39,7 @@ string spell_name,
        casting_stat,
        psyclass,
        aoe_message,
-       bonus_type;
+       *bonus_type;
 
 nosave int FULL_EFFECT = 100;
 
@@ -346,13 +346,18 @@ string query_syntax()
     return syntax;
 }
 
-string set_bonus_type(string str)
+string set_bonus_type(mixed str)
 {
-    bonus_type = str;
+    if(arrayp(str))
+        bonus_type = str;
+    
+    if(stringp(str))
+        bonus_type = ({ str });
+    
     return bonus_type;
 }
 
-string query_bonus_type()
+string *query_bonus_type()
 {
     return bonus_type;
 }
@@ -1676,12 +1681,15 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         }
     }
     
-    if(strlen(bonus_type))
+    if(sizeof(bonus_type))
     {
-        if(targ->query_property(bonus_type))
+        foreach(string type in bonus_type)
         {
-            tell_object(caster, "That target is already benefitting from a  " + bonus_type + " bonus.");
-            return;
+            if(targ->query_property(type))
+            {
+                tell_object(caster, "That target is already benefitting from a  " + bonus_type + " bonus.");
+                return;
+            }
         }
     }
 
@@ -2118,8 +2126,8 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
         mycost = 0; // on the off chance something calls spell_successful() more than once, don't charge them twice
     }
     
-    if(strlen(bonus_type))
-        target->set_property(bonus_type, 1);
+    foreach(string type in bonus_type)
+        target->set_property(type, 1);
 
     return 1;
 }
@@ -2164,7 +2172,8 @@ void dest_effect()
         caster->remove_property("travaoe");
     }
     
-    target && target->remove_property(bonus_type);
+    foreach(string type in bonus_type)
+        target && target->remove_property(type);
 
     before_cast_dest_effect();
     return;
@@ -2185,8 +2194,8 @@ int remove()
         caster->remove_property("travaoe");
     }
     
-    if(strlen(bonus_type) && objectp(target))
-        target->remove_property(bonus_type);
+    foreach(string type in bonus_type)
+        target && target->remove_property(type);
     
     return ::remove();
 }
@@ -3626,8 +3635,8 @@ void help()
     if (save_type) {
         write("%^BOLD%^%^RED%^Saving throw:%^RESET%^ " + save_type);
     }
-    if(stringp(bonus_type)) {
-        write("%^BOLD%^%^RED%^Bonus type:%^RESET%^ " + bonus_type);
+    if(sizeof(bonus_type)) {
+        write("%^BOLD%^%^RED%^Bonus type:%^RESET%^ " + implode(bonus_type, ", "));
     }
     if (stringp(damage_desc)) {
         write("%^BOLD%^%^RED%^Spell effect:%^RESET%^ " + damage_desc);

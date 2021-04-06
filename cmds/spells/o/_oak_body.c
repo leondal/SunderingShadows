@@ -13,6 +13,7 @@ void create() {
     set_spell_level(([ "psywarrior" : 5, "psion" : 7 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS oak body");
+    set_bonus_type("natural armor");
     set_description("By using this power, the psionic character lends some of his psychic energy to "
        "protect himself. It causes the manifester to gain some resistance to physical attacks, as well as immunity "
        "to most standard poisons. The oaken nature of the power leaves the manifester "

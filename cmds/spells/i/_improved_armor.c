@@ -19,6 +19,7 @@ void create()
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS improved armor [on TARGET]");
     set_damage_desc("+8 AC");
+    set_bonus_type("armor");
     set_description("With this spell, the caster surrounds themselves with strong force field that absorbs weak attacks and spells. This spell won't work together with lesser variant, as it is essentially the same spell pumped with power.");
     set_verbal_comp();
     set_somatic_comp();
@@ -31,10 +32,12 @@ int preSpell()
     if (!target) {
         target = caster;
     }
+    /*
     if (target->query_property("armoured")) {
         tell_object(caster, "%^BOLD%^%^BLACK%^You feel your spell repelled...");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -84,7 +87,7 @@ void spell_effect(int prof)
 
     target->add_ac_bonus(bonus);
     target->set_property("spelled", ({ TO }));
-    target->set_property("armoured", 1);
+    //target->set_property("armoured", 1);
     addSpellToCaster();
     call_out("test", 7);
 }
@@ -124,7 +127,7 @@ void dest_effect()
         target->remove_property_value("spelled", ({ TO }));
         tell_object(target, "%^CYAN%^The magic shielding around you glows briefly, then fades away.");
         tell_room(environment(target), "%^CYAN%^" + target->QCN + " glows briefly.", target);
-        target->remove_property("armoured");
+        //target->remove_property("armoured");
     }
 
     ::dest_effect();
