@@ -12,7 +12,7 @@ void create() {
     set_mystery("dragon");
     set_bonus_type("resistance");
     set_domains("magic");
-    set_damage_desc("clevel / 6 + 2 but no more than 5 to all saves");
+    set_damage_desc("+6 to all saves");
     set_syntax("cast CLASS protection from spells on TARGET");
     set_description("Using this power will allow a mage or sorcerer to temporarily raise the target's "
 "resistance to spells of all kinds.  This is only a temporary state, however, and will fade after a "
@@ -74,7 +74,7 @@ void spell_effect(int prof) {
         return;
     }
 
-    lower = 5;
+    lower = 6;
     //lower = clevel / 6 + 2;
     //lower = lower > 8 ? 8 : lower;
     target->add_saving_bonus("all",lower);

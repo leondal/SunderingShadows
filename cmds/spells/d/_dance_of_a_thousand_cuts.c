@@ -13,7 +13,6 @@ void create() {
     set_spell_name("dance of a thousand cuts");
     set_spell_level(([ "bard" : 6 ]));
     set_spell_sphere("alteration");
-    set_bonus_type("morale");
     set_syntax("cast CLASS dance of a thousand cuts");
     set_description("By way of this spell, the bard harnesses the pinnacle of their personal magnetism, and channels "
 "it through a series of graceful and lethal movements during combat. Doing so serves to empower their own strikes, "
