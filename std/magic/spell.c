@@ -346,8 +346,11 @@ string query_syntax()
     return syntax;
 }
 
-string set_bonus_type(mixed str)
+string *set_bonus_type(mixed str)
 {
+    if(!arrayp(bonus_type))
+        bonus_type = ({  });
+    
     if(arrayp(str))
         bonus_type = str;
     
@@ -359,6 +362,9 @@ string set_bonus_type(mixed str)
 
 string *query_bonus_type()
 {
+    if(!arrayp(bonus_type))
+        bonus_type = ({  });
+    
     return bonus_type;
 }
 
@@ -2126,8 +2132,9 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
         mycost = 0; // on the off chance something calls spell_successful() more than once, don't charge them twice
     }
     
-    foreach(string type in bonus_type)
-        target->set_property(type, 1);
+    if(sizeof(bonus_type))
+        foreach(string type in bonus_type)
+            target->set_property(type, 1);
 
     return 1;
 }
@@ -2172,8 +2179,9 @@ void dest_effect()
         caster->remove_property("travaoe");
     }
     
-    foreach(string type in bonus_type)
-        target && target->remove_property(type);
+    if(sizeof(bonus_type))
+        foreach(string type in bonus_type)
+            target && target->remove_property(type);
 
     before_cast_dest_effect();
     return;
@@ -2193,6 +2201,9 @@ int remove()
         objectp(caster)) {
         caster->remove_property("travaoe");
     }
+    
+    if(!arrayp(bonus_type))
+        bonus_type = ({  });
     
     foreach(string type in bonus_type)
         target && target->remove_property(type);
