@@ -1691,9 +1691,9 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
     {
         foreach(string type in bonus_type)
         {
-            if(targ->query_property(type))
+            if(target->query_property(type))
             {
-                tell_object(caster, "That target is already benefitting from a  " + bonus_type + " bonus.");
+                tell_object(caster, "That target is already benefitting from a  " + type + " bonus.");
                 return;
             }
         }
@@ -2133,8 +2133,15 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
     }
     
     if(sizeof(bonus_type))
+    {
         foreach(string type in bonus_type)
-            target->set_property(type, 1);
+        {
+            if(!target)
+                target = caster;
+            
+            target && target->set_property(type, 1);
+        }
+}
 
     return 1;
 }

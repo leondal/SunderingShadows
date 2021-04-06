@@ -10,6 +10,7 @@ void create() {
     set_spell_level(([ "mage" : 8,"inquisitor":5,"oracle":6 ]));
     set_spell_sphere("abjuration");
     set_mystery("dragon");
+    set_bonus_type("resistance");
     set_domains("magic");
     set_damage_desc("clevel / 6 + 2 but no more than 5 to all saves");
     set_syntax("cast CLASS protection from spells on TARGET");

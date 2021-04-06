@@ -16,11 +16,12 @@ inherit SPELL;
 
 void effect(int direction)
 {
+    /*
     if(direction > 0)
         //caster->set_property("castspellresistance", 1);
     else
         //caster->remove_property("castspellresistance");
-    
+    */
     caster->set_resistance("mental", 13 * direction);
 }
 
