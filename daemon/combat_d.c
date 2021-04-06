@@ -1010,6 +1010,8 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
 
     //Sneak attack dice section
     sneak = attacker->query_prestige_level("thief") / 2;
+    //Arcane trickster sneak attack progression
+    sneak += attacker->query_class_level("arcane_trickster") / 2;
     
     if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
         sneak = 0;
