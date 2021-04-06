@@ -21,6 +21,7 @@ void create()
     set_spell_level( ([ "psion" : 2, "psywarrior" : 2 ]) );
     set_spell_sphere("divination");
     set_syntax("cast CLASS everyman");
+    set_bonus_type("circumstance");
     set_damage_desc("Clevel / 4 to stealth skill");
     set_description("By meditating on your appearance and mannerisms, you can blend into your surroundings.");
     set_verbal_comp();
@@ -32,11 +33,13 @@ int preSpell()
 {
     target = caster;
 
+    /*
     if(target->query_property("everyman"))
     {
         tell_object(target, "You are already under the influence of Everyman.");
         return 0;
     }
+    */
 
     return 1;
 }
@@ -54,7 +57,7 @@ void spell_effect()
     caster->add_skill_bonus("stealth", bonus);
 
     caster->set_property("spelled", ({ this_object() }) );
-    caster->set_property("everyman", 1);
+    //caster->set_property("everyman", 1);
     addSpellToCaster();
 
     spell_duration = (clevel + roll_dice(1, 20)) * ROUND_LENGTH * 2;
@@ -69,7 +72,7 @@ void dest_effect()
         target->add_skill_bonus("stealth", -bonus);
         target->remove_property("spelled", ({ this_object() }) );
         tell_object(target, "%^CYAN%^You feel your command of disguise fading away.%^RESET%^");
-        target->remove_property("everyman");
+        //target->remove_property("everyman");
     }
     ::dest_effect();
     if(objectp(this_object()))

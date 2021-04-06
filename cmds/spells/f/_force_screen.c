@@ -8,6 +8,7 @@ void create() {
     set_spell_name("force screen");
     set_spell_level(([ "psion" : 1 ]));
     set_spell_sphere("abjuration");
+    set_bonus_type("shield");
     set_syntax("cast CLASS force screen");
     set_description("This spell calls a protective shield into existance before the caster. It negates magic missiles, "
 "and provides a small bonus to armor class for its duration. Use of a physical shield will interfere with the spell and "
@@ -16,10 +17,12 @@ void create() {
 }
 
 int preSpell(){
+   /*
    if((int)CASTER->query_property("spell shield")){
       tell_object(CASTER,"You are already under the influence of such a spell.");
       return 0;
    }
+   */
    return 1;
 }
 
@@ -38,7 +41,7 @@ void spell_effect(int prof) {
       tell_room(place,"%^BOLD%^A transparent shield of force springs into being before "+caster->QCN+".%^RESET%^",caster);
     }
     caster->add_ac_bonus(4);
-    caster->set_property("spell shield",1);
+    //caster->set_property("spell shield",1);
     spell_successful();
     addSpellToCaster();
     call_out("test", ROUND_LENGTH);
@@ -79,7 +82,7 @@ void dest_effect(){
       tell_object(caster,"%^BOLD%^The protective shield shimmers and fades.%^RESET%^");
       tell_room(environment(caster),"%^BOLD%^"+caster->QCN+"'s protective shield shimmers and fades.%^RESET%^",caster);
       caster->add_ac_bonus(-4);
-      caster->set_property("spell shield",-1);
+      //caster->set_property("spell shield",-1);
     }
     ::dest_effect();
     if(objectp(TO)) TO->remove();
