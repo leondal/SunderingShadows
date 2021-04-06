@@ -12,8 +12,9 @@ void create() {
     set_spell_name("bears endurance");
     set_spell_level(([ "ranger" : 2, "cleric" : 2,"druid" : 2, "assassin" : 2, "mage" : 2, "magus" : 2 ]));
     set_spell_sphere("alteration");
+    set_bonus_type("enhancement");
     set_syntax("cast CLASS bears endurance on TARGET");
-    set_description("This spell allows the caster to infuse their target with the endurance of a bear, granting them improved vitality and stamina.  This spell doesn't stack with similarly powerful spells of enhancement.");
+    set_description("This spell allows the caster to infuse their target with the endurance of a bear, granting them a +4 enhancement bonus to constitution.");
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);
@@ -28,11 +29,13 @@ void spell_effect(int prof) {
         return;
     }
     if (objectp(place)) place = environment(caster);
+    /*
     if((int)target->query_property("augmentation")){
       tell_object(caster,"%^YELLOW%^"+target->QCN+" is already under the influence of a similar spell.");
       dest_effect();
       return;
     }
+    */
     if(prof == -100) { // hack for potions. Cuz lib doesn't seem to call reverse spell anymore, and I'm lazy. N, 6/15.
       reverse_spell();
       return;
@@ -52,12 +55,13 @@ void spell_effect(int prof) {
         tell_room(place,"%^YELLOW%^"+caster->QCN+" intones a spell over "+target->QCN+".%^RESET%^",({caster,target}));
       }
     }
-    mydiff = 2;
-    if(target->query_stats("constitution") > 28) mydiff = 1;
-    if(target->query_stats("constitution") > 29) mydiff = 0;
+    mydiff = 4;
+    mydiff = min(({ mydiff, (30 - target->query_stats("constitution")) }));
+    //if(target->query_stats("constitution") > 28) mydiff = 1;
+    //if(target->query_stats("constitution") > 29) mydiff = 0;
     if(mydiff) {
       target->add_stat_bonus("constitution",mydiff);
-      target->set_property("augmentation",1);
+      //target->set_property("augmentation",1);
     }
     spell_successful();
     addSpellToTarget();
@@ -69,7 +73,7 @@ void dest_effect(){
       if((string)TO->query_spell_type() == "potion") tell_object(target,"%^RESET%^%^RED%^The potion's enhancement fades from you.%^RESET%^");
       else tell_object(target,"%^RESET%^%^RED%^The spell's enhancement fades from you.%^RESET%^");
       target->add_stat_bonus("constitution",(-1)*mydiff);
-      target->set_property("augmentation",-1);
+      //target->set_property("augmentation",-1);
     }
     ::dest_effect();
     if(objectp(TO)) TO->remove();
@@ -79,12 +83,13 @@ void reverse_spell(){
     // adding in backfires for potions! Can't find where lib actually calls this anymore.
     tell_object(caster,"%^CYAN%^A queasy feeling runs through you, leaving you weakened.%^RESET%^");
 
-    mydiff = -2;
-    if(target->query_stats("constitution") < 4) mydiff = -1;
-    if(target->query_stats("constitution") < 3) mydiff = 0;
+    mydiff *= -1;
+    
+    //if(target->query_stats("constitution") < 4) mydiff = -1;
+    //if(target->query_stats("constitution") < 3) mydiff = 0;
     if(mydiff) {
       target->add_stat_bonus("constitution",mydiff);
-      target->set_property("augmentation",1);
+      //target->set_property("augmentation",1);
     }
     spell_successful();
     call_out("dest_effect",clevel);

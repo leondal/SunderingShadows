@@ -17,6 +17,7 @@ void create()
     set_spell_name("armor of darkness");
     set_spell_level(([ "cleric" : 4]));
     set_spell_sphere("divination");
+    set_bonus_type("deflection");
     set_syntax("cast CLASS armor of darkness");
     set_description("This spell will surround the caster in a dark haze making it harder for enemies to see the caster to hit them.  It also improves the caster's vision to allow them to better see through the darkness themselves.");
     set_verbal_comp();
@@ -37,11 +38,13 @@ string query_cast_string()
 
 int preSpell()
 {
+    /*
     if(caster->query_property("darkness armor") || caster->query_property("light nimbus"))
     {
         tell_object(caster,"%^BLUE%^You are already protected by armor of darkness.");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -50,8 +53,8 @@ void spell_effect(int prof)
 {
     int duration;
 
-    armor_bonus = 2;
-    attk_bonus = clevel/10;
+    armor_bonus = 3;
+    //attk_bonus = clevel/10;
 
     duration = (ROUND_LENGTH * 20) * clevel;
 
@@ -73,7 +76,7 @@ void spell_effect(int prof)
     caster->add_sight_bonus(modifier);
     caster->add_attack_bonus(attk_bonus);
     caster->set_property("spelled",({TO}));
-    caster->set_property("darkness armor",1);
+    //caster->set_property("darkness armor",1);
     caster->set_property("added short",({"%^BOLD%^%^BLACK%^ (seeped in darkness)%^RESET%^"}));
 }
 
@@ -89,7 +92,7 @@ void dest_effect()
         caster->add_ac_bonus(-1*armor_bonus);
         caster->add_sight_bonus(-1*modifier);
         caster->add_attack_bonus(-1*attk_bonus);
-        caster->remove_property("darkness armor");
+        //caster->remove_property("darkness armor");
         caster->remove_property("added short",({"%^BOLD%^%^BLACK%^ (seeped in darkness)%^RESET%^"}));
     }
 

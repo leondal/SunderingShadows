@@ -16,6 +16,7 @@ void create() {
     set_spell_sphere("divination");
     set_discipline("seer");
     set_mystery("battle");
+    set_bonus_type("insight");
     set_syntax("cast CLASS foresight [on TARGET]");
     set_damage_desc("+2 to armor bonus, +2 to reflex save, death ward feat");
     set_description("The caster uses this spell to heighten their awareness for a time, allowing them to perceive fragments of their immediate future. This allows them to react pre-emptively to many threats, defending better against attacks that they can see coming before they actually land, and they may even be able avoid the death itself.");
@@ -33,11 +34,13 @@ void create() {
 int preSpell()
 {
     if (!target) target = caster;
+    /*
     if(target->query_property("foresighted"))
     {
         tell_object(caster,"%^BOLD%^%^BLACK%^You feel your spell repelled...");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -86,7 +89,7 @@ void spell_effect(int prof)
         target->add_temporary_feat("death ward");
         nodeathflag = 1;
     }
-    target->set_property("foresighted",1);
+    //target->set_property("foresighted",1);
     addSpellToCaster();
     call_out("test", 10);
     spell_duration = duration;
@@ -124,7 +127,7 @@ void dest_effect()
             target->remove_temporary_feat("death ward");
         target->remove_property_value("spelled", ({TO}) );
         tell_object(target, "%^CYAN%^The future no longer is present in your mind.");
-        target->remove_property("foresighted");
+        //target->remove_property("foresighted");
     }
 
     ::dest_effect();
