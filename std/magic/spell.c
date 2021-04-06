@@ -1687,6 +1687,9 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         }
     }
     
+    if(!target)
+        target = caster;
+    
     if(sizeof(bonus_type))
     {
         foreach(string type in bonus_type)
