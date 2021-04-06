@@ -14,6 +14,7 @@ void create() {
     set_spell_level(([ "cantrip":1 ]));
     set_mystery(({"elemental", "nature"}));
     set_spell_sphere("alteration");
+    set_bonus_type("competence");
     set_syntax ("cast CLASS guidance on TARGET");
     set_description("This spell will offer guidance to the target, "
        "giving him a slightly better chance to hit in combat as "
