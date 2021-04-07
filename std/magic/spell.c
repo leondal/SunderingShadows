@@ -1570,10 +1570,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         }
         
         if(!clevel)
-            define_clevel();
-        
-        if(clevel < 1)
-            clevel = 1;
+            clevel = max( ({ caster->query_level(), 1 }) );
     }
 
     if (classtype == "innate") {
