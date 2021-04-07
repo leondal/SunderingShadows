@@ -110,7 +110,7 @@ void execute_attack()
     
     glvl = caster->query_guild_level("paladin");
     mod = BONUS_D->query_stat_bonus(caster, "charisma");
-    dam = 5 + roll_dice(glvl / 2, 6) + mod;
+    dam = 5 + roll_dice(glvl / 2, 8) + mod;
     opposed = LIVING_D->opposed_alignment(caster, target);
     
     //Does double damage against opposed, triple damage against polar opposite
