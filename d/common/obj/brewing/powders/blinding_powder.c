@@ -137,7 +137,7 @@ int toss(string str) {
 
    TP->set_paralyzed(2,"%^CYAN%^%^BOLD%^You are busy throwing the dust!%^RESET%^");
 
-   if(!ob->reflex_save(10 + (TP->query_skill("thievery") * 2 / 3))) {
+   if(!ob->reflex_save(10 + TP->query_skill("thievery"))) {
      tell_room(ETP,"%^BOLD%^%^CYAN%^The cloud of dust formed by the powder billows toward "+ob->query_cap_name()+", and "+ob->query_subjective()+" tries to avoid the cloud, but is unsuccessful.",ob);
      tell_room(ETP,"%^BOLD%^%^CYAN%^The irritants in the dust quickly effect "+ob->query_cap_name()+"'s eyes causing "+ob->query_objective()+" to become paralyzed with stinging pain.",ob);
      tell_object(ob,"%^BOLD%^%^CYAN%^The dust cloud billows toward you. You try to avoid the cloud but it hit's you full in the face!\n");
