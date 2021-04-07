@@ -177,7 +177,7 @@ void impaler(object targ)
         fireball(targ); return;
     }
 
-    if (targ->fort_save(35 + random(10))) {
+    if (targ->fort_save(35)) {
         dam = "hurts";
     }else {
         dam = "impales";
@@ -216,7 +216,7 @@ void fire(object targ)
         fireball(targ); return;
     }
 
-    if (targ->reflex_save(35 + random(10))) {
+    if (targ->reflex_save(35)) {
         dam = "singes";
     }else {
         dam = "incenerates";
@@ -359,7 +359,7 @@ void freeze(object targ)
         fireball(targ); return;
     }
 
-    if (targ->will_save(35 + random(10))) {
+    if (targ->will_save(35)) {
         tell_room(ETO, "%^CYAN%^Cruiser Tetron draws in the energy around him and congeals it into a dagger of ice.");
         tell_room(ETO, "%^CYAN%^Cruiser Tetron casts a dagger of compressed ice at " + targ->QCN + "!", targ);
         tell_object(targ, "%^BOLD%^%^CYAN%^Cruiser Tetron's dagger of compressed ice rips into you and the surrounding blood freezes!");
@@ -394,7 +394,7 @@ void fireball(object targ)
         if (!objectp(live[i])) {
             continue;
         }
-        if (!live[i]->reflex_save(35 + random(20))) {
+        if (!live[i]->reflex_save(35)) {
             tell_room(ETO, "%^BOLD%^%^RED%^Cruiser Tetron hurls a fireball at " + live[i]->QCN + "!", live[i]);
             tell_object(live[i], "%^BOLD%^%^RED%^Cruiser Tetron hurls a fireball at you!");
             TO->set_property("noMissChance", 1);
@@ -423,7 +423,7 @@ void bolt(object targ)
         fireball(targ); return;
     }
     tell_room(ETO, "%^MAGENTA%^Cruiser Tetron says:%^BOLD%^%^RED%^ Suffer the storm's wrath!%^RESET%^");
-    if (!targ->reflex_save(35 + random(20))) {
+    if (!targ->reflex_save(35)) {
         tell_room(ETO, "%^YELLOW%^Cruiser Tetron shoots lightning from his fingertips and blasts " + targ->QCN + "!", targ);
         tell_object(targ, "%^YELLOW%^Cruiser Tetron shoots lightning from his fingertips and blasts you!");
         TO->set_property("noMissChance", 1);
@@ -456,7 +456,7 @@ void tornado(object targ)
         fireball(targ); return;
     }
 
-    if (targ->reflex_save(35 + random(20))) {
+    if (targ->reflex_save(35)) {
         tell_room(ETO, "%^MAGENTA%^Cruiser Tetron says:%^BOLD%^%^RED%^ Your end is nigh.%^RESET%^");
         tell_room(ETO, "Cruiser Tetron kneels and touches his palms against the floor.");
         tell_room(ETO, "%^BOLD%^A tornado rises beneath " + targ->QCN + "!", targ);
@@ -489,7 +489,7 @@ void light(object targ)
         fireball(targ); return;
     }
 
-    if (!targ->will_save(35 + random(30))) {
+    if (!targ->will_save(35)) {
         tell_room(ETO, "%^MAGENTA%^Cruiser Tetron says:%^BOLD%^%^RED%^ These are your final moments!%^RESET%^");
         tell_room(ETO, "Cruiser Tetron thrusts his hands foreward, then upwards.");
         tell_room(ETO, "%^BLUE%^The shadows compress to form a ball of energy in his hands.");
@@ -529,7 +529,7 @@ void kiss(object targ)
         fireball(targ); return;
     }
 
-    if (!targ->will_save(35 + random(20))) {
+    if (!targ->will_save(35)) {
         tell_room(ETO, "%^BOLD%^YELLOW%^Cruiser Tetron sends several arcing beams of light at " + targ->QCN + " and they are absorbed by " + targ->QP + " body!", targ);
         tell_object(targ, "%^BOLD%^YELLOW%^Cruiser Tetron sends several arcing beams of light at you!\n" "%^RED%^Your eyes burn as your body absorbs the beams!");
         tell_object(targ, "%^BOLD%^%^RED%^The energies work to damage your cell structure!");
@@ -561,7 +561,7 @@ void desoul(object targ)
         fireball(targ); return;
     }
 
-    if (!targ->will_save(25 + random(10)) && !targ->query_property("no death") && !FEATS_D->usable_feat(targ, "death ward")) {
+    if (!targ->will_save(35) && !targ->query_property("no death") && !FEATS_D->usable_feat(targ, "death ward")) {
         tell_room(ETO, "%^BOLD%^%^B_BLUE%^Cruiser Tetron calls to powers greater than any you have ever known.");
         tell_room(ETO, "%^CYAN%^Cruiser Tetron's hair begins to fly around, moved by a sudden wind.");
         tell_room(ETO, "%^MAGENTA%^Cruiser Tetron points to  " + targ->QCN + "!", targ);
