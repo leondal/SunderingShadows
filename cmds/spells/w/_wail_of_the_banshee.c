@@ -43,7 +43,7 @@ void spell_effect(int prof)
     if (sizeof(foes)) {
         foreach(foe in foes)
         {
-            if (combat_death_save(foe, 3)) {
+            if (combat_death_save(foe, 0)) {
                 tell_object(foe, "%^BLUE%^You sigh with relief as your soul withstands a horrid scream!");
                 damage_targ(foe, foe->return_target_limb(), sdamage, "sonic");
                 continue;
