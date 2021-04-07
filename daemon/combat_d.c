@@ -1336,6 +1336,7 @@ void send_messages(object attacker, int magic, object weapon, string what, int x
             me = "You hit " + your_name + " ineffectively in the " + what + ".";
             you = my_name + " hits you ineffectively in the " + what + ".";
             others = my_name + " hits " + your_name + " ineffectively in the " + what + ".";
+            return;
         }else {
             if (used == "head") {
                 if (x < 5) {
@@ -1406,6 +1407,7 @@ your " + used + "!%^RESET%^";
             me = "You hit " + your_name + " ineffectively.";
             you = my_name + " hits you ineffectively.";
             others = my_name + " hits " + your_name + " ineffectively.";
+            return;
         }else {
             me = "You hit " + your_name + ".";
             you = my_name + " hits you.";
