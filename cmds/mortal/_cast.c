@@ -294,8 +294,8 @@ int cmd_cast(string str)
     if (type == "innate") {
         targ->use_spell(TP, tar, (int)TP->query_innate_ability_level(str2), 100, "innate");
     }
-    if (type == "cantrip") {
-        targ->use_spell(this_player(), tar, 1, 100, "cantrip");
+    if (type == "cantrip") { //this should really use wizard interface somehow to pick up the proper clevels, might need to define cantrips differently
+        targ->use_spell(this_player(), tar, TP->query_base_character_level(), 100, "cantrip");
     }
     
     return 1;
