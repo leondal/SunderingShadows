@@ -37,7 +37,7 @@ create() {
    set_attack_limbs( ({"left hand","right hand"}) );
    set_base_damage_type("slashing");
    set_damage(2,5);
-   set_mob_magic_resistance("average");
+   //set_mob_magic_resistance("average");
    set("aggressive","agg_fun");
    set_funcs(({"slash"}));
    set_func_chance(10);

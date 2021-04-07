@@ -95,7 +95,7 @@ create() {
    if (flag == 2 || flag == 3) { set_base_damage_type("bludgeoning"); }
    if (flag == 1 || flag == 5) { set_base_damage_type("piercing"); }
    set_damage(2,6);
-   set_mob_magic_resistance("average");
+   //set_mob_magic_resistance("average");
    set_property("undead",1);
    set("aggressive","agg_fun");
    if (flag == 1) {

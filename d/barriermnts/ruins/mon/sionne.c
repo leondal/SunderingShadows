@@ -43,7 +43,7 @@ create() {
    set_attacks_num(0);
    set_base_damage_type("slashing");
    set_damage(1,2);
-   set_mob_magic_resistance("average");
+   //set_mob_magic_resistance("average");
    set_emotes(1, ({"%^BLUE%^The spirit floats slowly through the air.",
 "%^BLACK%^%^BOLD%^The spirit's mournful gaze passes over you.",
 "%^ORANGE%^The spirit flickers and nearly disappears from view.",
