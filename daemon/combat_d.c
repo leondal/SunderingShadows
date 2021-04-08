@@ -1339,7 +1339,6 @@ void send_messages(object attacker, int magic, object weapon, string what, int x
             me = "You hit " + your_name + " ineffectively in the " + what + ".";
             you = my_name + " hits you ineffectively in the " + what + ".";
             others = my_name + " hits " + your_name + " ineffectively in the " + what + ".";
-            return;
         }else {
             if (used == "head") {
                 if (x < 5) {
@@ -1369,7 +1368,7 @@ void send_messages(object attacker, int magic, object weapon, string what, int x
             }
 
 
-            if (critical_message) {
+            if (critical_message && x > 0) {
                 switch (type) {
                 case "slashing":
                     me = "%^RED%^You land a %^BOLD%^vicious %^RESET%^%^RED%^s%^BOLD%^l%^RESET%^%^RED%^a%^BOLD%^s%^RESET%^%^RED%^h%^BOLD%^i%^RESET%^%^RED%^n%^BOLD%^g %^RESET%^%^RED%^blow with %^BOLD%^%^BLACK%^" + used + " %^RESET%^%^RED%^and %^BOLD%^tear %^RESET%^%^RED%^your weapon free of %^BOLD%^%^BLACK%^" + your_name + "%^RESET%^%^RED%^!%^RESET%^";
@@ -1410,7 +1409,6 @@ your " + used + "!%^RESET%^";
             me = "You hit " + your_name + " ineffectively.";
             you = my_name + " hits you ineffectively.";
             others = my_name + " hits " + your_name + " ineffectively.";
-            return;
         }else {
             me = "You hit " + your_name + ".";
             you = my_name + " hits you.";
@@ -1419,7 +1417,7 @@ your " + used + "!%^RESET%^";
     }
 
 
-    if (critical_message) {
+    if (critical_message && x > 0) {
         //me = "%^BOLD%^%^WHITE%^" + critical_roll + ": %^BOLD%^%^RED%^(Critical) %^RESET%^" + me; debug version
         me = "%^BOLD%^%^RED%^(Critical) %^RESET%^" + me;
         you = "%^BOLD%^%^RED%^(Critical) %^RESET%^" + you;
