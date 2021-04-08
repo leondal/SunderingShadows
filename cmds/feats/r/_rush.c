@@ -174,6 +174,7 @@ void execute_attack() {
     
     //Improved Rush gives +2 bonus
     enchant += (FEATS_D->usable_feat(caster, "improved rush") * 2);
+    enchant += BONUS_D->query_stat_bonus(caster, "strength");
 
     if(!(res = thaco(target,enchant)))
     {

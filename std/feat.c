@@ -438,7 +438,7 @@ varargs int thaco(object targ, int mod, int flag)
         weap = weaps[0];
     }
     //get bonus as if it was their first attack - Saide
-    roll = BONUS_D->process_hit(caster, targ, 0, weap, 0, flag);
+    roll = BONUS_D->process_hit(caster, targ, 0, weap, 0, flag, mod);
     //20 is a hit that ignores shieldmiss and deflection - Saide
     if(roll == 20) return 1;
     if(!roll) return 0;
