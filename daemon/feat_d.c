@@ -1783,6 +1783,7 @@ int number_feats(object obj, string category, string* valid_classes) {
             case "sorcerer":
             case "mage":
             case "oracle":
+            case "cleric":
                 j = ((obj->query_class_level(subset[i]) + 4) / 5);
                 break;
                 //hybrids
