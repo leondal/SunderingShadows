@@ -7,7 +7,7 @@ void create() {
     feat_type("permanent");
     feat_category("Presence");
     feat_name("leadership");
-    feat_prereq("Force of personality");
+    //feat_prereq("Force of personality");
     feat_desc("This feat represents the pinnacle of renown for a character, allowing them to attract a number of loyal followers based upon their influence skill.
 
 %^BOLD%^%^WHITE%^See also:%^RESET%^ follower.");
@@ -20,10 +20,10 @@ int prerequisites(object ob)
 {
     if (!objectp(ob))
         return 0;
-    if (!FEATS_D->has_feat(ob, "force of personality")) {
-        dest_effect();
-        return 0;
-    }
+    //if (!FEATS_D->has_feat(ob, "force of personality")) {
+    //    dest_effect();
+    //    return 0;
+    //}
     return::prerequisites(ob);
 }
 
