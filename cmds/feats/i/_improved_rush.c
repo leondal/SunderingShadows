@@ -11,7 +11,7 @@ void create()
     feat_category("MeleeDamage");
     feat_name("improved rush");
     feat_prereq("Rush");
-    feat_desc("With this feat you are able avoid being triped on a missed rush.");
+    feat_desc("With this feat you are able avoid being triped on a missed rush. Rush also gets a +2 modifier to its attack roll, and +2 damage dice.");
     permanent(1);
 }
 

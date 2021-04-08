@@ -145,7 +145,7 @@ void execute_feat()
 // a 1 combat round delay before the action takes place.
 void execute_attack()
 {
-    int dam, mod, i, timerz, res;
+    int dam, mod, i, timerz, res, bonus;
     object* keyz;
     mapping tempmap, newmap;
 
@@ -194,8 +194,9 @@ void execute_attack()
     delay_subject_msg(target, FEATTIMER, "%^BOLD%^%^WHITE%^" + target->QCN + " can be %^CYAN%^shieldbashed%^WHITE%^ again.%^RESET%^");
     caster->remove_property("using shieldbash");
     caster->set_property("using shieldbash", newmap);
-
-    if (!(res = thaco(target))) {
+    bonus = 2 * FEATS_D->usable_feat(caster, "improved shieldbash");
+    
+    if (!(res = thaco(target, bonus))) {
         tell_object(caster, "%^RED%^" + target->QCN + " sidesteps your shieldbash at the "
                     "last instant and you scramble to stay on your feet!%^RESET%^");
         tell_object(target, "%^BOLD%^%^GREEN%^You sidestep " + caster->QCN + "'s attempt "
@@ -220,7 +221,7 @@ void execute_attack()
         dest_effect();
         return;
     }
-    dam = clevel;
+    dam = roll_dice(clevel + bonus, 4);
 
     tell_object(caster, "%^YELLOW%^You slam your shield full force into " + target->QCN + " "
                 "battering " + target->QO + " painfully!%^RESET%^");

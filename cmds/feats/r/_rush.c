@@ -171,6 +171,9 @@ void execute_attack() {
 // combat daemon now has a calc which picks up monk, unarmed & shifted enchantment. Plz to use! N, 1/3/20.
         enchant = COMBAT_D->unarmed_enchantment(caster);
     }
+    
+    //Improved Rush gives +2 bonus
+    enchant += (FEATS_D->usable_feat(caster, "improved rush") * 2);
 
     if(!(res = thaco(target,enchant)))
     {
@@ -196,6 +199,9 @@ void execute_attack() {
         dest_effect();
         return;
     }
+    
+    //+2 dice to damage for improved rush
+    clevel += (FEATS_D->usable_feat(caster, "improved rush") * 2);
     damage = roll_dice(clevel,8); // up to d8 on a trial basis
 
     if(sizeof(myweapon))
