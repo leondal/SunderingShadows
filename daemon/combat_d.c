@@ -70,7 +70,7 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
     }
     MissChance = (int)victim->query_missChance();
     
-    if(attacker->query_blind() || total_light(attacker) < 1)
+    if(attacker->query_blind() || attacker->light_blind())
     {
         if(FEATS_D->usable_feat(attacker, "blindfight"))
             MissChance += 25;
@@ -1024,9 +1024,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         if(FEATS_D->usable_feat(targ, "undead graft"))
             sneak /= 2;
     
-        if(attacker->query_blind() || 
-          (member_array(attacker->query_race(),LIVING_D->night_races()) < 0 && effective_light(attacker) < 0) ||
-          (member_array(attacker->query_race(),LIVING_D->night_races()) >= 0 && effective_light(attacker) > 0))
+        if(attacker->query_blind() || attacker->light_blind())
         {
             if(FEATS_D->usable_feat(attacker, "blindfight"))
                 sneak /= 2;
