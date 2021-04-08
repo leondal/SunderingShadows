@@ -1008,26 +1008,31 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         damage = crit_damage(attacker, targ, weapon, attacker_size, damage, cant_shot);
     }
 
-    //Sneak attack dice section
-    sneak = attacker->query_prestige_level("thief") / 2;
-    //Arcane trickster sneak attack progression
-    sneak += attacker->query_class_level("arcane_trickster") / 2;
-    
-    if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
-        sneak = 0;
-    
-    if(FEATS_D->usable_feat(targ, "mighty resilience"))
-        sneak = 0;
-    
-    if(FEATS_D->usable_feat(targ, "undead graft"))
-        sneak /= 2;
-    
-    if(attacker->query_blind() || total_light(attacker) < 1)
+    if(attacker->is_class("thief"))
     {
-        if(FEATS_D->usable_feat(attacker, "blindfight"))
-            sneak /= 2;
-        else 
+        //Sneak attack dice section
+        sneak = attacker->query_prestige_level("thief") / 2;
+        //Arcane trickster sneak attack progression
+        sneak += attacker->query_class_level("arcane_trickster") / 2;
+    
+        if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
             sneak = 0;
+    
+        if(FEATS_D->usable_feat(targ, "mighty resilience"))
+            sneak = 0;
+    
+        if(FEATS_D->usable_feat(targ, "undead graft"))
+            sneak /= 2;
+    
+        if(attacker->query_blind() || 
+          (member_array(attacker->query_race(),LIVING_D->night_races()) < 0 && effective_light(attacker) < 0) ||
+          (member_array(attacker->query_race(),LIVING_D->night_races()) >= 0 && effective_light(attacker) > 0))
+        {
+            if(FEATS_D->usable_feat(attacker, "blindfight"))
+                sneak /= 2;
+            else 
+                sneak = 0;
+        }
     }
     
     if(sneak && damage)
