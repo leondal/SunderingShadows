@@ -2554,7 +2554,7 @@ void define_base_damage(int adjust)
         slevel += adjust;
         slevel += sdamage_adjustment;
         
-        if(caster->query_property("empower spell"))
+        if(caster && caster->query_property("empower spell"))
         {
             slevel += 1;
             caster->remove_property("empower spell");
