@@ -996,12 +996,19 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             continue;
         }
         mod = armor[i]->do_struck(damage, weapon, attacker);
+        /**************************************
+         Let's review this code in the future.
+         Struck function should apply modifiers
+         and return total damage at the end.
+         -- Tlaloc --
+        ***************************************/
         if (mod < 0) {
             damage += mod;
         }
         if (mod >= 0) {
             damage = mod;
         }
+        /**************************************/
     }
 
     if (critical_hit) {
