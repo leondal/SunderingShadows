@@ -98,6 +98,7 @@ void create()
     set_base_damage_type("slashing");
 
     set_property("weapon resistance", 0);
+    set_mob_magic_resistance("average");
     set_property("no death", 1);
     set_property("no knockdown", 1);
     set_property("no trip", 1);
