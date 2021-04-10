@@ -71,7 +71,7 @@ void dest_effect()
         target->add_stat_bonus("dexterity",2);
         tell_object(target, "%^RED%^You shrink back to normal!");
         tell_room(environment(target),"%^RED%^"+target->QCN+" shrinks back to normal size.", target );
-        target->remove_property("added short",({"%^RED%^ (giant)%^RESET%^"}));
+        target->remove_property_value("added short",({"%^RED%^ (giant)%^RESET%^"}));
         target->remove_property("enlarged");
     }
     ::dest_effect();
