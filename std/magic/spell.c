@@ -2565,11 +2565,11 @@ void define_base_damage(int adjust)
 
         if (slevel < 1) {
             sdamage = roll_dice(clevel, 5);
-            if(caster->query_property("maximize spell"))
-                sdamage = clevel * 5;
+        if(caster && caster->query_property("maximize spell"))
+            sdamage = clevel * 5;
         }else if (slevel > 0 && slevel < 20) {
             sdamage = roll_dice(clevel, 5 + slevel);
-            if(caster->query_property("maximize spell"))
+            if(caster && caster->query_property("maximize spell"))
                 sdamage = clevel * (slevel + 5);
         } else {
             sdamage = roll_dice(clevel, 8);
