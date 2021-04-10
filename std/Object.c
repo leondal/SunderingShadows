@@ -2911,7 +2911,7 @@ varargs int property_special(mixed arg, object enemy_weapon, object attacker)
     if (messages["special"] == "weapon") {
         return roll_dice(1, enchantment);
     }
-    return 0;
+    return damage;
 }
 
 string color_me(string str)
