@@ -31,7 +31,7 @@ int cmd_reward(string str)
         target->set_property("ignore tax", 1);
         target->add_general_exp(target->query_classes()[0], expall);
         target->remove_property("ignore tax");
-        tell_object(TP, "%^CYAN%^%^BOLD%^You have rewarded " + target->QCN + " with some experience.");
+        tell_object(TP, "%^CYAN%^%^BOLD%^You have rewarded everybody present.");
         tell_object(target, "%^CYAN%^%^BOLD%^You feel enlightened as your powers grow.");
         TP->delete("last_reward");
         TP->set("last_reward", time());
