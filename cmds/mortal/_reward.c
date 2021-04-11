@@ -13,6 +13,12 @@ int cmd_reward(string str)
         tell_object(TP, "<reward TARGET> or <reward all>");
         return 1;
     }
+	
+	  if (TP->query("last_reward") + DELAY > time()) {
+        tell_object(TP, "%^BOLD%^%^RED%^You can't use reward yet!");
+        tell_object(TP, "%^BOLD%^%^RED%^Delay timer wil expire at:%^RESET%^ " + ctime(TP->query("last_reward") + DELAY) + "UTC");
+        return 1;
+	}
  
  	if (str == "all"){
        object *livings;
@@ -32,10 +38,10 @@ int cmd_reward(string str)
         target->add_general_exp(target->query_classes()[0], expall);
         target->remove_property("ignore tax");
         tell_object(target, "%^CYAN%^%^BOLD%^You feel enlightened as your powers grow.");
-        TP->delete("last_reward");
-        TP->set("last_reward", time());
 	   }
 	   tell_object(TP, "%^CYAN%^%^BOLD%^You have rewarded everybody present.");
+	    TP->delete("last_reward");
+        TP->set("last_reward", time());
 	   return 1;
 	}
 	
@@ -60,11 +66,7 @@ int cmd_reward(string str)
         return 1;
     }
 
-    if (TP->query("last_reward") + DELAY > time()) {
-        tell_object(TP, "%^BOLD%^%^RED%^You can't use reward yet!");
-        tell_object(TP, "%^BOLD%^%^RED%^Delay timer wil expire at:%^RESET%^ " + ctime(TP->query("last_reward") + DELAY) + "UTC");
-        return 1;
-	}
+  
 
     {
         int expdelta;
