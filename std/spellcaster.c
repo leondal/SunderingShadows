@@ -1308,8 +1308,8 @@ mixed query_cantrip_spells()
 {
     string *tmp;
     
-    if(!mapp(Cantrips))
-        InitCantrips();
+    InitCantrips();
+    
     if(!mapp(Cantrips))
         return;
     
