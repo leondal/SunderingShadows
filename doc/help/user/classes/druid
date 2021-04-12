@@ -22,7 +22,7 @@ Druids are versatile and they can take many paths in their lives: Powerful spell
 
 Druids prepare individual spells with the %^ORANGE%^<prepare>%^RESET%^ command from the druid spell list, which you can view with the %^ORANGE%^<spells druid (by level)>%^RESET%^ command. They can cast prepared spells with the %^ORANGE%^<cast>%^RESET%^ command. To see which spells you have prepared, use %^ORANGE%^<recall druid spells>%^RESET%^. To remove a spell from the list, use the %^ORANGE%^<forget>%^RESET%^ command. 
 
-They may choose one domain from the following list: air, animal, earth, fire, plant, water, storm. The spells from that domain are added to their list of available spells and can be prepared normally.
+They may choose one domain from the following list: %^GREEN%^BOLD%^air, animal, cold, earth, fire, plant, renewal%^RESET%^. The spells from that domain are added to their list of available spells and can be prepared normally.
 
 Druids also get the following cantrips (type 'recall cantrip spells'):
 Create Water, Detect Magic, Detect Poison, Guidance, Resistance, Light, Mending
