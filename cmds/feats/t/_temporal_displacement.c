@@ -86,8 +86,8 @@ varargs void remove_effects(int ending)
         myplace = environment(enemies[i]);
         if (!objectp(caster) || !objectp(place) || !objectp(myplace) || (myplace != place) || ending) {
             enemies[i]->set_property("fighter_attacks_mod", 2);
-            enemies[i]->add_attack_bonus(2);
-            enemies[i]->add_ac_bonus(2);
+            enemies[i]->add_attack_bonus(4);
+            enemies[i]->add_ac_bonus(4);
             enemies[i]->add_saving_bonus("reflex", 2);
             enemies[i]->remove_property_value("added short", ({ "%^BOLD%^%^CYAN%^ (inside a wavering time bubble)%^RESET%^" }));
             tell_object(enemies[i], "%^MAGENTA%^You leave the area of distorted time and shudder as you regain your senses!%^RESET%^");
@@ -105,8 +105,8 @@ varargs void remove_effects(int ending)
         myplace = environment(allies[i]);
         if (!objectp(caster) || !objectp(place) || !objectp(myplace) || (myplace != place) || ending) {
             allies[i]->set_property("fighter_attacks_mod", -2);
-            allies[i]->add_attack_bonus(-2);
-            allies[i]->add_ac_bonus(-2);
+            allies[i]->add_attack_bonus(-4);
+            allies[i]->add_ac_bonus(-4);
             allies[i]->add_saving_bonus("reflex", -2);
             allies[i]->remove_property_value("added short", ({ "%^BOLD%^%^CYAN%^ (inside a wavering time bubble)%^RESET%^" }));
             tell_object(allies[i], "%^MAGENTA%^You feel very sluggish after leaving the area of distorted time!%^RESET%^");
@@ -136,8 +136,8 @@ void add_effects(object* party, object* attackers)
             continue;
         }
         party[i]->set_property("fighter_attacks_mod", 2);
-        party[i]->add_attack_bonus(2);
-        party[i]->add_ac_bonus(2);
+        party[i]->add_attack_bonus(4);
+        party[i]->add_ac_bonus(4);
         party[i]->add_saving_bonus("reflex", 2);
         party[i]->set_property("added short", ({ "%^BOLD%^%^CYAN%^ (inside a wavering time bubble)%^RESET%^" }));
         tell_object(party[i], "%^RESET%^%^BOLD%^%^GREEN%^You enter a field of distorted time and feel the world around you slow down, "
@@ -157,8 +157,8 @@ void add_effects(object* party, object* attackers)
             continue;
         }
         attackers[i]->set_property("fighter_attacks_mod", -2);
-        attackers[i]->add_attack_bonus(-2);
-        attackers[i]->add_ac_bonus(-2);
+        attackers[i]->add_attack_bonus(-4);
+        attackers[i]->add_ac_bonus(-4);
         attackers[i]->add_saving_bonus("reflex", -2);
         attackers[i]->set_property("added short", ({ "%^BOLD%^%^CYAN%^ (inside a wavering time bubble)%^RESET%^" }));
         tell_object(attackers[i], "%^RESET%^%^BOLD%^%^RED%^You step into a field of distorted time and suddenly feel very sluggish!%^RESET%^");
