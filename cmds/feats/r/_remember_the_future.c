@@ -10,7 +10,7 @@ void create()
     feat_category("Chronicler");
     feat_name("remember the future");
     feat_prereq("Chronicler L1");
-    feat_desc("A chronicler starts out by learning to see the past and future, before later learning to manipulate it. They gain the ability to see, and thereby avoid, stabs from rogues of the same level or less.");
+    feat_desc("A chronicler starts out by learning to see the past and future, before later learning to manipulate it. They gain the ability to see, and thereby avoid, sneak attacks from thieves.");
     permanent(1);
     set_required_for(({"temporal displacement"}));
 }

@@ -1025,7 +1025,8 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
             sneak = 0;
     
-        if(FEATS_D->usable_feat(targ, "mighty resilience"))
+        if(FEATS_D->usable_feat(targ, "mighty resilience") ||
+           FEATS_D->usable_feat(targ, "remember the future"))
             sneak = 0;
     
         if(FEATS_D->usable_feat(targ, "undead graft"))
