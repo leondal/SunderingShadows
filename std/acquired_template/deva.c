@@ -23,7 +23,7 @@ mapping innate_spells()
 
 int apply_template(object ob)
 {
-    ob->set_acquired_template("shade");
+    ob->set_acquired_template("deva");
     return 1;
 }
 
