@@ -27,13 +27,13 @@ void create()
     set_name("longbow");
     set_short("%^BOLD%^%^BLACK%^Sto%^RESET%^%^ORANGE%^r%^BOLD%^m%^WHITE%^s%^ORANGE%^h%^RESET%^%^ORANGE%^a%^BOLD%^%^BLACK%^t%^RESET%^%^ORANGE%^t%^BOLD%^e%^WHITE%^r%^RESET%^");
     set_long("\
-This massive bow seems to be out of a single large bone from some sort of animal. The bone has 
-been strenghened by sinews tanned and wrapped around it tightly. The tip of the bow has been
-sharpened into an almost crude spear with jagged sides. The bow almost seems to radiate power and
-there is a distict smell of ozone in the area. Small crude native images have been cut into the
-bone showing a massive storm that is destroying a village with lightning, winds and rain. The
-strong bowstring is made out of twisted aninal sinews, and you can only imagine what strength it
-takes to draw the bow.\n");
+This massive bow seems to be out of a single large bone from some sort of animal. The bone has "+ 
+"been strenghened by sinews tanned and wrapped around it tightly. The tip of the bow has been "+
+"sharpened into an almost crude spear with jagged sides. The bow almost seems to radiate power and "+
+"there is a distict smell of ozone in the area. Small crude native images have been cut into the "+
+"bone showing a massive storm that is destroying a village with lightning, winds and rain. The "+
+"strong bowstring is made out of twisted aninal sinews, and you can only imagine what strength it "+
+"takes to draw the bow.\n");
 
     set_obvious_short("strange longbow");
     set_id( ({ "longbow", "stormshatter", "bow", "stormshatter bow", "stormshatter longbow" }) );
