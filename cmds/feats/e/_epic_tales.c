@@ -8,11 +8,11 @@ void create()
     ::create();
     feat_type("permanent");
     feat_category("Chronicler");
-    feat_name("remember the future");
-    feat_prereq("Chronicler L1");
-    feat_desc("A chronicler starts out by learning to see the past and future, before later learning to manipulate it. They gain the ability to see, and thereby avoid, sneak attacks from thieves.");
+    feat_name("epic tales");
+    feat_prereq("Chronicler L4");
+    feat_desc("A chronicler can spin a tale so evocative and so moving that it conveys the effects of bardic music through written word. This feat increases the effects of the bard's inspirations by +2.");
     permanent(1);
-    set_required_for(({"temporal displacement"}));
+    set_required_for(({"lay of the exalted dead"}));
 }
 
 int allow_shifted() { return 1; }
