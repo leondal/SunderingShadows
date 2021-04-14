@@ -4277,8 +4277,11 @@ string realNameVsProfile(string who)
     string * profiles, profile;
     string * outnames = ({});
     object peep;
-
+    
     mapping tmp = ([]);
+    
+    if(!strlen(who))
+        return "";
 
     if (!sizeof(keys(relationships))) {
         return "";
