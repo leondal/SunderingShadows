@@ -9,7 +9,7 @@ void create() {
     feat_category("Evasion");
     feat_name("danger sense");
     feat_prereq("Barbarian L5");
-    feat_desc("This feat gives the barbarian an uncanny sense of danger around them. They gain a scaling bonus to reflex saves, perception skill and armor class (max 6). They also become harder for thieves to catch them unaware, reducing sneak attack dice by half against the barbarian.");
+    feat_desc("This feat gives the barbarian an uncanny sense of danger around them. They gain a scaling bonus to reflex saves and perception skill (max 6). They also become harder for thieves to catch them unaware, reducing sneak attack dice by half against the barbarian.");
 }
 
 int allow_shifted() { return 1; }

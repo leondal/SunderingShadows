@@ -7,12 +7,14 @@
 %^RESET%^%^CYAN%^Class Feats:%^RESET%^
  %^RESET%^L1: light armor proficiency, medium armor proficiency, shield proficiency, simple weapon proficiency, martial weapon proficiency, rage, powerattack, unarmored defense
  %^RESET%^L2: dodge
+ %^RESET%^L5: danger sense
  %^RESET%^L7: damage resistance
  %^RESET%^L10: damage reduction
  %^RESET%^L11: greater rage
  %^RESET%^L14: mobility
  %^RESET%^L17: tireless rage
  %^RESET%^L20: mighty rage
+ %^RESET%^L31: unstoppable
  %^RESET%^Also: one bonus melee feat at L21, and every five class levels thereafter
 
 The barbarian is a fearsome warrior that channels his rage to devastating effect in battle. Barbarians typically hail from the edge of civilization, or in some cases, even beyond it. Eschewing the extensive training and professionalism found commonly among fighters, the barbarian taps into his primal rage to more than make up for his lack of regimented training.

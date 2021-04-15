@@ -341,6 +341,9 @@ int query_skill(string skill)
     if ((skill == "perception" || skill == "stealth") && FEATS_D->usable_feat(TO, "shadow perception")) {
         x += 5;
     }
+    
+    if(skill == "perception" && FEATS_D->usable_feat(this_object(), "danger sense"))
+        x += (this_object()->query_class_level("barbarian") / 10 + 1);
 
     if(skill == "endurance" && FEATS_D->usable_feat(TO, "rangers endurance"))
     {
@@ -367,6 +370,8 @@ int query_skill(string skill)
     //Represents the Jack of All Trades feature in tabletop which gives +1 to all skill checks
     if(this_object()->is_class("bard"))
         x += 1;
+    
+    
 
     mymod = ((int)this_object()->query_stats(mystat) - 10) / 2;
     x += mymod;

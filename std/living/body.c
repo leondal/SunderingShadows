@@ -693,6 +693,7 @@ void set_resistance_percent(string res, int num)
 int query_resistance(string res)
 {
     int myres;
+    object *worn;
     string *domains;
     
     if (!valid_resistance(res)) {
@@ -785,6 +786,15 @@ int query_resistance(string res)
     if (FEATS_D->usable_feat(TO, "no fear of the flame") && res == "fire") {
         myres += 30;
     }
+    
+    //Barbarians with the unstoppable feat gain some resistance to all damage types
+    if (FEATS_D->usable_feat(this_object(), "unstoppable")) {
+        worn = filter_array(distinct_array(TO->all_armour()), "light_armor_filter", TO);
+        if (!sizeof(worn)) {
+            myres += ((query_guild_level("barbarian") - 10) / 6 + 4);
+        }
+    }
+    
     return (myres + EQ_D->gear_bonus(TO, res));
 }
 

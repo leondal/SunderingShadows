@@ -586,10 +586,13 @@ mixed query_property(string prop)
             worn = filter_array(distinct_array(TO->all_armour()), "light_armor_filter", TO);
             if (!sizeof(worn)) {
                 num += (query_guild_level("barbarian") - 10) / 6 + 1;
+                
+                if(FEATS_D->usable_feat(this_object(), "unstoppable"))
+                    num += 3;
             }
-            if (FEATS_D->usable_feat(TO, "shadow master") && objectp(ETO) && ETO->query_light() < 2) {
-                num += 10;
-            }
+        }
+        if (FEATS_D->usable_feat(TO, "shadow master") && objectp(ETO) && ETO->query_light() < 2) {
+            num += 10;
         }
         if (FEATS_D->usable_feat(TO, "armor mastery")) {
             worn = filter_array(distinct_array(TO->all_armour()), "armor_filter", TO);
