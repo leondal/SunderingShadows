@@ -363,6 +363,10 @@ int query_skill(string skill)
             x += (FEATS_D->usable_feat(TO, "resist undead") * 2);
         }
     }
+    
+    //Represents the Jack of All Trades feature in tabletop which gives +1 to all skill checks
+    if(this_object()->is_class("bard"))
+        x += 1;
 
     mymod = ((int)this_object()->query_stats(mystat) - 10) / 2;
     x += mymod;

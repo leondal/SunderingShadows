@@ -13,7 +13,7 @@ void create()
     feat_name("soothing song");
     feat_prereq("Bard L12");
     feat_classes("bard");
-    feat_desc("With this song bard heals and restores her allies, removing exhaustion, confusion and negative levels.");
+    feat_desc("With this song bard heals and restores her allies, removing exhaustion, confusion and negative levels. This feat also heals wounds.");
     feat_syntax("soothing_song");
     set_target_required(0);
 }
@@ -102,8 +102,9 @@ void execute_attack()
     targets = ({caster}) + targets;
 
     targets = distinct_array(targets);
-
-    dam = roll_dice(flevel, 8);
+  
+    die = 9 + FEATS_D->usable_feat(caster, "epic tales") * 2;
+    dam = roll_dice(flevel, die);
 
     tell_room(place, "%^BOLD%^%^WHITE%^Tranquil melody heals wounds of " + caster->QCN + "'s allies.", caster);
     tell_room(place, "%^BOLD%^%^WHITE%^Tranquil melody heals wounds of your allies.");
