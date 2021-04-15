@@ -2,12 +2,12 @@
 
 %^RESET%^%^CYAN%^Stat requirements:%^RESET%^ 16 intelligence
 %^RESET%^%^CYAN%^Alignments allowed:%^RESET%^ any
-%^RESET%^%^CYAN%^Cannot multiclass with:%^RESET%^ sorcerer,
+%^RESET%^%^CYAN%^Cannot multiclass with:%^RESET%^ sorcerer
 %^RESET%^%^CYAN%^Hitdice:%^RESET%^ d6
 %^RESET%^%^CYAN%^Saving throws:%^RESET%^ will strong, fort/reflex weak
 %^RESET%^%^CYAN%^Class Skills:%^RESET%^ academics, dungeoneering, healing, spellcraft
 %^RESET%^%^CYAN%^Class Feats:%^RESET%^
- %^RESET%^L1: simple weapon proficiency, spell focus, magic school
+ %^RESET%^L1: simple weapon proficiency, spell focus, magic school, scribe
  %^RESET%^Also: one bonus spellcraft feat at L1, and every five class levels thereafter
 
 Mages are people who have devoted their lives to learning magic for the same reasons that motivate most people on a day-to-day basis: material gain, power, or merely the pure "fun" of the use of magic. Mages are highly protective of the "art" and guard their knowledge jealously. They spend years studying and will expect apprentices to do the same. They will also be very careful to insure that magic doesn't fall into the "wrong" hands.
@@ -25,7 +25,7 @@ Mages must not wear any armor or wield any weapons while casting, but they can l
 Mages can select a school of dedication. Refer to %^ORANGE%^<help magic school>%^RESET%^ for details.
 
 Mages recieve the following cantrips (type 'recall cantrip spells'):
-Acid Splash, Detect Magic, Daze, Dancing Lights, Ray of Frost, Resistance
+%^CYAN%^Acid Splash, Detect Magic, Daze, Dancing Lights, Ray of Frost, Resistance%^RESET%^
 
 %^RESET%^%^CYAN%^See also: %^RESET%^prepare, feats, stats, skills, spells, cast, buff, magic school, master, prestige classes, archmage, new caster
 
