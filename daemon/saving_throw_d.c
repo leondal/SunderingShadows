@@ -46,6 +46,9 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             if(FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus += 5;
             
+            if(FEATS_D->usable_feat(ob, "danger sense"))
+                mod += (ob->query_class_level("barbarian") / 10 + 2);
+            
             mod += ob->query_saving_bonus("reflex");
             
             if(ob->query("subrace") == "senzokuan")
