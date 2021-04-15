@@ -9,7 +9,7 @@ void create() {
     feat_category("MeleeDamage");
     feat_name("combat reflexes");
     feat_prereq("Thief L4");
-    feat_desc("Combat reflexes represents the highly trained speed and dexterity of the rogue in combat, allowing them more damaging attacks when they flank an opponent. This feat allows the thief to add sneak attack dice to their normal attacks under certain conditions .");
+    feat_desc("Combat reflexes represents the highly trained speed and dexterity of the rogue in combat, allowing them more damaging attacks when they flank an opponent. This feat allows the thief to add sneak attack dice to their normal attacks. These additional sneak attack dice happen only if the opponent is blinded, paralyzed, tripped, or is focusing on someone other than the thief during combat.");
     permanent(1);
 }
 

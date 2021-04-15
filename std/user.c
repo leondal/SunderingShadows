@@ -4273,7 +4273,7 @@ string realName(string who)
  */
 string realNameVsProfile(string who)
 {
-    string * names, name;
+    string * names;
     string * profiles, profile;
     string * outnames = ({});
     object peep;
@@ -4282,14 +4282,14 @@ string realNameVsProfile(string who)
     
     if(!strlen(who))
         return "";
+    
+    names = keys(relationships);
 
-    if (!sizeof(keys(relationships))) {
+    if (!pointerp(names) || !sizeof(names)) {
         return "";
     }
 
-    names = keys(relationships);
-
-    foreach(name in names)
+    foreach(string name in names)
     {
         tmp = relationships[name];
 
@@ -4313,12 +4313,12 @@ string realNameVsProfile(string who)
     if (sizeof(outnames) == 1) {
         return outnames[0];
     } else {
-        foreach(name in outnames) {
+        foreach(string name in outnames) {
             if (present(name, environment(this_object()))) {
                 return name;
             }
         }
-        foreach(name in outnames) {
+        foreach(string name in outnames) {
             if (objectp(find_player(name))) {
                 return name;
             }
