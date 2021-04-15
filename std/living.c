@@ -1329,7 +1329,7 @@ int query_stats(string stat)
 
     res += EQ_D->gear_bonus(TO, stat);
 
-    if (res > 29 && userp(TO)) {
+    if (res > 29 && userp(TO) && !FEATS_D->usable_feat(this_object(), "mighty rage")) {
         return 30;
     }
     if (res > 39) {
