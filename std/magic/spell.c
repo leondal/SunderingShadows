@@ -2581,7 +2581,7 @@ void define_base_damage(int adjust)
             sdamage = roll_dice(1 + clevel / 2, 6);
     }
     
-    if(caster->query_property("maximize spell"))
+    if(caster && caster->query_property("maximize spell"))
     {
         caster->remove_property("maximize spell");
         tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
