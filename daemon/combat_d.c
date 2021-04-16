@@ -1040,7 +1040,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         if(FEATS_D->usable_feat(targ, "undead graft"))
             sneak /= 2;
         
-        //Barbarians with danger sense gain resistance to stabs
+        //Barbarians/Thieves with danger sense gain resistance to sneak attacks
         if(FEATS_D->usable_feat(targ, "danger sense") && targ->query_level() + 4 > attacker->query_level())
             sneak /= 2;
     
