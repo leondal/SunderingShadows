@@ -1028,6 +1028,14 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         if(FEATS_D->usable_feat(targ, "mighty resilience") ||
            FEATS_D->usable_feat(targ, "remember the future"))
             sneak = 0;
+        
+        //Armor bond sneak attack resistance
+        if(targ->query_property("fortification 75"))
+            sneak /= 4;
+        else if(targ->query_property("fortification 50"))
+            sneak /= 2;
+        else if(targ->query_property("fortification 25"))
+            sneak = (sneak * 3) / 4;
     
         if(FEATS_D->usable_feat(targ, "undead graft"))
             sneak /= 2;

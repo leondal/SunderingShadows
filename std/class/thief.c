@@ -38,7 +38,7 @@ string *class_feats(string myspec)
 }
 
 mapping class_featmap(string myspec) {
-    return ([ 1 : ({ "light armor proficiency", "simple weapon proficiency", "martial weapon proficiency", "dodge" }), 4 : ({ "combat reflexes" }), 7 : ({ "mobility" }), 10 : ({ "tools of the trade" }), 11 : ({ "evasion" }), 14 : ({ "scramble" }), 17 : ({ "spring attack" }) ]);
+    return ([ 1 : ({ "light armor proficiency", "simple weapon proficiency", "martial weapon proficiency", "dodge" }), 4 : ({ "combat reflexes" }), 5 : ({ "danger sense" }), 7 : ({ "mobility" }), 10 : ({ "tools of the trade" }), 11 : ({ "evasion" }), 14 : ({ "scramble" }), 17 : ({ "spring attack" }) ]);
 }
 
 string *class_skills()
