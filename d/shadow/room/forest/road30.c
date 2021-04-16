@@ -29,14 +29,19 @@ void create(){
 "from %^MAGENTA%^birds %^GREEN%^high overhead, and the sounds of your own passage.%^WHITE%^\n"+
 "\n%^WHITE%^The path is split as it goes eastward here and there is a rough path north headed into the mountains.\n%^RESET%^");
 
+     set_items(([
+	"road":"This dirt road cuts through a quiet forest.",
+	"forest":"This is an aptly named road through a quiet forest. You hear only the occasional bird song.",
+	]));
     set_exits(([
    "north" : "/d/newbie/rooms/roadout/mtnroad49",
 	"west" : FORESTDIR+"road31",
 	"southeast" : FORESTDIR+"road29",
 	"northeast" : FORESTDIR+"road28"
    	]));
-    set_smell("default","You smell fresh air and the odor of %^GREEN%^w%^BOLD%^i%^MAGENTA%^l%^RESET%^%^MAGENTA%^d%^BOLD%^fl%^RESET%^%^MAGENTA%^o%^BOLD%^we%^RESET%^%^MAGENTA%^r%^BOLD%^s%^ORANGE%^.");
-    set_listen("default","You can hear birds singing.");
+    set_smell("default","%^CYAN%^The fresh scent of the forest surrounds you.%^WHITE%^");
+    set_listen("default","%^ORANGE%^You can hear birds singing.%^RESET%^");
+    set_listen("birds","They seem to sing songs of love - or murder - depending on your mood.");
 }
 //Changed this sign to an area map as the info provided was obsolete since players start in Tabor now
 void init(){

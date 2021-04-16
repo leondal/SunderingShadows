@@ -14,7 +14,7 @@ void create(){
 	   "%^BOLD%^%^RED%^firepit %^RESET%^%^GREEN%^and a small bit of space for tired horses to graze. Old "+
 	   "%^ORANGE%^logs %^GREEN%^and %^ORANGE%^stumps %^GREEN%^provide some seating around the "+
 	   "%^BOLD%^%^BLACK%^charred stones %^RESET%^%^GREEN%^of the firepit. It is very quiet and relaxing "+
-	   "here, the only sounds being songbirds high in the trees.%^WHITE%^");
+	   "here, the only sounds being songbirds high in the trees.%^WHITE%^\n");
 	set_items(([
 	({"pit","fire pit"}) : "%^BOLD%^%^BLACK%^A ring of stones marks the borders of this fire pit. "+
 	"The big rocks are charred from many years of holding back flames of traveller's fires.%^RESET%^",
