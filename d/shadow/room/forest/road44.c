@@ -15,7 +15,7 @@ void create()
    "The road stretches out to the east and southwest here. There"+
    " are high shrub brushes scattered out around here, and the road"+
    " climbs up through some mountain foothills to the east, descending"+
-   " to lower ground to the southwest."
+   " to lower ground to the southwest.\n"
    );
    set_smell("default","You smell the fresh air.");
    set_listen("default","You can hear animals in the brush.");

@@ -13,7 +13,7 @@ void create()
    set_long(
    "%^BOLD%^You are walking on a path through the brush.%^RESET%^\n"+
    "The road stretches out to the north and east here. To the north"+
-   " you can see the meadow lands. The brush grows higher further east."
+   " you can see the meadow lands. The brush grows higher further east.\n"
    );
    set_smell("default","You smell the fresh air.");
    set_listen("default","You can hear animals in the brush.");

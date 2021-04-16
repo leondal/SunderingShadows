@@ -14,7 +14,7 @@ void create()
    "%^BOLD%^You are walking on a path on the edge of the meadow lands.%^RESET%^\n"+
    "The road stretches out to the north and south here, north leads"+
    " into the meadow lands and south leads further away from it back into"+
-   " a light forest and brush lands."
+   " a light forest and brush lands.\n"
    );
    set_smell("default","You smell the fresh air.");
    set_listen("default","You can hear animals in the brush.");
