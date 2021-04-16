@@ -4260,6 +4260,9 @@ string knownAs(string who)
 
 string realName(string who)
 {
+    if(!strlen(who))
+        return "";
+    
     foreach(string str in keys(relationships))
     {
         if (relationships[str]["default"] == lower_case(who)) {
