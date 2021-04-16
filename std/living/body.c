@@ -890,6 +890,7 @@ int cause_typed_damage(object targ, string limb, int damage, string type)
     if (!objectp(attacker = targ->query_property("beingDamagedBy"))) {
         attacker = previous_object();
     }
+    
     damage = (int)COMBAT_D->typed_damage_modification(attacker, targ, limb, damage, type);
     return targ->cause_damage_to(targ, limb, damage);
 }
@@ -968,6 +969,9 @@ int do_damage(string limb, int damage)
     }else {
         real_limb = limb;
     }
+    
+    if(this_object()->query_property("prismatic sphere"))
+        return 0;
 
     /*if (damage > 0 && TO->isPkill())
        {
