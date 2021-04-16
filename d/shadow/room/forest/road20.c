@@ -27,9 +27,9 @@ void create(){
 	"southwest" : FORESTDIR+"road21",
 	"northwest" : FORESTDIR+"road22"
    	]));
-    set_smell("default","You smell fresh air and the odor of %^GREEN%^w%^BOLD%^i%^MAGENTA%^l%^RESET%^%^MAGENTA%^d%^BOLD%^fl%^RESET%^%^MAGENTA%^o%^BOLD%^we%^RESET%^%^MAGENTA%^r%^BOLD%^s%^ORANGE%^.");
-    set_listen("default","You can hear birds singing.");
-
+    set_smell("default","%^CYAN%^The fresh scent of the forest surrounds you.%^WHITE%^");
+    set_listen("default","%^ORANGE%^You can hear birds singing.%^RESET%^");
+    set_listen("birds","They seem to sing songs of love - or murder - depending on your mood.");
 
     set_quest_daemon("/daemon/quests_mid");
 }

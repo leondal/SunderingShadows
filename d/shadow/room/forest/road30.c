@@ -15,8 +15,8 @@ void create(){
     set_property("indoors" , 0);
     set_short("A Crossroads %^RESET%^%^GREEN%^On the Quiet %^BOLD%^%^GREEN%^Fo%^RESET%^%^GREEN%^r%^GREEN%^e%^BOLD%^%^GREEN%^s%^RESET%^%^GREEN%^t %^ORANGE%^R%^BOLD%^%^ORANGE%^o%^ORANGE%^a%^ORANGE%^d%^RESET%^");
     set_items(([
-	"road":"A new road through the forest.",
-	"forest":"A quiet forest, for sure. Only the sounds of birds."
+	"road":"This dirt road cuts through a quiet forest.",
+	"forest":"This is an aptly named road through a quiet forest. You hear only the occasional bird song."
 	]));
     set_long("%^RESET%^%^ORANGE%^On The Quiet Forest Road\n"+
 "%^RESET%^%^GREEN%^A wide %^ORANGE%^dirt trail %^GREEN%^has been "+

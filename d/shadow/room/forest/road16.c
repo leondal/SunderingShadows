@@ -17,16 +17,17 @@ void create()
         );
 
     set_items(([
-                   "road":"A new road through the forest.",
-                   "forest":"A quiet forest, for sure. Only the sounds of birds.",
-                   ]));
+	"road":"This dirt road cuts through a quiet forest.",
+	"forest":"This is an aptly named road through a quiet forest. You hear only the occasional bird song."
+                  ]));
  
     set_exits(([
                    "east" : FORESTDIR+"road15",
                    "west" : FORESTDIR+"road17",
                    ]));
-    set_smell("default","You smell fresh air and the odor of %^GREEN%^w%^BOLD%^i%^MAGENTA%^l%^RESET%^%^MAGENTA%^d%^BOLD%^fl%^RESET%^%^MAGENTA%^o%^BOLD%^we%^RESET%^%^MAGENTA%^r%^BOLD%^s%^ORANGE%^.");
-    set_listen("default","You can hear birds singing.");
+    set_smell("default","%^CYAN%^The fresh scent of the forest surrounds you.%^WHITE%^");
+    set_listen("default","%^ORANGE%^You can hear birds singing.%^RESET%^");
+    set_listen("birds","They seem to sing songs of love - or murder - depending on your mood.");
 
 }
 

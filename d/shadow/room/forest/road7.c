@@ -17,9 +17,10 @@ MELNMARN
 );
 
     set_items(([
+	"road":"This dirt road cuts through a quiet forest.",
+	"forest":"This is an aptly named road through a quiet forest. You hear only the occasional bird song.",
 	"road":"A new road through the forest.",
 	"sign":"Try reading it.",
-	"forest":"A quiet forest, for sure. Only the sounds of birds."
 	]));
 
     set_exits(([
@@ -27,8 +28,9 @@ MELNMARN
 //	"south" : PLAYERVILLAGEDIR+"pvroad9",
 	"west" : FORESTDIR+"road8"
    	]));
-    set_smell("default","You smell fresh air and the odor of %^GREEN%^w%^BOLD%^i%^MAGENTA%^l%^RESET%^%^MAGENTA%^d%^BOLD%^fl%^RESET%^%^MAGENTA%^o%^BOLD%^we%^RESET%^%^MAGENTA%^r%^BOLD%^s%^ORANGE%^.");
-    set_listen("default","You can hear birds singing.");
+    set_smell("default","%^CYAN%^The fresh scent of the forest surrounds you.%^WHITE%^");
+    set_listen("default","%^ORANGE%^You can hear birds singing.%^RESET%^");
+    set_listen("birds","They seem to sing songs of love - or murder - depending on your mood.");
     set_climate(CLIMATE);
 
 }
