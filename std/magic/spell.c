@@ -368,6 +368,25 @@ string *query_bonus_type()
     return bonus_type;
 }
 
+int has_bonus_type() {
+    if(!target) {
+        target = caster;
+    }
+
+    if(sizeof(bonus_type))
+    {
+        foreach(string type in bonus_type)
+        {
+            if(sizeof(target->query_property("spell_bonus_type")) && member_array(type, target->query_property("spell_bonus_type")) != -1)
+            {
+                tell_object(caster, "That target is already benefitting from a " + type + " bonus.");
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
 void set_damage_desc(string desc)
 {
     damage_desc = desc;
@@ -879,6 +898,10 @@ void wizard_interface(object user, string type, string targ)
 
     set_caster(user); ////
     seteuid(getuid());
+
+    if(has_bonus_type()) {
+        return;
+    }
 
     if (query_aoe_spell()) {
         // No more than two
@@ -1684,19 +1707,8 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         }
     }
 
-    if(!target)
-        target = caster;
-
-    if(sizeof(bonus_type))
-    {
-        foreach(string type in bonus_type)
-        {
-            if(sizeof(target->query_property("spell_bonus_type")) && member_array(type, target->query_property("spell_bonus_type")) != -1)
-            {
-                tell_object(caster, "That target is already benefitting from a " + type + " bonus.");
-                return;
-            }
-        }
+    if(has_bonus_type()) {
+        return;
     }
 
     if (!objectp(place)) {
