@@ -56,7 +56,7 @@ void spell_effect(int prof) {
       }
     }
     mydiff = 4;
-    mydiff = min(({ mydiff, (30 - target->query_stats("constitution")) }));
+    mydiff = min(({ mydiff, (30 - target->query_stats("dexterity")) }));
     //if(target->query_stats("dexterity") > 28) mydiff = 1;
     //if(target->query_stats("dexterity") > 29) mydiff = 0;
     if(mydiff) {
