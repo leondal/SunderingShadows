@@ -350,13 +350,13 @@ string *set_bonus_type(mixed str)
 {
     if(!arrayp(bonus_type))
         bonus_type = ({  });
-    
+
     if(arrayp(str))
         bonus_type = str;
-    
+
     if(stringp(str))
         bonus_type = ({ str });
-    
+
     return bonus_type;
 }
 
@@ -364,8 +364,27 @@ string *query_bonus_type()
 {
     if(!arrayp(bonus_type))
         bonus_type = ({  });
-    
+
     return bonus_type;
+}
+
+int has_bonus_type() {
+    if(!target) {
+        target = caster;
+    }
+
+    if(sizeof(bonus_type))
+    {
+        foreach(string type in bonus_type)
+        {
+            if(sizeof(target->query_property("spell_bonus_type")) && member_array(type, target->query_property("spell_bonus_type")) != -1)
+            {
+                tell_object(caster, "That target is already benefitting from a " + type + " bonus.");
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 
 void set_damage_desc(string desc)
@@ -880,6 +899,10 @@ void wizard_interface(object user, string type, string targ)
     set_caster(user); ////
     seteuid(getuid());
 
+    if(has_bonus_type()) {
+        return;
+    }
+
     if (query_aoe_spell()) {
         // No more than two
         if (sizeof(caster->query_property("aoe list")) > 1) {
@@ -1354,7 +1377,7 @@ void wizard_interface(object user, string type, string targ)
         TO->remove();
         return;
     }
-    
+
     if(caster->query_property("quicken spell"))
     {
         caster->remove_property("quicken spell");
@@ -1557,18 +1580,18 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
     set_caster(ob);
     clevel = ob_level;
     seteuid(getuid());
-    
+
     if(classtype == "cantrip")
     {
         cantrips = caster->query_cantrip_spells();
-        
+
         if(!sizeof(cantrips) || member_array(spell_name, cantrips) < 0)
         {
             tell_object(caster, "You have no cantrips named " + spell_name + ".");
             this_object()->remove();
             return;
         }
-        
+
         if(!clevel)
             clevel = max( ({ caster->query_level(), 1 }) );
     }
@@ -1683,20 +1706,9 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
             place = environment(environment(caster));
         }
     }
-    
-    if(!target)
-        target = caster;
-    
-    if(sizeof(bonus_type))
-    {
-        foreach(string type in bonus_type)
-        {
-            if(target->query_property(type))
-            {
-                tell_object(caster, "That target is already benefitting from a " + type + " bonus.");
-                return;
-            }
-        }
+
+    if(has_bonus_type()) {
+        return;
     }
 
     if (!objectp(place)) {
@@ -2131,15 +2143,15 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
         }
         mycost = 0; // on the off chance something calls spell_successful() more than once, don't charge them twice
     }
-    
+
     if(sizeof(bonus_type))
     {
         foreach(string type in bonus_type)
         {
-            if(!target)
+            if(!target) {
                 target = caster;
-            
-            target && target->set_property(type, 1);
+            }
+            target && target->set_property("spell_bonus_type", ({type}));
         }
 }
 
@@ -2185,10 +2197,10 @@ void dest_effect()
         objectp(caster)) {
         caster->remove_property("travaoe");
     }
-    
+
     if(sizeof(bonus_type))
         foreach(string type in bonus_type)
-            target && target->remove_property(type);
+            target && target->remove_property_value("spell_bonus_type", ({type}));
 
     before_cast_dest_effect();
     return;
@@ -2208,13 +2220,13 @@ int remove()
         objectp(caster)) {
         caster->remove_property("travaoe");
     }
-    
+
     if(!arrayp(bonus_type))
         bonus_type = ({  });
-    
+
     foreach(string type in bonus_type)
-        target && target->remove_property(type);
-    
+        target && target->remove_property_value("spell_bonus_type", ({type}));
+
     return ::remove();
 }
 
@@ -2362,7 +2374,7 @@ void define_clevel()
     string *domains;
 
     clevel = caster->query_guild_level(spell_type);
-    
+
     if(spell_type == "cantrip")
         clevel = caster->query_level();
 
@@ -2490,7 +2502,7 @@ void define_clevel()
             clevel += 2;
         }
     }
-    
+
     if(caster->is_class("versatile_arcanist") && sizeof(immune))
     {
         if(member_array(caster->query("elementalist"), immune) >= 0)
@@ -2553,14 +2565,14 @@ void define_base_damage(int adjust)
 
         slevel += adjust;
         slevel += sdamage_adjustment;
-        
+
         if(caster && caster->query_property("empower spell"))
         {
             slevel += 1;
             caster->remove_property("empower spell");
             tell_object(caster, "%^BOLD%^Your spell is empowered.%^RESET%^");
         }
-        
+
         slevel = slevel < 1 ? 1 : slevel;
 
         if (slevel < 1) {
@@ -2576,11 +2588,11 @@ void define_base_damage(int adjust)
             if(caster->query_property("maximize spell"))
                 sdamage = clevel * 8;
         }
-        
+
         if(spell_type == "cantrip")
             sdamage = roll_dice(1 + clevel / 2, 6);
     }
-    
+
     if(caster && caster->query_property("maximize spell"))
     {
         caster->remove_property("maximize spell");
@@ -3093,7 +3105,7 @@ varargs int do_save(object targ, int mod)
 
     caster_bonus += 10; // initial DC of 10 for opposed spells, all the other caster mods gets added to this
     caster_bonus += classlvl / 5;
-    
+
     if (save_debug) {
         tell_object(caster, "%^BOLD%^%^RED%^Bonus per 3.xx rules for d20 roll: 10");
     }
@@ -3108,7 +3120,7 @@ varargs int do_save(object targ, int mod)
     if (save_debug) {
         tell_object(caster, "Bonus from level of spell: " + casting_level + "");
     }
-    
+
     caster_bonus += casting_level;
     //caster_bonus += (casting_level > 5 ? casting_level - 5 : 0);
 
@@ -3247,10 +3259,10 @@ object* target_filter(object* targets)
 {
     object* newtargs = ({});
     int i;
-    
+
     if(!sizeof(targets) || !pointerp(targets))
         return ({});
-    
+
     targets = filter_array(targets, (:objectp($1):));
     targets -= ({ caster });
 
