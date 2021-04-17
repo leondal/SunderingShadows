@@ -899,6 +899,10 @@ void wizard_interface(object user, string type, string targ)
     set_caster(user); ////
     seteuid(getuid());
 
+    if(has_bonus_type()) {
+        return;
+    }
+
     if (query_aoe_spell()) {
         // No more than two
         if (sizeof(caster->query_property("aoe list")) > 1) {
@@ -1224,10 +1228,6 @@ void wizard_interface(object user, string type, string targ)
         if (objectp(TO)) {
             TO->remove();
         }
-        return;
-    }
-
-    if(has_bonus_type()) {
         return;
     }
 
