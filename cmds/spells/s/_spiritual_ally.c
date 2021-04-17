@@ -23,7 +23,7 @@ To force lost ally to follow use %^ORANGE%^<command ally to follow>%^RESET%^");
     set_verbal_comp();
     set_somatic_comp();
     set_helpful_spell(1);
-    set_feats_required(([ "bard" : "timeweaver" ]));
+    set_feats_required(([ "bard" : "epic tales" ]));
 }
 
 int preSpell(){
