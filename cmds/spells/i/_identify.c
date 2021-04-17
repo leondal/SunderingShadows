@@ -11,7 +11,7 @@ int i;
 void create() {
     ::create();
     set_spell_name("identify");
-    set_spell_level(([ "mage" : 1, "oracle":1, "magus" : 1, "innate" : 5 ]));
+    set_spell_level(([ "mage" : 1, "oracle":1, "magus" : 1, "innate" : 5, "bard" : 1 ]));
     set_spell_sphere("divination");
     set_domains("knowledge");
     set_mystery("lore");

@@ -14,7 +14,7 @@ int counter,mybonus,flag;
 void create(){
     ::create();
     set_spell_name("good hope");
-    set_spell_level(([ "cleric" : 3 ]));
+    set_spell_level(([ "cleric" : 3, "bard" : 3 ]));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS good hope on TARGET");
     set_bonus_type("morale");

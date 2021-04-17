@@ -16,7 +16,7 @@ int is_curse()
 void create() {
     ::create();
     set_spell_name("sands of time");
-    set_spell_level(([ "mage" : 3, "oracle" : 3, "bard" : 2 ]));
+    set_spell_level(([ "mage" : 3, "oracle" : 3 ]));
     set_spell_sphere("necromancy");
     set_mystery("reaper");
     set_syntax("cast CLASS sands of time on TARGET");
@@ -25,7 +25,6 @@ void create() {
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);
-    set_feats_required(([ "bard" : "timeweaver" ]));
 }
 
 string query_cast_string() {

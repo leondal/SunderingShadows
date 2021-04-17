@@ -25,7 +25,7 @@ void create()
 {
     ::create();
     set_spell_name("hideous laughter");
-    set_spell_level(([ "mage" : 2, "oracle" :2, "cleric" : 2 ]));
+    set_spell_level(([ "mage" : 2, "oracle" :2, "cleric" : 2, "bard" : 1, "psion" : 2 ]));
     set_mystery("whimsy");
     set_domains("chaos");
     set_spell_sphere("enchantment_charm");
