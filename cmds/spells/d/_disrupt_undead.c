@@ -8,7 +8,6 @@ void create() {
     set_spell_name("disrupt undead");
     set_spell_level(([ "cantrip" : 1 ]));
     set_spell_sphere("necromancy");
-    set_affixed_spell_level(5);
     set_damage_desc("positive energy on undead");
     set_syntax("cast cantrip disrupt undead on TARGET");
     set_description("With this spell, the caster directs a ray of positive energy that severely harms undead.");
