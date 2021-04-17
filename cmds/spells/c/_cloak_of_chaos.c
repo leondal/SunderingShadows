@@ -11,6 +11,7 @@ void create()
     ::create();
     set_spell_name("cloak of chaos");
     set_spell_level(([ "cleric" : 8, "mage" : 8]));
+    set_bonus_type(({ "resistance", "deflection" }));
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS cloak of chaos");
     set_damage_desc("divine damage, 4 AC, 4 to all saves");
