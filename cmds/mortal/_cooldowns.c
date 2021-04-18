@@ -7,6 +7,7 @@
 */
 
 #include <std.h>
+#include <ansi.h>
 #include <daemons.h>
 
 //#define LINE sprintf("%s[ Cooldowns ]%s\n", "*=*=*=*=*=*", "*=*=*=*=*=*")
@@ -31,7 +32,7 @@ mixed cmd_cooldowns(string args)
     {
         foreach(string str in keys)
         {
-            tell_object(who, sprintf("   %-13s : %6ds\n",capitalize(str), (cooldowns[str] - time())));
+            tell_object(who, sprintf("   %s%-13s%s : %s%6d%s sec\n",YEL,capitalize(str),NOR,HIN,(cooldowns[str] - time()),NOR));
         }
     }
     else
