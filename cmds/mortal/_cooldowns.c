@@ -9,7 +9,8 @@
 #include <std.h>
 #include <daemons.h>
 
-#define LINE sprintf("%s[ Cooldowns ]%s\n", "*=*=*=*=*=*", "*=*=*=*=*=*")
+//#define LINE sprintf("%s[ Cooldowns ]%s\n", "*=*=*=*=*=*", "*=*=*=*=*=*")
+#define LINE "%^BOLD%^===========[ %^CYAN%^Cooldowns%^WHITE%^ ]===========%^RESET%^\n"
 
 inherit DAEMON;
 
@@ -30,7 +31,7 @@ mixed cmd_cooldowns(string args)
     {
         foreach(string str in keys)
         {
-            tell_object(who, sprintf("   %-13s : %12i\n",capitalize(str), (cooldowns[str] - time())));
+            tell_object(who, sprintf("   %-13s : %6ds\n",capitalize(str), (cooldowns[str] - time())));
         }
     }
     else
