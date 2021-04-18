@@ -290,7 +290,7 @@ int deposit(string str) {
    }
 
    amount2 = amount;
-   amount2 = (amount * 85) / 100;
+   amount2 = (amount * 90) / 100;
    x = (int)BANK_D->deposit((string)this_player()->query_name(), BANK_ID, amount2, type);
    if(x != TRANSACTION_OK) {
       switch(x) {
@@ -368,7 +368,7 @@ int read(string str) {
 %^CYAN%^%^BOLD%^ withdraw NUM TYPE%^BLACK%^ ------------ %^RESET%^: %^CYAN%^Withdraws NUM of currency of TYPE.
 %^CYAN%^%^BOLD%^ exchange NUM TYPE for TYPE2%^BLACK%^ -- %^RESET%^: %^CYAN%^Exchanges currencies.
 
-A 15% service fee will be charged to all deposits.
+A 10% service fee will be charged to all deposits.
 MELNMARN
    );
    if(archp(TP)) {
