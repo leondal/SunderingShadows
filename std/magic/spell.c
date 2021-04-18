@@ -3260,9 +3260,6 @@ object* target_filter(object* targets)
     object* newtargs = ({});
     int i;
 
-    if(!sizeof(targets) || !pointerp(targets))
-        return ({});
-
     targets = filter_array(targets, (:objectp($1):));
     targets -= ({ caster });
 

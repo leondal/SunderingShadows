@@ -9,7 +9,7 @@ void create()
     set_syntax("cast CLASS shadow enchantment on SPELL_NAME [on SPELL_ARGS]");
     set_description("You tap energy from the Plane of Shadow to cast a quasi-real, illusory version of an enchantment mage spell of 4th level or lower.
 
-%^BOLD%^%^RED%^E.G.%^RESET%^ <cast mage shadow alteration on haste on friend>");
+%^BOLD%^%^RED%^E.G.%^RESET%^ <cast mage shadow enchantment on haste on friend>");
     set_arg_needed(1);
 }
 
