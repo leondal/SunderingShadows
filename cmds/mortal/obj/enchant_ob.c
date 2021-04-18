@@ -8,7 +8,7 @@
 #define allowed_armor  ({ "stun","trip","heal","attack","repair","disarm","reflect","bleed","blind" })
 #define allowed_weapon ({ "stun","trip","heal","attack","repair","poison","bleed","blind" })
 
-#define restricted_skills ({ "craft, armorsmith", "craft, jeweller", "craft, leatherworker", "craft, weaponsmith", "craft, woodworker", "craft, tailor", "craft, leatherwork", "light", "fast healing" })
+#define restricted_skills ({ "craft, armorsmith", "craft, jeweller", "craft, leatherworker", "craft, weaponsmith", "craft, woodworker", "craft, tailor", "craft, leatherwork", "light", "fast healing", "spellTurning", "missChance" })
 
 #define EXTRA_BONUSES ({ "enchantment","special" })
 
