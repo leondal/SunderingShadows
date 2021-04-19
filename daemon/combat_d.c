@@ -524,7 +524,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
 {
     string ename, pname, enhance_msg, target_align;
     int effect_chance, enhance_dmg, crit_mult, enhance_chance, is_main_hand, effective_level, i;
-    object room, * weapons;
+    object room, * weapons, *att;
     string* elements, * actions, * bursts, * colors, * alignments, * enemy_alignments, * align_text, * a_colors;
 
     if (!objectp(attacker)) {
@@ -746,6 +746,34 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
         }
     }
     //END BANE SECTION
+    
+    //CLEAVE SECTION
+    if(FEATS_D->usable_feat(attacker, "cleave") && objectp(weapon))
+    {
+        int cleave_dmg, flvl;
+        
+        if(!attacker->query_property("cleaving"))
+        {
+            att = attacker->query_attackers() - ({ attacker->query_current_attacker() });
+            
+            if(sizeof(att))
+            {
+                att = shuffle(att);
+                
+                if(objectp(att[0]))
+                {
+                    //Can only cleave once per round
+                    attacker->set_property("cleaving", 1);
+                    flvl = attacker->query_player_level();
+                    cleave_dmg = (weapon->query_wc() + 2) * (1 + flvl / 10);
+                    tell_object(attacker, "%^BOLD%^Your attack cleaves through your opponent and hits " + att[0]->QCN + "!%^RESET%^");
+                    tell_room(room, "%^BOLD%^" + attacker->QCN + "'s attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^");
+                    att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
+                }
+            }
+        }
+    }        
+    //END CLEAVE SECTION    
 
     //monster feat stuff
     if (attacker->query("combat_feats_enabled") &&
