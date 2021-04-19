@@ -331,6 +331,7 @@ void init_pool(object ob, string pool_type)
         }
         else {
             newmax = 2 + (int)ob->query_class_level("paladin") / 10 + ob->query_class_level("cleric") / 10;
+            newmax += (FEATS_D->usable_feat(ob, "extra grace") * 2);
         }
         break;
     }
