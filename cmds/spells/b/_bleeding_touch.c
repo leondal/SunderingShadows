@@ -74,7 +74,7 @@ void spell_effect(int prof)
     tell_room(place, "%^BLACK%^BOLD%^" + caster->QCN + " reaches out with " + caster->QP + " hand, striking " + target->QCN + " with a wounding grasp!%^RESET%^", ({ caster })); 
     if(!target->is_undead())
         tell_object(target, "%^RED%^BOLD%^You begin to bleed profusely as negative energy works its way into the wound!%^RESET%^");
-    target->cause_typed_damage(target, target->return_target_limb(), sdamage / 2, "negative energy");
+    target->cause_typed_damage(target, target->return_target_limb(), (sdamage * 3) / 4, "negative energy");
     spell_kill(target, caster);
     
     num = clevel / 8 + 1;
