@@ -1699,6 +1699,7 @@ void heart_beat()
             set_parrying(0);
         }
     }
+    
     if (query_property("dodging") && !sizeof(query_attackers())) {
         write("With combat over, you have no one to dodge.");
         remove_property("dodging");
@@ -1767,6 +1768,8 @@ void heart_beat()
         if (sizeof(query_attackers()) == 0) static_user["stance"]++;
         else static_user["stance"] = 0;
     }
+    
+    this_object()->remove_property("cleaving");
 
     //There are 3 heart beats per round. Adjust values accordingly.
     if(objectp(TO))

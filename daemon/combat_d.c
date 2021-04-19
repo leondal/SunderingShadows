@@ -752,26 +752,36 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
     {
         int cleave_dmg, flvl;
         
-        if(!attacker->query_property("cleaving"))
+        att = attacker->query_attackers() - ({ target });
+        att = shuffle(att);
+        
+        if(sizeof(att))
         {
-            att = attacker->query_attackers() - ({ attacker->query_current_attacker() });
+            flvl = attacker->query_player_level();
+            cleave_dmg = (weapon->query_wc() + 2) * (1 + flvl / 10);
             
-            if(sizeof(att))
-            {
-                att = shuffle(att);
-                
+            if(!attacker->query_property("cleaving"))
+            {               
                 if(objectp(att[0]))
                 {
                     //Can only cleave once per round
                     attacker->set_property("cleaving", 1);
-                    flvl = attacker->query_player_level();
-                    cleave_dmg = (weapon->query_wc() + 2) * (1 + flvl / 10);
                     tell_object(attacker, "%^BOLD%^Your attack cleaves through your opponent and hits " + att[0]->QCN + "!%^RESET%^");
                     tell_room(room, "%^BOLD%^" + attacker->QCN + "'s attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^");
                     att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
                 }
             }
-        }
+        
+            if(FEATS_D->usable_feat(attacker, "cleaving finish") && objectp(att[0]))
+            {
+                if(target->query_hp() < 1 || !objectp(target))
+                {
+                    tell_object(attacker, "%^BOLD%^Your finishing attack cleaves through your opponent and hits " + att[0]->QCN + "!%^RESET%^");
+                    tell_room(room, "%^BOLD%^" + attacker->QCN + "'s finishing attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^");
+                    att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
+                }
+            }
+        }                  
     }        
     //END CLEAVE SECTION    
 
