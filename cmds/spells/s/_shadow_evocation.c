@@ -10,7 +10,7 @@ void create()
     set_spell_level(([ "mage" : 5, "bard" : 5, "innate" : 5, "magus" : 5 ]));
     set_spell_sphere("illusion");
     set_syntax("cast CLASS shadow evocation on SPELL_NAME [on SPELL_ARGS]");
-    set_description("You tap energy from the Plane of Shadow to cast a quasi-real, illusory version of an evocation mage spell of 4th level or lower.
+    set_description("You create an illusory version of an evocation spell of 4th level or lower. The source of the illusion can differ based on the caster.
 
 %^BOLD%^%^RED%^E.G.%^RESET%^ <cast mage shadow evocation on fireball on goblin>");
     set_arg_needed(1);
