@@ -11,7 +11,7 @@ void place_board()
 	obj->set_name("plots");
 	obj->set_id(({"board", "bulletin board","plotsboard"}));
 	obj->set_board_id("plotsboard");
-	obj->set_short("plots board");
+	obj->set_short("OOC plots board");
     obj->set("long", "A large board where mail from players asking for help "
     "help goes when they use the <avatarmail> command.  It is meant to "
     "facilitate the immortal discussions of the "
@@ -30,7 +30,7 @@ void create(){
     set_property("light", 2);
     set_property("indoors", 1);
     set_property("no teleport",1);
-    set_short("Avatar board room");
+    set_short("Plots board room");
     set_long("Just one of the rooms housing a board.  Nothing more, nothing less.");
     set_exits( ([ "out" : "/d/dagger/boards_portal", ]) );
 }
