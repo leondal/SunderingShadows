@@ -23,6 +23,13 @@ int prerequisites(object ob)
         dest_effect();
         return 0;
     }
+    
+    if(FEATS_D->usable_feat(ob, "divine grace"))
+    {
+        dest_effect();
+        return 0;
+    }
+    
     return::prerequisites(ob);
 }
 
