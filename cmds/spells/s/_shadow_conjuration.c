@@ -9,7 +9,7 @@ void create()
     set_domains("darkness");
     set_spell_sphere("illusion");
     set_syntax("cast CLASS shadow conjuration on SPELL_NAME [on SPELL_ARGS]");
-    set_description("You tap energy from the Plane of Shadow to cast a quasi-real, illusory version of a conjuration mage spell of 3rd level or lower.
+    set_description("YYou create an illusory version of an conjuration spell of 3rd level or lower. The source of the illusion can differ based on the caster.
 
 %^BOLD%^%^RED%^E.G.%^RESET%^ <cast mage shadow conjuration on armor on friend>");
     set_arg_needed(1);
