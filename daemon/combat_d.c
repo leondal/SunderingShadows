@@ -960,10 +960,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     }
     
     damage = damage_done(attacker, weapon, damage, fired);
-    if (!objectp(targ)) {
-        return;
-    }
-    if (!objectp(attacker)) {
+    if (!objectp(targ) || !objectp(attacker)) {
         return;
     }
 
@@ -1073,6 +1070,9 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     
     new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot, sneak);
 
+    if(!targ || !attacker)
+        return;
+    
     if (!objectp(weapon) || attacker->query_property("shapeshifted")) {
         attacker->increment_stamina(1);
     }else {
