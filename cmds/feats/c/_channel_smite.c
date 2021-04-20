@@ -8,7 +8,7 @@ void create()
     feat_type("instant");
     feat_category("Presence");
     feat_name("channel smite");
-    feat_prereq("Channel");
+    feat_prereq("Cleric");
     feat_classes(({"cleric"}));
     feat_desc("This power allows a divine caster to channel primal energies (divine) through their weapon, causing it to become infused with divine wrath, striking at their current attacker, causing divine damage. You must spend one Grace point to use Channel Smite. The damage is based on your Channel dice. Note : This is not a free feat.");
     feat_syntax("channel_smite");
@@ -26,7 +26,7 @@ int prerequisites(object ob)
         return 0;
     }
     
-    if(!FEATS_D->usable_feat(ob, "channel"))
+    if(!ob->is_class("cleric"))
     {
         dest_effect();
         return 0;
