@@ -70,6 +70,11 @@ int init_shape(object obj,string str){
     obj->set("relationship_profile",shape->query_shape_profile());
     obj->add_id(shape->query_shape_race());
 
+    if(userp(obj)){
+        shape->set_shape_height(obj->query_player_height());
+        shape->set_shape_weight(obj->query_player_weight());
+    }
+
     if(objectp(to_object(DESC_D)))     {
         desc = new(DESC_D); //
         if(!desc->restore_profile_settings(obj,shape->query_shape_profile())) {
