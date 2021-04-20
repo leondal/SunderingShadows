@@ -755,7 +755,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
         att = attacker->query_attackers() - ({ target });
         att = shuffle(att);
         
-        if(sizeof(att) && thaco(att[0], weapon->query_property("enchantment")))
+        if(sizeof(att) && BONUS_D->process_hit(attacker, att[0], 0, weapon, 0, 0, 0));
         {
             flvl = attacker->query_player_level() / 2;
             flvl += (FEATS_D->usable_feat(attacker, "great cleave") * 2);
@@ -765,12 +765,12 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             //Cleave happens once per HB unless they have the improved cleave feat
             if(!attacker->query_property("cleaving") || FEATS_D->usable_feat(attacker, "improved cleave"))
             {               
-                if(objectp(att[0]))
+                if(sizeof(att) && objectp(att[0]))
                 {
                     //Can only cleave once per round
                     attacker->set_property("cleaving", 1);
                     tell_object(attacker, "%^BOLD%^Your attack cleaves through your opponent and hits " + att[0]->QCN + "!%^RESET%^");
-                    tell_room(room, "%^BOLD%^" + attacker->QCN + "'s attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^");
+                    tell_room(room, "%^BOLD%^" + attacker->QCN + "'s attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^", ({ attacker }));
                     att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
                 }
             }
@@ -780,7 +780,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                 if(target->query_hp() < 1 || !objectp(target))
                 {
                     tell_object(attacker, "%^BOLD%^Your finishing attack cleaves through your opponent and hits " + att[0]->QCN + "!%^RESET%^");
-                    tell_room(room, "%^BOLD%^" + attacker->QCN + "'s finishing attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^");
+                    tell_room(room, "%^BOLD%^" + attacker->QCN + "'s finishing attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^", ({ attacker }));
                     att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
                 }
             }
