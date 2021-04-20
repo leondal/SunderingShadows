@@ -11,7 +11,7 @@ void create()
     feat_category("MeleeDamage");
     feat_name("improved cleave");
     feat_prereq("Cleave, Strength 18");
-    feat_desc("This feat removed the limit on the number of times a cleave can happen per round.");
+    feat_desc("This feat removes the limit on the number of times a cleave can happen per round.");
     permanent(1);
     set_target_required(0);
     set_required_for(({}));
