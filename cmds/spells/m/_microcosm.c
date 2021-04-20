@@ -57,14 +57,6 @@ void spell_effect(int prof)
         return;
     }
 
-    if (checkMagicResistance(target,10 - prof/10))
-    {
-        sendDisbursedMessage(target);
-        spell_successful();
-        dest_effect();
-        return;
-    }
-
     if(do_save(target,-1*(clevel/7)))
     {
         tell_object(target,"%^BOLD%^You hear "+caster->QCN+"'s voice "+

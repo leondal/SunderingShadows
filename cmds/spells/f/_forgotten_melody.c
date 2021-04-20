@@ -82,12 +82,6 @@ void spell_effect(int prof)
                 " a strange language.");
             continue;
         }
-        if (checkMagicResistance(inven[i],0))
-        {
-            tell_object(inven[i],"%^BOLD%^%^MAGENTA%^You hear the song and are momentarily"+
-                " captivated by it, but it flees your mind.");
-            continue;
-        }
 
         if(do_save(inven[i]))
         {

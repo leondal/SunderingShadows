@@ -54,13 +54,6 @@ void spell_effect(int prof)
     modifier = 0;
     intelligence = target->query_stats("intelligence");
 
-    if(checkMagicResistance(target))
-    {
-        sendDisbursedMessage(target);
-        dest_effect();
-        return;
-    }
-
     if (!spell_kill(target,caster))
     {
         dest_effect();
