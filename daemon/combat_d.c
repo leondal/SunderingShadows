@@ -755,12 +755,15 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
         att = attacker->query_attackers() - ({ target });
         att = shuffle(att);
         
-        if(sizeof(att))
+        if(sizeof(att) && thaco(att[0], weapon->query_property("enchantment")))
         {
-            flvl = attacker->query_player_level();
-            cleave_dmg = (weapon->query_wc() + 2) * (1 + flvl / 10);
+            flvl = attacker->query_player_level() / 2;
+            flvl += (FEATS_D->usable_feat(attacker, "great cleave") * 2);
+            cleave_dmg = roll_dice(flvl, weapon->query_wc());
+            //cleave_dmg = (weapon->query_wc() + 2) * (1 + flvl / 10);
             
-            if(!attacker->query_property("cleaving"))
+            //Cleave happens once per HB unless they have the improved cleave feat
+            if(!attacker->query_property("cleaving") || FEATS_D->usable_feat(attacker, "improved cleave"))
             {               
                 if(objectp(att[0]))
                 {

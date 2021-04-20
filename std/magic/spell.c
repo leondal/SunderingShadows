@@ -3318,8 +3318,10 @@ object *target_selector()
 
     everyone = target_filter(everyone);
 
-    shuffle(foes);
-    shuffle(everyone);
+    if(sizeof(foes))
+        shuffle(foes);
+    if(sizeof(everyone))
+        shuffle(everyone);
 
     slevel = slevel < 1 ? 1 : slevel;
     max = 6 + BONUS_D->query_stat_bonus(caster, query_casting_stat());
