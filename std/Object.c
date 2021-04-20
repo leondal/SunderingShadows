@@ -586,7 +586,7 @@ mixed query_property(string prop)
             worn = filter_array(distinct_array(TO->all_armour()), "light_armor_filter", TO);
             if (!sizeof(worn)) {
                 num += (query_guild_level("barbarian") - 10) / 6 + 1;
-                
+
                 if(FEATS_D->usable_feat(this_object(), "unstoppable"))
                     num += 3;
             }
@@ -2724,7 +2724,7 @@ varargs int property_special(mixed arg, object enemy_weapon, object attacker)
 
     if (messages["special"] == "weapon") {
         if (!frequency) {
-            frequency = (enchantment * 2) + 6;
+            frequency = (enchantment * 2) + 8;
         }
         if (frequency > 20) {
             frequency = 20;
@@ -2733,7 +2733,7 @@ varargs int property_special(mixed arg, object enemy_weapon, object attacker)
         messages["weapon"] = TO;
     }else {
         if (!frequency) {
-            frequency = (enchantment * 5) + 5;
+            frequency = (enchantment * 5) + 10;
         }
         if (frequency > 40) {
             frequency = 40;
@@ -2807,7 +2807,7 @@ varargs int property_special(mixed arg, object enemy_weapon, object attacker)
 
         messages["type"] = "heal";
         send_messages(messages);
-        ETO->do_damage("torso", -1 * roll_dice(1, min_level) + enchantment + 5);
+        ETO->do_damage("torso", -1 * (roll_dice(1, min_level) + enchantment + 5));
         break;
 
     case "attack":
