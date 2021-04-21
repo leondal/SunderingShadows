@@ -25,6 +25,7 @@
 mapping DAMAGE_TRACKING;
 
 int critical_roll = 0;
+int counter_damage = 0;
 
 void save_damage_tracker()
 {
@@ -142,7 +143,7 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
             }
             if (FEATS_D->usable_feat(victim, "counter")) {
                 if (random(4)) {
-                    victim->counter_attack(victim);
+                    counter_attack(victim);
                 }
             }
             return 0;
@@ -1213,6 +1214,11 @@ int damage_done(object attacker, object weap, int damage, int isranged)
         return 0;
     }else {
         damage = (damage * prof) / 100;
+        if(counter_damage)
+        {
+            damage += counter_damage;
+            counter_damage = 0;
+        }
         return damage;
     }
 }
@@ -3390,7 +3396,9 @@ void counter_attack(object ob)
                 "counter attack!%^RESET%^");
     tell_room(environment(ob), "%^RESET%^%^BOLD%^%^GREEN%^" + ob->QCN + " takes advantage "
               "of the opening and counter attacks!%^RESET%^", ob);
+    counter_damage = ob->query_property("shieldwall") * 5;
     ob->execute_attack();
+    counter_damage = 0;
     return;
 }
 
