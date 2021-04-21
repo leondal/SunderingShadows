@@ -107,6 +107,10 @@ void execute_attack(){
 
         define_base_damage(0);
         for(i=0;i<sizeof(foes);i++){
+            
+            if(!objectp(foes[i]))
+                continue;
+            
             tell_object(foes[i],"%^BOLD%^"+scolor+"You are burned by the shield of flames as you strike "
                         ""+caster->QCN+"!");
             if(foes[i] && do_save(foes[i], 0))
