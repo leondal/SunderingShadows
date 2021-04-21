@@ -9,10 +9,11 @@ void create() {
     feat_name("elaborate parry");
     feat_prereq("Duelist L7");
     feat_desc(""
-"Anyone who strikes at the trained duelist had better be prepared for the "
-"inevitable repercussions. The duelist is trained to punish anyone who attacks "
-"without thinking of their own defenses. This feat adds counter attacks to "
-"your parries. (Parry or Opportunistic Parry). This feat only works in light or "
+"Anyone who strikes at the trained duelist had better be prepared for the " +
+"inevitable repercussions. The duelist is trained to punish anyone who attacks " +
+"without thinking of their own defenses. This feat adds counter attacks to " +
+"your parries. (Parry or Opportunistic Parry). In addition, your counter attacks will " + 
+"do more damage the more you shift your Expertise towards defense. This feat only works in light or " +
 "no armor.");
     permanent(1);
     set_required_for(({}));

@@ -3396,7 +3396,12 @@ void counter_attack(object ob)
                 "counter attack!%^RESET%^");
     tell_room(environment(ob), "%^RESET%^%^BOLD%^%^GREEN%^" + ob->QCN + " takes advantage "
               "of the opening and counter attacks!%^RESET%^", ob);
-    counter_damage = ob->query_property("shieldwall") * 5;
+              
+    if(FEATS_D->usable_feat("shield master"))
+        counter_damage = ob->query_property("shieldwall") * 5;
+    if(FEATS_D->usable_feat("elaborate parry"))
+        counter_damage = ob->query_property("combat_expertise") * 5;
+    
     ob->execute_attack();
     counter_damage = 0;
     return;
