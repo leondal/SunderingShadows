@@ -8,7 +8,7 @@ void create() {
     feat_category("DivineSpellcraft");
     feat_name("divine domain");
     feat_prereq("Cleric L1, Druid L1");
-    feat_desc("This feat represents the connection with divinity that each priest has, and grants a small number of specialty spells that are specific to their own deity. The cleric must select a domain specific to their god in a temple. Druids may choose from air, animal, earth, fire, plant, water, storms regardless of the deity they follow. Multiclass characters gain ability to choose from any domain available to them.
+    feat_desc("This feat represents the connection with divinity that each priest has, and grants a small number of specialty spells that are specific to their own deity. The cleric must select a domain specific to their god in a temple. Druids may choose from air, animal, earth, fire, plant, cold, renewal regardless of the deity they follow. Multiclass characters gain ability to choose from any domain available to them.
 
 Domain spells use spell slots of memorized spells, i.e. when you cast a domain spell they expend a slot of another already memorized spell. Refer to %^ORANGE%^<help cast>%^RESET%^ for syntax.");
     permanent(1);
