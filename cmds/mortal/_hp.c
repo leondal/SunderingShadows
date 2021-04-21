@@ -16,8 +16,12 @@ mixed * genoutput(object targ)
     if(targ->is_class("psion") ||
        targ->is_class("psywarrior"))
         output+=({({"Power Points","%^RESET%^%^"+targ->query_mp()+"%^BOLD%^%^GREEN%^/%^WHITE%^"+targ->query_max_mp()})});
-    output+=({({"Carrying","%^RESET%^%^"+targ->query_internal_encumbrance()+"%^BOLD%^%^GREEN%^/%^WHITE%^"+targ->query_max_internal_encumbrance()})});
 
+    if(targ->is_class("cleric") || targ->is_class("paladin"))
+        output+=({({"Grace Points","%^RESET%^%^"+targ->query("available grace")+"%^BOLD%^%^GREEN%^/%^WHITE%^"+targ->query("maximum grace")})});
+    
+    output+=({({"Carrying","%^RESET%^%^"+targ->query_internal_encumbrance()+"%^BOLD%^%^GREEN%^/%^WHITE%^"+targ->query_max_internal_encumbrance()})});
+    
     if(!(targ->is_undead() ||
          FEATS_D->usable_feat(targ,"timeless body")))
     {
