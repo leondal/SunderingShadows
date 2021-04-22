@@ -408,7 +408,8 @@ mapping index_castable_spells(object player, string myclass)
                     
                     if(pclass == "druid")
                     {
-                        if(str != "plant" && str != "animal" && str != "cold" && str != "fire" && str != "earth" && str != "renewal" && str != "air")
+                        //Druids have sun domain built in
+                        if(str == "sun")
                             success++;
                     }
                 }
