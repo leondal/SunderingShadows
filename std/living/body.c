@@ -248,7 +248,7 @@ int query_shieldMiss()
         if (FEATS_D->usable_feat(TO, "deflection")) {
             chance += 15;
         }                                                           // +15% for deflection feat(might need tweaking)
-        chance += (int)TO->query_property("shieldwall_bonus");
+        chance += ((int)TO->query_property("shieldwall_bonus") * 2);
 
         equip = (object)TO->all_armour();
         if (sizeof(equip)) {
