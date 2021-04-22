@@ -885,6 +885,8 @@ int crit_damage(object attacker, object targ, object weapon, int size, int damag
         if (CRIT_DAMAGE_MODIFIER[targRace]) {
             crit_dam = crit_dam * CRIT_DAMAGE_MODIFIER[targRace];
         }
+        else if(FEATS_D->usable_feat(targ, "natures gift"))
+            crit_dam /= 2;
     }
 
     return crit_dam + damage;

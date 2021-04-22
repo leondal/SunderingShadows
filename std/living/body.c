@@ -848,6 +848,12 @@ int query_resistance_percent(string res)
             mod = 100;
     }
     
+    if(FEATS_D->usable_feat(this_object(), "natures gift"))
+    {
+        if(res == "fire" || res == "electricity" || res == "cold" || res == "acid")
+            mod += 25;
+    }
+    
     //Mage is invulnerable for duration of prismatic sphere
     if(TO->query_property("prismatic sphere"))
         mod = 100;

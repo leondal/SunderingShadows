@@ -9,7 +9,7 @@ int duration;
 void create(){
     ::create();
     set_spell_name("rejuvenation");
-    set_spell_level(([ "cleric" : 3 ]));
+    set_spell_level(([ "cleric" : 3, "druid" : 3 ]));
     set_spell_sphere("healing");
     set_domains("renewal");
     set_syntax("cast CLASS rejuvenation [on TARGET]");
