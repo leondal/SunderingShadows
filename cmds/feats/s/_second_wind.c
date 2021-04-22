@@ -24,7 +24,7 @@ void create()
     feat_name("second wind");
     feat_prereq("31 levels in Fighter Class");
     feat_syntax("second_wind");
-    feat_desc("This feat represents the grit of a fighter who is truly dedicated to battle. With this feat, the fighter cleanses negative effects from themselves, and will gain fast healing over 10 rounds.");
+    feat_desc("This feat represents the grit of a fighter who is truly dedicated to battle. With this feat, the fighter cleanses negative effects from themselves, and will gain fast healing over 8 rounds.");
     set_required_for(({ }));
 }
 
@@ -90,7 +90,7 @@ void execute_feat()
     caster->add_cooldown("second wind", 600);
     caster->set_property("active_feats", ({ TO }));
     caster->set_property("fast healing", power);
-    call_out("dest_effect", 60);
+    call_out("dest_effect", 48);
     
     return;
 }
