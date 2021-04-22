@@ -3398,7 +3398,7 @@ void counter_attack(object ob)
               "of the opening and counter attacks!%^RESET%^", ob);
               
     if(FEATS_D->usable_feat("shield master"))
-        counter_damage = ob->query_property("shieldwall") * 5;
+        counter_damage = ob->query_property("shieldwall") * 6;
     if(FEATS_D->usable_feat("elaborate parry"))
         counter_damage = ob->query_property("combat_expertise") * 5;
     
