@@ -119,7 +119,7 @@ class_spell_storage =
 "archdruid":
 ([
     "all":
-        ({"faerie fire", "entangle", "animal messenger", "meld into nature", "flame strike", "wall of thorns", "wall of stone", "vortex", "euphoric tranquility", "regenerate",}),
+        ({"elemental swarm", "conjure elemental", "elemental aura"}),
 ]),
 
 "psion":

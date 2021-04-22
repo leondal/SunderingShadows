@@ -10,7 +10,7 @@ void create()
     feat_category("Archdruid");
     feat_name("natures gift");
     feat_prereq("Archdruid L4");
-    feat_desc("The archdruid has learned to cast certain spells so well that she is able to cast them an unlimited amount of times per day without needing to prepare the spells. The following spells can be cast without preparation: faerie fire, entangle, animal messenger, meld into nature, flame strike, wall of thorns, wall of stone, vortex, euphoric tranquility and regenerate.");
+    feat_desc("The archdruid is in-tune with the forces of nature, above and beyond the capabilities of other druids. The elemental forces of the world lend their aid to the archdruid. The following spells can be cast without preparation: elemental aura, conjure elemental and elemental swarm. The archdruid also gains protection from these natural forces, and has 25% resistance to fire, cold, acid, and electricity damage.");
     permanent(1);
 }
 
