@@ -1683,7 +1683,7 @@ void check_armor_active_feats(object wornBy, string type, string limb, string ac
             if (bonus_value) {
                 message("my_action", "You can't benefit from shieldwall without a shield.", wornBy);
                 wornBy->set_property("shieldwall", -bonus_value);
-                wornBy->set_property("damage resistance", -bonus_value);
+                wornBy->set_property("damage resistance", -bonus_value * 2);
                 wornBy->set_property("shieldwall_bonus", -bonus_value);
                 wornBy->set_property("empowered", bonus_value);
             }
