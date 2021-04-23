@@ -602,7 +602,9 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                 element = "fire";
                 break;
             }
-            target->cause_typed_damage(target, target->return_target_limb(), roll_dice(attacker->query_character_level(), 8), element);
+            //target->cause_typed_damage(target, target->return_target_limb(), roll_dice(attacker->query_character_level(), 8), element);
+            //Above damage is way too insane. Tlaloc changed this 4.23.2021....probably is still too insane below
+            target->cause_typed_damage(target, target->return_target_limb(), roll_dice(attacker->query_character_level() / 2, 8), element);
         }
     }
 
@@ -635,7 +637,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
         if (crit_hit) {
             crit_mult = (int)weapon->query_critical_hit_multiplier() - 1;
             if (FEATS_D->has_feat(attacker, "exploit weakness")) {
-                crit_mult += 1;
+                crit_mult += 2;
             }
             else if (FEATS_D->has_feat(attacker, "weapon mastery")) {
                 crit_mult += 1;
