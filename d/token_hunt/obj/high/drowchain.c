@@ -175,8 +175,9 @@ int struck_fun(int damage, object what, object who){
 		 "%^BLACK%^design on your mail flares an angry %^RESET%^"+
 		 "%^RED%^red %^BOLD%^%^BLACK%^as you are struck by "+
 		 "a blow.%^RESET%^");
-      return (damage*-1);
+      return 0;
    }
+   return damage;
 }
 
 int reset_counter(){
