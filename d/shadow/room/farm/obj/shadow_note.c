@@ -6,7 +6,7 @@ void create() {
     set_id(({"note","crumpled note"}));
     set_name("note");
     set_short("A crumpled note");
-    set_long("This is a piece of paper, lined with creases.  A few lines of txt are "+
+    set_long("This is a piece of paper, lined with creases.  A few lines of text are "+
         "scrawled across it.");
     set_weight(0);
     set_value(0);
