@@ -635,7 +635,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
         if (crit_hit) {
             crit_mult = (int)weapon->query_critical_hit_multiplier() - 1;
             if (FEATS_D->has_feat(attacker, "exploit weakness")) {
-                crit_mult += 2;
+                crit_mult += 1;
             }
             else if (FEATS_D->has_feat(attacker, "weapon mastery")) {
                 crit_mult += 1;
