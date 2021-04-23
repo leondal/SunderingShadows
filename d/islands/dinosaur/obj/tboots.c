@@ -61,15 +61,16 @@ int unwearme(){
 }
 
 int strikeme(int damage, object what, object who){
-  
+
+    if(!random(10))
+    {
         tell_room(environment(query_worn()),"%^BOLD%^"+
            ""+ETOQCN+"'s boots are struck with a clank.",ETO);
         tell_object(ETO,"%^BOLD%^When the boots are struck,"+
                 " the bone deflects some of the damage.");
-
-      //return damage -1;  
-     //Fixed per bug report from Grzz on 2/8/12 - Octothorpe 2/11/12
-       return (-1)*damage;  
+        return damage/2;
+    }
+    return damage;
 }
 
 void init() {
