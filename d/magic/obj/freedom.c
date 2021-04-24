@@ -8,7 +8,7 @@ void end_it();
 
 object mycaster, myspellob;
 int mylevel, FLAG;
-int charges = 5;
+int charges = 1;
 
 void create()
 {

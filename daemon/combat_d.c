@@ -553,7 +553,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             tell_object(attacker, "%^CYAN%^You unleash wave of %^YELLOW%^w%^MAGENTA%^i%^WHITE%^l%^RED%^d %^GREEN%^m%^BLUE%^a%^WHITE%^g%^ORANGE%^i%^RED%^c%^RESET%^%^CYAN%^ at " + target->QCN + "!%^RESET%^");
             tell_object(target, "%^CYAN%^" + attacker->QCN + " unleashes a wave of %^YELLOW%^w%^MAGENTA%^i%^WHITE%^l%^RED%^d %^GREEN%^m%^BLUE%^a%^WHITE%^g%^ORANGE%^i%^RED%^c%^RESET%^%^CYAN%^ to burn through you!%^RESET%^");
             tell_room(environment(attacker), "%^CYAN%^" + attacker->QCN + " unleashes a wave of %^YELLOW%^w%^MAGENTA%^i%^WHITE%^l%^RED%^d %^GREEN%^m%^BLUE%^a%^WHITE%^g%^ORANGE%^i%^RED%^c%^RESET%^%^CYAN%^ at " + target->QCN + "!%^RESET%^", ({ target, attacker }));
-            target->cause_typed_damage(target, target->return_target_limb(), roll_dice(1, 6), "untyped");
+            target->cause_typed_damage(target, target->return_target_limb(), 5 + roll_dice(attacker->query_character_level() / 15, 6), "untyped");
         }
 
         //Handles Crypststalker feat
@@ -575,7 +575,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                     tell_object(attacker, "%^BOLD%^You unleash a flash of searing energy that burns " + target->QCN + "'s very essence!%^RESET%^");
                     tell_object(target, "%^BOLD%^" + attacker->QCN + " unleashes a flash of searing white light burns your very essence!RESET%^");
                     tell_room(environment(attacker), "%^BOLD%^" + attacker->QCN + " unleashes a flash of searing energy that burns " + target->QCN + "'s undead essence!%^RESET%^", ({ target, attacker }));
-                    target->cause_typed_damage(target, target->return_target_limb(), roll_dice(1, 6), "divine");
+                    target->cause_typed_damage(target, target->return_target_limb(), 5 + roll_dice(attacker->query_guild_level("ranger") / 15, 6), "divine");
                 }
             }
         }
@@ -604,7 +604,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             }
             //target->cause_typed_damage(target, target->return_target_limb(), roll_dice(attacker->query_character_level(), 8), element);
             //Above damage is way too insane. Tlaloc changed this 4.23.2021....probably is still too insane below
-            target->cause_typed_damage(target, target->return_target_limb(), roll_dice(attacker->query_character_level() / 2, 8), element);
+            target->cause_typed_damage(target, target->return_target_limb(), 10 + roll_dice(attacker->query_character_level() / 5, 6), element);
         }
     }
 
