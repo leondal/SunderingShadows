@@ -59,7 +59,7 @@ int wear_it()
 
 int struck(int damage, object what, object who)
 {
-    if(!random(10))
+    if(!random(2))
     {
         tell_room(environment(query_worn()),"%^BOLD%^%^BLUE%^"+ETO->QCN+" almost appears to be in a different spot as the cape %^BOLD%^%^WHITE%^shimmers%^RESET%^!",({who,ETO}));
         tell_object(who,"%^BOLD%^%^BLUE%^As you try to hit "+ETO->QCN+", the cloak %^BOLD%^%^WHITE%^shimmers%^BOLD%^%^BLUE%^ and your target almost appears to be in a different spot%^RESET%^!");
