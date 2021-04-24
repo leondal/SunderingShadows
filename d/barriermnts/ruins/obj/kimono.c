@@ -65,6 +65,7 @@ int struck_fun(int damage,object what,object who){
 "flurry of %^MAGENTA%^small flower petals %^WHITE%^are cast forth through the air at you!%^RESET%^");
      who->set_paralyzed((random(5)+15),"You're still trying to reorient yourself!");
      who->set_temporary_blinded(2,"You can't see past the cloud of scattered petals!");
+     return 0;
    }
-   return 0;
+   return damage;
 }
