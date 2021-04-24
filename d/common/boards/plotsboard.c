@@ -3,25 +3,22 @@ inherit ROOM;
 
 void place_board()
 {
-  string which, desc;
-  object obj;
-  if(!present("plotsboard", TO))
-  {
-	obj = new("std/bboard");
-	obj->set_name("plots");
-	obj->set_id(({"board", "bulletin board","plotsboard"}));
-	obj->set_board_id("plotsboard");
-	obj->set_short("OOC plots board");
-    obj->set("long", "A large board where mail from players asking for help "
-    "help goes when they use the <avatarmail> command.  It is meant to "
-    "facilitate the immortal discussions of the "
-    "requests and/or for immortals to let others they have responded.");
-    obj->set_max_posts(400);
-	obj->set_location("/d/common/boards/plotsboard.c");
-    obj->set_ooc_board(1);
-    obj->set_anonymous_board(1);
-//    obj->set_restricted_read();
-  }
+    string which, desc;
+    object obj;
+    if(!present("plotsboard", TO))
+    {
+        obj = new("std/bboard");
+        obj->set_name("plots");
+        obj->set_id(({"board", "bulletin board","plotsboard"}));
+        obj->set_board_id("plotsboard");
+        obj->set_short("OOC plots board");
+        obj->set("long", "A large board where current events and plot hooks are displayed.");
+        obj->set_max_posts(400);
+        obj->set_location("/d/common/boards/plotsboard.c");
+        obj->set_ooc_board(1);
+        obj->set_anonymous_board(1);
+//      obj->set_restricted_read();
+    }
 }
 
 void create(){
