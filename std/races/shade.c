@@ -40,6 +40,7 @@ mapping daily_uses(string subrace) { return ([ "shadow travel" : 1,]); }
 mapping query_racial_innate(string subrace) {
 	return ([
                     "shadow travel" : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
+                    "shadow stride" : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
                     ]);
 }
 

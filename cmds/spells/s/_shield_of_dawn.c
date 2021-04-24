@@ -76,7 +76,8 @@ void execute_attack(){
                 continue;
             }
             tell_object(foes[i], "%^RED%^Y%^BOLD%^o%^RESET%^%^RED%^u a%^BOLD%^%^BLACK%^r%^RESET%^%^RED%^e b%^BOLD%^u%^RESET%^%^RED%^r%^BOLD%^%^BLACK%^n%^RESET%^%^RED%^e%^BOLD%^d %^RESET%^%^RED%^by t%^BOLD%^h%^RESET%^%^RED%^e fl%^BOLD%^a%^ORANGE%^m%^RED%^e%^RESET%^%^RED%^s as %^BOLD%^%^BLACK%^y%^RESET%^%^RED%^ou s%^BOLD%^%^BLACK%^t%^RESET%^%^RED%^ri%^BOLD%^%^BLACK%^k%^RESET%^%^RED%^e %^WHITE%^" + caster->QCN + "!");
-            damage_targ(foes[i], foes[i]->return_target_limb(), sdamage, "fire");
+            //damage_targ(foes[i], foes[i]->return_target_limb(), sdamage, "fire");
+            foes[i]->cause_typed_damage(foes[i], foes[i]->return_target_limb(), sdamage, "fire");
         }
     }
     prepend_to_combat_cycle(place);
