@@ -1056,54 +1056,57 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         damage = crit_damage(attacker, targ, weapon, attacker_size, damage, cant_shot);
     }
 
-    if(attacker->is_class("thief"))
+    if(damage)
     {
-        //Sneak attack dice section
-        sneak = attacker->query_prestige_level("thief") / 2;
-        //Arcane trickster sneak attack progression
-        sneak += attacker->query_class_level("arcane_trickster") / 2;
-    
-        if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
-            sneak = 0;
-    
-        if(FEATS_D->usable_feat(targ, "mighty resilience") ||
-           FEATS_D->usable_feat(targ, "remember the future"))
-            sneak = 0;
-        
-        //Armor bond sneak attack resistance
-        if(targ->query_property("fortification 75"))
-            sneak /= 4;
-        else if(targ->query_property("fortification 50"))
-            sneak /= 2;
-        else if(targ->query_property("fortification 25"))
-            sneak = (sneak * 3) / 4;
-    
-        if(FEATS_D->usable_feat(targ, "undead graft"))
-            sneak /= 2;
-        
-        //Barbarians/Thieves with danger sense gain resistance to sneak attacks
-        if(FEATS_D->usable_feat(targ, "danger sense") && targ->query_level() + 4 > attacker->query_level())
-            sneak /= 2;
-    
-        if(attacker->query_blind() || attacker->light_blind())
+        if(attacker->is_class("thief"))
         {
-            if(FEATS_D->usable_feat(attacker, "blindfight"))
-                sneak /= 2;
-            else 
-                sneak = 0;
-        }
-    }
+            //Sneak attack dice section
+            sneak = attacker->query_prestige_level("thief") / 2;
+            //Arcane trickster sneak attack progression
+            sneak += attacker->query_class_level("arcane_trickster") / 2;
     
-    if(sneak && damage)
-    {
+            if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
+                sneak = 0;
+    
+            if(FEATS_D->usable_feat(targ, "mighty resilience") ||
+               FEATS_D->usable_feat(targ, "remember the future"))
+                sneak = 0;
         
-        if(targ->query_paralyzed() ||
-           (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
-           targ->query_tripped() ||
-           targ->query_current_attacker() != attacker)
-        {              
-            //tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
-            damage += roll_dice(sneak, 6);
+            //Armor bond sneak attack resistance
+            if(targ->query_property("fortification 75"))
+                sneak /= 4;
+            else if(targ->query_property("fortification 50"))
+                sneak /= 2;
+            else if(targ->query_property("fortification 25"))
+                sneak = (sneak * 3) / 4;
+    
+            if(FEATS_D->usable_feat(targ, "undead graft"))
+                sneak /= 2;
+        
+            //Barbarians/Thieves with danger sense gain resistance to sneak attacks
+            if(FEATS_D->usable_feat(targ, "danger sense") && targ->query_level() + 4 > attacker->query_level())
+                sneak /= 2;
+    
+            if(attacker->query_blind() || attacker->light_blind())
+            {
+                if(FEATS_D->usable_feat(attacker, "blindfight"))
+                    sneak /= 2;
+                else 
+                    sneak = 0;
+            }
+        }
+    
+        if(sneak)
+        {
+        
+            if(targ->query_paralyzed() ||
+               (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
+               targ->query_tripped() ||
+               targ->query_current_attacker() != attacker)
+            {              
+                //tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
+                damage += roll_dice(sneak, 6);
+            }
         }
     }
     
