@@ -160,7 +160,8 @@ int hit_func(object targ){
 	tell_room(EETO,"%^BOLD%^%^YELLOW%^Go%^RESET%^%^ORANGE%^ld%^YELLOW%^en energy races along "+ETO->QCN+"'s blade as "
 "its %^BOLD%^%^BLACK%^ra%^WHITE%^z%^YELLOW%^o%^BLACK%^r-s%^RED%^h%^BLACK%^arp %^YELLOW%^edge bites into "+targ->QCN+
 "!%^RESET%^",({ETO,targ}));
-      targ->do_damage("torso",roll_dice(3,10));
+      //targ->do_damage("torso",roll_dice(3,10));
+      targ->cause_typed_damage(targ, targ->return_target_limb(), roll_dice(3,10), "divine");
       COUNTER--;
     }
 
