@@ -85,6 +85,7 @@ int strike_func(int damage, object what, object who)
             "parry "+who->QCN+"'s attack.%^RESET%^");
         tell_object(who,"%^RED%^%^BOLD%^"+ETOQCN+" moves with the speed of an inferno"+
             " to parry your attack with "+ETO->QP+" bracers.%^RESET%^");
-        return (-1)*(damage);
+        return 0;
     }
+    return damage;
 }
