@@ -96,8 +96,9 @@ int strike_func(int damage, object what, object who)
         tell_object(who,"%^RESET%^%^GREEN%^Ethereal vines burst out of"+
             " the emeralds on "+ETOQCN+"'s mail, wrapping around "+
             ""+ETO->QP+" body, shielding "+ETO->QO+" from your blow.");
-        return (damage*-1);
+        return 0;
     }
+    return damage;
 }
 
 
