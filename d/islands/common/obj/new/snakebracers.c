@@ -92,4 +92,5 @@ int strike_func(int damage, object what, object targ)
         new("/cmds/spells/a/_acid_arrow")->use_spell(ETO, targ, ETO->query_base_character_level(), 100, "mage");
         break;
     }
+    return damage;
 }
