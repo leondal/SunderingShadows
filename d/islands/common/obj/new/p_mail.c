@@ -112,7 +112,7 @@ int remove_func()
 
 int strike_func(int damage, object what, object who)
 {
-    if (!random(10)) {
+    if (!random(2)) {
         tell_room(environment(query_worn()), "%^BOLD%^A bright " +
                   "%^RED%^p%^BOLD%^r%^RESET%^%^ORANGE%^i%^YELLOW%^s%^GREEN%^" +
                   "m%^CYAN%^a%^BLUE%^t%^MAGENTA%^i%^RESET%^%^MAGENTA%^c%^RESET%^" +
