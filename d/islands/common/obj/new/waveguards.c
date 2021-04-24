@@ -79,6 +79,7 @@ int strike_func(int damage, object what, object who)
                     " wave as parry " + who->QCN + "%^CYAN%^%^BOLD%^'s wild thrust with your bracers.%^RESET%^");
         tell_object(who, "%^CYAN%^" + ETO->QCN + " surges forward to parry your attack as" +
                     "droplets of water drip off " + ETO->QP + " bracers.%^RESET%^");
-        return (-1) * (damage);
+        return 0;
     }
+    return damage;
 }
