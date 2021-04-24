@@ -30,10 +30,13 @@ int prerequisites(object ob)
         dest_effect();
         return 0;
     }
+    //Tlaloc is testing if this causes any problems to remove
+    /*
     if (FEATS_D->has_feat(ob, "armor bond")) {
         dest_effect();
         return 0;
     }
+    */
     return ::prerequisites(ob);
 }
 
