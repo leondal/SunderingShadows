@@ -77,7 +77,7 @@ int remove_func()
 
 int strike_func(int damage, object what, object who)
 {
-    if(random(1000) < 750)
+    if(!random(2))
     {
         tell_room(environment(query_worn()),"%^RED%^%^BOLD%^"+ETO->QCN+" moves "+
             "with the speed of an inferno to parry "+who->QCN+"'s attack.%^RESET%^",({ETO,who}));
