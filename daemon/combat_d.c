@@ -1503,6 +1503,24 @@ your " + used + "!%^RESET%^";
         you = you + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         others = others + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
     }
+    
+    if(victim->query_property("paladin smite") == attacker)
+    {
+        if(attacker->query_true_align() == 3 ||
+           attacker->query_true_align() == 6 ||
+           attacker->query_true_align() == 9)
+        {
+            me = me + "%^BOLD%^CYAN%^[%^BLACK%^Smite%^CYAN%^]%^RESET%^";
+            you = you + "%^BOLD%^CYAN%^[%^BLACK%^Smite%^CYAN%^]%^RESET%^";
+            others = others + "%^BOLD%^CYAN%^[%^BLACK%^Smite%^CYAN%^]%^RESET%^";
+        }
+        else
+        {
+            me = me + "%^BOLD%^CYAN%^[%^WHITE%^Smite%^CYAN%^]%^RESET%^";
+            you = you + "%^BOLD%^CYAN%^[%^WHITE%^Smite%^CYAN%^]%^RESET%^";
+            others = others + "%^BOLD%^CYAN%^[%^WHITE%^Smite%^CYAN%^]%^RESET%^";
+        }
+    }
 
     if (objectp(attacker)) {
         tell_object(attacker, me);
