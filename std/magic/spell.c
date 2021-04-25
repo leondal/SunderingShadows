@@ -2375,8 +2375,8 @@ void define_clevel()
 
     clevel = caster->query_guild_level(spell_type);
 
-    if(spell_type == "cantrip")
-        clevel = caster->query_level();
+    if(spell_type == "cantrip" || spell_type == "innate")
+        clevel = caster->query_base_character_level();
 
     if (spell_type == "assassin") {
         clevel = caster->query_guild_level(caster->query("base_class"));
