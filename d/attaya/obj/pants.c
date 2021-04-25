@@ -44,7 +44,7 @@ void create(){
    set_property("lore",12);
    set_type("clothing");
    set_limbs(({"right leg","left leg"}));
-   set_property("enchantment",2);
+   set_property("enchantment",5);
    set_weight(2);
    set_size(2);
    set_value(250);

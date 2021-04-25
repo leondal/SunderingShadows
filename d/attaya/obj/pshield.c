@@ -32,7 +32,7 @@ void create() {
        "more peaceful.");
     set_weight(25);
     set_value(60);
-    set_property("enchantment",4+random(2));
+    set_property("enchantment",5);
     set_wear((:TO,"wear_func":));
 }
 int wear_func(string str) {

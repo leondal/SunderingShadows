@@ -38,7 +38,7 @@ void create(){
       set_type("clothing");
       set_limbs(({ "torso" }));
       set_size(2);
-      set_property("enchantment",4);
+      set_property("enchantment",5);
       set_wear((:TO,"wear_func":));
       set_remove((:TO,"remove_func":));
       set_struck((:TO,"strike_func":));
@@ -68,11 +68,12 @@ int remove_func(){
         			return 1;
 }
 int strike_func(int damage, object what, object who){
-        if(random(1000) < 175){
+        if(!random(10)){
         tell_room(environment(query_worn()),"%^BOLD%^%^MAGENTA%^"+ETOQCN+" presses her advantage as "+
 			" "+who->QCN+" stares at her breasts.",({ETO,who}));
         tell_object(ETO,"%^BOLD%^%^MAGENTA%^"+who->QCN+" stares right at your breasts!");
         tell_object(who,"%^BOLD%^%^MAGENTA%^Your gaze falls to "+ETOQCN+"'s breasts for a moment.");
 				ETO->execute_attack();
 	}
+    return damage;
 }

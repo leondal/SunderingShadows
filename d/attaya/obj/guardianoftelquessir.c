@@ -89,7 +89,7 @@ int hitme(object targ)
     if (!objectp(targ)) {
         return 0;
     }
-    if (random(1000) > 750) {
+    if (!random(3)) {
         switch (random(11)) {
         case 0:
             tell_room(EETO, "%^YELLOW%^With a deft flick of the wrist, " + ETOQCN + " brings " + ETO->QP + " blade across " + targ->QCN + "'s eyes!%^RESET%^", ETO);
@@ -130,6 +130,7 @@ int hitme(object targ)
             }
             break;
         }
+        return 0;
     }
-    return 1;
+    return 0;
 }

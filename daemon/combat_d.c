@@ -766,7 +766,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             //cleave_dmg = (weapon->query_wc() + 2) * (1 + flvl / 10);
             
             //Cleave happens once per HB unless they have the improved cleave feat
-            if(!attacker->query_property("cleaving") || FEATS_D->usable_feat(attacker, "improved cleave"))
+            if(!attacker->query_property("cleaving") || (FEATS_D->usable_feat(attacker, "improved cleave") && attacker->query_property("cleaving") < 5))
             {               
                 if(sizeof(att) && objectp(att[0]))
                 {

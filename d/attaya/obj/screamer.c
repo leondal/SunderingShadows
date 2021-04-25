@@ -84,15 +84,17 @@ int extra_hit(object targ)
     if (!objectp(targ)) {
         return 0;
     }
-    if (random(1000) < 400) {
+    if (!random(3)) {
         tell_object(ETO, "%^RED%^A horrible scream echos out from the dagger itself!");
         tell_room(EETO, "%^RED%^The dagger wielded by " + ETOQCN + " screams horribly " +
                   "as it slashes " + targ->QCN + "'s body, spattering blood everywhere!%^RESET%^", ({ ETO, targ }));
         tell_object(targ, "%^BOLD%^%^RED%^The horrible dagger wielded by " + ETOQCN + " " +
                     "lets out a haunting scream as it tears into you!");
         TO->set_property("magic", 1);
-        targ->do_damage("torso", roll_dice(3, 12));
+        //targ->do_damage("torso", roll_dice(3, 12));
         TO->set_property("magic", -1);
+        
+        return roll_dice(3, 6);
     }
     return 0;
 }
