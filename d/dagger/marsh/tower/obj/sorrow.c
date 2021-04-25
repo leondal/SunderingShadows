@@ -238,4 +238,5 @@ int extra_hit(object vic){
 	    return dam;
 	}
     }
+    return 0;
 }

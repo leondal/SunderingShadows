@@ -105,8 +105,8 @@ int hit_func(object victim) {
       	tell_room(environment(ETO),"%^BOLD%^%^BLACK%^"+ETO->QCN+" feins"+
 			" to the left before "+ETO->QS+" suddenly veres to the right,"+
 			" slipping past "+victim->QCN+"'s guard.",({ETO,victim}));
-       			victim->do_damage(victim->return_target_limb(),random(4)+2);
-		return 1;	
+       			//victim->do_damage(victim->return_target_limb(),random(4)+2);
+		return roll_dice(1, 6);	
 	}
 	if(!random(16)) {
         if(ETO->query_property("damage resistance")){       	
@@ -120,8 +120,8 @@ int hit_func(object victim) {
 			" "+victim->QCN+"!",({ETO,victim}));
                                 ETO->remove_property("damage resistance");
                         ETO->set_parrying(0);
-				victim->do_damage(victim->return_target_limb(),random(4)+4);
-      	return 1;
+				//victim->do_damage(victim->return_target_limb(),random(4)+4);
+      	return roll_dice(1, 8);
 	   }else{
            	tell_object(ETO,"%^MAGENTA%^Stepping into a defensive stance,"+
 			" parrying "+victim->QCN+"'s blows.");
@@ -132,7 +132,8 @@ int hit_func(object victim) {
 			" "+victim->QCN+"'s attacks.",({ETO,victim}));
 				ETO->set_property("damage resistance",10);
                         ETO->set_parrying(1);
-		return 1;
+		return 0;
 	   }
 	}
+    return 0;
  }

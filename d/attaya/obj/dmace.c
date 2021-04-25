@@ -31,7 +31,7 @@ void create() {
     set_value(1000);
     set_wc(1,8);
     set_large_wc(1,12);
-    set_property("enchantment",4);
+    set_property("enchantment",5);
     set_wield((:TO,"to_hit":));
     set_unwield((:TO,"to_remove":));
     set_hit((:TO,"hit_em":));
@@ -89,5 +89,5 @@ int hit_em(object targ){
          ""+targ->QCN+"!",({ETO,targ}));
       return roll_dice(2,6);
    }
-   return 1;
+   return 0;
 }

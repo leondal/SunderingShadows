@@ -181,5 +181,5 @@ int hitme(object targ)
             break;
         }
     }
-    return 1;
+    return 0;
 }
