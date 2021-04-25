@@ -48,11 +48,11 @@ void execute_attack() {
     foes = target_selector();
 
 
-    if (time>clevel) {
+    if (time>clevel * 2) {
         dest_effect();
     }
     else {
-        define_base_damage(0);//lazy re-roll.
+        //define_base_damage(0);//lazy re-roll.
         damage = sdamage;
         tell_room(place,"%^BOLD%^%^BLACK%^The darkness moves around you like a living thing, writhing and muttering.%^RESET%^");
         event = roll_dice(1,3);
@@ -107,9 +107,9 @@ void execute_attack() {
                 }
             }
         }
-        time+=1;
+        time++;;
         if (present(caster,place) && caster != target && !caster->query_unconscious()) {
-            environment(CASTER)->addObjectToCombatCycle(TO,1);
+            place->addObjectToCombatCycle(TO,1);
         }
         else {
             dest_effect();
