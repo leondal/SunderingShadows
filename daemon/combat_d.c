@@ -750,10 +750,14 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
     }
     //END BANE SECTION
     
+    if(!attacker)
+        return;
+    
     //CLEAVE SECTION
     if(FEATS_D->usable_feat(attacker, "cleave") && objectp(weapon))
     {
         int cleave_dmg, flvl;
+        object first;
         
         att = attacker->query_attackers() - ({ target });
         att = shuffle(att);
@@ -777,10 +781,14 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                     att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
                 }
             }
+            
+            //In case a counter attack kills the attacker
+            if(!attacker)
+                return;
         
-            if(FEATS_D->usable_feat(attacker, "cleaving finish") && objectp(att[0]))
+            if(FEATS_D->usable_feat(attacker, "cleaving finish") && sizeof(att))
             {
-                if(target->query_hp() < 1 || !objectp(target))
+                if(!objectp(target) || target->query_hp() < 1)
                 {
                     tell_object(attacker, "%^BOLD%^Your finishing attack cleaves through your opponent and hits " + att[0]->QCN + "!%^RESET%^");
                     tell_room(room, "%^BOLD%^" + attacker->QCN + "'s finishing attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^", ({ attacker }));
