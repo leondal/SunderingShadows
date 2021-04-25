@@ -1323,7 +1323,9 @@ mixed query_innate_spells()
     string *tmp, *tmp2;
     int x;
     if(!objectp(TO)) return 0;
-    if(!mapp(InnateAbilities)) InitInnate();
+    
+    InitInnate();
+    //if(!mapp(InnateAbilities)) InitInnate();
     if(!mapp(InnateAbilities)) return;
     if(!sizeof(keys(InnateAbilities))) return 0;
     tmp2 = keys(InnateAbilities);
