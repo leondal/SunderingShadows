@@ -1497,14 +1497,14 @@ your " + used + "!%^RESET%^";
         attacker->reset_critical();
     }
     
-    if(sneak)
+    if(sneak && x > 0)
     {
         me = me + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         you = you + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         others = others + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
     }
     
-    if(victim->query_property("paladin smite") == attacker)
+    if(victim->query_property("paladin smite") == attacker && x > 0)
     {
         if(attacker->query_true_align() == 3 ||
            attacker->query_true_align() == 6 ||
