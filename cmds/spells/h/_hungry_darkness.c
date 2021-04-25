@@ -108,8 +108,8 @@ void execute_attack() {
             }
         }
         time++;;
-        if (present(caster,place) && caster != target && !caster->query_unconscious()) {
-            place->addObjectToCombatCycle(TO,1);
+        if (present(caster,place) && !caster->query_unconscious()) {
+            place->addObjectToCombatCycle(this_object(),1);
         }
         else {
             dest_effect();
