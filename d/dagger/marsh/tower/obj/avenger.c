@@ -117,7 +117,7 @@ int paladin() {
   default:  GEM = "colorless gem";
       break;
   }
-  if(!ETO->is_class("paladin") && !ETO->is_class("cleric")) {
+  if(!ETO->is_class("paladin") && !ETO->is_class("cleric") && !ETO->is_class("inquisitor")) {
 	tell_object(ETO,"You may not wield this weapon!");
 	return 0;
     }
@@ -279,7 +279,7 @@ int extra_hit() {
        tell_room(EETO,"%^YELLOW%^"+ETOQCN+"'s face beams as "+
           ""+ETO->QP+" sword slashes into "+ob->QCN+" with a "+
           "brilliant flash!",({ob,ETO}));
-       ETO->cause_typed_damage(ETO, "torso",dam,"positive energy");
+       ETO->add_hp(dam);
        break;
       case 29:
        tell_object(ETO,"%^BOLD%^The sword begins to vibrate in your "+
