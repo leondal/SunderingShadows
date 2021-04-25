@@ -114,6 +114,10 @@ int paladin() {
       break;
   case "lord shadow":  GEM = "%^BOLD%^dia%^CYAN%^m%^WHITE%^ond";
       break;
+  case "nimnavanon" : 
+  case "seija" :
+      GEM = "%^GREEN%^BOLD%^emerald%^RESET%^";
+  break;
   default:  GEM = "colorless gem";
       break;
   }
@@ -184,6 +188,10 @@ int removeme() {
       break;
   case "lord shadow":  GEM = "%^BOLD%^dia%^CYAN%^m%^WHITE%^ond";
       break;
+  case "nimnavanon" : 
+  case "seija" :
+      GEM = "%^GREEN%^BOLD%^emerald%^RESET%^";
+  break;
   default:  GEM = "colorless gem";
       break;
   }
@@ -417,7 +425,10 @@ int summon_em(string str)
                   "in the ground and spreads " + ETO->QP + " arms wide.", ETO);
         tell_room(EETO, "%^BOLD%^%^CYAN%^A mighty beast appears before you, answering the call!");
         switch (god) {
-        case "lysara": ob = new("/d/common/mounts/panther"); break;
+        case "lysara": 
+        case "nimnavanon":
+            ob = new("/d/common/mounts/panther");
+        break;
         case "kreysneothosies":  ob = new("/d/common/mounts/gpegasus"); break;
         case "jarmila": ob = new("/d/common/mounts/funicorn"); break;
         case "lord shadow":  ob = new("/d/common/mounts/graywolf"); break;

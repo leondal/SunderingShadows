@@ -107,6 +107,7 @@ int paladin() {
       case "the faceless one":  GEM = "%^BOLD%^%^GREEN%^em%^RESET%^%^GREEN%^er"+
           "%^BOLD%^%^BLACK%^a%^GREEN%^ld";
       break;
+      case "khyron":
       case "nilith":  GEM = "%^BOLD%^%^RED%^blo%^RESET%^%^RED%^od "+
           "%^BOLD%^%^BLACK%^ruby%^RED%^";
       break;
@@ -123,6 +124,10 @@ int paladin() {
       case "lord shadow":  GEM = "%^RESET%^%^MAGENTA%^tan%^BOLD%^%^BLACK%^"+
           "za%^RESET%^%^MAGENTA%^nite";
       break;
+      case "nimnavanon" : 
+      case "seija" :
+          GEM = "%^GREEN%^BOLD%^emerald%^RESET%^";
+  break;
       default:  GEM = "colorless";
       break;
    }
@@ -180,6 +185,7 @@ int removeme() {
   case "the faceless one":  GEM = "%^BOLD%^%^GREEN%^em%^RESET%^%^GREEN%^er"+
           "%^BOLD%^%^BLACK%^a%^GREEN%^ld";
       break;
+  case "khyron":
   case "nilith":  GEM = "%^BOLD%^%^RED%^blo%^RESET%^%^RED%^od "+
           "%^BOLD%^%^BLACK%^ruby%^RED%^";
       break;
@@ -196,6 +202,10 @@ int removeme() {
   case "lord shadow":  GEM = "%^RESET%^%^MAGENTA%^tan%^BOLD%^%^BLACK%^"+
           "za%^RESET%^%^MAGENTA%^nite";
       break;
+  case "nimnavanon" : 
+  case "seija" :
+      GEM = "%^GREEN%^BOLD%^emerald%^RESET%^";
+  break;
   default:  GEM = "colorless";
       break;
    }
@@ -252,11 +262,11 @@ int extra_hit() {
         dam = dam + random(3) + 1;
     }
     switch((string)ETO->query_diety()){
-      case "auril":  godpos = "her";
+      case "nilith":  godpos = "her";
                      break;
-      case "mystra":  godpos = "her";
+      case "kismet":  godpos = "her";
                        break;
-      case "shar":  godpos = "her";
+      case "seija":  godpos = "her";
                     break;
       default:  godpos = "his";
                 break;

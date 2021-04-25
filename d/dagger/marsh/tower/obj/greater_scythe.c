@@ -133,7 +133,7 @@ int extra_hit(object vic) {
                            "%^BOLD%^%^BLUE%^c%^CYAN%^o%^BLUE%^ld%^BLACK%^!%^RESET%^");
                         dmg = random(4)+8;
                         ETO->set_property("magic",1);
-                        vic->do_damage(vic->return_target_limb(),dmg);
+                        //vic->do_damage(vic->return_target_limb(),dmg);
                         ETO->set_property("magic",-1);
                         break;
           case 59..65:  tell_room(EETO,"%^MAGENTA%^With surprising speed "+
@@ -196,7 +196,7 @@ int extra_hit(object vic) {
                            "%^BOLD%^%^RED%^gut%^RESET%^%^BLUE%^!%^RESET%^");
                         dmg = random(8)+12;
                         ETO->set_property("magic",1);
-                        vic->do_damage(vic->return_target_limb(),dmg);
+                        //vic->do_damage(vic->return_target_limb(),dmg);
                         ETO->set_property("magic",-1);
                         break;
           case 77..79:  if(!(int)vic->query_stats("constitution") > random(25)){
@@ -266,13 +266,13 @@ int extra_hit(object vic) {
                           "essence before gritting your teeth and "+
                           "pushing free, stumbling back.%^RESET%^");
                        ETO->set_property("magic",1);
-                       vic->do_damage("torso",random(50)+50);
+                       //vic->do_damage("torso",random(50)+50);
                        ETO->set_property("magic",-1);
                      }
                      break;
           default:  break;
        }
-   return random(3)+2;
+   return roll_dice(1, 6) + dmg;
    }
-   return random(2)+1;
+   return dmg;
 }

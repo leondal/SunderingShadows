@@ -110,8 +110,7 @@ int extra_hit(object ob) {
       ,vic);
     st = (int)ETO->query_stats("strength");
     dam += random(st)/2;
-  vic->do_damage("torso",dam);
-  return 1;
+    return dam;
     }
-    return 2;
+    return 0;
 }

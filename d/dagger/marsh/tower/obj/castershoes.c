@@ -110,10 +110,11 @@ int remove_func(){
 return 1;
 }
 int strikeme(int damage, object what, object who){
-        if(random(1000) < 250){
+        if(!random(4)){
         tell_room(environment(query_worn()),"%^RESET%^%^CYAN%^"+ETOQCN+" looks rejuvenated as a strange %^BOLD%^mist %^RESET%^%^CYAN%^swirls around "+ETO->query_objective()+".",ETO);
         tell_object(ETO,"%^RESET%^%^CYAN%^A fine %^BOLD%^mist %^RESET%^%^CYAN%^rises from the shoes, leaving you feeling rejuvenated.");
         ETO->do_damage("torso",-1*random(20)+5);
         return 0;  
         }
+    return damage;
 }

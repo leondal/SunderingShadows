@@ -96,8 +96,8 @@ int extra_hit(object ob) {
 	        " soul is invaded by chaotic energy!%^RESET%^"
             ,vic);
             dam = (int)ETO->query_level();
-            dam = random(dam) + (dam/2);	
-            uses = uses - 1;
+            dam = random(dam) + (dam/2);
+            uses--;
 	    if(uses < 1) {
                 write("After delivering the chaotic energy, the hand of chaos vanishes!");
                 TO->remove();        
