@@ -11,7 +11,7 @@ void create()
     set_syntax("cast CLASS implosion on TARGET");
     set_damage_desc("untyped");
     //set_save("fort");
-    set_description("With this spell caster attempts to crush opponent. A successful fortitude save cuts the damage in half.");
+    set_description("With this spell caster attempts to crush opponent into nothingness.");
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);
