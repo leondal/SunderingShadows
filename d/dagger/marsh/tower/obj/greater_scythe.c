@@ -48,8 +48,7 @@ void create() {
        "such a weapon, and - indeed - it is said that the weapon "+
        "itself refuses all others.");
     set_property("enchantment",3+roll_dice(1,2));
-    set_wc(2,4);
-    set_large_wc(3,4);
+    set_wc(3,4);
     set_value(4000);
 //    set_prof_type("death scythe"); removed this, to let it inherit from the CWEAP -Ares
     set_wield((:TO,"extra_wield":));
@@ -76,6 +75,7 @@ int extra_wield()
 	TO->remove();
 	return 0;
     }
+    /*
     if(interactive(TP) && (string)TP->query_name() != owner){
 	tell_object(ETO,"%^BOLD%^%^BLACK%^You hear a crackling sound in "+
          "the air as the %^GREEN%^symbols %^BLACK%^flare to life "+
@@ -86,6 +86,7 @@ int extra_wield()
 	TO->remove();
 	return 0;
     }
+    */
     align = (int)ETO->query_alignment();
     if(align == 1 || align == 4 || align == 7) {
 	tell_object(ETO,"The scythe refuses your hand!\n");
@@ -133,7 +134,7 @@ int extra_hit(object vic) {
                            "%^CYAN%^k  %^BOLD%^%^BLACK%^resonates through "+
                            "your body, turning your %^RESET%^%^RED%^blood "+
                            "%^BOLD%^%^BLUE%^c%^CYAN%^o%^BLUE%^ld%^BLACK%^!%^RESET%^");
-                        dmg = random(4)+8;
+                        dmg = roll_dice(3, 4);
                         ETO->set_property("magic",1);
                         //vic->do_damage(vic->return_target_limb(),dmg);
                         ETO->set_property("magic",-1);
@@ -196,7 +197,7 @@ int extra_hit(object vic) {
                            ""+ETO->QP+" momentum and driving the "+
                            "weapon's barbed tail deep into your "+
                            "%^BOLD%^%^RED%^gut%^RESET%^%^BLUE%^!%^RESET%^");
-                        dmg = random(8)+12;
+                        dmg = roll_dice(3, 6);
                         ETO->set_property("magic",1);
                         //vic->do_damage(vic->return_target_limb(),dmg);
                         ETO->set_property("magic",-1);
@@ -269,12 +270,13 @@ int extra_hit(object vic) {
                           "pushing free, stumbling back.%^RESET%^");
                        ETO->set_property("magic",1);
                        //vic->do_damage("torso",random(50)+50);
+                       dmg = roll_dice(3, 6);
                        ETO->set_property("magic",-1);
                      }
                      break;
           default:  break;
        }
-   return roll_dice(1, 6) + dmg;
+   return roll_dice(3, 4) + dmg;
    }
    return dmg;
 }

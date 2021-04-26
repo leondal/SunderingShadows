@@ -21,8 +21,8 @@ create() {
     );
     set_weight(25);
     set_value(400);
-  set_wc(2,4);
-  set_large_wc(3,4);
+    set_wc(2,4);
+    set_large_wc(3,4);
     set_type("slashing");
     set_size(2);
     set_prof_type("death scythe");
