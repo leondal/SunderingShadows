@@ -1063,6 +1063,8 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     if (critical_hit) {
         damage = crit_damage(attacker, targ, weapon, attacker_size, damage, cant_shot);
     }
+    
+    sneak = 0;
 
     if(damage)
     {
@@ -1108,13 +1110,15 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         {
         
             if(targ->query_paralyzed() ||
-               (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
-               targ->query_tripped() ||
-               targ->query_current_attacker() != attacker)
+            (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
+            targ->query_tripped() ||
+            targ->query_current_attacker() != attacker)
             {              
                 //tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
                 damage += roll_dice(sneak, 6);
             }
+            else
+                sneak = 0;
         }
     }
     
