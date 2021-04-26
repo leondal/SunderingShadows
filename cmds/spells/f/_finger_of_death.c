@@ -14,7 +14,7 @@ void create()
     set_spell_sphere("necromancy");
     set_syntax("cast CLASS finger of death on TARGET");
     set_damage_desc("negative energy");
-    set_description("Finger of death pulls the darkness in close around the caster as the caster attempts to free the soul of the target from its coil, be they alive or undead, effectively killing them. Target able to withstand the spell will receive half normalized negative energy damage.");
+    set_description("Finger of death pulls the darkness in close around the caster as the caster attempts to free the soul of the target from its coil, be they alive or undead, effectively killing them. Target able to make a combat death save (with -2 DC) will receive half normalized negative energy damage.");
     set_verbal_comp();
     set_somatic_comp();
     set_save("fort");
