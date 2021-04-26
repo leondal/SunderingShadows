@@ -37,9 +37,9 @@ void create()
     ::create();
     will_open_doors(1);
     set_nogo(({ "/d/shadow/room/forest/road58", "/d/darkwood/tabor/road/road3", "/d/koenig/streams/path18", "/d/shadow/room/forest/road56", "/d/darkwood/tabor/include/arch1" }));
-    set_name("Tabor Guard");
-    set_id(({ "Tabor Guard", "tabor guard", "human", "guard" }));
-    set_short("A tall human");
+    set_name("PsyKnight Reinforcement");
+    set_id(({ "PsyKnight Reinforcement", "psyknight", "human", "knight" }));
+    set_short("An exotically armored human");
     set_gender(random(2) ? "male" : "female");
     hairColor();
     eyeColor();
@@ -47,22 +47,26 @@ void create()
     doWeight();
     setupName("watch");
     set_race("human");
-    set_hd(15 + random(20), 1);
-    set_class("fighter");
+    set_hd(25 + random(20), 1);
+    set_class("mage");
+	set_class("fighter");
+	set_mlevel("mage", query_hd());
     set_mlevel("fighter", query_hd());
     set_guild_level("fighter", query_hd());
     add_search_path("/cmds/fighter");
     set_fighter_style("soldier");
     set_property("full attacks", 1);
     set_mob_magic_resistance("average");
-    set_property("add kits", 5);
+    set_spell_chance(99);
+	set_spells(({"dispel magic"}));
+	set_property("add kits", 50);
     set_skill("rope use", 45);
     rank = set_ranks(([
-                          18 : "rookie",
-                          20 : "sergeant",
-                          24 : "lieutenant",
-                          28 : "captain",
-                          30 : "Commander",
+                          28 : "rookie",
+                          30 : "sergeant",
+                          34 : "lieutenant",
+                          38 : "captain",
+                          40 : "Commander",
                       ]));
     set_monster_feats(({
         "parry",
@@ -89,16 +93,16 @@ void create()
     }));
     set_func_chance(40);
     set_ac(5 - random(20));
-    set_detecting_invis(random(2));
+    set_detecting_invis(random(1));
     set_exp(1);
-    set_long("This guard is a " + query("height") + " foot, "
+    set_long("This knight is a " + query("height") + " foot, "
              + query("weight") + " pound " + query_gender() +
-             " member of the Tabor watch.  " + capitalize(QP) + " current rank is " + rank + ".  " +
-             "Wearing standard equipment of the Tabor watch, " + QS + " patrols the streets " +
+             " reinforcement to the Tabor watch.  " + capitalize(QP) + " current rank is " + rank + ".  " +
+             "Wearing standard equipment of the fabled Psyknights, " + QS + " patrols the streets " +
              "of Tabor to enforce the law and protect citizens and officials.  The "
-             "City Guard is made up of paid mercenaries in the employ of the King of "
-             "Tabor.  They are often second-rate soldiers but they are sufficient for "
-             "their local law enforcement and crowd control tasks."
+             "knights are made up of loyal, hand-picked psions tasked to support the King of "
+             "Tabor.  They are well-known in the region for their fighting skills and "
+             "their ability to keep the peace."
              );
     if (rank == "sergeant" || rank == "lieutenant") {
         set_property("add kits", 10);
