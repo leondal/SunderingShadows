@@ -40,9 +40,8 @@ void create()
     add_attack_bonus(15);
     add_damage_bonus(10);
     set_property("add kits", 50);
-    set_funcs(({ "rushit", "bashit", "smiteit", "kdit", "disarmit" }));
-    set_func_chance(33);
     set_monster_feats(({
+        "bravery",
         "parry",
         "powerattack",
         "shatter",
@@ -53,21 +52,16 @@ void create()
         "improved toughness",
         "regeneration",
         "toughness",
-        "expertise",
         "knockdown",
         "disarm",
-        "scramble",
-        "dodge",
         "evasion",
-        "defensive roll",
-        "mobility",
         "death ward",
-        "unyielding soul",
         "resistance",
         "improved resistance",
         "increased resistance",
-        "spring attack",
         "counter",
+        "shieldwall",
+        "shieldbash",
         "deflection",
         "shield proficiency",
         "reflection"
@@ -300,7 +294,7 @@ void die(object ob)
     WORLD_EVENTS_D->kill_event("Gates of Tonovi");
     WORLD_EVENTS_D->inject_event((["Gates of Tonovi" : (["start message" : "%^CYAN%^%^BOLD%^The Champion of Tonovi has fallen in battle!%^RESET%^
 
-%^RESET%^%^BOLD%^The masses of the city let out a cry of dismay!%^RESET%^",
+%^RESET%^%^BOLD%^The masses of Tonovi let out a cry of dismay!%^RESET%^",
                                                              "event type" : "exp bonus", "length" : 120, "notification" : power + "% Bonus Exp",
                                                              "event name" : "Gates of Tonovi", "modifier" : power, "announce" : 1, "announce to" : "world" ]), ])
                                  );
