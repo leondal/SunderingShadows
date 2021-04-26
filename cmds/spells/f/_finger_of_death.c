@@ -14,7 +14,7 @@ void create()
     set_spell_sphere("necromancy");
     set_syntax("cast CLASS finger of death on TARGET");
     set_damage_desc("negative energy");
-    set_description("Finger of death pulls the darkness in close around the caster as the caster attempts to free the soul of the target from its coil, be they alive or undead, effectively killing them. Target able to withstand the spell will receive standard damage.");
+    set_description("Finger of death pulls the darkness in close around the caster as the caster attempts to free the soul of the target from its coil, be they alive or undead, effectively killing them. Target able to withstand the spell will receive half normalized negative energy damage.");
     set_verbal_comp();
     set_somatic_comp();
     set_save("fort");
@@ -41,10 +41,10 @@ void spell_effect(int prof)
 
     spell_successful();
 
-    if (combat_death_save(target, 4)) {
+    if (combat_death_save(target, -2)) {
         tell_object(target, "%^BOLD%^The struggle is won, yet at a price.");
         tell_room(place, "%^BOLD%^The soul survives, yet at a price.", target);
-        damage_targ(target, target->return_target_limb(), sdamage, "negative energy");
+        damage_targ(target, target->return_target_limb(), sdamage / 2, "negative energy");
         target->set_property("no_slay", ({ caster->query_name() }));
     } else {
         tell_room(place, "%^BOLD%^%^BLUE%^The soul is cleaved from its body and left to drift homelessly!");
