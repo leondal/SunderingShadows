@@ -48,6 +48,8 @@ void create() {
        "such a weapon, and - indeed - it is said that the weapon "+
        "itself refuses all others.");
     set_property("enchantment",3+roll_dice(1,2));
+    set_wc(2,4);
+    set_large_wc(3,4);
     set_value(4000);
 //    set_prof_type("death scythe"); removed this, to let it inherit from the CWEAP -Ares
     set_wield((:TO,"extra_wield":));
