@@ -379,6 +379,10 @@ void heart_beat()
     int i, j;
 
     ::heart_beat();
+    
+    if(!this_object())
+        return;
+    
     if ((mixed*)TO->query_attackers() != ({ }) && SUMMON != 1) {
         force_me("yell Help! There are attackers at the gates!");
         SUMMON = 1;
