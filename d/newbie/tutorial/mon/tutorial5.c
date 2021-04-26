@@ -153,7 +153,7 @@ int step_4(string str)
     if(flag)
     {
         tell_object(TP,"\n%^RESET%^%^MAGENTA%^The man shakes his head before speaking:%^RESET%^ No, not that's not quite "+
-        "it. Just type %^YELLOW%^<say me is going to see the world!>%^RESET%^ when you are "+
+        "it. Just type %^YELLOW%^<say mynickname is going to see the world!>%^RESET%^ when you are "+
         "ready to continue. I want you to see the functionality of nicknames in action!%^RESET%^");
         return 1;
     }
