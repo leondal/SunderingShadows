@@ -7,6 +7,8 @@ inherit FEAT;
 string rage_class;
 int tireless_rage = 0;
 int spirit_warrior = 0;
+int save_bonus = 0;
+int unstop = 0;
 
 object* exclude = ({});
 
@@ -19,7 +21,7 @@ void create()
     feat_syntax("rage");
     feat_prereq("Barbarian L1");
     feat_classes("barbarian");
-    feat_desc("This feat allows the barbarian to enter a fit of furious rage, boosting their strength, constitution, and will. The ability will last longer, and grow stronger, as the barbarian gains levels. Rage can be turned off by typing rage again. By the end of raging the barbarian will become fatigued. Rage will be interrupted if the barbarran becomes fatigued and exhausted.
+    feat_desc("This feat allows the barbarian to enter a fit of furious rage, boosting their attack, damage, max health, will save and fortitude save. The ability will last longer, and grow stronger, as the barbarian gains levels. Rage can be turned off by typing rage again. By the end of raging the barbarian will become fatigued. Rage will be interrupted if the barbarran becomes fatigued and exhausted.
 
 %^BOLD%^N.B.%^RESET%^ Being enraged means that you are maddened uncontrollably. This is *not* a state in which you can calmly participate in a normal conversation, undertake delicate tasks, cast offensive spells, solve problems, or pretty much do anything other than shout obscenities and kill things. This power won't work in conjunction with similar magical effects, such as rally, transformation, rage, berserker and fell flight.
 
@@ -156,6 +158,12 @@ void activate_rage(int direction)
         mighty_rage(direction);
         break;
     }
+    
+    if(!save_bonus)
+        save_bonus = FEATS_D->usable_feat(caster, "indomitable will") * 2;
+    
+    if(!unstop)
+        unstop = FEATS_D->usable(caster, "unstoppable") * 2;
 
     if (direction == -1 && caster->query_hp() > caster->query_max_hp()) {
         caster->set_hp(caster->query_max_hp());
@@ -174,26 +182,44 @@ void activate_rage(int direction)
 
 void simple_rage(int direction)
 {
+    /*
     caster->add_stat_bonus("strength", 4 * direction);
     caster->add_stat_bonus("constitution", 4 * direction);
+    */
+    caster->add_attack_bonus(2 * direction);
+    caster->add_damage_bonus(2 * direction);
+    caster->add_max_hp_bonus((flevel * 2) * direction);
     caster->add_saving_bonus("will", 2 * direction);
+    caster->add_saving_bonus("fort", 2 * direction);
     caster->add_ac_bonus(-2 * direction);
 }
 
 void greater_rage(int direction)
 {
+    /*
     caster->add_stat_bonus("strength", 6 * direction);
     caster->add_stat_bonus("constitution", 6 * direction);
+    */
+    caster->add_attack_bonus(3 * direction);
+    caster->add_damage_bonus(3 * direction);
+    caster->add_max_hp_bonus((flevel * 3) * direction);
     caster->add_saving_bonus("will", 3 * direction);
+    caster->add_saving_bonus("fort", 3 * direction);
     caster->add_ac_bonus(-2 * direction);
 }
 
 void mighty_rage(int direction)
 {
+    /*
     caster->add_stat_bonus("strength", 8 * direction);
     caster->add_stat_bonus("constitution", 8 * direction);
-    caster->add_saving_bonus("will", 4 * direction);
-    caster->set_property("fast healing", direction);
+    */
+    caster->add_attack_bonus(4 * direction);
+    caster->add_damage_bonus(4 * direction);
+    caster->add_max_hp_bonus((flevel * 4 + unstop) * direction);    
+    caster->add_saving_bonus("will", (4 + save_bonus) * direction);
+    caster->add_saving_bonus("fort", 4 * direction);
+    caster->set_property("fast healing", 2 * direction);
     caster->add_ac_bonus(-2 * direction);
 }
 

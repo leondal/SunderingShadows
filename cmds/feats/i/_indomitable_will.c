@@ -7,16 +7,16 @@ void create() {
     ::create();
     feat_type("permanent");
     feat_category("Rampage");
-    feat_name("unstoppable");
-    feat_prereq("Barbarian L31");
-    feat_desc("This feat makes the Barbarian an unstoppable force. He gets an additional +2 max health per level while raged. He also gains an additional +3 damage resistance, and his Damage Reduction feat now applies to all resistance types.");
+    feat_name("indomitable will");
+    feat_prereq("Barbarian L16");
+    feat_desc("This feat represents the supreme battle focus the barbarian gains while raging. The barbarian recieves an additional +2 to will saves will raging. This bonus stacks with the inherent will save bonus from rage.");
 }
 
 int allow_shifted() { return 1; }
 
 int prerequisites(object ob){
     if(!objectp(ob)) return 0;
-    if((int)ob->query_class_level("barbarian") < 31) {
+    if((int)ob->query_class_level("barbarian") < 16) {
       dest_effect();
       return 0;
     }
