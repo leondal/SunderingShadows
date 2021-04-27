@@ -2920,14 +2920,6 @@ varargs int checkMagicResistance(object victim, int mod)
         }
     }
 
-    if (dieroll == 1 && res) {
-        return 1;
-    }
-
-    if (dieroll == 20) {
-        return 0;
-    }
-
     if ((dieroll + mod) > res) {
         return 0;
     }
@@ -3262,7 +3254,7 @@ object* target_filter(object* targets)
 
     if(!targets)
         targets = ({});
-    
+
     targets = filter_array(targets, (:objectp($1):));
     targets -= ({ caster });
 
