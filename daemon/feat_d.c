@@ -1273,7 +1273,7 @@ void set_feats(object ob,string type,mapping feats)
         ob->set_rage_feats(feats);
         break;
     case "talent":
-        ob->set_rage_feats(feats);
+        ob->set_talent_feats(feats);
         break;
     case "other":
         ob->set_other_feats(feats);
