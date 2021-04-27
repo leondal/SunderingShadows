@@ -134,10 +134,10 @@ int strikeme(int damage, object what, object who){
 "skin!%^RESET%^",({ETO,who}));
      myrandom = roll_dice(2,4)+2;
      skinned = (int)(ETO->query_stoneSkinned());
-     skinned = skinned + myrandom;
+     !skinned && skinned = skinned + myrandom;
      ETO->set_stoneSkinned(skinned);
    }
-   return 1;
+   return damage;
 }
 
 void bind_me(string *pplz) {

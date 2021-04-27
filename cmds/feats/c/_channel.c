@@ -12,6 +12,7 @@ void create()
     feat_classes(({"paladin", "cleric"}));
     feat_desc("This power allows divine caster to channel primal energies (negative or positive) at their allies and foes. The type of energy will depend on your affinity, e.g. undead will channel negative energy while living will channel positive energy. This feat will auto determine which type of energy is appliable to allies and enemies. This feat costs one Divine Grace point to use.");
     feat_syntax("channel");
+    set_required_for(({"improved channel","extra grace","channel smite"}));
     set_target_required(0);
 }
 
@@ -118,7 +119,7 @@ void execute_attack()
     allies = distinct_array(allies);
 
     dam = flevel + (FEATS_D->usable_feat(caster, "improved channel") * 2);
-    dam = roll_dice(dam, 8) + (member_array("sun", caster->query_divine_domain()) >= 0 ? caster->query_class_level("cleric") : 0);
+    dam = roll_dice(dam, 10) + (member_array("sun", caster->query_divine_domain()) >= 0 ? caster->query_class_level("cleric") : 0);
 
     if (caster->query_property("negative energy affinity")) {
         energy_type = "negative energy";

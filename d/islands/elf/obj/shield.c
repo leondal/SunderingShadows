@@ -35,6 +35,7 @@ attack, and the shield sprays %^RESET%^%^GREEN%^acid%^BOLD%^%^BLUE%^ at them fro
      tell_object(who,""+ETO->QCN+" raises "+ETO->QP+" shield to deflect
 your attack, and the the barnicles from the shield spray %^RESET%^%^GREEN%^acid at you!");
      who->cause_typed_damage(who,0,roll_dice(10,10),"acid");
-     return (-1)*damage;
+     return 0;
    }
+   return damage;
 }

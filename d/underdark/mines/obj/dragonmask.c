@@ -78,5 +78,7 @@ int struck_fun(int damage,object what,object who){
       tell_object(who,"%^BOLD%^%^BLACK%^Your eyes are drawn to "+
          ""+ETOQCN+"'s mask, and you are unable to look away!%^RESET%^");
       who->set_paralyzed(random(5),"%^BOLD%^You are entranced by the mask!%^RESET%^");
+      return 0;
    }
+   return damage;
 }

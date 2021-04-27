@@ -67,7 +67,7 @@ int struck_fun(int damage, object what, object target) {
      tell_room(EETO,"%^CYAN%^"+ETO->QCN+"'s bracelets %^ORANGE%^chime "
 "%^CYAN%^gently as "+ETO->QS+" dodges aside from "+target->QCN+"'s "
 "blow!%^RESET%^",({ETO,target}));
-     return (-1)*damage;
+     return 0;
    }
-   return 1;
+   return damage;
 }

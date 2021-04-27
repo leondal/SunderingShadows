@@ -25,6 +25,7 @@
 mapping DAMAGE_TRACKING;
 
 int critical_roll = 0;
+int counter_damage = 0;
 
 void save_damage_tracker()
 {
@@ -142,7 +143,7 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
             }
             if (FEATS_D->usable_feat(victim, "counter")) {
                 if (random(4)) {
-                    victim->counter_attack(victim);
+                    counter_attack(victim);
                 }
             }
             return 0;
@@ -524,7 +525,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
 {
     string ename, pname, enhance_msg, target_align;
     int effect_chance, enhance_dmg, crit_mult, enhance_chance, is_main_hand, effective_level, i;
-    object room, * weapons;
+    object room, * weapons, *att;
     string* elements, * actions, * bursts, * colors, * alignments, * enemy_alignments, * align_text, * a_colors;
 
     if (!objectp(attacker)) {
@@ -552,7 +553,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             tell_object(attacker, "%^CYAN%^You unleash wave of %^YELLOW%^w%^MAGENTA%^i%^WHITE%^l%^RED%^d %^GREEN%^m%^BLUE%^a%^WHITE%^g%^ORANGE%^i%^RED%^c%^RESET%^%^CYAN%^ at " + target->QCN + "!%^RESET%^");
             tell_object(target, "%^CYAN%^" + attacker->QCN + " unleashes a wave of %^YELLOW%^w%^MAGENTA%^i%^WHITE%^l%^RED%^d %^GREEN%^m%^BLUE%^a%^WHITE%^g%^ORANGE%^i%^RED%^c%^RESET%^%^CYAN%^ to burn through you!%^RESET%^");
             tell_room(environment(attacker), "%^CYAN%^" + attacker->QCN + " unleashes a wave of %^YELLOW%^w%^MAGENTA%^i%^WHITE%^l%^RED%^d %^GREEN%^m%^BLUE%^a%^WHITE%^g%^ORANGE%^i%^RED%^c%^RESET%^%^CYAN%^ at " + target->QCN + "!%^RESET%^", ({ target, attacker }));
-            target->cause_typed_damage(target, target->return_target_limb(), roll_dice(1, 6), "untyped");
+            target->cause_typed_damage(target, target->return_target_limb(), 5 + roll_dice(attacker->query_character_level() / 15, 6), "untyped");
         }
 
         //Handles Crypststalker feat
@@ -574,7 +575,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                     tell_object(attacker, "%^BOLD%^You unleash a flash of searing energy that burns " + target->QCN + "'s very essence!%^RESET%^");
                     tell_object(target, "%^BOLD%^" + attacker->QCN + " unleashes a flash of searing white light burns your very essence!RESET%^");
                     tell_room(environment(attacker), "%^BOLD%^" + attacker->QCN + " unleashes a flash of searing energy that burns " + target->QCN + "'s undead essence!%^RESET%^", ({ target, attacker }));
-                    target->cause_typed_damage(target, target->return_target_limb(), roll_dice(1, 6), "divine");
+                    target->cause_typed_damage(target, target->return_target_limb(), 5 + roll_dice(attacker->query_guild_level("ranger") / 15, 6), "divine");
                 }
             }
         }
@@ -601,7 +602,9 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                 element = "fire";
                 break;
             }
-            target->cause_typed_damage(target, target->return_target_limb(), roll_dice(attacker->query_character_level(), 8), element);
+            //target->cause_typed_damage(target, target->return_target_limb(), roll_dice(attacker->query_character_level(), 8), element);
+            //Above damage is way too insane. Tlaloc changed this 4.23.2021....probably is still too insane below
+            target->cause_typed_damage(target, target->return_target_limb(), 10 + roll_dice(attacker->query_character_level() / 5, 6), element);
         }
     }
 
@@ -746,6 +749,55 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
         }
     }
     //END BANE SECTION
+    
+    if(!attacker)
+        return;
+    
+    //CLEAVE SECTION
+    if(FEATS_D->usable_feat(attacker, "cleave") && objectp(weapon))
+    {
+        int cleave_dmg, flvl;
+        object first;
+        
+        att = attacker->query_attackers() - ({ target });
+        att = shuffle(att);
+        
+        if(sizeof(att) && BONUS_D->process_hit(attacker, att[0], 0, weapon, 0, 0, 0));
+        {
+            flvl = attacker->query_player_level() / 2;
+            flvl += (FEATS_D->usable_feat(attacker, "great cleave") * 2);
+            cleave_dmg = roll_dice(flvl, weapon->query_wc());
+            //cleave_dmg = (weapon->query_wc() + 2) * (1 + flvl / 10);
+            
+            //Cleave happens once per HB unless they have the improved cleave feat
+            if(!attacker->query_property("cleaving") || (FEATS_D->usable_feat(attacker, "improved cleave") && attacker->query_property("cleaving") < 5))
+            {               
+                if(sizeof(att) && objectp(att[0]))
+                {
+                    //Can only cleave once per round
+                    attacker->set_property("cleaving", 1);
+                    tell_object(attacker, "%^BOLD%^Your attack cleaves through your opponent and hits " + att[0]->QCN + "!%^RESET%^");
+                    tell_room(room, "%^BOLD%^" + attacker->QCN + "'s attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^", ({ attacker }));
+                    att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
+                }
+            }
+            
+            //In case a counter attack kills the attacker
+            if(!attacker)
+                return;
+        
+            if(FEATS_D->usable_feat(attacker, "cleaving finish") && sizeof(att))
+            {
+                if(!objectp(target) || target->query_hp() < 1)
+                {
+                    tell_object(attacker, "%^BOLD%^Your finishing attack cleaves through your opponent and hits " + att[0]->QCN + "!%^RESET%^");
+                    tell_room(room, "%^BOLD%^" + attacker->QCN + "'s finishing attack cleaves through and hits " + att[0]->QCN + "!%^RESET%^", ({ attacker }));
+                    att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
+                }
+            }
+        }                  
+    }        
+    //END CLEAVE SECTION    
 
     //monster feat stuff
     if (attacker->query("combat_feats_enabled") &&
@@ -960,10 +1012,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     }
     
     damage = damage_done(attacker, weapon, damage, fired);
-    if (!objectp(targ)) {
-        return;
-    }
-    if (!objectp(attacker)) {
+    if (!objectp(targ) || !objectp(attacker)) {
         return;
     }
 
@@ -1014,47 +1063,62 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     if (critical_hit) {
         damage = crit_damage(attacker, targ, weapon, attacker_size, damage, cant_shot);
     }
+    
+    sneak = 0;
 
-    if(attacker->is_class("thief"))
+    if(damage)
     {
-        //Sneak attack dice section
-        sneak = attacker->query_prestige_level("thief") / 2;
-        //Arcane trickster sneak attack progression
-        sneak += attacker->query_class_level("arcane_trickster") / 2;
-    
-        if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
-            sneak = 0;
-    
-        if(FEATS_D->usable_feat(targ, "mighty resilience") ||
-           FEATS_D->usable_feat(targ, "remember the future"))
-            sneak = 0;
-    
-        if(FEATS_D->usable_feat(targ, "undead graft"))
-            sneak /= 2;
-        
-        //Barbarians with danger sense gain resistance to stabs
-        if(FEATS_D->usable_feat(targ, "danger sense") && targ->query_level() + 4 > attacker->query_level())
-            sneak /= 2;
-    
-        if(attacker->query_blind() || attacker->light_blind())
+        if(attacker->is_class("thief"))
         {
-            if(FEATS_D->usable_feat(attacker, "blindfight"))
-                sneak /= 2;
-            else 
-                sneak = 0;
-        }
-    }
+            //Sneak attack dice section
+            sneak = attacker->query_prestige_level("thief") / 2;
+            //Arcane trickster sneak attack progression
+            sneak += attacker->query_class_level("arcane_trickster") / 2;
     
-    if(sneak && damage)
-    {
+            if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
+                sneak = 0;
+    
+            if(FEATS_D->usable_feat(targ, "mighty resilience") ||
+               FEATS_D->usable_feat(targ, "remember the future"))
+                sneak = 0;
         
-        if(targ->query_paralyzed() ||
-           (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
-           targ->query_tripped() ||
-           targ->query_current_attacker() != attacker)
-        {              
-            //tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
-            damage += roll_dice(sneak, 6);
+            //Armor bond sneak attack resistance
+            if(targ->query_property("fortification 75"))
+                sneak /= 4;
+            else if(targ->query_property("fortification 50"))
+                sneak /= 2;
+            else if(targ->query_property("fortification 25"))
+                sneak = (sneak * 3) / 4;
+    
+            if(FEATS_D->usable_feat(targ, "undead graft"))
+                sneak /= 2;
+        
+            //Barbarians/Thieves with danger sense gain resistance to sneak attacks
+            if(FEATS_D->usable_feat(targ, "danger sense") && targ->query_level() + 4 > attacker->query_level())
+                sneak /= 2;
+    
+            if(attacker->query_blind() || attacker->light_blind())
+            {
+                if(FEATS_D->usable_feat(attacker, "blindfight"))
+                    sneak /= 2;
+                else 
+                    sneak = 0;
+            }
+        }
+    
+        if(sneak)
+        {
+        
+            if(targ->query_paralyzed() ||
+            (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
+            targ->query_tripped() ||
+            targ->query_current_attacker() != attacker)
+            {              
+                //tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
+                damage += roll_dice(sneak, 6);
+            }
+            else
+                sneak = 0;
         }
     }
     
@@ -1065,6 +1129,9 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     
     new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot, sneak);
 
+    if(!targ || !attacker)
+        return;
+    
     if (!objectp(weapon) || attacker->query_property("shapeshifted")) {
         attacker->increment_stamina(1);
     }else {
@@ -1164,6 +1231,11 @@ int damage_done(object attacker, object weap, int damage, int isranged)
         return 0;
     }else {
         damage = (damage * prof) / 100;
+        if(counter_damage)
+        {
+            damage += counter_damage;
+            counter_damage = 0;
+        }
         return damage;
     }
 }
@@ -1437,11 +1509,29 @@ your " + used + "!%^RESET%^";
         attacker->reset_critical();
     }
     
-    if(sneak)
+    if(sneak && x > 0)
     {
         me = me + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         you = you + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         others = others + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
+    }
+    
+    if(victim->query_property("paladin smite") == attacker && x > 0)
+    {
+        if(attacker->query_true_align() == 3 ||
+           attacker->query_true_align() == 6 ||
+           attacker->query_true_align() == 9)
+        {
+            me = me + "%^BOLD%^CYAN%^[%^BLACK%^Smite%^CYAN%^]%^RESET%^";
+            you = you + "%^BOLD%^CYAN%^[%^BLACK%^Smite%^CYAN%^]%^RESET%^";
+            others = others + "%^BOLD%^CYAN%^[%^BLACK%^Smite%^CYAN%^]%^RESET%^";
+        }
+        else
+        {
+            me = me + "%^BOLD%^CYAN%^[%^WHITE%^Smite%^CYAN%^]%^RESET%^";
+            you = you + "%^BOLD%^CYAN%^[%^WHITE%^Smite%^CYAN%^]%^RESET%^";
+            others = others + "%^BOLD%^CYAN%^[%^WHITE%^Smite%^CYAN%^]%^RESET%^";
+        }
     }
 
     if (objectp(attacker)) {
@@ -3341,7 +3431,14 @@ void counter_attack(object ob)
                 "counter attack!%^RESET%^");
     tell_room(environment(ob), "%^RESET%^%^BOLD%^%^GREEN%^" + ob->QCN + " takes advantage "
               "of the opening and counter attacks!%^RESET%^", ob);
+              
+    counter_damage = ob->query_property("shieldwall") * 7;
+        
+    if(FEATS_D->usable_feat(ob, "elaborate parry"))
+        counter_damage = ob->query_property("combat_expertise") * 7;
+    
     ob->execute_attack();
+    counter_damage = 0;
     return;
 }
 

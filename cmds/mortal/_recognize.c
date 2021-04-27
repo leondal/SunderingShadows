@@ -46,6 +46,14 @@ int cmd_recognize(string str)
             if (ob->query_property("inactive")) {
                 return notify_fail("You can't recognize inactive players.\n");
             }
+            
+            if(((ob->query_hidden() && !this_player()->true_seeing())||
+            (ob->query_magic_hidden() && !this_player()->detecting_invis())) &&
+             ob != this_player() &&
+             !avatarp(this_player()))
+            {
+                return notify_fail("You do not notice that here.\n");
+            }
 
             write("You will recognize " + who + " as " + capitalize(as) + ".");
 

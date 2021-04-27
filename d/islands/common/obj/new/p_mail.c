@@ -112,7 +112,7 @@ int remove_func()
 
 int strike_func(int damage, object what, object who)
 {
-    if (random(1000) < 750) {
+    if (!random(2)) {
         tell_room(environment(query_worn()), "%^BOLD%^A bright " +
                   "%^RED%^p%^BOLD%^r%^RESET%^%^ORANGE%^i%^YELLOW%^s%^GREEN%^" +
                   "m%^CYAN%^a%^BLUE%^t%^MAGENTA%^i%^RESET%^%^MAGENTA%^c%^RESET%^" +
@@ -127,8 +127,9 @@ int strike_func(int damage, object what, object who)
                     "%^MAGENTA%^i%^RESET%^%^MAGENTA%^c%^RESET%^%^BOLD%^ " +
                     "light flashes to life as you strike " + ETO->QCN + ".");
         who->set_paralyzed(roll_dice(1, 4) + 1);
-        return damage;
+        return 0;
     }
+    return damage;
 }
 
 void heart_beat()

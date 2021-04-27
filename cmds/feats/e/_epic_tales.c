@@ -10,7 +10,7 @@ void create()
     feat_category("Chronicler");
     feat_name("epic tales");
     feat_prereq("Chronicler L4");
-    feat_desc("A chronicler can spin a tale so evocative and so moving that it conveys the effects of bardic music through written word. This feat increases the effects of the bard's inspirations by +2.");
+    feat_desc("A chronicler can spin a tale so evocative and so moving that it conveys the effects of bardic music through written word. This feat increases the effects of the bard's inspirations by +2. The chronicler also gains the 'doom' and 'spiritual ally' spells.");
     permanent(1);
     set_required_for(({"lay of the exalted dead"}));
 }

@@ -506,6 +506,7 @@ int cmd_feats(string str)
             if (!TP->query("free_feat_wipe")) {
                 TP->set("free_feat_wipe", 1);
                 TP->clear_feats();
+                TP->set_divine_domain(({}));
                 num_feats = ((int)TP->query_level() / 3) + 1;
                 TP->set("free_feats", num_feats);
                 if (!avatarp(TP)) {

@@ -42,7 +42,7 @@ string *class_feats(string myspec)
 
 mapping query_cantrip_spells(object ob)
 {
-    return ([ "create water" : 1, "detect magic" : 1, "detect poison" : 1, "guidance" : 1, "resistance" : 1, "light" : 1, "mending" : 1 ]);
+    return ([ "create water" : 1, "detect magic" : 1, "detect poison" : 1, "guidance" : 1, "resistance" : 1, "light" : 1, "mending" : 1, "disrupt undead" : 1 ]);
 }
 
 mapping class_featmap(string myspec) {

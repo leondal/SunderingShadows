@@ -164,6 +164,11 @@ int cmd_rumors(string args)
             searchlist = keys(areas);
             foreach(peep in peeps)
             {
+                    
+                if (peep == TP) {
+                    continue;
+                }
+
                 if(!objectp(ENV(peep)))
                     continue;
                 fn = base_name(environment(peep));

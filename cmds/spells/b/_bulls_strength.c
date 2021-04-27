@@ -64,8 +64,8 @@ void spell_effect(int prof)
         }
     }
 
-    mydiff = 4;   
-    mydiff = min(({ mydiff, (30 - target->query_stats("constitution")) }));
+    mydiff = 4;
+    mydiff = min(({ mydiff, (30 - target->query_stats("strength")) }));
     //if(target->query_stats("strength") > 28) mydiff = 1;
     //if(target->query_stats("strength") > 29) mydiff = 0;
 
@@ -100,7 +100,7 @@ void reverse_spell()
     tell_object(caster,"%^CYAN%^A queasy feeling runs through you, leaving you weakened.%^RESET%^");
 
     mydiff *= -1;
-    
+
     if(mydiff)
     {
         target->add_stat_bonus("strength",mydiff);

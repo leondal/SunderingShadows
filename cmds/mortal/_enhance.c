@@ -152,6 +152,7 @@ int cmd_enhance(string str)
         }
         else {
             duration = 80;
+            duration *= (1 + (TP->query_prestige_level("paladin") / 5));
         }
         TP->set_property("weapon enhancement timer", duration);
         return 1;
@@ -249,7 +250,7 @@ int cmd_enhance(string str)
         }
         else {
             duration = 80;
-            duration *= 1 + (TP->query_prestige_level("paladin") / 5);
+            duration *= (1 + (TP->query_prestige_level("paladin") / 5));
         }
         TP->set_property("armor enhancement timer", duration);
         return 1;

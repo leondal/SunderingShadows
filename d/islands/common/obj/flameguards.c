@@ -66,13 +66,14 @@ int remove_func(){
 }
 
 int strike_func(int damage, object what, object who){
-	if(random(1000) < 300){
+	if(!random(3)){
 	tell_room(environment(query_worn()),"%^RED%^%^BOLD%^"+ETO->QCN+" moves "+
              "with the speed of an inferno to parry "+who->QCN+"'s attack.%^RESET%^",({ETO,who}));
 	tell_object(ETO,"%^RED%^%^BOLD%^You feel a swift heat burn in you as you "+
              "parry "+who->QCN+"'s attack.%^RESET%^");
 	tell_object(who,"%^RED%^%^BOLD%^"+ETOQCN+" moves with the speed of an inferno"+
              " to parry your attack with "+ETO->QP+" bracers.%^RESET%^");
-          return (-1)*(damage);
+          return 0
 	}
+    return damage;
 }

@@ -145,7 +145,7 @@ int strikeme(int damage, object what, object who){
                    "spirit flies out from the armor, striking "+who->QCN+"!");
                    break;
       }
-      who->do_damage("torso",random(10)+5);
-//      return damage;
+      who->do_damage("torso",roll_dice(1, 10) + 5);
   }
+  return damage;
 }

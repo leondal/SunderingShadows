@@ -1,6 +1,5 @@
 #include <std.h>
 #include <daemons.h>
-
 inherit FEAT;
 
 object* allies = ({}), * enemies = ({});
@@ -11,10 +10,10 @@ void create()
     ::create();
     feat_type("instant");
     feat_category("Chronicler");
-    feat_name("temporal displacement");
+    feat_name("lay of the exalted dead");
     feat_prereq("Chronicler L7");
-    feat_syntax("temporal_displacement");
-    feat_desc("The temporal displacement feat allows the chronicler to project an aura of manipulated time about herself. The time bubble will speed up any allies who enter it as well as slow down any enemies. The bubble covers a limited distance near the chronicler and the chronicler is able to direct it in a manner such that the negative effects will only hamper her enemies.");
+    feat_syntax("lay_of_the_exalted_dead");
+    feat_desc("With this feat, the chronicler retells an epic tale of incredible heroism in the face of insurmountable odds. This tale fills allies with hope and inspiration, and enemies with a deep-deated dread. This feat adds a bonus to AC, reflex saves, to hit, and extra attacks, while having the opposite effect on enemies.");
 }
 
 int allow_shifted()
@@ -55,8 +54,8 @@ void execute_feat()
         return;
     }
 
-    if (FEATS_D->is_active(caster, "temporal displacement")) {
-        obj = query_active_feat("temporal displacement");
+    if (FEATS_D->is_active(caster, "lay of the exalted dead")) {
+        obj = query_active_feat("lay of the exalted dead");
         obj->dest_effect();
         caster = 0;
         dest_effect();
@@ -65,7 +64,7 @@ void execute_feat()
     }
 
     ::execute_feat();
-    tell_object(caster, "%^RESET%^%^BOLD%^You pull on the strands of fate, manipulating the flow of time.%^RESET%^");
+    tell_object(caster, "%^RESET%^%^ORANGE%^With an %^CYAN%^a%^GREEN%^r%^CYAN%^c%^GREEN%^a%^CYAN%^n%^GREEN%^e %^ORANGE%^gesture, an %^CYAN%^et%^BOLD%^he%^WHITE%^r%^CYAN%^ea%^RESET%^%^CYAN%^l m%^BOLD%^u%^WHITE%^s%^CYAN%^i%^RESET%^%^CYAN%^c %^ORANGE%^rises up around you.%^WHITE%^");
     caster->set_property("active_feats", ({ TO }));
     return;
 }
@@ -86,11 +85,11 @@ varargs void remove_effects(int ending)
         myplace = environment(enemies[i]);
         if (!objectp(caster) || !objectp(place) || !objectp(myplace) || (myplace != place) || ending) {
             enemies[i]->set_property("fighter_attacks_mod", 2);
-            enemies[i]->add_attack_bonus(4);
-            enemies[i]->add_ac_bonus(4);
+            enemies[i]->add_attack_bonus(2);
+            enemies[i]->add_ac_bonus(2);
             enemies[i]->add_saving_bonus("reflex", 2);
-            enemies[i]->remove_property_value("added short", ({ "%^BOLD%^%^CYAN%^ (inside a wavering time bubble)%^RESET%^" }));
-            tell_object(enemies[i], "%^MAGENTA%^You leave the area of distorted time and shudder as you regain your senses!%^RESET%^");
+            enemies[i]->remove_property_value("added short", ({ " %^BOLD%^(%^CYAN%^sur%^RESET%^%^CYAN%^rou%^BOLD%^nd%^WHITE%^ed %^CYAN%^by %^RESET%^%^CYAN%^mu%^BOLD%^sic%^WHITE%^)%^RESET%^" }));
+            tell_object(enemies[i], "%^RESET%^%^MAGENTA%^You regain your composure as the music fades away.%^WHITE%^");
             removing += ({ enemies[i] });
         }
     }
@@ -105,11 +104,11 @@ varargs void remove_effects(int ending)
         myplace = environment(allies[i]);
         if (!objectp(caster) || !objectp(place) || !objectp(myplace) || (myplace != place) || ending) {
             allies[i]->set_property("fighter_attacks_mod", -2);
-            allies[i]->add_attack_bonus(-4);
-            allies[i]->add_ac_bonus(-4);
+            allies[i]->add_attack_bonus(-2);
+            allies[i]->add_ac_bonus(-2);
             allies[i]->add_saving_bonus("reflex", -2);
-            allies[i]->remove_property_value("added short", ({ "%^BOLD%^%^CYAN%^ (inside a wavering time bubble)%^RESET%^" }));
-            tell_object(allies[i], "%^MAGENTA%^You feel very sluggish after leaving the area of distorted time!%^RESET%^");
+            allies[i]->remove_property_value("added short", ({ " %^BOLD%^(%^CYAN%^sur%^RESET%^%^CYAN%^rou%^BOLD%^nd%^WHITE%^ed %^CYAN%^by %^RESET%^%^CYAN%^mu%^BOLD%^sic%^WHITE%^)%^RESET%^" }));
+            tell_object(allies[i], "%^RESET%^%^MAGENTA%^Your adrenaline ebbs as the music fades away.%^WHITE%^");
             removing += ({ allies[i] });
         }
     }
@@ -136,12 +135,11 @@ void add_effects(object* party, object* attackers)
             continue;
         }
         party[i]->set_property("fighter_attacks_mod", 2);
-        party[i]->add_attack_bonus(4);
-        party[i]->add_ac_bonus(4);
+        party[i]->add_attack_bonus(2);
+        party[i]->add_ac_bonus(2);
         party[i]->add_saving_bonus("reflex", 2);
-        party[i]->set_property("added short", ({ "%^BOLD%^%^CYAN%^ (inside a wavering time bubble)%^RESET%^" }));
-        tell_object(party[i], "%^RESET%^%^BOLD%^%^GREEN%^You enter a field of distorted time and feel the world around you slow down, "
-                    "allowing you to move much faster!%^RESET%^");
+        party[i]->set_property("added short", ({ " %^BOLD%^(%^CYAN%^sur%^RESET%^%^CYAN%^rou%^BOLD%^nd%^WHITE%^ed %^CYAN%^by %^RESET%^%^CYAN%^mu%^BOLD%^sic%^WHITE%^)%^RESET%^" }));
+        tell_object(party[i], "%^RESET%^%^MAGENTA%^The %^CYAN%^e%^BOLD%^th%^WHITE%^er%^CYAN%^ea%^RESET%^%^CYAN%^l m%^BOLD%^u%^WHITE%^s%^CYAN%^i%^RESET%^%^CYAN%^c %^MAGENTA%^coalesces around you into %^BOLD%^%^RED%^proud d%^RESET%^%^RED%^ru%^BOLD%^m%^RESET%^%^RED%^be%^BOLD%^a%^RESET%^%^RED%^t%^BOLD%^s %^RESET%^%^MAGENTA%^and %^ORANGE%^h%^BOLD%^er%^WHITE%^o%^ORANGE%^i%^RESET%^%^ORANGE%^c %^MAGENTA%^trills of %^ORANGE%^v%^WHITE%^i%^ORANGE%^oli%^WHITE%^n%^ORANGE%^s%^MAGENTA%^... you feel invigorated, destined for %^YELLOW%^greatness%^WHITE%^!%^RESET%^");
         allies += ({ party[i] });
     }
 
@@ -157,11 +155,11 @@ void add_effects(object* party, object* attackers)
             continue;
         }
         attackers[i]->set_property("fighter_attacks_mod", -2);
-        attackers[i]->add_attack_bonus(-4);
-        attackers[i]->add_ac_bonus(-4);
+        attackers[i]->add_attack_bonus(-2);
+        attackers[i]->add_ac_bonus(-2);
         attackers[i]->add_saving_bonus("reflex", -2);
-        attackers[i]->set_property("added short", ({ "%^BOLD%^%^CYAN%^ (inside a wavering time bubble)%^RESET%^" }));
-        tell_object(attackers[i], "%^RESET%^%^BOLD%^%^RED%^You step into a field of distorted time and suddenly feel very sluggish!%^RESET%^");
+        attackers[i]->set_property("added short", ({ " %^BOLD%^(%^CYAN%^sur%^RESET%^%^CYAN%^rou%^BOLD%^nd%^WHITE%^ed %^CYAN%^by %^RESET%^%^CYAN%^mu%^BOLD%^sic%^WHITE%^)%^RESET%^" }));
+        tell_object(attackers[i], "%^RESET%^%^MAGENTA%^The %^CYAN%^e%^BOLD%^th%^WHITE%^er%^CYAN%^ea%^RESET%^%^CYAN%^l m%^BOLD%^u%^WHITE%^s%^CYAN%^i%^RESET%^%^CYAN%^c %^MAGENTA%^coalesces into a %^BOLD%^%^RED%^d%^RESET%^%^RED%^ul%^BOLD%^l p%^RESET%^%^RED%^er%^BOLD%^c%^RESET%^%^RED%^us%^BOLD%^s%^RESET%^%^RED%^io%^BOLD%^n %^RESET%^%^MAGENTA%^with screaming %^ORANGE%^v%^WHITE%^i%^ORANGE%^ol%^WHITE%^i%^ORANGE%^ns%^MAGENTA%^... it fills you with %^BOLD%^%^BLACK%^dread %^RESET%^%^MAGENTA%^and %^BOLD%^%^BLACK%^foreboding%^RESET%^%^MAGENTA%^!%^WHITE%^");
         enemies += ({ attackers[i] });
     }
 }
@@ -191,8 +189,7 @@ void execute_attack()
     add_effects(party, attackers);
 
     if (!random(20)) {
-        tell_room(place, "%^RESET%^%^BOLD%^%^CYAN%^The bubble around " + caster->QCN + " tumbles and shimmers, tumbling and undulating and "
-                  "distorting the world inside of it.%^RESET%^", enemies + allies);
+        tell_room(place, "%^RESET%^%^MAGENTA%^The %^CYAN%^e%^BOLD%^th%^WHITE%^er%^CYAN%^ea%^RESET%^%^CYAN%^l m%^BOLD%^u%^WHITE%^s%^CYAN%^i%^RESET%^%^CYAN%^c %^MAGENTA%^surrounding %^WHITE%^" + caster->QCN + " %^RESET%^%^MAGENTA%^fades and trails off into a %^BOLD%^%^BLACK%^f%^RESET%^ra%^BOLD%^%^BLACK%^gme%^RESET%^n%^BOLD%^%^BLACK%^te%^RESET%^d m%^BOLD%^%^BLACK%^em%^RESET%^o%^BOLD%^%^BLACK%^ry%^RESET%^%^MAGENTA%^.%^WHITE%^", enemies + allies);
     }
 
     if (objectp(place)) {
@@ -206,10 +203,11 @@ void dest_effect()
 {
     remove_effects(1);
     if (objectp(caster)) {
-        tell_object(caster, "%^B_BLUE%^Your control over time dissipates.");
+        tell_object(caster, "%^B_BLUE%^The tale fades from your presence.%^RESET%^");
         caster->remove_property_value("active_feats", ({ TO }));
     }
     ::dest_effect();
     remove_feat(TO);
     return;
 }
+

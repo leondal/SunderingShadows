@@ -154,7 +154,7 @@ int struck_func(int damage, object what, object who){
             "h%^WHITE%^a%^BOLD%^%^BLACK%^ze that surrounds "+ETO->QCN+"'s "+
             "hide armor causes "+who->QCN+" to miss their attack on "+
             "them.%^RESET%^",({who,ETO}));
-        return (-1)*damage;
+        return 0;
       }
    }
    tell_object(ETO,"%^BOLD%^%^BLACK%^The dark h%^WHITE%^a"+
@@ -167,5 +167,5 @@ int struck_func(int damage, object what, object who){
        "h%^WHITE%^a%^BOLD%^%^BLACK%^ze that surrounds "+ETO->QCN+"'s "+
        "hide armor causes "+who->QCN+" to miss part of their attack on "+
        "them.%^RESET%^",({who,ETO}));
-   return (-1)*(damage/4);
+   return (damage * 3) / 4;
 }

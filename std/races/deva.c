@@ -61,7 +61,8 @@ mapping daily_uses(string subrace)
 
 mapping query_racial_innate(string subrace)
 {
-    return (["light" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ])
+    return (["light" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
+             "dimension door" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ])
     ]);
 }
 

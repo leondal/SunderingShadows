@@ -120,7 +120,7 @@ int bind_me(string str)
         tell_room(ETP, TPQCN + " bends down to work at the lock but shudders and freezes when a click sounds from it!", TP);
         TP->set_paralyzed(50, "Your muscles are frozen from the shock!");
         tell_object(TP, "A guard rushes in and binds you, then takes your tools!");
-        tell_room(ETP, "A guard rushes in and binds " + TPQCN + ", then takes TP->query_possessive() tools.", TP);
+        tell_room(ETP, "A guard rushes in and binds " + TPQCN + ", then takes "+TP->query_possessive()+" tools.", TP);
         TP->set_bound(500);
         ob = present("thief tools", TP);
         if (objectp(ob)) {

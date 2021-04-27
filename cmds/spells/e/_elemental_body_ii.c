@@ -5,10 +5,12 @@ inherit "/cmds/spells/e/_elemental_body_i";
 
 void effect(int direction)
 {
+    /*
     if(direction>0)
         caster->set_property("augmentation");
     else
         caster->remove_property("augmentation");
+    */
 
     switch(query_element())
     {
@@ -42,8 +44,6 @@ void create()
   fire:  +4 dexterity,     +3 armor class
   air:   +4 dexterity,     +3 armor class
   earth: +4 strength,      +5 armor class
-  water: +4 constitution,  +5 armor class
-
-This spell won't work together with other augmenting spells such as fox's cunning.");
+  water: +4 constitution,  +5 armor class");
     set_syntax("cast CLASS "+query_spell_name()+" on fire|air|earth|water");
 }

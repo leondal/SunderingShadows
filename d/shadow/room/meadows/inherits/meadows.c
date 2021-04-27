@@ -16,14 +16,14 @@ void create()
    " is filled with all sorts of insects and animals. There are wildflowers"+
    " that have sprouted up about the area, giving off a wonderful scent."+
    " Despite the beauty of this place you realize that it could quite"+
-   " easily conceal many dangers and it's best to be on your guard."
+   " easily conceal many dangers and it's best to be on your guard.\n"
    );
    set("night long",
    "%^GREEN%^The night air blows a cool breeze across the meadow lands,"+
    " rustling the grass and arousing the crickets even louder. The grass"+
    " is dark and thick, making it hard to see whether or not your next"+
    " step will be safe. You never know what could be hiding under the"+
-   " tall grass, or what might be out there waiting to ambush you."
+   " tall grass, or what might be out there waiting to ambush you.\n"
    );
    set_smell("default","The fragrant wildflowers are wonderful.");
    if(query_night() == 1) {

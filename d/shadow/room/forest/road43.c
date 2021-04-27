@@ -14,7 +14,7 @@ void create()
    "%^BOLD%^You are walking on a path through the brush.%^RESET%^\n"+
    "The road stretches out to the northeast and west here. There"+
    " are high shrub brushes scattered out around here, and the road"+
-   " climbs up through some mountain foothills to the northeast."
+   " climbs up through some mountain foothills to the northeast.\n"
    );
    set_smell("default","You smell the fresh air.");
    set_listen("default","You can hear animals in the brush.");

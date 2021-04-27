@@ -1,0 +1,35 @@
+/*
+  ansi.h
+  
+  Include file that allows me to use my own
+  custom color tags for things.
+  
+  -- Tlaloc --
+*/
+
+//From terminal.c
+#define ANSI(p) sprintf("%c["+(p)+"m", 27)
+
+//My own color tags
+#define OFF        ANSI("0")
+#define BOLD       ANSI(1)
+#define FLASH      ANSI(5)
+#define BLACK      ANSI(30)
+#define RED        ANSI(31)
+#define GREEN      ANSI(32)
+#define ORANGE     ANSI(33)
+#define YELLOW     ANSI(1) + ANSI(33)
+#define BLUE       ANSI(34)
+#define MAGENTA    ANSI(35)
+#define CYAN       ANSI(36)
+#define WHITE      ANSI(37)
+
+#define B_BLACK    ANSI(40)
+#define B_RED      ANSI(41)
+#define B_GREEN    ANSI(42)
+#define B_ORANGE   ANSI(43)
+#define B_YELLOW   ANSI(1) + ANSI(43)
+#define B_BLUE     ANSI(44)
+#define B_MAGENTA  ANSI(45)
+#define B_CYAN     ANSI(46)
+#define B_WHITE    ANSI(47)

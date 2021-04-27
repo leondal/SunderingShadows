@@ -59,11 +59,10 @@ int hit_fun(object targ){
 "your flesh!%^RESET%^");
       tell_room(EETO,"%^BLUE%^"+ETO->QCN+"'s claws seem to become insubstancial as they pass right through "
 +targ->QCN+"'s flesh!%^RESET%^",({ETO,targ}));
-      dam = random(5)+6;
+      dam = roll_dice(1, 10);
       TO->set_property("magic",1);
-      targ->do_damage(targ->return_target_limb(),dam);
       TO->remove_property("magic");
-      return 1;
+      return dam;
    }
 
    if(!random(8)) {
@@ -73,12 +72,11 @@ int hit_fun(object targ){
 "you with them.%^RESET%^");
       tell_room(EETO,"%^BOLD%^%^BLACK%^The shadowy claws seem to glitter darkly as "+ETO->QCN+" slashes at "
 +targ->QCN+" with them.%^RESET%^",({ETO,targ}));
-      dam = random(5)+6;
+      dam = roll_dice(1, 10);
       TO->set_property("magic",1);
-      ETO->do_damage("torso",(-1)*dam);
-      targ->do_damage(targ->return_target_limb(),dam);
+      ETO->add_hp(dam);
       TO->remove_property("magic");
-      return 1;
+      return dam;
    }
 
    if(!random(10)) {
@@ -87,7 +85,7 @@ int hit_fun(object targ){
 "your claws!%^RESET%^");
       tell_room(EETO,"%^RED%^"+ETO->QCN+" moves with fluid grace, following up one vicious attack from "
 +ETO->QP+" claws with another!%^RESET%^","ETO");
-      return 1;
+      return 0;
    }
-   return 1;
+   return 0;
 }

@@ -102,7 +102,7 @@ int hitme(object targ){
                "strange spirit lashes out at "+targ->QO+" from "+
                ""+ETOQCN+"'s sword!%^RESET%^",({ETO,targ}));
             set_property("magic",1);
-            targ->do_damage("torso",random(3)+4);
+            //targ->do_damage("torso",random(3)+4);
             set_property("magic",-1);
             break;
          case 1:
@@ -120,5 +120,7 @@ int hitme(object targ){
             ETO->add_protector(ob1);
             break;
       }
+      return roll_dice(1, 6);
    }
+   return 0;
 }

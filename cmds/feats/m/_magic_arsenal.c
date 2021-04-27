@@ -24,6 +24,13 @@ int prerequisites(object ob)
         dest_effect();
         return 0;
     }
+    //Single-class warlocks or warlocks + prestige have no use for this feat.
+    if(ob->query_level() == ob->query_prestige_level("warlock"))
+    {
+        dest_effect();
+        return 0;
+    }
+        
     return ::prerequisites(ob);
 }
 

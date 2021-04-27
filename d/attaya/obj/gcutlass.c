@@ -28,7 +28,7 @@ void create(){
 
 	);
 
-	set_property("enchantment",4);
+	set_property("enchantment",5);
      set_wield((:TO,"wield_func":));
      set_hit((:TO,"hit":));
 }
@@ -43,7 +43,7 @@ int wield_func(){
 
 int hit(object targ){
    if(!objectp(targ)) return 0;
-   if(random(1000) < 200){
+   if(!random(5)){
       switch(random(4)){
          case 0:
             tell_room(environment(query_wielded()),"%^BOLD%^%^RED%^"+ETOQCN+" %^BOLD%^%^BLUE%^lacerates %^BOLD%^%^RED%^"+targ->QCN+" across the chest, letting the blood grooves of the cutlass cause a severe wound!%^RESET%^",({ETO,targ}));
@@ -75,4 +75,5 @@ int hit(object targ){
          }
       return roll_dice(2,5)+3;
    }
+   return 0;
 }

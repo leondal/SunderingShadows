@@ -9,7 +9,7 @@ void create() {
     feat_category("Rampage");
     feat_name("unstoppable");
     feat_prereq("Barbarian L31");
-    feat_desc("This feat makes the Barbarian an unstoppable force. He gains an additional +3 damage resistance, and his Damage Reduction feat now applies to all resistance types.");
+    feat_desc("This feat makes the Barbarian an unstoppable force. He gets an additional +2 max health per level while raged. He also gains an additional +3 damage resistance, and his Damage Reduction feat now applies to all resistance types.");
 }
 
 int allow_shifted() { return 1; }

@@ -7,23 +7,21 @@ void create(){
    set_travel(DIRT_ROAD);
     set_property("light" , 2);
     set_property("indoors" , 0);
-    set_short("%^RESET%^%^GREEN%^On the Quiet %^BOLD%^%^GREEN%^Fo%^RESET%^%^GREEN%^r%^GREEN%^e%^BOLD%^%^GREEN%^s%^RESET%^%^GREEN%^t %^ORANGE%^R%^BOLD%^%^ORANGE%^o%^ORANGE%^a%^ORANGE%^d%^RESET%^");
-    set_long(::query_long()+"
-%^BOLD%^%^CYAN%^A magnificent temple stands here on the side of the road.%^RESET%^");
+    set_short("%^RESET%^%^GREEN%^On the Quiet %^BOLD%^%^GREEN%^Fo%^RESET%^%^GREEN%^r%^GREEN%^e%^BOLD%^%^GREEN%^s%^RESET%^%^GREEN%^t %^ORANGE%^R%^BOLD%^%^ORANGE%^o%^ORANGE%^a%^ORANGE%^d%^RESET%^\n");
+    set_long(::query_long()+"%^BOLD%^%^CYAN%^A magnificent temple stands here on the side of the road.%^RESET%^\n");
     set_items(([
-        "road":"A new road through the forest.",
-        "forest":"A quiet forest, for sure. Only the sounds of birds."
-        ]));
+	"road":"This dirt road cuts through a quiet forest.",
+	"forest":"This is an aptly named road through a quiet forest. You hear only the occasional bird song."
+      ]));
 
     set_exits(([
         "southeast" : FORESTDIR+"road4",
         "west" : FORESTDIR+"road6",
 "temple": "/d/magic/temples/kismet/kismet"
         ]));
-    set_smell("default","You smell fresh air and the odor of
-%^GREEN%^w%^BOLD%^i%^MAGENTA%^l%^RESET%^%^MAGENTA%^d%^BOLD%^fl%^RESET%^%^MAGENTA%^o%^BOLD%^we%^RESET%^%^MAGENTA%^r%^BOLD%^s%^ORANGE%^.");
-    set_listen("default","You can hear birds singing.");
-    add_item(({"temple","Tall marble structure towers over the surroundings"}));
+    set_smell("default","%^CYAN%^The fresh scent of the forest surrounds you.%^WHITE%^");
+    set_listen("default","%^ORANGE%^You can hear birds singing.%^RESET%^");
+    set_listen("birds","They seem to sing songs of love - or murder - depending on your mood.");
+   add_item(({"temple","Tall marble structure towers over the surroundings"}));
     set_climate(CLIMATE);
-
 }

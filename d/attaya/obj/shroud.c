@@ -32,7 +32,7 @@ void create() {
      set_type("clothing");
      set_size(2);
     set_limbs(({"torso"}));
-    set_property("enchantment",4);
+    set_property("enchantment",5);
     set_wear((:TO,"wearit":));
     set_remove((:TO,"unwearit":));
 

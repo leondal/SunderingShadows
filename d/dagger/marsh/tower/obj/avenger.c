@@ -114,10 +114,14 @@ int paladin() {
       break;
   case "lord shadow":  GEM = "%^BOLD%^dia%^CYAN%^m%^WHITE%^ond";
       break;
+  case "nimnavanon" : 
+  case "seija" :
+      GEM = "%^GREEN%^BOLD%^emerald%^RESET%^";
+  break;
   default:  GEM = "colorless gem";
       break;
   }
-  if(!ETO->is_class("paladin") && !ETO->is_class("cleric")) {
+  if(!ETO->is_class("paladin") && !ETO->is_class("cleric") && !ETO->is_class("inquisitor")) {
 	tell_object(ETO,"You may not wield this weapon!");
 	return 0;
     }
@@ -184,6 +188,10 @@ int removeme() {
       break;
   case "lord shadow":  GEM = "%^BOLD%^dia%^CYAN%^m%^WHITE%^ond";
       break;
+  case "nimnavanon" : 
+  case "seija" :
+      GEM = "%^GREEN%^BOLD%^emerald%^RESET%^";
+  break;
   default:  GEM = "colorless gem";
       break;
   }
@@ -279,7 +287,7 @@ int extra_hit() {
        tell_room(EETO,"%^YELLOW%^"+ETOQCN+"'s face beams as "+
           ""+ETO->QP+" sword slashes into "+ob->QCN+" with a "+
           "brilliant flash!",({ob,ETO}));
-       ETO->cause_typed_damage(ETO, "torso",dam,"positive energy");
+       ETO->add_hp(dam);
        break;
       case 29:
        tell_object(ETO,"%^BOLD%^The sword begins to vibrate in your "+
@@ -417,7 +425,10 @@ int summon_em(string str)
                   "in the ground and spreads " + ETO->QP + " arms wide.", ETO);
         tell_room(EETO, "%^BOLD%^%^CYAN%^A mighty beast appears before you, answering the call!");
         switch (god) {
-        case "lysara": ob = new("/d/common/mounts/panther"); break;
+        case "lysara": 
+        case "nimnavanon":
+            ob = new("/d/common/mounts/panther");
+        break;
         case "kreysneothosies":  ob = new("/d/common/mounts/gpegasus"); break;
         case "jarmila": ob = new("/d/common/mounts/funicorn"); break;
         case "lord shadow":  ob = new("/d/common/mounts/graywolf"); break;

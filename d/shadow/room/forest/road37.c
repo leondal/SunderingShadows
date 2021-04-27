@@ -14,7 +14,7 @@ void create()
    "%^BOLD%^You are walking on a path through the meadow lands.%^RESET%^\n"+
    "The road stretches out to the northwest and east, running along the"+
    " bottom of the meadow lands. It seems a peaceful enough path for the most"+
-   " part, but being in the wilderness is always dangerous."
+   " part, but being in the wilderness is always dangerous.\n"
    );
    set_smell("default","You smell the fresh air and the odor of %^GREEN%^w%^BOLD%^i%^MAGENTA%^l%^RESET%^%^MAGENTA%^d%^BOLD%^fl%^RESET%^%^MAGENTA%^o%^BOLD%^we%^RESET%^%^MAGENTA%^r%^BOLD%^s%^ORANGE%^.");
    set_listen("default","You can hear the birds singing.");

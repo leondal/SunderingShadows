@@ -9,7 +9,7 @@ object targ;
 void create() {
     ::create();
     set_spell_name("timeless body");
-    set_spell_level(([ "psion" : 9, "oracle":8, "bard" : 5 ]));
+    set_spell_level(([ "psion" : 9, "oracle":8 ]));
     set_mystery("ancestor");
     set_spell_sphere("combat");
     set_syntax("cast CLASS timeless body");
@@ -21,7 +21,6 @@ void create() {
     set_verbal_comp();
     set_somatic_comp();
 	set_helpful_spell(1);
-    set_feats_required(([ "bard" : "timeweaver" ]));
 }
 
 string query_cast_string() {

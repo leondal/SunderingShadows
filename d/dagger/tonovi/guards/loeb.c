@@ -1,8 +1,9 @@
 #include <std.h>
+#include <daemons.h>
 #include "/d/common/common.h"
 
 #define CITYLAW "tonovi law"
-#define LVL 70
+#define LVL 65
 
 inherit "/std/guardsman.c";
 
@@ -14,6 +15,8 @@ void blow_horn(object watchman);
 void create()
 {
     string rank;
+    object obj;
+    
     ::create();
     will_open_doors(1);
     set_nogo(({ "/d/dagger/tonovi/road2", "/d/dagger/tonovi/town/street1", "/d/dagger/tonovi/town/wall1", "/d/dagger/tonovi/town/wall3" }));
@@ -21,10 +24,11 @@ void create()
     set_id(({ "marvin", "marvin loeb", "loeb", "guard", "Marvin Loeb", "Marvin", "Loeb", "champion", CITYLAW }));
     set_short("%^CYAN%^Marvin Loeb%^BLACK%^, C%^RESET%^%^CYAN%^h%^BOLD%^a%^WHITE%^m%^BLACK%^pion of the C%^RESET%^%^CYAN%^i%^BOLD%^t%^WHITE%^y %^BLACK%^G%^RESET%^%^CYAN%^u%^BOLD%^a%^WHITE%^r%^BLACK%^d%^RESET%^");
     set_gender(1);
+    set_alignment(3);
     set_race("human");
     set_level(LVL);
     set_hd(LVL + random(10), 1);
-    set_max_hp(LVL * 20 + 5000);
+    set_max_hp(LVL * 20 + 6000);
     set_hp(TO->query_max_hp());
     set_new_exp(50, "boss");
     set_class("fighter");
@@ -37,6 +41,7 @@ void create()
     add_damage_bonus(10);
     set_property("add kits", 50);
     set_monster_feats(({
+        "bravery",
         "parry",
         "powerattack",
         "shatter",
@@ -47,21 +52,16 @@ void create()
         "improved toughness",
         "regeneration",
         "toughness",
-        "expertise",
         "knockdown",
         "disarm",
-        "scramble",
-        "dodge",
         "evasion",
-        "defensive roll",
-        "mobility",
         "death ward",
-        "unyielding soul",
         "resistance",
         "improved resistance",
         "increased resistance",
-        "spring attack",
         "counter",
+        "shieldwall",
+        "shieldbash",
         "deflection",
         "shield proficiency",
         "reflection"
@@ -80,6 +80,8 @@ void create()
     set_property("full attacks", 1);
     set_property("fast healing", 5);
     set_property("magic resistance", random(60) + 10);
+    set_property("no death");
+    
     set_ac(-50 - random(10));
     set_detecting_invis(1);
     set_long("This " + query_gender() + " guard wears the standard uniform of "
@@ -92,11 +94,25 @@ void create()
              );
 
 
+/*
     RANDGEAR->armor_me(TO, "armornp", 20, 2, 75);
     new("/d/common/obj/armour/coif")->move(TO);
     command("wear coif");
     RANDGEAR->armor_me(TO, "shield", 30, 1, 75);
     RANDGEAR->arm_me(TO, "tool", 30, 2, 75);
+*/
+
+    obj = new("/d/magic/obj/shields/the_faceless_one");
+    obj->set_property("enchantment", 7);
+    obj->move(this_object());
+    obj->set_property("monster weapon", 1);
+    force_me("wear shield");
+
+    obj = new("/d/magic/obj/weapons/the_faceless_one");
+    obj->set_property("enchantment", 7);
+    obj->move(this_object());
+    obj->set_property("monster weapon", 1);
+    force_me("wield weapon");
 
     set_guard_stuff();
 }
@@ -269,4 +285,17 @@ void disarmit(object targ)
 void report()
 {
     return;
+}
+
+void die(object ob)
+{
+    int power;//%
+    power = 10 + random(5);
+    WORLD_EVENTS_D->kill_event("Gates of Tonovi");
+    WORLD_EVENTS_D->inject_event((["Gates of Tonovi" : (["start message" : "%^CYAN%^%^BOLD%^The Champion of Tonovi has fallen in battle!%^RESET%^
+
+%^RESET%^%^BOLD%^The masses of Tonovi let out a cry of dismay!%^RESET%^",
+                                                             "event type" : "exp bonus", "length" : 120, "notification" : power + "% Bonus Exp",
+                                                             "event name" : "Gates of Tonovi", "modifier" : power, "announce" : 1, "announce to" : "world" ]), ])
+                                 );
 }

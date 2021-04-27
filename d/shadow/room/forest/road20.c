@@ -14,7 +14,7 @@ void create(){
 	   "%^BOLD%^%^RED%^firepit %^RESET%^%^GREEN%^and a small bit of space for tired horses to graze. Old "+
 	   "%^ORANGE%^logs %^GREEN%^and %^ORANGE%^stumps %^GREEN%^provide some seating around the "+
 	   "%^BOLD%^%^BLACK%^charred stones %^RESET%^%^GREEN%^of the firepit. It is very quiet and relaxing "+
-	   "here, the only sounds being songbirds high in the trees.%^WHITE%^");
+	   "here, the only sounds being songbirds high in the trees.%^WHITE%^\n");
 	set_items(([
 	({"pit","fire pit"}) : "%^BOLD%^%^BLACK%^A ring of stones marks the borders of this fire pit. "+
 	"The big rocks are charred from many years of holding back flames of traveller's fires.%^RESET%^",
@@ -27,9 +27,9 @@ void create(){
 	"southwest" : FORESTDIR+"road21",
 	"northwest" : FORESTDIR+"road22"
    	]));
-    set_smell("default","You smell fresh air and the odor of %^GREEN%^w%^BOLD%^i%^MAGENTA%^l%^RESET%^%^MAGENTA%^d%^BOLD%^fl%^RESET%^%^MAGENTA%^o%^BOLD%^we%^RESET%^%^MAGENTA%^r%^BOLD%^s%^ORANGE%^.");
-    set_listen("default","You can hear birds singing.");
-
+    set_smell("default","%^CYAN%^The fresh scent of the forest surrounds you.%^WHITE%^");
+    set_listen("default","%^ORANGE%^You can hear birds singing.%^RESET%^");
+    set_listen("birds","They seem to sing songs of love - or murder - depending on your mood.");
 
     set_quest_daemon("/daemon/quests_mid");
 }

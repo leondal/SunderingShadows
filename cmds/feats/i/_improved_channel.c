@@ -12,6 +12,7 @@ void create()
     feat_desc("This feat allows the channeler to more effectively channel their energies. " +
     "This adds two caster levels to their channel and channel smite features. Note: This is not a free feat.");
     permanent(1);
+    feat_classes(({"cleric", "paladin"}));
     set_required_for(({}));
 }
 

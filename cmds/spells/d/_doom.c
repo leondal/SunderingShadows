@@ -19,7 +19,7 @@ void create() {
     set_target_required(1);
     mental_spell(1);
     set_save("will");
-    set_feats_required(([ "bard" : "timeweaver" ]));
+    set_feats_required(([ "bard" : "epic tales" ]));
 }
 
 string query_cast_string(){

@@ -232,7 +232,7 @@ void do_greeting()
         race = (string)shape->query_shape_race();
     }
 
-    if (race == "drow" || race == "ogre" || race == "half-ogre" || race == "goblin" || race == "orc" || race == "half-orc" || race == "hobgoblin" || race == "ogre-mage" || race == "gnoll" || race == "half-drow" || race == "kobold" || race == "bugbear" || race == "minotaur" || race == "yuan-ti") {
+    if (race == "drow" || race == "ogre" || race == "half-ogre" || race == "goblin" || race == "orc" || race == "half-orc" || race == "hobgoblin" || race == "ogre-mage" || race == "gnoll" || race == "half-drow" || race == "kobold" || race == "bugbear" || race == "minotaur" || race == "yuan-ti" || race == "shade") {
         speak(" The citizens aren't too fond of " + TP->query_race() + "s wandering" +
               " through their city. I'd find someplace else to go, you'll get no welcome here.");
         return 1;
@@ -379,6 +379,10 @@ void heart_beat()
     int i, j;
 
     ::heart_beat();
+    
+    if(!this_object())
+        return;
+    
     if ((mixed*)TO->query_attackers() != ({ }) && SUMMON != 1) {
         force_me("yell Help! There are attackers at the gates!");
         SUMMON = 1;

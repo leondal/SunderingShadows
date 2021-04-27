@@ -41,7 +41,7 @@ int strikeme(int damage, object what, object who){
       }
       tell_object(who,"The chainmail worn by "+ETO->query_cap_name()+" clinks as you strike it.");
       tell_room(environment(query_worn()),"The chainmail clinks as it obsorbs the blow from "+who->query_cap_name()+".",({who,ETO}));
-      return (-1)*(damage/2);
+      return damage/2;
    }
-   return 0;
+   return damage;
 }

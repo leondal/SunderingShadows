@@ -49,7 +49,7 @@ int struck_fun(int damage, object what, object target) {
      tell_object(target,"%^ORANGE%^"+ETO->QCN+" swings "+ETO->QP+" elbow up, and deflects your attack "
 "with "+ETO->QP+" shield!%^RESET%^");
      tell_room(EETO,"%^ORANGE%^"+ETO->QCN+" swings "+ETO->QP+" elbow up, and deflects "+target->QCN+"'s attack with "+ETO->QP+" shield!%^RESET%^",({ETO,target}));
-     return (-1)*damage;
+     return 0;
    }
-   return 1;
+   return damage;
 }

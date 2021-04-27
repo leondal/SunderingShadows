@@ -82,4 +82,5 @@ int strike_func(int damage, object what, object who){
 		" forward his advantage.");
 				ETO->execute_attack();
 	}
+    return damage;
 }

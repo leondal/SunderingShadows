@@ -54,14 +54,15 @@ int extra_lrhit(object targ){
    if(!objectp(targ)) return 0;
    if(!objectp(ETO)) return 0;
    targ = ETO->query_current_attacker();
-   if(random(1000) < 400){
+   if(!random(3)){
      tell_object(ETO,"%^BOLD%^%^MAGENTA%^You shoot a glowing arrow of light into your target.%^RESET%^");
      tell_room(EETO,"%^BOLD%^%^MAGENTA%^"+ETOQCN+" shoots a glowing arrow of light into "
 +targ->QCN+"!%^RESET%^",({ETO,targ}));
      tell_object(targ,"%^BOLD%^%^MAGENTA%^"+ETOQCN+" shoots a glowing arrow of light into you!%^RESET%^");
      TO->set_property("magic",1);
-     targ->do_damage("torso",roll_dice(3,12));
+     //targ->do_damage("torso",roll_dice(3,12));
      TO->set_property("magic",-1);
+     return roll_dice(2, 6);
    }
    return 0;
 }

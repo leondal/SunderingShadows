@@ -92,37 +92,52 @@ CIRCE
 }
 
 int paladin() {
-  string god = ETO->query_diety();
+  string god;
   string GEM;
-  if(!living(ETO)) return 0;
-  switch(god){
-  case "the faceless one":  GEM = "%^BOLD%^%^GREEN%^em%^RESET%^%^GREEN%^er"+
+  object player;
+  
+  player = environment(this_object());
+  player && god = player->query_deity();
+  
+  if(!player)
+      return 0;
+  
+  switch(god)
+  {
+      case "the faceless one":  GEM = "%^BOLD%^%^GREEN%^em%^RESET%^%^GREEN%^er"+
           "%^BOLD%^%^BLACK%^a%^GREEN%^ld";
       break;
-  case "nilith":  GEM = "%^BOLD%^%^RED%^blo%^RESET%^%^RED%^od "+
+      case "khyron":
+      case "nilith":  GEM = "%^BOLD%^%^RED%^blo%^RESET%^%^RED%^od "+
           "%^BOLD%^%^BLACK%^ruby%^RED%^";
       break;
-  case "lysara": GEM = "%^RESET%^%^ORANGE%^ti%^YELLOW%^g"+
+      case "lysara": GEM = "%^RESET%^%^ORANGE%^ti%^YELLOW%^g"+
           "%^RESET%^%^ORANGE%^er's e%^YELLOW%^y%^RESET%^%^ORANGE%^e";
       break;
-  case "kreysneothosies":  GEM = "%^BOLD%^%^RED%^fi%^RESET%^%^RED%^r"+
+      case "kreysneothosies":  GEM = "%^BOLD%^%^RED%^fi%^RESET%^%^RED%^r"+
           "%^BOLD%^e o%^RESET%^%^ORANGE%^pa%^BOLD%^"+
           "%^RED%^l";
       break;
-  case "kismet":  GEM = "%^BOLD%^%^BLUE%^st%^BOLD%^%^WHITE%^a%^BOLD%^"+
+      case "kismet":  GEM = "%^BOLD%^%^BLUE%^st%^BOLD%^%^WHITE%^a%^BOLD%^"+
           "%^BLUE%^r sapp%^BOLD%^%^WHITE%^h%^BOLD%^%^BLUE%^ire";
       break;
-  case "lord shadow":  GEM = "%^RESET%^%^MAGENTA%^tan%^BOLD%^%^BLACK%^"+
+      case "lord shadow":  GEM = "%^RESET%^%^MAGENTA%^tan%^BOLD%^%^BLACK%^"+
           "za%^RESET%^%^MAGENTA%^nite";
       break;
-  default:  GEM = "colorless";
+      case "nimnavanon" : 
+      case "seija" :
+          GEM = "%^GREEN%^BOLD%^emerald%^RESET%^";
+  break;
+      default:  GEM = "colorless";
       break;
    }
-  if(!ETO->is_class("paladin")) {
-	tell_object(ETO,"You may not wield this weapon!");
+   
+  if(!player->is_class("paladin") && !player->is_class("inquisitor") && !player->is_class("cleric"))
+  {
+	tell_object(player,"You may not wield this weapon!");
 	return 0;
     }
-  if((int)ETO->query_true_align() != 3&& (int)ETO->query_true_align() != 2) {
+  if((int)player->query_true_align() != 3&& (int)player->query_true_align() != 2) {
 	tell_object(ETO,"You may not wield this weapon!");
 	return 0;
     }
@@ -170,6 +185,7 @@ int removeme() {
   case "the faceless one":  GEM = "%^BOLD%^%^GREEN%^em%^RESET%^%^GREEN%^er"+
           "%^BOLD%^%^BLACK%^a%^GREEN%^ld";
       break;
+  case "khyron":
   case "nilith":  GEM = "%^BOLD%^%^RED%^blo%^RESET%^%^RED%^od "+
           "%^BOLD%^%^BLACK%^ruby%^RED%^";
       break;
@@ -186,6 +202,10 @@ int removeme() {
   case "lord shadow":  GEM = "%^RESET%^%^MAGENTA%^tan%^BOLD%^%^BLACK%^"+
           "za%^RESET%^%^MAGENTA%^nite";
       break;
+  case "nimnavanon" : 
+  case "seija" :
+      GEM = "%^GREEN%^BOLD%^emerald%^RESET%^";
+  break;
   default:  GEM = "colorless";
       break;
    }
@@ -242,11 +262,11 @@ int extra_hit() {
         dam = dam + random(3) + 1;
     }
     switch((string)ETO->query_diety()){
-      case "auril":  godpos = "her";
+      case "nilith":  godpos = "her";
                      break;
-      case "mystra":  godpos = "her";
+      case "kismet":  godpos = "her";
                        break;
-      case "shar":  godpos = "her";
+      case "seija":  godpos = "her";
                     break;
       default:  godpos = "his";
                 break;
@@ -285,7 +305,7 @@ int extra_hit() {
        tell_room(EETO,"%^BOLD%^%^BLACK%^"+ETOQCN+" strikes "+
           ""+ob->QCN+" as the %^GREEN%^souls %^BLACK%^within "+
           ""+ETO->QP+" sword sprout %^RED%^barbs%^BLACK%^!",({ob,ETO}));
-       ETO->do_damage("torso",-dam);
+       ETO->add_hp(dam);
        break;
       case 29:
        tell_object(ETO,"%^BOLD%^%^BLACK%^The sword begins to vibrate in your "+

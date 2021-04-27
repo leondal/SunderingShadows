@@ -170,9 +170,11 @@ void heart_beat(){
 void struck(int damage, object weapon, object attacker, string limb) 
 {
     int x;
-    if(damage > 0  ) {
-	  if( random(6)==0)
-	  {
+    if(damage > 0  )
+    {
+        if( random(6)==0)
+	{
+	damage = 0;
         tell_room(ETO,"%^BOLD%^"+
             "Elea dances away from the blow "+
              "as "+
@@ -182,14 +184,13 @@ void struck(int damage, object weapon, object attacker, string limb)
             " as "+
             "you strike at her, avoiding the blow!");
 
-		}
-		else  x = do_damage(limb,damage);
-		if(objectp(attacker)) { attacker->send_messages(0, weapon,limb, x, TO);
-		}    
-          
-    
-
-}}
+	}
+	else  x = do_damage(limb,damage);
+	if(objectp(attacker))
+		attacker->send_messages(0, weapon,limb, x, TO);
+    }
+    return damage;
+}
 
 void catch_say(string msg){
    call_out("reply_func",1,msg,TP);

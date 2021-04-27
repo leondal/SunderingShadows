@@ -49,7 +49,7 @@ void spell_effect(int prof)
     object* targs = ({}), * temp = ({}), * inven = ({}), undead, controller;
     int i, j, lvl, flag;
 
-    if (target && !target->is_room()) {
+    if (target && objectp(target) && !target->is_room()) {
         if (!target->is_corpse()) {
             fail();
             return;

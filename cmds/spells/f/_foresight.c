@@ -11,7 +11,7 @@ int duration;
 void create() {
     ::create();
     set_spell_name("foresight");
-    set_spell_level(([ "mage" : 7, "bard" : 4,"oracle":7, "cleric":9, "psion" : 9, "magus" : 6 ]));
+    set_spell_level(([ "mage" : 7,"oracle":7, "cleric":9, "psion" : 9, "magus" : 6 ]));
     set_domains("knowledge");
     set_spell_sphere("divination");
     set_discipline("seer");
@@ -26,7 +26,6 @@ void create() {
     set_components(([
                         "mage" : ([ "pearl" : 2, ]),
                         ]));
-    set_feats_required(([ "bard" : "timeweaver" ]));
     set_property("keywords", ({ "defensive", "personal", "targeted"}));
     set_helpful_spell(1);
 }

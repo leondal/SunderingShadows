@@ -49,6 +49,6 @@ int extra_hit(object ob)
     message("my_action", "%^BLUE%^"
             "The %^BOLD%^shadows%^RESET%^%^CYAN%^ envelop you!%^RESET%^"
             , vic);
-    dam = random(30);
+    dam = roll_dice(2, 6);
     return dam;
 }

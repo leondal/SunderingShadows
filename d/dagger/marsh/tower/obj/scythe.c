@@ -21,8 +21,8 @@ create() {
     );
     set_weight(25);
     set_value(400);
-  set_wc(2,4);
-  set_large_wc(3,4);
+    set_wc(2,4);
+    set_large_wc(3,4);
     set_type("slashing");
     set_size(2);
     set_prof_type("death scythe");
@@ -110,8 +110,7 @@ int extra_hit(object ob) {
       ,vic);
     st = (int)ETO->query_stats("strength");
     dam += random(st)/2;
-  vic->do_damage("torso",dam);
-  return 1;
+    return dam;
     }
-    return 2;
+    return 0;
 }

@@ -1699,6 +1699,7 @@ void heart_beat()
             set_parrying(0);
         }
     }
+    
     if (query_property("dodging") && !sizeof(query_attackers())) {
         write("With combat over, you have no one to dodge.");
         remove_property("dodging");
@@ -1767,6 +1768,8 @@ void heart_beat()
         if (sizeof(query_attackers()) == 0) static_user["stance"]++;
         else static_user["stance"] = 0;
     }
+    
+    this_object()->remove_property("cleaving");
 
     //There are 3 heart beats per round. Adjust values accordingly.
     if(objectp(TO))
@@ -4260,6 +4263,9 @@ string knownAs(string who)
 
 string realName(string who)
 {
+    if(!strlen(who))
+        return "";
+    
     foreach(string str in keys(relationships))
     {
         if (relationships[str]["default"] == lower_case(who)) {
@@ -4724,6 +4730,8 @@ void clear_feats()
     set_hybrid_feats_gained(0);
     set_arcana_feats_gained(0);
     set_divinebond_feats_gained(0);
+    set_rage_feats_gained(0);
+    set_talent_feats_gained(0);
     set_other_feats_gained(0);
     set_epic_feats_gained(0);
     return;
@@ -4811,6 +4819,30 @@ int query_divinebond_feats_gained()
 {
     if (!intp(__FEAT_DATA["divinebond_feats_gained"])) { __FEAT_DATA["divinebond_feats_gained"] = 0; }
     return __FEAT_DATA["divinebond_feats_gained"];
+}
+
+void set_rage_feats_gained(int num)
+{
+    __FEAT_DATA["rage_feats_gained"] = num;
+    return;
+}
+
+int query_rage_feats_gained()
+{
+    if(!intp(__FEAT_DATA["rage_feats_gained"])) { __FEAT_DATA["rage_feats_gained"] = 0; }
+    return __FEAT_DATA["rage_feats_gained"];
+}
+
+void set_talent_feats_gained(int num)
+{
+    __FEAT_DATA["talent_feats_gained"] = num;
+    return;
+}
+
+int query_talent_feats_gained()
+{
+    if(!intp(__FEAT_DATA["talent_feats_gained"])) { __FEAT_DATA["rage_feats_gained"] = 0; }
+    return __FEAT_DATA["talent_feats_gained"];
 }
 
 void set_other_feats_gained(int num)
@@ -4949,6 +4981,38 @@ mapping query_divinebond_feats()
     return __FEAT_DATA["divinebond"];
 }
 
+void set_rage_feats(mapping feats)
+{
+    if(!mapp(__FEAT_DATA["rage"])) { __FEAT_DATA["rage"] = ([]); }
+    if(mapp(feats))
+    {
+        __FEAT_DATA["rage"] = feats;
+    }
+    return;
+}
+
+mapping query_rage_feats()
+{
+    if(!mapp(__FEAT_DATA["rage"])) { __FEAT_DATA["rage"] = ([]); }
+    return __FEAT_DATA["rage"];
+}
+
+mapping query_talent_feats()
+{
+    if(!mapp(__FEAT_DATA["talent"])) { __FEAT_DATA["talent"] = ([]); }
+    return __FEAT_DATA["talent"];
+}
+
+void set_talent_feats(mapping feats)
+{
+    if(!mapp(__FEAT_DATA["talent"])) { __FEAT_DATA["talent"] = ([]); }
+    if(mapp(feats))
+    {
+        __FEAT_DATA["talent"] = feats;
+    }
+    return;
+}
+
 void set_other_feats(mapping feats)
 {
     if(!mapp(__FEAT_DATA["other"])) { __FEAT_DATA["other"] = ([]); }
@@ -5052,6 +5116,22 @@ string *query_player_feats() {
     }
     if (mapp(__FEAT_DATA["divinebond"])) {
         testmap = __FEAT_DATA["divinebond"];
+        mykeys = keys(testmap);
+        if (sizeof(mykeys)) {
+            for (i = 0;i < sizeof(mykeys);i++) myreturn += testmap[mykeys[i]];
+        }
+        testmap = ([]);
+    }
+    if (mapp(__FEAT_DATA["rage"])) {
+        testmap = __FEAT_DATA["rage"];
+        mykeys = keys(testmap);
+        if (sizeof(mykeys)) {
+            for (i = 0;i < sizeof(mykeys);i++) myreturn += testmap[mykeys[i]];
+        }
+        testmap = ([]);
+    }
+    if (mapp(__FEAT_DATA["talent"])) {
+        testmap = __FEAT_DATA["talent"];
         mykeys = keys(testmap);
         if (sizeof(mykeys)) {
             for (i = 0;i < sizeof(mykeys);i++) myreturn += testmap[mykeys[i]];

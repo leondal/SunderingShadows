@@ -32,7 +32,7 @@ void create(){
    set_value(1500);
    set_lore("The Stormhammer was utilized by Mad Marigold "+
       "Methuzila, or Triple M as she was known.");
-   set_property("enchantment",4);
+   set_property("enchantment",5);
    set_item_bonus("damage bonus",2);
    set_wield((:TO,"wield_func":));
    set_unwield((:TO,"unwield_func":));

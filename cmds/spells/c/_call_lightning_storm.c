@@ -86,10 +86,10 @@ void execute_attack(){
         for (i = 0; i < sizeof(foes); i++) {
             if (do_save(foes[i], 0)) {
                 tell_object(foes[i],"%^BOLD%^%^YELLOW%^A bolt of electricity leaps out from "+caster->QCN+"'s body and zaps you square in the chest!");
-                damage_targ(targ,targ->return_target_limb(),sdamage/2,"electricity");
+                damage_targ(foes[i],foes[i]->return_target_limb(),sdamage/2,"electricity");
             } else {
                 tell_object(foes[i],"%^RESET%^%^BOLD%^A bolt of electricity leaps out from "+caster->QCN+"'s body and you barely turn aside at the last instant, avoiding most of the damage!");
-                damage_targ(targ,targ->return_target_limb(),sdamage,"electricity");
+                damage_targ(foes[i],foes[i]->return_target_limb(),sdamage,"electricity");
             }
         }
     }

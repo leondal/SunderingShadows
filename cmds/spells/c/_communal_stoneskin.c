@@ -10,7 +10,7 @@ create()
     ::create();
     set_spell_name("communal stoneskin");
     set_spell_level(([ "inquisitor" : 5, "mage" : 5, "magus" : 5, "cleric" : 5 ]));
-    set_domains("protection");
+    set_domains(({ "protection" }));
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS communal stoneskin");
     set_description("This spell applies stoneskin spell to all your followers and party members.");

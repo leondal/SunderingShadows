@@ -84,7 +84,7 @@ int remove_func()
 
 int strike_func(int damage, object what, object who)
 {
-    if(random(1000) < 750)
+    if(!random(2))
     {
         tell_room(EETO,"%^RESET%^GREEN%^Ethereal vines burst "+
             "out of the %^BOLD%^%^GREEN%^emeralds %^RESET%^%^GREEN%^on "+ETOQCN+" mail, wrapping around "+
@@ -96,8 +96,9 @@ int strike_func(int damage, object what, object who)
         tell_object(who,"%^RESET%^%^GREEN%^Ethereal vines burst out of"+
             " the emeralds on "+ETOQCN+"'s mail, wrapping around "+
             ""+ETO->QP+" body, shielding "+ETO->QO+" from your blow.");
-        return (damage*-1);
+        return 0;
     }
+    return damage;
 }
 
 

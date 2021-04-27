@@ -65,6 +65,7 @@ int struck_fun(int damage,object what,object who){
      tell_object(who,"%^BLACK%^%^BOLD%^Your attack hits "+ETOQCN+"'s iron helmet with a resounding "
 "clang!  "+capitalize(ETO->QS)+" looks a little dazed, but otherwise unharmed.%^RESET%^");
      ETO->set_paralyzed(5,"Your head is still humming from the impact!");
-     return (-1)*damage;
+     return 0;
    }
+   return damage;
 }

@@ -248,7 +248,7 @@ int query_shieldMiss()
         if (FEATS_D->usable_feat(TO, "deflection")) {
             chance += 15;
         }                                                           // +15% for deflection feat(might need tweaking)
-        chance += (int)TO->query_property("shieldwall_bonus");
+        chance += ((int)TO->query_property("shieldwall_bonus") * 2);
 
         equip = (object)TO->all_armour();
         if (sizeof(equip)) {
@@ -848,6 +848,12 @@ int query_resistance_percent(string res)
             mod = 100;
     }
     
+    if(FEATS_D->usable_feat(this_object(), "natures gift"))
+    {
+        if(res == "fire" || res == "electricity" || res == "cold" || res == "acid")
+            mod += 25;
+    }
+    
     //Mage is invulnerable for duration of prismatic sphere
     if(TO->query_property("prismatic sphere"))
         mod = 100;
@@ -890,6 +896,7 @@ int cause_typed_damage(object targ, string limb, int damage, string type)
     if (!objectp(attacker = targ->query_property("beingDamagedBy"))) {
         attacker = previous_object();
     }
+    
     damage = (int)COMBAT_D->typed_damage_modification(attacker, targ, limb, damage, type);
     return targ->cause_damage_to(targ, limb, damage);
 }
@@ -968,6 +975,9 @@ int do_damage(string limb, int damage)
     }else {
         real_limb = limb;
     }
+    
+    if(this_object()->query_property("prismatic sphere"))
+        return 0;
 
     /*if (damage > 0 && TO->isPkill())
        {
@@ -1673,7 +1683,7 @@ void check_armor_active_feats(object wornBy, string type, string limb, string ac
             if (bonus_value) {
                 message("my_action", "You can't benefit from shieldwall without a shield.", wornBy);
                 wornBy->set_property("shieldwall", -bonus_value);
-                wornBy->set_property("damage resistance", -bonus_value);
+                wornBy->set_property("damage resistance", -bonus_value * 2);
                 wornBy->set_property("shieldwall_bonus", -bonus_value);
                 wornBy->set_property("empowered", bonus_value);
             }

@@ -14,7 +14,7 @@ object glyph;
 void create() {
     ::create();
     set_spell_name("glyph of warding");
-    set_spell_level(([ "cleric" : 4 ]));
+    set_spell_level(([ "cleric" : 3, "inquisitor" : 3 ]));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS glyph of warding");
     set_description("By casting this spell, the priest uses his powers of generation to create a mystical glyph that will "

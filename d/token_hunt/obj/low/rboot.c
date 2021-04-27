@@ -65,13 +65,16 @@ int unwearme(){
 }
 
 int strikeme(int damage, object what, object who){
-  
+	
+    if(!random(10))
+    {
         tell_room(environment(query_worn()),"%^ORANGE%^"+
            ""+ETOQCN+"'s boots are struck with a clank.",ETO);
         tell_object(ETO,"%^ORANGE%^When the boots are struck,"+
-		" the rocks deflect some of the damage.");
-
-       return -1;  
+		" the rocks deflect some of the damage.")
+        return 0;
+    }
+    return damage;
 }
 
 void init() {
