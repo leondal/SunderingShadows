@@ -190,7 +190,7 @@ void simple_rage(int direction)
     caster->add_damage_bonus(2 * direction);
     caster->add_max_hp_bonus((flevel * 2) * direction);
     caster->add_saving_bonus("will", 2 * direction);
-    caster->add_saving_bonus("fort", 2 * direction);
+    caster->add_saving_bonus("fortitude", 2 * direction);
     caster->add_ac_bonus(-2 * direction);
 }
 
@@ -204,7 +204,7 @@ void greater_rage(int direction)
     caster->add_damage_bonus(3 * direction);
     caster->add_max_hp_bonus((flevel * 3) * direction);
     caster->add_saving_bonus("will", 3 * direction);
-    caster->add_saving_bonus("fort", 3 * direction);
+    caster->add_saving_bonus("fortitude", 3 * direction);
     caster->add_ac_bonus(-2 * direction);
 }
 
@@ -218,7 +218,7 @@ void mighty_rage(int direction)
     caster->add_damage_bonus(4 * direction);
     caster->add_max_hp_bonus((flevel * 4 + unstop) * direction);    
     caster->add_saving_bonus("will", (4 + save_bonus) * direction);
-    caster->add_saving_bonus("fort", 4 * direction);
+    caster->add_saving_bonus("fortitude", 4 * direction);
     caster->set_property("fast healing", 2 * direction);
     caster->add_ac_bonus(-2 * direction);
 }
