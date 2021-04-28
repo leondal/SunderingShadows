@@ -522,7 +522,7 @@ int is_vulnerable_to(object source)
     
     if(
     
-    if(this_object()->query_paralyzed())
+    if(this_object()->query_paralyzed() || this_object()->query_bound())
         return 1;
     
     if(this_object()->query_blind() && !FEATS_D->usable_feat(this_object(), "blindfight"))

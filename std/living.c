@@ -388,12 +388,22 @@ void heart_beat()
                 add_hp(query_property("fast healing") * roll_dice(1, TO->query_level() / 2 + 1));
             }
         }
+        
+        if(is_undead())
+            remove_property("rend");
+        
         if(query_property("rend"))
         {
+            tell_room(environment(this_object()), "%^RED%^BOLD%^" + this_object()->QCN + "'s wounds bleed profusely!%^RESET%^", ({ this_object() }));
+            tell_object(this_object(), "%^RED%^BOLD%^Your wounds bleed profusely!%^RESET%^");
             this_object()->cause_typed_damage(this_object(), "torso", query_property("rend") * roll_dice(this_object()->query_level() / 2 + 1), "untyped");
             set_property("rend", -1);
             if(query_property("rend") <= 0)
+            {
+                tell_room(environment(this_object()), "%^WHITE%^BOLD%^" + this_object()->QCN + "'s wounds stop bleeding.%^RESET%^", ({ this_object() }));
+                tell_object(this_object(), "%^WHITE%^BOLD%^Your wounds stop bleeding.%^RESET%^");                
                 remove_property("rend");
+            }
         }
             
         if (is_vampire()) {
