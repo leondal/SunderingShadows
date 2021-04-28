@@ -509,6 +509,32 @@ mixed query_combat_mapps(string type, string which)
     return 0;
 }
 
+//Vulnerability for things like sneak attack
+int is_vulnerable_to(object source)
+{
+    object attacker;
+    
+    if(!source)
+        return 0;
+    
+    if(environment(this_object()) != environment(source))
+        return 0;
+    
+    if(this_object()->query_paralyzed() || this_object()->query_tripped())
+        return 1;
+    
+    if(this_object()->query_blind() && !FEATS_D->usable_feat(this_object(), "blindfight"))
+        return 1;
+    
+    attacker = this_object()->query_current_attacker();
+    
+    if(attacker && attacker != source)
+        return 1;
+    
+    return 0;
+}    
+    
+
 mapping query_combat_vars() { return combat_vars; }
 mapping query_combat_messages() { return combat_messages; }
 mapping query_combat_counters() { return combat_counters; }
