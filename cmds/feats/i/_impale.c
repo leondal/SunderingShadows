@@ -278,11 +278,12 @@ void execute_attack()
     }else {
         dam = 12;
     }
+    //49 / 10 + 1 = 5; 5 * 6 = 30
     dam = ((clevel - 1) / 10 + 1) * (dam / 2); //let it scale properly in 10-level blocks. -N, 9/10
     if (sizeof(weapons)) {
-        dam += roll_dice(mult, dam) + weapons[0]->query_wc();
+        dam += roll_dice(dam, mult) + weapons[0]->query_wc();
     }else {
-        dam += roll_dice(mult, dam) + 12;
+        dam += roll_dice(dam, mult) + 12;
     }
     dam += "/daemon/bonus_d"->damage_bonus(caster->query_stats("strength"));
     dam += (int)caster->query_damage_bonus();
