@@ -177,8 +177,12 @@ int cmd_steal(string str) {
             ob->move(ETP);
         }
         i = check_caught(x,victim,ob,steal);
-        //if (interactive(victim))
+        if (interactive(victim)){
         log_file("player/theft", TPQN+"("+TP->query_level()+") stole "+ob->query_short()+" from "+victim->query_name()+"("+victim->query_lowest_level()+") on "+ctime(time())+" with difficulty "+i+" at "+environment(TP)+"\n");
+        }
+	else{
+       log_file("stealing", TPQN+"("+TP->query_level()+") stole "+ob->query_short()+" from "+victim->query_name()+"("+victim->query_lowest_level()+") on "+ctime(time())+" with difficulty "+i+" at "+environment(TP)+"\n");
+        }
         flag_stolen(ob,i);//ob->set_property("stolen",([TPQN:(["difficulty":i,"max value":ob->query_value()])]));
         return 1;
 
