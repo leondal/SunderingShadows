@@ -21,6 +21,7 @@ void create() {
       "automatically lashes out at one of his foes, striking him with fiendish "
       "or celestial energy. The duration of this power grows with the psionic character.");
     set_verbal_comp();
+    set_buff_type("resistance");
     set_arg_needed();
     set_helpful_spell(1);
 }
@@ -55,7 +56,7 @@ void spell_effect(int prof) {
       caster->set_resistance("fire",10);
       caster->set_resistance("electricity",10);
       if(!caster->query_property("raised resistance")){
-         caster->set_property("magic resistance",myresist);
+         caster->set_property("spell damage resistance",myresist);
          caster->set_property("raised resistance",1);
          resistflag = 1;
       }
@@ -72,7 +73,7 @@ void spell_effect(int prof) {
       caster->set_resistance("acid",10);
       caster->set_resistance("electricity",10);
       if(!caster->query_property("raised resistance")){
-         caster->set_property("magic resistance",myresist);
+         caster->set_property("spell damage resistance",myresist);
          caster->set_property("raised resistance",1);
          resistflag = 1;
       }
