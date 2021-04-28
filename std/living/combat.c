@@ -520,7 +520,9 @@ int is_vulnerable_to(object source)
     if(environment(this_object()) != environment(source))
         return 0;
     
-    if(this_object()->query_paralyzed() || this_object()->query_tripped())
+    if(
+    
+    if(this_object()->query_paralyzed())
         return 1;
     
     if(this_object()->query_blind() && !FEATS_D->usable_feat(this_object(), "blindfight"))

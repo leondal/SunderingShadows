@@ -1078,8 +1078,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
                 sneak = 0;
     
-            if(FEATS_D->usable_feat(targ, "mighty resilience") ||
-               FEATS_D->usable_feat(targ, "remember the future"))
+            if(FEATS_D->usable_feat(targ, "mighty resilience"))
                 sneak = 0;
         
             //Armor bond sneak attack resistance
@@ -1111,7 +1110,6 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         
             if(targ->query_paralyzed() ||
             (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
-            targ->query_tripped() ||
             targ->query_current_attacker() != attacker)
             {              
                 //tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
