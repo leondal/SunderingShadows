@@ -31,13 +31,13 @@ void spell_effect()
     mapping info;
     string pname, wname, pposs;
 
-    weapon = present(arg, caster);
-
     if(!arg)
     {
         tell_object(caster, "You need a target for dissolving weapon.");
         return;
     }
+    
+    weapon = present(arg, caster);
 
     if(!objectp(weapon))
     {
