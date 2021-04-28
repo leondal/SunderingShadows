@@ -64,7 +64,7 @@ int cmd_pp(string str) {
         return 0;
     }
     if (!TP->ok_to_kill(ob)) return notify_fail("Supernatural forces prevent you.\n");
-    if ((ob->is_player()) && (ob->ok_to_kill(TP))){
+    if ((ob->is_player()) && (!ob->ok_to_kill(TP))){
         write("You cannot steal with a NoPK flag\n");
         return 1;
     }
