@@ -120,7 +120,7 @@ void execute_attack() {
             damage_targ(foes[i], target_limb, sdamage,element);
       }
       time+=1;
-      if (present(caster,place) && caster != target && !caster->query_unconscious()) {
+      if (present(caster,place) && !caster->query_unconscious()) {
             environment(CASTER)->addObjectToCombatCycle(TO,1);
       }
       else {

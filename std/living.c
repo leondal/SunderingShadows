@@ -341,6 +341,7 @@ void heart_beat()
     if (TO->is_class("paladin") || TO->is_class("cleric")) {
         USER_D->regenerate_pool(TO, 1, 1, "grace");
     }
+    
     //enhancement effects
     "/cmds/mortal/_enhance.c"->run_enhances_timer(TO, "weapon");
     "/cmds/mortal/_enhance.c"->run_enhances_timer(TO, "armor");
@@ -387,6 +388,14 @@ void heart_beat()
                 add_hp(query_property("fast healing") * roll_dice(1, TO->query_level() / 2 + 1));
             }
         }
+        if(query_property("rend"))
+        {
+            this_object()->cause_typed_damage(this_object(), "torso", query_property("rend") * roll_dice(this_object()->query_level() / 2 + 1), "untyped");
+            set_property("rend", -1);
+            if(query_property("rend") <= 0)
+                remove_property("rend");
+        }
+            
         if (is_vampire()) {
             if (TO->is_in_sunlight()) {
                 int todamage = query_max_hp() / 4 + 1;
