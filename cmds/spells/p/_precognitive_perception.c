@@ -22,12 +22,8 @@ void create()
 
 int preSpell()
 {
-<<<<<<< Updated upstream
-    //if (!target) target = caster;
-=======
-    //if(!target) target = caster;
+    if(!target) target = caster;
 
->>>>>>> Stashed changes
     if(target->query_property("precognitive perception"))
     {
         tell_object(caster,"The target is already under the influence of similar effect");
