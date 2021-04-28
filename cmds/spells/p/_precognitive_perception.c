@@ -1,5 +1,6 @@
 #include <std.h>
 #include <magic.h>
+#include <spell.h>
 
 inherit SPELL;
 
@@ -12,16 +13,21 @@ void create()
     set_spell_level(([ "mage" : 4, "magus" : 4, "bard" : 4, "psion" : 3, "cleric" : 4 ]));
     set_domains("fate");
     set_spell_sphere("divination");
-    set_syntax("cast CLASS precognitive perception on TARGET");
+    set_syntax("cast CLASS precognitive perception [on TARGET]");
     set_damage_desc("half of clevel perception skill");
     set_description("You share some insights into the future with target, allowing them to better perceive the surroundings. This spell gives an exceptional defence against stabs and won't last long.");
-    set_arg_needed();
+    //set_arg_needed();
 	  set_helpful_spell(1);
 }
 
 int preSpell()
 {
+<<<<<<< Updated upstream
     //if (!target) target = caster;
+=======
+    //if(!target) target = caster;
+
+>>>>>>> Stashed changes
     if(target->query_property("precognitive perception"))
     {
         tell_object(caster,"The target is already under the influence of similar effect");
@@ -32,8 +38,7 @@ int preSpell()
 
 spell_effect()
 {
-    if(!target)
-        target = caster;
+
 
     if(!present(target,environment(caster)))
     {
@@ -43,9 +48,12 @@ spell_effect()
     }
 
     spell_successful();
-
-    tell_room(place,"%^CYAN%^"+caster->QCN+" with a swift chant touches "+target->QCN+"'s eyes.%^RESET%^");
-
+    if(target == caster){
+    tell_room(place,"%^CYAN%^With a swift chant, "+caster->QCN+" touches "+target->query_possessive()+" own eyes.%^RESET%^");
+    }
+    else{
+    tell_room(place,"%^CYAN%^With a swift chant, "+caster->QCN+" touches "+target->QCN+"'s eyes.%^RESET%^");
+    }
     bonus=clevel/2+1;
     target->add_skill_bonus("perception",bonus);
     target->set_property("spelled", ({TO}) );
