@@ -263,13 +263,11 @@ void execute_attack()
         dest_effect();
         return;
     }
+    
+    mult = 6;
+    
     if (FEATS_D->usable_feat(caster, "the reaping")) {
-        reaping = 1;
-    }
-
-    mult = 8; // this was 4, which was average damage of about 60 hitpoints at level 50, average of about 24 damage at level 20...
-    if (reaping) {
-        mult = 16;
+        mult = 10;
     }
 
 // picking up 12 as a benchmark for druid shift, two-hand sword equiv
@@ -278,8 +276,13 @@ void execute_attack()
     }else {
         dam = 12;
     }
+    
     //49 / 10 + 1 = 5; 5 * 6 = 30
-    dam = ((clevel - 1) / 10 + 1) * (dam / 2); //let it scale properly in 10-level blocks. -N, 9/10
+    //dam = ((clevel - 1) / 10 + 1) * (dam / 2); //let it scale properly in 10-level blocks. -N, 9/10
+    dam += clevel;
+    dam = roll_dice(dam, mult) + BONUS_D->query_stat_bonus(caster, "strength") + caster->query_damage_bonus();
+    
+    /*
     if (sizeof(weapons)) {
         dam += roll_dice(dam, mult) + weapons[0]->query_wc();
     }else {
@@ -287,6 +290,7 @@ void execute_attack()
     }
     dam += "/daemon/bonus_d"->damage_bonus(caster->query_stats("strength"));
     dam += (int)caster->query_damage_bonus();
+    */
     mod = dam * -1;
 
     if (!in_shapeshift) {
