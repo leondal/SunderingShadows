@@ -78,7 +78,7 @@ int cmd_steal(string str) {
         return 0;
     }
     if (!TP->ok_to_kill(victim)) return notify_fail("Super natural forces prevent you.\n");
-    if ((victim->is_player()) && (victim->ok_to_kill(TP))){
+    if ((victim->is_player()) && (!victim->ok_to_kill(TP))){
         write("You cannot steal with a NoPK flag\n");
         return 1;
     }
