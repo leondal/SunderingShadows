@@ -85,3 +85,40 @@ void init() {
    add_action("stomp_fun","stomp");
 }
 
+int stomp_fun(string str) {
+   object *pplz;
+   int i;
+   pplz = all_living(EETO);
+   if(ETO->query_bound() || ETO->query_unconscious()) {
+     ETO->send_paralyzed_message("info",ETO);
+     return 1;
+   }
+   if(!query_worn()) {
+     write("Wearing the boots might help.\n");
+     return 1;
+   } 
+   if (!str) {
+     if(timer < time()) {
+
+       timer = time() + 28800;
+       tell_object(ETO,"You %^YELLOW%^stomp%^RESET%^ and a tremor shakes the area around you!\n");
+       tell_room(EETO,""+ETO->QCN+" %^YELLOW%^stomps%^RESET%^ "+ETO->QP+" causing a"+
+	   " tremor that shakes the area around you!\n",ETO);
+       for(i=0;i<sizeof(pplz);i++) {
+         if(pplz[i] != ETO && !pplz[i]->query_true_invis() && objectp(pplz[i])) {
+           tell_object(pplz[i],"%^ORANGE%^The force of the tremor shakes you from"+
+           " your feet!\n");
+           if(!"/daemon/saving_throw_d.c"->reflex_save(pplz[i],-10))
+           pplz[i]->set_tripped(1,"You are still trying to stand!\n");
+         }
+       }
+       return 1;
+     }
+     ETO->force_me("emote stomps rather awkwardly.");
+     return 1;
+   }
+   write("Concentrate a little more clearly on the boots"+
+   " - just <stomp> to use their power.\n");
+   return 1;
+}
+
