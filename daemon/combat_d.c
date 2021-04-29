@@ -842,7 +842,7 @@ int crit_damage(object attacker, object targ, object weapon, int size, int damag
             targ->query_hp_percent() > 0 &&
             !targ->query_property("no death") &&
             member_array("repose", targ->query_divine_domain()) < 0 &&
-            targ->fort_save(attacker->query_level())
+            !targ->fort_save(attacker->query_level())
             ) {
             tell_object(targ, "%^BOLD%^%^RED%^" + attacker->QCN + " swings " + attacker->QP + " " + weapon->query_short() + " in a brutal swipe, hitting you in the head!\nEverything goes black...");
             tell_object(attacker, "%^BOLD%^%^RED%^You swing your " + weapon->query_short() + " in a brutal swipe, hitting" + targ->QCN + " in the head with a certainly fatal strike!");
