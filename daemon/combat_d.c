@@ -1075,10 +1075,13 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             //Arcane trickster sneak attack progression
             //This makes arcane trickster equal to pure thief....can't be here
             //Needs to be a trade off for having spells.
-            //sneak += attacker->query_class_level("arcane_trickster") / 2;
+            sneak += attacker->query_class_level("arcane_trickster") / 3;
     
+            //Making this baseline and replacing combat reflexes with something else.
+            /*
             if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
                 sneak = 0;
+            */
     
             if(FEATS_D->usable_feat(targ, "mighty resilience"))
                 sneak = 0;
