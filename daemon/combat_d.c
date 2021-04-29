@@ -1073,7 +1073,9 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             //Sneak attack dice section
             sneak = attacker->query_prestige_level("thief") / 2;
             //Arcane trickster sneak attack progression
-            sneak += attacker->query_class_level("arcane_trickster") / 2;
+            //This makes arcane trickster equal to pure thief....can't be here
+            //Needs to be a trade off for having spells.
+            //sneak += attacker->query_class_level("arcane_trickster") / 2;
     
             if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
                 sneak = 0;
@@ -1104,7 +1106,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
                     sneak = 0;
             }
         }
-    
+ /*   
         if(sneak)
         {
         
@@ -1112,14 +1114,21 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
             targ->query_current_attacker() != attacker)
             {              
-                //tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
+                tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
                 damage += roll_dice(sneak, 6);
             }
             else
                 sneak = 0;
         }
+*/
     }
-    
+        
+    //target is blind, bound or paralyzed or is attacking another target
+    if(sneak && targ->is_vulnerable_to(attacker))
+        damage += roll_dice(sneak, 6);
+    else
+        sneak = 0;
+        
     //Brutalize wounds causes victim to take extra damage from physical attacks.
     bonus_hit_damage += this_object()->query_property("brutalized");
 
