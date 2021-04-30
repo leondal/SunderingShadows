@@ -22,10 +22,10 @@ compared against the scroll's caster level and level of the spell being cast.
 
 %^CYAN%^BOLD%^WANDS:%^RESET%^
 Wands are another magical item that casts spells. Unlike scrolls, wands tend to
-have multiple uses, or charges. Wands are subject to the same rules as wands in
-terms of which spells can be cast for no penalty. The off-class rolls for using
-a wand are the same. Thieves with the Use Magical Device feat can also use these
-devices with greater success.
+have multiple uses, or charges. Wands are subject to the same rules as scrolls
+in terms of which spells can be cast for no penalty. The off-class rolls for
+using a wand are the same. Thieves with the Use Magical Device feat can also
+use these devices with greater success.
 
 %^MAGENTA%^The off-class stat used is your highest among CHA, WIS, or INT
 
