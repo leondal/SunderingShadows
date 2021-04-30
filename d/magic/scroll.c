@@ -285,6 +285,7 @@ int use_scroll(string str)
     
     if(!valid)
     {   
+        //Thieves can use a different roll based on thief level
         if(FEATS_D->usable_feat(this_player(), "use magic device"))
         {
             int roll = roll_dice(1, 20);
@@ -309,10 +310,19 @@ int use_scroll(string str)
                 return 1;
             }
         }
-        else
-        {            
-            tell_object(this_player(), "You don't have the knowledge to use this scroll.");
-            return 1;
+        //Other users have to pass a check to try to cast off-class. Kind of difficult, for a reason.
+        else if(highest_mental_stat < lowest_spell_level)
+        {
+            int DC = 20 + lowest_spell_level;
+            int roll = roll_dice(1, 20) + (highest_mental_stat / 2) + (this_player()->query_skill("spellcraft") / 10);
+            
+            if((roll < DC || roll == 1) && roll != 20)
+            {
+                this_player()->add_cooldown("use scroll", 180);
+                tell_object(this_player(), "You fail to properly recite the scroll and mess up the spell! The scroll evaporates in your hands!");
+                remove();
+                return 1;
+            }
         }
     }
     /*
