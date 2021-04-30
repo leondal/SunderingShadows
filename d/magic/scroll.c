@@ -211,7 +211,7 @@ int use_scroll(string str)
     int stat;
     string caster, targ, what, what2, * classes;
     string * scroll_classes, *player_classes;
-    int lowest_spell_level;
+    int lowest_spell_level, highest_mental_stat;
     object ob;
 
     caster = TP->query_name();
@@ -241,6 +241,7 @@ int use_scroll(string str)
     player_classes = TP->query_classes();
     scroll_classes = keys(MAGIC_D->query_index_row(spell)["levels"]);
     lowest_spell_level = min(values(MAGIC_D->query_index_row(spell)["levels"]));
+    highest_mental_stat = max(({this_player()->query_stats("intelligence"), this_player()->query_stats("wisdom"), this_player()->query_stats("charisma") })) - 10;
 
     if (TP->query_property("shapeshifted")) {
         tell_object(TP, "You can't read scrolls while shapeshifted.");
@@ -312,6 +313,17 @@ int use_scroll(string str)
         {            
             tell_object(this_player(), "You don't have the knowledge to use this scroll.");
             return 1;
+        }
+    }
+    else
+    {
+        // Can you activate the scroll properly? This is deterministic UMD check
+        if (highest_mental_stat < lowest_spell_level)
+        {
+            if ((this_player()->query_skill("spellcraft") < lowest_spell_level + 15)) {
+                tell_object(TP,"%^BOLD%^You fail to decypher writings on the scroll.");
+                return 1;
+            }
         }
     }
 
