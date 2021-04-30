@@ -99,7 +99,7 @@ void execute_attack()
 
         time++;
 
-        if (present(caster,place) && caster != target)
+        if (present(caster,place))
         {
             environment(caster)->addObjectToCombatCycle(TO,1);
         }
