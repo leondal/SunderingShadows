@@ -333,7 +333,7 @@ int use_scroll(string str)
     if(rogue_clevel)
         lev = min( ({ lev, rogue_clevel }) );
     else
-        lev = min( ({ lev, this_player()->query_skill("spellcraft") }) );
+        lev = min( ({ lev, this_player()->query_skill("spellcraft") + highest_mental_stat / 2 }) );
 
     if (FEATS_D->usable_feat(TP, "enhance scroll")) {
         lev = TP->query_prestige_level(TP->query("base_class"));
