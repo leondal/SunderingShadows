@@ -10,7 +10,7 @@ void create()
     feat_category("ArcaneSpellcraft");
     feat_name("use magic device");
     feat_prereq("Thief L13");
-    feat_desc("With this feat, the thief has learned to use magical scrolls, regardless of class requirements. The level and power of scrolls is still limited by total levels in the thief class. The thief can cast scrolls of a spell level up to half their thief level. The total caster level of the scroll is limited to their thief level plus intelligence modifier.");
+    feat_desc("With this feat, the thief has learned to use magical scrolls and wands, regardless of class requirements. The level and power of scrolls and wands is still limited by total levels in the thief class. The thief can cast scrolls and use wands of a spell level up to half their thief level. The total caster level of the scroll is limited to their thief level plus intelligence modifier.");
     permanent(1);
 }
 

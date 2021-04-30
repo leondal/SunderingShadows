@@ -258,13 +258,16 @@ int use_scroll(string str)
         return 1;
     }
     
+    /*
     if(this_player()->cooldown("use scroll"))
     {
         tell_object(this_player(), "You are still recovering from your last scroll failure.");
         return 1;
     }
+    */
     
     valid = 0;
+    rogue_clevel = 0;
     
     foreach(string cls in player_classes)
     {
@@ -278,10 +281,7 @@ int use_scroll(string str)
     if(lowest_spell_level > this_player()->query_level() / 2)
         valid = 0;
     
-    /*
-    if(spell == "secret chest")
-        valid = 1;
-    */
+    lev = TO->query_clevel();
     
     if(!valid)
     {   
@@ -304,11 +304,13 @@ int use_scroll(string str)
             
             if((roll < DC || roll == 1) && roll != 20)
             {
-                this_player()->add_cooldown("use scroll", 180);
+                //this_player()->add_cooldown("use scroll", 180);
                 tell_object(this_player(), "You fail to properly recite the scroll and mess up the spell! The scroll evaporates in your hands!");
                 remove();
                 return 1;
             }
+            
+            lev = rogue_clevel;
         }
         //Other users have to pass a check to try to cast off-class. Kind of difficult, for a reason.
         else if(highest_mental_stat < lowest_spell_level)
@@ -318,31 +320,20 @@ int use_scroll(string str)
             
             if((roll < DC || roll == 1) && roll != 20)
             {
-                this_player()->add_cooldown("use scroll", 180);
+                //this_player()->add_cooldown("use scroll", 180);
                 tell_object(this_player(), "You fail to properly recite the scroll and mess up the spell! The scroll evaporates in your hands!");
                 remove();
                 return 1;
             }
         }
     }
-    /*
-    else
-    {
-        // Can you activate the scroll properly? This is deterministic UMD check
-        if (highest_mental_stat < lowest_spell_level)
-        {
-            if ((this_player()->query_skill("spellcraft") < lowest_spell_level + 15)) {
-                tell_object(TP,"%^BOLD%^You fail to decypher writings on the scroll.");
-                return 1;
-            }
-        }
-    }
-    */
-
-    lev = TO->query_clevel();
     
-    if(!valid)
+    //Thieves use their rogue_level as a cap
+    //Others use their spellcraft as a cap
+    if(rogue_clevel)
         lev = min( ({ lev, rogue_clevel }) );
+    else
+        lev = min( ({ lev, this_player()->query_skill("spellcraft") }) );
 
     if (FEATS_D->usable_feat(TP, "enhance scroll")) {
         lev = TP->query_prestige_level(TP->query("base_class"));
