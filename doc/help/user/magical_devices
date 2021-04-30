@@ -16,9 +16,11 @@ but at great risk of failing the spell and losing the scroll. The chances to
 avoid failure are based on the player's intelligence stat and spellcraft
 skill. Be warned, however, that this failure chance will always be fairly high.
 
-Thieves with the Use Magical Device feat may also attempt to use a scroll, with
-success or failure based on their intelligence stat and overall thief level
-compared against the scroll's caster level and level of the spell being cast.
+Thieves and Bards with the Use Magical Device feat may also attempt to use a
+scroll, with success or failure based on their intelligence (charisma for bards)
+stat and overall thief or bard level compared against the scroll's caster level
+and level of the spell being cast. Bards may still cast scrolls from their own
+spell list without this additional check.
 
 %^CYAN%^BOLD%^WANDS:%^RESET%^
 Wands are another magical item that casts spells. Unlike scrolls, wands tend to
@@ -29,14 +31,14 @@ use these devices with greater success.
 
 %^MAGENTA%^The off-class stat used is your highest among CHA, WIS, or INT
 
-%^CYAN%^Non-Thieves attempting off-class scroll or wand:%^RESET%^
+%^CYAN%^NON-Thieves/Bards attempting off-class scroll or wand:%^RESET%^
 %^YELLOW%^Caster Level = Spellcraft Skill + Highest Casting Stat Mod
 %^YELLOW%^Scroll DC    = 20 + spell level
 %^YELLOW%^Scroll Roll  = d20 + highest casting stat mod + spellcraft skill / 10
 
-%^CYAN%^Thieves with UMD:%^RESET%^
-%^YELLOW%^Caster Level = Thief Level + Intelligence Mod
+%^CYAN%^Thieves/Bards with UMD:%^RESET%^
+%^YELLOW%^Caster Level = Thief/Bard Level + Intelligence/Charisma Mod
 %^YELLOW%^Scroll DC    = Scroll Caster Level + Spell Level
-%^YELLOW%^Thief Roll   = d20 + Thief Level + Intelligence Mod
+%^YELLOW%^Thief Roll   = d20 + Thief/Bard Level + Intelligence/Charisma Mod
 
 See Also: Spellcraft, Cast
