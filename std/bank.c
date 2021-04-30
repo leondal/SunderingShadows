@@ -375,6 +375,7 @@ int read(string str) {
 %^CYAN%^%^BOLD%^ deposit NUM TYPE%^BLACK%^ ------------- %^RESET%^: %^CYAN%^Deposits NUM of currency of TYPE.
 %^CYAN%^%^BOLD%^ withdraw NUM TYPE%^BLACK%^ ------------ %^RESET%^: %^CYAN%^Withdraws NUM of currency of TYPE.
 %^CYAN%^%^BOLD%^ exchange NUM TYPE for TYPE2%^BLACK%^ -- %^RESET%^: %^CYAN%^Exchanges currencies.
+%^CYAN%^%^BOLD%^ storage%^BLACK%^ ---------------------- %^RESET%^: %^CYAN%^Summon your magical storage chest.
 
 A 10% service fee will be charged to all deposits.
 MELNMARN
