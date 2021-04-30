@@ -142,6 +142,7 @@ void create()
     stage = 60;
     path = ({});
     monster_feats = ({});
+    set_sight_bonus(1);
     if (objectp(TO)) {
         catch("/daemon/quests"->isMon(TO));
     }

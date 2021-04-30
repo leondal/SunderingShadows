@@ -36,6 +36,7 @@ void create(){
 	set_max_hp(random(25)+150);
 	set_hp(query_max_hp());
 	set_overall_ac(0);
+    set_sight_bonus(2);
 //        set_exp(9500);
 	set_new_exp(15,"normal");
 	set("aggressive",25);

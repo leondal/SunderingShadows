@@ -41,6 +41,7 @@ void create(){
 	set_attacks_num(2);
 	set_base_damage_type("slashing");
 	set_damage(1,12);
+    set_sight_bonus(2);
 	/*set_funcs(({"drain"}));
 	set_func_chance(10);*/
       set_resistance("negative energy",10);

@@ -274,6 +274,9 @@ int use_scroll(string str)
     if(this_player()->is_class("cypher"))
         valid = 1;
     
+    if(lowest_spell_level > this_player()->query_level() / 2)
+        valid = 0;
+    
     /*
     if(spell == "secret chest")
         valid = 1;

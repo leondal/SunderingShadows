@@ -50,6 +50,7 @@ void create(){
 	add_money("gold",random(50));
 	set_property("swarm",1);
 	set("aggressive",25);
+    set_sight_bonus(2);
       set_resistance("negative energy",10);
       set_resistance("positive energy",-10);
 	set_hit_funcs((["mouth":(:TO,"bite":)]));
