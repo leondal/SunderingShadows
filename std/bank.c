@@ -37,6 +37,7 @@ void init() {
    add_action("withdraw", "withdraw");
    add_action("balance", "balance");
    add_action("exchange", "exchange");
+   add_action("storage", "storage");
    if (avatarp(TP)) {
        add_action("admdeposit", "admdeposit");
        add_action("admwithdraw", "admwithdraw");
@@ -124,6 +125,13 @@ int cell_action(string str)
         return upgrade_cell();
     }
 
+    return 1;
+}
+
+int storage(mixed arg)
+{
+    tell_object("You touch a magical handle on the wall, and begin to summon a chest.");
+    "/cmds/spells/s/_secret_chest.c"->use_spell(this_player(), arg, 50);
     return 1;
 }
 
