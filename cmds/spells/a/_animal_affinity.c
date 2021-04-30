@@ -49,6 +49,9 @@ void spell_effect(int prof) {
        dest_effect();
        return;
     }
+    
+    target = caster;
+    
     if (objectp(place)) place = environment(caster);
     /*
     if((int)caster->query_property("augmentation")){
