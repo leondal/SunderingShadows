@@ -1,0 +1,42 @@
+%^CYAN%^BOLD%^MAGICAL DEVICES%^RESET%^
+
+Besides swinging your sword or casting spells, you can also use various magical
+devices found in the world. There are two main types of magical devices:
+
+%^CYAN%^BOLD%^SCROLLS:%^RESET%^
+Scrolls are spells that have been stored on parchment for later use. These are
+one-time use items and the scroll is consumed after the spell is cast.
+Characters with the Scribe feat can create new scrolls with spells they have
+memorized.
+
+As a general rule, a player may use a scroll spell that exists in their class's
+spell list with no penalties, provided they actually meet the requirements for
+casting the spell. Players may use a scroll from ANOTHER class's spell list
+but at great risk of failing the spell and losing the scroll. The chances to
+avoid failure are based on the player's intelligence stat and spellcraft
+skill. Be warned, however, that this failure chance will always be fairly high.
+
+Thieves with the Use Magical Device feat may also attempt to use a scroll, with
+success or failure based on their intelligence stat and overall thief level
+compared against the scroll's caster level and level of the spell being cast.
+
+%^CYAN%^BOLD%^WANDS:%^RESET%^
+Wands are another magical item that casts spells. Unlike scrolls, wands tend to
+have multiple uses, or charges. Wands are subject to the same rules as wands in
+terms of which spells can be cast for no penalty. The off-class rolls for using
+a wand are the same. Thieves with the Use Magical Device feat can also use these
+devices with greater success.
+
+%^MAGENTA%^The off-class stat used is your highest among CHA, WIS, or INT
+
+%^CYAN%^Non-Thieves attempting off-class scroll or wand:%^RESET%^
+%^YELLOW%^Caster Level = Spellcraft Skill + Highest Casting Stat Mod
+%^YELLOW%^Scroll DC    = 20 + spell level
+%^YELLOW%^Scroll Roll  = d20 + highest casting stat mod + spellcraft skill / 10
+
+%^CYAN%^Thieves with UMD:%^RESET%^
+%^YELLOW%^Caster Level = Thief Level + Intelligence Mod
+%^YELLOW%^Scroll DC    = Scroll Caster Level + Spell Level
+%^YELLOW%^Thief Roll   = d20 + Thief Level + Intelligence Mod
+
+See Also: Spellcraft, Cast
