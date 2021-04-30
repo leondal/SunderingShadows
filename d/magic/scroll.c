@@ -285,7 +285,7 @@ int use_scroll(string str)
     
     if(!valid)
     {   
-        if(this_player()->is_class("thief"))
+        if(FEATS_D->usable_feat(this_player(), "use magic device"))
         {
             int roll = roll_dice(1, 20);
             int DC = this_object()->query_clevel() + lowest_spell_level;
@@ -315,6 +315,7 @@ int use_scroll(string str)
             return 1;
         }
     }
+    /*
     else
     {
         // Can you activate the scroll properly? This is deterministic UMD check
@@ -326,6 +327,7 @@ int use_scroll(string str)
             }
         }
     }
+    */
 
     lev = TO->query_clevel();
     
