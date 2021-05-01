@@ -40,7 +40,7 @@ int cmd_spell_combat(string str)
     }
     wielded = (object*)TP->query_wielded();
     if (!sizeof(wielded) || //no weapons
-        wielded[0]->is_lrweapon() || //is ranged
+        //wielded[0]->is_lrweapon() || //is ranged
         (sizeof(wielded) == 2 && //using both hands and...
             ((wielded[0] != wielded[1] && !TP->query_property("enruned offhand")) || //weapons are different and no feat
                 (wielded[0] == wielded[1] && !TP->query_property("enruned great weapon")) //same weapon and no feat
