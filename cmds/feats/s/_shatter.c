@@ -241,7 +241,7 @@ void execute_attack()
     }*/
 // new setup to simply remove related spells directly. Should've been doing this already but was not configured correctly!
 // please add any new iron-body type spells to the array below & should automatically work. N, 1/3/20
-    currentspells = (({ "stoneskin", "iron body", "dark discorporation", "resilience", "oak body", "stone body", "form of doom", "night armor" }));
+    currentspells = (({ "stoneskin", "iron body", "dark discorporation", "resilience", "oak body", "stone body", "form of doom", "night armor", "shadow body", "inertial barrier" }));
     if (target->query_property("spelled")) {
         for (i = 0; i < sizeof(currentspells); i++) {
             if (objectp(myspl = MAGIC_D->get_spell_from_array(target->query_property("spelled"), currentspells[i]))) {
