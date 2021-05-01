@@ -29,10 +29,14 @@ in terms of which spells can be cast for no penalty. The off-class rolls for
 using a wand are the same. Thieves with the Use Magical Device feat can also
 use these devices with greater success.
 
-%^MAGENTA%^The off-class stat used is your highest among CHA, WIS, or INT
+%^MAGENTA%^The Stat Mod used is your highest among CHA, WIS, or INT
+
+%^CYAN%^On-class scroll or wand user:
+%^YELLOW%^Caster Level = Scroll Clevel Capped by Spellcraft Skill + Stat Mod
+%^YELLOW%^No Success Check
 
 %^CYAN%^NON-Thieves/Bards attempting off-class scroll or wand:%^RESET%^
-%^YELLOW%^Caster Level = Spellcraft Skill + Highest Casting Stat Mod
+%^YELLOW%^Caster Level = Scroll Clevel Capped by Spellcraft Skill + Stat Mod
 %^YELLOW%^Scroll DC    = 20 + spell level
 %^YELLOW%^Scroll Roll  = d20 + highest casting stat mod + spellcraft skill / 10
 
