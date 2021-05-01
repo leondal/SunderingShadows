@@ -11,7 +11,7 @@ void create()
     feat_category("MeleeDamage");
     feat_name("cleave");
     feat_prereq("Powerattack, Strength 15");
-    feat_desc("This feat gives the ability to hit an additional enemy upon a successful hit. This will happen a limited number of times per round.");
+    feat_desc("This feat gives the ability to hit an additional enemy upon a successful hit. This will happen a limited number of times per round. This feat requires a weapon to function");
     permanent(1);
     set_target_required(0);
     set_required_for(({ "great cleave","improved cleave" }));
