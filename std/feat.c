@@ -505,26 +505,32 @@ varargs int thaco(object targ, int mod, int flag)
     return 1;
 }*/
 
+//Tlaloc changed this ti standardize with spell.c do_save
 varargs int do_save(object ob,int mod)
 {
     string save;
-    int num;
+    int num, DC, mylvl;
 
     if(!objectp(ob)) { return 0; }
     save = query_save_type();
+    
+    mylvl = max( ({ flevel, caster->query_level() - 10 }) );
+    DC = 10 + mylvl / 5;
+    //MOD should include whatever stat mod you're using for the feat
+    DC += mod;
 
     switch(save)
     {
     case "fort":
     case "fortitude":
-        num = (int)"/daemon/saving_throw_d"->fort_save(ob,mod);
+        num = (int)"/daemon/saving_throw_d"->fort_save(ob,DC);
         break;
     case "will":
     case "willpower":
-        num = (int)"/daemon/saving_throw_d"->will_save(ob,mod);
+        num = (int)"/daemon/saving_throw_d"->will_save(ob,DC);
         break;
     case "reflex":
-        num = (int)"/daemon/saving_throw_d"->reflex_save(ob,mod);
+        num = (int)"/daemon/saving_throw_d"->reflex_save(ob,DC);
         break;
     }
     return num;
