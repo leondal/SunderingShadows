@@ -515,7 +515,8 @@ varargs int do_save(object ob,int mod)
     save = query_save_type();
     
     mylvl = max( ({ flevel, caster->query_level() - 10 }) );
-    DC = 10 + mylvl / 5;
+    //Base 10 plus a modifier to coincide with spell level boost on spells
+    DC = 19 + mylvl / 5;
     //MOD should include whatever stat mod you're using for the feat
     DC += mod;
 
