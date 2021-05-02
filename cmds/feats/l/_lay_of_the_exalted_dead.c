@@ -13,7 +13,7 @@ void create()
     feat_name("lay of the exalted dead");
     feat_prereq("Chronicler L7");
     feat_syntax("lay_of_the_exalted_dead");
-    feat_desc("With this feat, the chronicler retells an epic tale of incredible heroism in the face of insurmountable odds. This tale fills allies with hope and inspiration, and enemies with a deep-deated dread. This feat adds a bonus to AC, reflex saves, to hit, and extra attacks, while having the opposite effect on enemies.");
+    feat_desc("With this feat, the chronicler retells an epic tale of incredible heroism in the face of insurmountable odds. This tale fills allies with hope and inspiration, and enemies with a deep-deated dread. This feat adds a bonus to AC, reflex saves, to hit, and extra attacks, while having the opposite effect on enemies. This tale is so powerful that it will also attract the souls of heroes long forgotten to aid the party.");
 }
 
 int allow_shifted()
@@ -166,7 +166,7 @@ void add_effects(object* party, object* attackers)
 
 void execute_attack()
 {
-    object* party = ({}), * attackers = ({});
+    object* party = ({}), * attackers = ({}), ob;
     int i;
 
     enemies -= ({ 0 });
@@ -188,8 +188,30 @@ void execute_attack()
     attackers = caster->query_attackers();
     add_effects(party, attackers);
 
-    if (!random(20)) {
-        tell_room(place, "%^RESET%^%^MAGENTA%^The %^CYAN%^e%^BOLD%^th%^WHITE%^er%^CYAN%^ea%^RESET%^%^CYAN%^l m%^BOLD%^u%^WHITE%^s%^CYAN%^i%^RESET%^%^CYAN%^c %^MAGENTA%^surrounding %^WHITE%^" + caster->QCN + " %^RESET%^%^MAGENTA%^fades and trails off into a %^BOLD%^%^BLACK%^f%^RESET%^ra%^BOLD%^%^BLACK%^gme%^RESET%^n%^BOLD%^%^BLACK%^te%^RESET%^d m%^BOLD%^%^BLACK%^em%^RESET%^o%^BOLD%^%^BLACK%^ry%^RESET%^%^MAGENTA%^.%^WHITE%^", enemies + allies);
+    if(sizeof(attackers) && place)
+    {
+        if (!random(20)) {
+            tell_room(place, "%^RESET%^%^MAGENTA%^The %^CYAN%^e%^BOLD%^th%^WHITE%^er%^CYAN%^ea%^RESET%^%^CYAN%^l m%^BOLD%^u%^WHITE%^s%^CYAN%^i%^RESET%^%^CYAN%^c %^MAGENTA%^surrounding %^WHITE%^" + caster->QCN + " %^RESET%^%^MAGENTA%^fades and trails off into a %^BOLD%^%^BLACK%^f%^RESET%^ra%^BOLD%^%^BLACK%^gme%^RESET%^n%^BOLD%^%^BLACK%^te%^RESET%^d m%^BOLD%^%^BLACK%^em%^RESET%^o%^BOLD%^%^BLACK%^ry%^RESET%^%^MAGENTA%^.%^WHITE%^", enemies + allies);
+        }
+    
+        if(!random(20))
+        {
+            if(!present("exalted_dead 4", place))
+            {
+                tell_room(place, "%^BOLD%^A ghostly warrior materializes on the battlefield!");
+            
+                ob=new("/d/magic/mon/epic_dead.c");
+                ob->set_alignment(caster->query_alignment());
+                ob->setup_servant(caster,flevel);
+                caster->add_follower(ob);
+                caster->add_protector(ob);
+                ob->move(environment(caster));
+                ob->set_property("spell",this_object());
+                ob->set_property("spell", ({this_object()}) );
+                ob->set_property("spell_creature", this_object());
+                ob->set_property("minion", caster);
+            }
+        }
     }
 
     if (objectp(place)) {
