@@ -506,6 +506,7 @@ varargs int thaco(object targ, int mod, int flag)
 }*/
 
 //Tlaloc changed this ti standardize with spell.c do_save
+//Please only send stat bonuses as mod except in very rare circumstances
 varargs int do_save(object ob,int mod)
 {
     string save;

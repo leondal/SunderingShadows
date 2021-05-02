@@ -148,9 +148,7 @@ void execute_attack() {
         return;
     }
 
-    mod = clevel;
-    mod += clevel - (int)target->query_level();
-    mod = mod * -1;
+    mod = max( ({ BONUS_D->query_stat_bonus(caster, "dexterity"), BONUS_D->query_stat_bonus(caster, "strength") }) );
 
     if(!do_save(target,mod)) {
         if(fired) {
