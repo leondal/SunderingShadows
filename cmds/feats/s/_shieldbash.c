@@ -237,9 +237,7 @@ void execute_attack()
         return;
     }
 
-    mod = dam;
-    mod += clevel - (int)target->query_highest_level();
-    mod = mod * -1;
+    mod = BONUS_D->query_stat_bonus(caster, "dexterity");
     // You have to calculate your opposed modifiers for the new saving throws manually.
     // In this case, I use the damage of the shieldbash, plus or minus the level difference.
     // NEGATIVE modifiers will help the caster, which is what we want because target modifiers
