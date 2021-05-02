@@ -758,7 +758,7 @@ mapping query_mastered_bonus()
     }
 
     if (TO->is_class("chronicler")) {
-        if (FEATS_D->usable_feat(TO, "timeweaver")) {
+        if (FEATS_D->usable_feat(TO, "epic tales")) {
             string baseclass = "bard";
             if (!arrayp(tmp[baseclass])) {
                 tmp[baseclass] = ({});
