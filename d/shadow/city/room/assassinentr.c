@@ -61,8 +61,8 @@ int touch_seal(string str)
 {
     if(str!="seal")
         return 0;
-    if(!(TP->is_class("assassin")||TP->query("is_assassin")||avatarp(TP)))
-        return 0;
+    //if(!(TP->is_class("assassin")||TP->query("is_assassin")||avatarp(TP))) - allowing other people to enter, but there will be consequences  - Tsera
+        //return 0; 
     tell_room(TO,"%^BLUE%^"+TP->QCN+" shifts down through the floor.",TP);
     write("%^BLUE%^The floor looses its corporeality and you fall through it.");
     TP->move(ROOMS+"/assassinhall");
