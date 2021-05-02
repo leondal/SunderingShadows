@@ -81,6 +81,7 @@ JEWEL = ([
              "circlet":(["file":COMMONFILE"jewelry/circlet","units":2]),
              "necklace":(["file":COMMONFILE"jewelry/necklace","units":2]),
              "ring":(["file":COMMONFILE"jewelry/ring","units":2]),
+             "pin":(["file":COMMONFILE"jewelry/pin","units":2]),
              ]);
 
 mapping WEAPONSMITH = ([]);
