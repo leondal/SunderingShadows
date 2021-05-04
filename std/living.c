@@ -42,6 +42,7 @@ string school_of_opposition;
 string sorc_bloodline;
 string oracle_mystery;
 string psion_discipline;
+string inquisition;
 //by Circe, for psions 7/16/05
 string* divine_domain = ({}); // For cleric domains -Ares 4/7/07
 string* quest_spells = ({}); // For priest quest spells - Ares 4/8/08
@@ -655,6 +656,18 @@ string* query_divine_domain()
         return ({});
     }
     return divine_domain;
+}
+
+string set_inquisition(string str)
+{
+    inquisition = str;
+    
+    return inquisition;
+}
+
+string query_inquisition()
+{
+    return inquisition;
 }
 
 void set_acquired_template(string str)
