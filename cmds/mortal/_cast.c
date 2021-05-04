@@ -356,11 +356,12 @@ Negative energy harms living and heals undead.
 Some spells are innate.   They can be cast without preparing them.
 EX:   cast innate undeath ward
 
+Would cast undeath ward if you are a crypt stalker with enough levels for that ability.
+
 %^CYAN%^CANTRIP CASTING%^RESET%^
 Casting classes also get a few cantrip spells, which can be cast without preparation.
 EX:   cast cantrip acid splash
 
-Would cast undeath ward if you are a crypt stalker with enough levels for that ability.
 
 %^CYAN%^SEE ALSO%^RESET%^
 
