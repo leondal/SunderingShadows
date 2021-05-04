@@ -87,6 +87,10 @@ cmd_give(string str) {
       notify_fail("You cannot give that away!\n");
       return 0;
    }
+   
+    if(member_array(to, this_player()->query_attackers()) >= 0)
+        return notify_fail("You cannot give items to someone you're fighting!\n");
+    
    i = (int) ob->move(to);
    switch(i) {
    case MOVE_OK: {

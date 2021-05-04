@@ -58,7 +58,7 @@ int *stat_adj() { return ({ 0, 0, 2, 0, 0, 2 }); }
 
 int is_restricted() { return 1; } // restricted races by approval
 
-int is_rollable() { return 0; } // rollable in creation
+int is_rollable() { return 1; } // rollable in creation
 
 // Stuff needed to replace what was in the old race database
 
