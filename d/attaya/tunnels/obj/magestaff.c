@@ -20,10 +20,7 @@
 #include <daemons.h>
 inherit "/std/weapon";
 
-#define ATTACK_BONUS 25
-// Because this weapon is designed solely for sc mages, this attack bonus
-// is given to the player when they wield the weapon, and taken away again
-// when they unwield it.
+#define ATTACK_BONUS 1
 
 int chanting;
 // The chanting flag is used to check whether the player is halfway
@@ -80,7 +77,7 @@ set_long("%^ORANGE%^A stout looking staff of %^RESET%^t%^BOLD%^%^BLACK%^w"
   set_heart_beat(1);
   set_property("enchantment", 5);
   set_property("able to cast",1);
-  set_item_bonus("attack bonus",ATTACK_BONUS);
+  set_item_bonus("empowered",ATTACK_BONUS);
   set_hit((:TO, "hit_stuff":));
   set_weapon_speed(1);
   set_language("common");
