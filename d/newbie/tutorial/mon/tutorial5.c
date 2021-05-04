@@ -148,7 +148,7 @@ int step_4(string str)
     if(!str) flag = 1;
     else if(stringp(str))
     {
-        if(strsrch(str, myName +" is going to see the world!") == -1) flag = 1;
+        if(strsrch(str, myName +" is going to see the world") == -1) flag = 1;
     }
     if(flag)
     {
