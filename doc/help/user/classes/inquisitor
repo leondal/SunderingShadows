@@ -24,6 +24,8 @@ Inquisitors tend to move from place to place, chasing down enemies and researchi
 
 Inquisitors are spontaneous casters that use %^ORANGE%^<master>%^RESET%^ command to learn new spells from the inquisitor spell list. See %^ORANGE%^<spells inquisitor (by level)>%^RESET%^. They can %^ORANGE%^<cast>%^RESET%^ any mastered spell by expending a spell slot, which is prepared with the %^ORANGE%^<prepare>%^RESET%^ command. To see how many spell slots you can prepare, use %^ORANGE%^<recall inquisitor spells>%^RESET%^. They base their casting abilities on the wisdom stat.
 
-They can cast in any armor they can wear, but not while wielding anything. 
+They can cast in any armor they can wear, but not while wielding anything.
+
+Inquisitors use Wisdom as opposed to Charisma for their Influence skill.
 
 %^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, master, prestige classes, new caster, recall
