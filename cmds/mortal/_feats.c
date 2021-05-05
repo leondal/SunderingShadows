@@ -1079,6 +1079,7 @@ feats - manipulate or view your feats
 %^CYAN%^SYNOPSIS%^RESET%^
 
 feats allowed
+feats known
 feats check|add|remove %^ULINE%^%^ORANGE%^FEAT_NAME%^RESET%^
 feats racial|martial|spellcraft|hybrid|arcana|divinebond %^ULINE%^%^ORANGE%^FEAT_NAME%^RESET%^
 feats list [martial|spellcraft|hybrid|arcana|divinebond|general]
@@ -1095,6 +1096,8 @@ The following commands apply:
 
 %^ORANGE%^<feats allowed>%^RESET%^
     Tells you how many feats you are allowed at your current level.
+%^ORANGE%^<feats known>%^RESET%^
+    Tells you which feats you already have.
 %^ORANGE%^<feats check %^ORANGE%^%^ULINE%^FEAT%^RESET%^%^ORANGE%^>%^RESET%^
     Tells you if you meet all the requirements to take this feat.
 %^ORANGE%^<feats add %^ORANGE%^%^ULINE%^FEAT%^RESET%^%^ORANGE%^>%^RESET%^

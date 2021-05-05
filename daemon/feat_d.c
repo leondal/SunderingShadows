@@ -817,6 +817,14 @@ int display_is_activable(string feat, object ob)
     return 0;
 }
 
+int display_is_known(string feat, object ob)
+{
+    if(!objectp(ob) || !stringp(feat))
+        return 0;
+    
+    return has_feat(ob, feat);
+}
+
 int filter_feats(object ob, string feat)
 {
     object obj;
@@ -1616,7 +1624,7 @@ void display_feats(object ob,object targ, string mytype)
             }
             if(mytype == "known")
             {
-                temp = filter_array(temp, "has_feat", this_object(), targ);
+                temp = filter_array(temp, "display_is_known", this_object(), targ);
             }
             good = ({});
             for (j = 0; j < sizeof(temp); j++) {
