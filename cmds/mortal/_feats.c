@@ -701,6 +701,11 @@ int cmd_feats(string str)
     case "active":
         FEATS_D->display_feats(TP, TP, "active");
         return 1;
+        break;
+    case "known":
+        FEATS_D->display_feats(this_player(), this_player(), "known");
+        return 1;
+        break;
 
     case "add":
     case "racial":

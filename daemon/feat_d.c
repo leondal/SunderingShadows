@@ -1614,6 +1614,10 @@ void display_feats(object ob,object targ, string mytype)
             if (mytype == "active") {
                 temp = filter_array(temp, "display_is_activable", TO, targ);
             }
+            if(mytype == "known")
+            {
+                temp = filter_array(temp, "has_feat", this_object(), targ);
+            }
             good = ({});
             for (j = 0; j < sizeof(temp); j++) {
                 if (is_feat_obsolete(temp[j])) {
