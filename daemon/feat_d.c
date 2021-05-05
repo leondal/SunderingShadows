@@ -1793,11 +1793,14 @@ int number_feats(object obj, string category, string* valid_classes) {
             switch (subset[i]) {
                 //martials
             case "fighter":
+                j = 1 + ((obj->query_class_level("fighter") + 1) / 2);
+                /*
                 if (obj->query_class_level("fighter") < 21) {
                     j = (obj->query_class_level(subset[i]) / 2) + 2;
                 } else {
                     j = 12 + (((obj->query_class_level(subset[i])) - 16) / 5);
                 }
+                */
                 break;
             case "paladin":
                 if (category == "divinebond") {
