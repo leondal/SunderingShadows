@@ -248,20 +248,40 @@ protected void special_attacks()
     
     tname = target->QCN;
     
-    //Two claw attacks for beast totem
-    if(FEATS_D->usable_feat(this_object(), "lesser beast totem") && this_object()->query_property("rage"))
+    if(this_object()->is_class("barbarian"))
     {
-        if(BONUS_D->process_hit(this_object(), target))
+        if(FEATS_D->usable_feat(this_object(), "animal fury") && this_object()->query_property("rage"))
         {
-            damage = 1 + this_object()->query_prestige_level("barbarian") / 10;
-            damage = roll_dice(damage, 6);
-            damage += max( ({ BONUS_D->query_stat_bonus(this_object(), "strength"), BONUS_D->query_stat_bonus(this_object(), "dexterity") }) );
-            damage = target->cause_typed_damage(target, target->return_target_limb(), damage, "piercing");
-            
-            if(damage && target && this_object())
+            if(BONUS_D->process_hit(this_object(), target))
             {
-                tell_object(this_object(), "%^GREEN%^You tear into " + tname + " with your claws!");
-                tell_room(environment(this_object()), "%^GREEN%^" + this_object()->QCN + " tears into " + tname + " with their claws!");
+                damage = 1 + this_object()->query_prestige_level("barbarian") / 10;
+                damage = roll_dice(damage, 6);
+                damage += max( ({ BONUS_D->query_stat_bonus(this_object(), "strength"), BONUS_D->query_stat_bonus(this_object(), "dexterity") }) );
+                damage = target->cause_typed_damage(target, target->return_target_limb(), damage, "piercing");
+            
+                if(damage && target && this_object())
+                {
+                    tell_object(this_object(), "%^GREEN%^You bite into " + tname + " with your teeth!");
+                    tell_room(environment(this_object()), "%^GREEN%^" + this_object()->QCN + " bites into " + tname + " with their teeth!");
+                }
+            }
+        }
+            
+        //Two claw attacks for beast totem
+        if(FEATS_D->usable_feat(this_object(), "lesser beast totem") && this_object()->query_property("rage"))
+        {
+            if(BONUS_D->process_hit(this_object(), target))
+            {
+                damage = 1 + this_object()->query_prestige_level("barbarian") / 10;
+                damage = roll_dice(damage, 6);
+                damage += max( ({ BONUS_D->query_stat_bonus(this_object(), "strength"), BONUS_D->query_stat_bonus(this_object(), "dexterity") }) );
+                damage = target->cause_typed_damage(target, target->return_target_limb(), damage, "piercing");
+            
+                if(damage && target && this_object())
+                {
+                    tell_object(this_object(), "%^GREEN%^You tear into " + tname + " with your claws!");
+                    tell_room(environment(this_object()), "%^GREEN%^" + this_object()->QCN + " tears into " + tname + " with their claws!");
+                }
             }
         }
     }

@@ -164,6 +164,19 @@ varargs void do_save(object ob, int dc, string type, raw_save)
                 }
             }
         }
+        //Barbarian with Eater of Magic can heal from a second save roll
+        if(ob->is_class("barbarian"))
+        {
+            if(FEATS_D->usable_feat(ob, "eater of magic"))
+            {
+                roll1 = roll_dice(1, 20);
+                if(roll1 + save + dc >= 0)
+                {
+                    tell_object(ob, "%^GREEN%^Your body seems to absorb the magic!%^RESET%^");
+                    ob->add_hp(roll_dice(level, 10));
+                }
+            }
+        }
     }       
 }
 
