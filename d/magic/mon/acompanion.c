@@ -106,6 +106,7 @@ int animal_command(string str)
         case "follow":
         tell_object(this_player(), "Your Animal Companion is now following you.");
         this_player()->add_follower(this_object());
+        return 1;
         default:
         tell_object(this_player(), "Please select 'long', 'short', 'follow' or 'command' as options.");
         return 1;
