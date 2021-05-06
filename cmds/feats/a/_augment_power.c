@@ -17,7 +17,7 @@ void create()
 }
 
 
-int allow_shifted() { return 1; }
+int allow_shifted() { return 0; }
 
 
 int prerequisites(object ob)
@@ -34,7 +34,7 @@ int prerequisites(object ob)
     return ::prerequisites(ob);
 }
 
-int cmd_empower_spell(string str)
+int cmd_augment_power(string str)
 {
     object feat;
     if(!objectp(this_player())) { return 0; }
@@ -69,7 +69,7 @@ void execute_feat()
         return;
     }
     
-    amount = (int)arg;
+    amount = to_int(arg);
     
     if(amount > caster->query_mp())
     {

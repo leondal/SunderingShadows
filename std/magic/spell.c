@@ -2404,6 +2404,7 @@ void define_clevel()
         
         if(caster->query_property("augment power"))
         {
+            tell_object(caster, "%^CYAN%^BOLD%^You pour your additional mental resources into the power, augmenting it.%^RESET%^");
             clevel += caster->query_property("augment power");
             caster->remove_property("augment power");
         }
