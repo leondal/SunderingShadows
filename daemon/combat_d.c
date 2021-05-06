@@ -86,6 +86,11 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
     }
     AttackerMissChance = (int)attacker->query_property("noMissChance");
     //attacker has a property set so that they cannot miss - Saide
+    
+    //True seeing negates misschance
+    if(attacker->true_seeing())
+        MissChance = 0;
+    
     if (AttackerMissChance) {
         return 1;
     }
