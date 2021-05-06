@@ -3652,6 +3652,10 @@ void help()
     if (sizeof(oracle_mystery)) {
         write("%^BOLD%^%^RED%^Mysteries:%^RESET%^ " + implode(oracle_mystery, ", "));
     }
+    
+    if (mydiscipline) {
+        write("%^BOLD%^%^RED%^Discipline:%^RESET%^ " + mydiscipline);
+    }
 
     if (verbal_comp || somatic_comp) {
         write("%^BOLD%^%^RED%^Components:%^RESET%^ " + (verbal_comp ? "Verbal " : "") + (somatic_comp ? "Somatic " : ""));
