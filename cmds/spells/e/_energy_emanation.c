@@ -153,7 +153,7 @@ void execute_attack(){
        "%^BOLD%^%^WHITE%^surrounding you crackles as if seeking out a target!%^RESET%^");
    }
    counter++;
-   if (counter > (clevel/2))
+   if (counter > (clevel * 6))
    {
         dest_effect();
         return;

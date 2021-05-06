@@ -86,7 +86,7 @@ void execute_attack(){
          ""+caster->QCN+" lashes out at you!");
       damage_targ(ppl,ppl->return_target_limb(),sdamage,"mental");
       counter++;
-      if (counter > clevel) {
+      if (counter > clevel * 6) {
           dest_effect();
           return;
       }
