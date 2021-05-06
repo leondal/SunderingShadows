@@ -2401,6 +2401,12 @@ void define_clevel()
         if (FEATS_D->usable_feat(caster, "mind wave")) {
             clevel += 2;
         }
+        
+        if(caster->query_property("augment power"))
+        {
+            clevel += caster->query_property("augment power");
+            caster->remove_property("augment power");
+        }
     }
 
     if(spell_type == "cleric")

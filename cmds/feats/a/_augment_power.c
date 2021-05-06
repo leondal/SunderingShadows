@@ -3,18 +3,16 @@
 
 inherit FEAT;
 
-string *allowed = ({ "mage", "sorcerer", "cleric", "oracle", "bard", "inquisitor", "magus", "warlock" });
-
 void create()
 {
     ::create();
     set_author("tlaloc");
     feat_type("instant");
-    feat_category("MetaMagic");
-    feat_name("empower spell");
-    feat_prereq("31 levels in any single spellcaster class");
-    feat_syntax("empower_spell");
-    feat_desc("This Meta Magic feat will cause your next spell to behave as though it were one spell level higher. This feat has a long cooldown");
+    feat_category("Psionics");
+    feat_name("augment power");
+    feat_prereq("Psion L31");
+    feat_syntax("augment_power [AMOUNT]");
+    feat_desc("This Meta Psionic feat will cause your next manifested power to be cast at a higher caster level, depending on the number of power points spent on the power. The conversion rate is 100 power points per caster level gained.");
     set_required_for(({ }));
 }
 
@@ -51,7 +49,7 @@ void execute_feat()
 {
     object obj;
     string * elements;
-    int i;
+    int amount;
 
     if(!objectp(caster))
     {
@@ -59,17 +57,33 @@ void execute_feat()
         return;
     }
     
-    if(caster->cooldown("empower spell"))
+    if(caster->cooldown("augment power"))
     {
-        tell_object(caster, "You can't use empower spell yet.");
+        tell_object(caster, "You can't use augment power yet.");
+        return;
+    }
+    
+    if(!arg)
+    {
+        tell_object(caster, "You need to specify the amount of power points you want to use.");
+        return;
+    }
+    
+    amount = (int)arg;
+    
+    if(amount > caster->query_mp())
+    {
+        tell_object(caster, "You don't have that many power points.");
         return;
     }
 
     ::execute_feat();
 
-    tell_object(caster, "You use your meta magic knowledge to empower your next spell.");
-    caster->set_property("empower spell", 1);
-    caster->add_cooldown("empower spell", 1200);
+    caster->add_mp(-amount);
+    amount = amount / 100;
+    tell_object(caster, "You use your meta psionic knowledge to augment your next power.");
+    caster->set_property("augment power", amount);
+    caster->add_cooldown("augment power", 300);
     
     return;
 }
