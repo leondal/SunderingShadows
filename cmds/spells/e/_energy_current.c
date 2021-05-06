@@ -97,7 +97,7 @@ void execute_attack() {
        }
     }
     colorings = MYCOLOR[element];
-    if (time>clevel*profs/100) {
+    if (time > clevel * 3) {
         dest_effect();
     } else {
        tell_room(place,""+colorings+"Crackling bolts of %^BOLD%^"+element+" energy"+colorings+" lash out wildly, striking all those in range!%^RESET%^");

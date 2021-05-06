@@ -58,7 +58,7 @@ void execute_attack()
     foes -= ({caster});
     if(caster->query_followers()) { foes -= caster->query_followers(); }
 
-    if(time > clevel)
+    if(time > clevel * 3)
     {
         dest_effect();
     }
