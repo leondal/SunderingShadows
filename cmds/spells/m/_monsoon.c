@@ -16,8 +16,8 @@ void create()
 {
     ::create();
     set_spell_name("monsoon");
-    set_spell_level(([ "cleric" : 8, "monk" : 17]));
-    set_spell_sphere("elemental water");
+    set_spell_level(([ "mage" : 8, "monk" : 17]));
+    set_spell_sphere("conjuration_summoning");
     set_monk_way("way of the elements");
     set_syntax("cast CLASS monsoon");
     set_description("When the monsoon spell is cast, the surrounding area is engulfed in a raging storm of water.  Any "
