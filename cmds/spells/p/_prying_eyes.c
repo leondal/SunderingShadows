@@ -6,7 +6,8 @@ inherit SPELL;
 
 object eyes,remote;
 string theName;
-#define DELAY 120
+//#define DELAY 120
+#define DELAY 300 //Tlaloc changed this to be in line with silver sight.
 
 void create(){
     ::create();
