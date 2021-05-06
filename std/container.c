@@ -128,7 +128,9 @@ int query_living_visibility(object item, object viewer)
         return 0;
     }
 
-    if (item->query_hidden() && !viewer->true_seeing()) {
+    //if (item->query_hidden() && !viewer->true_seeing()) {
+    if(item->query_hidden())
+    {
         return 0;
     }
 
