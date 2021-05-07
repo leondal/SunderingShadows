@@ -3,6 +3,8 @@
 
 inherit FEAT;
 
+#define MAX 3
+
 void create()
 {
     ::create();
@@ -12,7 +14,7 @@ void create()
     feat_name("augment power");
     feat_prereq("Psion L31");
     feat_syntax("augment_power [AMOUNT]");
-    feat_desc("This Meta Psionic feat will cause your next manifested power to be cast at a higher caster level, depending on the number of power points spent on the power. The conversion rate is 100 power points per caster level gained.");
+    feat_desc("This Meta Psionic feat will cause your next manifested power to be cast at a higher caster level, depending on the number of power points spent on the power. The conversion rate is 50 power points per caster level gained. The maximum caster level bonus that can be achieved is three. This feat has a three minute cooldown.");
     set_required_for(({ }));
 }
 
@@ -79,11 +81,13 @@ void execute_feat()
 
     ::execute_feat();
 
+    amount = amount > (MAX * 50) ? MAX : amount;
     caster->add_mp(-amount);
-    amount = amount / 100;
+    amount = amount / 50;
+    amount = amount > MAX ? MAX : amount;
     tell_object(caster, "You use your meta psionic knowledge to augment your next power.");
     caster->set_property("augment power", amount);
-    caster->add_cooldown("augment power", 300);
+    caster->add_cooldown("augment power", 180);
     
     return;
 }
