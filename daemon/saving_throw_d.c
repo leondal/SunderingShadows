@@ -1,3 +1,13 @@
+/*
+  saving_throw_d.c
+  
+  Rebuilt to solve the existing problems with saves.
+  Previous saves were very difficult to balance. This
+  effectively squishes the numbers down.
+  
+  -- Tlaloc --
+*/
+
 #include <std.h>
 #include <daemons.h>
 #include <dirs.h>
@@ -11,13 +21,33 @@ void create() { ::create(); }
 
 varargs void do_save(object ob, int dc, string type, raw_save)
 {
-    int *saves,num,save,roll1,i,level,statbonus,mod;
+    int *saves,num,save,roll1,i,level,statbonus,mod, *cls_save;
     string *classes,file;
     object rider;
     
+    saves = ({ 0, 0, 0 });
     save = 0;
     mod = 0;
     level = ob->query_level() / 5;
+    
+    classes = ob->query_classes();
+    
+    foreach(string cls in classes)
+    {
+        file = DIR_CLASSES + "/" + cls + ".c";
+        
+        if(!load_object(file))
+            continue;
+        
+        cls_save = file->saving_throws(ob);
+        
+        if(!sizeof(cls_save))
+            continue;
+        
+        saves[0] = cls_save[0] > saves[0] ? cls_save[0] : saves[0];
+        saves[1] = cls_save[1] > saves[1] ? cls_save[1] : saves[1];
+        saves[2] = cls_save[2] > saves[2] ? cls_save[2] : saves[2];
+    }
     
     switch(type)
     {
@@ -33,6 +63,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
                 statbonus += 5;
             
             mod += ob->query_saving_bonus("fortitude");
+            level += saves[0];
         
             if(ob->query("subrace") == "aesatri")
                 mod += 1;
@@ -53,6 +84,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             }
             
             mod += ob->query_saving_bonus("reflex");
+            level += saves[1];
             
             if(ob->query("subrace") == "senzokuan")
                 mod += 1;
@@ -75,6 +107,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
                 statbonus += 5;
             
             mod += ob->query_saving_bonus("will");
+            level += saves[2];
         
             if(ob->query("subrace") == "maalish")
                 mod += 1;
