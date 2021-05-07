@@ -32,7 +32,7 @@ fighting a third enemy type of their choice. The ranger will recieve an\
 addiional +2 bonus to attack and damage rolls while fighting their favored enemy.\
 A ranger also adds this bonus when studying his favored enemy and doesn't need training in academics.\
 You can select from the following favored enemies: \n\n" + "%^GREEN%^" + implode(valid_choices, "\n") +
-"%^RESET%^\n\n\To start selection process type <favored enemy> [TYPE].");
+"%^RESET%^\n\n\To start selection process type <third_favored_enemy> [TYPE].");
     allow_tripped(1);
     set_required_for(({ }));
 }
