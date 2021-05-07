@@ -44,6 +44,8 @@ The ranger is a hunter and woodsman who lives by not only his sword or bow, but 
 
 Rangers have the basic combat skills of a warrior, as well as several other abilities to aid their survival. They gain lesser divine spells based on their wisdom score. They %^ORANGE%^<prepare>%^RESET%^ spells from the ranger spell list, which can be viewed with the %^ORANGE%^<spells ranger (by level)>%^RESET%^ command. They %^ORANGE%^<cast>%^RESET%^ the spell by expending a prepared spell from memory. To see which spells you have prepared, use %^ORANGE%^<recall ranger spells>%^RESET%^. To remove a spell from the list, use the %^ORANGE%^<forget>%^RESET%^ command.
 
-Rangers can cast in any armor they can wear, but not while wielding anything. 
+Rangers can cast in any armor they can wear, but not while wielding anything.
+
+%^BOLD%^Rangers can begin casting spells at level 6.%^RESET%^
 
 %^RESET%^%^CYAN%^See also:%^RESET%^ ranged weapons, ranger roleplay, feats, stats, skills, spells, cast, prepare, buff, combatstyle, prestige classes, new caster
