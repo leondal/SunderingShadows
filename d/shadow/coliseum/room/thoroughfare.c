@@ -2,6 +2,7 @@
 // Shadow Coliseum
 
 #include <std.h>
+#include "../defs.h"
 inherit ROOM;
 
 void create(){
@@ -12,7 +13,7 @@ void create(){
     set_property("indoors", 0);
     set_name("Thoroughfare");
     set_short("Thoroughfare to the Coliseum");
-    set_long("The %^ORANGE%^wooden %^WHITE%^and st%^BOLD%^o%^RESET%^ne buildings of Shadow give way to this thoroughfare, with a broad roadway that offers plenty of room for foot and cart traffic. Each side of the %^BOLD%^%^BLACK%^c%^WHITE%^o%^BLACK%^bb%^RESET%^l%^BOLD%^e%^BLACK%^st%^WHITE%^o%^RESET%^n%^BOLD%^%^BLACK%^e %^RESET%^street has been lined with %^GREEN%^t%^BOLD%^r%^RESET%^%^ORANGE%^e%^GREEN%^e%^BOLD%^s%^RESET%^, their %^ORANGE%^b%^GREEN%^r%^ORANGE%^an%^GREEN%^c%^BOLD%^h%^RESET%^%^GREEN%^e%^ORANGE%^s %^WHITE%^reaching towards the other side of the street to form a relaxing %^GREEN%^c%^BOLD%^a%^RESET%^%^GREEN%^n%^BOLD%^op%^RESET%^%^GREEN%^y %^WHITE%^of vegetation. A large %^ORANGE%^structure %^WHITE%^looms in the distance to the northeast.%^RESET%^");
+    set_long("The %^ORANGE%^wooden %^WHITE%^and st%^BOLD%^o%^RESET%^ne buildings of Shadow give way to this thoroughfare, with a broad roadway that offers plenty of room for foot and cart traffic. Each side of the %^BOLD%^%^BLACK%^c%^WHITE%^o%^BLACK%^bb%^RESET%^l%^BOLD%^e%^BLACK%^st%^WHITE%^o%^RESET%^n%^BOLD%^%^BLACK%^e %^RESET%^street has been lined with %^GREEN%^t%^BOLD%^r%^RESET%^%^ORANGE%^e%^GREEN%^e%^BOLD%^s%^RESET%^, their %^ORANGE%^b%^GREEN%^r%^ORANGE%^an%^GREEN%^c%^BOLD%^h%^RESET%^%^GREEN%^e%^ORANGE%^s %^WHITE%^reaching towards the other side of the street to form a relaxing %^GREEN%^c%^BOLD%^a%^RESET%^%^GREEN%^n%^BOLD%^op%^RESET%^%^GREEN%^y %^WHITE%^of vegetation. A large %^ORANGE%^structure %^WHITE%^looms in the distance to the northeast.\n%^RESET%^");
     set_smell("default","Your nose catches the miasma of thousands of humanoids in close proximity.");
     set_listen("default","You hear the dull roar of conversations as pedestrians and wagons rumble past.");
     set_items(([
@@ -23,6 +24,7 @@ void create(){
         ]));
     set_exits(([
         "south" : "/d/shadow/city/room/shadway5.c",
+        "northeast" : ROOMS"entrance",
         ]));
 }
 
