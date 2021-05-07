@@ -67,6 +67,10 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             else
                 statbonus = BONUS_D->query_stat_bonus(ob, "wisdom");
             
+            //Undead will save is always high (as if they had the right stat)
+            if(ob->is_indead())
+                statbonus = 10;
+            
             if(FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus += 5;
             
