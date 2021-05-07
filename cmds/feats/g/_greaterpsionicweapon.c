@@ -49,7 +49,10 @@ void execute_feat() {
     mapping tempmap;
     int delay;
     ::execute_feat();
-    if((int)caster->query_property("using smite") > time()) { //keeping the same variable to avoid stacking
+    
+    if(caster->cooldown("Greater Psionic Weapon"))
+    {
+    //if((int)caster->query_property("using smite") > time()) { //keeping the same variable to avoid stacking
         tell_object(caster,"You are not prepared to exert such mental force again so soon!");
         dest_effect();
         return;
@@ -67,11 +70,11 @@ void execute_feat() {
 
     tell_object(caster,"%^RESET%^%^BOLD%^You focus your mind, preparing to unleash a psionic attack.");
 
-    delay = time() + FEATTIMER;
-    delay_messid_msg(FEATTIMER,"%^BOLD%^%^WHITE%^You can %^CYAN%^greaterpsionicweapon%^WHITE%^ again.%^RESET%^");
+    //delay = time() + FEATTIMER;
+    //delay_messid_msg(FEATTIMER,"%^BOLD%^%^WHITE%^You can %^CYAN%^greaterpsionicweapon%^WHITE%^ again.%^RESET%^");
     caster->set_property("using instant feat",1);
-    caster->remove_property("using smite");
-    caster->set_property("using smite",delay);
+    //caster->remove_property("using smite");
+    //caster->set_property("using smite",delay);
     return;
 }
 
@@ -93,10 +96,12 @@ void execute_attack()
         return;
     }
 
-    die = 6;
+    caster->add_cooldown("Greater Psionic Weapon", FEATTIMER);
+    
+    die = 8;
 
     if (FEATS_D->usable_feat(caster, "mind wave")) {
-        die = 8;
+        die = 10;
     }
 
     targets = caster->query_attackers();
@@ -132,7 +137,7 @@ void execute_attack()
         targets[i]->add_attacker(caster);
     }
 
-    caster->add_mp(-roll_dice(1, 6));
+    caster->add_mp(-(roll_dice(1, 6) + clevel / 5));
     caster->set_property("magic", -1);
     dest_effect();
     return;

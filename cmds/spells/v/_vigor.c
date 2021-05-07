@@ -11,6 +11,7 @@ void create(){
    set_spell_level(([ "psion" : 1, "psywarrior" : 1 ]));
    set_spell_sphere("alteration");
    set_syntax("cast CLASS vigor");
+   set_damage_desc("clevel * 2 bonus hit points");
    set_description("This power allows the psion to call upon psychic energies to strengthen their body, granting them added health.  As with other psionic powers, this one will grow in strength as the psion does.");
    set_verbal_comp();
    set_somatic_comp();
