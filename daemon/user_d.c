@@ -173,6 +173,7 @@ void init_ki(object ob)
 
 //Resource Functions, Wedex October 2020
 //pool_type: ki, arcana, grace
+//added focus for psionics, Tlaloc 2021
 int spend_pool(object ob, int amount, string pool_type)
 {
     int avail;
@@ -276,7 +277,16 @@ varargs void regenerate_pool(object ob, int amount, int pass, string pool_type)
                 }
             }
             break;
+        /* Psionic focus will regenerate from meditating alone.
+        case "focus":
+            if(ob->is_class("psion") || ob->is_class("psywarrior"))
+            {
+                delay = 180;
+                delay -= BONUS_D->query_stat_bonus(ob, "intelligence");
+            }
+            break;
         }
+        */
         ob->set("last " + pool_type + " regen", time() + delay);
     }
     return;
@@ -334,6 +344,17 @@ void init_pool(object ob, string pool_type)
             newmax += (FEATS_D->usable_feat(ob, "extra grace") * 2);
         }
         break;
+    case "focus":
+        if(!ob->is_class("psion") && !ob->is_class("psywarrior"))
+        {
+            ob->delete("available " + pool_type);
+            ob->delete("maximum " + pool_type);
+            return;
+        }
+        else
+        {
+            newmax = 1 + ob->query_class_level("psion") / 20 + ob->query_class_level("psywarrior") / 20;
+        }
     }
     if (!intp(avail = (int)ob->query("available " + pool_type))) avail = newmax;
     if (intp(oldmax = (int)ob->query("maximum " + pool_type)))
