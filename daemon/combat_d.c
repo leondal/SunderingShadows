@@ -579,7 +579,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                     tell_object(attacker, "%^BOLD%^You unleash a flash of searing energy that burns " + target->QCN + "'s very essence!%^RESET%^");
                     tell_object(target, "%^BOLD%^" + attacker->QCN + " unleashes a flash of searing white light burns your very essence!RESET%^");
                     tell_room(environment(attacker), "%^BOLD%^" + attacker->QCN + " unleashes a flash of searing energy that burns " + target->QCN + "'s undead essence!%^RESET%^", ({ target, attacker }));
-                    target->cause_typed_damage(target, target->return_target_limb(), 5 + roll_dice(attacker->query_guild_level("ranger") / 15, 6), "divine");
+                    target->cause_typed_damage(target, target->return_target_limb(), 5 + roll_dice(attacker->query_guild_level("ranger") / 5, 6), "divine");
                 }
             }
         }

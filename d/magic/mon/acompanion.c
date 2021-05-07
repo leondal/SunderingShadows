@@ -125,9 +125,9 @@ void heart_beat()
            
     ::heart_beat();
     
-    if(objectp(environment(this_object())))
-        room = environment(this_object());
-    else
+    room = environment(this_object());
+    
+    if(!room || !objectp(room))
         return;
     
     if(!objectp(owner) || owner->query_property("animal_companion") != this_object())
