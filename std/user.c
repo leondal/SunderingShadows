@@ -4329,7 +4329,8 @@ string realNameVsProfile(string who)
                 return name;
             }
         }
-        return outnames[random(sizeof(outnames))];
+        
+        return sizeof(outnames) ? outnames[random(sizeof(outnames))] : "";
     }
 
     return "";
