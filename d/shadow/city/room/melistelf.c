@@ -11,6 +11,9 @@ inherit VAULT;
 
 void create(){
    ::create();
+    set_property("indoors", 0);
+    set_terrain(CITY);
+    set_travel(PAVED_ROAD);
     set_short("%^RESET%^%^CYAN%^Melistel Avenue, Shadow%^RESET%^");
     set_long((INH+"melistel")->query_long()+"The ancient %^BOLD%^Puente Zincharo "+
       "%^RESET%^crosses over the %^BOLD%^%^BLUE%^Sarcosta River "+

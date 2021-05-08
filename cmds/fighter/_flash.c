@@ -66,6 +66,10 @@ int cmd_flash() {
    diff = abs((random(TP->query_stats("strength"))) - (random(ob->query_stats("strength"))) );
    level = TP->query_class_level("fighter");
    weapon = TP->query_wielded();
+   
+   if(!sizeof(weapon))
+       return notify_fail("You need a weapon to use flash.\n");
+   
    if(ob->query_property("weapon resistance")) {
       if((weapon == ({})))
          diff = 0;
