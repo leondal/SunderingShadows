@@ -49,7 +49,7 @@ int look_em(string str) {
         return 1;
     }
     write("%^BOLD%^%^BLACK%^You look carefully within the arena and study what lies within: %^RESET%^");
-    long_look_room(find_object_or_load("/realms/chernobog/coliseum/room/arena.c"));
+    long_look_room(find_object_or_load("/d/shadow/coliseum/room/arena.c"));
     return 1;
 }
 
