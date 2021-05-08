@@ -285,8 +285,9 @@ varargs void regenerate_pool(object ob, int amount, int pass, string pool_type)
                 delay -= BONUS_D->query_stat_bonus(ob, "intelligence");
             }
             break;
+
+            */
         }
-        */
         ob->set("last " + pool_type + " regen", time() + delay);
     }
     return;
