@@ -29,7 +29,7 @@ void create(){
         "northeast" : ROOMS"concourse5",
         ]));
     set_door("iron gate", ROOMS"concourse5", "northeast", 0);
-	set_door_description("iron gate","%^BOLD%^%^BLACK%^The massive gate is formed of woven bands of %^RESET%^iron %^BOLD%^%^BLACK%^in vertical and horizontal intersections, creating an %^RESET%^%^RED%^imposing %^BOLD%^%^BLACK%^and impressive barrier to the arena.%^RESET%^");
+    set_door_description("iron gate","%^BOLD%^%^BLACK%^The massive gate is formed of woven bands of %^RESET%^iron %^BOLD%^%^BLACK%^in vertical and horizontal intersections, creating an %^RESET%^%^RED%^imposing %^BOLD%^%^BLACK%^and impressive barrier to the arena.%^RESET%^");
 }
 
 void reset()
@@ -38,32 +38,32 @@ void reset()
     ::reset();
     if (!present("arena_listenerA")) {
         scry_object = new(OBJ "arena_listenerA");
-        scry_object->set_caster("/d/shadow/coliseum/room/arena.c");
-        scry_object->set_target("/d/shadow/coliseum/room/stands1.c");
+        scry_object->set_caster("/realms/chernobog/coliseum/room/arena.c");
+        scry_object->set_target("/realms/chernobog/coliseum/room/stands1.c");
         scry_object->move(TO);
     }
     if (!present("arena_listenerB")) {
         scry_object = new(OBJ "arena_listenerB");
-        scry_object->set_caster("/d/shadow/coliseum/room/arena.c");
-        scry_object->set_target("/d/shadow/coliseum/room/stands2.c");
+        scry_object->set_caster("/realms/chernobog/coliseum/room/arena.c");
+        scry_object->set_target("/realms/chernobog/coliseum/room/stands2.c");
         scry_object->move(TO);
     }
     if (!present("arena_listenerC")) {
         scry_object = new(OBJ "arena_listenerC");
-        scry_object->set_caster("/d/shadow/coliseum/room/arena.c");
-        scry_object->set_target("/d/shadow/coliseum/room/stands3.c");
+        scry_object->set_caster("/realms/chernobog/coliseum/room/arena.c");
+        scry_object->set_target("/realms/chernobog/coliseum/room/stands3.c");
         scry_object->move(TO);
     }
     if (!present("arena_listenerD")) {
         scry_object = new(OBJ "arena_listenerD");
-        scry_object->set_caster("/d/shadow/coliseum/room/arena.c");
-        scry_object->set_target("/d/shadow/coliseum/room/stands4.c");
+        scry_object->set_caster("/realms/chernobog/coliseum/room/arena.c");
+        scry_object->set_target("/realms/chernobog/coliseum/room/stands4.c");
         scry_object->move(TO);
     }
     if (!present("arena_listenerD")) {
         scry_object = new(OBJ "arena_listenerE");
-        scry_object->set_caster("/d/shadow/coliseum/room/arena.c");
-        scry_object->set_target("/d/shadow/coliseum/room/viewing_box.c");
+        scry_object->set_caster("/realms/chernobog/coliseum/room/arena.c");
+        scry_object->set_target("/realms/chernobog/coliseum/room/viewing_box.c");
         scry_object->move(TO);
     }
 }

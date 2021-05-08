@@ -34,7 +34,7 @@ void create(){
         "down" : ROOMS"concourse5",
         ]));
     set_door("mahogany door", ROOMS"concourse5", "down", 0);
-	set_door_description("mahogany door","%^RESET%^%^ORANGE%^Rich mahogany planks %^BOLD%^%^BLACK%^have been fashioned into this %^RESET%^o%^BOLD%^r%^RESET%^n%^YELLOW%^a%^RESET%^t%^BOLD%^e %^BLACK%^d%^RESET%^o%^BOLD%^o%^RESET%^r%^BOLD%^%^BLACK%^. %^RESET%^Iron panels %^BOLD%^%^BLACK%^reinforce it, creating a solid barrier to the viewing box.%^RESET%^");
+    set_door_description("mahogany door","%^RESET%^%^ORANGE%^Rich mahogany planks %^BOLD%^%^BLACK%^have been fashioned into this %^RESET%^o%^BOLD%^r%^RESET%^n%^YELLOW%^a%^RESET%^t%^BOLD%^e %^BLACK%^d%^RESET%^o%^BOLD%^o%^RESET%^r%^BOLD%^%^BLACK%^. %^RESET%^Iron panels %^BOLD%^%^BLACK%^reinforce it, creating a solid barrier to the viewing box.%^RESET%^");
 }
 
 void init(){
