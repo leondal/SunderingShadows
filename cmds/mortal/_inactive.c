@@ -11,9 +11,9 @@ inherit DAEMON;
 
 int cmd_inactive() {
    if(TP && TP->query_forced()) return 1;
-	tell_object(TP, wrap("You decide to take a nap.\nPress RETURN to wake up.\n"));
+	tell_object(TP, wrap("You go inactive.\nPress RETURN to become active again.\n"));
 	TP->set_property("inactive", 1);
-	tell_room(environment(TP), TPQCN+" falls into slumber.\n",
+	tell_room(environment(TP), TPQCN+" goes inactive.\n",
 	({ TP }) );
         input_to("reactivate",1,time());
 	return 1;
@@ -21,12 +21,12 @@ int cmd_inactive() {
 
 int reactivate(string str,int when){
         TP->remove_property("inactive");
-        tell_object(TP, "You wake up.");
+        tell_object(TP, "You become active.");
         if((time()-when) <= 60)
-           tell_object(TP,"You have been napping for "+(time()-when)+" seconds.");
+           tell_object(TP,"You have been inactive for "+(time()-when)+" seconds.");
         else
-           tell_object(TP,"You have been napping for "+((time()-when)/60)+" minutes.");
-        tell_room(environment(TP), TPQCN+" wakes up.\n", ({TP}) );
+           tell_object(TP,"You have been inactive for "+((time()-when)/60)+" minutes.");
+        tell_room(environment(TP), TPQCN+" becomes active.\n", ({TP}) );
 	return 1;
    return 1;
 }

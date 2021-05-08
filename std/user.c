@@ -1699,7 +1699,7 @@ void heart_beat()
             set_parrying(0);
         }
     }
-    
+
     if (query_property("dodging") && !sizeof(query_attackers())) {
         write("With combat over, you have no one to dodge.");
         remove_property("dodging");
@@ -1735,10 +1735,10 @@ void heart_beat()
         if ((query_idle(TO) > 600) && (!avatarp(TO)) && (!TO->query("test_character")) && (!TO->query_property("inactive")))
         {
             if(TO && TO->query_forced()) return 1;
-            tell_object(TP, wrap("%^WHITE%^%^BOLD%^You haven't been doing anything and fall into slumber.\n Press RETURN to wake up."));
+            tell_object(TP, wrap("%^WHITE%^%^BOLD%^You haven't been doing anything and go inactive.\n Press RETURN to go active."));
             TO->set_property("inactive", 1);
             TO->force_me("save");
-            tell_room(environment(TO), TPQCN+" falls into slumber.\n",
+            tell_room(environment(TO), TPQCN+" goes inactive.\n",
                       ({ TO }) );
             input_to("reactivate",1,time());
         }
@@ -1768,7 +1768,7 @@ void heart_beat()
         if (sizeof(query_attackers()) == 0) static_user["stance"]++;
         else static_user["stance"] = 0;
     }
-    
+
     this_object()->remove_property("cleaving");
 
     //There are 3 heart beats per round. Adjust values accordingly.
@@ -1786,12 +1786,12 @@ void heart_beat()
             TO->set_property("stab_resilience",(TO->query_level()+9)/20);
         }
     }
-    
+
     if (sizeof(cooldowns)) {
         foreach(string key in(keys(cooldowns)))
         {
             process_cooldowns(key, cooldowns[key]);
-        }    
+        }
     }
     else {
         cooldowns = ([]);
@@ -2354,10 +2354,10 @@ string query_short() {
     descr = descr + ")";
   }
   if(query_property("inactive")) {
-    descr = descr + " %^BOLD%^%^RED%^*slumbering*%^RESET%^";
+    descr = descr + " %^BOLD%^%^RED%^*inactive*%^RESET%^";
   }
   if (in_edit() || in_input() && !query_property("inactive")) {
-      descr = descr + " %^BOLD%^%^CYAN%^*daydreaming*%^RESET%^";
+      descr = descr + " %^BOLD%^%^CYAN%^*in edit*%^RESET%^";
   }
   if (query_property("working")) {
       descr = descr + " %^CYAN%^(" + query_property("working") + ")%^RESET%^";
@@ -4265,7 +4265,7 @@ string realName(string who)
 {
     if(!strlen(who))
         return "";
-    
+
     foreach(string str in keys(relationships))
     {
         if (relationships[str]["default"] == lower_case(who)) {
@@ -4283,12 +4283,12 @@ string realNameVsProfile(string who)
     string * profiles, profile;
     string * outnames = ({});
     object peep;
-    
+
     mapping tmp = ([]);
-    
+
     if(!strlen(who))
         return "";
-    
+
     names = keys(relationships);
 
     if (!pointerp(names) || !sizeof(names)) {
@@ -5371,12 +5371,12 @@ int race_mod(string stat)
 
 int reactivate(string str,int when){
         this_object()->remove_property("inactive");
-        tell_object(this_object(), "You wake up from the slumber.\n");
+        tell_object(this_object(), "You go active.\n");
         if((time()-when) <= 60)
-           tell_object(this_object(),"You have been napping for "+(time()-when)+" seconds.");
+           tell_object(this_object(),"You have been inactive for "+(time()-when)+" seconds.");
         else
-           tell_object(this_object(),"You have been napping for "+((time()-when)/60)+" minutes.");
-        tell_room(environment(this_object()), TPQCN+" wakes up.\n", ({ this_object() }) );
+           tell_object(this_object(),"You have been inactive for "+((time()-when)/60)+" minutes.");
+        tell_room(environment(this_object()), TPQCN+" goes active.\n", ({ this_object() }) );
         return 1;
    return 1;
 }
