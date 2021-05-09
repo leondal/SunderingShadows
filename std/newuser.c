@@ -223,7 +223,7 @@ int id(string str)
 
 void create()
 {
-    more::create();
+    ::create();
     weaponless_users::create();
     position = "newbie";
     wielded = ([]);
@@ -1976,6 +1976,8 @@ void set_bonus_feats_gained(int num) { __FEAT_DATA["bonus_feats_gained"] = num; 
 void set_hybrid_feats_gained(int num) { __FEAT_DATA["hybrid_feats_gained"] = num; return; }
 void set_arcana_feats_gained(int num) { __FEAT_DATA["arcana_feats_gained"] = num; return; }
 void set_divinebond_feats_gained(int num) { __FEAT_DATA["divinebond_feats_gained"] = num; return; }
+//void set_rage_feats_gained(int num) { __FEAT_DATA["rage_feats_gained"] = num; return; }
+//void set_talent_feats_gained(int num) { __FEAT_DATA["talent_feats_gained"] = num; return; }
 void set_other_feats_gained(int num) { __FEAT_DATA["other_feats_gained"] = num; return; }
 void set_epic_feats_gained(int num) { __FEAT_DATA["epic_feats_gained"] = num; return; }
 

@@ -277,7 +277,7 @@ varargs void regenerate_pool(object ob, int amount, int pass, string pool_type)
                 }
             }
             break;
-        /* Psionic focus will regenerate from meditating alone.
+        //Focus is either 1 or 0
         case "focus":
             if(ob->is_class("psion") || ob->is_class("psywarrior"))
             {
@@ -286,7 +286,6 @@ varargs void regenerate_pool(object ob, int amount, int pass, string pool_type)
             }
             break;
 
-            */
         }
         ob->set("last " + pool_type + " regen", time() + delay);
     }
@@ -354,7 +353,7 @@ void init_pool(object ob, string pool_type)
         }
         else
         {
-            newmax = 1 + ob->query_class_level("psion") / 20 + ob->query_class_level("psywarrior") / 20;
+            newmax = 1;
         }
     }
     if (!intp(avail = (int)ob->query("available " + pool_type))) avail = newmax;

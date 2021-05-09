@@ -379,6 +379,10 @@ int advance(object tp, string myclass)
     {
         USER_D->init_pool(tp, "grace");
     }
+    if (tp->is_class("psion") || tp->is_class("psywarrior"))
+    {
+        USER_D->init_pool(tp, "focus");
+    }
     return ret;
 }
 

@@ -1429,6 +1429,10 @@ void setup()
                 {
                     USER_D->init_pool(TO, "grace");
                 }
+                if(this_object()->is_class("psion") || this_object()->is_class("psywarrior"))
+                {
+                    USER_D->init_pool(this_object(), "focus");
+                }
             }
         }
 

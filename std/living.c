@@ -342,6 +342,10 @@ void heart_beat()
     if (TO->is_class("paladin") || TO->is_class("cleric")) {
         USER_D->regenerate_pool(TO, 1, 1, "grace");
     }
+    if (this_object()->is_class("psion") || this_object()->is_class("psywarrior"))
+    {
+        USER_D->regenerate_pool(this_object(), 1, 1, "focus");
+    }
     
     //enhancement effects
     "/cmds/mortal/_enhance.c"->run_enhances_timer(TO, "weapon");
