@@ -50,7 +50,7 @@ void execute_feat() {
     int delay;
     ::execute_feat();
     
-    if(caster->cooldown("Greater Psionic Weapon"))
+    if(caster->cooldown("psionicweapon"))
     {
     //if((int)caster->query_property("using smite") > time()) { //keeping the same variable to avoid stacking
         tell_object(caster,"You are not prepared to exert such mental force again so soon!");
@@ -96,7 +96,7 @@ void execute_attack()
         return;
     }
 
-    caster->add_cooldown("Greater Psionic Weapon", FEATTIMER);
+    caster->add_cooldown("psionicweapon", FEATTIMER);
     
     die = 8;
 
@@ -113,10 +113,8 @@ void execute_attack()
     }
 
     caster->set_property("magic", 1);
-    targets += ({ caster });
     tell_object(caster, "%^RESET%^%^CYAN%^The power within you grows to a fever pitch, and you release a psionic tempest that slices through your enemies!");
-    tell_room(place, "%^RESET%^%^CYAN%^A low hum resonates throughout the area before " + caster->QCN + " unleashes a psionic tempest that slices through " + caster->QP + " enemies!", targets);
-    targets -= ({ caster });
+    tell_room(place, "%^RESET%^%^CYAN%^A low hum resonates throughout the area before " + caster->QCN + " unleashes a psionic tempest that slices through " + caster->QP + " enemies!", ({ caster }));
 
     targets = shuffle(targets);
 
@@ -130,7 +128,7 @@ void execute_attack()
             continue;
         }
         tell_object(targets[i], "%^BOLD%^%^CYAN%^" + caster->QCN + " releashes a psionic tempest that slices through your mind like countless blades!%^RESET%^");
-        dmg = roll_dice(clevel, die);
+        dmg = roll_dice(clevel, die) + BONUS_D->query_stat_bonus(caster, "intelligence");
 
         caster->cause_damage_to(targets[i], "head", dmg);
         caster->add_attacker(targets[i]);
