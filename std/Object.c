@@ -712,9 +712,11 @@ mixed query_property(string prop)
         if (FEATS_D->usable_feat(TO, "unyielding soul")) {
             num += 6;
         }
+        /*
         if (FEATS_D->usable_feat(TO, "mind partition")) {
             num += 14;
         }
+        */
         if (TO->is_undead()) {
             return 20;
         }

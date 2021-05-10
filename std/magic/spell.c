@@ -3579,21 +3579,38 @@ int race_immunity_check(object obj, string type)
 
 varargs int mind_immunity_check(object obj, string type)
 {
+    int roll1;
+    
     if (!objectp(obj)) {
         return 0;
     }
-
-    switch (type) {
-    case "silent":
-        if (random(20) < obj->query_property("mind_immunity")) {
-            return 1;
+    
+    roll1 = random(20);
+    
+    if(roll1 > obj->query_property("mind_immunity"))
+    {
+        if(FEATS_D->usable_feat(obj, "mind partition"))
+        {
+            if(USER_D->spend_pool(obj, 1, "focus"))
+            {
+                tell_object(obj, "%^BOLD%^WHITE%^Your mental partition protects you, but you lose your focus.%^RESET%^");
+                return 1;
+            }
         }
-    default:
-        if (random(20) < obj->query_property("mind_immunity")) {
+        
+        return 0;
+    }
+
+    switch (type)
+    {
+        case "silent":
+            return 1;
+            break;
+        default:
             tell_object(obj, "%^BOLD%^%^WHITE%^You feel an invocation trying to take hold of your mind, but such is the strength of your soul that you manage to shake it off!%^RESET%^");
             tell_object(caster, "%^BOLD%^%^WHITE%^%^" + obj->QCN + " struggles momentarily, before shaking off the invocation's effects!%^RESET%^");
             return 1;
-        }
+            break;
     }
     return 0;
 }

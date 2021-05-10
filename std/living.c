@@ -394,9 +394,9 @@ void heart_beat()
             }
         }
         
-        if(this_object()->is_class("psywarrior"))
+        if(this_object()->is_class("metamind"))
         {
-            if(FEATS_D->usable_feat(this_object(), "mind partition") && this_object()->query("available focus"))
+            if(this_object()->query("available focus"))
                 add_mp(1);
         }
         
