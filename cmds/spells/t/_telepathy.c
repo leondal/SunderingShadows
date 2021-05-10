@@ -8,7 +8,7 @@ string whoname, whocname, cname, Ccname;
 void create() {
     ::create();
     set_spell_name("telepathy");
-    set_spell_level(([ "psion" : 4, "cleric" : 7 ]));
+    set_spell_level(([ "psion" : 5, "cleric" : 7 ]));
     set_spell_sphere("divination");
     set_syntax("cast CLASS telepathy to TARGET");
     set_description("This will allow the caster to establish a mental link with the target, allowing conversations through telepathy for a short time.
