@@ -15,11 +15,13 @@ create()
 {
     ::create();
     set_spell_name("psychic crush");
-    set_spell_level(([ "psion" : 5 ]));
-    set_spell_sphere("invocation_evocation");
+    set_spell_level(([ "psion" : 9 ]));
+    set_spell_sphere("necromancy");
     set_syntax("cast CLASS psychic crush on TARGET");
-    set_description("Your psychic will abruptly and brutally crushes the mental essence of the target. This power will stagger, paralyze or kill the target.");
+    set_damage_desc("mental damage and tripped, paralyzed, or death");
+    set_description("Your psychic will abruptly and brutally crushes the mental essence of the target. This power will stagger, paralyze or kill the target. Whether they make their saves or not, the target will take massive mental damage.");
     set_verbal_comp();
+    mental_spell();
     set_somatic_comp();
     set_target_required(1);
     set_save("will");
@@ -35,6 +37,8 @@ void spell_effect()
 {
     int ldiff;
 
+    spell_successful();
+    
     ldiff=(clevel-target->query_level());
     
     tell_object(caster, "%^BOLD%^CYAN%^You focus your psychic energies on crushing "+target->QCN+"'s mind!");
@@ -60,14 +64,16 @@ void spell_effect()
 
     if(ldiff>9)
     {
-        if(!(do_save(target,4)||
-             target->query_property("no death")))
+        if(!(do_save(target,4) && !target->query_property("no death")))
         {
             tell_room(place,sprintf("The psychic assault crushes %s's mind completely and %s drops dead!",target->QCN,target->query_subjective()));
             tell_object(target,"You die as your mind is crushed!");
             damage_targ(target,target->return_target_limb(),target->query_max_hp()*2,"mental");
+            return;
         }
     }
+    
+    target->cause_typed_damage(target, target->return_target_limb(), sdamage, "mental");
 
     dest_effect();
     return;
