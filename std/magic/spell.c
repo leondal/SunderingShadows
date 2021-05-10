@@ -348,12 +348,14 @@ string query_syntax()
 
 string *set_bonus_type(mixed str)
 {
+    if(!arrayp(bonus_type))
+        bonus_type = ({  });
+
     if(arrayp(str))
         bonus_type = str;
-    else if(stringp(str))
+
+    if(stringp(str))
         bonus_type = ({ str });
-    else
-        bonus_type = ({  });
 
     return bonus_type;
 }
@@ -367,7 +369,7 @@ string *query_bonus_type()
 }
 
 int has_bonus_type() {
-    
+
     if(sizeof(bonus_type) && target)
     {
         foreach(string type in bonus_type)
@@ -1204,6 +1206,10 @@ void wizard_interface(object user, string type, string targ)
         TO->remove();
         return;
     }
+    
+    if(has_bonus_type()) {
+        return;
+    }
 
     define_clevel();
     define_base_spell_level_bonus();
@@ -1221,11 +1227,6 @@ void wizard_interface(object user, string type, string targ)
         }
         return;
     }
-
-    if(has_bonus_type()) {
-        return;
-    }
-
 
 // improv code; if nothing supplied, improv defaults to the spell being cast
     if (!stringp(improv = query_property("improvised"))) {
@@ -1649,7 +1650,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         whatdo = "use";
         whatsit = "innate spell";
     }else if(spell_type == "cantrip") {
-        whatdo = "cast";
+        whatdo = "use";
         whatsit = "cantrip";
     }else {
         whatdo = "cast";
@@ -1701,7 +1702,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
             place = environment(environment(caster));
         }
     }
-    
+
     if(has_bonus_type()) {
         return;
     }
@@ -2138,6 +2139,9 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
         }
         mycost = 0; // on the off chance something calls spell_successful() more than once, don't charge them twice
     }
+    
+    if(!target)
+        target = caster;
 
     if(sizeof(bonus_type) && target)
     {
