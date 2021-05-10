@@ -3,8 +3,6 @@
 
 inherit FEAT;
 
-#define MAX 3
-
 void create()
 {
     ::create();
@@ -12,9 +10,9 @@ void create()
     feat_type("instant");
     feat_category("Psionics");
     feat_name("augment power");
-    feat_prereq("Psion L31");
-    feat_syntax("augment_power [AMOUNT]");
-    feat_desc("This Meta Psionic feat will cause your next manifested power to be cast at a higher caster level, depending on the number of power points spent on the power. The conversion rate is 50 power points per caster level gained. The maximum caster level bonus that can be achieved is three. This feat has a three minute cooldown.");
+    feat_prereq("Psion or Psywarrior");
+    feat_syntax("augment_power");
+    feat_desc("This Psionic feat will cause your next manifested power to be cast at a higher caster level at the cost of more power points. This feat consumes your Psionic Focus and 30 Power Points in exchange for +3 caster level on the next power used.");
     set_required_for(({ }));
 }
 
@@ -27,7 +25,7 @@ int prerequisites(object ob)
     
     if(!objectp(ob)) { return 0; }
 
-    if(ob->query_class_level("psion") < 31)
+    if(!ob->is_class("psion") && !ob->is_class("psywarrior"))
     {
         dest_effect();
         return 0;
@@ -65,29 +63,26 @@ void execute_feat()
         return;
     }
     
-    if(!arg)
-    {
-        tell_object(caster, "You need to specify the amount of power points you want to use.");
-        return;
-    }
-    
-    amount = to_int(arg);
+    amount = 30;
     
     if(amount > caster->query_mp())
     {
         tell_object(caster, "You don't have that many power points.");
         return;
     }
+    
+    if(!USER_D->spend_pool(caster, 1, "focus"))
+    {
+        tell_object(caster, "You need to have psionic focus to use this feat.");
+        return;
+    }
 
     ::execute_feat();
 
-    amount = amount > (MAX * 50) ? MAX : amount;
     caster->add_mp(-amount);
-    amount = amount / 50;
-    amount = amount > MAX ? MAX : amount;
     tell_object(caster, "You use your meta psionic knowledge to augment your next power.");
-    caster->set_property("augment power", amount);
-    caster->add_cooldown("augment power", 180);
+    caster->set_property("augment power", 3);
+    caster->add_cooldown("augment power", 60);
     
     return;
 }
