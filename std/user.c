@@ -5294,17 +5294,17 @@ int age_mod(string stat) {
     {
         case "child": return CHILD[i]; break;
         case "middle":
-            if((FEATS_D->usable_feat(this_object(), "timeless body")) &&
+            if((FEATS_D->usable_feat(this_object(), "timeless body") || this_object()->query_property("rewind age")) &&
                MIDDLE[i] < 1)
                 return 0;
             return MIDDLE[i]; break;
         case "old":
-            if((FEATS_D->usable_feat(this_object(), "timeless body")) &&
+            if((FEATS_D->usable_feat(this_object(), "timeless body") || this_object()->query_property("rewind age")) &&
                OLD[i] < 1)
                 return 0;
             return OLD[i]; break;
         case "venerable":
-            if((FEATS_D->usable_feat(this_object(), "timeless body")) &&
+            if((FEATS_D->usable_feat(this_object(), "timeless body") || tjis_object()->query_property("rewind age")) &&
                VENERABLE[i] < 1)
                 return 0;
             return VENERABLE[i]; break;
