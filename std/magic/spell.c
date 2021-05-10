@@ -370,8 +370,11 @@ string *query_bonus_type()
 
 int has_bonus_type() {
 
-    if(sizeof(bonus_type) && target)
+    if(sizeof(bonus_type))
     {
+        if(!target)
+            target = caster;
+        
         foreach(string type in bonus_type)
         {
             if(sizeof(target->query_property("spell_bonus_type")) && member_array(type, target->query_property("spell_bonus_type")) != -1)
@@ -2139,12 +2142,12 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
         }
         mycost = 0; // on the off chance something calls spell_successful() more than once, don't charge them twice
     }
-    
-    if(!target)
-        target = caster;
 
-    if(sizeof(bonus_type) && target)
+    if(sizeof(bonus_type))
     {
+        if(!target)
+            target = caster;
+        
         foreach(string type in bonus_type)
         {
             target && target->set_property("spell_bonus_type", ({type}));
