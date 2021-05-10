@@ -94,7 +94,9 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         case "will":
             save_info["save_type"] = "will";
             //These don't stack
-            if(FEATS_D->usable_feat(ob, "force of personality") && !FEATS_D->usable_feat(ob, "divine grace"))
+            if(ob->is_class("psion") || ob->is_class("psywarrior"))
+                statbonus = BONUS_D->query_stat_bonus(ob, "intelligence");
+            else if(FEATS_D->usable_feat(ob, "force of personality") && !FEATS_D->usable_feat(ob, "divine grace"))
                 statbonus = BONUS_D->query_stat_bonus(ob, "charisma");
             else
                 statbonus = BONUS_D->query_stat_bonus(ob, "wisdom");
