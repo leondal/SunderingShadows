@@ -348,14 +348,12 @@ string query_syntax()
 
 string *set_bonus_type(mixed str)
 {
-    if(!arrayp(bonus_type))
-        bonus_type = ({  });
-
     if(arrayp(str))
         bonus_type = str;
-
-    if(stringp(str))
+    else if(stringp(str))
         bonus_type = ({ str });
+    else
+        bonus_type = ({  });
 
     return bonus_type;
 }
@@ -1651,7 +1649,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         whatdo = "use";
         whatsit = "innate spell";
     }else if(spell_type == "cantrip") {
-        whatdo = "use";
+        whatdo = "cast";
         whatsit = "cantrip";
     }else {
         whatdo = "cast";

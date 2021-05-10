@@ -1000,22 +1000,8 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         damage += COMBAT_D->unarmed_enchantment(attacker);
     }
     
-    targ && paladin = targ->query_property("paladin smite");
-    
-    if(objectp(paladin))
-    {
-        
-        //Paladin smite target takes additional damage based on CHA mod
-        //Smite debuff lasts a few rounds
-        if(attacker->query_guild_level("paladin") && paladin == attacker)
-            damage += BONUS_D->new_damage_bonus(attacker, attacker->query_stats("charisma"));
-        
-        //Aura of Fury adds smite bonus of +2 to rest of party for duration
-        if(LIVING_D->check_aura(attacker, "fury") == 2)
-            damage += 2;
-    }
-    
     damage = damage_done(attacker, weapon, damage, fired);
+    
     if (!objectp(targ) || !objectp(attacker)) {
         return;
     }
@@ -1068,6 +1054,21 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         damage = crit_damage(attacker, targ, weapon, attacker_size, damage, cant_shot);
     }
     
+    targ && paladin = targ->query_property("paladin smite");
+    
+    if(objectp(paladin))
+    {
+        
+        //Paladin smite target takes additional damage based on CHA mod
+        //Smite debuff lasts a few rounds
+        if(attacker->query_guild_level("paladin") && paladin == attacker)
+            damage += BONUS_D->new_damage_bonus(attacker, attacker->query_stats("charisma"));
+        
+        //Aura of Fury adds smite bonus of +2 to rest of party for duration
+        if(LIVING_D->check_aura(attacker, "fury") == 2)
+            damage += 2;
+    }
+    
     sneak = 0;
 
     if(damage)
@@ -1077,8 +1078,6 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             //Sneak attack dice section
             sneak = attacker->query_prestige_level("thief") / 2;
             //Arcane trickster sneak attack progression
-            //This makes arcane trickster equal to pure thief....can't be here
-            //Needs to be a trade off for having spells.
             sneak += attacker->query_class_level("arcane_trickster") / 3;
     
             //Making this baseline and replacing combat reflexes with something else.
@@ -1113,21 +1112,6 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
                     sneak = 0;
             }
         }
- /*   
-        if(sneak)
-        {
-        
-            if(targ->query_paralyzed() ||
-            (targ->query_blind() && !FEATS_D->usable_feat(targ, "blindfight")) ||
-            targ->query_current_attacker() != attacker)
-            {              
-                tell_room(environment(attacker), "%^RED%^BOLD%^SNEAK ATTACK!%^RESET%^");
-                damage += roll_dice(sneak, 6);
-            }
-            else
-                sneak = 0;
-        }
-*/
     }
         
     //target is blind, bound or paralyzed or is attacking another target
@@ -1137,7 +1121,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         sneak = 0;
         
     //Brutalize wounds causes victim to take extra damage from physical attacks.
-    bonus_hit_damage += this_object()->query_property("brutalized");
+    bonus_hit_damage += targ->query_property("brutalized");
 
     damage += bonus_hit_damage;
     
