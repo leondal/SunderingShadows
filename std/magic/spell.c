@@ -367,7 +367,7 @@ string *query_bonus_type()
 }
 
 int has_bonus_type() {
-
+    
     if(sizeof(bonus_type) && target)
     {
         foreach(string type in bonus_type)
@@ -1701,7 +1701,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
             place = environment(environment(caster));
         }
     }
-
+    
     if(has_bonus_type()) {
         return;
     }
