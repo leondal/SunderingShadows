@@ -10,7 +10,7 @@ void create()
     feat_type("permanent");
     feat_category("MagicResistance");
     feat_name("resistance");
-    feat_desc("Resistance is a passive feat that when taken will boost the character's saving throws by a small amount and add a small amount of spell damage resistance.
+    feat_desc("Resistance is a passive feat that when taken will grant +1 to all saving throws and +5 spell damage resistance.
 
 %^BOLD%^See also:%^RESET%^ resistance *spells");
     permanent(1);

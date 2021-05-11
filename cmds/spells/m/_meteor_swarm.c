@@ -16,13 +16,14 @@ void create()
     set_mystery(({"heavens","apocalypse"}));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS meteor swarm on TARGET");
-    set_damage_desc("half bludgeoning, half fire or versatile arcanist");
+    set_damage_desc("half bludgeoning, half fire or versatile arcanist. Half damage on reflex save.");
     set_description("When the meteor swarm spell is cast, the target creature is assaulted by a swarm of flaming meteors, "
         "doing considerable damage.  Any other beings in the path may be engulfed in the explosion and also have a chance to "
         "receive some damage.");
     set_verbal_comp();
     set_somatic_comp();
     splash_spell(1);
+    set_save("reflex");
     set_target_required(1);
 }
 
@@ -94,6 +95,13 @@ void spell_effect(int prof)
         tell_room(place,"%^RED%^A swarm of meteors slams into "+target->QCN+" with tremendous force!",target);
         mycolor = "%^RED%^";
         break;
+    }
+    
+    if(do_save(target, 0))
+    {
+        tell_object(place, "%^YELLOW%^" + target->QCN + "jumps out of the way, avoiding some of the damage.%^RESET%^", ({ target }));
+        tell_object(target, "%^YELLOW%^You jump out of the the way, avoiding some of the damage.%^RESET%^");
+        sdamage /= 2;
     }
 
     spell_successful();

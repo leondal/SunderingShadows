@@ -136,7 +136,13 @@ varargs void do_save(object ob, int dc, string type, raw_save)
     if (ob->query_race() == "halfling" && ob->query("subrace") == "lightfoot halfling")
             mod += 1;
         
-    if (FEATS_D->usable_feat(ob, "resistance"))
+    if(FEATS_D->usable_feat(ob, "resistance"))
+        mod += 1;
+    
+    if(FEATS_D->usable_feat(ob, "increased resistance"))
+        mod += 1;
+    
+    if(FEATS_D->usable_feat(ob, "improved resistance"))
         mod += 1;
 
     if (FEATS_D->usable_feat(ob, "shadow master") && objectp(ENV(ob)) && ENV(ob)->query_light() < 2)
@@ -216,7 +222,9 @@ varargs void do_save(object ob, int dc, string type, raw_save)
                 }
             }
         }
-    }       
+    }
+
+    log_file("adm/saving_throw", ob->QCN + " " + (save_info["save_result"] ? "succeeded" : "failed") + " save against "   
 }
 
 int get_save(object who, string type)

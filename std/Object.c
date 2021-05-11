@@ -743,13 +743,13 @@ mixed query_property(string prop)
             }
         }
         if (FEATS_D->usable_feat(TO, "resistance")) {
-            num += 4;
+            num += 5;
         }
         if (FEATS_D->usable_feat(TO, "increased resistance")) {
-            num += 6;
+            num += 7;
         }
         if (FEATS_D->usable_feat(TO, "improved resistance")) {
-            num += 8;
+            num += 9;
         }
         num += props[prop];
         return (num + EQ_D->gear_bonus(TO, "spell damage resistance"));
