@@ -369,12 +369,13 @@ string *query_eye_colors(string subrace) {
 string* query_subraces(object who)
 {
     string* subraces;
-    subraces = ({ "heartlander", "zin'charu", "aesatri", "attayan", "tsarven", "morinnen", "tonaz'tlacar", "senzokuan", "maalish" });
+    subraces = ({ "heartlander", "zin'charu", "aesatri", "attayan", "tsarven", "morinnen", "tonaz'tlacar", "senzokuan", "maalish", "aasimar", "feytouched", "tiefling", "air genasi", "fire genasi", "water genasi", "earth genasi" });
     if (OB_ACCOUNT->is_experienced(who->query_true_name()) ||
         OB_ACCOUNT->is_high_mortal(who->query_true_name()) ||
         avatarp(who) ||
         who->query("is_valid_npc")) {
-        subraces += ({ "tiefling", "aasimar", "feytouched", "air genasi", "earth genasi", "fire genasi", "water genasi", "dhampir" });
+        subraces += ({ "dhampir" });
+        //subraces += ({ "tiefling", "aasimar", "feytouched", "air genasi", "earth genasi", "fire genasi", "water genasi", "dhampir" });
     }
     return subraces;
 }
