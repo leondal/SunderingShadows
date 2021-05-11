@@ -74,7 +74,7 @@ void spell_effect(int prof) {
     }
     removefoes = ({}); //setting up to revoke anyone with the dot effect already on them, as this stacks out of control! N, 5/11.
     for(x=0;x<sizeof(foes);x++){
-      if(foes[x]->query_property("black dragon breath",1)) removefoes += ({ foes[x] });
+      if(foes[x] && foes[x]->query_property("black dragon breath",1)) removefoes += ({ foes[x] });
     }
     foes -= removefoes;
 

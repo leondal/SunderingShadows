@@ -94,7 +94,7 @@ void drop(){
 
 int struck(int damage, object what, object who){
    if(query_worn()){
-      if(!random(2)){
+      if(!random(3)){
          switch(random(3)){
             case 0:
                tell_room(EETO,"%^BLUE%^A serpentine tendril lances "+
@@ -139,9 +139,10 @@ int struck(int damage, object what, object who){
                   "a shadow.%^RESET%^");
                break;
          }
+         return 0;
       }
-   return(-1)*(damage);
    }
+   return damage;
 }
 
 void heart_beat(){

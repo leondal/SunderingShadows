@@ -133,6 +133,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
     
     save += statbonus;
 
+    //SAVE ROLL MODIFIERS
     if (ob->query_race() == "halfling" && ob->query("subrace") == "lightfoot halfling")
             mod += 1;
         

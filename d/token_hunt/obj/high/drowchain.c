@@ -159,7 +159,7 @@ int remove_fun(){
 }
 
 int struck_fun(int damage, object what, object who){
-   if(random(1000) < 400){
+   if(!random(3)){
       tell_room(EETO,"%^BOLD%^%^BLACK%^The %^BOLD%^%^WHITE%^sp"+
 	     "%^RESET%^i%^BOLD%^derw%^RESET%^e%^BOLD%^b %^BOLD%^"+
 		 "%^BLACK%^design on the mail flares with an angry "+
