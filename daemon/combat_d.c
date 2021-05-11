@@ -511,6 +511,13 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
                 reduction = (int)targ->query_property("spell damage resistance");
                 //if we want something to work through this property, it should be set here - Saide
                 mod = 0;
+                
+                if(FEATS_D->usable_feat(attacker, "spell penetration"))
+                    mod += 5;
+                
+                if(FEATS_D->usable_feat(attacker, "greater spell penetration"))
+                    mod += 5;
+                
                 reduction -= mod;
                 if (reduction < 0) {
                     reduction = 0;

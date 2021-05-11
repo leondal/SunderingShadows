@@ -563,9 +563,15 @@ mixed query_property(string prop)
 
 // we want this to pick up item "empowered" bonuses only, without spell power feats. Manually applied.
     if (prop == "spell dcs") {
-        if (FEATS_D->usable_feat(TO, "spell focus")) {
-            num += 2;
-        }
+        if (FEATS_D->usable_feat(TO, "spell focus"))
+            num += 1;
+        
+        if(FEATS_D->usable_feat(TO, "spell penetration"))
+            num += 1;
+        
+        if(FEATS_D->usable_feat(TO, "greater spell penetration"))
+            num += 1;
+        
         //num += props["empowered"]; //doesn't seem to do anything
         return (num + TO->query_property("empowered"));
     }
