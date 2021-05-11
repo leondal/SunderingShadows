@@ -1694,6 +1694,9 @@ int query_attack_bonus()
     if (FEATS_D->usable_feat(TO, "epic weapon focus")) {
         ret += 1;
     }
+    
+    if(this_object()->is_class("psywarrior") && this_object()->query("available focus"))
+        ret += 1;
 
     attacker = TO->query_current_attacker();
 
@@ -1774,6 +1777,9 @@ int query_damage_bonus()
     if (FEATS_D->usable_feat(TO, "epic weapon specialization")) {
         ret += 2;
     }
+    
+    if(this_object()->is_class("psywarrior") && this_object()->query("available focus"))
+        ret += 1;
 
     attacker = TO->query_current_attacker();
 
