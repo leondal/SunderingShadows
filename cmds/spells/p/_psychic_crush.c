@@ -35,7 +35,7 @@ string query_cast_string()
 
 void spell_effect()
 {
-    int ldiff;
+    int ldiff, saved;
 
     spell_successful();
     
@@ -43,8 +43,10 @@ void spell_effect()
     
     tell_object(caster, "%^BOLD%^CYAN%^You focus your psychic energies on crushing "+target->QCN+"'s mind!");
     tell_object(target, "%^BOLD%^You suddenly feel a vicious attack upon your psyche!");
+    
+    saved = do_save(target, 0);
 
-    if(!do_save(target,4))
+    if(!saved)
     {
         tell_room(place,"%^BOLD%^"+target->QCN+" is knocked down by the mental assault!",target);
         tell_object(target,"%^BOLD%^You are assaulted by a brutal mental assault, knocking you off your feet!");
@@ -57,14 +59,14 @@ void spell_effect()
         tell_room(place,"%^BOLD%^"+target->QCN+" is paralyzed by the mental assault!",target);
         tell_object(target,"%^BOLD%^You feel your body freeze as the mental assault thrashes your mind!");
         duration = roll_dice(2,4);
-        if(!do_save(target,4))
+        if(!saved)
             duration = 8*roll_dice(1,4);
         target->set_paralyzed(duration,"%^BOLD%^You are paralyzed by the mental assault!");
     }
 
     if(ldiff>9)
     {
-        if(!(do_save(target,4) && !target->query_property("no death")))
+        if(!saved && !target->query_property("no death"))
         {
             tell_room(place,sprintf("The psychic assault crushes %s's mind completely and %s drops dead!",target->QCN,target->query_subjective()));
             tell_object(target,"You die as your mind is crushed!");
@@ -73,7 +75,10 @@ void spell_effect()
         }
     }
     
-    target->cause_typed_damage(target, target->return_target_limb(), sdamage, "mental");
+    if(saved)
+        target->cause_typed_damage(target, target->return_target_limb(), sdamage / 2, "mental");
+    else
+        target->cause_typed_damage(target, target->return_target_limb(), sdamage, "mental");
 
     dest_effect();
     return;
