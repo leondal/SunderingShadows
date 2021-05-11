@@ -281,7 +281,7 @@ varargs void regenerate_pool(object ob, int amount, int pass, string pool_type)
         case "focus":
             if(ob->is_class("psion") || ob->is_class("psywarrior"))
             {
-                delay = 180;
+                delay = 90;
                 delay -= BONUS_D->query_stat_bonus(ob, "intelligence");
             }
             break;

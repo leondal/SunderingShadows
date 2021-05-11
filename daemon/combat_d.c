@@ -560,6 +560,16 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             tell_room(environment(attacker), "%^CYAN%^" + attacker->QCN + " unleashes a wave of %^YELLOW%^w%^MAGENTA%^i%^WHITE%^l%^RED%^d %^GREEN%^m%^BLUE%^a%^WHITE%^g%^ORANGE%^i%^RED%^c%^RESET%^%^CYAN%^ at " + target->QCN + "!%^RESET%^", ({ target, attacker }));
             target->cause_typed_damage(target, target->return_target_limb(), 5 + roll_dice(attacker->query_character_level() / 15, 6), "untyped");
         }
+        //Psionic Critical Feat
+        if (FEATS_D->usable_feat(attacker, "psionic critical"))
+        {
+            if(attacker->query("available focus"))
+            {
+                tell_object(attacker, "%^BOLD%^CYAN%^Your weapon flashes as it assaults your opponent's mind!%^RESET%^");
+                tell_object(target, "%^BOLD%^CYAN%^" + attacker->QCN + "'s weapon flashes as it assaults your mind!");
+                target->cause_typed_damage(target, target->return_target_limb(), roll_dice(1 + (attacker->query_class_level("psion") + attacker->query_class_level("psywarrior")) / 20, 8), "mental");
+            }
+        }
 
         //Handles Crypststalker feat
         if (
