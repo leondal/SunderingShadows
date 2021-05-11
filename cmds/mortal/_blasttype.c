@@ -12,6 +12,12 @@ int cmd_blasttype(string str)
         tell_object(TP,"You fail to connect to eldritch powers.");
         return 1;
     }
+    
+    if(!strlen(str))
+    {
+        tell_object(this_player(), "You need to choose a valid blast type.");
+        return 1;
+    }
 
     currenttype = TP->query("warlock_blast_type");
 
