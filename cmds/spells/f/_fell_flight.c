@@ -75,10 +75,10 @@ void spell_effect(int prof) {
         tell_room(place,"%^RESET%^%^ORANGE%^"+caster->QCN+" straightens "+caster->QP+" shoulders as translucent wings of %^GREEN%^vei%^ORANGE%^n%^GREEN%^ed me%^MAGENTA%^m%^GREEN%^bra%^ORANGE%^n%^GREEN%^e %^ORANGE%^unfurl from them!%^RESET%^",caster);
         caster->set_property("added short",({"%^RESET%^%^GREEN%^ (trailed by me%^ORANGE%^mb%^GREEN%^ran%^MAGENTA%^o%^GREEN%^us wings)%^RESET%^"}));
       break;
-	   case "star":
-        tell_room(caster,"%^RESET%^%^ORANGE%^You straighten your shoulders as starry wings of %^BLUE%^e%^WHITE%^n%^BLUE%^d%^BOLD%^%^WHITE%^l%^RESET%^%^BLUE%^e%^WHITE%^s%^BLUE%^s%^WHITE%^ cosmos %^RESET%^ %^ORANGE%^unfurl from them!%^RESET%^");
-        tell_room(place,"%^RESET%^%^ORANGE%^"+caster->QCN+" straightens "+caster->QP+" shoulders as starry wings of %^BLUE%^e%^WHITE%^n%^BLUE%^d%^BOLD%^%^WHITE%^l%^RESET%^%^BLUE%^e%^WHITE%^s%^BLUE%^s%^WHITE%^ cosmos %^RESET%^ %^ORANGE%^unfurl from them!%^RESET%^",caster);
-        caster->set_property("added short",({"%^BOLD%^%^MAGENTA%^ (trailed by %^BLUE%^s%^WHITE%^t%^BLUE%^a%^BOLD%^%^WHITE%^r%^RESET%^%^BLUE%^r%^WHITE%^y wings)%^RESET%^"}));
+	  case "astral":
+        tell_room(caster,"%^RESET%^%^ORANGE%^You straighten your shoulders as %^BLUE%^t%^BOLD%^hi%^RESET%^%^BLUE%^c%^BOLD%^k writhing %^RESET%^%^BLUE%^t%^BOLD%^e%^RESET%^%^BLUE%^n%^BOLD%^ta%^RESET%^%^BLUE%^c%^BOLD%^l%^RESET%^%^BLUE%^e%^BOLD%^s %^RESET%^%^ORANGE%^erupt from them.%^RESET%^");
+        tell_room(place,"%^RESET%^%^ORANGE%^"+caster->QCN+" %^RESET%^%^ORANGE%^straightes %^WHITE%^"+caster->QP+" %^RESET%^%^ORANGE%^shoulders as %^BLUE%^t%^BOLD%^hi%^RESET%^%^BLUE%^c%^BOLD%^k writhing %^RESET%^%^BLUE%^t%^BOLD%^e%^RESET%^%^BLUE%^n%^BOLD%^ta%^RESET%^%^BLUE%^c%^BOLD%^l%^RESET%^%^BLUE%^e%^BOLD%^s %^RESET%^%^ORANGE%^erupt from them.%^RESET%^",caster);
+        caster->set_property("added short",({"%^RESET%^%^BLUE%^ (held aloft by %^BOLD%^writhing %^RESET%^%^BLUE%^t%^BOLD%^e%^RESET%^%^BLUE%^n%^BOLD%^ta%^RESET%^%^BLUE%^c%^BOLD%^l%^RESET%^%^BLUE%^e%^BOLD%^s%^RESET%^%^BLUE%^)%^RESET%^"}));
       break;
       case "gloom":
         tell_room(caster,"%^RESET%^%^ORANGE%^You straighten your shoulders as hazy wings of %^BOLD%^%^BLACK%^s%^RESET%^h%^BOLD%^%^BLACK%^a%^RESET%^do%^BOLD%^%^BLACK%^w %^RESET%^%^ORANGE%^unfurl from them!%^RESET%^");
@@ -158,8 +158,8 @@ void dest_effect() {
         case "abyssal":
           caster->remove_property_value("added short",({"%^RESET%^%^GREEN%^ (trailed by me%^ORANGE%^mb%^GREEN%^ran%^MAGENTA%^o%^GREEN%^us wings)%^RESET%^"}));
         break;
-		case "star":
-          caster->remove_property_value("added short",({"%^BOLD%^%^MAGENTA%^ (trailed by %^BLUE%^s%^WHITE%^t%^BLUE%^a%^BOLD%^%^WHITE%^r%^RESET%^%^BLUE%^r%^WHITE%^y wings)%^RESET%^"}));
+        case "astral":
+          caster->remove_property_value("added short",({"%^RESET%^%^BLUE%^ (held aloft by %^BOLD%^writhing %^RESET%^%^BLUE%^t%^BOLD%^e%^RESET%^%^BLUE%^n%^BOLD%^ta%^RESET%^%^BLUE%^c%^BOLD%^l%^RESET%^%^BLUE%^e%^BOLD%^s%^RESET%^%^BLUE%^)%^RESET%^"}));
         break;
         case "gloom":
           caster->remove_property_value("added short",({"%^BOLD%^%^BLACK%^ (trailed by h%^RESET%^az%^BOLD%^%^BLACK%^y wings)%^RESET%^"}));
@@ -177,3 +177,4 @@ void dest_effect() {
     if(objectp(TO)) TO->remove();
 
 }
+

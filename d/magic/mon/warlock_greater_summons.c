@@ -94,23 +94,24 @@ void setup_beastie(object caster, int beastheritage) {
         set_attack_limbs(({"left hand","right hand"}));
         set_base_damage_type("bludgeoning");
       break;
-	  case "star":
-        set_id(({"the whispered","aberrant whispered","aberration","outsider","summoned monster","greater summon"}));
-        set_short("%^RED%^a%^BOLD%^b%^RESET%^%^CYAN%^e%^BOLD%^rr%^RESET%^%^CYAN%^a%^BOLD%^%^RED%^n%^RESET%^%^RED%^t %^BLUE%^wh%^BOLD%^%^CYAN%^i%^RESET%^%^CYAN%^s%^BOLD%^%^WHITE%^pe%^RESET%^%^CYAN%^r%^BOLD%^%^WHITE%^e%^RESET%^%^BLUE%^d%^WHITE%^");
-        set_long("%^CYAN%^This s%^BOLD%^%^RED%^t%^RESET%^%^CYAN%^r%^BOLD%^a%^RESET%^%^CYAN%^n%^BOLD%^%^MAGENTA%^g%^RESET%^%^CYAN%^e, humanoid creature is about nine feet tall, not counting the antlers. %^WHITE%^"
-"%^CYAN%^It stands on two limbs like a human, but these feet, like the rest of its body, is every inch covered in %^WHITE%^metal machine parts%^CYAN%^, %^ORANGE%^o%^BOLD%^%^BLACK%^r%^RESET%^e%^ORANGE%^s%^CYAN%^, %^BOLD%^%^WHITE%^c%^CYAN%^ry%^WHITE%^st%^CYAN%^al%^WHITE%^s %^RESET%^%^CYAN%^and%^WHITE%^"
-"%^ORANGE%^mi%^BOLD%^%^BLACK%^ne%^RESET%^%^ORANGE%^r%^BOLD%^al%^RESET%^%^ORANGE%^s, %^CYAN%^in addition to %^GREEN%^p%^BOLD%^l%^RESET%^%^GREEN%^a%^BOLD%^n%^RESET%^%^GREEN%^ts %^CYAN%^and %^BOLD%^%^RED%^f%^WHITE%^u%^RED%^n%^WHITE%^g%^RED%^i %^RESET%^%^CYAN%^that couldn't possibly exist in this world. The limbs from its torso, presumably arms, reach out and %^WHITE%^"
-"%^CYAN%^pick at both the %^GREEN%^organic %^CYAN%^and %^ORANGE%^inorganic %^CYAN%^to gnaw on. The most prominent feature is most likely the %^WHITE%^a%^ORANGE%^n%^BOLD%^%^GREEN%^t%^RESET%^l%^BOLD%^e%^CYAN%^r%^RESET%^s %^CYAN%^that twist unnaturally from what %^WHITE%^"
-"%^CYAN%^could be the head. %^WHITE%^Met%^RED%^a%^WHITE%^l %^CYAN%^twisted beyond its forged shapes, %^MAGENTA%^bl%^BOLD%^%^CYAN%^oo%^RESET%^%^MAGENTA%^ming %^GREEN%^g%^ORANGE%^ro%^GREEN%^w%^BOLD%^%^RED%^th%^RESET%^%^GREEN%^s %^CYAN%^from other worlds, and somehow %^ORANGE%^h%^BOLD%^o%^RESET%^%^ORANGE%^u%^BOLD%^se%^RESET%^%^ORANGE%^hol%^BOLD%^d t%^RESET%^%^ORANGE%^oo%^BOLD%^l%^RESET%^%^ORANGE%^s%^CYAN%^, as if it pilfers from normal%^WHITE%^" "%^CYAN%^civilian houses. The creature, a %^BOLD%^m%^RESET%^%^CYAN%^y%^BOLD%^%^RED%^st%^CYAN%^er%^RESET%^%^CYAN%^i%^BOLD%^%^MAGENTA%^ou%^RESET%^%^CYAN%^s %^RED%^a%^BOLD%^b%^RESET%^%^CYAN%^b%^BOLD%^er%^RESET%^%^CYAN%^a%^BOLD%^%^RED%^n%^RESET%^%^RED%^t %^BLUE%^Wh%^BOLD%^%^CYAN%^i%^RESET%^%^CYAN%^s%^BOLD%^%^WHITE%^pe%^RESET%^%^CYAN%^r%^BOLD%^%^WHITE%^e%^RESET%^%^BLUE%^d%^CYAN%^, scouts with obsessed %^WHITE%^hu%^ORANGE%^ma%^BOLD%^%^BLACK%^n %^RESET%^%^ORANGE%^ey%^WHITE%^es %^CYAN%^for new things to add to its collection. What it %^WHITE%^"
-"%^CYAN%^might be collecting for is unclear, but it seems like it might collect more than just the organic and strange. There's no doubt that its %^BOLD%^%^RED%^swipes %^RESET%^%^CYAN%^and %^WHITE%^"
-"%^RED%^kicks %^CYAN%^are deadly enough, should it feel the need to turn on others. The rough edges and points do enough damage, but it's %^YELLOW%^the force %^RESET%^%^CYAN%^needed to swing these%^WHITE%^"
-" %^CYAN%^heavy limbs should be considered before engaging it or its master. Its mouth, on its head like a human's should be, seems to be moving constantly,%^WHITE%^" " %^CYAN%^as if muttering or whispering to itself.%^WHITE%^"
-" as if muttering or whispering to itself.");
-        set_name("whispered");
-        set_race("whispered");
-        set_body_type("humanoid");
-        set_attack_limbs(({"left hand","right hand"}));
-        set_base_damage_type("slashing");
+      case "astral":
+        set_id(({"shuggoth","ooze","outsider","summoned monster","greater summon"}));
+        set_short("%^BOLD%^%^BLACK%^w%^WHITE%^r%^RESET%^%^ORANGE%^i%^BOLD%^%^BLACK%^t%^RESET%^%^ORANGE%^hin%^BOLD%^%^BLACK%^g %^RESET%^s%^BOLD%^%^BLACK%^h%^RESET%^%^ORANGE%^ugg%^BOLD%^%^BLACK%^o%^WHITE%^t%^BLACK%^h%^RESET%^");
+        set_long("%^BOLD%^%^BLACK%^This writhiting mass of %^RESET%^%^ORANGE%^flesh %^BOLD%^%^BLACK%^is constantly %^RESET%^%^MAGENTA%^"
+"p%^RED%^ul%^MAGENTA%^s%^RED%^at%^MAGENTA%^i%^RED%^ng %^BOLD%^%^BLACK%^and %^RESET%^%^MAGENTA%^w%^RED%^ea%^MAGENTA%^v%^RED%^in%^MAGENTA%^"
+"g%^BOLD%^%^BLACK%^, coated in a t%^WHITE%^h%^RESET%^i%^BOLD%^%^BLACK%^ck o%^RESET%^o%^BOLD%^%^BLACK%^z%^RESET%^i%^BOLD%^n%^BLACK%^g b"
+"%^WHITE%^l%^RESET%^a%^BOLD%^%^BLACK%^ck%^WHITE%^n%^RESET%^e%^BOLD%^%^BLACK%^ss. All along the shifting surface, %^GREEN%^s%^ORANGE%^tr"
+"%^GREEN%^an%^ORANGE%^g%^GREEN%^e e%^ORANGE%^ye%^GREEN%^s %^BLACK%^blink into existence with alien rectangular pupils, gazing at its "
+"surroundings before winking back into obscurity. Vicious %^WHITE%^toothy maws %^BLACK%^open and close with %^RESET%^%^RED%^s%^BOLD%^l"
+"%^RESET%^%^RED%^a%^BOLD%^ve%^RESET%^%^RED%^r%^BOLD%^i%^RESET%^%^RED%^n%^BOLD%^g %^BLACK%^prehensile %^RESET%^%^RED%^t%^BOLD%^on%^RESET%^"
+"%^RED%^g%^BOLD%^u%^RESET%^%^RED%^e%^BOLD%^s %^BLACK%^along the twisted tendrils, flowing as if in a pool of animate liquid. It heaves "
+"itself along, moving with a purpose and will of its own.%^RESET%^");
+        set_name("shuggoth");
+        set_race("shuggoth");
+        set_body_type("ooze");
+        add_limb("tentacle","torso",0,0,0);
+        set_attack_limbs(({"tentacle","body"}));
+        set_base_damage_type("bludgeoning");
       break;
       case "gloom":
         set_id(({"bodak","nightmarish bodak","outsider","summoned monster","greater summon"}));
@@ -189,9 +190,18 @@ void my_special(object target) {
 "%^GREEN%^e%^RED%^n%^RESET%^%^ORANGE%^c%^BOLD%^%^GREEN%^h %^RESET%^%^ORANGE%^as "+target->QS+" %^BOLD%^%^RED%^struggles "
 "%^RESET%^%^ORANGE%^to free "+target->QO+"self!%^RESET%^",target);
       break;
-	  case "occult":
-        tell_object(target,"%^CYAN%^The %^BLUE%^Wh%^BOLD%^%^CYAN%^i%^RESET%^%^CYAN%^s%^BOLD%^%^WHITE%^pe%^RESET%^%^CYAN%^r%^BOLD%^%^WHITE%^e%^RESET%^%^BLUE%^d %^CYAN%^suddenly lunges at you, and grabs you by the shoulder. Moving its head close in an instant, it whispers into your ear a %^MAGENTA%^Name%^CYAN%^... the %^BOLD%^%^MAGENTA%^L%^GREEN%^i%^RESET%^%^GREEN%^vi%^BOLD%^n%^MAGENTA%^g %^RESET%^%^MAGENTA%^Name%^BOLD%^! %^RESET%^%^CYAN%^Your mind is not ready for it, and it %^BLUE%^rebounds %^CYAN%^within you, the %^MAGENTA%^Name %^BOLD%^%^RED%^tearing you apart %^RESET%^%^CYAN%^as %^BOLD%^your entire being %^RESET%^%^CYAN%^rejects it.%^RESET%^");
-        tell_room(ETO,"%^CYAN%^The %^BLUE%^Wh%^BOLD%^%^CYAN%^i%^RESET%^%^CYAN%^s%^BOLD%^%^WHITE%^pe%^RESET%^%^CYAN%^r%^BOLD%^%^WHITE%^e%^RESET%^%^BLUE%^d %^CYAN%^suddenly lunges at %^RESET%^"+target->QCN+"%^CYAN%^, and grabs %^RESET%^"+target->QO+" %^CYAN%^by the shoulder. Moving its head close in an instant, it whispers into %^RESET%^"+target->QO+" %^CYAN%^ear. %^RESET%^"+capitalize(target->QCN)+" %^CYAN%^seems to stop and listen, entranced, before convulsing and seizing erratically!%^RESET%^",target);
+      case "astral":
+        tell_object(target,"%^ORANGE%^With a great heave, the %^BOLD%^%^BLACK%^shuggoth %^RESET%^%^ORANGE%^rises up and "
+"slams down into you, the %^BOLD%^%^BLACK%^t%^RESET%^e%^BOLD%^n%^BLACK%^ta%^WHITE%^c%^RESET%^l%^BOLD%^%^BLACK%^e%^RESET%^s "
+"%^ORANGE%^and %^BOLD%^%^WHITE%^t%^RESET%^e%^BOLD%^e%^RESET%^t%^BOLD%^h %^RESET%^%^ORANGE%^writhing about your limbs in "
+"sensations both %^RED%^slippery %^ORANGE%^and %^RED%^sinister%^ORANGE%^, %^BOLD%^%^RED%^wrenching %^RESET%^%^ORANGE%^and "
+"%^BOLD%^%^RED%^tearing%^RESET%^%^ORANGE%^!%^WHITE%^");
+        tell_room(ETO,"%^RESET%^%^ORANGE%^With a great heave, the %^BOLD%^%^BLACK%^shuggoth %^RESET%^%^ORANGE%^rises up "
+"and slams down into %^WHITE%^"+target->QCN+"%^RESET%^%^ORANGE%^, the %^BOLD%^%^BLACK%^t%^RESET%^e%^BOLD%^n%^BLACK%^ta"
+"%^WHITE%^c%^RESET%^l%^BOLD%^%^BLACK%^e%^RESET%^s %^ORANGE%^and %^BOLD%^%^WHITE%^t%^RESET%^e%^BOLD%^e%^RESET%^t%^BOLD%^h "
+"%^RESET%^%^ORANGE%^writhing about %^WHITE%^"+target->QP+" %^RESET%^%^ORANGE%^limbs in sensations both %^RED%^slippery "
+"%^ORANGE%^and %^RED%^sinister%^ORANGE%^, %^BOLD%^%^RED%^wrenching %^RESET%^%^ORANGE%^and %^BOLD%^%^RED%^tearing%^RESET%^"
+"%^ORANGE%^!%^WHITE%^",target);
       break;
       case "gloom":
         tell_object(target,"%^BOLD%^The bodak stops abruptly and locks its %^BLACK%^g%^RESET%^a%^BOLD%^z%^BLACK%^e "
@@ -297,3 +307,4 @@ void save_outsider()
     mkdir(fname);
     "/daemon/yuck_d"->save_inventory(this_object(),fname);
 }
+

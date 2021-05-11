@@ -11,11 +11,10 @@ void create() {
     feat_prereq("Warlock L9");
     feat_desc("This feat represents the warlock's attunement to their pact or lineage,
 manifesting as a minor resistance to certain types of energy. As follows by %^BOLD%^heritage:%^RESET%^
-
   -%^BOLD%^celestial:%^RESET%^ acid
   -%^BOLD%^fey:%^RESET%^ sonic
   -%^BOLD%^demonic:%^RESET%^ electricity
-  -%^BOLD%^star:%^RESET%^ psychic
+  -%^BOLD%^astral:%^RESET%^ psychic
   -%^BOLD%^gloom:%^RESET%^ cold
   -%^BOLD%^infernal:%^RESET%^ fire");
     permanent(1);

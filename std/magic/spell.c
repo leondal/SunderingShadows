@@ -2592,17 +2592,21 @@ void define_base_damage(int adjust)
         } else {
             sdamage = roll_dice(clevel, 8);
             if(caster->query_property("maximize spell"))
+            {
+                tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
+                caster->remove_property("maximize spell");
                 sdamage = clevel * 8;
+            }
         }
 
         if(spell_type == "cantrip")
             sdamage = roll_dice(1 + clevel / 2, 6);
-    }
-
-    if(caster && caster->query_property("maximize spell"))
-    {
-        caster->remove_property("maximize spell");
-        tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
+        
+        if(spell_type == "psion")
+        {
+            if(FEATS_D->usable_feat(caster, "power specialization"))
+                sdamage += (BONUS_D->query_stat_bonus(caster, "intelligence") * (1 + clevel / 12));
+        }
     }
 
     if (!wasreflected) {

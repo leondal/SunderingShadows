@@ -248,7 +248,7 @@ int query_shieldMiss()
         if (FEATS_D->usable_feat(TO, "deflection")) {
             chance += 15;
         }                                                           // +15% for deflection feat(might need tweaking)
-        chance += ((int)TO->query_property("shieldwall_bonus") * 2);
+        chance += (int)TO->query_property("shieldwall_bonus");
 
         equip = (object)TO->all_armour();
         if (sizeof(equip)) {
@@ -693,7 +693,6 @@ void set_resistance_percent(string res, int num)
 int query_resistance(string res)
 {
     int myres;
-    object *worn;
     string *domains;
     
     if (!valid_resistance(res)) {
@@ -716,7 +715,7 @@ int query_resistance(string res)
         if ((string)TO->query("warlock heritage") == "demonic" && res == "electricity") {
             myres += 10;
         }
-		if((string)TO->query("warlock heritage") == "star" && res == "psychic") {
+        if((string)TO->query("warlock heritage") == "astral" && res == "psychic") {
             myres += 10;
         }
         if ((string)TO->query("warlock heritage") == "gloom" && res == "cold") {
@@ -786,15 +785,6 @@ int query_resistance(string res)
     if (FEATS_D->usable_feat(TO, "no fear of the flame") && res == "fire") {
         myres += 30;
     }
-    
-    //Barbarians with the unstoppable feat gain some resistance to all damage types
-    if (FEATS_D->usable_feat(this_object(), "unstoppable")) {
-        worn = filter_array(distinct_array(TO->all_armour()), "light_armor_filter", TO);
-        if (!sizeof(worn)) {
-            myres += ((query_guild_level("barbarian") - 10) / 6 + 4);
-        }
-    }
-    
     return (myres + EQ_D->gear_bonus(TO, res));
 }
 
@@ -848,12 +838,6 @@ int query_resistance_percent(string res)
             mod = 100;
     }
     
-    if(FEATS_D->usable_feat(this_object(), "natures gift"))
-    {
-        if(res == "fire" || res == "electricity" || res == "cold" || res == "acid")
-            mod += 25;
-    }
-    
     //Mage is invulnerable for duration of prismatic sphere
     if(TO->query_property("prismatic sphere"))
         mod = 100;
@@ -896,7 +880,6 @@ int cause_typed_damage(object targ, string limb, int damage, string type)
     if (!objectp(attacker = targ->query_property("beingDamagedBy"))) {
         attacker = previous_object();
     }
-    
     damage = (int)COMBAT_D->typed_damage_modification(attacker, targ, limb, damage, type);
     return targ->cause_damage_to(targ, limb, damage);
 }
@@ -975,9 +958,6 @@ int do_damage(string limb, int damage)
     }else {
         real_limb = limb;
     }
-    
-    if(this_object()->query_property("prismatic sphere"))
-        return 0;
 
     /*if (damage > 0 && TO->isPkill())
        {
@@ -1683,7 +1663,7 @@ void check_armor_active_feats(object wornBy, string type, string limb, string ac
             if (bonus_value) {
                 message("my_action", "You can't benefit from shieldwall without a shield.", wornBy);
                 wornBy->set_property("shieldwall", -bonus_value);
-                wornBy->set_property("damage resistance", -bonus_value * 2);
+                wornBy->set_property("damage resistance", -bonus_value);
                 wornBy->set_property("shieldwall_bonus", -bonus_value);
                 wornBy->set_property("empowered", bonus_value);
             }
@@ -1735,7 +1715,6 @@ void check_armor_active_feats(object wornBy, string type, string limb, string ac
    int i, j;
    int num, holdac, hold;
    object *tmp;
-
    num = 0;
    holdac = -10;
    hold = -1;
@@ -2406,3 +2385,4 @@ mapping query_player_data()
 {
     return player_data;
 }
+
