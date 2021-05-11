@@ -54,7 +54,7 @@ void create()
     "cone of cold"}));
     set_spell_chance(90);
     set_funcs(({"leech_life", "chaos"}));
-    set_func_chance(90);
+    set_func_chance(70);
     set_property("no tripped", 1);
     set_monster_feats(({
         "perfect caster",
@@ -127,7 +127,7 @@ void leech_life(object targ)
 	
     targs = all_living(ETO);
     targs -= ({TO});
-    x = 3;
+    x = 2;
 
     while(x--)
     {
