@@ -140,7 +140,7 @@ void leech_life(object targ)
         "withered tendrils%^BOLD%^%^BLACK%^ grasps at "+targ->QCN+
         "%^BOLD%^%^BLACK%^!%^RESET%^", targ);
 	
-        if(targ->reflex_save(45)) 
+        if(targ->reflex_save(25)) 
         {
             tell_object(targ, "%^BOLD%^%^GREEN%^You move quickly and "+
             "are able to avoid the %^BOLD%^%^BLACK%^withered "+
