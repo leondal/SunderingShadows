@@ -8,6 +8,7 @@
 
 #include <std.h>
 #include <spell.h>
+#include <daemons.h>
 
 inherit SPELL;
 
@@ -76,7 +77,12 @@ void spell_effect()
     }
     
     if(saved)
-        target->cause_typed_damage(target, target->return_target_limb(), sdamage / 2, "mental");
+    {
+        if(FEATS_D->usable_feat(target, "stalwart"))
+            tell_object(target, "Your grit pushes you through the pain.");
+        else
+            target->cause_typed_damage(target, target->return_target_limb(), sdamage / 2, "mental");
+    }
     else
         target->cause_typed_damage(target, target->return_target_limb(), sdamage, "mental");
 

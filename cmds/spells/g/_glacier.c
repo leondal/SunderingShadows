@@ -1,4 +1,5 @@
 #include <spell.h>
+#include <daemons.h>
 inherit SPELL;
 
 void create()
@@ -31,7 +32,10 @@ spell_effect()
     {
         tell_object(target, "%^YELLOW%^You scramble out of the way of the way and avoid some of the damage!%^RESET%^");
         tell_room(place, "%^YELLOW%^" + target->QCN + " barely scrambles out of the way, avoiding some of the damage!%^RESET%^");
-        sdamage /= 2;
+        if(FEATS_D->usable_feat(target, "evasion"))
+            sdamage = 0;
+        else
+            sdamage /= 2;
     }
     
     damage_targ(target, target->return_target_limb(), sdamage / 2, "cold");

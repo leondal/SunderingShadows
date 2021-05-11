@@ -1,4 +1,5 @@
 #include <spell.h>
+#include <daemons.h>
 inherit SPELL;
 
 void create()
@@ -34,7 +35,10 @@ spell_effect(int prof)
     {
         tell_room(place, target->QCN + " is able to resist some of the crushing force!", ({ target }));
         tell_object(target, "You are able to resist some of the crushing force!");
-        sdamage /= 2;
+        if(FEATS_D->usable_feat(target, "stalwart"))
+            sdamage = 0;
+        else            
+            sdamage /= 2;
     }
 
     damage_targ(target, target->return_target_limb(), sdamage, "untyped");
