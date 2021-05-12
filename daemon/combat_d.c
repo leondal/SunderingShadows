@@ -3221,6 +3221,15 @@ void internal_execute_attack(object who)
                     }
                 }
             }
+            if(FEATS_D->usable_feat(victim, "resilient body") && critical_hit)
+            {
+                if(!victim->cooldown("resilient body"))
+                {
+                    victim->add_cooldown("resilient body", 60);
+                    tell_object(victim, "%^CYAN%^BOLD%^Your resilient body absorbs the critical hit!%^RESET%^");
+                    critical_hit = 0;
+                }
+            }
         }
         // end crit stuff
         if (roll && fumble == 0) {
