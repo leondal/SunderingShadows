@@ -114,7 +114,7 @@ void create()
         "spell penetration", "greater spell penetration"
     }));
 
-    set_property("added short", ({ "%^RESET%^%^BOLD%^%^BLUE%^ (%^BOLD%^%^YELLOW%^ Naughty dragon champion%^RESET%^%^BOLD%^%^BLUE%^ )%^RESET%^" }));
+    set_property("added short", ({ "%^RESET%^%^BOLD%^%^BLUE%^ (%^BOLD%^%^YELLOW%^ Legendary Champion%^RESET%^%^BOLD%^%^BLUE%^ )%^RESET%^" }));
 
     set_funcs(({ "decision" }));
 
