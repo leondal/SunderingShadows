@@ -16,7 +16,7 @@ void create()
     feat_prereq("Psywarrior L1");
     feat_syntax("combatprescience");
     feat_classes("psywarrior");
-    feat_desc("This feat allows the psywarrior to use her mental prowess to gain insight into battle, granting her bonuses to attack and damage rolls and giving her a chance to slip in extra attacks. The feat grows in both strength and opportunities for extra attacks as the psywarrior gains levels and intelligence.");
+    feat_desc("This feat allows the psywarrior to use her mental prowess to gain insight into battle, granting her bonuses to attack and damage rolls and giving her a chance to slip in extra attacks. The feat grows in both strength and opportunities for extra attacks as the psywarrior gains levels and intelligence. This feat requires you to spend your Psionic Focus.");
     set_target_required(0);
     allow_blind(1);
     psionic(1);
@@ -56,6 +56,13 @@ void execute_feat()
     { //won't stack with the Prescience power
         tell_object(caster,"You are already enjoying the effects of prescience!");
         TO->remove();
+        return;
+    }
+    
+    if(!USER_D->spend_pool(caster, 1, "focus"))
+    {
+        tell_object(caster, "You must have psionic focus to use combatprescience!");
+        dest_effect();
         return;
     }
     ::execute_feat();

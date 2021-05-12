@@ -995,6 +995,16 @@ void prepare2()
     if (TO->query_property("memorizing")) {
         TO->remove_property("memorizing");
     }
+    
+    if(this_object()->is_class("psion") || this_object()->is_class("psywarrior"))
+    {
+        if(!this_object()->query("available focus"))
+        {
+            this_object()->set("available focus", 1);
+            tell_object(this_object(), "%^BOLD%^You regain your psionic focus.%^RESET%^");
+        }
+    }
+    
     tell_room(ETO, TO->QCN + " completes " + TO->QP + " preparations.", TO);
     tell_object(TO, "%^BOLD%^%^GREEN%^You have finished preparing your spells.");
 }

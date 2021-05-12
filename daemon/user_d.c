@@ -188,6 +188,10 @@ int spend_pool(object ob, int amount, string pool_type)
         return 0;
     }
     avail -= amount;
+    
+    if(pool_type == "focus")
+        tell_object(ob, "%^BOLD%^You lose your psionic focus.%^RESET%^");
+    
     ob->set("available " + pool_type, avail);
     return 1;
 }
