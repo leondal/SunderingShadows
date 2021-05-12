@@ -3134,6 +3134,14 @@ varargs int do_save(object targ, int mod)
         environment(caster) == environment(targ)) {
         caster_bonus += 3;
     }
+    
+    //Telepath can power up a mental spell to higher DC
+    if(mental_spell && caster->query_property("mental intrusion"))
+    {
+        caster_bonus += 5;
+        tell_object(caster, "%^BOLD%^Your power is bolstered to be more intrusive.%^RESET%^");
+        caster->remove_property("mental intrusion");
+    }
 
     if (save_debug) {
         tell_object(caster, "%^RESET%^%^BOLD%^Total after caster bonuses: " + caster_bonus + "%^RESET%^");
