@@ -737,6 +737,20 @@ int query_resistance(string res)
         }
     }
     
+    if(FEATS_D->usable_feat(this_object(), "infused form"))
+    {
+        switch(res)
+        {
+            case "fire":
+            case "cold":
+            case "electricity":
+            case "acid":
+            case "sonic":
+            myres += 10;
+            break;
+        }
+    }
+    
     //Cleric domain-specific resistances
     domains = TO->query_divine_domain();
     
