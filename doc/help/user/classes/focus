@@ -1,0 +1,13 @@
+Name: %^CYAN%^BOLD%^Focus%^RESET%^
+Type: Permanent
+Prerequisites: Psion or Psywarrior
+
+Psions and Psywarriors often enter a focused state of mind, which enhances their prowess in combat or offers other passive benefits.
+
+The player can choose to expend their focused state to perform various actions or feats that require you to spend focus.
+
+Some examples of abilities that require you to spend your focus are: Psionic Dodge, Combatprescience, Telekinetic Hurl, and Energy Immunity.
+
+Focus will replenish itself over time or it can be attained by uninterrupted preparation of power points. To show your psionic focus, please type 'help prompt'.
+
+%^CYAN%^See also:%^RESET%^ psion, psywarrior, disciplines
