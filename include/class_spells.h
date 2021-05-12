@@ -125,7 +125,7 @@ class_spell_storage =
 "psion":
 ([
     "egoist":
-        ({"thicken skin","animal affinity","chameleon","deathward","breath of life","restoration","lesser transformation","shadow double","shadow body"}),
+        ({"thicken skin","animal affinity","chameleon","deathward","breath of life","restoration","lesser transformation","shadow double","shadow body","rewind age"}),
     "seer":
         ({"dissonance","clairvoyance","hypercognition","escape detection","remote viewing","legend lore","prying eyes","fortune fate","foresight"}),
     "shaper":
@@ -135,7 +135,7 @@ class_spell_storage =
     "nomad":
         ({"dimension slide","phantom steed","trace teleport","dimensional anchor","psionic teleport","create demiplane","planar portal","astral projection","timestop"}),
     "telepath":
-        ({"command","charm monster","hostile empathic transfer","modify memory","domination","serenity","visions from within","mindnet","overwhelming presence"}),
+        ({"command","charm monster","hostile empathic transfer","modify memory","domination","serenity","visions from within","mindnet","overwhelming presence","psychic scream"}),
 ]),
 
 "warlock":
