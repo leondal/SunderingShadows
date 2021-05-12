@@ -46,10 +46,13 @@ mapping class_featmap(string myspec, object player) {
     switch(player->query_discipline())
     {
         case "egoist":
-        feats += ([ 2 : ({ "metabolic healing" }), 11 : ({ "resilient body" }), 20 : ({ "infused form" }) ]);
+        feats += ([ 2 : ({ "metabolic healing" }), 11 : ({ "resilient body" }), 21 : ({ "infused form" }) ]);
         break;
         case "kineticist":
-        feats += ([ 2 : ({ "telekinetic hurl" }), 11 : ({ "kinetic aura" }), 20 : ({ "energy immunity" }) ]);
+        feats += ([ 2 : ({ "telekinetic hurl" }), 11 : ({ "kinetic aura" }), 21 : ({ "energy immunity" }) ]);
+        break;
+        case "telepath":
+        feats += ([ 2 : ({ "mental intrusion" }), 11 : ({ "psychic vampire" }), 21 : ({ "guarded thoughts" }) ]);
         break;
     }
     
