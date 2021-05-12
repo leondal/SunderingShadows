@@ -17,7 +17,7 @@ void create()
     feat_category("Psionics");
     feat_name("guarded thoughts");
     feat_prereq("Psion (Telepath) L21");
-    feat_desc("Telepaths at the height of their powers are so adept at mental manipulation that they gain a near-immunity to the effects of mental spells and powers against them. The telepath with this feat gains +10 on saving throws against mind-affecting spells.");
+    feat_desc("Telepaths at the height of their powers are so adept at mental manipulation that they gain a near-immunity to the effects of mental spells and powers against them. As long as they are focused, the telepath with this feat gains +10 on saving throws against mind-affecting spells.");
     permanent(1);
     psionic(1);
 }

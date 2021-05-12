@@ -3144,7 +3144,7 @@ varargs int do_save(object targ, int mod)
     }
     
     //Likewise, telepaths with the guarded thoughts feat have a bonus against mental spells
-    if(mental_spell && FEATS_D->usable_feat(targ, "guarded thoughts"))
+    if(mental_spell && FEATS_D->usable_feat(targ, "guarded thoughts") && targ->query("available focus"))
         caster_bonus -= 10;
 
     if (save_debug) {
