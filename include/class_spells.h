@@ -129,7 +129,7 @@ class_spell_storage =
     "seer":
         ({"dissonance","clairvoyance","hypercognition","escape detection","remote viewing","legend lore","prying eyes","fortune fate","foresight"}),
     "shaper":
-        ({"minor creation","astral construct","web","creation","hail of crystals","ruin","rebirth","create demiplane","implosion"}),
+        ({"minor creation","astral construct","web","creation","hail of crystals","ruin","rebirth","create demiplane","implosion", "reality revision"}),
     "kineticist":
         ({"animate object","energy emanation","energy cone","hold person","energy current","bolt of force","reddopsi","crushing hand","tornado blast"}),
     "nomad":
