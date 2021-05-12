@@ -1060,6 +1060,9 @@ int query_ac()
     if(FEATS_D->usable_feat(TO, "spiritual body") && !TO->query_paralyzed() &&
        !TO->query_tripped() && !TO->query_bound())
            myac += BONUS_D->query_stat_bonus(TO, "charisma");
+           
+    if(FEATS_D->usable_feat(this_object(), "kinetic aura"))
+        myac += (1 + this_object()->query_prestige_level("psion") / 11);
 
     if (TO->query_blind() || TO->query_temporary_blinded()) {
         myac -= TO->query_level() / 12 + 1;

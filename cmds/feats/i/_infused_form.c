@@ -1,5 +1,5 @@
 /*
-  _resilient_body.c
+  _infused_form.c
   
   Egoist feat.
   
@@ -15,9 +15,9 @@ void create()
     ::create();
     feat_type("permanent");
     feat_category("Psionics");
-    feat_name("resilient body");
-    feat_prereq("Psion (Egoist) L11");
-    feat_desc("This feat will protect you from the effects of a critical hit against you, reducing it to its base damage. This feat operates on a cooldown and so will only happen periodically.");
+    feat_name("infused form");
+    feat_prereq("Psion (Egoist) L20");
+    feat_desc("This feat gives the egoist a +5 to passive damage resistance.");
     permanent(1);
     psionic(1);
 }
@@ -29,7 +29,7 @@ int prerequisites(object ob)
     if(!objectp(ob))
         return 0;
     
-    if(ob->query_class_level("psion") < 11)
+    if(ob->query_class_level("psion") < 20)
     {
         dest_effect();
         return 0;

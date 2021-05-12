@@ -37,8 +37,20 @@ string *class_feats(string myspec)
               "spell focus", });
 }
 
-mapping class_featmap(string myspec) {
-    return ([ 1 : ({ "simple weapon proficiency", "spell focus", "discipline", }), ]);
+mapping class_featmap(string myspec, object player) {
+    
+    mapping feats;
+    
+    feats = ([ 1 : ({ "simple weapon proficiency", "spell focus", "discipline", }), ]);
+    
+    switch(player->query_discipline())
+    {
+        case "egoist":
+        feats += ([ 2 : ({ "metabolic healing" }), 11 : ({ "resilient body" }), 20 : ({ "infused form" }) ]);
+        break;
+    }
+    
+    return feats;
 }
 
 string *class_skills()

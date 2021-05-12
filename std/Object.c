@@ -613,6 +613,9 @@ mixed query_property(string prop)
         if (FEATS_D->usable_feat(TO, "improved damage resistance")) {
             num += 2;
         }
+        if(FEATS_D->usable_feat(this_object(), "infused form"))
+            num += 5;
+        
         num += props[prop];
         return (num + EQ_D->gear_bonus(TO, "damage resistance"));
     }

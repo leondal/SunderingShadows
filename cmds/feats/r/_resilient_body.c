@@ -16,7 +16,7 @@ void create()
     feat_type("permanent");
     feat_category("Psionics");
     feat_name("resilient body");
-    feat_prereq("Psion (Egoist) L11");
+    feat_prereq("Psion (Egoist) L14");
     feat_desc("This feat will protect you from the effects of a critical hit against you, reducing it to its base damage. This feat operates on a cooldown and so will only happen periodically.");
     permanent(1);
     psionic(1);
@@ -29,7 +29,7 @@ int prerequisites(object ob)
     if(!objectp(ob))
         return 0;
     
-    if(ob->query_class_level("psion") < 11)
+    if(ob->query_class_level("psion") < 14)
     {
         dest_effect();
         return 0;
