@@ -5304,7 +5304,7 @@ int age_mod(string stat) {
                 return 0;
             return OLD[i]; break;
         case "venerable":
-            if((FEATS_D->usable_feat(this_object(), "timeless body") || tjis_object()->query_property("rewind age")) &&
+            if((FEATS_D->usable_feat(this_object(), "timeless body") || this_object()->query_property("rewind age")) &&
                VENERABLE[i] < 1)
                 return 0;
             return VENERABLE[i]; break;
