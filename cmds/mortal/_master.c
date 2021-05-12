@@ -320,7 +320,7 @@ This command is an extensive interface to your knowledge of spells. Some caster 
   With this command you will commit to learning a %^ORANGE%^%^ULINE%^SPELL%^RESET%^.
 
 %^ORANGE%^<master forget %^ORANGE%^%^ULINE%^SPELL%^RESET%^%^ORANGE%^>%^RESET%^
-  Once per 30 hours you can forget a %^ORANGE%^%^ULINE%^SPELL%^RESET%^ and learn a new one.
+  Once per 9 hours you can forget a %^ORANGE%^%^ULINE%^SPELL%^RESET%^ and learn a new one.
 
 %^CYAN%^SEE ALSO%^RESET%^
 
