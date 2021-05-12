@@ -12,7 +12,7 @@ void create()
     feat_name("augment power");
     feat_prereq("Psion or Psywarrior");
     feat_syntax("augment_power");
-    feat_desc("This Psionic feat will cause your next manifested power to be cast at a higher caster level at the cost of more power points. This feat consumes your Psionic Focus and 30 Power Points in exchange for +3 caster level on the next power used.");
+    feat_desc("This Psionic feat will cause your next manifested power to be cast at a +4 caster level. Using this feat requires you to be focused and will expend your psionic focus.");
     set_required_for(({ }));
 }
 
@@ -81,7 +81,7 @@ void execute_feat()
 
     caster->add_mp(-amount);
     tell_object(caster, "You use your meta psionic knowledge to augment your next power.");
-    caster->set_property("augment power", 3);
+    caster->set_property("augment power", 4);
     caster->add_cooldown("augment power", 60);
     
     return;

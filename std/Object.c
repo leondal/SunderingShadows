@@ -499,6 +499,9 @@ mixed query_property(string prop)
                 }
             }
         }
+        if(this_object()->is_class("psion") && this_object()->query("available focus"))
+            num += 1;
+    
         if ((string)TO->query_race() == "human") {
             subrace = (string)TO->query("subrace");
             if (subrace) {
