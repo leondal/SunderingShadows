@@ -10,7 +10,8 @@ void create()
     feat_category("Psionics");
     feat_name("psionic critical");
     feat_prereq("Psion or Psywarrior");
-    feat_desc("While maintaining Psionic Focus, a psion or psywarrior with this feat causes extra mental damage on a critical hit.");
+    feat_desc("With this feat, the psychic manifester extends their will through their strikes. A psywarrior or psion with this feat does additional mental damage on a critical hit.");
+    psionic(1);
     permanent(1);
 }
 

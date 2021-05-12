@@ -10,7 +10,8 @@ void create()
     feat_category("Psionics");
     feat_name("power specialization");
     feat_prereq("Psion");
-    feat_desc("A psion with this feat adds their intelligence modifier to spell damage. This amount scales as the psion levels.");
+    psionic(1);
+    feat_desc("A psion with this feat has learned how to cast their spells with greater potency. This feat adds the psion's intelligence modifier to spell damage.");
     permanent(1);
 }
 

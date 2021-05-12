@@ -20,7 +20,7 @@ void create()
     ::create();
     feat_type("active");
     feat_category("Psionics");
-    feat_name("telekinetic hurl");
+    feat_name("energy immunity");
     feat_prereq("Psion (Kineticist) L20");
     feat_syntax("energy_immunity [ENERGY TYPE]");
     feat_desc("This feat showcases the kineticists control over energy. With this feat, the kineticist creates a barrier that prevents all damage from the chosen energy type for short time. During this time, any damage taken from the chosen energy type will recharge the kineticist's power points. This feat happens immediately, with no delay. The valid energy types are: Fire, Electricity, Cold, Force, and Sonic.");

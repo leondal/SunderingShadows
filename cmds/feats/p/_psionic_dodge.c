@@ -13,6 +13,7 @@ void create()
     feat_category("Psionics");
     feat_name("psionic dodge");
     feat_prereq("Psion or Psywarrior, Dodge Feat");
+    psionic(1);
     feat_desc("A psionic manifester with this feat expends their Psionic Focus to gain additional armor class for a short duration. The amount of armor class gained increases as the manifester gains in power.");
     permanent(1);
 }
