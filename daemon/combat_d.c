@@ -330,6 +330,12 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
     resist_perc = (int)targ->query_resistance_percent(type);
 
     resist = (int)targ->query_resistance(type);
+    
+    if(type == targ->query_property("energetic recharge"))
+    {
+        targ->add_mp(1 + targ->query_max_mp() / 100);
+        tell_object(targ, "%^BOLD%^Your energy immunity shield absorbs the energy!%^RESET%^");
+    }
 
     if (resist_perc > 500) {
         resist_perc = 500;

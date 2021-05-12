@@ -48,6 +48,9 @@ mapping class_featmap(string myspec, object player) {
         case "egoist":
         feats += ([ 2 : ({ "metabolic healing" }), 11 : ({ "resilient body" }), 20 : ({ "infused form" }) ]);
         break;
+        case "kineticist":
+        feats += ([ 2 : ({ "telekinetic hurl" }), 11 : ({ "kinetic aura" }), 20 : ({ "energy immunity" }) ]);
+        break;
     }
     
     return feats;

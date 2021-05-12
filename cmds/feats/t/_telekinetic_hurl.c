@@ -20,7 +20,6 @@ void create()
     feat_prereq("Psion (Kineticist) L2");
     feat_syntax("teleinetic_hurl [TARGET]");
     feat_desc("The kineticist can spen their Psionic Focus to hurl small objects at their foe, causing bludgeoning damage on a ranged touch attack. If no target is designated, this feat will target your current attacker.");
-    permanent(1);
     psionic(1);
 }
 
