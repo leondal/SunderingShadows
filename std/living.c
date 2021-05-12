@@ -405,6 +405,16 @@ void heart_beat()
             object targs = all_inventory(environment(this_object()));
             targs = filter_array(targs, (: userp($1) :));
             targs -= ({ this_object() });
+            
+            foreach(object ob in targs)
+            {
+                if(ob->query_mp())
+                {
+                    tell_object(ob, "%^MAGENTA%^You feel something pull on your mind.");
+                    ob->add_mp(-1);
+                }
+            }
+            
             add_mp(sizeof(targs));
         }
         
