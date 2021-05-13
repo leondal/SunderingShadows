@@ -50,8 +50,8 @@ void create(){
     set_exits(([
       "west" : ROOMS"wstreet35"
     ]));
-    add_location("shadow",20,95,"/d/darkwood/room/road1");
-    add_location("tonovi",20,95,"/d/dagger/tonovi/road2");
+    add_location("shadow",0,95,"/d/darkwood/room/road1");
+    add_location("tonovi",0,95,"/d/dagger/tonovi/road2");
     add_location("eldebaro",20,95,"/d/islands/common/eldebaro/newrooms/east_oasis1");
 }
 
