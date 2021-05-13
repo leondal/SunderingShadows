@@ -586,6 +586,10 @@ Takes a weapon from a sheath, and makes you wield it.
 
 Sticks a weapon in the first available sheath it can fit in.
 
+  sheath <weapon> into <sheath>
+
+Sticks a weapon into a specific sheath if it can fit.
+
 OLI
     );
     return 1;
