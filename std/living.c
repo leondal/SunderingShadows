@@ -410,7 +410,8 @@ void heart_beat()
             {
                 if(ob->query_mp())
                 {
-                    tell_object(ob, "%^MAGENTA%^You feel something pull on your mind.");
+                    if(!random(5))
+                        tell_object(ob, "%^MAGENTA%^You feel something pull on your mind.");
                     ob->add_mp(-1);
                 }
             }
