@@ -18,20 +18,20 @@ void create()
     feat_type("active");
     feat_category("Psionics");
     feat_name("nomads step");
-    feat_prereq("Psion (Nomad) L11");
+    feat_prereq("Psion (Nomad) L2");
     feat_syntax("nomads_step [DIRECTION]");
-    feat_desc("This feat showcases the kineticists control over energy. With this feat, the kineticist creates a barrier that prevents all damage from the chosen energy type for short time. During this time, any damage taken from the chosen energy type will recharge the kineticist's power points. This feat happens immediately, with no delay. The valid energy types are: Fire, Electricity, Cold, Force, and Sonic.");
+    feat_desc("This feat is the hallmark of the nomad's slippery nature. This feat allows the nomad to instantly slip away, without warning, in the designated direction.");
     psionic(1);
 }
 
-int allow_shifted() { return 1; }
+int allow_shifted() { return 0; }
 
 int prerequisites(object ob)
 {
     if(!objectp(ob))
         return 0;
     
-    if(ob->query_class_level("psion") < 11)
+    if(ob->query_class_level("psion") < 2)
     {
         dest_effect();
         return 0;
@@ -107,6 +107,7 @@ void execute_feat()
     }
     
     tell_object(caster, "%^BOLD%^You set your mind towards the " + arg + " exit and slip away!");
+    
     if(!caster->query_invis())
     {
         tell_room(place, caster->QCN + " concentrates and suddenly disappears!");
