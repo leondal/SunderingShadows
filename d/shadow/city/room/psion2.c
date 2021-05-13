@@ -50,10 +50,10 @@ void create(){
     ]));
     add_location("azha",0,55,"/d/azha/town/wroad");
     add_location("enclave",0,75,"/d/shadow/room/city/portal/foyer");
-    add_location("seneca",15,95,"/d/attaya/newseneca/rooms/boardwalk3");
+    add_location("seneca",0,95,"/d/attaya/newseneca/rooms/boardwalk3");
     add_location("tonovi",0,55,"/d/dagger/tonovi/road2");    
     add_location("torm",0,55,"/d/dagger/Torm/road/path12");
-    add_location("verbobone",15,75,"/d/deku/town/road13");
+    add_location("verbobone",0,75,"/d/deku/town/road13");
 }
 
 void reset(){
