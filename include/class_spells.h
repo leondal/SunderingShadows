@@ -133,7 +133,7 @@ class_spell_storage =
     "kineticist":
         ({"animate object","energy emanation","energy cone","hold person","energy current","bolt of force","reddopsi","crushing hand","tornado blast"}),
     "nomad":
-        ({"dimension slide","phantom steed","trace teleport","dimensional anchor","psionic teleport","create demiplane","planar portal","astral projection","timestop"}),
+        ({"dimension slide","phantom steed","trace teleport","dimensional anchor","psionic teleport","create demiplane","planar portal","astral projection","timestop","planar sending"}),
     "telepath":
         ({"command","charm monster","hostile empathic transfer","modify memory","domination","serenity","visions from within","mindnet","overwhelming presence","psychic scream"}),
 ]),
