@@ -218,6 +218,9 @@ void set_missChance(int i)
 
 int query_missChance()
 {
+    if(FEATS_D->usable_feat(this_object(), "inconstant position"))
+        return missChance + 10;
+    
     return missChance;
 }
 
