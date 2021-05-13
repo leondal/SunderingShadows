@@ -128,7 +128,7 @@ void execute_attack()
     tell_room(place, "The stone smashes hard into " + target->QCN + " and they scream in pain!", ({ caster, target }));
     
     target->cause_typed_damage(target, target->return_target_limb(), damage, "bludgeoning");
-    
+    dest_effect();
     return;
 }   
     
