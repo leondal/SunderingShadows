@@ -936,6 +936,9 @@ void prepare(string str, int temp, string myclass, int num)
     temp -= 2;
 
     if (myclass == "psywarrior" || myclass == "psion") {
+        
+        int focus;
+        
         mymax = TO->query_max_mp();
         if (!mymax) {
             if (objectp(TO)) {
@@ -955,6 +958,13 @@ void prepare(string str, int temp, string myclass, int num)
         if (num > myneeded) {
             num = myneeded;
         }
+        
+        //Psion can regain focus on FULL prepare to max
+        if(num == myneeded)
+            focus = 1;
+        else
+            focus = 0;
+        
         if (num > 5) {
             TO->add_mp(5); // began as 17 (points required for 9th level power), was way too fast. Trying 5, may need to be adjusted
             num = num - 5;
@@ -962,6 +972,16 @@ void prepare(string str, int temp, string myclass, int num)
             return 1;
         }else {
             TO->add_mp(num);
+            
+            if(focus)
+            {
+                if(!this_object()->query("available focus"))
+                {
+                    this_object()->set("available focus", 1);
+                    tell_object(this_object(), "%^BOLD%^You regain your psionic focus.%^RESET%^");
+                }
+                focus = 0;
+            }           
             prepare2();
             return 1;
         }
@@ -994,15 +1014,6 @@ void prepare2()
 {
     if (TO->query_property("memorizing")) {
         TO->remove_property("memorizing");
-    }
-    
-    if(this_object()->is_class("psion") || this_object()->is_class("psywarrior"))
-    {
-        if(!this_object()->query("available focus"))
-        {
-            this_object()->set("available focus", 1);
-            tell_object(this_object(), "%^BOLD%^You regain your psionic focus.%^RESET%^");
-        }
     }
     
     tell_room(ETO, TO->QCN + " completes " + TO->QP + " preparations.", TO);
