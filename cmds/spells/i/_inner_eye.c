@@ -19,12 +19,13 @@ void create(){
     ::create();
     set_author("circe");
     set_spell_name("inner eye");
-    set_spell_level(([ "cleric" : 8 ]));
+    set_spell_level(([ "psion" : 7 ]));
     set_spell_sphere("divination");
+    set_discipline("seer");
     set_syntax("cast CLASS inner eye on TARGET");
-    set_description("Upon casting this spell, the priest focuses his inner eye and commands it to watch a particular "
-"place for him.  Without an argument, the eye will watch the room the priest is currently in.  When targeted upon a "
-"person known to the priest, the eye will instead focus on that person.");
+    set_description("Upon manifesting this power, the psion focuses his inner eye and commands it to watch a particular " +
+"place for him.  Without an argument, the eye will watch the room the psion is currently in.  When targeted upon a " +
+"person known to the psion, the eye will instead focus on that person.");
     set_verbal_comp();
     set_somatic_comp();
     set_arg_needed();
@@ -38,7 +39,7 @@ int preSpell(){
    }
    if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
    if((int)caster->query_property("remote scrying time")+DELAY > time()){
-      tell_object(caster,"You cannot invoke your inner eye "+
+      tell_object(caster,"You cannot manifest your inner eye "+
          "again so soon.");
       return 0;
    }

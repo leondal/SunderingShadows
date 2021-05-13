@@ -13,10 +13,9 @@ void create(){
     ::create();
     set_author("nienne");
     set_spell_name("prying eyes");
-    set_spell_level(([ "mage" : 5, "psion" : 7, "bard" : 6, "cleric" : 5 ]));
+    set_spell_level(([ "mage" : 5, "bard" : 6, "cleric" : 5 ]));
     set_domains("knowledge");
     set_spell_sphere("divination");
-    set_discipline("seer");
     set_syntax("cast CLASS prying eyes on TARGET");
     set_description("The pinnacle of ability for a skilled diviner, this spell allows the caster to watch and listen in "
 "upon a distant person without the need for components or a mirror. Or, they may focus upon their surroundings and then "
