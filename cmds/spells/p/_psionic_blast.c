@@ -18,6 +18,7 @@ void create()
     set_spell_name("psionic blast");
     set_spell_level( ([ "psion" : 3 ]) );
     set_spell_sphere("enchantment_charm");
+    mental_spell();
     set_syntax("cast CLASS psionic blast");
     set_description("The air ripples with the force of your mental attack, which blasts the minds of all creatures in range. Psionic blast stuns all affected creatures for 2d4 rounds.");
     set_save("will");
