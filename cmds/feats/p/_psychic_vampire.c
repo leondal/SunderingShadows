@@ -1,7 +1,7 @@
 /*
-  _infused_form.c
+  _psychic_vampire.c
   
-  Egoist feat.
+  Telepath feat.
   
   -- Tlaloc --
 */
@@ -15,9 +15,9 @@ void create()
     ::create();
     feat_type("permanent");
     feat_category("Psionics");
-    feat_name("infused form");
-    feat_prereq("Psion (Egoist) L21");
-    feat_desc("This feat passively gives the egoist +5 damage resistance and +10 fire, cold, electricity, acid and sonic resistance.");
+    feat_name("psychic vampire");
+    feat_prereq("Psion (Telepath) L11");
+    feat_desc("Once a telepath has gained a certain amount of power, they begin to almost automatically make connections with minds around them. With this feat, the telepath will slowly harvest power points from other intelligent minds around them. While focused the telepath slowly gains power point regen, increasing the more minds there are in the area.");
     permanent(1);
     psionic(1);
 }
@@ -29,13 +29,13 @@ int prerequisites(object ob)
     if(!objectp(ob))
         return 0;
     
-    if(ob->query_class_level("psion") < 21)
+    if(ob->query_class_level("psion") < 11)
     {
         dest_effect();
         return 0;
     }
     
-    if(ob->query_discipline() != "egoist")
+    if(ob->query_discipline() != "telepath")
     {
         dest_effect();
         return 0;

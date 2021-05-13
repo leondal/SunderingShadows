@@ -20,6 +20,7 @@ void create()
     set_spell_name("rewind age");
     set_spell_level( ([ "psion" : 6, ]) );
     set_spell_sphere("alteration");
+    set_discipline("egoist");
     set_syntax("cast CLASS rewind age");
     set_damage_desc("Removes penalties from age for duration");
     set_description("You ignore the physical detriments of age. This spell does not cause you to look younger, nor does it prevent you from dying of old age, but as long as the spell is in effect, you ignore the penalties to Strength, Dexterity, and Constitution that accrue once you become middle-aged. You retain the age-related bonuses to Intelligence, Wisdom, and Charisma while under the effects of this spell.");

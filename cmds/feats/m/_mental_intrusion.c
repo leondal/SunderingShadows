@@ -45,7 +45,7 @@ int prerequisites(object ob)
     return ::prerequisites(ob);
 }
 
-int cmd_energy_immunity(string str)
+int cmd_mental_intrusion(string str)
 {
     object feat;
     

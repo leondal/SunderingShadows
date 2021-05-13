@@ -125,17 +125,17 @@ class_spell_storage =
 "psion":
 ([
     "egoist":
-        ({"thicken skin","animal affinity","chameleon","deathward","breath of life","restoration","lesser transformation","shadow double","shadow body"}),
+        ({"thicken skin","animal affinity","chameleon","deathward","breath of life","restoration","lesser transformation","shadow double","shadow body","rewind age"}),
     "seer":
-        ({"dissonance","clairvoyance","hypercognition","escape detection","remote viewing","legend lore","prying eyes","fortune fate","foresight"}),
+        ({"dissonance","clairvoyance","hypercognition","escape detection","remote viewing","legend lore","inner eye","fortune fate","foresight"}),
     "shaper":
-        ({"minor creation","astral construct","web","creation","hail of crystals","ruin","rebirth","create demiplane","implosion"}),
+        ({"minor creation","astral construct","web","creation","hail of crystals","ruin","rebirth","create demiplane","implosion", "reality revision"}),
     "kineticist":
         ({"animate object","energy emanation","energy cone","hold person","energy current","bolt of force","reddopsi","crushing hand","tornado blast"}),
     "nomad":
-        ({"dimension slide","phantom steed","trace teleport","dimensional anchor","psionic teleport","create demiplane","planar portal","astral projection","timestop"}),
+        ({"dimension slide","phantom steed","trace teleport","dimensional anchor","psionic teleport","create demiplane","planar portal","astral projection","timestop","planar sending"}),
     "telepath":
-        ({"command","charm monster","hostile empathic transfer","modify memory","domination","serenity","visions from within","mindnet","overwhelming presence"}),
+        ({"command","charm monster","hostile empathic transfer","modify memory","domination","serenity","visions from within","mindnet","overwhelming presence","psychic scream"}),
 ]),
 
 "warlock":

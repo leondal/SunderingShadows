@@ -218,6 +218,9 @@ void set_missChance(int i)
 
 int query_missChance()
 {
+    if(FEATS_D->usable_feat(this_object(), "inconstant position"))
+        return missChance + 10;
+    
     return missChance;
 }
 
@@ -734,6 +737,20 @@ int query_resistance(string res)
                 (subrace == "ooze" && res == "acid")) {
                 myres += TO->query_base_character_level();
             }
+        }
+    }
+    
+    if(FEATS_D->usable_feat(this_object(), "infused form"))
+    {
+        switch(res)
+        {
+            case "fire":
+            case "cold":
+            case "electricity":
+            case "acid":
+            case "sonic":
+            myres += 10;
+            break;
         }
     }
     

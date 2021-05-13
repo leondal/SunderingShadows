@@ -1,7 +1,7 @@
 /*
-  _infused_form.c
+  _guarded_thoughts.c
   
-  Egoist feat.
+  Telepath feat.
   
   -- Tlaloc --
 */
@@ -15,9 +15,9 @@ void create()
     ::create();
     feat_type("permanent");
     feat_category("Psionics");
-    feat_name("infused form");
-    feat_prereq("Psion (Egoist) L21");
-    feat_desc("This feat passively gives the egoist +5 damage resistance and +10 fire, cold, electricity, acid and sonic resistance.");
+    feat_name("guarded thoughts");
+    feat_prereq("Psion (Telepath) L21");
+    feat_desc("Telepaths at the height of their powers are so adept at mental manipulation that they gain a near-immunity to the effects of mental spells and powers against them. As long as they are focused, the telepath with this feat gains +10 on saving throws against mind-affecting spells.");
     permanent(1);
     psionic(1);
 }
@@ -35,7 +35,7 @@ int prerequisites(object ob)
         return 0;
     }
     
-    if(ob->query_discipline() != "egoist")
+    if(ob->query_discipline() != "telepath")
     {
         dest_effect();
         return 0;

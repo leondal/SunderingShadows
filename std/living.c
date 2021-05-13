@@ -400,6 +400,25 @@ void heart_beat()
                 add_mp(1);
         }
         
+        if(FEATS_D->usable_feat(this_object(), "psychic vampire"))
+        {
+            object targs = all_inventory(environment(this_object()));
+            targs = filter_array(targs, (: userp($1) :));
+            targs -= ({ this_object() });
+            
+            foreach(object ob in targs)
+            {
+                if(ob->query_mp())
+                {
+                    if(!random(5))
+                        tell_object(ob, "%^MAGENTA%^You feel something pull on your mind.");
+                    ob->add_mp(-1);
+                }
+            }
+            
+            add_mp(sizeof(targs));
+        }
+        
         if(is_undead())
             remove_property("rend");
         
