@@ -2,7 +2,7 @@ inherit "/cmds/spells/c/_clairvoyance";
 
 int clairvoyance_delay()
 {
-    return 0;
+    return 60;
 }
 
 void create()
@@ -14,6 +14,6 @@ void create()
     set_mystery(({"ancestor", "lore"}));
     set_domains(({}));
     set_syntax("cast CLASS vision on TARGET");
-    set_description("This spell functions exactly like clairvoyance, except it is harder to block and has no use delay.");
+    set_description("This spell functions exactly like clairvoyance, except it is harder to block.");
     set_silent_casting(1);
 }
