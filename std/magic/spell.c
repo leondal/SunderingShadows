@@ -1956,9 +1956,11 @@ int query_spell_duration()
 varargs int do_saving_throw(object player, string type, int mod)
 {
     int temp;
+    /*
     if (FEATS_D->usable_feat(caster, "spell focus")) {
         mod -= 4;
     }
+    */
 
     if(type == "will")
     {
@@ -3157,6 +3159,18 @@ varargs int do_save(object targ, int mod)
         {
             if (caster->is_class("mage"))
                     caster_bonus -= (1 + classlvl / 31);
+        }
+    }
+
+    if (caster->is_class("shadow_adept")) {
+        if (FEATS_D->usable_feat(caster, "elusive spellcraft"))
+        {
+            if (spell_sphere == "necromancy" ||
+            spell_sphere == "illusion" ||
+            spell_sphere == "enchantment_charm")
+            {
+                caster_bonus += 1;
+            }
         }
     }
     
