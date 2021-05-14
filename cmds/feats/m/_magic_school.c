@@ -19,7 +19,9 @@ void create()
     feat_syntax("magic_school");
     feat_desc("This feat allows a mage or an archmage to select magic school dedication and school that opposes it.
 
-School of magic gives mages a degree of specialization. Spells of that school become more potent, while spells of opposing school become weaker, with power difference growing as mage learns.
+School of magic gives mages a degree of specialization. Spells of that school become more potent, gaining a +1 bonus to caster level and spell DC.
+Spells of the opposing school have a -1 penalty to caster level and spell DC. These bonuses and penalties increase to +2/-2 once 31 mage class
+levels are reached.
 
 %^BOLD%^You can select from the following schools%^RESET%^
  Abjuration

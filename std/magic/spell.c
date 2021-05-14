@@ -3143,6 +3143,23 @@ varargs int do_save(object targ, int mod)
         caster->remove_property("mental intrusion");
     }
     
+    if (caster->query_school() && caster->query_opposing_school())
+    {
+        if (spell_sphere == caster->query_school())
+        {
+            if (caster->is_class("mage"))
+                caster_bonus += (1 + classlvl / 31);
+            
+            if (FEATS_D->usable_feat(caster, "school familiarity"))
+                clevel += (1 + classlvl / 31);
+        }
+        else if (spell_sphere == caster->query_opposing_school())
+        {
+            if (caster->is_class("mage"))
+                    caster_bonus -= (1 + classlvl / 31);
+        }
+    }
+    
     //Likewise, telepaths with the guarded thoughts feat have a bonus against mental spells
     if(mental_spell && FEATS_D->usable_feat(targ, "guarded thoughts") && targ->query("available focus"))
         caster_bonus -= 10;
