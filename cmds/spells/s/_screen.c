@@ -75,9 +75,7 @@ void spell_effect(int prof) {
       "s%^RESET%^%^CYAN%^h%^BOLD%^i%^RESET%^%^CYAN%^m%^BOLD%^m"+
       "%^RESET%^%^CYAN%^e%^BOLD%^r%^RESET%^%^CYAN%^s %^BOLD%^with "+
       "shifting images for a moment before growing still.%^RESET%^");
-//updated by ~Circe~ 9/16/11 to use bonuses properly
-   wis_bonus = caster->query_stats(casting_stat);
-   wis_bonus = wis_bonus-10;
+   wis_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
    power = CLEVEL + wis_bonus + random(6);
 
    caster->set_property("spelled",({TO}));
@@ -96,9 +94,7 @@ void spell_effect(int prof) {
       dest_effect();
       return;
    }
-//updated by ~Circe~ 9/16/11 to use bonuses properly
-    wis_bonus = caster->query_stats(casting_stat);
-   wis_bonus = wis_bonus-10;
+   wis_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
    power = CLEVEL + wis_bonus + random(6);
    blocker->set_block_power(power);
    spell_successful();

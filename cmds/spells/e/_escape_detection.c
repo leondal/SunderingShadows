@@ -109,8 +109,7 @@ void spell_effect(int prof) {
         dest_effect();
         return;
     }
-    int_bonus = caster->query_stats(casting_stat);
-    int_bonus = int_bonus-10;
+    int_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
 
     mylevel = clevel;
 

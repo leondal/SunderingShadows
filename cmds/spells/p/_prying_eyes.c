@@ -61,8 +61,7 @@ void spell_effect(int prof){
         eyes->set_eye_color(caster->query_eye_color());
         eyes->set_property("spell",TO);
         eyes->set_property("spelled", ({TO}) );
-        bonus = caster->query_stats("intelligence");
-        bonus = (bonus - 10)/2;
+        bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
         power = clevel + bonus + random(6);
         eyes->set_scry_power(power);
         eyes->move(place);
@@ -89,9 +88,8 @@ void spell_effect(int prof){
             eyes->set_property("spell",TO);
             eyes->set_property("spelled", ({TO}) );
             eyes->set_target(ob);
-            bonus = caster->query_stats("intelligence");
-            bonus = (bonus - 10)/2;
-            power = clevel + bonus + 3;
+            bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
+            power = clevel + bonus + random(6);
             eyes->set_scry_power(power);
             eyes->move(environment(ob));
             theName = ob->query_short();

@@ -134,8 +134,7 @@ void spell_effect(int prof) {
         scry_control->set_parent(TO);
 //Bonus stuff by ~Circe~ 6/20/08
 //updated again by ~Circe~ 9/16/11 to use bonuses correctly
-      bonus = caster->query_stats(casting_stat);
-      bonus = bonus-10;
+      bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
       power = CLEVEL + random(6) + bonus;
 //random(6) provides 0-5, allowing for some randomness
     scry_control->set_scry_power(power);

@@ -35,7 +35,6 @@ void spell_effect(int prof) {
     int num, bonus, power;
     int duration;
     object temp;
-    string mystat;
 
     ::spell_effect();
 
@@ -58,9 +57,7 @@ void spell_effect(int prof) {
        "as the air around you thickens and shivers!");
     spell_successful();
     caster->set_property("spelled",({TO}));
-    mystat = TO->get_casting_stat();
-    bonus = caster->query_stats(mystat);
-    bonus = bonus - 10;
+    bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
     power = clevel + bonus + random(6);
     detector = SCRY_D->add_detect_scrying(caster);
     if(!objectp(detector)) {

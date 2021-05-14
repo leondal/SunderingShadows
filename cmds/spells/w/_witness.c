@@ -34,7 +34,7 @@ int preSpell(){
 
 void spell_effect(int prof){
     object ob, blockobj;
-    int power, duration;
+    int bonus, power, duration;
 
     if (ob = find_player(caster->realNameVsProfile(arg)))
     {
@@ -44,7 +44,8 @@ void spell_effect(int prof){
                 tell_object(caster,"Something blocks your attempt!");
                 return;
             }
-            power = clevel + 6;
+            bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
+            power = clevel + bonus + random(6);
             if(blockobj = present("blockerx111", environment(ob)) || blockobj = present("blockerx111",ob)){
                if(power < blockobj->query_block_power()){
                   tell_object(caster, "Something blocks your attempt!");

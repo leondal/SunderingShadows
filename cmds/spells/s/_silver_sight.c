@@ -69,10 +69,7 @@ void spell_effect(int prof){
          dest_effect();
          return;
       }
-//new power stuff by ~Circe~ 6/20/08 to be in line with
-//other scry spells
-      bonus = caster->query_stats("wisdom");
-      bonus = bonus - 10;
+      bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
       power = clevel + bonus + random(6);
       if(blockobj = present("blockerx111", place)){
         if(power < blockobj->query_block_power()){
@@ -108,10 +105,7 @@ void spell_effect(int prof){
             dest_effect();
             return;
          }
-//new power stuff by ~Circe~ 6/20/08 to be in line with
-//other scry spells
-         bonus = caster->query_stats("wisdom");
-         bonus = bonus - 10;
+         bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
          power = clevel + bonus + random(6);
          if(blockobj = present("blockerx111", environment(ob)) || blockobj = present("blockerx111",ob)){
             if(power < blockobj->query_block_power()){

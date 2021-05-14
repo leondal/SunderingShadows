@@ -106,9 +106,8 @@ void spell_effect(int prof)
         return;
     }
 
-    bonus = caster->query_stats(casting_stat);
-    bonus = bonus-10;
-    scrypower = CLEVEL + bonus + query_spell_level(spell_type) * 2;
+    bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
+    scrypower = CLEVEL + bonus + random(query_spell_level(spell_type) * 2); //this is here so the vision spell is more powerful
 
     if(blockobj = present("blockerx111", environment(mytarg)) || blockobj = present("blockerx111",mytarg))
     {

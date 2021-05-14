@@ -115,8 +115,7 @@ void spell_effect(int prof) {
 	scry_control = new(CONTROL);
 	scry_control->set_observer(caster);
 	scry_control->set_parent(TO);
-      bonus = caster->query_stats(casting_stat);
-      bonus = bonus-10;
+      bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
       power = mylevel + random(6) + bonus;
 	scry_control->set_scry_power(power);
 	scry_control->move(environment(target));

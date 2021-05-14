@@ -141,8 +141,7 @@ void spell_effect(int prof)
         return;
     }
 
-    int_bonus = caster->query_stats(casting_stat);
-    int_bonus = int_bonus-8; //bonus of +2 because this is much higher level than other scry blocks, including the other one for psywarriors
+    int_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
     power = mylevel + int_bonus + random(6);
     blocker->set_block_power(power);
     duration = 5 * mylevel * ROUND_LENGTH;

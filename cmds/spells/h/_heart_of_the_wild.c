@@ -64,8 +64,8 @@ void spell_effect(int prof) {
         dest_effect();
         return;
     }
-    wis_bonus = BONUS_D->query_stat_bonus(caster,"wisdom");
-    blocker->set_block_power(CLEVEL + wis_bonus*2);
+    wis_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
+    blocker->set_block_power(CLEVEL + wis_bonus + random(6));
     blocker->set_ranger_block(1);
     addSpellToCaster();
     spell_duration = (clevel + roll_dice(1, 20)) * ROUND_LENGTH * 2;

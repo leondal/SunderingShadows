@@ -80,8 +80,7 @@ target->QCN+" as though it were the solid strings of a lute, leaving heavy silen
         dest_effect();
         return;
     }
-    cha_bonus = caster->query_stats("charisma");
-    cha_bonus = cha_bonus-10;
+    cha_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
     power = CLEVEL + cha_bonus + random(6);
     blocker->set_block_power(power);
     blocker->set_bard_damager(CLEVEL);

@@ -111,19 +111,11 @@ void spell_effect(int prof) {
         dest_effect();
         return;
     }
-/*
-Previous block power
-    int_bonus = caster->query_stats("intelligence");
-    int_bonus = (int_bonus - 15) / 2;
-    blocker->set_block_power(CLEVEL + int_bonus);
-*/
-//updated by ~Circe~ 9/16/11 to use bonuses properly
-    int_bonus = caster->query_stats(casting_stat);
-    int_bonus = int_bonus-10;
+
+    int_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
     power = CLEVEL + int_bonus + random(6);
     blocker->set_block_power(power);
-//new block power by ~Circe~ to match scry power and add a
-//touch of randomness
+
     duration = 6 * (int)CLEVEL * ROUND_LENGTH;
     addSpellToCaster();
     spell_duration = duration;
