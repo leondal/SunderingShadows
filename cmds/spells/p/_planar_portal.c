@@ -14,7 +14,7 @@ void create(){
     set_spell_name("planar portal");
     set_spell_level(([ "psion" : 7 ]));
     set_discipline("nomad");
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychoportation");
     set_syntax("cast CLASS planar portal to <location>");
     set_description("This potent power enables a nomad to open up a portal, allowing beings to pass from the place he "
 "currently stands to one he has locked firmly in his memory.  By using this power, the nomad commands a temporary "
