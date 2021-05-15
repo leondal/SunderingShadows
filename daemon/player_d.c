@@ -1863,6 +1863,7 @@ int immunity_check(object obj, string type)
         }
         return 0;
     }
+    break;
 
     case "charm":
     {
@@ -1876,6 +1877,7 @@ int immunity_check(object obj, string type)
             return 1;
         }
     }
+    break;
 
     case "fear":
     {
@@ -1923,19 +1925,22 @@ int immunity_check(object obj, string type)
         }
         return 0;
     }
+    
+    break;
 
     case "fatigue":
     {
         if (obj->is_undead()) {
             return 1;
         }
-        if (member_array(obj->query_race(),
-                         ({"golem", "construct", "soulforged"}))) {
+        if (member_array(obj->query_race(),({"golem", "construct", "soulforged"})) >= 0) {
             return 1;
         }
 
         return 0;
     }
+    
+    break;
 
 
     default:
