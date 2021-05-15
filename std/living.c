@@ -400,7 +400,7 @@ void heart_beat()
                 add_mp(1);
         }
         
-        if(FEATS_D->usable_feat(this_object(), "psychic vampire"))
+        if(FEATS_D->usable_feat(this_object(), "psychic vampire") && !avatarp(this_object()) && !wizardp(this_object()))
         {
             object targs = all_inventory(environment(this_object()));
             targs = filter_array(targs, (: userp($1) :));
