@@ -19,7 +19,7 @@ void create()
 
     set_spell_name("call to mind");
     set_spell_level( ([ "psion" : 1, ]) );
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS call to mind");
     set_damage_desc("half of clevel to academics skill");
     set_description("By meditating on a subject, you can recall natural memories and knowledge otherwise inaccessible to you.");
