@@ -11,7 +11,7 @@ void create() {
     ::create();
     set_spell_name("animal affinity");
     set_spell_level(([ "psywarrior" : 2, "psion" : 1 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_discipline("egoist");
     set_bonus_type("enhancement");
     set_syntax("cast CLASS animal affinity on <stat>");
