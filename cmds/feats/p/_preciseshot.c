@@ -160,20 +160,15 @@ void execute_attack()
         return;
     }
     weapons = caster->query_wielded();
-    if (!weapons[0]->is_lrweapon() && !weapons[1]->is_lrweapon()) {
-        tell_object(caster, "%^YELLOW%^You lower your weapon too soon, and the shot skitters uselessly along the ground!\n");
-        dest_effect();
-        return;
-    }
-    /*if (sizeof(weapons) > 1 && weapons[0] != weapons[1]) {
-        tell_object(caster, "%^YELLOW%^You lower your weapon too soon, and the shot skitters uselessly along the ground!\n");
-        dest_effect();
-        return;
-       }*/
-    if (caster->query_property("shapeshifted")) {
-        tell_object(caster, "%^YELLOW%^You lower your weapon too soon, and the shot skitters uselessly along the ground!\n");
-        dest_effect();
-        return;
+    
+    if(!weapons[0]->is_lrweapon())
+    {
+        if(sizeof(weapons) < 2 || (sizeof(weapons) > 1 && !weapons[1]->is_lrweapon()))
+        {
+            tell_object(caster, "You need a ranged weapon to use precise shot.\n");
+            dest_effect();
+            return;
+        }
     }
 
     tempmap = caster->query_property("using preciseshot"); // adding per-target tracking. -N, 9/10.

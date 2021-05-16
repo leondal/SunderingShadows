@@ -400,7 +400,7 @@ void heart_beat()
                 add_mp(1);
         }
         
-        if(FEATS_D->usable_feat(this_object(), "psychic vampire") && !avatarp(this_object()) && !wizardp(this_object()))
+        if(FEATS_D->usable_feat(this_object(), "psychic vampire") && !avatarp(this_object()) && !wizardp(this_object()) && !this_object()->query("no pk"))
         {
             object targs = all_inventory(environment(this_object()));
             targs = filter_array(targs, (: userp($1) :));
@@ -408,6 +408,9 @@ void heart_beat()
             
             foreach(object ob in targs)
             {
+                if(ob->query("no pk"))
+                    continue;
+                
                 if(ob->query_mp())
                 {
                     if(!random(5))

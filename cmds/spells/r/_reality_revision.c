@@ -22,7 +22,7 @@ void create()
     ::create();
     set_spell_name("reality revision");
     set_spell_level(([ "psion" : 9 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("metacreativity");
     set_discipline("shaper");
     set_syntax("cast CLASS reality revision on SPELL_NAME [on SPELL_ARGS]");
     set_description("You use your vast psionic powers to revise reality around you, allowing you to cast any psion power of level 7 or below, any discipline-specific psion power of level 6 or below, OR any psywarrior spell of level 5 or below. Example: <cast psion reality revision on breath of life on corpse>. You must spend your psionic focus to cast this spell.");
