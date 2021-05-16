@@ -8,6 +8,7 @@ void create() {
     ::create();
     set_author("circe");
     set_spell_name("chameleon skin");
+    set_spell_sphere("psychometabolism");
     set_spell_level(([ "psywarrior" : 1 ]));
     set_syntax("cast CLASS chameleon skin");
     set_description("When the psychic character manifests this power, "
