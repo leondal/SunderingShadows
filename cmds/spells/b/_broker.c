@@ -19,7 +19,7 @@ void create()
 
     set_spell_name("broker");
     set_spell_level( ([ "psion" : 1, ]) );
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_bonus_type("circumstance");
     set_syntax("cast CLASS broker");
     set_damage_desc("Clevel / 4 to influence skill");
