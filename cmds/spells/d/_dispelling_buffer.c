@@ -9,6 +9,7 @@ void create()
     ::create();
     set_spell_name("dispelling buffer");
     set_spell_level(([ "psywarrior" : 6, "psion" : 8 ]));
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS dispelling buffer");
     set_description("Manifesting this power will fortify the psionic character's "
                     "mental faculties, offering some protection against spells that seek to "
