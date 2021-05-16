@@ -13,10 +13,12 @@ int cmd_reward(string str)
         tell_object(TP, "<reward TARGET> or <reward all>");
         return 1;
     }
-	
-	  if (TP->query("last_reward") + DELAY > time()) {
-        tell_object(TP, "%^BOLD%^%^RED%^You can't use reward yet!");
-        tell_object(TP, "%^BOLD%^%^RED%^Delay timer wil expire at:%^RESET%^ " + ctime(TP->query("last_reward") + DELAY) + "UTC");
+    
+    if(this_player()->cooldown("reward"))
+    {	
+	 // if (TP->query("last_reward") + DELAY > time()) {
+        tell_object(TP, "%^BOLD%^%^RED%^You can't use reward yet! Use the 'cooldowns' command to see how long you need to wait.");
+        //tell_object(TP, "%^BOLD%^%^RED%^Delay timer wil expire at:%^RESET%^ " + ctime(TP->query("last_reward") + DELAY) + "UTC");
         return 1;
 	}
  
@@ -82,7 +84,8 @@ int cmd_reward(string str)
         tell_object(TP, "%^CYAN%^%^BOLD%^You have rewarded " + target->QCN + " with some experience.");
         tell_object(target, "%^CYAN%^%^BOLD%^You feel enlightened as your powers grow.");
         TP->delete("last_reward");
-        TP->set("last_reward", time());
+        //TP->set("last_reward", time());
+        this_player()->add_cooldown("reward", DELAY);
 
     }
 
