@@ -16,6 +16,7 @@ void create() {
     set_spell_name("form of doom");
     set_spell_level(([ "psywarrior" : 6 ]));
     set_syntax("cast CLASS form of doom");
+    set_spell_sphere("psychometabolism");
     set_description("The manifester calls on the stuff of nightmares, disguising "
        "himself in a terrifying visage of sleek, lashing tentacles. Your horrific "
        "appearance is enough to shake the confidence of those who oppose you, while "

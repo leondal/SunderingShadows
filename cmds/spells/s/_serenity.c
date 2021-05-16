@@ -9,9 +9,8 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("serenity");
-    set_spell_level(([ "mage" : 6, "cleric" : 5, "bard" : 4, "psion" : 6, "magus" : 6 ]));
+    set_spell_level(([ "mage" : 6, "cleric" : 5, "bard" : 4, "magus" : 6 ]));
     set_spell_sphere("enchantment_charm");
-    set_discipline("telepath");
     set_syntax("cast CLASS serenity");
     set_damage_desc("mental");
     set_description("This spell sends a serene song into mind of everyone present. Those who attack you will feel mental pain of overcoming contradiction. Strong-willed will shrug this song off.");
