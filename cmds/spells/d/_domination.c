@@ -145,6 +145,9 @@ void spell_effect(int prof) {
     remote->move_is_ok(1);
     remote->move(caster);
     remote->move_is_ok(0);
+    caster->add_follower(target);
+    caster->add_protector(target);
+    target->set_property("minion", caster);
     if (duration) {
         spell_duration = duration;
         set_end_time();
