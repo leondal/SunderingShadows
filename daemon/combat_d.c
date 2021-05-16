@@ -580,7 +580,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             {
                 tell_object(attacker, "%^BOLD%^CYAN%^Your weapon flashes as it assaults your opponent's mind!%^RESET%^");
                 tell_object(target, "%^BOLD%^CYAN%^" + attacker->QCN + "'s weapon flashes as it assaults your mind!");
-                target->cause_typed_damage(target, target->return_target_limb(), roll_dice(1 + (attacker->query_class_level("psion") + attacker->query_class_level("psywarrior")) / 20, 8), "mental");
+                target->cause_typed_damage(target, target->return_target_limb(), 5 + roll_dice(1 + (attacker->query_class_level("psion") + attacker->query_prestige_level("psywarrior")) / 15, 8), "mental");
             }
         }
 
