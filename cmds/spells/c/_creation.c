@@ -14,7 +14,7 @@ void create() {
     set_spell_name("creation");
     set_spell_level(([ "psion" : 4 ]));
     set_discipline("shaper");
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("metacreativity");
     set_syntax("cast CLASS creation");
     set_description("This power creates psionic fighters to protect the psion.  These warriors do not truly exist but "
 "are rather manifestations of the psion's own protective impulse.  The warriors will stand before the psion, mindlessly "
