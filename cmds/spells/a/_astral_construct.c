@@ -18,7 +18,7 @@ void create()
     set_spell_name("astral construct");
     set_spell_level(([ "psion" : 7 ]));
     set_discipline("shaper");
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("metacreativity");
     set_syntax("cast CLASS astral construct");
     set_description("By manifesting this command, a shaper may pull small portions of ectoplasm from the Astral Plane and weave from them a construct to do his bidding.  The shaper must be careful, else he may lose control of his new creation. This is a greater summon, you can't control two such powerful beings.
 
