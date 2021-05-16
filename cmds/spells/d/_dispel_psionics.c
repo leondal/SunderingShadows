@@ -8,7 +8,7 @@ void create() {
     ::create();
     set_spell_name("dispel psionics");
     set_spell_level(([ "psion" : 3 ]));
-    set_spell_sphere("abjuration");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS dispel psionics [on TARGET]");
     set_description("Despite the name, dispel psionics will dispel effects created by both psionics and magic, whether it "
 "be divine or arcane in nature.  The chance to dispel a particular effect depends upon the ability of the psion versus "
