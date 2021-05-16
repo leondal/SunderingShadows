@@ -21,7 +21,7 @@ void create()
     ::create();
     set_spell_name("bend reality");
     set_spell_level(([ "psion" : 8 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("metacreativity");
     set_syntax("cast CLASS bend reality on SPELL_NAME [on SPELL_ARGS]");
     set_description("You use your vast psionic powers to bend reality around you, allowing you to cast any psion power of level 6 or below, any discipline-specific psion power of level 5 or below, OR any psywarrior spell of level 4 or below. Example: <cast psion bend reality on breath of life on corpse>");
     set_arg_needed(1);
