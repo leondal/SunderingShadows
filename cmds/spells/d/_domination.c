@@ -7,8 +7,6 @@
 
 inherit SPELL;
 
-
-
 int duration, change, quitting;
 object clothes, remote;
 
