@@ -15,7 +15,7 @@ void create(){
     set_spell_sphere("metacreativity");
     set_syntax("cast CLASS astral seed");
     set_description("This spell creates a tiny portal into the Astral plane, where the psion's soul is safely sequestered away. " +
-"upon death, the soul will seek out the body, reviving it and returning it to consciousness, giving them a second chance at life. " +
+"Upon death, the soul will seek out the body, reviving it and returning it to consciousness, giving them a second chance at life. " +
 "The exhaustive nature of this power ensures that it can only be used sparingly. ");
     set_verbal_comp();
     set_property("magic",1);

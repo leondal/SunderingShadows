@@ -82,10 +82,6 @@ void execute_feat()
     object ob;
     int bonus;
     
-    int class_level,
-        comp_hd,
-        comp_ac;
-    
     ::execute_feat();
     
     if(caster->query_property("using instant feat"))
@@ -99,12 +95,6 @@ void execute_feat()
     if(sizeof(caster->query_attackers()))
     {
         tell_object(caster, "You can't build your astral construct during combat!");
-        return;
-    }
-    
-    if(!(int)USER_D->spend_pool(TP, 1, "focus"))
-    {
-        tell_object(caster, "You don't have the Psionic Focus to build your construct!");
         return;
     }
     
@@ -125,8 +115,25 @@ void execute_feat()
         tell_object(caster, "Valid options are: (" + implode(valid_args, ",") + ") ");
         return;
     }
+
+    if(!(int)USER_D->spend_pool(TP, 1, "focus"))
+    {
+        tell_object(caster, "You don't have the Psionic Focus to build your construct!");
+        return;
+    }
     
-    tell_object(caster, "%^CYAN%^BOLD%^You twirl your fingers, weaving astral ectoplasmic material into an astral construct.%^RESET%^");
+    tell_object(caster, "%^CYAN%^BOLD%^You twirl your fingers, weaving ectoplasmic material from the Astral plane.%^RESET%^");
+    call_out("finish construct", 2);
+}
+
+void finish_construct()
+{
+    int bonus;
+    int class_level,
+        comp_hd,
+        comp_ac;
+    
+    tell_object(caster, "%^BOLD%^You rearange the fibers, pulling and place them into the proper order, until finally, an astral construct stands before you.");
 
     bonus = FEATS_D->usable_feat(caster, "summoners call") * 5;    
     class_level = caster->query_prestige_level("psion") + bonus;
@@ -138,7 +145,7 @@ void execute_feat()
     companion->set_race("construct");
     companion->set_name("construct");
     companion->set_id( ({ "construct", "astral construct", "greater summon", caster->query_name() + "'s ally" }) );
-    companion->set_short(sprintf("%s's astral construct.",capitalize(caster->query_name())));
+    companion->set_short("%^BOLD%^%^CYAN%^Astral Construct%^RESET%^");
     companion->set_level(class_level);
     companion->set_hd(comp_hd, 14);
     companion->set_attacks_num(2 + class_level / 10);

@@ -17,7 +17,7 @@ void create()
     feat_category("Psionics");
     feat_name("astral ally");
     feat_prereq("Psion (Shaper) L21");
-    feat_desc("Shapers have an uncanny connection to the Astral plane and are particularly adept at controlling the ectoplasmic energy they draw from that plane. This feat grants +2 to caster level when manifesting any Metacreativity power.");
+    feat_desc("Shapers have an uncanny connection to the Astral plane and are particularly adept at controlling the ectoplasmic energy they draw from that plane. This feat grants +2 to caster level when manifesting any Metacreativity power, as long as the psion is focused.");
     permanent(1);
     psionic(1);
 }

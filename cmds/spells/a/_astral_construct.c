@@ -16,7 +16,7 @@ void create()
 {
     ::create();
     set_spell_name("astral construct");
-    set_spell_level(([ "psion" : 7 ]));
+    set_spell_level(([ "classless" : 7 ]));
     set_discipline("shaper");
     set_spell_sphere("metacreativity");
     set_syntax("cast CLASS astral construct");
