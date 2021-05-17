@@ -27,10 +27,14 @@ void create()
     feat_syntax("astral_construct [FEAT] to summon or astral_construct to dismiss");
     feat_desc("This feat showcases the shaper's ability to realize their imagination through astral materials by building an astral construct to fight alongside them.
 
+The [FEAT] argument will let you add one of the following feats to your construct:
+
+  %^BOLD%^" + upper_case(implode(valid_args, "\n\  ")) + "%^RESET%^
+  
 The Astral Construct can be customized through several commands, which will allow you to change its description:
 
-  'construct short [DESCRIPTION]' - Changes the short description of the construct.
-  'construct long  [DESCRIPTION]' - Changes the long description of the construct.
+  'construct short [DESCRIPTION]' - Changes construct's short description.
+  'construct long  [DESCRIPTION]' - Changes construct's long description.
 
   To have the astral construct follow you, use 'construct follow'.  
   To command the astral construct, use %^ORANGE%^<construct command %^ULINE%^ACTION%^RESET%^ORANGE%^>.%^RESET%^
@@ -114,10 +118,10 @@ void execute_feat()
         return;
     }
     
-    if(!arg || member_array(arg, keys(valid_types)) < 0)
+    if(!arg || member_array(arg, valid_args) < 0)
     {
         tell_object(caster, "You need to choose a feat for your astral construct.");
-        tell_object(caster, "Valid options are: (" + implode(m_indices(valid_args), ",") + ") ");
+        tell_object(caster, "Valid options are: (" + implode(valid_args, ",") + ") ");
         return;
     }
     
@@ -130,7 +134,7 @@ void execute_feat()
     companion = new("/d/magic/mon/astral_construct");
     companion->set_race("construct");
     companion->set_name("construct");
-    companion->set_id( ({ "construct", "astral construct", "greater summon", "animal", caster->query_name() + "'s ally" }) );
+    companion->set_id( ({ "construct", "astral construct", "greater summon", caster->query_name() + "'s ally" }) );
     companion->set_short(sprintf("%s's astral construct.",capitalize(caster->query_name())));
     companion->set_level(class_level);
     companion->set_hd(comp_hd, 14);
