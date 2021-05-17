@@ -80,7 +80,10 @@ int cmd_astral_construct(string str)
 void execute_feat()
 {
     object ob;
-    int bonus;
+    int bonus,
+        class_level,
+        comp_hd,
+        comp_ac;
     
     ::execute_feat();
     
@@ -123,16 +126,6 @@ void execute_feat()
     }
     
     tell_object(caster, "%^CYAN%^BOLD%^You twirl your fingers, weaving ectoplasmic material from the Astral plane.%^RESET%^");
-    call_out("finish construct", 2);
-}
-
-void finish_construct()
-{
-    int bonus;
-    int class_level,
-        comp_hd,
-        comp_ac;
-    
     tell_object(caster, "%^BOLD%^You rearange the fibers, pulling and place them into the proper order, until finally, an astral construct stands before you.");
 
     bonus = FEATS_D->usable_feat(caster, "summoners call") * 5;    
