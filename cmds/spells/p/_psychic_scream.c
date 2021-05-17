@@ -31,16 +31,22 @@ void spell_effect(int prof)
     int max;
 
     tell_object(caster, "%^BOLD%^CYAN%^You let loose a wave of psionic energy and a piercing scream fills the air..");
-    tell_room(place, "%^BOLD%^CYAN%^" + caster->QCN + " releases a wave of psionic energy and a piercing scream fills the air.", caster);
+    tell_room(place, "%^BOLD%^CYAN%^" + caster->QCN + " releases a wave of psionic energy and a piercing scream fills the air.", ({ caster}));
     message("info", "%^BOLD%^You hear a horrible high-pitched scream.", nearbyRoom(place, 2));
 
     foes = target_selector();
-
-    if (sizeof(foes)) {
+    
+    if(!sizeof(foes))
+    {
+        tell_object(caster, "There are no enemies here,");
+        return;
+    }
+    else {
         foreach(foe in foes)
         {
             if (combat_death_save(foe, 0)) {
                 tell_object(foe, "%^YELLOW%^You mind is wracked with horrible pain but you survive!");
+                tell_room(place, foe->QCN + " manages to survive the horrible pain!");
                 foe->cause_typed_damage(foe, foe->return_target_limb(), sdamage, "mental");
                 continue;
             }
