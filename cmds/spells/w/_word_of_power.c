@@ -130,7 +130,7 @@ void spell_effect(int prof)
         where = "/d/islands/elf/church";
     placename = "ice";
     break;
-    default:
+    case "temple":
         mygod = (string)CASTER->query_diety();
         if (member_array(mygod, ACTIVETEMPLES) != -1) {
             placename = "the Temple of " + capitalize(mygod);
@@ -142,6 +142,10 @@ void spell_effect(int prof)
             placename = "Shadow";
             break;
         }
+    default:
+        where = "/d/darkwood/room/road18";
+        placename = "Shadow";
+        break;
     }
 
     if (!objectp(find_object_or_load(where))) {
