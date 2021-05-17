@@ -224,8 +224,6 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             }
         }
     }
-
-    log_file("adm/saving_throw", ob->QCN + " " + (save_info["save_result"] ? "succeeded" : "failed") + " save against "   
 }
 
 int get_save(object who, string type)
