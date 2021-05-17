@@ -2410,7 +2410,10 @@ void define_clevel()
         }
         
         if(FEATS_D->usable_feat(caster, "astral ally") && spell_sphere == "metacreativity" && caster->query("available focus"))
-            clevel += 2;
+        {
+            if(spell_name != "bend reality" && spell_name != "reality revision")
+                clevel += 2;
+        }
         
         if(caster->query_property("augment power"))
         {
