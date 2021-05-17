@@ -13,11 +13,10 @@ string roomName;
 void create() {
     ::create();
     set_spell_name("create demiplane");
-    set_spell_level(([ "mage" : 8,"oracle":8, "cleric" : 8, "psion" : 8 ]));
+    set_spell_level(([ "mage" : 8,"oracle":8, "cleric" : 8 ]));
     set_mystery("elemental");
-    set_discipline("shaper");
     set_spell_sphere("conjuration_summoning");
-    set_syntax("cast CLASS genesis");
+    set_syntax("cast CLASS create demiplane");
     set_description("You create a small, finite demiplane within the astral plane that you are able to shape, control and reshape it to your liking. This plane will eject everything in it upon dismissal, but its configuration and parameters will save.
 
 Inside the plane you have access to the following commands:
