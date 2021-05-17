@@ -54,6 +54,9 @@ mapping class_featmap(string myspec, object player) {
         case "telepath":
         feats += ([ 2 : ({ "mental intrusion" }), 11 : ({ "psychic vampire" }), 21 : ({ "guarded thoughts" }) ]);
         break;
+        case "shaper":
+        feats += ([ 2 : ({ "astral construct" }), 11 : ({ "summoners call" }), 21 : ({ "astral ally" }) ]);
+        break;        
     }
     
     return feats;

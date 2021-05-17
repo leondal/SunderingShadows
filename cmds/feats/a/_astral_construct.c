@@ -80,6 +80,7 @@ int cmd_astral_construct(string str)
 void execute_feat()
 {
     object ob;
+    int bonus;
     
     int class_level,
         comp_hd,
@@ -126,8 +127,10 @@ void execute_feat()
     }
     
     tell_object(caster, "%^CYAN%^BOLD%^You twirl your fingers, weaving astral ectoplasmic material into an astral construct.%^RESET%^");
-    
-    class_level = caster->query_prestige_level("psion");
+
+    bonus = FEATS_D->usable_feat(caster, "summoners call") * 5;    
+    class_level = caster->query_prestige_level("psion") + bonus;
+
     comp_hd = class_level + 2;
     comp_ac = class_level + 10;
     
