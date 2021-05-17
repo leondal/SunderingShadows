@@ -10,8 +10,9 @@ string whoname, whocname, cname, Ccname;
 void create() {
     ::create();
     set_spell_name("mindlink");
-    set_spell_level(([  ]));
+    set_spell_level(([ "psion" : 1 ]));
     set_discipline("telepath");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS mindlink to TARGET");
     set_description("This power will allow the psion to establish "
        "a mental link with the target, permitting telepathic conversations "

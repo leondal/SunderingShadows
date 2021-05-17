@@ -7,7 +7,7 @@ void create() {
     set_author("nienne");
     set_spell_name("force screen");
     set_spell_level(([ "psion" : 1 ]));
-    set_spell_sphere("abjuration");
+    set_spell_sphere("psychokinesis");
     set_bonus_type("shield");
     set_syntax("cast CLASS force screen");
     set_description("This spell calls a protective shield into existance before the caster. It negates magic missiles, "

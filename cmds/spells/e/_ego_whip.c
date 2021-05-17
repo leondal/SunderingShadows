@@ -22,7 +22,7 @@ void create()
     set_author("tlaloc");
     set_spell_name("ego whip");
     set_spell_level( ([ "psion" : 2 ]) );
-    set_spell_sphere("enchantment_charm");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS ego whip on TARGET");
     set_damage_desc("1d8 damage to CHA for 3 rounds. Daze on failed save");
     set_description("Your rapid mental lashings assault the ego of your enemy, debilitating its confidence. The target takes 1d8 points of Charisma damage. A target that fails its save is also dazed for 3 rounds.");

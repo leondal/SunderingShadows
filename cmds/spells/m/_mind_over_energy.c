@@ -15,6 +15,7 @@ void create() {
     ::create();
     set_spell_name("mind over energy");
     set_spell_level(([ "psywarrior" : 6 ]));
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS mind over energy on <type>");
     set_description("When manifesting this power, the psionic character "
        "strengthens her mental defenses against certain types of energy. "

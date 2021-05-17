@@ -17,7 +17,7 @@ create()
     ::create();
     set_spell_name("psychic crush");
     set_spell_level(([ "psion" : 9 ]));
-    set_spell_sphere("necromancy");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS psychic crush on TARGET");
     set_damage_desc("mental damage and tripped, paralyzed, or death");
     set_description("Your psychic will abruptly and brutally crushes the mental essence of the target. This power will stagger, paralyze or kill the target. Whether they make their saves or not, the target will take massive mental damage.");

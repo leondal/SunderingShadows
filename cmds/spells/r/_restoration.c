@@ -6,9 +6,8 @@ void create()
 {
     ::create();
     set_spell_name("restoration");
-    set_spell_level(([ "oracle" : 4, "cleric" : 4,"inquisitor":4,"paladin":4, "psion" : 6 ]));
+    set_spell_level(([ "oracle" : 4, "cleric" : 4,"inquisitor":4,"paladin":4 ]));
     set_mystery("life");
-    set_discipline("egoist");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS restoration on TARGET");
     set_damage_desc("removes fatigue, exhaustion, confusion");

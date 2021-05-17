@@ -17,7 +17,7 @@ void create()
 
     set_spell_name("intellect fortress");
     set_spell_level( ([ "psion" : 4, ]) );
-    set_spell_sphere("abjuration");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS intellect fortress");
     set_damage_desc("fear immunity");
     set_description("Using the power of pure logic, the manifester of this power suppresses all attempts at causing him fear.");

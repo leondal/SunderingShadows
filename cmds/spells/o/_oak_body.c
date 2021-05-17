@@ -11,7 +11,7 @@ void create() {
     ::create();
     set_spell_name("oak body");
     set_spell_level(([ "psywarrior" : 5, "psion" : 7 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS oak body");
     set_bonus_type("natural armor");
     set_description("By using this power, the psionic character lends some of his psychic energy to "

@@ -10,7 +10,7 @@ void create()
     ::create();
     set_spell_name("psychic scream");
     set_spell_level(([ "psion" : 8 ]));
-    set_spell_sphere("enchantment_charm");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS psychic scream");
     set_discipline("telepath");
     set_damage_desc("Area of effect mental damage or death on failed save");

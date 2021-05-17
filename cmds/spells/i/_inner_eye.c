@@ -20,7 +20,7 @@ void create(){
     set_author("circe");
     set_spell_name("inner eye");
     set_spell_level(([ "psion" : 7 ]));
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_discipline("seer");
     set_syntax("cast CLASS inner eye on TARGET");
     set_description("Upon manifesting this power, the psion focuses his inner eye and commands it to watch a particular " +

@@ -11,7 +11,7 @@ void create() {
     set_spell_level(([ "psion" : 5 ]));
     set_discipline("nomad");
     set_domains(({}));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychoportation");
     set_syntax("cast CLASS psionic teleport to <location>");
     set_description("This power will move the nomad from his current location to one he has previously memorized.  The "
 "nomad merely concentrates, setting his sights on the place he would like to be, and his mind manipulates time and space "

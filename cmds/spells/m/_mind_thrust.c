@@ -7,7 +7,7 @@ void create() {
     ::create();
     set_spell_name("mind thrust");
     set_spell_level(([ "psion" : 6 ]));
-    set_spell_sphere("divination");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS mind thrust on TARGET");
     set_damage_desc("mental damage and paralyzed on failed save");
     set_description("Mind thrust will cause the psion to manifest random psychic energy, directing it at a target.  The "

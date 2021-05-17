@@ -18,8 +18,9 @@ void create()
 
     set_author("tlaloc");
     set_spell_name("empathic relief");
-    set_spell_level( ([ "psion" : 2 ]) );
-    set_spell_sphere("healing");
+    set_spell_level( ([ "psion" : 6 ]) );
+    set_spell_sphere("psychometabolism");
+    set_discipline("egoist");
     set_syntax("cast CLASS empathic relief on TARGET");
     set_description("You cleanse the subject's body of unhealthy influences, relieving all debilitating conditions, including dazed, confused, stunned, blinded, paralyzed, fatigued, exhausted, sickened and will clear negative levels.");
     set_target_required(1);

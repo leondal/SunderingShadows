@@ -11,7 +11,7 @@ void create() {
     ::create();
     set_spell_name("inertial armor");
     set_spell_level(([ "psion" : 1, "psywarrior" : 1 ]));
-    set_spell_sphere("abjuration");
+    set_spell_sphere("psychokinesis");
     set_bonus_type("armor");
     set_syntax("cast CLASS inertial armor");
     set_description("When a psion manifests inertial armor, his psionic energy streams through a gem, where it coalesces "

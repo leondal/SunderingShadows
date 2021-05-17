@@ -125,11 +125,11 @@ class_spell_storage =
 "psion":
 ([
     "egoist":
-        ({"thicken skin","animal affinity","chameleon","deathward","breath of life","restoration","lesser transformation","shadow double","shadow body","rewind age"}),
+        ({"thicken skin","animal affinity","chameleon","deathward","breath of life","empathic relief","lesser transformation","shadow double","shadow body","rewind age"}),
     "seer":
         ({"dissonance","clairvoyance","hypercognition","escape detection","remote viewing","legend lore","inner eye","fortune fate","foresight"}),
     "shaper":
-        ({"minor creation","astral construct","ectoplasm","creation","hail of crystals","ruin","genesis","astral seed", "reality revision"}),
+        ({"minor creation","astral construct","ectoplasm","creation","hail of crystals","genesis","astral seed", "reality revision"}),
     "kineticist":
         ({"animate object","energy emanation","energy cone","hold person","energy current","bolt of force","reddopsi","crushing hand","tornado blast"}),
     "nomad":

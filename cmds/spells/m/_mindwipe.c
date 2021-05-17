@@ -15,7 +15,7 @@ void create() {
     ::create();
     set_spell_name("mindwipe");
     set_spell_level(([ "psion" : 4 ]));
-    set_spell_sphere("enchantment_charm");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS mindwipe on TARGET");
     set_damage_desc("1d4 negative levels to living for 1d20 rounds");
     set_description("You erase a portion of the targets mind and experiences, inflicting 1d4 negative levels on them.");

@@ -16,6 +16,7 @@ void create() {
     set_spell_name("psychokinetic weapon");
     set_spell_level(([ "psywarrior" : 4, ]));
     set_syntax("cast CLASS psychokinetic weapon");
+    set_spell_sphere("psychokinesis");
     set_description("When the psionic character uses this power, it creates an "
        "ectoplasmic sword that floats in the air near the manifester. The sword "
        "can be commanded and will automatically follow the manifester and attack "
