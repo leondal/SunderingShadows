@@ -7,6 +7,7 @@
 #pragma types
 
 #include <std.h>
+#include <daemons.h>
 
 #pragma strict_types
 
@@ -45,6 +46,9 @@ varargs int object_can_be_teleported(object teleportee, object destination, int 
         environment(teleportee)->query_property("no teleport")) {
         return 0;
     }
+    
+    if(FEATS_D->usable_feat(teleportee, "worldly traveler"))
+        clevel += 2;
 
     if (!noroll) {
         roll = roll_dice(1, 20);

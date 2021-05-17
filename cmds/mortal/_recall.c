@@ -32,7 +32,7 @@ int cmd_recall(string str)
             return 1;
         }else {
             int roomnw;
-            int maxknown = TP->query_base_stats("intelligence");
+            int maxknown = TP->query_base_stats("intelligence") + ( FEATS_D->usable_feat(this_player(), "worldly traveler") * 5);
 
             string* output = ({});
 
