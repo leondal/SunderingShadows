@@ -143,7 +143,7 @@ void execute_feat()
     companion->set_stats("wisdom", 8);
     companion->set_stats("charisma", 14);
     companion->set_size(3);
-    companion->set_property("spell resistance", class_level);
+    companion->set_property("spell damage resistance", class_level);
     companion->set_overall_ac(0 - comp_ac - 10);
     
     caster->force_me("mount bonded steed");
