@@ -8,7 +8,7 @@ void create() {
 	::create();
     set_spell_name("unearthly terror");
     set_spell_level(([ "psion" : 1 ]));
-    set_spell_sphere("enchantment_charm");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS unearthly terror on TARGET");
     set_damage_desc("frightened, sickened on save");
     set_description("This power allows the caster to project an aura of fear toward a target, potentially sending him fleeing.");

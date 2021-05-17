@@ -19,7 +19,7 @@ void create()
     set_author("tlaloc");
     set_spell_name("shrapnel burst");
     set_spell_level( ([ "psion" : 5, "psywarrior" : 4 ]) );
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS shrapnel burst on TARGET");
     set_damage_desc("Piercing Damage to all attackers");
     set_description("You emit a burst of crystalline shrapnel, dealing piercing damage to all attackers.");

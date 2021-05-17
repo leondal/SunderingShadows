@@ -13,7 +13,7 @@ void create() {
     ::create();
     set_spell_name("swarm of crystals");
     set_spell_level(([ "psion" : 2 ]));
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS swarm of crystals on TARGET");
     set_description("A psion manifesting this spell holds forth a small handful of discarded crystals, pointing them at "
                     "the subject.  The psion then calls forth his mental powers to send the crystals tearing into his opponent's flesh, "

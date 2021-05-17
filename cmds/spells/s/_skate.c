@@ -15,7 +15,7 @@ void create() {
     set_author("circe");
     set_spell_name("skate");
     set_spell_level(([ "psywarrior" : 1, "psion" : 1,]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS skate");
     set_description("This power gives the psionic character the ability "
        "to skate smoothly over the ground, exerting little energy. The "

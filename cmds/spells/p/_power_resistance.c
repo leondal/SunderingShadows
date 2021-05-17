@@ -8,7 +8,7 @@ void create() {
     ::create();
     set_spell_name("power resistance");
     set_spell_level(([ "psion" : 5, "psywarrior" : 5 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS power resistance on TARGET");
     set_description("Using this power will allow a psion to temporarily raise the power resistance of "
 "the target.  After a time, the power will reverse, restoring the creature to its original resistance.");

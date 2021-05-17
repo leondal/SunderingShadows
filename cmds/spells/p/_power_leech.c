@@ -8,7 +8,8 @@ void create() {
     ::create();
     set_spell_name("power leech");
     set_spell_level(([ "psion" : 4 ]));
-    set_spell_sphere("necromancy");
+    set_spell_sphere("telepathy");
+    mental_spell();
     set_syntax("cast CLASS power leech on TARGET");
     set_description("This power, when manifested, will cause the psion to gather his energy, focusing on the target.  The "
 "psion will then reach out, attempting to touch the target.  Should he succeed, he will empathically deliver damage to "

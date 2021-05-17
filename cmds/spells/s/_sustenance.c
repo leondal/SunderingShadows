@@ -9,7 +9,7 @@ void create() {
     ::create();
     set_spell_name("sustenance");
     set_spell_level(([ "psion" : 2, "psywarrior" : 2 ]));
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS sustenance");
     set_description("By focusing his energies on the blue-green gem apatite, a psion can relieve himself of both hunger "
 "and thirst.  This power can be especially useful to adventurers who oftentimes find themselves well away from the "

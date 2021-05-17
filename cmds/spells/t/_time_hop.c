@@ -15,6 +15,7 @@ void create() {
     set_spell_name("time hop");
     set_spell_level(([ "psion" : 3 ]));
     set_syntax("cast CLASS time hop on TARGET");
+    set_spell_sphere("psychoportation");
     set_description("The target of this power hops forward in time, "
        "disappearing in a flash of silver energy. When the duration "
        "expires, the target reappears, feeling as if no time has passed "

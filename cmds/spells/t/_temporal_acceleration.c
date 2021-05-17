@@ -11,7 +11,7 @@ void create(){
     ::create();
     set_spell_name("temporal acceleration");
     set_spell_level(([ "psion" : 6 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS temporal acceleration");
     set_description("Like the magic spell haste, this power "
        "considerably speeds up the caster and her nearby allies. "

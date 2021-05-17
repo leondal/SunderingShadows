@@ -14,6 +14,7 @@ void create(){
     set_author("circe");
     set_spell_name("reaving dispel");
     set_spell_level(([ "psywarrior" : 6, "psion" : 8 ]));
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS reaving dispel on TARGET");
     set_description("This power will create a mark on the target that will attempt to dispel one magical effect per round for the duration, causing damage with each succcessful dispel. The duration and power are both based on the psionic character's level.");
     set_verbal_comp();

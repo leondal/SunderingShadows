@@ -11,7 +11,7 @@ void create() {
     set_spell_level(([ "psion" : 2, "psywarrior" : 2 ]));
     set_discipline("egoist");
     set_bonus_type("natural armor");
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS thicken skin");
     set_description("An egoist who chooses can focus his power to thicken his skin, granting him extra protection in combat. This power works much like inertial armor, but unlike other armor abilities, it can be used with inertial armor to grant an additional bonus. This spell will not work while you're wearing armour.");
     set_verbal_comp();

@@ -19,7 +19,7 @@ void create()
 
     set_spell_name("rewind age");
     set_spell_level( ([ "psion" : 6, ]) );
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_discipline("egoist");
     set_syntax("cast CLASS rewind age");
     set_damage_desc("Removes penalties from age for duration");

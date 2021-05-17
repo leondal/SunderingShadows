@@ -32,7 +32,7 @@ void create()
     set_author("tlaloc");
     set_spell_name("thought shield");
     set_spell_level( ([ "psion" : 2, "psywarrior" : 2 ]) );
-    set_spell_sphere("alteration");
+    set_spell_sphere("telepathy");
     set_bonus_type("circumstance");
     set_syntax("cast CLASS thought shield");
     set_damage_desc("+13 to mental resistance");

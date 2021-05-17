@@ -22,7 +22,7 @@ void create() {
     ::create();
     set_spell_name("remote viewing");
     set_spell_level(([ "psion" : 5 ]));
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS remote viewing on <object> (a crystal ball or equivalent)");
     set_description("By means of this power, the psion changes a normal crystal ball into a scrying device. The details "
 "of the use of such a scrying device can be accessed by typing <help crystal ball> after a successful cast on a crystal "

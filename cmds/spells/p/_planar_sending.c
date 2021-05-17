@@ -15,7 +15,7 @@ void create() {
     ::create();
     set_spell_name("planar sending");
     set_spell_level(([ "psion" : 9 ]));
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("psychoportation");
     set_syntax("cast CLASS planar sending on TARGET to DESTINATION");
     set_description("This spell sends annoying people away. Although strong-willed will stay to annoy you even more.");
     set_verbal_comp();

@@ -18,7 +18,7 @@ void create()
     ::create();
     set_spell_name("prescience");
     set_spell_level(([ "psion" : 7 ]));
-    set_spell_sphere("combat");
+    set_spell_sphere("clairsentience");
     set_bonus_type("insight");
     set_syntax("cast CLASS prescience");
     set_description("This power will allow the psion foreknowledge, granting him additional prowess in battle.  The power "

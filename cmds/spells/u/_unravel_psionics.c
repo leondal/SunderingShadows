@@ -15,7 +15,7 @@ void create() {
     ::create();
     set_spell_name("unravel psionics");
     set_spell_level(([ "psion" : 9 ]));
-    set_spell_sphere("abjuration");
+    set_spell_sphere("psychokinesis");
     set_syntax(
 "cast CLASS unravel psionics [on TARGET]
         cast CLASS unravel psionics on break curse");

@@ -9,7 +9,7 @@ void create() {
     ::create();
     set_spell_name("reddopsi");
     set_spell_level(([ "psion" : 7 ]));
-    set_spell_sphere("abjuration");
+    set_spell_sphere("psychokinesis");
     set_discipline("kineticist");
     set_damage_desc("clevel/6+5 spell reflection chance.");
     set_syntax("cast CLASS reddopsi");
