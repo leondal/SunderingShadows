@@ -20,7 +20,7 @@ void create()
     set_author("tlaloc");
     set_spell_name("energy conversion");
     set_spell_level( ([ "psion" : 7 ]) );
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychokinesis");
     set_bonus_type( ({ "resistance", "deflection" }) );
     set_syntax("cast CLASS energy conversion");
     set_damage_desc("Force damage, +4 AC, +4 Fortitude Save");

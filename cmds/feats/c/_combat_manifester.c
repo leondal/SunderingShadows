@@ -9,7 +9,7 @@ void create() {
     feat_category("Psionics");
     feat_name("combat manifester");
     feat_prereq("Psion or Psywarrior");
-    feat_desc("The Combat Manifester feat will allow a psionic character who could not otherwise manifest while wielding a weapon the ability to manifest their powers while wielding a weapon. Psions wishing to take this feat must first have mastered the ability to manifest in armor via the Armored Manifester feat.");
+    feat_desc("The Combat Manifester feat will allow a psionic character who could not otherwise manifest while wielding a weapon the ability to manifest their powers while wielding a weapon.");
     permanent(1);
     psionic(1);
 }

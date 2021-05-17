@@ -11,7 +11,7 @@ void create()
     ::create();
     set_spell_name("microcosm");
     set_spell_level(([ "psion" : 9 ]));
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS microcosm on TARGET");
     set_description("When a psion manifests microcosm, he affects the target's mind to make him feel as though he is "
         "happily in a world of his own, effectively rendering the target utterly helpless.  The success of the power depends upon "
