@@ -14,6 +14,8 @@ inherit FEAT;
 
 object companion;
 
+string *valid_args = ({ "toughness", "cleave", "resistance", "mobility", "regeneration", "damage resistance", "rapid strikes" });
+
 void create()
 {
     ::create();
@@ -22,10 +24,10 @@ void create()
     feat_name("astral construct");
     psionic(1);
     feat_prereq("Psion (Shaper) L2");
-    feat_syntax("astral_construct to summon or astral_construct to dismiss");
-    feat_desc("This feat showcases the shaper's ability to realize their imagination through astral materials.
+    feat_syntax("astral_construct [FEAT] to summon or astral_construct to dismiss");
+    feat_desc("This feat showcases the shaper's ability to realize their imagination through astral materials by building an astral construct to fight alongside them.
 
-The Shaper builds an astral construct that can be customized through the following commands:
+The Astral Construct can be customized through several commands, which will allow you to change its description:
 
   'construct short [DESCRIPTION]' - Changes the short description of the construct.
   'construct long  [DESCRIPTION]' - Changes the long description of the construct.
@@ -33,7 +35,7 @@ The Shaper builds an astral construct that can be customized through the followi
   To have the astral construct follow you, use 'construct follow'.  
   To command the astral construct, use %^ORANGE%^<construct command %^ULINE%^ACTION%^RESET%^ORANGE%^>.%^RESET%^
 
-This feat expends your Psionic Focus.");
+This feat requires the shaper to be focused and expends Psionic Focus upon use.");
 
     set_target_required(0);
 }
@@ -112,6 +114,13 @@ void execute_feat()
         return;
     }
     
+    if(!arg || member_array(arg, keys(valid_types)) < 0)
+    {
+        tell_object(caster, "You need to choose a feat for your astral construct.");
+        tell_object(caster, "Valid options are: (" + implode(m_indices(valid_args), ",") + ") ");
+        return;
+    }
+    
     tell_object(caster, "%^CYAN%^BOLD%^You twirl your fingers, weaving astral ectoplasmic material into an astral construct.%^RESET%^");
     
     class_level = caster->query_prestige_level("psion");
@@ -132,6 +141,8 @@ void execute_feat()
     companion->set_alignment(caster->query_alignment());
     companion->set_owner(caster);
     companion->set_property("effective_enchantment", (class_level / 7) + 1);
+    companion->set_attacks_num(class_level / 13 + 1);
+    companion->set_monster_feats( ({ arg }) );
        
     caster->set_property("animal_companion", companion);
     caster->add_follower(companion);
