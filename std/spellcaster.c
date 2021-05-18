@@ -960,7 +960,7 @@ void prepare(string str, int temp, string myclass, int num)
         }
         
         //Psion can regain focus on FULL prepare to max
-        if(num == myneeded)
+        if(num == myneeded && num > mymax / 10)
             focus = 1;
         else
             focus = 0;
