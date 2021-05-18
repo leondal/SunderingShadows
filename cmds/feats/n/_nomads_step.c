@@ -110,8 +110,8 @@ void execute_feat()
     
     if(!caster->query_invis())
     {
-        tell_room(place, caster->QCN + " concentrates and suddenly disappears!");
-        tell_room(dest, caster->QCN + " suddenly appears near you!");
+        tell_room(place, caster->QCN + " concentrates and suddenly disappears!", ({ caster }));
+        tell_room(dest, caster->QCN + " suddenly appears near you!", ({ caster }));
     }
     
     caster->clear_followers();
