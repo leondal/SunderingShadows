@@ -11,7 +11,7 @@ void create(){
     ::create();
     set_author("nienne");
     set_spell_name("dimension door");
-    set_spell_level(([ "bard" : 4, "psion" : 4, "mage" : 4, "oracle" : 4, "magus" : 4 ]));
+    set_spell_level(([ "bard" : 4, "mage" : 4, "oracle" : 4, "magus" : 4 ]));
     set_domains("travel");
     set_mystery("solar");
     set_spell_sphere("conjuration_summoning");
