@@ -228,24 +228,24 @@ void special_attack(object target)
     switch(random(5))
     {
         case 0:
-        tell_room(room, "Construct does a generic mental attack on " + tname +".", ({ target }));
-        tell_object(target, "Construct hits you with a generic mental attack.");   
+        tell_room(room, "%^RESET%^%^CYAN%^The %^BOLD%^construct %^RESET%^%^CYAN%^rises up and a %^MAGENTA%^compartment %^CYAN%^opens in its chest. Strange %^MAGENTA%^gl%^BOLD%^owi%^WHITE%^ng %^RESET%^%^MAGENTA%^be%^BOLD%^am%^WHITE%^s %^RESET%^%^CYAN%^of %^MAGENTA%^ene%^BOLD%^rg%^WHITE%^y %^RESET%^%^CYAN%^flare out and strike %^WHITE%^" + tname + "%^BOLD%^%^CYAN%^!%^RESET%^", ({ target }));
+        tell_object(target, "%^RESET%^%^CYAN%^The %^BOLD%^construct %^RESET%^%^CYAN%^rises up and a %^MAGENTA%^compartment %^CYAN%^opens in its chest. Strange %^MAGENTA%^gl%^BOLD%^owi%^WHITE%^ng %^RESET%^%^MAGENTA%^be%^BOLD%^am%^WHITE%^s %^RESET%^%^CYAN%^of %^MAGENTA%^ene%^BOLD%^rg%^WHITE%^y %^RESET%^%^CYAN%^flare out and strike %^WHITE%^you%^BOLD%^%^CYAN%^!%^RESET%^.");   
         break;
         case 1:
-        tell_room(room, "Construct does a generic mental attack on " + tname +".", ({ target }));
-        tell_object(target, "Construct hits you with a generic mental attack."); 
+        tell_room(room, "%^RESET%^%^CYAN%^A %^MAGENTA%^g%^BOLD%^el%^RESET%^%^MAGENTA%^at%^BOLD%^ino%^RESET%^%^MAGENTA%^us a%^BOLD%^ur%^RESET%^%^MAGENTA%^a %^CYAN%^materializes around the %^BOLD%^construct%^RESET%^%^CYAN%^, and then lashes out at %^WHITE%^" + tname + "%^RESET%^%^CYAN%^like an %^MAGENTA%^e%^BOLD%^cto%^RESET%^%^MAGENTA%^pl%^BOLD%^as%^RESET%^%^MAGENTA%^m%^BOLD%^i%^RESET%^%^MAGENTA%^c %^BOLD%^whip%^CYAN%^!%^RESET%^", ({ target }));
+        tell_object(target, "%^RESET%^%^CYAN%^A %^MAGENTA%^g%^BOLD%^el%^RESET%^%^MAGENTA%^at%^BOLD%^ino%^RESET%^%^MAGENTA%^us a%^BOLD%^ur%^RESET%^%^MAGENTA%^a %^CYAN%^materializes around the %^BOLD%^construct%^RESET%^%^CYAN%^, and then lashes out at %^WHITE%^you %^RESET%^%^CYAN%^like an %^MAGENTA%^e%^BOLD%^cto%^RESET%^%^MAGENTA%^pl%^BOLD%^as%^RESET%^%^MAGENTA%^m%^BOLD%^i%^RESET%^%^MAGENTA%^c %^BOLD%^whip%^CYAN%^!%^RESET%^"); 
         break;
         case 2:
-        tell_room(room, "Construct does a generic mental attack on " + tname +".", ({ target }));
-        tell_object(target, "Construct hits you with a generic mental attack."); 
+        tell_room(room, "%^RESET%^%^CYAN%^Several %^GREEN%^ps%^BOLD%^ue%^RESET%^%^GREEN%^d%^BOLD%^o%^RESET%^%^GREEN%^p%^BOLD%^od%^RESET%^%^GREEN%^s %^CYAN%^of pure %^GREEN%^e%^BOLD%^n%^RESET%^%^GREEN%^e%^BOLD%^rg%^RESET%^%^GREEN%^y %^CYAN%^erupt from the %^BOLD%^construct %^RESET%^%^CYAN%^and %^RED%^pummel %^WHITE%^" + tname + "%^BOLD%^%^CYAN%^!%^RESET%^", ({ target }));
+        tell_object(target, "%^RESET%^%^CYAN%^Several %^GREEN%^ps%^BOLD%^ue%^RESET%^%^GREEN%^d%^BOLD%^o%^RESET%^%^GREEN%^p%^BOLD%^od%^RESET%^%^GREEN%^s %^CYAN%^of pure %^GREEN%^e%^BOLD%^n%^RESET%^%^GREEN%^e%^BOLD%^rg%^RESET%^%^GREEN%^y %^CYAN%^erupt from the %^BOLD%^construct %^RESET%^%^CYAN%^and %^RED%^pummel %^WHITE%^you%^BOLD%^%^CYAN%^!%^RESET%^"); 
         break;
         case 3:
-        tell_room(room, "Construct does a generic mental attack on " + tname +".", ({ target }));
-        tell_object(target, "Construct hits you with a generic mental attack.");
+        tell_room(room, "%^RESET%^%^CYAN%^The %^BOLD%^construct %^RESET%^%^CYAN%^curls in on itself while a %^BOLD%^%^BLUE%^wa%^RESET%^%^ORANGE%^r%^BOLD%^p%^BLUE%^in%^RESET%^%^ORANGE%^g %^BOLD%^e%^BLUE%^ne%^RESET%^%^ORANGE%^r%^BOLD%^g%^BLUE%^y %^RESET%^%^CYAN%^coalesces around its bulk, and it %^RED%^launches %^CYAN%^itself at %^WHITE%^" + tname + " %^RESET%^%^CYAN%^with force%^BOLD%^!%^RESET%^", ({ target }));
+        tell_object(target, "%^RESET%^%^CYAN%^The %^BOLD%^construct %^RESET%^%^CYAN%^curls in on itself while a %^BOLD%^%^BLUE%^wa%^RESET%^%^ORANGE%^r%^BOLD%^p%^BLUE%^in%^RESET%^%^ORANGE%^g %^BOLD%^e%^BLUE%^ne%^RESET%^%^ORANGE%^r%^BOLD%^g%^BLUE%^y %^RESET%^%^CYAN%^coalesces around its bulk, and it %^RED%^launches %^CYAN%^itself at %^WHITE%^you %^RESET%^%^CYAN%^with force%^BOLD%^!%^RESET%^.");
         break;
         default:
-        tell_room(room, "Construct does a generic mental attack on " + tname +".", ({ target }));
-        tell_object(target, "Construct hits you with a generic mental attack."); 
+        tell_room(room, "%^RESET%^%^CYAN%^Slowly, the %^BOLD%^construct %^RESET%^%^CYAN%^begins to %^BOLD%^%^BLACK%^v%^WHITE%^i%^BLACK%^b%^WHITE%^r%^BLACK%^a%^WHITE%^t%^BLACK%^e%^RESET%^%^CYAN%^, rising in volocity until %^RED%^erupting %^CYAN%^in multiple %^BOLD%^%^RED%^e%^MAGENTA%^e%^RED%^r%^MAGENTA%^ie %^RED%^p%^MAGENTA%^u%^RED%^l%^MAGENTA%^se%^RED%^s %^RESET%^%^CYAN%^of %^BOLD%^%^RED%^e%^MAGENTA%^ne%^RED%^r%^MAGENTA%^g%^RED%^y %^RESET%^%^CYAN%^that slam into %^WHITE%^%^BOLD%^" + tname + "%^CYAN%^!%^RESET%^", ({ target }));
+        tell_object(target, "%^RESET%^%^CYAN%^Slowly, the %^BOLD%^construct %^RESET%^%^CYAN%^begins to %^BOLD%^%^BLACK%^v%^WHITE%^i%^BLACK%^b%^WHITE%^r%^BLACK%^a%^WHITE%^t%^BLACK%^e%^RESET%^%^CYAN%^, rising in volocity until %^RED%^erupting %^CYAN%^in multiple %^BOLD%^%^RED%^e%^MAGENTA%^e%^RED%^r%^MAGENTA%^ie %^RED%^p%^MAGENTA%^u%^RED%^l%^MAGENTA%^se%^RED%^s %^RESET%^%^CYAN%^of %^BOLD%^%^RED%^e%^MAGENTA%^ne%^RED%^r%^MAGENTA%^g%^RED%^y %^RESET%^%^CYAN%^that slam into %^WHITE%^you%^BOLD%^%^CYAN%^!%^RESET%^."); 
         break;
     }
     
