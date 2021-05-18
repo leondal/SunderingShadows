@@ -67,7 +67,7 @@ void targ_vanish()
         TO->remove();
         return;
       }
-      num = (clevel/2);
+      num = clevel;
       tell_object(caster,"%^CYAN%^The shadows collapse around your form and hide you from view!%^RESET%^");
       tell_room(place,"%^CYAN%^The shadows collapse around "+caster->QCN+", and "+caster->QS+" disappears from view!%^RESET%^",caster);
       spell_successful();
