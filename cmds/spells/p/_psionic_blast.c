@@ -50,7 +50,7 @@ void spell_effect(int prof)
     }
 
     tell_object(caster, "%^CYAN%^You release a blast of psychic energy into the area!");
-    tell_room(place, caster->QCN + " releases a blast of psychic energy into the area!");
+    tell_room(place, caster->QCN + " releases a blast of psychic energy into the area!", ({ caster }));
 
     foreach(object ob in victims)
     {
