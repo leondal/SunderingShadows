@@ -29,7 +29,7 @@ spell_effect(int prof)
     if (interactive(caster))
     {
         tell_object(caster,"%^BOLD%^%^WHITE%^You open your hands and release %^RED%^ray of %^ORANGE%^hell%^BLACK%^fire%^WHITE%^ at "+target->QCN+"!");
-        tell_room(place,"%^BOLD%^%^WHITE%^"+caster->QCN+" opens "+caster->QP+" hands and releases %^RED%^ray of %^ORANGE%^hell%^BLACK%^fire%^WHITE%^ at "+caster->QP+"!", ({caster}) );
+        tell_room(place,"%^BOLD%^%^WHITE%^"+caster->QCN+" opens "+caster->QP+" hands and releases %^RED%^ray of %^ORANGE%^hell%^BLACK%^fire%^WHITE%^ at "+target->QCN+"!", ({caster}) );
         tell_object(target,"%^BOLD%^%^WHITE%^It burns your very soul!%^RESET%^");
     }
     damage_targ(target, target->return_target_limb(), sdamage/2,"fire");
