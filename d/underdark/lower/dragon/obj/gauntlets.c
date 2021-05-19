@@ -30,7 +30,7 @@ void create(){
      TO->set_property("enchantment",5);
    }
    set_item_bonus("spell damage resistance",25);
-   set_item_bonus("endurance",3);
+   set_item_bonus("endurance",4);
    set_wear((:TO,"wear_fun":));
    set_remove((:TO,"remove_fun":));
    charges = 20+ random(6);

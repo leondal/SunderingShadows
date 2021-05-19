@@ -41,8 +41,8 @@ void create(){
      TO->remove_property("enchantment");
      TO->set_property("enchantment",5);
    }
-   set_item_bonus("sight bonus",3);
-   set_item_bonus("perception",3);
+   set_item_bonus("sight bonus",4);
+   set_item_bonus("perception",4);
    set_wear((:TO,"wear_fun":));
    set_remove((:TO,"remove_fun":));
    charges = 50+ random(6);

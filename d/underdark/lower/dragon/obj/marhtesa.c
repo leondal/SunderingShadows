@@ -54,9 +54,9 @@ void create(){
     set_property("no alter",1);
     owners = ({});
     set_item_bonus("magic resistance",2);
-    set_item_bonus("fortitude",2);
-    set_item_bonus("reflex",2);
-    set_item_bonus("will",2);
+    set_item_bonus("fortitude",3);
+    set_item_bonus("reflex",3);
+    set_item_bonus("will",3);
 }
 
 int wield_fun() {

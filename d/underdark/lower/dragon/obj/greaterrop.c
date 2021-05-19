@@ -47,7 +47,7 @@ void create() {
      TO->set_property("enchantment",5);
    }
    set_item_bonus("magic resistance",2);
-   set_item_bonus("damage resistance",3);
+   set_item_bonus("damage resistance",5);
    set_wear((:TO,"do_wear":));
    set_remove((:TO,"do_remove":));
    owners = ({});

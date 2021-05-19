@@ -66,9 +66,9 @@ void create() {
       TO->remove_property("enchantment");
       TO->set_property("enchantment",5);
     }
-    set_item_bonus("attack bonus",3);
-    set_item_bonus("damage bonus",3);
-    set_item_bonus("sight bonus",3);
+    set_item_bonus("attack bonus",4);
+    set_item_bonus("damage bonus",4);
+    set_item_bonus("sight bonus",4);
     set_value(17600);
     set_hit((:TO,"hit_func":));
     set_wield((:TO,"wield_func":));

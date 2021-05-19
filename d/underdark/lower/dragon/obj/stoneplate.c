@@ -39,7 +39,7 @@ armor","granite fullplate armor"}));
      TO->remove_property("enchantment");
      TO->set_property("enchantment",5);
    }
-   set_item_bonus("damage resistance",3);
+   set_item_bonus("damage resistance",5);
    set_item_bonus("constitution",4);
    set_size(-1);
    set_wear((:TO,"wearme":));
