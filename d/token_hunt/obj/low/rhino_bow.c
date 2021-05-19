@@ -66,7 +66,7 @@ void create()
 int wield_func()
 {
     tell_object(ETO, ""B"As you grip the bow,  you feel the spirit of the "H""S"");    
-    tell_room(EETO, ""B""+ETO->QCN+"'s eyes "G" as "+ETO->QS+ "grips the bow."S"",ETO);    
+    tell_room(EETO, ""B""+ETO->QCN+"'s eyes "G" as "+ETO->QS+" grips the bow."S"",ETO);    
     return 1;
 }
 
