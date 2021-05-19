@@ -55,7 +55,7 @@ void create()
     "how each works. \n\nFurthemore, you may type %^YELLOW%^examples "+
     "describe%^BOLD%^%^WHITE%^ and %^YELLOW%^examples adjective "+
     "%^BOLD%^%^WHITE%^to see a couple of examples of both from real "+
-    "ShadowGate players.\n%^RESET%^");
+    "Sundering Shadows players.\n%^RESET%^");
 	set_smell("default","A pleasing aroma saturates the area.");
 	set_listen("default","A stillness hangs over the area.");
 	set_property("Specialist",1);
