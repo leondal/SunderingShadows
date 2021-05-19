@@ -53,7 +53,7 @@ Available options are:
 %^ORANGE%^<elementalist reset>%^RESET%^
     Will cast all spells as normal
 
-%^ORANGE%^<elementalist acid|codl|electricity|fire|sonic>%^RESET%^
+%^ORANGE%^<elementalist acid|cold|electricity|fire|sonic>%^RESET%^
     Will cast spells as an element of that type
 
 %^CYAN%^SEE ALSO%^RESET%^
