@@ -8,7 +8,7 @@ void create() {
     set_short("on a bridge over the reflection pool.");
     set_long("
     You are at the center span of the bridge now.  The world around you seems unusually serene up here over the reflection pool.  A large brass bench sits upon a small raised area near the railing where you can sit and think.  The waters below are completely clear and are magnificent as the surface reflects the scene above you.
-    Not far to the south is the guarded enterance to the south wall fortress.
+    Not far to the south is the guarded entrance to the south wall fortress.
 ");
       set_listen("default","It is very tranquil here...  for now..");
 
