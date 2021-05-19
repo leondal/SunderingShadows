@@ -7,7 +7,7 @@ void create() {
      set_indoors(1);
      set_short("Bordering on a small dock inside the Crystalline Tower");
      set_long("
-To the north of you is a dock for small boats.  Appearantly made to safely cross the reflection pool.  The marble tiles beneath your feet are visably more scuffed than they are in other places.
+To the north of you is a dock for small boats.  Apparantly made to safely cross the reflection pool.  The marble tiles beneath your feet are visibly more scuffed than they are in other places.
     The waters of the reflection pool seem to strangely crackle, and a golden glimmer rides the small wave crests.
 ");
 set_listen("default", "The water seems to crackle like parchment.\n");
