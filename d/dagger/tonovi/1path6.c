@@ -10,7 +10,7 @@ void create(){
     set_property("light", 2);
     set_short("Southern path to Tonovi");
     set_long(
-      "You are next to the lookout post.  A door to its interrior is to the west.  The road continues to the southwest and northeast.  To the northeast you think you can see where the road joins another."
+      "You are next to the lookout post.  A door to its interior is to the west.  The road continues to the southwest and northeast.  To the northeast you think you can see where the road joins another."
     );
     set_smell("default", "You smell the flowers of the plains");
     set_listen("default", "A cool breeze whispers across the plains");
