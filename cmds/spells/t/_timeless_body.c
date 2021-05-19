@@ -46,7 +46,7 @@ void spell_effect(int prof)
     mylevel = clevel;
 
     targ = CASTER;
-    if(!FEATS_D->usable_feat(targ,"armored manifester")){
+    if(!FEATS_D->usable_feat(targ,"armored manifester") && !FEATS_D->usable_feat(targ,"eldritch conditioning")){
        if (!targ->is_ok_armour("mage")){
           if(!FEATS_D->usable_feat(targ,"armored caster")){
             tell_object(targ,"The power cannot offer protection while you "+
@@ -75,17 +75,17 @@ void test()
     if (!objectp(TO) || !objectp(targ))
         return;
     place = environment(targ);
-    if(!FEATS_D->usable_feat(targ,"armored manifester")){
-    if (!targ->is_ok_armour("mage"))
-    {
-        if(!FEATS_D->usable_feat(targ,"armored caster"))
+    if(!FEATS_D->usable_feat(targ,"armored manifester") && !FEATS_D->usable_feat(targ,"eldritch conditioning")){
+        if (!targ->is_ok_armour("mage"))
         {
-            tell_object(targ,"The power cannot offer protection while you "+
-               "wear such armor.");
-            TO->dest_effect();
-            return;
+            if(!FEATS_D->usable_feat(targ,"armored caster"))
+            {
+                tell_object(targ,"The power cannot offer protection while you "+
+                   "wear such armor.");
+                TO->dest_effect();
+                return;
+            }
         }
-    }
     }
     call_out("test", 5);
 }

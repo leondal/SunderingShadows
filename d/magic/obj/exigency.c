@@ -64,7 +64,7 @@ int now(){
     if(flag) return 0;
     flag = 1;
     if(TP->is_class("psion")) {
-        if(!TP->is_ok_armour("mage") && !FEATS_D->usable_feat(TP,"armored manifester")) {
+        if(!TP->is_ok_armour("mage") && !FEATS_D->usable_feat(TP,"armored manifester") && !FEATS_D->usable_feat(TP,"eldritch conditioning")) {
             write("The spell conflicts with your armor and dies");
             call_out("dest_effect",1);
             return 1;
@@ -77,13 +77,13 @@ int now(){
     }
 
    switch(args){
-      case "shadow": case "Shadow": where = "/d/shadow/room/city/portal/foyer.c"; 
+      case "shadow": case "Shadow": where = "/d/shadow/room/city/portal/foyer.c";
                                     enclave = "Shadow";
                                     break;
-      case "tabor": case "Tabor": where = "/d/darkwood/tabor/room/psifoyer.c"; 
+      case "tabor": case "Tabor": where = "/d/darkwood/tabor/room/psifoyer.c";
                                     enclave = "Tabor";
                                     break;
-      case "seneca": case "Seneca": where = "/d/attaya/newseneca/rooms/psi_foyer.c"; 
+      case "seneca": case "Seneca": where = "/d/attaya/newseneca/rooms/psi_foyer.c";
                                     enclave = "Seneca";
                                     break;
       default: where = "/d/shadow/room/city/portal/foyer"; //shouldn't happen, but just in case
@@ -97,7 +97,7 @@ int now(){
       return 1;
    }
 //teleport proof stuff by ~Circe~ 6/20/08
-//new property to be used for areas protected from teleport 
+//new property to be used for areas protected from teleport
 //but not foolproof
    place = ETP;
    if(TP->is_class("psywarrior")){
@@ -105,7 +105,7 @@ int now(){
    }else{
       mylevel = TP->query_guild_level("psion");
    }
-   if(where && 
+   if(where &&
       (where->query_property("teleport proof") ||
       place->query_property("teleport proof") ||
       !where->is_room())){
@@ -152,4 +152,3 @@ int drop() {
 
 int is_detectable() { return 0; }
 int query_invis() { return 1; }
-

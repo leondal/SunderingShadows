@@ -41,7 +41,7 @@ void spell_effect(int prof) {
     }
     if (!target->is_ok_armour("mage"))
     {
-        if(!FEATS_D->usable_feat(target,"armored caster"))
+        if(!FEATS_D->usable_feat(target,"armored caster") && !FEATS_D->usable_feat(target,"armored manifester") && !FEATS_D->usable_feat(target,"eldritch conditioning"))
         {
             tell_object(caster,"The power cannot offer protection to those wearing armor.");
             TO->remove();
@@ -81,7 +81,7 @@ void test() {
 
     if (!target->is_ok_armour("mage"))
     {
-        if(!FEATS_D->usable_feat(target,"armored caster"))
+        if(!FEATS_D->usable_feat(target,"armored caster") && !FEATS_D->usable_feat(target,"armored manifester") && !FEATS_D->usable_feat(target,"eldritch conditioning"))
         {
             tell_object(caster,"The power cannot offer protection to those wearing armor.");
             TO->dest_effect();
