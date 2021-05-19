@@ -38,11 +38,11 @@ string *class_feats(string myspec)
 }
 
 mapping class_featmap(string myspec, object player) {
-    
+
     mapping feats;
-    
+
     feats = ([ 1 : ({ "simple weapon proficiency", "spell focus", "discipline", }), ]);
-    
+
     switch(player->query_discipline())
     {
         case "egoist":
@@ -56,9 +56,12 @@ mapping class_featmap(string myspec, object player) {
         break;
         case "shaper":
         feats += ([ 2 : ({ "astral construct" }), 11 : ({ "summoners call" }), 21 : ({ "astral ally" }) ]);
-        break;        
+        break;
+        case "nomad":
+        feats += ([ 2 : ({ "nomads step" }), 11 : ({ "inconstant position" }), 21 : ({ "worldly traveler" }) ]);
+        break;
     }
-    
+
     return feats;
 }
 
@@ -108,22 +111,22 @@ int attack_bonus(object player)
 {
     int bonus;
     float penalty, full_level, class_level;
-    
+
     full_level = to_float(player->query_base_character_level());
     class_level = to_float(player->query_prestige_level("psion"));
-    
+
     if(full_level < 20.00)
     {
         bonus = (to_int(class_level) * 1 / 2);
         return bonus;
     }
-    
+
     // Above 20
     // 1/2 BAB gets full penalty to BAB
     // Weighted average of class level compared to total level
     penalty = (10.00 * (class_level / full_level));
     bonus = to_int(class_level - penalty);
-    
+
     return bonus;
 }
 
