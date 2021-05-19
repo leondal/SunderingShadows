@@ -41,7 +41,7 @@ int preSpell()
 void spell_effect(int prof)
 {
     tell_room(place, "%^GREEN%^" + caster->QCN + " chants the lyrics of a " + "melodic prayer. Suddenly, " + caster->QP + " eyes brighten with silhouette of the moon.", caster);
-    tell_object(caster, "%^GREEN%^You feel the hunt feeling your mind.");
+    tell_object(caster, "%^GREEN%^You feel the hunt filling your mind.");
 
     caster->set_property("aspect of the wolf", 1);
     //caster->set_property("augmentation", 1);
