@@ -140,7 +140,7 @@ int prerequisites(object player)
         return 0;
     }
     skills = player->query_skills();
-    if (skills["stealth"] < 10) {
+    if (!skills["stealth"] || skills["stealth"] < 10) {
         write("failed skill");
         return 0;
     }
