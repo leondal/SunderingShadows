@@ -38,11 +38,13 @@ int preSpell()
     string spl, sargs, disc;
     string splfn, ctype;
     
+    /*
     if(caster->cooldown("reality revision"))
     {
         tell_object(caster, "You can't use reality revision yet.");
         return 0;
     }
+    */
 
     if(!stringp(arg))
     {
@@ -115,7 +117,7 @@ int preSpell()
     spell_successful();
 
     spell_to_cast->use_spell(TP,sargs,clevel,100,ctype);
-    caster->add_cooldown("reality revision", DELAY);
+    //caster->add_cooldown("reality revision", DELAY);
     return 1;
 
 }
