@@ -510,7 +510,8 @@ void equip_me()
 
         break;
 
-    case 21..35:
+    //case 21..35:
+    default:
 
         obj = new("/d/tharis/barrow/obj/slayer");
         obj->set_property("no curse",1);
@@ -521,6 +522,7 @@ void equip_me()
 
         break;
 
+    /*
     default:
 
         obj = new("/d/islands/common/obj/csabre");
@@ -531,6 +533,7 @@ void equip_me()
         TO->force_me("wield sword");
 
         break;
+    */
     }
 
 
@@ -611,7 +614,6 @@ varargs int setup_merc(string myclass, string race, object owner, string myname)
 
     set_property("full attacks",1);
 
-
     set_class(myclass);
 
     ///if(class != "fighter") { remove_class("fighter"); }
@@ -619,23 +621,28 @@ varargs int setup_merc(string myclass, string race, object owner, string myname)
     set_mlevel(myclass,level);
     set_guild_level(myclass,level);
 
-
     set_my_stats(myclass,level);
 
     describe_me(name,myclass,race,gender);
 
-    set_monster_feats(({ "perfect caster","powerattack","blindfight","regeneration","resistance","combat reflexes","rush","scramble","damage resistance", "daze","shatter","defensive roll","evasion","expertise","force of personality","spell reflection", "spring attack","sunder","greater weapon focus","greater weapon specialization","hardenedminions","toughness", "improved damage resistance","improved resistance","improved toughness","unyielding soul","increased resistance","lightning reflexes","mobility","parry", "reflection","counter","shieldbash","deflection","shieldwall","armored caster","slippery caster","spell focus","spell penetration", "spell power","greater spell focus","greater spell penetration","greater spell power","thick skinned caster","improved spell power" }));
-
+    //set_monster_feats(({ "perfect caster","powerattack","blindfight","regeneration","resistance","combat reflexes","rush","scramble","damage resistance", "daze","shatter","defensive roll","evasion","expertise","force of personality","spell reflection", "spring attack","sunder","greater weapon focus","greater weapon specialization","hardenedminions","toughness", "improved damage resistance","improved resistance","improved toughness","unyielding soul","increased resistance","lightning reflexes","mobility","parry", "reflection","counter","shieldbash","deflection","shieldwall","armored caster","slippery caster","spell focus","spell penetration", "spell power","greater spell focus","greater spell penetration","greater spell power","thick skinned caster","improved spell power" }));
+    set_monster_feats( ({ "perfect caster", "regeneration", "damage resistance", "improved damage resistance", "toughness", "improved toughness", "resistance" }) );
+    
     TO->force_me("hardenedminions");
     OWNER->add_follower(TO);
     tell_object(OWNER,TO->QCN+" is now following you");
     equip_me();
     //TO->add_attack_bonus(level*2); // they don't seem to hit as well as players for some reason
+    /* GOOD, they shouldn't
     TO->add_attack_bonus((level / 32)+2);
     TO->add_damage_bonus((level / 32)+2);
+    */
     mod = level / 12;
-    if(mod < 2) { mod = 2; }
-    if(mod > 5) { mod = 5; }
+    //if(mod < 2) { mod = 2; }
+    mod = mod < 1 ? 1 : mod;
+    //if(mod > 5) { mod = 5; }
+    mod = mod > 3 ? 3 : mod;
+    
     TO->set_property("fighter_attacks_mod",mod);
     TO->force_me("briefcombat");
 
@@ -717,8 +724,6 @@ void say(string str)
     return;
 }
 
-
-
 void take_item(object obj)
 {
     object sack;
@@ -741,7 +746,6 @@ void take_item(object obj)
     }
     return;
 }
-
 
 
 void receive_given_item(object obj)
@@ -781,7 +785,6 @@ void receive_given_item(object obj)
     return;
 }
 
-
 void protect_party()
 {
     object *allies=({});
@@ -804,7 +807,6 @@ void protect_party()
     return;
 }
 
-
 int used_name(string *str)
 {
     int i;
@@ -817,7 +819,6 @@ int used_name(string *str)
     }
     return 0;
 }
-
 
 int filter_short_words(string str)
 {
@@ -1947,7 +1948,6 @@ void parse_speech(string str, object obj)
 
 }
 
-
 // can receive emotes and respond to them here
 void receive_message(string cl,string msg)
 {
@@ -1963,8 +1963,6 @@ void receive_message(string cl,string msg)
 
 }
 
-
-
 void catch_say(string str)
 {
     object *allies;
@@ -1977,9 +1975,6 @@ void catch_say(string str)
     parse_speech(str,TP);
     return;
 }
-
-
-
 
 // will just talk about the weather for now, add more crap later
 void perform_random_emote()
