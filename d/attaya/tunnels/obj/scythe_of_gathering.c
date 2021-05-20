@@ -25,6 +25,7 @@ void create(){
         +" reinforced and is perfect for lopping any extraneous or"
         +" unprotected body parts.%^RESET%^");
 
+  set_size(2);
   set_value(1500);
   set_wield((:TO, "wield_scythe":));          
   set_property("enchantment", 3);
