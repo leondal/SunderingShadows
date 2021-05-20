@@ -94,9 +94,38 @@ void spell_effect(int prof) {
     spell_successful();
     spell_duration = (clevel + roll_dice(1, 20)) * ROUND_LENGTH * 4;
     set_end_time();
+    check();
     call_out("dest_effect",spell_duration);
 }
 
+void check()
+{
+    if(sizeof(mons))
+    {
+        foreach(object mon in mons)
+        {
+            if(environment(mon) != environment(caster))
+            {
+                tell_room(environment(mon), "The psionic fighter seems to evaporate!");
+                mon->move("/d/shadowgate/void");
+                mon->remove();
+                continue;
+            }
+            
+            caster->add_protector(mon);
+            caster->add_follower(mon);
+        }
+    }
+    else
+    {
+        tell_object(caster, "Your psionic fighters vanish!");
+        dest_effect();
+        return;
+    }
+    
+    call_out("check", 5);
+}
+    
 void dest_effect() {
     int i;
     for (i=0;i<sizeof(mons);i++) {
