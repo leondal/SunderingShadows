@@ -66,6 +66,7 @@ void init()
 {
     object myOb;
     ::init();
+    add_action("request_map","request");
     if(!objectp(TO)) return;
     if(!objectp(TP)) return;
     if(!userp(TP)) return;
@@ -76,6 +77,14 @@ void init()
     }
     return;
 }
+
+int request_map(string str){
+	 if(!str || (str != "map" && str != "text map"));
+	write("The citizen hands you another map.");
+        tell_room(ETP,"The citizen hands "+TPQCN+" a piece of paper.",TP);
+	new("/d/newbie/obj/offestrytextmap.c")->move(TP);
+	return 1;
+  }
 
 void reset(){
   ::reset();

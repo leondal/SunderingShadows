@@ -75,7 +75,7 @@ int getmap() {
     if(!present("map",TP) && !TP->query_true_invis()) {
         tell_object(TP,"%^RED%^An obviously excited town citizen aproaches "+
         "you and exclaims:  %^RESET%^I see you don't have a map of "+
-        "the town, we can't have that, take one! If you would like a text-only version of the map, please <request> one!");
+        "the town, we can't have that, take one!");
 
         tell_room(TO,"%^RED%^An obviously excited town citizen "+
         "approaches "+TPQCN+"%^RED%^ and says something to "+TP->QO+
