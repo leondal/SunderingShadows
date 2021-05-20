@@ -90,7 +90,7 @@ void execute_feat()
     caster->add_attack_bonus(mod); //+10
     caster->add_damage_bonus(mod); //+10
 
-    duration = 2 * (mod + BONUS_D->query_stat_bonus("intelligence", caster));
+    duration = ROUND_LENGTH * (2 + mod + BONUS_D->query_stat_bonus("intelligence", caster));
     duration *= ROUND_LENGTH;
     caster->set_property("prescienced",1);
     call_out("check",ROUND_LENGTH);
