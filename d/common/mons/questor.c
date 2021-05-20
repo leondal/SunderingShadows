@@ -42,9 +42,11 @@ void mercy(object target)
     object *living;
     ::heart_beat();
 
+    /*
     tell_room(ETO,"%^RESET%^%^MAGENTA%^"+query_name()+" speaks in an angry voice:%^RESET%^ Not today.");
     tell_room(ETO,query_name()+" snaps her fingers.");
     target->die();
+    */
 }
 
 void make_me()
