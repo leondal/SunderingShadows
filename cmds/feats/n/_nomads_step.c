@@ -106,7 +106,7 @@ void execute_feat()
         return;
     }
     
-    tell_object(caster, "%^BOLD%^You set your mind towards the " + arg + " exit and slip away!");
+    tell_object(caster, "%^BOLD%^CYAN%^You set your mind towards the " + arg + " exit and slip away!");
     
     if(!caster->query_invis())
     {
@@ -116,6 +116,9 @@ void execute_feat()
     
     caster->clear_followers();
     caster->move(dest);
+    caster->force_me("look");
+    
+    tell_object(caster, "%^BOLD%^You complete your nomad's step and look around.");
 
     caster->set_property("using instant feat", 1);
 }
