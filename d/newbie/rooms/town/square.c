@@ -40,7 +40,7 @@ void create()
 "power, or whatever you like, and hopefully one day, being written into the annals of the world as a high mortal, forever "
 "remembered. For after you leave, what is left if not memories?'%^RESET%^",
     "map":"%^YELLOW%^There is a rough map attached to the bottom of the sign.  You should try to %^RESET%^%^ORANGE%^read "
-"%^YELLOW%^it.%^RESET%^",
+"%^YELLOW%^it. %^RESET%^NOTE: If you have requested a text-only version of the map, the ascii version in the room will override it. Please type <read my map> to access the one in your inventory.",
   ]));
   set_exits(([
     "north":MAINTOWN"nstreet1",

@@ -18,7 +18,7 @@ void create() {
   set_long("This is a descriptive map of the city of Offestry, written on high quality
 parchment "+
      "that has been weather-proofed so it will not run. All of the "+
-     "major locations of the city are on here. You should read it.");
+     "major locations of the city are on here. You should read it.\\Note: The Offestry square has an ascii map which might override the text-only version in your inventory. Please type <read my map> to access the one in your inventory.");
   set_weight(0);
   set_value(0);
 }
