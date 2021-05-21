@@ -1,43 +1,43 @@
-                    CT
-                    |                         ^
-                    |                         N
-                     \                 M
+                    %^RESET%^%^YELLOW%^CT%^RESET%^
+                    |                         %^CYAN%^^
+                    |                         %^CYAN%^N
+                     \                 %^YELLOW%^M%^RESET%^
                       \                |
                        |               |
-                   Ba--|--Sm           |
-       #   T   P       |               |
-        \  |   |    j  |  Cl           |
+                   %^YELLOW%^Ba%^RESET%^--|--%^YELLOW%^Sm%^RESET%^           |
+       %^BOLD%^%^GREEN%^#   %^RESET%^%^YELLOW%^T   P       %^RESET%^|               |
+        \  |   |    %^YELLOW%^j  %^RESET%^|  %^YELLOW%^Cl%^RESET%^           |
          \ |   |    |  |  |           /
           ---------------------------
                |       |  |     |     \
-               |    H--|--B     |       --#
+               |    %^YELLOW%^H%^RESET%^--|--%^YELLOW%^B%^RESET%^     |       --%^BOLD%^%^GREEN%^#%^RESET%^
                |       |        |
                |       |        |\
-            J-- \   G--|--S    /--C
+            %^YELLOW%^J%^RESET%^-- \   %^YELLOW%^G%^RESET%^--|--%^YELLOW%^S%^RESET%^    /--%^YELLOW%^C%^RESET%^
                  \     |      /     
-                  -----@-----
+                  -----%^BOLD%^%^CYAN%^@%^RESET%^-----
                        |
-                    O--|--L
+                    %^YELLOW%^O%^RESET%^--|--%^YELLOW%^L%^RESET%^
                         \
-                       A-\         b
-                       F  \        |
-                       W---\----Y--Q--t
+                       %^YELLOW%^A%^RESET%^-\         %^YELLOW%^b%^RESET%^
+                       %^YELLOW%^F%^RESET%^  \        |
+                       %^YELLOW%^W%^RESET%^---\----%^YELLOW%^Y%^RESET%^--%^YELLOW%^Q%^RESET%^--%^YELLOW%^t%^RESET%^
                            |    |  |
-                           |    s  c
+                           |    %^YELLOW%^s  c%^RESET%^
                            |    |
-                           |    h
-                           #
+                           |    %^YELLOW%^h
+                           %^YELLOW%^#%^RESET%^
 
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                 Map of Tabor - Legend
+%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=%^CYAN%^-%^YELLOW%^=
+                 %^YELLOW%^Map of Tabor %^CYAN%^- %^YELLOW%^Legend%^RESET%^
 
-@:  Town Square  CT: Caer Tabor      M: Mage Tower
-#:  Road Out     F:  Forge           O: Gathering Hall
-A:  Armorer      G:  General Store   Q: Crown and Castle 
-B:  Bank         H:  Healer             Inn & Quest Room
-b:  CNC Bar      h:  Hitching Post   S: Scribe
-C:  Cathedral    J:  Jail            s: Stable
-c:  CNC Cafe     j:  Jeweler         T: Trainer
-Cl: Tailor       L:  Library         t: Theater
-W: Weaponsmith   Y: CNC Courtyard    P: Pig and Whistle
-Ba: Bard Shop                        Sm: Firbolg Smith
+%^BOLD%^%^CYAN%^@%^RESET%^:  Town Square  %^YELLOW%^CT%^RESET%^: Caer Tabor      %^YELLOW%^M%^RESET%^: Mage Tower
+%^BOLD%^%^GREEN%^#%^RESET%^:  Road Out     %^YELLOW%^F%^RESET%^:  Forge           %^YELLOW%^O%^RESET%^: Gathering Hall
+%^YELLOW%^A%^RESET%^:  Armorer      %^YELLOW%^G%^RESET%^:  General Store   %^YELLOW%^Q%^RESET%^: Crown and Castle 
+%^YELLOW%^B%^RESET%^:  Bank         %^YELLOW%^H%^RESET%^:  Healer             Inn & Quest Room
+%^YELLOW%^b%^RESET%^:  CNC Bar      %^YELLOW%^h%^RESET%^:  Hitching Post   %^YELLOW%^S%^RESET%^: Scribe
+%^YELLOW%^Ba%^RESET%^: Bard Shop    %^YELLOW%^J%^RESET%^:  Jail            %^YELLOW%^s%^RESET%^: Stable
+%^YELLOW%^C%^RESET%^:  Cathedral    %^YELLOW%^j%^RESET%^:  Jeweler         %^YELLOW%^Sm%^RESET%^: Firbolg Smith
+%^YELLOW%^c%^RESET%^:  CNC Cafe     %^YELLOW%^L%^RESET%^:  Library         %^YELLOW%^T%^RESET%^: Trainer
+%^YELLOW%^Cl%^RESET%^: Tailor       %^YELLOW%^Y%^RESET%^: CNC Courtyard    %^YELLOW%^t%^RESET%^: Theater
+%^YELLOW%^W%^RESET%^: Weaponsmith                       %^YELLOW%^P%^RESET%^: Pig and Whistle
