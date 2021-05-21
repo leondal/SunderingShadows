@@ -102,7 +102,7 @@ void execute_feat() {
       tell_object(caster, "Are you sure? Your mount can't see a "+arg+" to charge at within 5 rooms."
                      +"\nUse %^BOLD%^%^YELLOW%^<charge off>%^RESET%^ if you change your mind.");
     }
-    if(!caster->query_in_vehicle()) {
+    if (!player->query_in_vehicle()) {
         tell_object(caster,"You can't charge on foot!");
         dest_effect();
         return;
