@@ -8,7 +8,7 @@ void create()
 
     set_author("yves");
     set_spell_name("cruel jaunt");
-    set_spell_level(([ "cleric" : 6, "inquisitor" : 6, "mage" : 6, "magus" : 6, "paladin" : 4, "psion" : 6 ]));
+    set_spell_level(([ "cleric" : 6, "inquisitor" : 6, "mage" : 6, "magus" : 6, "paladin" : 4 ]));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS cruel jaunt");
     set_description("You can sense the stench of cowards suffering from a fear effect that are within the same area as you and then teleport directly to a chosen coward.");
