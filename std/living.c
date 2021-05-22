@@ -346,7 +346,7 @@ void heart_beat()
     {
         USER_D->regenerate_pool(this_object(), 1, 1, "focus");
     }
-    
+
     //enhancement effects
     "/cmds/mortal/_enhance.c"->run_enhances_timer(TO, "weapon");
     "/cmds/mortal/_enhance.c"->run_enhances_timer(TO, "armor");
@@ -393,24 +393,24 @@ void heart_beat()
                 add_hp(query_property("fast healing") * roll_dice(1, TO->query_level() / 2 + 1));
             }
         }
-        
+
         if(this_object()->is_class("metamind"))
         {
             if(this_object()->query("available focus"))
                 add_mp(1);
         }
-        
+
         if(FEATS_D->usable_feat(this_object(), "psychic vampire") && !avatarp(this_object()) && !wizardp(this_object()) && !this_object()->query("no pk"))
         {
             object targs = all_inventory(environment(this_object()));
             targs = filter_array(targs, (: userp($1) :));
             targs -= ({ this_object() });
-            
+
             foreach(object ob in targs)
             {
                 if(ob->query("no pk"))
                     continue;
-                
+
                 if(ob->query_mp())
                 {
                     if(!random(5))
@@ -418,13 +418,13 @@ void heart_beat()
                     ob->add_mp(-1);
                 }
             }
-            
+
             add_mp(sizeof(targs));
         }
-        
+
         if(is_undead())
             remove_property("rend");
-        
+
         if(query_property("rend"))
         {
             tell_room(environment(this_object()), "%^RED%^BOLD%^" + this_object()->QCN + "'s wounds bleed profusely!%^RESET%^", ({ this_object() }));
@@ -434,11 +434,11 @@ void heart_beat()
             if(query_property("rend") <= 0)
             {
                 tell_room(environment(this_object()), "%^WHITE%^BOLD%^" + this_object()->QCN + "'s wounds stop bleeding.%^RESET%^", ({ this_object() }));
-                tell_object(this_object(), "%^WHITE%^BOLD%^Your wounds stop bleeding.%^RESET%^");                
+                tell_object(this_object(), "%^WHITE%^BOLD%^Your wounds stop bleeding.%^RESET%^");
                 remove_property("rend");
             }
         }
-            
+
         if (is_vampire()) {
             if (TO->is_in_sunlight()) {
                 int todamage = query_max_hp() / 4 + 1;
@@ -693,7 +693,7 @@ string* query_divine_domain()
 string set_inquisition(string str)
 {
     inquisition = str;
-    
+
     return inquisition;
 }
 
@@ -1716,7 +1716,7 @@ int query_attack_bonus()
     if (FEATS_D->usable_feat(TO, "epic weapon focus")) {
         ret += 1;
     }
-    
+
     if(this_object()->is_class("psywarrior") && this_object()->query("available focus"))
         ret += 1;
 
@@ -1799,7 +1799,7 @@ int query_damage_bonus()
     if (FEATS_D->usable_feat(TO, "epic weapon specialization")) {
         ret += 2;
     }
-    
+
     if(this_object()->is_class("psywarrior") && this_object()->query("available focus"))
         ret += 1;
 
@@ -2331,7 +2331,7 @@ int is_shade()
 {
     if(query_acquired_template() == "shade")
         return 1;
-    
+
     return 0;
 }
 
@@ -2339,7 +2339,18 @@ int is_deva()
 {
     if(query_acquired_template() == "deva")
         return 1;
-    
+
+    return 0;
+}
+
+int is_feared()
+{
+    if(TO->query_property("effect_cowering") ||
+       TO->query_property("effect_frightened") ||
+       TO->query_property("effect_panicked") ||
+       TO->query_property("effect_shaken"))
+        return 1;
+
     return 0;
 }
 
