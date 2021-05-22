@@ -104,7 +104,7 @@ void check()
     {
         foreach(object mon in mons)
         {
-            if(environment(mon) != environment(caster))
+            if(mon && environment(mon) != environment(caster))
             {
                 tell_room(environment(mon), "The psionic fighter seems to evaporate!");
                 mon->move("/d/shadowgate/void");
