@@ -20,7 +20,7 @@ string *restricted_deities(string subrace) {
 // stats in order: str, dex, con, int, wis, cha
 int *stat_mods(string subrace) { return ({ 0, 2, 0, 0, -2, 2 }); }
 
-mapping skill_mods(string subrace) { return ([ "rope trick" : 2, "stealth" : 2 ]); }
+mapping skill_mods(string subrace) { return ([ "rope use" : 2, "stealth" : 2 ]); }
 
 
 int natural_AC(string subrace) { return 0; }
