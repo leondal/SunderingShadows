@@ -103,12 +103,13 @@ void execute_feat() {
                      +"\nUse %^BOLD%^%^YELLOW%^<charge off>%^RESET%^ if you change your mind.");
     }
     
-	if (caster->query_race() != "centaur") {
+	if((caster->query_race() != "centaur") && (caster->query_race() != "wemic")) {
 	if (!caster->query_in_vehicle()){
         tell_object(caster,"You can't charge on foot!");
         dest_effect();
         return;
     }
+	}
     caster->use_stamina(roll_dice(1,6));
     caster->remove_property("charge_target_found");
     caster->set_property("using instant feat",1);

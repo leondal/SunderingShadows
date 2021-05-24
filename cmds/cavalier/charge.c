@@ -213,6 +213,7 @@ void do_trample(int damage,object targ,object play) {
         remove();
         return;
     }
+
     if(!FEATS_D->usable_feat(play,"trample")) return;
 
     attackers = play->query_attackers();
@@ -340,7 +341,7 @@ int do_room(string str) {
         return 0;
     }
 
-    if (!tp->query_in_vehicle() || !objectp((object)tp->query_in_vehicle())) {
+	if (!tp->query_in_vehicle() || !objectp((object)tp->query_in_vehicle())) {
         tp->remove_property("charging");
         tp->remove_property("charging object");
         tp->remove_property("using instant feat");
@@ -349,6 +350,7 @@ int do_room(string str) {
         remove();
         return 0;
     }
+
 
     tp->clean_up_attackers();
     ob->clean_up_attackers();
