@@ -12,7 +12,7 @@ void create()
     feat_syntax("crit [TARGET]");
     feat_prereq("Assassin L1");
     feat_classes("base_class");
-    feat_desc("You perform a devastating attack that has a chance to kill your enemy instantly. The save throw gets a bonus from your intelligence score. If your target succeeds the save, either by being warded against death ot by being studry, thay will still suffer greatly.
+    feat_desc("You perform a devastating attack that has a chance to kill your enemy instantly. The save throw gets a bonus from your intelligence score. If your target succeeds the save, either by being warded against death or by being sturdy, they will still suffer greatly.
 
 If used without an argument this feat will pick up a random attacker.");
     set_save("fortitude");
