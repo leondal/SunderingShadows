@@ -411,7 +411,7 @@ void heart_beat()
                 if(ob->query("no pk"))
                     continue;
 
-                if(ob->query_mp())
+                if(ob->query_mp() && !ob->query("no pk"))
                 {
                     if(!random(5))
                         tell_object(ob, "%^MAGENTA%^You feel something pull on your mind.");

@@ -128,7 +128,7 @@ void execute_attack()
         }
         tell_object(inven[i], "%^RED%^You feel the oppressive force of the aura surrounding "
                     "" + caster->QCN + ".");
-        if (!do_save(inven[i], 0) && !PLAYER_D->immunity_check(inven[i], "fear")) {
+        if (!do_save(inven[i], 0) && !PLAYER_D->immunity_check(inven[i], "fear") && !inven[i]->query("no pk")) {
             //if(!SAVING_D->saving_throw(inven[i],"spell",0)){
             tell_object(inven[i], "%^GREEN%^You cower away from " + caster->QCN + "!");
             tell_object(caster, "%^GREEN%^" + inven[i]->QCN + " cowers in fear of your "

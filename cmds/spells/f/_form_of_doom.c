@@ -151,7 +151,7 @@ void execute_attack(){
       if(!inven[i]->query_property("oppressed")){
 //         tell_object(inven[i],"%^BOLD%^%^BLACK%^You can't help but recoil "
 //            "from "+caster->QCN+"'s horrific visage!%^RESET%^");
-         if(!do_save(inven[i],0) && !PLAYER_D->immunity_check(inven[i], "fear")) {
+         if(!do_save(inven[i],0) && !PLAYER_D->immunity_check(inven[i], "fear") && !inven[i]->query("no pk")) {
             tell_object(inven[i],"%^BOLD%^%^RED%^You cower away from "+caster->QCN+"!%^RESET%^");
             tell_object(caster,"%^BOLD%^%^RED%^"+inven[i]->QCN+" cowers in fear of your "
                "mighty presence!%^RESET%^");
