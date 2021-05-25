@@ -133,7 +133,7 @@ void init(){
 	}
 	if(mrace == "goblin" || mrace == "orc" || mrace == "kobold" ||
 		mrace == "half-orc" || mrace == "half-drow" || mrace == "hobgoblin" ||
-		mrace == "ogre-mage" || mrace == "bugbear" ||
+		mrace == "ogre-mage" || mrace == "bugbear" || mrace == "troll" ||
 		mrace == "gnoll"  || mrace == "human" || (mrace == "dwarf" && srace == "gray dwarf")){
 		call_out("bullyem",0,TP);
 		return;

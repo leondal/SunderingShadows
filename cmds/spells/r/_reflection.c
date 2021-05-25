@@ -40,6 +40,11 @@ int preSpell()
         return 0;
     }
 
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to scry while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.%^RESET%^");
+        return 0;
+    }
+
     if(!place->query_property("fill waterskin"))
     {
         tell_object(caster,"You can't find the right sort of water here.");

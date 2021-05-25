@@ -236,7 +236,7 @@ void race_ck(object targ){
 			call_out("bullyem",0,TP);
 			return;
 		}
-	}else if(mrace == "ogre" || mrace == "drow" || mrace == "minotaur" ||
+	}else if(mrace == "ogre" || mrace == "drow" || mrace == "minotaur" || mrace == "troll" ||
 		mrace == "ogre-mage" || mrace == "half-ogre" || (mrace == "dwarf" && srace == "gray dwarf")){
 		if(targ->query_unconscious()){
 			if(targ->query_bound())return 1;

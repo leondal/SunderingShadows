@@ -79,9 +79,13 @@ int preSpell(){
 
     if (caster->query_property("remote scrying")) {
         tell_object(caster, "You are already looking upon someone from afar.");
-       return 0;
-   }
-   return 1;
+        return 0;
+    }
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to scry while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.%^RESET%^");
+        return 0;
+    }
+    return 1;
 }
 
 string query_cast_string() {

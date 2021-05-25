@@ -31,8 +31,14 @@ int preSpell(){
         tell_object(caster,"This spell requires a target.");
         return 0;
     }
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to target another player while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.");
+        dest_effect();
+        return;
+    }
     if(target->query_property("justice marked")){
         tell_object(caster,"That target already wears the mark of justice!");
+        dest_effect();
         return 0;
     }
     if(caster->query_property("justice marker")){

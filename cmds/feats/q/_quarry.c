@@ -86,6 +86,12 @@ void execute_feat(string str)
         return;
     }
     
+    if((caster->query("no pk")) && (target->is_player())){
+        tell_object(caster,"%^YELLOW%^You are unable to target another player while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.");
+        dest_effect();
+        return;
+    }
+    
     write("%^GREEN%^You look your quarry over, learning their scent, their habit and their weaknesses.%^RESET%^");
     say(caster->QCN + " looks over their quarry, learning as much useful information as possible.");
     

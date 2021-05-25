@@ -104,6 +104,12 @@ void spell_effect(int prof)
         dest_effect();
         return;
     }
+    
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to scry while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.");
+        dest_effect();
+        return;
+    }
 
     bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
     scrypower = CLEVEL + bonus + random(query_spell_level(spell_type) * 2); //this is here so the vision spell is more powerful

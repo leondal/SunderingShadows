@@ -193,7 +193,7 @@ void race_ck(object targ){
 			call_out("friendly",0,TP);
 			return;
 		}
-	}else if(mrace == "drow" || mrace == "ogre" || mrace == "bugbear" ||
+	}else if(mrace == "drow" || mrace == "ogre" || mrace == "bugbear" || mrace == "troll" ||
 		mrace == "gnoll" || mrace == "ogre-mage" || mrace == "hobgoblin" ||
 		mrace == "wemic" || mrace == "firbolg" || mrace == "minotaur" || mrace == "yuan-ti" ||
 		mrace == "half-ogre" || mrace == "human" || mrace == "half-orc" || mrace == "centaur" ||

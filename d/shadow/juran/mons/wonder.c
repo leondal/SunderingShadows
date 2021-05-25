@@ -51,7 +51,7 @@ int is_friendrace(object player) {
       if(player->query_property("shapeshifted")) return 0; // beasties run around all the time, probably shouldn't make them worry. N, 1/14.
       mrace = (string)player->query_race();
       srace = (string)player->query("subrace");
-      if(mrace == "goblin" || mrace == "orc" || mrace == "drow" || mrace == "hobgoblin" || mrace == "bugbear" || mrace == "minotaur" || mrace == "yuan-ti"||
+      if(mrace == "goblin" || mrace == "orc" || mrace == "drow" || mrace == "troll" || mrace == "hobgoblin" || mrace == "bugbear" || mrace == "minotaur" || mrace == "yuan-ti"||
         mrace == "gnoll" || mrace == "ogre-mage" || mrace == "kobold" || mrace == "half-orc" || mrace == "ogre" || 
         mrace == "half-drow" || mrace == "half-ogre" || mrace == "human" || (mrace == "dwarf" && srace == "gray dwarf"))
           return 1;
