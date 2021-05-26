@@ -19,6 +19,7 @@ ARMORSMITH = ([
                   "gauntlets":(["file":COMMONFILE"armour/gauntlets","units":1]),
                   "greaves":(["file":COMMONFILE"armour/greaves","units":1]),
                   "helm":(["file":COMMONFILE"armour/helm","units":2]),
+                  "horseshoes":(["file":COMMONFILE"armour/horseshoes","units":2]),
                   "plate mail":(["file":COMMONFILE"armour/plate","units":7]),
                   "ring mail":(["file":COMMONFILE"armour/ring","units":3]),
                   "scale mail":(["file":COMMONFILE"armour/scale","units":4]),
