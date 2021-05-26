@@ -65,7 +65,7 @@ void spell_effect(int prof)
     
     myname = caster->QCN;
   
-    tell_object(caster, "%^CYAN^You place a hand upon yourself, enhancing your mind with protection from mental attacks.");
+    tell_object(caster, "%^CYAN%^You place a hand upon yourself, enhancing your mind with protection from mental attacks.");
     tell_room(place, "%^CYAN%^" + sprintf("%s focuses on enhancing %s mind with protection against mental attacks!", myname, caster->query_possessive()), ({ caster }));
 
     effect(1);
