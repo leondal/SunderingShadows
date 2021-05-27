@@ -25,7 +25,7 @@ NUM
 
 To scribe a scroll you must expend five gold coins per spell level and one parchment.
 
-%^BOLD%^N.B.%^RESET%^ Multiclassing characters will use currently %^ULINE%^posed%^RESET%^ class for this feat. Use <pose> to switch it.");
+%^BOLD%^N.B.%^RESET%^ Multiclassing characters will use currently %^ULINE%^posed%^RESET%^ class for this feat. Use <pose> to switch it. You can not use spells that channel positive or negative energy with each cast, such as heal or harm, with this feat.");
     set_target_required(0);
 }
 
@@ -110,7 +110,7 @@ void execute_feat()
 
     tmp = MAGIC_D->get_spell_file_name(str);
 
-    if (regexp(tmp, ".*(cure|cause).*wounds") || regexp(tmp, "repair.*undead") || regexp(tmp, (".*(heal|harm)"))) {
+    if ((regexp(tmp, ".*(cure|cause).*wounds") || regexp(tmp, "repair.*undead") || regexp(tmp, (".*(heal|harm)"))) && str != "aura of healing" && str != "shadow healing") {
         tell_object(caster,"You puzzle, unsure how to scribe this spell.");
         return 1;
     }
