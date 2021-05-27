@@ -362,7 +362,8 @@ int use_scroll(string str)
 
     if (FEATS_D->usable_feat(TP, "insightful scroll")) {
         //if (roll_dice(1, 100) < ((TP->query_stats("intelligence") + 30) - 2 * query_spell_level())) {
-        if(roll_dice(1, 100) < this_player()->query_stats("intelligence") + 30)
+        //if(roll_dice(1, 100) < this_player()->query_stats("intelligence") + 30)
+        if(roll_dice(1, 100) < (30 + this_player()->query_skill("spellcraft") / 2))
         {
             tell_object(TP, "%^RESET%^%^MAGENTA%^Your %^BOLD%^%^CYAN%^k%^RESET%^%^CYAN%^n%^BOLD%^%^CYAN%^owledge%^RESET%^%^MAGENTA%^ of the %^BOLD%^%^CYAN%^Wea%^RESET%^%^CYAN%^v%^CYAN%^e%^MAGENTA%^ is so %^CYAN%^pe%^BOLD%^%^CYAN%^r%^RESET%^%^CYAN%^f%^BOLD%^%^CYAN%^e%^RESET%^%^CYAN%^ct%^MAGENTA%^ that you %^BOLD%^%^CYAN%^preserve%^RESET%^%^MAGENTA%^ the scroll!%^RESET%^");
             return 1;
