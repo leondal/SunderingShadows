@@ -36,6 +36,7 @@ int cmd_reward(string str)
 		  if(target == this_player()) continue;
 		thelevels = target->query_adjusted_character_level();
         expall = abs(EXP_NEEDED[thelevels + 1] - EXP_NEEDED[thelevels]) / 8;
+        expall = WORLD_EVENTS_D->check_exp_events(expall, TO);
         target->set_property("ignore tax", 1);
         target->add_general_exp(target->query_classes()[0], expall);
         target->remove_property("ignore tax");
@@ -77,6 +78,7 @@ int cmd_reward(string str)
         // garrett thinks adjusted is right for here, since this is a scaling award.
 
         expdelta = abs(EXP_NEEDED[thelevel + 1] - EXP_NEEDED[thelevel]) / 8;
+        expdelta = WORLD_EVENTS_D->check_exp_events(expdelta, TO);
 
         target->set_property("ignore tax", 1);
         target->add_general_exp(target->query_classes()[0], expdelta);

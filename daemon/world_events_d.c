@@ -142,6 +142,7 @@ varargs int get_exp_modifier(object who)
         }
         continue;
     }
+    if(base_name(who) == "/cmds/mortal/_reward") mod *= 1.5;
     return mod;
 }
 
