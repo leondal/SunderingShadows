@@ -53,7 +53,7 @@ int wearme()
         tell_object(ETO, "%^BOLD%^%^WHITE%^You have not earned the right to make use of this item.%^RESET%^");
         return 0;
     }
-    if (!ETO->is_class("cleric") && !ETO->is_class("oracle") && !ETO->is_class("mage") && !ETO->is_class("psion") && !ETO->is_class("psywarrior") && !ETO->is_class("bard") && !ETO->is_class("sorcerer") && !ETO->is_class("druid") && !ETO->is_class("warlock") && !ETO->is_class("inquisitor")) {
+    if (!ETO->is_class("cleric") && !ETO->is_class("oracle") && !ETO->is_class("mage") && !ETO->is_class("psion") && !ETO->is_class("psywarrior") && !ETO->is_class("bard") && !ETO->is_class("sorcerer") && !ETO->is_class("druid") && !ETO->is_class("warlock") && !ETO->is_class("inquisitor") && !ETO->is_class("magus")) {
         tell_object(ETO, "You cannot seem to focus clearly enough to wear the bracelets.");
         return 0;
     }
@@ -84,6 +84,9 @@ int wearme()
     }
     if (ETO->is_class("warlock")) {
         TO->set_short("%^BOLD%^%^WHITE%^Bracelets of %^RESET%^%^MAGENTA%^Pl%^BOLD%^%^MAGENTA%^an%^RESET%^%^MAGENTA%^ar %^BOLD%^%^MAGENTA%^Po%^RESET%^%^MAGENTA%^te%^BOLD%^%^MAGENTA%^nc%^RESET%^%^MAGENTA%^y%^RESET%^");
+    }
+    if (ETO->is_class("magus")) {
+        TO->set_short("%^BOLD%^%^WHITE%^Bracelets of %^RESET%^%^RED%^Au%^MAGENTA%^gm%^RED%^en%^MAGENTA%^te%^RED%^d P%^MAGENTA%^r%^RED%^ow%^MAGENTA%^e%^RED%^ss%^RESET%^");
     }
     while ((int)TO->query_property("enchantment") != 5) {
         TO->remove_property("enchantment");
