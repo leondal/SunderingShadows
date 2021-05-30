@@ -1368,7 +1368,7 @@ void send_messages(object attacker, int magic, object weapon, string what, int x
 {
     string your_name, my_name, me, you, others, used, type, * verb, * adverb, * attack_limbs, * limbs;
     int i, verbose, num;
-    object shape;
+    object shape, *readers, room;
 
     if (!objectp(attacker) || !objectp(victim)) {
         return;
@@ -1383,7 +1383,23 @@ void send_messages(object attacker, int magic, object weapon, string what, int x
     }else if (interactive(victim)) {
         verbose = victim->query_verbose_combat();
     }
-
+    
+    room = environment(attacker);
+    
+    //Screen reader support for combat messages
+    //Removes some room combat spam for them
+    readers = ({  });
+    readers = all_inventory(room);
+    readers = filter_array(readers, (: $1->query_reader() :));
+    
+    if(sizeof(readers))
+    {
+        foreach(object owner in readers)
+        {
+            if(member_array(attacker, owner->query_protectors()) >= 0)
+                readers -= ({ owner });
+        }
+    }
 
     if (verbose) {
         if (magic) {
@@ -1558,7 +1574,10 @@ your " + used + "!%^RESET%^";
     if (objectp(attacker)) {
         tell_object(attacker, me);
         if (objectp(environment(attacker))) {
-            tell_room(environment(attacker), others, ({ attacker, victim }));
+            if(sizeof(readers))
+                tell_room(environment(attacker), others, ({ attacker, victim }) + readers);
+            else
+                tell_room(environment(attacker), others, ({ attacker, victim }));
         }
     }
     if (objectp(victim)) {

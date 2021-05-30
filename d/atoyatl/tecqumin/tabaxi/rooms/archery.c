@@ -74,6 +74,7 @@ void reset(){
       trainees[i]->remove();
     }
   }
+  trainees = ({});
 }
 
 int train_em(string str){

@@ -1,7 +1,7 @@
 #include <std.h>
 #include <daemons.h>
 
-string* VALID_SETTINGS = ({ "brief", "brief_combat", "hints", "logon_notify", "persist", "simpleinv", "expgain", "hardcore", "levelcheck", "no_reward", "taxperc", "columns", "vcolumns", "scrlines", "scrwidth", "term", });
+string* VALID_SETTINGS = ({ "brief", "brief_combat", "hints", "logon_notify", "persist", "simpleinv", "expgain", "hardcore", "levelcheck", "no_reward", "taxperc", "columns", "vcolumns", "scrlines", "scrwidth", "term", "reader" });
 
 object tp;
 
@@ -279,6 +279,30 @@ int set_persist(string val)
 int get_persist(string val)
 {
     if(this_player()->query("persist_login"))
+        return "on";
+    else
+        return "off";
+}
+
+int set_reader(string val)
+{
+    string* valid_values = ({ "on", "off" });
+    if (member_array(val, valid_values) == -1) {
+        write("%^BOLD%^%^RED%^Invalid value, valid values are:%^RESET%^ " + implode(valid_values, ", "));
+        return 0;
+    }
+    if (val == "on") {
+        this_player()->set("reader", 1);
+    }
+    if (val == "off") {
+        this_player()->delete("reader");
+    }
+    return 1;
+}
+
+int get_reader(string val)
+{
+    if(this_player()->query("reader"))
         return "on";
     else
         return "off";

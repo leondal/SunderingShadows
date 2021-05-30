@@ -42,6 +42,7 @@
 //int quitAllow; // For disabling quits, usually during shutdown.
 int dying;
 int logon_notify;  /* for belphy's logon notification system */
+int reader;     //Additional screen reader support options
 int level,ghost;// , crash_money, verbose_moves, verbose_combat;
 int start_time, quit_time, down_time;  // For user timing -- Thorn 950420
 // Stolen by Garrett for 1 week downtime if they've been gone for two weeks.
