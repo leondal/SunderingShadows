@@ -312,6 +312,7 @@ void reinit_path()
 void heart_beat()
 {
     int myskill, mylevel, i;
+    object attacker;
 
     if (!objectp(TO)) {
         return;
@@ -421,6 +422,19 @@ void heart_beat()
 
             add_mp(sizeof(targs));
         }
+        
+        //Screen Reader Support. Tells screen reader users in the room, briefly, what we are attacking.
+        attacker = this_object()->query_current_attacker();
+        
+        if(attacker && userp(this_object()))
+        {
+            object *readers;
+            
+            readers = filter_array(all_inventory(environment(this_object())), (: $1->query("reader") :));
+            
+            foreach(object person in readers)
+                tell_object(person, this_object()->QCN + " is fighting " + attacker->QCN + ".");
+        }   
 
         if(is_undead())
             remove_property("rend");

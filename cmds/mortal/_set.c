@@ -521,6 +521,7 @@ You can manipulate numerous mud settings:
 %^ULINE%^%^CYAN%^Notifications and messages:%^RESET%^
 
 %^CYAN%^brief %^GREEN%^on|off%^RESET%^\n  This will turn on or off display of room's long description. Useful for screenreaders. %^ULINE%^Default value is off.%^RESET%^\n
+%^CYAN%^reader %^GREEN%^on|off%^RESET%^\n This turns on or off additional screen reader support. Work in progress. %^ULINE%^Default value is off.%^RESET%^\n
 %^CYAN%^brief_combat %^GREEN%^on|off%^RESET%^\n  This will turn on or off display of verbose combat. %^ULINE%^Default value is on.%^RESET%^\n
 %^CYAN%^hints %^GREEN%^on|off%^RESET%^\n  This will turn on or off display of periodic hints. %^ULINE%^Default value is on.%^RESET%^\n
 %^CYAN%^logon_notify %^GREEN%^on|off%^RESET%^\n  This will turn on or off display of people joining the game. %^ULINE%^Default value is on.%^RESET%^\n
