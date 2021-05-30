@@ -32,9 +32,9 @@ OLI
 set_hd(17+random(5),8);
   set_hp(roll_dice(query_hd(),16));
   set_overall_ac(-3);
-  set_exp(400*query_hd());
-  set_new_exp(25,"high");
-set_max_level(25);
+  //set_exp(400*query_hd());
+  set_new_exp(20,"high");
+  set_max_level(25);
   set_wielding_limbs(({"right hand","left hand"}));
   ob=new(OBJ+"spear1.c");
 if(random(4))

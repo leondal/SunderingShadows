@@ -21,9 +21,9 @@ OLI
 	);
 	set_hd(13,1);
 	set_hp(roll_dice(10,8));
-	set_exp(600);
-
-set_max_level(25);
+	//set_exp(600);
+    set_new_exp(13, "normal");
+    set_max_level(25);
 	set_body_type("humanoid");
 	set_wielding_limbs(({"right hand","left hand"}));
 	set_overall_ac(3);
@@ -49,5 +49,4 @@ set_max_level(25);
 	set_property("swarm",1);
 	if(random(4))
 		set_invis();
-    set_new_exp(25,"normal");
 }
