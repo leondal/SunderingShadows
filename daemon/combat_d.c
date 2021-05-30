@@ -1390,7 +1390,7 @@ void send_messages(object attacker, int magic, object weapon, string what, int x
     //Removes some room combat spam for them
     readers = ({  });
     readers = all_inventory(room);
-    readers = filter_array(readers, (: $1->query_reader() :));
+    readers = filter_array(readers, (: $1->query("reader") :));
     
     if(sizeof(readers))
     {
@@ -1572,7 +1572,12 @@ your " + used + "!%^RESET%^";
     }
 
     if (objectp(attacker)) {
-        tell_object(attacker, me);
+        if(attacker->query("reader") && x < 1)
+        {
+        }
+        else
+            tell_object(attacker, me);
+        
         if (objectp(environment(attacker))) {
             if(sizeof(readers))
                 tell_room(environment(attacker), others, ({ attacker, victim }) + readers);
@@ -1581,7 +1586,11 @@ your " + used + "!%^RESET%^";
         }
     }
     if (objectp(victim)) {
-        tell_object(victim, you);
+        if(victim->query("reader") && x < 1)
+        {
+        }
+        else
+            tell_object(victim, you);
     }
 }
 
@@ -1722,7 +1731,8 @@ void do_fumble(object attacker, object weapon)
 
 void miss(object attacker, int magic, object target, string type, string target_thing)
 {
-    int verbose;
+    int verbose, areader, treader;
+    object *readers, room;
 
     if (!objectp(attacker)) {
         return;
@@ -1737,26 +1747,37 @@ void miss(object attacker, int magic, object target, string type, string target_
     if (interactive(attacker)) {
         verbose = attacker->query_verbose_combat();
     }
-
+    
+    room = environment(attacker);
+    
+    //Screen reader spam reduction
+    treader = target->query("reader");
+    areader = attacker->query("reader");
+    readers = filter_array(all_inventory(room), (: $1->query("reader") :));
+    if(!pointerp(readers) || !sizeof(readers))
+        readers = ({  });
+    
     if (objectp(target)) {
         if (interactive(target)) {
             verbose = target->query_verbose_combat();
         }
 
         if (verbose) {
-            tell_object(attacker, "%^RESET%^%^YELLOW%^You miss your attack on " + target->QCN + "%^RESET%^");
-            tell_room(environment(attacker), "" + attacker->QCN + " misses " + attacker->QP + " attack on " + target->QCN + "!", ({ attacker, target }));
-            tell_object(target, "" + attacker->QCN + " missed you!");
+            !areader && tell_object(attacker, "%^RESET%^%^YELLOW%^You miss your attack on " + target->QCN + "%^RESET%^");
+            tell_room(room, "" + attacker->QCN + " misses " + attacker->QP + " attack on " + target->QCN + "!", ({ attacker, target }) + readers);
+            !treader && tell_object(target, "" + attacker->QCN + " missed you!");
         }else {
-            tell_object(attacker, "%^YELLOW%^You miss.%^RESET%^");
-            tell_object(target, "" + attacker->QCN + " missed you.");
-            tell_room(environment(attacker), "" + attacker->QCN + " misses " + target->QCN + "", ({ target, attacker }));
+            !areader && tell_object(attacker, "%^YELLOW%^You miss.%^RESET%^");
+            !treader && tell_object(target, "" + attacker->QCN + " missed you.");
+            tell_room(room, "" + attacker->QCN + " misses " + target->QCN + "", ({ target, attacker }) + readers);
         }
         return;
     }
 
-    tell_object(attacker, "%^YELLOW%^You miss.%^RESET%^");
-    tell_room(environment(attacker), "" + attacker->QCN + " misses " + attacker->QP + " target.", attacker);
+    if(!attacker->query("reader"))
+        tell_object(attacker, "%^YELLOW%^You miss.%^RESET%^");
+    
+    tell_room(room, "" + attacker->QCN + " misses " + attacker->QP + " target.", ({ attacker }) + readers);
     return;
 }
 
