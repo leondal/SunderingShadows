@@ -175,7 +175,7 @@ void activate_rage(int direction)
 
     if (!tireless_rage) {
         if (direction < 0) {
-            "/std/effect/status/fatigued"->apply_effect(caster, 36); // 36 rounds - three minutes
+            "/std/effect/status/fatigued"->apply_effect(caster, 24); // 24 rounds - two minutes
         }
     }
 }
