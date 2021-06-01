@@ -13,6 +13,9 @@ int cmd_reward(string str)
         tell_object(TP, "<reward TARGET> or <reward all>");
         return 1;
     }
+    
+    if(!userp(this_player()))
+        return 0;
 
     if(this_player()->cooldown("reward"))
     {
