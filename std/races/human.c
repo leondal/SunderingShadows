@@ -63,6 +63,16 @@ int is_statmod_race(string subrace)
     return 1;
 }
 
+int is_pk_race(string subrace)
+{
+    if (!subrace || subrace == "") {
+        return 0;
+    }
+    if (subrace == "dhampir") {
+        return 1;
+    }
+}
+
 mapping skill_mods(string subrace) {
     if(!subrace || subrace == "") return ([]);
     switch(subrace) {
