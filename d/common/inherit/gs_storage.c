@@ -156,7 +156,7 @@ void reset()
             new("/d/tharis/obj/parchment")->move(TO);
         }
     }
-    for (i = 0; i < 6; i++) {
+    /*for (i = 0; i < 6; i++) {
         scroll = new("/d/magic/safe_scroll");
         scroll->move(TO);
         scroll->set_spell(random(7) + 1);
@@ -185,7 +185,7 @@ void reset()
         wand->make_me();
         wand->move(TO);
 
-    }
+    }*/
 
     while (!present("paper 6")) {
         new(CMISC "paper")->move(TO);
