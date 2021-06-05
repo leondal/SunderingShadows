@@ -3,73 +3,13 @@
 %^BOLD%^%^WHITE%^Be aware%^RESET%^ - You can change your discipline once every three weeks with the
 'discipline' command.
 
-%^CYAN%^Discipline specific spells are as follows:%^RESET%^
+%^CYAN%^Discipline specific spells and feats are listed in their respective help files:%^RESET%^
 
-%^CYAN%^Egoist:%^RESET%^
-    thicken skin
-    animal affinity
-    chameleon
-    deathward
-    breath of life
-    restoration
-    lesser transformation
-    shadow double
-    shadow body
+%^CYAN%^Egoist%^RESET%^
+%^CYAN%^Seer%^RESET%^
+%^CYAN%^Shaper%^RESET%^
+%^CYAN%^Kineticist%^RESET%^
+%^CYAN%^Nomad%^RESET%^
+%^CYAN%^Telepath%^RESET%^
 
-%^CYAN%^Seer:%^RESET%^
-    dissonance
-    clairvoyance
-    hypercognition
-    escape detection
-    remote viewing
-    legend lore
-    prying eyes
-    fortune fate
-    foresight
-
-%^CYAN%^Shaper:%^RESET%^
-    minor creation
-    astral construct
-    web
-    creation
-    hail of crystals
-    ruin
-    rebirth
-    create demiplane
-    implosion
-
-%^CYAN%^Kineticist:%^RESET%^
-    animate object
-    energy emanation
-    energy cone
-    hold person
-    energy current
-    bolt of force
-    reddopsi
-    crushing hand
-    tornado blast
-
-%^CYAN%^Nomad:%^RESET%^
-    dimension slide
-    phantom steed
-    trace teleport
-    dimensional anchor
-    psionic teleport
-    create demiplane
-    planar portal
-    astral projection
-    timestop
-
-%^CYAN%^Telepath:%^RESET%^
-    command
-    charm monster
-    hostile empathic transfer
-    modify memory
-    domination
-    serenity
-    visions from within
-    mindnet
-    overwhelming presence
-
-
-%^CYAN%^See also:%^RESET%^ psion, discipline roleplay
+%^CYAN%^See also:%^RESET%^ psion, discipline roleplay, egoist, seer, shaper, kineticist, nomad, telepath
