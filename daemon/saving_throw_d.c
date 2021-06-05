@@ -175,7 +175,9 @@ varargs void do_save(object ob, int dc, string type, raw_save)
     roll1 = roll_dice(1, 20);
     
     //Chronicler gets advantage on saving throws
-    if(FEATS_D->usable_feat(ob, "live to tell the tale") || FEATS_D->usable_feat(ob, "spellcasting harrier"))
+    if(FEATS_D->usable_feat(ob, "live to tell the tale") ||
+       FEATS_D->usable_feat(ob, "spellcasting harrier") ||
+       (FEATS_D->usable_feat(ob, "perpetual foresight") && ob->query("available focus")))
         roll1 = max( ({ roll1, roll_dice(1, 20) }) );
 
     //Touch of Law makes the roll 11
