@@ -71,7 +71,7 @@ void heart_beat(){
     x = random(20);
 	y++;
     if(x == 1){
-        if(y > 200){ //one race every 20 minutes if people are here
+        if(y > 100){ //one race every 10 minutes if people are here
 	    run_a_race();
 		return;
 	}
