@@ -2415,6 +2415,9 @@ void define_clevel()
                 clevel += 2;
         }
         
+        if(FEATS_D->usable_feat(caster, "seeing the connections") && spell_sphere == "clairsentience" && caster->query("available focus"))
+            clevel += 1;
+        
         if(caster->query_property("augment power"))
         {
             tell_object(caster, "%^CYAN%^BOLD%^You pour your additional mental resources into the power, augmenting it.%^RESET%^");

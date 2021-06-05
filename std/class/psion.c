@@ -60,6 +60,9 @@ mapping class_featmap(string myspec, object player) {
         case "nomad":
         feats += ([ 2 : ({ "nomads step" }), 11 : ({ "inconstant position" }), 21 : ({ "worldly traveler" }) ]);
         break;
+        case "seer":
+        feats += ([ 2 : ({ "seeing the connections" }), 11 : ({ "alter the waves" }), 21 : ({ "perpetual foresight" }) ]);
+        break;
     }
 
     return feats;

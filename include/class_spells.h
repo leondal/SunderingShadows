@@ -127,7 +127,7 @@ class_spell_storage =
     "egoist":
         ({"thicken skin","animal affinity","chameleon","deathward","breath of life","empathic relief","lesser transformation","shadow double","shadow body","rewind age"}),
     "seer":
-        ({"dissonance","clairvoyance","hypercognition","escape detection","remote viewing","legend lore","inner eye","fortune fate","foresight"}),
+        ({"dissonance","seeing","hypercognition","escape detection","remote viewing","recovered information","inner eye","alter fate","psionic foresight"}),
     "shaper":
         ({"minor creation","ectoplasm","creation","wall of ectoplasm","hail of crystals","genesis","astral seed", "reality revision"}),
     "kineticist":

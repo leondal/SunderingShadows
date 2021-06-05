@@ -7,16 +7,14 @@ int i;
 
 void create() {
     ::create();
-    set_spell_name("legend lore");
-    set_spell_level(([ "bard" : 1, "mage" : 6, "inquisitor" : 6, "oracle":6, "cleric" : 6 ]));
-    set_mystery("lore");
+    set_spell_name("recovered information");
+    set_spell_level(([ "psion" : 6 ]));
     set_discipline("seer");
-    set_domains("knowledge");
-    set_spell_sphere("divination");
-    set_syntax("cast CLASS legend lore on <object>");
-    set_description("This spell grants the caster a second's insight into the nature of an item, revealing both magical "
-"attributes and its history.  The caster will also reveals the item's true nature to those standing nearby.  Whether the "
-"truth of the item can be revealed is dependant upon the caster's strength, and the obscurity of the item.");
+    set_spell_sphere("clairsentience");
+    set_syntax("cast CLASS recovered information on <object>");
+    set_description("This spell grants the manifester a second's insight into the nature of an item, revealing both magical "
+"attributes and its history.  The manifester will also reveals the item's true nature to those standing nearby.  Whether the "
+"truth of the item can be revealed is dependant upon the manifester's strength, and the obscurity of the item.");
     set_verbal_comp();
     set_somatic_comp();
     set_arg_needed();
@@ -24,7 +22,7 @@ void create() {
 }
 
 string query_cast_string() {
-    return "%^CYAN%^"+caster->QCN+" mutters under "+caster->QP+" breath, concentrating.";
+    return "%^CYAN%^"+caster->QCN+" places a finger to "+caster->QP+" head, concentrating.";
 }
 
 void spell_effect(int prof) {
@@ -50,7 +48,7 @@ void spell_effect(int prof) {
     }
     spell_successful();
 
-    tell_object(caster,"%^CYAN%^The magical nature of the "+arg+" springs to your lips, and you speak its true name "
+    tell_object(caster,"%^CYAN%^The innate nature of the "+arg+" springs to your lips, and you speak its true name "
                 "aloud.%^RESET%^");
     tell_room(place,"%^CYAN%^A revelation seems to come over "+caster->QCN+", and "+caster->QS+" speaks the true name "
               "of the "+arg+" aloud.%^RESET%^",caster);

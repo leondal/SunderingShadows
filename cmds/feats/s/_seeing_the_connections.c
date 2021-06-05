@@ -17,7 +17,7 @@ void create()
     feat_category("Psionics");
     feat_name("seeing the connections");
     feat_prereq("Psion (Seer) L2");
-    feat_desc("The seer is particularly adept with Clairsentience powers and their singular focus allows them an unprecedented ability to gain information near and far. This feat grants the Seer a +1 spell DC when using Clairsentience powers.");
+    feat_desc("The seer is particularly adept with Clairsentience powers and their singular focus allows them an unprecedented ability to gain information near and far. This feat grants the Seer a +1 spell DC when using Clairsentience powers while focused.");
     permanent(1);
     psionic(1);
 }

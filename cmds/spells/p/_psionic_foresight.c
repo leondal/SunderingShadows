@@ -10,22 +10,15 @@ int duration;
 
 void create() {
     ::create();
-    set_spell_name("foresight");
-    set_spell_level(([ "mage" : 7,"oracle":7, "cleric":9, "magus" : 6 ]));
-    set_domains("knowledge");
-    set_spell_sphere("divination");
-    set_discipline("seer");
-    set_mystery("battle");
+    set_spell_name("psionic foresight");
+    set_spell_level(([ "psion" : 9 ]));
+    set_spell_sphere("clairsentience");
     set_bonus_type("insight");
-    set_syntax("cast CLASS foresight [on TARGET]");
+    set_syntax("cast CLASS psionic foresight [on TARGET]");
     set_damage_desc("+2 to armor bonus, +2 to reflex save, death ward feat");
-    set_description("The caster uses this spell to heighten their awareness for a time, allowing them to perceive fragments of their immediate future. This allows them to react pre-emptively to many threats, defending better against attacks that they can see coming before they actually land, and they may even be able avoid the death itself.");
+    set_description("The manifester uses this spell to heighten their awareness for a time, allowing them to perceive fragments of their immediate future. This allows them to react pre-emptively to many threats, defending better against attacks that they can see coming before they actually land, and they may even be able avoid the death itself.");
     set_verbal_comp();
     set_somatic_comp();
-
-    set_components(([
-                        "mage" : ([ "pearl" : 2, ]),
-                        ]));
     set_property("keywords", ({ "defensive", "personal", "targeted"}));
     set_helpful_spell(1);
 }
@@ -88,7 +81,7 @@ void spell_effect(int prof)
         target->add_temporary_feat("death ward");
         nodeathflag = 1;
     }
-    //target->set_property("foresighted",1);
+
     addSpellToCaster();
     call_out("test", 10);
     spell_duration = duration;
@@ -126,7 +119,6 @@ void dest_effect()
             target->remove_temporary_feat("death ward");
         target->remove_property_value("spelled", ({TO}) );
         tell_object(target, "%^CYAN%^The future no longer is present in your mind.");
-        //target->remove_property("foresighted");
     }
 
     ::dest_effect();

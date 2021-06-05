@@ -14,15 +14,14 @@ int cast_level;
 void create() {
     ::create();
     set_author("ares");
-    set_spell_name("fortune fate");
-    set_spell_level(([ "cleric" : 8 ]));
-    set_domains("fate");
-    set_spell_sphere("healing");
+    set_spell_name("alter fate");
+    set_spell_level(([ "psion" : 8 ]));
+    set_spell_sphere("clairsentience");
     set_discipline("seer");
-    set_syntax("cast CLASS fortune fate on TARGET");
+    set_syntax("cast CLASS alter fate on TARGET");
     set_description("This spell will cause the fates to smile on the target.  When cast, it will activate a healing spell "
 "that will remain in reserve up until the target falls below 25% of their maximum health.  When that point is reached, a "
-"random healing spell, ranging from cure light wounds all the way up to heal is cast on the target.");
+"random healing spell is cast on the target.");
     set_verbal_comp();
     set_target_required(1);
     set_heart_beat(1);
@@ -78,7 +77,7 @@ int preSpell()
     }
     if(target->query_property("fortune fate"))
     {
-        tell_object(caster,"That target is already protected by the fortunes of fate.");
+        tell_object(caster,"That target is already protected by the altering of fate.");
         return 0;
     }
     return 1;
