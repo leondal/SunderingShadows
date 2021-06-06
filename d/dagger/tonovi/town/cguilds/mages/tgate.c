@@ -31,7 +31,7 @@ void create(){
       ({"window","windows"}) : (:TO,"look_windows":),
     ]) );
     set_exits( ([
-      //"south" : ROOMDIR+"way3",
+      "east" : "/d/dagger/tonovi/antipath1",
       "gates" : "tfoyer",
     ]) );
     set_listen("default", "You hear large bangs and explosions coming from within the tower.");

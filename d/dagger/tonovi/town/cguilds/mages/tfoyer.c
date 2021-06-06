@@ -39,8 +39,8 @@ void create(){
 */
     ]) );
     set_exits( ([
-        "north" : "./tfloor1",
-        "store" : "./compstore1",
-        "exit"  : "./tgate",
+        "north" : "tfloor1",
+        "store" : "compstore1",
+        "exit"  : "tgate",
     ]) );
 }

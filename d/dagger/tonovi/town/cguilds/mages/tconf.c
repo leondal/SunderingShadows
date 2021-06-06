@@ -40,8 +40,9 @@ void create()
           "part of the room not dominated by benches.  An arched "+
           "doorway leads to the stairway, and from here the "+
           "attending magi may climb up to their seats."
-    ]));
 */
+    ]));
+    
     set_smell("default","You smell the charred remains of magical "+
         "demonstrations scattered over the floor.");
     set_listen("default","Any noise in the room appears to be "+

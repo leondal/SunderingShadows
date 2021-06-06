@@ -22,7 +22,6 @@ void create()
         "north" : "tlab",
         "south" : "tstuff",
         "down"  : "tfloor3",
-        "up"    : "roof"
     ]) );
     set_door("door","tlab","north");
     set_open("door", 0);

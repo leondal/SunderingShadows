@@ -28,11 +28,12 @@ void create()
           "one before it to allow all magi view of the central area, "+
           "which looks to be some sort of speaker's platform.  On that "+
           "dais, there are five padded chairs and a tall podium."
-    ]));
 */
+    ]));
+    
     set_exits( ([
         "north" : "tconf",
         "down"  : "tfloor2",
-        "up"    : "tfloor4"
+        "up"    : "tfloor4",
     ]) );
 }
