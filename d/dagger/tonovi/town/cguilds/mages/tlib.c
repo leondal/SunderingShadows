@@ -1,6 +1,4 @@
-//updated by Circe 5/31/04 with color, etc.
 #include <std.h>
-#include "../include/tabor.h"
 inherit ROOM;
 
 void create()
@@ -11,10 +9,10 @@ void create()
    set_property("light",2);
 //	set_property("no teleport", 1); //removed by Circe 6/18/08 after discussions with others
    set_property("indoors",1);
-   set_name("Mage's Library, Tabor");
-   set_short("Mage's Library, Tabor");
+   set_name("Mage's Library, Tonovi");
+   set_short("Mage's Library, Tonovi");
    set_long(
-   "%^BOLD%^The Mage's Library, Tabor%^RESET%^\n"+
+   "%^BOLD%^The Mage's Library, Tonovi%^RESET%^\n"+
    "%^CYAN%^The library is fairly nice sized with many large "+
    "%^ORANGE%^wooden shelves%^CYAN%^ that reach to the ceiling "+
    "and are packed with %^ORANGE%^books %^CYAN%^and %^WHITE%^ancient"+
@@ -61,6 +59,6 @@ void create()
    " displayed.",
    ]));
    set_exits(([
-   "south" : ROOMDIR+"tfloor2",
+   "south" : "tfloor2",
    ]));
 }

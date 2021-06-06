@@ -13,12 +13,13 @@ void create() {
     set_name("Floor 1");
     set_short("Grand Stairs of the Marble Academy, Tonovi");
     set_long(
-"Generic description for the Grand Stairs of the Marble Academy, Tonovi.\n\n"+
+"Generic description for the Grand Stairs of the Marble Academy, Tonovi. There seems to be a lot of construction going on here.\n\n"+
 "%^RESET%^You can go up these steps or enter the %^CYAN%^foyer"+
 "%^RESET%^.  You also see a side entrance into the %^BOLD%^"+
 "%^BLUE%^components shop.\n"
     );
     set_items(([
+/*
        "angels" : "%^BOLD%^The angels have been carved from "+
                   "brilliant white ivory.  They are shown in "+
                   "several poses - some in flight while others "+
@@ -48,14 +49,15 @@ void create() {
           "seems to have a bluish glow.  There seems to be no source "+
           "for it, but it permeates the area and seems to come from "+
           "somewhere above."
+*/
    ]));
     set_property("light",2);
     set_property("indoors",1);
     set_smell("default","You can smell fresh air blowing from somewhere.");
     set_listen("default","You can hear the shuffling of other mages.");
     set_exits( ([
-        "store": "./compstore1",
-        "south": "./tfoyer",
-        "up":    "./tfloor2"
+        "store": "compstore1",
+        "south": "tfoyer",
+        "up":    "tfloor2"
     ]) );
 }

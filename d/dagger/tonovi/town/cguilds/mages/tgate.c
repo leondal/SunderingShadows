@@ -1,13 +1,7 @@
-//updated by Circe with color, expanded desc, etc. 5/30/04
-// removing redundant restriction *Styx* 12/28/05
-// The Gates of the Tower of the Arcane, Tabor
-// Thorn@ShadowGate
-// 010205
-// Tabor
+// The Gates of the Marble Academy, Tonovi
 // tgate.c
 
 #include <std.h>
-#include "../include/tabor.h"
 
 inherit ROOM;
 
@@ -15,26 +9,11 @@ void create(){
     ::create();
     set_travel(DIRT_ROAD);
     set_terrain(CITY);
-    set_name("The Gates of the Tower of the Arcane, Tabor");
-    set_short("The Gates of the Tower of the Arcane, Tabor");
-    set_long(
-@TABOR
-%^BOLD%^The Gates of the Tower of the %^CYAN%^A%^YELLOW%^r%^CYAN%^c%^YELLOW%^a%^CYAN%^n%^YELLOW%^e%^WHITE%^, Tabor%^RESET%^
-Just before you is the short pathway leading up the smooth 
-walls of a %^ORANGE%^rocky outcropping%^RESET%^.  There appears to be no other 
-way to reach the %^YELLOW%^imposing tower %^RESET%^standing upon the stone.  The
-walls of the tower are made of what looks to be %^BOLD%^sleek white
-marble%^RESET%^, and you can see several %^CYAN%^windows %^RESET%^from which strange 
-%^YELLOW%^lights %^RESET%^sometime emanate.  Before the tower looms a 
-large double-gate made of classic %^BOLD%^%^BLACK%^wrought iron %^RESET%^set into 
-huge %^BOLD%^%^BLACK%^gra%^WHITE%^n%^BLACK%^it%^WHITE%^e %^RESET%^pillars.  Behind you is an intimidating wall of 
-%^YELLOW%^lightning %^RESET%^that crackles and hisses, obscuring the view of the 
-road on the other side.
-TABOR
-    );
+    set_name("The Gates of the Marble Academy, Tonovi");
+    set_short("The Gates of the Marble Academy, Tonovi");
+    set_long("Generic description for the gates of the Marble Academy, Tonovi.");
     set_property("light", 2);
     set_property("indoors", 1);
-//	set_property("no teleport", 1); //removed by Circe 6/18/08 after discussions with others
     set_items( ([
       "gates" : "A strange magical force seems to dance between the "+
          "bars of the wrought iron gates, suggesting that they are "+
@@ -44,16 +23,16 @@ TABOR
         "lightning wall is truly imposing.  Leaping it may be possible, but "+
         "not suggested.",
       ({"tower","mage tower"}) : "The white marble tower is truly "+
-        "a sight to behold.  Rising up at least five stories about the "+
-        "town of Tabor, it is easy to see why this city is considered "+
+        "a sight to behold.  Rising up at least five stories above the "+
+        "City of Tonovi, it is easy to see why this city is considered "+
         "a center of learning and magical lore.  The white marble walls "+
         "look impossibly smooth, unmarred by any lines save those of the "+
         "tall, narrow windows.",
       ({"window","windows"}) : (:TO,"look_windows":),
     ]) );
     set_exits( ([
-      "south" : ROOMDIR+"way3",
-      "gates" : ROOMDIR+"tfoyer",
+      //"south" : ROOMDIR+"way3",
+      "gates" : "tfoyer",
     ]) );
     set_listen("default", "You hear large bangs and explosions coming from within the tower.");
     set_smell("default", "You can smell the acrid smell of lightning.");
