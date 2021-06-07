@@ -11,7 +11,8 @@ void create(){
     set_terrain(CITY);
     set_name("The Gates of the Marble Academy, Tonovi");
     set_short("The Gates of the Marble Academy, Tonovi");
-    set_long("%^RESET%^%^ORANGE%^The path opens here to a long %^RESET%^co%^BOLD%^%^BLACK%^bb%^RESET%^%^ORANGE%^l%^RESET%^e%^BOLD%^%^BLACK%^st%^RESET%^%^ORANGE%^o%^RESET%^ne courtyard %^ORANGE%^that sits before the %^BOLD%^%^BLACK%^imposing gates %^RESET%^%^ORANGE%^of the %^BOLD%^%^WHITE%^high, m%^RESET%^a%^BOLD%^rb%^RESET%^l%^BOLD%^e t%^RESET%^o%^BOLD%^w%^RESET%^e%^BOLD%^r %^RESET%^%^ORANGE%^that looms over the city. Landscaped to perfection, it is rimmed with %^GREEN%^tall trees %^ORANGE%^and %^BOLD%^%^GREEN%^lush vegetation%^RESET%^%^ORANGE%^, both %^BOLD%^%^WHITE%^potted %^RESET%^%^ORANGE%^and in ground. In the center of the courtyard, a %^RESET%^large fountain %^ORANGE%^rests, with its %^BOLD%^%^WHITE%^bu%^RESET%^bb%^BOLD%^%^WHITE%^l%^RESET%^%^CYAN%^i%^BOLD%^%^WHITE%^ng %^CYAN%^w%^RESET%^a%^CYAN%^t%^BOLD%^er %^RESET%^fro%^BOLD%^th%^RESET%^ing %^RESET%^%^ORANGE%^out toward the %^CYAN%^long pools %^ORANGE%^that run down the center of the courtyard in either direction. Two large %^BOLD%^%^WHITE%^statues %^RESET%^%^ORANGE%^rest on either side of the steps leading up to the %^BOLD%^%^BLACK%^wrought iron gates %^RESET%^%^ORANGE%^marking the entry to the %^BOLD%^%^WHITE%^t%^RESET%^o%^BOLD%^w%^RESET%^e%^BOLD%^r%^RESET%^%^ORANGE%^.%^RESET%^\n");
+    set_long("%^RESET%^%^ORANGE%^The path opens here to a long %^RESET%^co%^BOLD%^%^BLACK%^bb%^RESET%^%^ORANGE%^l%^RESET%^e%^BOLD%^%^BLACK%^st%^RESET%^%^ORANGE%^o%^RESET%^ne courtyard %^ORANGE%^that sits before the %^BOLD%^%^BLACK%^imposing gates %^RESET%^%^ORANGE%^of the %^BOLD%^%^WHITE%^high, m%^RESET%^a%^BOLD%^rb%^RESET%^l%^BOLD%^e t%^RESET%^o%^BOLD%^w%^RESET%^e%^BOLD%^r %^RESET%^%^ORANGE%^that looms over the city. Landscaped to perfection, it is rimmed with %^GREEN%^tall trees %^ORANGE%^and %^BOLD%^%^GREEN%^lush vegetation%^RESET%^%^ORANGE%^, both %^BOLD%^%^WHITE%^potted %^RESET%^%^ORANGE%^and in ground. In the center of the courtyard, a %^RESET%^large fountain %^ORANGE%^rests with its %^BOLD%^%^WHITE%^bu%^RESET%^bb%^BOLD%^%^WHITE%^l%^RESET%^%^CYAN%^i%^BOLD%^%^WHITE%^ng %^CYAN%^w%^RESET%^a%^CYAN%^t%^BOLD%^er %^RESET%^fro%^BOLD%^th%^RESET%^ing %^RESET%^%^ORANGE%^out toward the %^CYAN%^long pools %^ORANGE%^that run down the center of the courtyard in either direction. Two large %^BOLD%^%^WHITE%^statues %^RESET%^%^ORANGE%^rest on either side of the steps leading up to the %^BOLD%^%^BLACK%^wrought iron gates %^RESET%^%^ORANGE%^marking the entry to the %^BOLD%^%^WHITE%^t%^RESET%^o%^BOLD%^w%^RESET%^e%^BOLD%^r%^RESET%^%^ORANGE%^.%^RESET%^\n 
+With the tower still under construction, it appears you cannot yet enter the gates. \n");
     set_property("light", 2);
     set_property("indoors", 1);
     set_items( ([
@@ -26,7 +27,7 @@ void create(){
     ]) );
     set_exits( ([
       "east" : "/d/dagger/tonovi/antipath1",
-      "gates" : "tfoyer",
+     // "gates" : "tfoyer",
     ]) );
     set_listen("default", "%^BOLD%^%^BLACK%^You hear %^RESET%^%^RED%^large bangs %^BOLD%^%^BLACK%^and %^BLUE%^explosions %^BLACK%^coming from within the %^WHITE%^t%^RESET%^o%^BOLD%^w%^RESET%^e%^BOLD%^r%^BLACK%^.%^RESET%^");
     set_smell("default", "%^RESET%^%^ORANGE%^Mingled in with the %^MAGENTA%^scents %^ORANGE%^of %^BOLD%^%^GREEN%^fresh foliage%^RESET%^%^ORANGE%^, you can smell the %^YELLOW%^acrid smell %^RESET%^%^ORANGE%^of %^YELLOW%^lightning%^RESET%^%^ORANGE%^.%^RESET%^");
