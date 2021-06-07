@@ -53,7 +53,6 @@ set_short("%^RESET%^%^CYAN%^Clari%^RESET%^%^BOLD%^"+
   	set_stats("wisdom", 10);
   	set_stats("intelligence", 14);
   	set_exp(10);
-  	set_hp(159);
    	set_class("fighter");
 	set_spoken("wizish");
     command("speech %^CYAN%^speak in a clear melodic voice%^RESET%^");
