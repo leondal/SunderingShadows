@@ -5,7 +5,7 @@ inherit RATPATHS_EXIT;
 
 void create(){
     ::create();
-    set_smell("default", "%^BOLD%^%^BLACK%^It smells of waste an shit.");
+    set_smell("default", "%^BOLD%^%^BLACK%^It smells of waste and shit.");
     set_exits(([
                    "north":PATH+"rp_p023_n009",
                    "southwest":PATH+"rp_p022_n011",

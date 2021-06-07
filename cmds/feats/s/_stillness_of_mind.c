@@ -128,7 +128,7 @@ void execute_feat()
         dest_effect();
         return;
     }
-    tell_object(caster, "%^BOLD%^%^CYAN%^You focus intenting, stilling your "+
+    tell_object(caster, "%^BOLD%^%^CYAN%^You focus intently, stilling your "+
     "mind and envisioning yourself free to move about at will!%^RESET%^");
     if(objectp(environment(caster)))
     {
