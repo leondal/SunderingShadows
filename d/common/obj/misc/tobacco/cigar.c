@@ -127,3 +127,8 @@ int get_tracker()
 {
     return tracker;
 }
+
+int is_cigar(){
+    return 1;
+}
+
