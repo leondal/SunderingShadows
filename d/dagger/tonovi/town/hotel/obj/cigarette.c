@@ -134,7 +134,7 @@ int get_tracker()
     return tracker;
 }
 
-int is_cigar(){
+int is_cigarette(){
     return 1;
 }
 
