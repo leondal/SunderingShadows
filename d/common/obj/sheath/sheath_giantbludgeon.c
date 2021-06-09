@@ -16,7 +16,7 @@ void create(){
   set_property("can_wear_limbs",({ "waist" , "torso" }));
   remove_property("sheath_size");
   remove_property("original_weight");
-  set_property("sheath_size",3);
+  set_property("sheath_size",4);
   set_property("original_weight",4);
   set_name("giant weapon holster");
   set_id(({"holster", "giant holster", "Giant holster", "weapsheath" }));
