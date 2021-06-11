@@ -865,7 +865,8 @@ void dramatic_pause(int num)
 
 void SAVE()
 {
-    seteuid(UID_DAEMONSAVE);
+    //seteuid(UID_DAEMONSAVE);
+    seteuid(UID_MUDLIB);
 	save_object(SAVE_FILE);
     seteuid(getuid());
     return;
