@@ -46,7 +46,7 @@ void spell_effect(int prof)
     string arg, where, placename, mygod;
     int mypower, startpower, endpower, bonus;
 
-    if(!arg || !strlen(arg))
+    if(!ARG || !strlen(ARG))
     {
         tell_object(caster, "Invalid destination argument.");
         return;
