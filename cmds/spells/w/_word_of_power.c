@@ -46,6 +46,12 @@ void spell_effect(int prof)
     string arg, where, placename, mygod;
     int mypower, startpower, endpower, bonus;
 
+    if(!arg || !strlen(arg))
+    {
+        tell_object(caster, "Invalid destination argument.");
+        return;
+    }
+    
     arg = lower_case(ARG);
     tell_object(CASTER, "You reach your hands out and wave them in strange motions.");
     tell_room(PLACE, YOU + " reaches out and waves " + MINE + " arms in strange motions.", ({ CASTER }));
