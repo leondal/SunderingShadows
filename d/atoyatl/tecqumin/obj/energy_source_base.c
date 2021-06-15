@@ -58,14 +58,14 @@ int unleash_energy(string str){
   }
   if (num <2){
     num = sscanf(str, "%s on %s", what, target);
-  } 
+  }
   if (num <2 ){
     tell_object(ETO, "What do you want to unleash against what?");
     return 1;
   }
   if (what != "energy" && what != "power" && what != "heart" && what != "jungle heart" && what != "jetstone" && what != "jetstone's energy" ){
     tell_object(ETO, "What do you want to unleash against what?");
-    return 1;   
+    return 1;
   }
   if (target == "seal" || target == "mystic seal"){
     tell_object(ETO, "Which part of the"
@@ -79,12 +79,12 @@ int unleash_energy(string str){
        && target != "jewel" && target != "blue jewel" && target != "aventurine"
        && target != "blue aventurine" && target != "wrist"){
     tell_object(ETO, "What do you want to unleash energy against?");
-    return 1;   
-  } 
+    return 1;
+  }
   switch (target){
   case "eye":
   case "eye of helm":
-  case "blue eye": 
+  case "blue eye":
   case "blue eye of Helm":
     target = EYE;
     opening = 1;
@@ -102,7 +102,7 @@ int unleash_energy(string str){
   {
     tell_object(TP, "As you prepare to unleash the energy of the " + query_short()
       + "%^RESET%^ toward " + target + "%^RESET%^, you notice that the seal is"
-      +" already broken. Whatever you were hoping to acheive, it is too late now."); 
+      +" already broken. Whatever you were hoping to acheive, it is too late now.");
     return 1;
   }
   if ( EETO->query_seal_strengthened() )
@@ -111,14 +111,14 @@ int unleash_energy(string str){
       + "%^RESET%^ toward " + target + "%^RESET%^, you see that the seal has been"
       + " strengthened. It positively glows with energy, and doesn't seem like it"
       + " could be affected in any way. Whatever you were hoping to do is"
-      +" unlikely to work now."); 
-    return 1;    
+      +" unlikely to work now.");
+    return 1;
   }
 
   tell_object(ETO, "You raise the " + query_short() + "%^RESET%^ and unleash"
     +" its %^ORANGE%^power%^RESET%^ at " + target + "%^RESET%^." + msgs[0] );
   tell_room(EETO, ETO->QCN + "%^RESET%^ raises  the " + query_short() + "%^RESET%^"
-    +" and unleashes its %^ORANGE%^power%^RESET%^ at " + target + "%^RESET%^." 
+    +" and unleashes its %^ORANGE%^power%^RESET%^ at " + target + "%^RESET%^."
     + msgs[0], ETO);
   switch(target){
   case EYE:
@@ -159,7 +159,7 @@ void open_seal5(object ob){
     tell_object(ETO, msgs[1]);
     opening = 0;
     return;
-  } 
+  }
   desc = "The seal finally gives way, the pieces flying apart and"
     +" revealing the %^BOLD%^%^BLACK%^blackness %^RESET%^of a"
     +" %^BOLD%^%^BLACK%^r%^RESET%^i%^BOLD%^%^BLACK%^ft %^RESET%^in the fabric of"
@@ -191,13 +191,13 @@ void open_seal5(object ob){
     +"%^RESET%^%^BLUE%^a%^BOLD%^%^BLACK%^cles %^RESET%^begin to pull through."
     +" %^BLUE%^The U%^MAGENTA%^nf%^BLUE%^e%^MAGENTA%^tt%^BLUE%^e%^MAGENTA%^r"
     +"%^BLUE%^e%^MAGENTA%^d%^RESET%^ has arrived!";
-    call_out("open_seal6", 1); 
+    call_out("open_seal6", 1);
   }
-  tell_room(EETO, desc); 
+  tell_room(EETO, desc);
 }
 
 void empress_warning(object ob){
-//put code in here for Mehaq, Jontar or Guamansuri to appear and give a warning about the 
+//put code in here for Mehaq, Jontar or Guamansuri to appear and give a warning about the
 //Unfettered being free, along with some hint about its whereabouts(maybe to lead them there?)
   object room, discoverer, killer, mehaq, jontar, guamansuri, * empresses, * priests, *consorts;
   room = find_object_or_load(ROOMS + "cavern");
@@ -212,7 +212,7 @@ void empress_warning(object ob){
         tell_room(room, "%^CYAN%^The spirit of Mehaq %^BOLD%^sh%^WHITE%^i"
           +"%^CYAN%^mm%^WHITE%^e%^CYAN%^rs%^RESET%^%^CYAN%^ and %^RESET%^"
           +"disappears");
-      } 
+      }
     } else {
       mehaq = new (MOB + "empress");
     }
@@ -238,7 +238,7 @@ void empress_warning(object ob){
         tell_room(room, "%^CYAN%^The spirit of Jontar %^BOLD%^sh%^WHITE%^i"
           +"%^CYAN%^mm%^WHITE%^e%^CYAN%^rs%^RESET%^%^CYAN%^ and %^RESET%^"
           +"disappears");
-      } 
+      }
     } else {
       jontar = new (MOB + "jontar");
     }
@@ -266,7 +266,7 @@ void empress_warning(object ob){
         tell_room(room, "%^CYAN%^The spirit of Mehaq %^BOLD%^sh%^WHITE%^i"
           +"%^CYAN%^mm%^WHITE%^e%^CYAN%^rs%^RESET%^%^CYAN%^ and %^RESET%^"
           +"disappears");
-      } 
+      }
     } else {
       guamansuri = new (MOB + "guamansuri");
     }
@@ -291,7 +291,7 @@ void open_seal4(object ob){
     tell_object(ETO, msgs[1]);
     opening = 0;
     return;
-  } 
+  }
   tell_room(EETO, msgs[2]);
   call_out("open_seal5", 2, ETO);
 }
@@ -306,7 +306,7 @@ void open_seal3(object ob){
     tell_object(ETO, msgs[1]);
     opening = 0;
     return;
-  } 
+  }
   tell_room(EETO, msgs[3]);
   call_out("open_seal4", 3, ETO);
 }
@@ -320,7 +320,7 @@ void open_seal2(object ob){
     tell_object(ETO, msgs[1]);
     opening = 0;
     return;
-  } 
+  }
   tell_room (EETO, msgs[4]);
   call_out("open_seal3", 3, ETO);
 }
@@ -334,7 +334,7 @@ void open_seal(object ob){
     tell_object(ETO, msgs[1]);
     opening = 0;
     return;
-  } 
+  }
   tell_room(EETO, msgs[5]);
   call_out("open_seal2", 3, ETO);
 }
@@ -376,7 +376,7 @@ void seal_seal4(object ob){
   call_out("summon_jontar", 4, ob);
 }
 
-varargs void grant_quest(object sealer, string quest, int exp, 
+varargs void grant_quest(object sealer, string quest, int exp,
                               string explanation, int must_be_near){
   object leader, * party, found_thing;
   string name, party_name, * quests;
@@ -422,7 +422,7 @@ void seal_seal3(object ob){
     tell_object(ETO, msgs[1]);
     sealing = 0;
     return;
-  } 
+  }
   tell_room(EETO, "The %^BOLD%^%^CYAN%^e%^BLUE%^y%^CYAN%^e%^RESET%^ brightens,"
     +" becoming %^WHITE%^clearer%^RESET%^, and the %^BOLD%^%^GREEN%^s%^RESET%^"
     +"%^GREEN%^e%^ORANGE%^a%^BOLD%^%^GREEN%^l%^RESET%^ behind the image of the"
@@ -447,7 +447,7 @@ void seal_seal2(object ob){
     tell_object(ETO, msgs[1]);
     sealing = 0;
     return;
-  } 
+  }
   tell_room(EETO, "The war gauntlet %^BOLD%^%^WHITE%^gl%^RESET%^i%^BOLD%^%^CYAN%^t"
     +"%^WHITE%^t%^RESET%^e%^BOLD%^%^WHITE%^rs, as the"
     +" %^BOLD%^%^CYAN%^en%^WHITE%^e%^CYAN%^rgy%^RESET%^ streams up from the"
@@ -467,7 +467,7 @@ void seal_seal(object ob){
     tell_object(ETO, msgs[1]);
     sealing = 0;
     return;
-  } 
+  }
   tell_room(EETO, msgs[7]);
   completer =  EVENT_RECORDS_D->has_anyone_here_completed(EETO, "Agreed to aid Taluc");
   killer =  EVENT_RECORDS_D->has_anyone_here_killed(EETO, MOB + "taluc");
@@ -486,7 +486,7 @@ void interrupt_seal4(object ob, object taluc){
   taluc->force_me("attack " + ob->query_name());
 }
 
-void interrupt_seal3(object ob, object taluc){ 
+void interrupt_seal3(object ob, object taluc){
   if (!objectp(ob)||!objectp(taluc)){ return;}
   if (!objectp(environment(taluc)) || !present(ob, environment(taluc))){
     interrupt_seal(ob);
@@ -524,12 +524,12 @@ void interrupt_seal(object ob){
   }
   if (!objectp(ob)){
     // tell_room(EETO, "Nonexistant ob; finishing");
- 
+
     return;
   }
   // tell_room(EETO, "Loading existing talucs");
   betrayers = children(MOB + "taluc");
-  // tell_room(EETO, "Finished loading existing talucs");  
+  // tell_room(EETO, "Finished loading existing talucs");
   if (sizeof(betrayers) > 0){
     // tell_room(EETO, "Taluc already exists, moving him from where he is");
     taluc = betrayers[0];
@@ -632,7 +632,7 @@ void taluc_attack2(object ob, object taluc){
   if (!objectp(ob) || !objectp(taluc) || !objectp(environment(ob)) || !present(taluc, environment(ob)) ){
     return;
   }
-  taluc->force_me("kill " + ob->query_name()); 
+  taluc->force_me("kill " + ob->query_name());
 }
 
 void summon_guamansuri(taluc){
@@ -694,7 +694,7 @@ int release_energy(string str){
   if (!objectp(ETO) || !interactive(ETO)){
     return 0;
   }
-  if (!objectp(EETO) || (base_name(EETO)!= ROOMS + "carved_gate" && base_name(EETO)!= TEST + "carved_gate")){
+  if (!objectp(EETO) || (base_name(EETO)!= JUNG_ROOM10 + "carved_gate" && base_name(EETO)!= TEST + "carved_gate")){
     return 0;
   }
   if (EETO->query_exit("down")!="/d/shadowgate/void"){
@@ -703,13 +703,14 @@ int release_energy(string str){
   tell_object(ETO, msgs[8]);
   tell_room(EETO, ETO->QCN + msgs[9], ETO);
   call_out("release2", 2);
+  return 1;
 }
 
 void release2(){
   if (!objectp(ETO) || !interactive (ETO)){
     return;
   }
-  if (!objectp(EETO) || (base_name(EETO)!= ROOMS + "carved_gate" && base_name(EETO)!= TEST + "carved_gate")){
+  if (!objectp(EETO) || (base_name(EETO)!= JUNG_ROOM10 + "carved_gate" && base_name(EETO)!= TEST + "carved_gate")){
     return;
   }
   if (EETO->query_exit("down")!="/d/shadowgate/void"){
@@ -725,7 +726,7 @@ void release3(){
   if (!objectp(ETO) || !interactive (ETO)){
     return;
   }
-  if (!objectp(EETO) || (base_name(EETO)!= ROOMS + "carved_gate" && base_name(EETO)!= TEST + "carved_gate")){
+  if (!objectp(EETO) || (base_name(EETO)!= JUNG_ROOM10 + "carved_gate" && base_name(EETO)!= TEST + "carved_gate")){
     return;
   }
   if (EETO->query_exit("down")!="/d/shadowgate/void"){
@@ -740,7 +741,7 @@ void release4(){
   if (!objectp(ETO) || !interactive (ETO)){
     return;
   }
-  if (!objectp(EETO) || (base_name(EETO)!= ROOMS + "carved_gate" && base_name(EETO)!= TEST + "carved_gate")){
+  if (!objectp(EETO) || (base_name(EETO)!= JUNG_ROOM10 + "carved_gate" && base_name(EETO)!= TEST + "carved_gate")){
     return;
   }
   if (EETO->query_exit("down")!="/d/shadowgate/void"){
@@ -750,7 +751,7 @@ void release4(){
   tell_room(EETO, "Slowly, and with great reluctance, the gate creaks"
     +" open, revealing the opening to a cavern descending below"
     +" ground.");
-  if (base_name(EETO)!= TEST + "carved_gate"){
+  if (base_name(EETO) == TEST + "carved_gate"){
     EETO->add_exit(TEST + "cavern", "down");
   } else {
     EETO->add_exit(ROOMS + "cavern", "down");
