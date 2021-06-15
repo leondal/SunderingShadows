@@ -252,7 +252,7 @@ varargs void look_msg(object ob, string str, object obj)
 		    }		   
             if(ob->query_obvious_short()==0)
 			    {
-				tell_room(ETP,""+TPQCN+" looks over "+ str +".",TP);
+				tell_room(ETP,""+TPQCN+" looks over the "+ str +".",TP);
 			    }
 			else	
 	        {   				
