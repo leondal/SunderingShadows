@@ -250,9 +250,13 @@ varargs void look_msg(object ob, string str, object obj)
                tell_object(ob, this_player()->query_cap_name() + " looks you over.");
                return ;			
 		    }		   
-            else
-	        {
-            tell_room(ETP,TPQCN+" looks over "+ob->query_obvious_short()+".",TP);
+            if(ob->query_obvious_short()==0)
+			    {
+				tell_room(ETP,""+TPQCN+" looks over "+ str +".",TP);
+			    }
+			else	
+	        {   				
+            tell_room(ETP,""+TPQCN+" looks over "+ ob->query_obvious_short() +".",TP);
 			}
         }
 	}	
