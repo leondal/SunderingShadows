@@ -37,9 +37,8 @@ int cmd_study(string str)
                 tell_object(TP, "There is no " + what + " in your general area.");
                 return 1;
             }
-            tell_object(TP, "You carefully begin studying the " + what + " here.");
-            tell_room(ETP, TPQCN + " seems to be carefully studying the " +
-                      what + " here.", TP);
+            tell_object(TP, "You carefully begin studying the " + obj->query_short() + " here.");
+            tell_room(ETP, TPQCN + " seems to be carefully studying the " + obj->query_short() +" here.", TP);
             TP->set_time_delay("studying");
             do_room_study(TP, what);
             return 1;
@@ -165,7 +164,8 @@ int cmd_study(string str)
     }
     ids = obj->query_id();
     if (!TP->query_invis()) {
-        tell_room(ETP, TPQCN + " seems to be studying the " + str + " carefully.", TP);
+        tell_object(TP, "You carefully begin studying the " + obj->query_short() + ".");
+        tell_room(ETP, TPQCN + " seems to be studying the " + obj->query_short() + " carefully.", TP);
     }
     TP->set_time_delay("studying");
     if ((int)obj->is_brewed()) {
