@@ -252,7 +252,7 @@ varargs void look_msg(object ob, string str, object obj)
 		    }		   
             else
 	        {
-            tell_room(ETP,TPQCN+" looks over the "+ob->query_obvious_short()+".",TP);
+            tell_room(ETP,TPQCN+" looks over "+ob->query_obvious_short()+".",TP);
 			}
         }
 	}	
