@@ -23,7 +23,7 @@ void create() {
     set_body_type("elf");
     set_property("no bump", 1);
     set_property("no animate",1);
-    set_storage_room("/d/common/inherit/scroll_storage.c");
+    set_storage_room("/d/attaya/newseneca/cguilds/mage/noma_storage.c");
     set_items_allowed("misc");
     set_mymaxvalue(1);
     set_spell_chance(90);

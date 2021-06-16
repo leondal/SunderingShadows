@@ -1,0 +1,1 @@
+inherit "/d/common/inherit/scroll_storage.c";

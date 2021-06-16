@@ -194,7 +194,7 @@ int query_max_skills()
 
 // finally if necessary, add in human bonus of 4 skillpoints if not planetouched.
     if (myrace == "human") {
-        if (!subrace || subrace == "" || (subrace != "tiefling" && subrace != "aasimar" && subrace != "feytouched")) {
+        if (!subrace || subrace == "" || (subrace != "tiefling" && subrace != "aasimar" && subrace != "feytouched" && subrace != "dhampir") ) {
             num = num + 4; //extra 4 skill points at L1 for human non-plane-touched
         }
     }

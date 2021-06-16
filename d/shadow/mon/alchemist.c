@@ -24,7 +24,7 @@ void create() {
     set_exp(20);
     set_body_type("human");
     set_property("no bump", 1);
-    set_storage_room("/d/common/inherit/scroll_storage.c");
+    set_storage_room("/d/shadow/mon/alchemist_storage.c");
     set_items_allowed("misc");
     set_mymaxvalue(1);
 }
