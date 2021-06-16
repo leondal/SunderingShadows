@@ -238,9 +238,18 @@ varargs void look_msg(object ob, string str, object obj)
         {
             if(living(obj))
             {
-                tell_room(ETP,TPQCN+" looks at "+obj->QCN+"'s "+ob->query_obvious_short()+".",({obj,TP}));
+				if(ob->query_obvious_short()==0)
+			    {
+                tell_room(ETP,TPQCN+" looks at "+obj->QCN+"'s "+str+".",({obj,TP}));
+                tell_object(obj,TP->QCN+" looks over your "+str+".");
+                tell_object(TP,"You look over "+obj->QCN+"'s "+str+"");
+				}
+				else
+				{
+				tell_room(ETP,TPQCN+" looks at "+obj->QCN+"'s "+ob->query_obvious_short()+".",({obj,TP}));
                 tell_object(obj,TP->QCN+" looks over your "+ob->query_obvious_short()+".");
                 tell_object(TP,"You look over "+obj->QCN+"'s "+str+"");
+				}
 			return ;	
             }
 
