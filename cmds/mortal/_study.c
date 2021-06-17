@@ -41,12 +41,10 @@ int cmd_study(string str)
 			{
 			tell_object(TP, "You carefully begin studying the " + str + " here.");
             tell_room(ETP, TPQCN + " seems to be carefully studying the " + str +" here.", TP);	
-			return 1;
 			}
 			else{
             tell_room(ETP, TPQCN + " seems to be carefully studying the " + obj->query_obvious_short() +" here.", TP);	
             tell_object(TP, "You carefully begin studying the " + obj->query_obvious_short() + " here.");
-			return 1;
 			}
             TP->set_time_delay("studying");
             do_room_study(TP, what);
@@ -177,12 +175,10 @@ int cmd_study(string str)
 		{
 		tell_object(TP, "You carefully begin studying the " + str + " here.");
         tell_room(ETP, TPQCN + " seems to be carefully studying the " + str +" here.", TP);	
-		return 1;
 		}
 		else{
         tell_room(ETP, TPQCN + " seems to be carefully studying the " + obj->query_obvious_short() +" here.", TP);
         tell_object(TP, "You carefully begin studying the " + obj->query_obvious_short() + " here.");
-		return 1;
 		}
     }
     TP->set_time_delay("studying");
