@@ -85,7 +85,7 @@ int prerequisites(object player)
         if(player->query_base_stats("charisma") < 20) { return 0; }
         player->set("base_class","oracle");
     }
-    
+
     return 1;
 }
 
@@ -113,7 +113,7 @@ int caster_level_calcs(object player, string the_class)
     base = player->query("base_class");
 
     level = player->query_class_level(base);
-    level += player->query_class_level("shadow adept");
+    level += player->query_class_level("shadow_adept");
     return level;
 }
 
