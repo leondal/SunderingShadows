@@ -37,8 +37,17 @@ int cmd_study(string str)
                 tell_object(TP, "There is no " + what + " in your general area.");
                 return 1;
             }
+			if(obj->query_obvious_short()==0)
+			{
+			tell_object(TP, "You carefully begin studying the " + str + " here.");
+            tell_room(ETP, TPQCN + " seems to be carefully studying the " + str +" here.", TP);	
+			return 1;
+			}
+			else{
+            tell_room(ETP, TPQCN + " seems to be carefully studying the " + obj->query_obvious_short() +" here.", TP);	
             tell_object(TP, "You carefully begin studying the " + obj->query_obvious_short() + " here.");
-            tell_room(ETP, TPQCN + " seems to be carefully studying the " + obj->query_obvious_short() +" here.", TP);
+			return 1;
+			}
             TP->set_time_delay("studying");
             do_room_study(TP, what);
             return 1;
@@ -164,8 +173,17 @@ int cmd_study(string str)
     }
     ids = obj->query_id();
     if (!TP->query_invis()) {
-        tell_object(TP, "You carefully begin studying the " + obj->query_obvious_short() + ".");
-        tell_room(ETP, TPQCN + " seems to be studying the " + obj->query_obvious_short() + " carefully.", TP);
+		if(obj->query_obvious_short()==0)
+		{
+		tell_object(TP, "You carefully begin studying the " + str + " here.");
+        tell_room(ETP, TPQCN + " seems to be carefully studying the " + str +" here.", TP);	
+		return 1;
+		}
+		else{
+        tell_room(ETP, TPQCN + " seems to be carefully studying the " + obj->query_obvious_short() +" here.", TP);
+        tell_object(TP, "You carefully begin studying the " + obj->query_obvious_short() + " here.");
+		return 1;
+		}
     }
     TP->set_time_delay("studying");
     if ((int)obj->is_brewed()) {
