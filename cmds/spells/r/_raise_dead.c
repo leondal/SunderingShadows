@@ -10,7 +10,7 @@ create() {
     set_spell_level(([ "cleric" : 5, "druid" : 4, "paladin" : 4, "inquisitor" : 4, "bard":4]));
     set_spell_sphere("healing");
     set_syntax("cast CLASS raise dead on TARGET");
-    set_description("This spell will revive a dead player when cast upon their corpse. The deceasedwill be returned to the site of death and revived. Note it is similar to beingrevived in a church as the person will be barely alive and need significanthealing. The target will suffer somewhat less from the death due to the intervention of the priest.
+    set_description("This spell will revive a dead player when cast upon their corpse. The deceased will be returned to the site of death and revived. Note it is similar to being revived in a church as the person will be barely alive and need significant healing. The target will suffer somewhat less from the death due to the intervention of the priest.
 
 The TARGET must be the recognized name of the dead player or their corpse. You don't need to know the name to use this spell on a corpse.");
     set_verbal_comp();
