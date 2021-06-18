@@ -57,7 +57,7 @@ void spell_effect(int prof) {
     {
         tell_object(caster,"You sense something is wrong with your spell and it backfires.");
         tell_room(place,caster->QCN+" "+"looks startled.",caster);
-        damage_targ(caster, caster->return_target_limb(), sdamage / 4, "mental");
+        //damage_targ(caster, caster->return_target_limb(), sdamage / 4, "mental");
         dest_effect();
 
     }

@@ -193,6 +193,7 @@ void do_next(object endplace){
 }
 
 int open_portal(){
+   addSpellToCaster();
    tell_room(endplace,"%^BOLD%^A shimmering portal opens in the air!");
    endplace->add_exit(base_name(place), "portal");
    place->add_exit(base_name(endplace), "portal");
