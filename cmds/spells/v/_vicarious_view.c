@@ -110,9 +110,9 @@ void dest_effect()
         tell_room(environment(marked), "%^YELLOW%^" + marked->QCN + " " +
                   "suddenly seems relieved for some reason.%^RESET%^", marked);
         marked->remove_property("justice marked");
-        caster->remove_property("justice marker");
-        rune->remove();
     }
+    if(objectp(caster)) caster->remove_property("justice marker");
+    if(objectp(rune)) rune->remove();
     ::dest_effect();
     if (objectp(TO)) {
         TO->remove();
