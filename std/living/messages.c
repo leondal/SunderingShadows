@@ -32,7 +32,6 @@ string query_min(object ob) {
     else if(tmp) str = "$N crawls in.";
     
     draggee = this_object()->query_draggee();
-    
 
     if (draggee) {
        replace_string(str,".","");
@@ -52,7 +51,8 @@ string query_min(object ob) {
 
 string query_mout(string dir,object ob) {
     int tmp;
-    string str;
+    string str, drag;
+    object draggee;
 
     str = (string)this_object()->getenv("MOUT");
     if(TO->query_property("MOUT")) { str = (string)TO->query_property("MOUT"); }
@@ -61,9 +61,14 @@ string query_mout(string dir,object ob) {
     tmp = peds_gone();
     if(tmp == 1) str = "$N limps $D.";
     else if(tmp) str = "$N crawls $D.";
-    if (TO->query_draggee()) {
+    
+    draggee = this_object()->query_draggee();
+    
+    if (draggee) {
        replace_string(str,".","");
-       str=str+" dragging "+TO->query_draggee()->query_cap_name()+".";
+       drag = draggee->query_cap_name();
+       //str=str+" dragging "+TO->query_draggee()->query_cap_name()+".";
+       str = str + " dragging " + drag ? drag : "someone" + ".";
     }
 
     if (ob->detecting_invis() && TO->query_invis()) {
@@ -78,17 +83,21 @@ string query_mout(string dir,object ob) {
 }
 
 string query_mmin(object ob) {
-    string str;
-    object prev;
+    string str, drag;
+    object prev, draggee;
 
     str = (string)this_object()->getenv("MMIN");
     str = validate( str, ({ "$N" }) );
     if( str == "" ) str = "$N appears from the shadows.";
 
-    if (prev = TO->query_property("draggee")) {
+    draggee = this_object()->query_draggee();
+    
+    if (prev = draggee) {
        if (objectp(prev)) {
           if (objectp(environment(prev))) {
-             str = "$N is dragged in by "+environment(prev)->query_cap_name();
+             //str = "$N is dragged in by "+environment(prev)->query_cap_name();
+             drag = prev->query_cap_name();
+             str = "$N is dragged in by " + strlen(drag) ? drag : "someone";
           }
        }
     }
@@ -102,17 +111,21 @@ string query_mmin(object ob) {
 }
 
 string query_mmout(object ob) {
-    string str;
-    object prev;
+    string str, drag;
+    object prev, draggee;
 
     str = (string)this_object()->getenv("MMOUT");
     str = validate( str, ({ "$N" }) );
     if( str == "" ) str = "$N fades into the shadows.";
 
-    if (prev = TO->query_property("draggee")) {
+    draggee = this_object()->query_property("draggee");
+    
+    if (prev = draggee) {
        if (objectp(prev)) {
           if (objectp(environment(prev))) {
-             str = "$N is dragged out by "+environment(prev)->query_cap_name();
+             drag = prev->query_cap_name();
+             //str = "$N is dragged out by "+environment(prev)->query_cap_name();
+             str = "$N is dragged out by " + strlen(drag) ? drag : "someone";
           }
        }
     }
