@@ -20,8 +20,8 @@ string validate(string str, string *vars) {
 
 string query_min(object ob) {
     int tmp;
-    string str;
-    object prev;
+    string str, drag;
+    object prev, draggee;
 
     str = (string)this_object()->getenv("MIN");
     if(TO->query_property("MIN")) { str = (string)TO->query_property("MIN"); }
@@ -30,10 +30,16 @@ string query_min(object ob) {
     tmp = peds_gone();
     if(tmp == 1) str = "$N enters with a limp.";
     else if(tmp) str = "$N crawls in.";
+    
+    draggee = this_object()->query_draggee();
+    
 
-    if (TO->query_draggee()) {
+    if (draggee) {
        replace_string(str,".","");
-       str=str+" dragging "+TO->query_draggee()->query_cap_name()+".";
+       drag = draggee->query_cap_name();
+       
+       //str=str+" dragging "+TO->query_draggee()->query_cap_name()+".";
+       str = str + " dragging " + drag ? drag : "someone" + ".";
     }
     if (ob->detecting_invis() && TO->query_invis()) {
        str = str+" %^BOLD%^%^GREEN%^(invisible)";
