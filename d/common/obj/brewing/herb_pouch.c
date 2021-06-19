@@ -16,7 +16,7 @@ void create()
              "though three hundred separate packets of herbs or other alchemical " +
              "additives could be held inside this one pouch.");
     set_id(({ "pouch", "leather pouch", "herb pouch", "leather herb pouch" }));
-    set_max_internal_encumbrance(300); //sextupling this 4/5/2020, Odin
+    //set_max_internal_encumbrance(300); //sextupling this 4/5/2020, Odin - removing encumbrance on herbs to be in line with components bags
     set_limbs(({ "waist" })); //was set to torso. 12 Dec 19, Uriel
     set_type("ring");
     set_weight(4);
