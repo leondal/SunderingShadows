@@ -82,6 +82,10 @@ void execute_feat()
     if (!arg) {
         return help();
     }
+	    if (!environment(caster)->is_lab() && !present("portable lab", environment(caster))) {
+        write("You can only enchant items in a laboratory.");
+        return 1;
+    }
 
     if (regexp(arg, "as level [0-9]+ for [0-9]+ times$")) {
         if (sscanf(arg, "%s as level %d for %d times", str, spell_clevel, scroll_amount) != 3) {
