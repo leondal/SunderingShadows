@@ -6,7 +6,7 @@ inherit OBJECT;
 
 
 
-#define SAVE_FILE STORAGE"horse_race_stuff"
+#define SAVE_FILE "/d/save/horse_race_stuff"
 
 
 mapping horse_stats;
@@ -865,10 +865,7 @@ void dramatic_pause(int num)
 
 void SAVE()
 {
-    //seteuid(UID_DAEMONSAVE);
-    //seteuid(UID_ROOT);
 	save_object(SAVE_FILE);
-    seteuid(getuid());
     return;
 }
 

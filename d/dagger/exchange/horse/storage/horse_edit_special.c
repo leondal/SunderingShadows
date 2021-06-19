@@ -3,7 +3,7 @@
 #include "/d/dagger/exchange/horse/horse.h"
 inherit OBJECT;
 
-#define SAVE_FILE STORAGE"horse_race_stuff"
+#define SAVE_FILE "/d/save/horse_race_stuff"
 
 mapping horse_stats;
 
@@ -70,9 +70,7 @@ void clear_all_training()
 
 void SAVE()
 {
-    seteuid(UID_DAEMONSAVE);
-        save_object(SAVE_FILE);
-    seteuid(getuid());
+    save_object(SAVE_FILE);
 
         horse_master =find_object_or_load("/d/dagger/exchange/horse/storage/horse_master.c");
         horse_master->create();
