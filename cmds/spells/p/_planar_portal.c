@@ -188,7 +188,7 @@ void do_next(object endplace){
        "%^YELLOW%^flashes%^RESET%^ %^BOLD%^%^MAGENTA%^and a portal opens, leading "+
        "to "+newplace+"!");
     open_portal();
-    call_out("close_portal",clevel * ROUND_LENGTH);
+    call_out("dest_effect",clevel * ROUND_LENGTH);
     return;
 }
 
@@ -207,7 +207,6 @@ int close_portal(){
       "then closes and fades away.");
    place->remove_exit("portal");
    endplace->remove_exit("portal");
-   dest_effect();
    return 1;
 }
 
