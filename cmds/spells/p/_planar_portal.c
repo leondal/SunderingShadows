@@ -212,6 +212,7 @@ int close_portal(){
 }
 
 void dest_effect() {
+    close_portal();
     ::dest_effect();
     if(objectp(TO)) TO->remove();
 }
