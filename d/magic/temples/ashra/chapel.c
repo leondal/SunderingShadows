@@ -42,5 +42,5 @@ void create()
         "east" : "roost",
     ]));
     set_door("chapel door","salon","south",0);
-    set_door_description("%^BOLD%^%^BLACK%^Large wooden double doors painted pitch black stand here. The doors are engraved with a sp%^RESET%^%^MAGENTA%^i%^BOLD%^%^BLACK%^r%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^l p%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^tt%^RESET%^%^MAGENTA%^e%^BOLD%^%^BLACK%^rn of %^RESET%^%^MAGENTA%^wr%^BOLD%^%^BLACK%^i%^RESET%^%^MAGENTA%^thing t%^BOLD%^%^BLACK%^e%^RESET%^%^MAGENTA%^nt%^BOLD%^%^BLACK%^a%^RESET%^%^MAGENTA%^cles %^BOLD%^%^BLACK%^emanating from a central %^RESET%^%^MAGENTA%^circle%^BOLD%^%^BLACK%^. They look very thick, and you can hear nothing from beyond them.%^RESET%^");
+    set_door_description("chapel door", "%^BOLD%^%^BLACK%^Large wooden double doors painted pitch black stand here. The doors are engraved with a sp%^RESET%^%^MAGENTA%^i%^BOLD%^%^BLACK%^r%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^l p%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^tt%^RESET%^%^MAGENTA%^e%^BOLD%^%^BLACK%^rn of %^RESET%^%^MAGENTA%^wr%^BOLD%^%^BLACK%^i%^RESET%^%^MAGENTA%^thing t%^BOLD%^%^BLACK%^e%^RESET%^%^MAGENTA%^nt%^BOLD%^%^BLACK%^a%^RESET%^%^MAGENTA%^cles %^BOLD%^%^BLACK%^emanating from a central %^RESET%^%^MAGENTA%^circle%^BOLD%^%^BLACK%^. They look very thick, and you can hear nothing from beyond them.%^RESET%^");
 }
