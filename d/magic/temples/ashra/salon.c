@@ -39,7 +39,7 @@ void create()
     ]));
     set_exits(([
         "south" : "hall",
-        "north " : "chapel",
+        "north" : "chapel",
         "up" : "balcony",
     ]));
     set_door("dark doors","hall","south",0);

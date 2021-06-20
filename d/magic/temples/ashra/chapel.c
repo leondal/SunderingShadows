@@ -38,7 +38,7 @@ void create()
         ({"podium"}) : "%^BOLD%^%^BLACK%^This sturdy podium is engraved with the images of the Dark Unity; %^CYAN%^Lord Shadow%^BLACK%^, %^RESET%^%^RED%^The Faceless One%^BOLD%^%^BLACK%^, %^WHITE%^Nilith%^BLACK%^, %^RED%^Khyron %^BLACK%^and %^RESET%^%^MAGENTA%^A%^BOLD%^%^BLACK%^s%^RESET%^%^MAGENTA%^h%^BOLD%^%^BLACK%^r%^RESET%^%^MAGENTA%^a %^BOLD%^%^BLACK%^herself. Resting open upon the podium is a dark tome, the libram of the eternal night, open to the passage of %^RESET%^%^MAGENTA%^A%^BOLD%^%^BLACK%^s%^RESET%^%^MAGENTA%^h%^BOLD%^%^BLACK%^r%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^’s charge upon her faithful.%^RESET%^",
     ]));
     set_exits(([
-        "south " : "salon",
+        "south" : "salon",
         "east" : "roost",
     ]));
     set_door("chapel door","salon","south",0);
