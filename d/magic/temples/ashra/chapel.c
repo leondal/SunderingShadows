@@ -38,8 +38,8 @@ void create()
         ({"podium"}) : "%^BOLD%^%^BLACK%^This sturdy podium is engraved with the images of the Dark Unity; %^CYAN%^Lord Shadow%^BLACK%^, %^RESET%^%^RED%^The Faceless One%^BOLD%^%^BLACK%^, %^WHITE%^Nilith%^BLACK%^, %^RED%^Khyron %^BLACK%^and %^RESET%^%^MAGENTA%^A%^BOLD%^%^BLACK%^s%^RESET%^%^MAGENTA%^h%^BOLD%^%^BLACK%^r%^RESET%^%^MAGENTA%^a %^BOLD%^%^BLACK%^herself. Resting open upon the podium is a dark tome, the libram of the eternal night, open to the passage of %^RESET%^%^MAGENTA%^A%^BOLD%^%^BLACK%^s%^RESET%^%^MAGENTA%^h%^BOLD%^%^BLACK%^r%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^’s charge upon her faithful.%^RESET%^",
     ]));
     set_exits(([
-        "south" : "salon",
-        "east" : "roost",
+        "south" : "/d/magic/temples/ashra/salon",
+        "east" : "/d/magic/temples/ashra/roost",
     ]));
     set_door("chapel door","salon","south",0);
     set_door_description("chapel door", "%^BOLD%^%^BLACK%^Large wooden double doors painted pitch black stand here. The doors are engraved with a sp%^RESET%^%^MAGENTA%^i%^BOLD%^%^BLACK%^r%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^l p%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^tt%^RESET%^%^MAGENTA%^e%^BOLD%^%^BLACK%^rn of %^RESET%^%^MAGENTA%^wr%^BOLD%^%^BLACK%^i%^RESET%^%^MAGENTA%^thing t%^BOLD%^%^BLACK%^e%^RESET%^%^MAGENTA%^nt%^BOLD%^%^BLACK%^a%^RESET%^%^MAGENTA%^cles %^BOLD%^%^BLACK%^emanating from a central %^RESET%^%^MAGENTA%^circle%^BOLD%^%^BLACK%^. They look very thick, and you can hear nothing from beyond them.%^RESET%^");

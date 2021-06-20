@@ -35,8 +35,8 @@ void create()
         ({"archway"}) : "%^BOLD%^%^BLACK%^Columns of black marble entwined with %^RESET%^%^GREEN%^thorny v%^RED%^i%^GREEN%^nes %^BOLD%^%^BLACK%^form the arched entryway from the courtyard. Bl%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^ck r%^RESET%^%^MAGENTA%^o%^BOLD%^%^BLACK%^ses bloom among the %^RESET%^%^GREEN%^vines %^BOLD%^%^BLACK%^and a %^WHITE%^cr%^BLACK%^a%^WHITE%^ck%^BLACK%^e%^WHITE%^d p%^BLACK%^o%^WHITE%^rcel%^BLACK%^a%^WHITE%^in m%^BLACK%^a%^WHITE%^sk %^BLACK%^of a beautiful %^RESET%^%^MAGENTA%^female %^BOLD%^%^BLACK%^f%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^ce leaking a black ichor is prominently displayed at the center of the arch.%^RESET%^",
     ]));
     set_exits(([
-        "north" : "salon",
-        "south" : "courtyard",
+        "north" : "/d/magic/temples/ashra/salon",
+        "south" : "/d/magic/temples/ashra/courtyard",
     ]));
            
     set_door("dark doors","salon","north",0);

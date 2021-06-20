@@ -38,9 +38,9 @@ void create()
         ({"archway", "arch" }) : "%^BOLD%^%^WHITE%^These silver archways contain fanciful images of fey creatures, all with a notably %^BOLD%^%^BLACK%^dark cast%^WHITE%^ to the their beautiful features. %^RED%^Ruby %^WHITE%^tears fall from their sparkling %^MAGENTA%^amethyst eyes%^WHITE%^ as they cry out at the %^RESET%^%^MAGENTA%^purple rimmed%^BOLD%^%^BLACK%^ dark moon%^WHITE%^ that dominates the center of the archways. An %^BOLD%^%^BLACK%^impenetrable wall of darkness%^WHITE%^ is all that lies beyond.%^RESET%^",
     ]));
     set_exits(([
-        "south" : "hall",
-        "north" : "chapel",
-        "up" : "balcony",
+        "south" : "/d/magic/temples/ashra/hall",
+        "north" : "/d/magic/temples/ashra/chapel",
+        "up" : "/d/magic/temples/ashra/balcony",
     ]));
     set_door("dark doors","hall","south",0);
     set_door_description("dark doors", "%^BOLD%^%^BLACK%^These large intimidating adamantium doors are of exquisite craft, their smooth surfaces glistening as though the metal had been freshly polished. On each door, shaped elegantly in the black metal is the silhouette of a voluptuous female form arms folded about her head, hair flying wildly about her. Directly behind the woman a crescent moon hangs precariously in the sky with some unidentifiable ichor dripping from it.. The doors appear quite sturdy.%^RESET%^");

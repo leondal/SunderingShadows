@@ -34,7 +34,7 @@ void create()
        ({"archway","arch"}) : "%^BOLD%^%^BLACK%^Gauzy black cloth hangs in billowing wisps across the entrance here concealing the room beyond in near total darkness. A distorted demonic countenance is mounted here above the archway itself, its glowing violet eyes looking down on all who would dare enter here.%^RESET%^",
     ]));
     set_exits(([
-        "down" : "salon",
-        "north" : "chamber",
+        "down" : "/d/magic/temples/ashra/salon",
+        "north" : "/d/magic/temples/ashra/chamber",
     ]));
 }

@@ -38,7 +38,7 @@ void create()
         ({"cubicles"}) : "The cubicles, %^BOLD%^%^BLACK%^tall and narrow%^RESET%^, line up against the wall. They look a bit like %^BOLD%^%^BLACK%^confessionals%^RESET%^, but upon opening one of the doors and looking inside, you see no mesh openings to allow conversation with the %^BOLD%^%^BLACK%^neighboring box%^RESET%^. The interior is as austere as their exterior, containing only an uncomfortable-looking %^BOLD%^%^BLACK%^plain pew%^RESET%^ made of %^BOLD%^%^BLACK%^dark ebony%^RESET%^, like the rest of the small %^BOLD%^%^BLACK%^enclosure%^RESET%^.",
     ]));
     set_exits(([
-        "west" : "chapel",
+        "west" : "/d/magic/temples/ashra/chapel",
     ]));
 }
     /*

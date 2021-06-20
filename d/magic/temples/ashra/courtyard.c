@@ -8,8 +8,11 @@
 */
 
 #include <std.h>
+#include <move.h>
 
-inherit "/std/temple";
+inherit "/std/templemisc";
+
+int fruit;
 
 void create()
 {
@@ -35,7 +38,49 @@ void create()
     ]));
     set_exits(([
         "northeast" : "/d/magic/temples/shar_path5",
-        "temple" : "hall",
+        "temple" : "/d/magic/temples/ashra/hall",
     ]));
+    
+    fruit = 5;
+}
+
+void init()
+{
+    ::init();
+    add_action("pick_fruit", "pick");
+}
+
+int pick_fruit(string str)
+{
+    object obj;
+    if (!str) {
+        tell_object(TP, "Pick what?");
+        return 1;
+    }
+    if (str != "fruit" && str != "dark fruit") {
+        return 0;
+    }
+    if (fruit > 0) {
+        tell_object(TP, "%^BOLD%^%^BLACK%^You pick one of the " +
+                    "fru%^RED%^i%^BLACK%^ts from the tree.%^RESET%^");
+        tell_room(TO, "%^BOLD%^%^BLACK%^" + TPQCN + " picks one of " +
+                  "the fru%^RED%^i%^BLACK%^ts from the tree.%^RESET%^", TP);
+        obj = new("/d/magic/temples/misc/shar_fruit");
+        if (obj->move(TP) != MOVE_OK) {
+            tell_object(TP, "You drop it as fast as you pick it!");
+            tell_room(TO, "" + TPQCN + " drops it!", TP);
+            obj->move(ETP);
+        }
+        fruit--;
+        return 1;
+    }else {
+        tell_object(TP,"%^BOLD%^%^BLACK%^A nearby garden keeper "+
+           "waves you away muttering about that being enough for "+
+           "today%^RESET%^.");
+           tell_room(TO,"%^BOLD%^%^BLACK%^As "+TPQCN+" tries to pick "+
+           "a fruit from the tree, a nearby gardener waves "+TP->QO+" "+
+           "away, muttering about that being enough for today.",TP);
+        return 1;
+    }
 }
    
