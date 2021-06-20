@@ -14,7 +14,7 @@ inherit "/std/temple";
 void create()
 {
     ::create();
-    set_property("outdoors",1); 
+    set_property("indoors",1); 
     set_property("light",1);
     set_temple("ashra");
     set_terrain(STONE_BUILDING);
