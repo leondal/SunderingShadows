@@ -53,7 +53,7 @@ void step_1(object target) {
       return;
    }else{
       tell_object(target,"\n\n%^RESET%^%^MAGENTA%^The man turns to you and says:%^RESET%^ Welcome, newcomer, "
-         "to the Shadowgate MUD!  I am always glad to see fresh faces, it gets very lonely here sometimes.\n\n"
+         "to Sundering Shadows!  I am always glad to see fresh faces, it gets very lonely here sometimes.\n\n"
          "%^MAGENTA%^He shakes his head and continues:%^RESET%^ I am here to teach you the first basic commands.  Just "
          "%^YELLOW%^<nod>%^RESET%^ when you're ready.\n\nThe man smiles.");
       target->set("newbtutorial",1);
