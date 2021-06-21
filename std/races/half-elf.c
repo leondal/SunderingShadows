@@ -170,5 +170,5 @@ int is_pk_race(string subrace)
 
 string *query_languages(string subrace)
 {
-    return (["required":({"common","elven"}),"optional":({"abyssal","aklo","auran","aquan","beast","celestial","draconic","drow","dwarvish","giant","gnomish","halfling","ignan","infernal","orcish","saurian","tengu","sylvan","terran","undercommon","yuan-ti"})]);
+    return (["required":({"common","elven"}),"optional":({"abyssal","aklo","auran","aquan","beast","celestial","draconic","drow","dwarvish","giant","gnomish","halfling","ignan","infernal","orcish","saurian","sylvan","terran","undercommon","yuan-ti"})]);
 }

@@ -148,5 +148,5 @@ string *query_eye_colors(string subrace) {
 
 string *query_languages(string subrace)
 {
-    return (["required":({"common","sylvan",}),"optional":({"elven","aklo", "celestial", "gnomish", "tengu"})]);
+    return (["required":({"common","sylvan",}),"optional":({"elven","aklo", "celestial", "gnomish"})]);
 }

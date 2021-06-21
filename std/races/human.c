@@ -428,5 +428,5 @@ string *query_languages(string subrace)
     }
 
     return (["required":({"common",}),
-             "optional":({"abyssal","aklo","auran","aquan","beast","celestial","draconic","drow","dwarvish","elven","giant","gnomish","halfling","ignan","infernal","orcish","saurian","tengu","sylvan","terran","undercommon","yuan-ti"})]);
+             "optional":({"abyssal","aklo","auran","aquan","beast","celestial","draconic","drow","dwarvish","elven","giant","gnomish","halfling","ignan","infernal","orcish","saurian","sylvan","terran","undercommon","yuan-ti"})]);
 }
