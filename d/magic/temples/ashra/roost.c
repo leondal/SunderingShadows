@@ -41,6 +41,34 @@ void create()
         "west" : "/d/magic/temples/ashra/chapel",
     ]));
 }
+
+void init()
+{
+    ::init();
+    add_action("push", "push");
+}
+
+int push(string str)
+{
+    if(!str || (str != "spike" && str != "tongue"))
+        return 0;
+    
+    tell_object(this_player(), "The %^BOLD%^%^RED%^ruby spike%^RESET%^ is extremely sharp and slips into your thumb like a %^BOLD%^%^YELLOW%^hot knife in butter%^RESET%^. As you pull back in pain, a %^RED%^drop of blood%^RESET%^ from your thumb slides into the %^BOLD%^%^BLACK%^bird's throat%^RESET%^ and seconds later an audible click is emitted from the depths of its %^BOLD%^%^BLACK%^iron belly%^RESET%^.");
+    tell_room(environment(this_player()), "As " + this_player()->QCN + " tries to push the %^BOLD%^%^RED%^ruby spike%^RESET%^, " + this_player()->QP + " pricks " + this_player()->query_possessive() + " thumb. The %^RED%^drop of blood%^RESET%^ from his/her thumb slides into the %^BOLD%^%^BLACK%^bird's throat%^RESET%^ and seconds later an audible click is emmited from the depths of its %^BOLD%^%^BLACK%^iron belly%^RESET%^.", ({ this_player() })); 
+    
+    call_out("push_next", 2, this_player());
+    return 1;
+}
+
+int push_next(object player)
+{
+    if(!player)
+        return 1;
+    
+    tell_room(environment(player), "A %^BOLD%^%^WHITE%^soft mist%^RESET%^ starts floating out of the %^BOLD%^%^BLACK%^raven's%^RESET%^ beak and begins to slowly cloud the room. A heavy, %^BOLD%^%^MAGENTA%^sweet aroma%^RESET%^ of %^MAGENTA%^hibiscus%^RESET%^ and %^BOLD%^%^WHITE%^musk%^RESET%^ fills your nostrils and almost overpowers you with its sudden %^MAGENTA%^intensity%^RESET%^. Your senses are %^BOLD%^%^CYAN%^heightened%^RESET%^ and you feel you could cross the boundary that seperates %^BOLD%^%^CYAN%^reality%^RESET%^ and %^BOLD%^%^CYAN%^hallucination%^RESET%^ any time you chose to.");
+    return 1;
+}
+
     /*
     set_door(" ","chapel"," ",0);
     set_door_description(" ", "   ");
