@@ -374,7 +374,7 @@ int has_bonus_type() {
     {
         if(!target)
             target = caster;
-        
+
         foreach(string type in bonus_type)
         {
             if(sizeof(target->query_property("spell_bonus_type")) && member_array(type, target->query_property("spell_bonus_type")) != -1)
@@ -1209,7 +1209,7 @@ void wizard_interface(object user, string type, string targ)
         TO->remove();
         return;
     }
-    
+
     if(has_bonus_type()) {
         return;
     }
@@ -2149,7 +2149,7 @@ void spell_successful() //revoked exp bonuses from casting. This function seems 
     {
         if(!target)
             target = caster;
-        
+
         foreach(string type in bonus_type)
         {
             target && target->set_property("spell_bonus_type", ({type}));
@@ -2408,16 +2408,16 @@ void define_clevel()
         if (FEATS_D->usable_feat(caster, "mind wave")) {
             clevel += 2;
         }
-        
+
         if(FEATS_D->usable_feat(caster, "astral ally") && spell_sphere == "metacreativity" && caster->query("available focus"))
         {
             if(spell_name != "bend reality" && spell_name != "reality revision")
                 clevel += 2;
         }
-        
+
         if(FEATS_D->usable_feat(caster, "seeing the connections") && spell_sphere == "clairsentience" && caster->query("available focus"))
             clevel += 1;
-        
+
         if(caster->query_property("augment power"))
         {
             tell_object(caster, "%^CYAN%^BOLD%^You pour your additional mental resources into the power, augmenting it.%^RESET%^");
@@ -2594,15 +2594,23 @@ void define_base_damage(int adjust)
 
         if (slevel < 1) {
             sdamage = roll_dice(clevel, 5);
-        if(caster && caster->query_property("maximize spell"))
-            sdamage = clevel * 5;
-        }else if (slevel > 0 && slevel < 20) {
+            if(caster && caster->query_property("maximize spell"))
+            {
+                tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
+                caster->remove_property("maximize spell");
+                sdamage = clevel * 5;
+            }
+        } else if (slevel > 0 && slevel < 20) {
             sdamage = roll_dice(clevel, 5 + slevel);
             if(caster && caster->query_property("maximize spell"))
+            {
+                tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
+                caster->remove_property("maximize spell");
                 sdamage = clevel * (slevel + 5);
+            }
         } else {
             sdamage = roll_dice(clevel, 8);
-            if(caster->query_property("maximize spell"))
+            if(caster && caster->query_property("maximize spell"))
             {
                 tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
                 caster->remove_property("maximize spell");
@@ -2612,7 +2620,7 @@ void define_base_damage(int adjust)
 
         if(spell_type == "cantrip")
             sdamage = roll_dice(1 + clevel / 2, 6);
-        
+
         if(spell_type == "psion")
         {
             if(FEATS_D->usable_feat(caster, "power specialization"))
@@ -3145,7 +3153,7 @@ varargs int do_save(object targ, int mod)
         environment(caster) == environment(targ)) {
         caster_bonus += 3;
     }
-    
+
     //Telepath can power up a mental spell to higher DC
     if(mental_spell && caster->query_property("mental intrusion"))
     {
@@ -3153,14 +3161,14 @@ varargs int do_save(object targ, int mod)
         tell_object(caster, "%^BOLD%^Your power is bolstered to be more intrusive.%^RESET%^");
         caster->remove_property("mental intrusion");
     }
-    
+
     if (caster->query_school() && caster->query_opposing_school())
     {
         if (spell_sphere == caster->query_school())
         {
             if (caster->is_class("mage"))
                 caster_bonus += (1 + classlvl / 31);
-            
+
             if (FEATS_D->usable_feat(caster, "school familiarity"))
                 clevel += (1 + classlvl / 31);
         }
@@ -3182,7 +3190,7 @@ varargs int do_save(object targ, int mod)
             }
         }
     }
-    
+
     //Likewise, telepaths with the guarded thoughts feat have a bonus against mental spells
     if(mental_spell && FEATS_D->usable_feat(targ, "guarded thoughts") && targ->query("available focus"))
         caster_bonus -= 10;
@@ -3641,13 +3649,13 @@ int race_immunity_check(object obj, string type)
 varargs int mind_immunity_check(object obj, string type)
 {
     int roll1;
-    
+
     if (!objectp(obj)) {
         return 0;
     }
-    
+
     roll1 = random(20);
-    
+
     if(roll1 > obj->query_property("mind_immunity"))
     {
         if(FEATS_D->usable_feat(obj, "mind partition"))
@@ -3658,7 +3666,7 @@ varargs int mind_immunity_check(object obj, string type)
                 return 1;
             }
         }
-        
+
         return 0;
     }
 
@@ -3737,7 +3745,7 @@ void help()
     if (sizeof(oracle_mystery)) {
         write("%^BOLD%^%^RED%^Mysteries:%^RESET%^ " + implode(oracle_mystery, ", "));
     }
-    
+
     if (mydiscipline) {
         write("%^BOLD%^%^RED%^Discipline:%^RESET%^ " + mydiscipline);
     }
