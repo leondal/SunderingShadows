@@ -67,6 +67,7 @@ int spell_level,
     hasBeenCast,
     preloaded,
     shadow_spell,
+    abnormal_cast,
     reg_num,
     quest_spell,
     mage_only,
@@ -1579,9 +1580,11 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
     set_caster(ob);
     clevel = ob_level;
     seteuid(getuid());
+    abnormal_cast = 1;//not a natural cast
 
     if(classtype == "cantrip")
     {
+        abnormal_cast = 0; //is a natural cast
         cantrips = caster->query_cantrip_spells();
 
         if(!sizeof(cantrips) || member_array(spell_name, cantrips) < 0)
@@ -1596,6 +1599,7 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
     }
 
     if (classtype == "innate") {
+        abnormal_cast = 0; //is a natural cast
         if (!(innate_spells = caster->query_innate_spells())) {
             tell_object(caster, "You have no innate spell of " +
                         spell_name + ".");
@@ -2583,7 +2587,7 @@ void define_base_damage(int adjust)
         slevel += adjust;
         slevel += sdamage_adjustment;
 
-        if(caster && caster->query_property("empower spell"))
+        if(caster && caster->query_property("empower spell") && !abnormal_cast)
         {
             slevel += 1;
             caster->remove_property("empower spell");
@@ -2594,7 +2598,7 @@ void define_base_damage(int adjust)
 
         if (slevel < 1) {
             sdamage = roll_dice(clevel, 5);
-            if(caster && caster->query_property("maximize spell"))
+            if(caster && caster->query_property("maximize spell") && !abnormal_cast)
             {
                 tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
                 caster->remove_property("maximize spell");
@@ -2602,7 +2606,7 @@ void define_base_damage(int adjust)
             }
         } else if (slevel > 0 && slevel < 20) {
             sdamage = roll_dice(clevel, 5 + slevel);
-            if(caster && caster->query_property("maximize spell"))
+            if(caster && caster->query_property("maximize spell") && !abnormal_cast)
             {
                 tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
                 caster->remove_property("maximize spell");
@@ -2610,7 +2614,7 @@ void define_base_damage(int adjust)
             }
         } else {
             sdamage = roll_dice(clevel, 8);
-            if(caster && caster->query_property("maximize spell"))
+            if(caster && caster->query_property("maximize spell") && !abnormal_cast)
             {
                 tell_object(caster, "%^BOLD%^Your spell is maximized.%^RESET%^");
                 caster->remove_property("maximize spell");
