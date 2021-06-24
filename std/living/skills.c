@@ -342,8 +342,9 @@ int query_skill(string skill)
         x += 5;
     }
     
-    if(skill == "perception" && FEATS_D->usable_feat(this_object(), "danger sense"))
-        x += (this_object()->query_class_level("barbarian") / 10 + 1);
+    if(skill == "perception" && FEATS_D->usable_feat(this_object(), "danger sense")){
+        x += ((this_object()->query_class_level("barbarian") / 10)  + (this_object()->query_class_level("thief") / 10) + 1);
+    }
 
     if(skill == "endurance" && FEATS_D->usable_feat(TO, "rangers endurance"))
     {
