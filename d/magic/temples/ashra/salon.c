@@ -26,7 +26,7 @@ void create()
     set_listen("default","%^MAGENTA%^A haunting wordless song full of sorrow and loss can be heard accompanied by the soft rustling of the curtains.%^RESET%^");
     set_items(([			
         ({"couches","couch"}) : "%^MAGENTA%^These deep violet couches are covered in soft velvet and gilded in elaborate %^BOLD%^%^BLACK%^adamantite frames%^RESET%^%^MAGENTA%^. The cushions are thick and comfortable and they look very inviting.%^RESET%^",
-        ({"tables", "table" }) : "%^ORANGE%^Long low finely lacquored tables are set near each couch, each with a vase containing several %^BOLD%^%^BLACK%^black roses.%^RESET%^",
+//        ({"tables", "table" }) : "%^ORANGE%^Long low finely lacquored tables are set near each couch, each with a vase containing several %^BOLD%^%^BLACK%^black roses.%^RESET%^",
         ({"staircases", "staircase", "stairs"}) : "%^BOLD%^%^BLACK%^These curving staircases wind up to the balcony of the second floor, the soft %^RESET%^%^MAGENTA%^violet carpet %^BOLD%^%^BLACK%^flowing down them like a waterfall. The adamantine rails are gilded in %^WHITE%^silver %^BLACK%^and a pair of large %^RESET%^%^MAGENTA%^amethysts %^BOLD%^%^BLACK%^are imbedded deeply at their base.%^RESET%^",
         ({"effigies", "effigy", "angel", "angels"}) : "%^BOLD%^%^WHITE%^These alabaster angels are crouched in what appears to be %^RED%^agony%^WHITE%^, hands gripping the sides of their heads and clawing at their contorted features. %^BOLD%^%^BLACK%^Raven black wings%^WHITE%^ sprout from their back and are folded about them protectively as though to shield them from some %^RESET%^%^RED%^terrible evil%^BOLD%^%^WHITE%^. Their bodies are riddled with %^BLACK%^dark veins%^WHITE%^ that seem to pulse beneath the stone as they offer up their silent cries to the %^BOLD%^%^BLACK%^Primordial%^WHITE%^ before them.%^RESET%^",
         ({"marble statue", "statue" }) : "%^BOLD%^%^BLACK%^A woman of complete darkness is depicted here, her slender figure hidden beneath voluminous robes and her face behind a cr%^WHITE%^a%^BLACK%^ck%^WHITE%^e%^BLACK%^d yet %^RESET%^%^MAGENTA%^b%^BOLD%^e%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^u%^RESET%^%^MAGENTA%^t%^BOLD%^i%^RESET%^%^MAGENTA%^f%^BOLD%^u%^RESET%^%^MAGENTA%^l %^BOLD%^%^WHITE%^porcelain mask%^BLACK%^. Her arms are spread wide, %^CYAN%^invitingly %^BLACK%^as though she seeks to embrace all who set foot through the door. This glossy black marble statue radiates a supernatural presence, the power leaking off of it seeming to saturate the air around you. The %^RESET%^%^MAGENTA%^haunting song %^BOLD%^%^BLACK%^that drifts through the room seems to be coming from her.%^RESET%^",
@@ -47,3 +47,10 @@ void create()
     set_door("chapel door","chapel","north",0);
     set_door_description("chapel door","%^BOLD%^%^BLACK%^Large wooden double doors painted pitch black stand here. The doors are engraved with a sp%^RESET%^%^MAGENTA%^i%^BOLD%^%^BLACK%^r%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^l p%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^tt%^RESET%^%^MAGENTA%^e%^BOLD%^%^BLACK%^rn of %^RESET%^%^MAGENTA%^wr%^BOLD%^%^BLACK%^i%^RESET%^%^MAGENTA%^thing t%^BOLD%^%^BLACK%^e%^RESET%^%^MAGENTA%^nt%^BOLD%^%^BLACK%^a%^RESET%^%^MAGENTA%^cles %^BOLD%^%^BLACK%^emanating from a central %^RESET%^%^MAGENTA%^circle%^BOLD%^%^BLACK%^. They look very thick, and you can hear nothing from beyond them.%^RESET%^");
 }
+
+void reset(){
+	::reset();
+	if(!present("stage",TO)) new("/realms/chernobog/events/balur/ashra_stage")->move(TO);
+    if(!present("banquet",TO)) new("/realms/chernobog/events/balur/ashra_banquet")->move(TO);
+}
+
