@@ -12,7 +12,7 @@ inherit DAEMON;
 string * BBOARDS=({
             "announcement",
             "newbie",
-            "lawboard",
+            "law",
             "avatarmail",
             "pkmail",
             "bugs",
@@ -89,6 +89,12 @@ int check_access(string my_command, string which_board)
                     break;
             }
         case "bugs" : case "ideas" :
+            if(wizardp(this_player()))
+                return 1;
+            else
+                return 0;
+            break;
+        case "law":
             if(wizardp(this_player()))
                 return 1;
             else
