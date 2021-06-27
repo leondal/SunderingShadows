@@ -1,4 +1,4 @@
-#define ALL_LANGS ({"common","dwarvish","gnomish","goblin","kobold","orcish","halfling","drow","elven","undercommon","giant","beast","yuan-ti","saurian","aquan"})
+#define ALL_LANGS ({"common","dwarvish","gnomish","goblin","kobold","orcish","halfling","drow","elven","undercommon","giant","beast","yuan-ti","saurian","aquan","abyssal","aklo","auran","aquan","celestial","draconic","ignan","infernal","terran","sylvan"})
 
 #define ANIMAL_LANGS ({ "sylvan" })
 
