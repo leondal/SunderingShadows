@@ -31,7 +31,7 @@ void create()
     set_max_hp(query_hp());
     set_exp(10000);
     set_max_level(15); // added by *Styx* 9/24/06
-    set_mob_magic_resistance("average");
+    // set_mob_magic_resistance("average");
     set_attacks_num(2);
     set_funcs(({ "gore", "screech" }));
     ob = new("/d/common/obj/brewing/herb_special_inherit");
