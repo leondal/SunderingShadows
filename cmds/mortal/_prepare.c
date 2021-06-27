@@ -257,7 +257,7 @@ int cmd_prepare(string str)
 
     if(cl > 9)
     {
-	    lvadj = 600/cl; //Tlaloc changed this from 375/cl -> which yields negative results....(this way there's always SOME delay);
+	    lvadj = 550/cl; //Tlaloc changed this from 375/cl -> which yields negative results....(this way there's always SOME delay);
 	    if(!lvadj) lvadj = 1;   // they say dividing by zero is reserved for god...
         {
             temp = temp - ((temp * 10) / lvadj);
@@ -325,7 +325,7 @@ int prep_power_points(string myclass, int times)
     if (cl > 9)
     {
         //=600 / 50 = 12
-        lvadj = 600/cl; //Tlaloc changed this from 375/cl -> yields negative delays
+        lvadj = 550/cl; //Tlaloc changed this from 375/cl -> yields negative delays
         if (!lvadj) { lvadj = 1; }   // they say dividing by zero is reserved for god...
         //temp = 300 - ((300 * 10) / 11) = 27s (compared to negative before)
         temp = temp - ((temp * 10) / lvadj);
@@ -670,7 +670,7 @@ void prepare_listed_spells(object obj, string list, string myclass)
 
     if (class_level > 9)
     {
-        adjustment = 600 / class_level; //Tlaloc changed from 375/class_level -> yields negative delays.
+        adjustment = 550 / class_level; //Tlaloc changed from 375/class_level -> yields negative delays.
         if (!adjustment) { adjustment = 1; }
         delay = delay - ((delay * 10) / adjustment);
         if (delay < 1) { delay = 1; }
