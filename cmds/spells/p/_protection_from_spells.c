@@ -7,7 +7,7 @@ int lower;
 void create() {
     ::create();
     set_spell_name("protection from spells");
-    set_spell_level(([ "mage" : 8,"inquisitor":5,"oracle":6 ]));
+    set_spell_level(([ "mage" : 8,"inquisitor":5,"oracle":6,"cleric":6 ]));
     set_spell_sphere("abjuration");
     set_mystery("dragon");
     set_bonus_type("resistance");
