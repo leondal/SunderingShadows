@@ -17,6 +17,8 @@ assmark %^ORANGE%^%^ULINE%^PLAYER%^RESET%^ %^ORANGE%^%^ULINE%^NUMBER%^RESET%^ %^
 
 Attach %^ORANGE%^%^ULINE%^NUMBER%^RESET%^ of marks of assassination to %^ORANGE%^%^ULINE%^PLAYER%^RESET%^ for %^ORANGE%^%^ULINE%^REASON%^RESET%^. This will cause %^ORANGE%^%^ULINE%^NUMBER%^RESET%^ of assassins to hunt %^ORANGE%^%^ULINE%^PLAYER%^RESET%^ after a small amount of time has passed. These assassins are scaled to the level of the player and the %^ORANGE%^%^ULINE%^NUMBER%^RESET%^ should be representative of the value of the bounty on their head reflected by the %^ORANGE%^%^ULINE%^REASON%^RESET%^. The %^ORANGE%^%^ULINE%^REASON%^RESET%^ will be noted in the notes of the %^ORANGE%^%^ULINE%^PLAYER%^RESET%^.  These assassins will (or should) show up simultaneously.  Anything greater than two is most likely an automatic death sentence.
 
+This command is meant to be a tool to address low effort conflict that the game world cannot respond to properly by itself. An example would be a player continuing to harass a city and kill guards without thought of repercussion. One to two asassins should be enough to take an unsuspecting player by surprise, any more would be an almost guaranteed death for even the most seasoned.
+
 %^CYAN%^SEE ALSO%^RESET%^
 
 note
