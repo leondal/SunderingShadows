@@ -369,13 +369,16 @@ int read(string str) {
    write(
 @MELNMARN
 
-%^CYAN%^%^BOLD%^ open account%^BLACK%^ ----------------- %^RESET%^: %^CYAN%^Will open an account for you.
-%^CYAN%^%^BOLD%^ close account%^BLACK%^ ---------------- %^RESET%^: %^CYAN%^Closes your account.
-%^CYAN%^%^BOLD%^ balance%^BLACK%^ ---------------------- %^RESET%^: %^CYAN%^Gives your account balance info.
-%^CYAN%^%^BOLD%^ deposit NUM TYPE%^BLACK%^ ------------- %^RESET%^: %^CYAN%^Deposits NUM of currency of TYPE.
-%^CYAN%^%^BOLD%^ withdraw NUM TYPE%^BLACK%^ ------------ %^RESET%^: %^CYAN%^Withdraws NUM of currency of TYPE.
-%^CYAN%^%^BOLD%^ exchange NUM TYPE for TYPE2%^BLACK%^ -- %^RESET%^: %^CYAN%^Exchanges currencies.
-%^CYAN%^%^BOLD%^ storage%^BLACK%^ ---------------------- %^RESET%^: %^CYAN%^Summon your magical storage chest.
+%^CYAN%^%^BOLD%^ open account%^BLACK%^ ------------------------- %^RESET%^: %^CYAN%^Will open an account for you.
+%^CYAN%^%^BOLD%^ close account%^BLACK%^ ------------------------ %^RESET%^: %^CYAN%^Closes your account.
+%^CYAN%^%^BOLD%^ balance%^BLACK%^ ------------------------------ %^RESET%^: %^CYAN%^Gives your account balance info.
+%^CYAN%^%^BOLD%^ deposit NUM TYPE%^BLACK%^ --------------------- %^RESET%^: %^CYAN%^Deposits NUM of currency of TYPE.
+%^CYAN%^%^BOLD%^ withdraw NUM TYPE%^BLACK%^ -------------------- %^RESET%^: %^CYAN%^Withdraws NUM of currency of TYPE.
+%^CYAN%^%^BOLD%^ exchange NUM TYPE for TYPE2%^BLACK%^ ---------- %^RESET%^: %^CYAN%^Exchanges currencies.
+%^CYAN%^%^BOLD%^ storage%^BLACK%^ ------------------------------ %^RESET%^: %^CYAN%^Summon your magical storage chest.
+%^CYAN%^%^BOLD%^ - give ITEM to chest%^BLACK%^ ----------------- %^RESET%^: %^CYAN%^Stores an item in the storage chest.
+%^CYAN%^%^BOLD%^ - command chest to give ITEM to WHOM%^BLACK%^ - %^RESET%^: %^CYAN%^Gives ITEM from chest to WHOM.
+%^CYAN%^%^BOLD%^ - dismiss chest %^BLACK%^ --------------------- %^RESET%^: %^CYAN%^Returns the storage chest to the bank.
 
 A 10% service fee will be charged to all deposits.
 MELNMARN
