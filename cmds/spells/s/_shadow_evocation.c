@@ -26,6 +26,7 @@ int preSpell()
 {
     int max_level = query_spell_level(spell_type) - 1;
     int slevel;
+    string *reqs;
     object spell_to_cast;
     string spl, sargs;
     string splfn;
@@ -60,7 +61,18 @@ int preSpell()
         tell_object(TP, "Only " + replace_string(shadow_school(), "_", "/") + " school spells are allowed!");
         return 0;
     }
-
+    
+    reqs = keys(spell_to_cast->query_feats_required("mage"));
+    
+    if(sizeof(reqs))
+    {
+        if(!FEATS_D->usable_feat(caster, reqs[0]))
+        {
+            tell_object(caster, "You don't have the correct feats to cast that spell.");
+            return 0;
+        }
+    }
+    
     slevel = spell_to_cast->query_spell_level("mage");
     if (slevel > max_level || slevel == 0) {
         tell_object(TP, "This spell is too powerful for " + spell_name + "!");
