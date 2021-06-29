@@ -64,7 +64,7 @@ int preSpell()
     
     reqs = keys(spell_to_cast->query_feats_required("mage"));
     
-    if(sizeof(reqs))
+    if(sizeof(reqs) && member_array(spell_type, reqs) >= 0)
     {
         if(!FEATS_D->usable_feat(caster, reqs[0]))
         {
