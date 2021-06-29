@@ -11,7 +11,7 @@ int cmd_thought(string str)
 // if (TP->query_unconscious()) return notify_fail("You think that you are ill equipped to do that currently.\n");
 //  if(!avatarp(TP)) return 0;
 
-    CHAT_D->force_chat(TP, "petition", "%^BOLD%^. o O ( " + str + " )%^RESET%^", 1);
+    CHAT_D->force_chat(TP, "petition", this_player()->QCN + " %^BOLD%^. o O ( " + str + " )%^RESET%^", 1);
     write(capitalize((string)TP->query_name()) + " %^BOLD%^. o O ( " + str + " )%^RESET%^");
     return 1;
 }
