@@ -7,7 +7,7 @@ void create() {
     ::create();
     set_author("nienne");
     set_spell_name("daze");
-    set_spell_level(([ "mage" : 1, "bard" : 1, "inquisitor":1, "psion" : 1, "magus" : 1 ]));
+    set_spell_level(([ "inquisitor":1, "cantrip" : 1 ]));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS daze on TARGET");
     set_description("%^RESET%^This spell attempts to dazzle a creature into immobility. %^RESET%^%^BOLD%^N.B.%^RESET%^:
