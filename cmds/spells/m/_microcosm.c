@@ -45,7 +45,7 @@ void spell_effect(int prof)
     tell_room(place,"%^YELLOW%^"+caster->QCN+" mouths a few syllables, "+
         "but you hear no sound.",({caster}));
 
-    spell_kill(target, caster);
+    //spell_kill(target, caster);
 
     if(target->query_property("no hold") || target->query_property("no paralyze"))
     {
