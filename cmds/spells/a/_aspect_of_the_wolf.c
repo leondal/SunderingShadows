@@ -29,12 +29,12 @@ string query_cast_string()
 
 int preSpell()
 {
-    /*
+    
     if (caster->query_property("aspect of the wolf") || caster->query_property("augmentation")) {
         tell_object(caster, "You already have this spell active.");
         return 0;
     }
-    */
+    
     return 1;
 }
 

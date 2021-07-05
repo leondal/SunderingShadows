@@ -44,6 +44,12 @@ void spell_effect(int prof)
     else {
         foreach(foe in foes)
         {
+            if(!userp(foe))
+            {
+                spell_kill(foe, caster);
+                foe->add_attacker(caster);
+            }
+            
             if (combat_death_save(foe, 0)) {
                 tell_object(foe, "%^YELLOW%^You mind is wracked with horrible pain but you survive!");
                 tell_room(place, foe->QCN + " manages to survive the horrible pain!");
