@@ -223,7 +223,7 @@ void introduce_task()
                     tell_object(ETO, "\n"+WE+" The third task is an equally important one as well. "+
                     "However, before we get to that. There are some other things that you need to know about "+
                     "yourself, your equipment, and moving around. First off, you will get hungry and thirsty on "+
-                    "Shadowgate. If you do not eat or drink, you can die, slowly and painfully.... \n\n"+WE+
+                    "Sundering Shadows. If you do not eat or drink, you can die, slowly and painfully.... \n\n"+WE+
                     " Your equipment, it can and will break. Eventually it will be useless to you, however, most "+
                     "merchants have the ability to repair any item that they will also buy. Also, as you explore "+
                     "the world you will learn that there are many ways of moving around.\n\n"+WE+" When "+
@@ -323,7 +323,7 @@ void introduce_task()
                     if(newbiep(ETO))
                     {
                         tell_object(ETO, "\n"+WE+" Very well, I believe that you are ready. When you are ready "+
-                        "for your final step before being moved into the greater world of Shadowgate "+
+                        "for your final step before being moved into the greater world of Sundering Shadows "+
                         "%^YELLOW%^explain enter the world%^RESET%^\n");
                     }
                     else
@@ -452,13 +452,13 @@ int explain_act(string str)
     }
     else if(strsrch(str, "advance") != -1 && myTask >= 2)
     {
-        tell_object(ETO, "\n"+WE+" The advance command is very important on Shadowgate. It is "+
+        tell_object(ETO, "\n"+WE+" The advance command is very important on Sundering Shadows. It is "+
         "what allows you to advance your character level, should you have enough experience.\n\n"+WE+
         " If you see a negative number or a number below zero in score next to Exp To Next - then you "+
         "are able to advance to the next level. However, you are only able to advance in certain rooms, such as "+
         "temples, churches, or rooms with a message board in them.\n\n"+WE+" Also, at certain levels you "+
         "will be required to find a special trainer who can instruct you on how to advance. This is intended "+
-        "to encourage you to explore the world of Shadowgate.\n\n"+WE+" You may read %^YELLOW%^help advance"+
+        "to encourage you to explore the world of Sundering Shadows.\n\n"+WE+" You may read %^YELLOW%^help advance"+
         "%^RESET%^ to get more information and to find a brief hint about the location of this special trainer "+
         "should you require one to advance beyond your current level.%^RESET%^");
         if(member_array("advance", explained) == -1) explained += ({"advance"});
@@ -503,7 +503,7 @@ int explain_act(string str)
         "athletics%^RESET%^ skill is high enough, that will alleviate some of the fatigue that you will suffer "+
         "from moving. \n\n"+WE+" There are magical portals, that sometimes work like normal exits, magical doors, spells, "+
         "magicl items, and even hidden exits through the world.\n\n"+WE+" Sometimes you must carefully %^YELLOW%^"+
-        "search%^RESET%^ areas and struggle with syntax, but movement on Shadowgate can be complex and all of it "+
+        "search%^RESET%^ areas and struggle with syntax, but movement on Sundering Shadows can be complex and all of it "+
         "will affect your stamina. \n\n"+WE+" Your stamina is available on the %^YELLOW%^score%^RESET%^ or "+
         "%^YELLOW%^hp%^RESET%^ commands and thankfully simply taking a few moments to rest will usually be enough "+
         "for you to recover.%^RESET%^");
@@ -545,7 +545,7 @@ int explain_act(string str)
     }
     else if(strsrch(str, "rumors") != -1 && myTask >= 5)
     {
-        tell_object(ETO, "\n"+WE+" The world of Shadowgate is large and it expands frequently as new areas are "+
+        tell_object(ETO, "\n"+WE+" The world of Sundering Shadows is large and it expands frequently as new areas are "+
         "discovered. To help with this, there exists a %^YELLOW%^rumors%^RESET%^ command.\n\n"+WE+" This command "+
         "will give you a hint of areas that you can explore on your own or within a party, or areas which might have "+
         "quests for you to attempt.\n\n"+WE+" The rumors command will also allow you to see some areas where "+
@@ -555,7 +555,7 @@ int explain_act(string str)
     else if(strsrch(str, "rolepla") != -1 && myTask >= 5)
     {
         tell_object(ETO, "\n"+WE+" You are "+capitalize(ETOQN)+" now. You are not the person behind the "+
-        "keyboard in the world of Shadowgate. Your actions, your ambitions, your motivations are dictated "+
+        "keyboard in the world of Sundering Shadows. Your actions, your ambitions, your motivations are dictated "+
         "now by your statistics, your skills, your feats, your deity, your class, your alignment, and more.\n\n"+WE+" It is "+
         "important to remember this so that you will respond appropriately when you are exploring the world, "+
         "interacting with other players, and even sitting in a tavern to enjoy a meal between adventures.\n\n"+WE+
@@ -568,14 +568,14 @@ int explain_act(string str)
     }
     else if(strsrch(str, "church") != -1 && myTask >= 6)
     {
-        tell_object(ETO, "\n"+WE+" Churches and temples are very important in the world of Shadowgate. "+
+        tell_object(ETO, "\n"+WE+" Churches and temples are very important in the world of Sundering Shadows. "+
         "You may have already used them to %^YELLOW%^advance%^RESET%^ or return to them when "+
         "you have died and met Kelemvor.\n\n"+WE+" However, they serve other important purposes. From "+
         "within a church or temple you can %^YELLOW%^read sign%^RESET%^ to get more information. \n\n"+WE+
         " From within a temple you can %^YELLOW%^read charge%^RESET%^ to get information about the specific "+
         "deity of that temple. \n\n"+WE+" One very important ability that is available within a church or "+
         "temple is %^YELLOW%^identify curse on <object>%^RESET%^. This is important because as you find equipment "+
-        "in the world of Shadowgate, a lot of it will be magically enchanted. \n\n"+WE+" Sometimes this enchantment "+
+        "in the world of Sundering Shadows, a lot of it will be magically enchanted. \n\n"+WE+" Sometimes this enchantment "+
         "will be %^RED%^cursed%^RESET%^ and if you equip such equipment it will cost much gold for you to "+
         "remove it. \n\n"+WE+" Always remember this when finding something new that looks interesting, less "+
         "you find yourself cursed.%^RESET%^");
@@ -729,7 +729,7 @@ int explain_act(string str)
                 tell_object(ETO, "\n"+WE+" Your current task is simply to %^YELLOW%^explain "+
                 "enter the world%^RESET%^ this will move you into a specialized "+
                 "trainer, that is set up specifically for you. \n\n"+WE+" Much like what you will "+
-                "eventually have to find in the larger world of Shadowgate. Keep in mind that "+
+                "eventually have to find in the larger world of Sundering Shadows. Keep in mind that "+
                 "you will have to find these trainers every 5 levels as a way to encourage "+
                 "exploration once you are in the larger world.%^RESET%^");
                 break;
