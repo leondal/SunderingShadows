@@ -206,7 +206,7 @@ int close_portal(){
    tell_room(place,"%^BOLD%^%^BLACK%^The portal shimmers briefly, "+
       "then closes and fades away.");
    place->remove_exit("portal");
-   endplace->remove_exit("portal");
+   endplace && endplace->remove_exit("portal");
    return 1;
 }
 
