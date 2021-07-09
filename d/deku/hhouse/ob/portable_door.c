@@ -90,8 +90,7 @@ int entry_function(string what)
         "and you are unable to crawl into it!%^RESET%^");
         return 1;
     }
-    if(EETO->query_property("no teleport") ||
-    ETO->query_property("teleport proof") > 40 + random(30))
+    if(EETO->query_property("no teleport") || ETO->query_property("teleport proof") > 60 + random(10) || EETO->query_property("teleport proof") > 60 + random(10) )
     {
         tell_object(ETO, "%^BOLD%^%^RED%^Magical forces bar your entry into the door!%^RESET%^");
         return 1;
