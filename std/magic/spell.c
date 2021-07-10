@@ -86,6 +86,7 @@ int spell_level,
     permanent,
     evil_spell,
     mental_spell,
+    diminish_returns,
     blood_magic,
     end_time;
 
@@ -516,6 +517,17 @@ void mental_spell()
 int query_mental_spell()
 {
     return mental_spell;
+}
+
+int diminish_returns()
+{
+    diminish_returns = 1;
+    return diminish_returns;
+}
+
+int query_diminish_returns()
+{
+    return diminish_returns;
 }
 
 void splash_spell(int num)
@@ -3194,7 +3206,10 @@ varargs int do_save(object targ, int mod)
             }
         }
     }
-
+    
+    if(diminish_returns)
+        caster_bonus -= (5 * targ->is_diminish_return(spell_name, caster));
+        
     //Likewise, telepaths with the guarded thoughts feat have a bonus against mental spells
     if(mental_spell && FEATS_D->usable_feat(targ, "guarded thoughts") && targ->query("available focus"))
         caster_bonus -= 10;
