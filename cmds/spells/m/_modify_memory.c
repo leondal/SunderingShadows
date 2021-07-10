@@ -13,6 +13,7 @@ create()
     set_syntax("cast CLASS modify memory on TARGET");
     set_description("This spell alters victim's memory so they won't remember who you are. Should their will falter they will forget your name and will be momentarily dazed.");
     mental_spell();
+    diminish_returns();
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);

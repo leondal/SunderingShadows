@@ -3306,6 +3306,9 @@ varargs int do_save(object targ, int mod)
         tell_object(caster, "Save result (1 pass, 0 fail): " + debug_map["save_result"] + "");
         tell_object(caster, "Throw passed or failed by: " + debug_map["pass_or_fail_by"] + "");
     }
+    
+    if(diminish_returns && debug_map["save_result"])
+        targ->add_diminish_return(spell_name, caster);
 
     if (save_debug) {
         return debug_map["save_result"];
@@ -3805,6 +3808,10 @@ void help()
     }
     if (evil_spell) {
         write("%^BOLD%^%^RED%^This spell is inherently evil.%^RESET%^");
+    }
+    if(diminish_returns)
+    {
+        write("%^BOLD%^RED%^This spell has diminishing returns.%^RESET%^");
     }
     if (TO->is_curse()) {
         write("%^BOLD%^%^RED%^This spell is a curse.");

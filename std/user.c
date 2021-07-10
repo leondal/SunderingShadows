@@ -64,6 +64,7 @@ private string position, primary_start;
 string *restricted_channels;
 string *favored_enemy = ({ "none", "none", "none" }),
        *favored_terrain = ({ "none", "none", "none" });
+nosave mapping diminish_returns = ([]);
 string mastered_terrain;
 string chosen_animal;
 string dedication;
@@ -5619,3 +5620,67 @@ string query_dedication()
 {
     return dedication;
 }
+
+//Diminishing returns against spam spells with a certain effect
+mapping query_diminish_returns()
+{
+    return diminish_returns;
+}
+
+int is_diminish_return(string spell, object source)
+{
+    if(!spell || !source)
+        return 0;
+    
+    if(member_array(spell, keys(diminish_returns)) < 0)
+        return 0;
+    
+    if(!sizeof(diminish_returns[spell]))
+        return 0;
+    
+    if(member_array(source, diminish_returns[spell]) < 0)
+        return 0;
+    
+    return 1;
+}
+
+int add_diminish_return(string spell, object source)
+{
+    if(!spell || !source)
+        return 0;
+    
+    if(is_diminish_return(spell, source))
+    {
+        remove_call_out("remove_diminish_return");
+        call_out("remove_diminish_return", 30, spell, source);
+        return 1;
+    }
+    
+    if(member_array(spell, keys(diminish_returns)) < 0)
+        diminish_returns += ([ spell : ({ source }) ]);
+    else
+        diminish_returns[spell] += ({ source });
+    
+    call_out("remove_diminish_return", 30, spell, source);
+    
+    return 1;
+}
+
+int remove_diminish_return(string spell, object source)
+{
+    if(!spell || !source)
+        return 0;
+    
+    if(!is_diminish_return(spell, source))
+        return 0;
+    
+    diminish_returns[spell] -= ({ source });
+    
+    if(!sizeof(diminish_returns[spell]))
+        map_delete(diminish_returns, spell);
+    
+    return 1;
+}
+    
+    
+    
