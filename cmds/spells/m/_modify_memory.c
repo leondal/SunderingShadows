@@ -22,11 +22,13 @@ create()
 
 int preSpell()
 {
+    /*
     if(caster->cooldown("modify memory"))
     {
         tell_object(caster, "You have to wait to cast this spell again.");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -66,7 +68,7 @@ void spell_effect(int prof)
     }else {
         tell_object(caster, "%^BLUE%^You sense your memory altering attempt failed. You will have to wait before using modify memory again.%^RESET%^");
         tell_object(target, "You feel someone trying to invade your mind, but you shrug it off.");
-        caster->add_cooldown("modify memory", 60);
+        //caster->add_cooldown("modify memory", 60);
     }
 
     dest_effect();
