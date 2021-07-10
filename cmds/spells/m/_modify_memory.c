@@ -20,6 +20,16 @@ create()
     set_save("will");
 }
 
+int preSpell()
+{
+    if(caster->cooldown("modify memory"))
+    {
+        tell_object(caster, "You have to wait to cast this spell again.");
+        return 0;
+    }
+    return 1;
+}
+
 string query_cast_string()
 {
     tell_room("%^RESET%^%^BLUE%^" + caster->QCN + "%^RESET%^%^BLUE%^ looks at " + target->QCN + "%^RESET%^%^BLUE%^ intently.");
@@ -48,13 +58,17 @@ void spell_effect(int prof)
         }
 
         spell_successful();
+        
         tell_object(caster, "%^BLUE%^You sense your memory attempt succeeded, and your victim is momentarily dazed.%^RESET%^");
         target->set_paralyzed(roll_dice(1, 3) * 8, "%^RESET%^%^BLUE%^You feel oblivious and momentarily distracted... As if you have forgotten something.%^RESET%^");
         target->remove_relationship_profile(caster->query_true_name(), caster_profile);
         caster->set_time_delay("modify_memory");
     }else {
-        tell_object(caster, "%^BLUE%^You sense your memory altering attempt failed.%^RESET%^");
+        tell_object(caster, "%^BLUE%^You sense your memory altering attempt failed. You will have to wait before using modify memory again.%^RESET%^");
+        tell_object(target, "You feel someone trying to invade your mind, but you shrug it off.");
+        caster->add_cooldown("modify memory", 60);
     }
+
     dest_effect();
 }
 
