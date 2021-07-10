@@ -4847,7 +4847,7 @@ void set_talent_feats_gained(int num)
 
 int query_talent_feats_gained()
 {
-    if(!intp(__FEAT_DATA["talent_feats_gained"])) { __FEAT_DATA["rage_feats_gained"] = 0; }
+    if(!intp(__FEAT_DATA["talent_feats_gained"])) { __FEAT_DATA["talent_feats_gained"] = 0; }
     return __FEAT_DATA["talent_feats_gained"];
 }
 

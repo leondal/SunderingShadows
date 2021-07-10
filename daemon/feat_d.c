@@ -455,6 +455,10 @@ int can_gain_type_feat(object ob, string feat, string feattype)
         MAX_ALLOWED = number_feats(ob, "divinebond", ({ "paladin" }));
         GAINED = ob->query_divinebond_feats_gained();
         break;
+    case "rage":
+        MAX_ALLOWED = number_feats(ob, "rage", ({ "barbarian" }));
+        GAINED = ob->query_rage_feats_gained();
+        break;
     default:
         MAX_ALLOWED = 0;
         GAINED = 0;
@@ -568,6 +572,18 @@ int add_my_feat(object ob, string type, string feat)
             return 1;
         }
         else return 0;
+    case "rage":
+        num = 1;
+        if (gain_feat(ob, type, feat, num))
+        {
+            num = 0;
+            num = ob->query_rage_feats_gained();
+            num += 1;
+            ob->set_rage_feats_gained(num);
+            update_usable(ob);
+            return 1;
+        }
+        else return 0;
     case "other":
         if(gain_feat(ob,type,feat,level))
         {
@@ -646,6 +662,13 @@ int remove_my_feat(object ob,string feat,int bypass)
         if (!num) num = 0;
         num -= 1;
         ob->set_divinebond_feats_gained(num);
+        update_usable(ob);
+        return 1;
+    case "rage":
+        num = ob->query_rage_feats_gained();
+        if (!num) num = 0;
+        num -= 1;
+        ob->set_rage_feats_gained(num);
         update_usable(ob);
         return 1;
     case "other":
@@ -1558,7 +1581,7 @@ void display_feats(object ob,object targ, string mytype)
       case "hybrid": currentlist += SPELLFEATS; currentlist += MELEEFEATS;  break;
       case "arcana": currentlist += MAGUSFEATS;  break;
       case "divinebond": currentlist += PALADINFEATS;  break;
-      //case "rage": currentlist += RAGEFEATS; break;
+      case "rage": currentlist += RAGEFEATS; break;
       //case "talent": currentlist += TALENTFEATS; break;
       case "general": currentlist += GENERALFEATS; break;
       case "epic": currentlist += EPICFEATS; break;
@@ -1590,10 +1613,11 @@ void display_feats(object ob,object targ, string mytype)
     if (!targ->is_class("paladin") && !avatarp(targ)) {
         currentlist -= ({ "DivineBond" });
     }
-    /*
+    
     if (!targ->is_class("barbarian") && !avatarp(targ)) {
-        currentlist -= ({ "RagePowers" });
+        currentlist -= ({ "RagePower" });
     }
+    /*
     if (!targ->is_class("paladin") && !targ->is_class("bard") && !avatarp(targ)) {
         currentlist -= ({ "RogueTalent" });
     }
@@ -1826,7 +1850,7 @@ int number_feats(object obj, string category, string* valid_classes) {
                 }
                 break;
             case "barbarian":
-                /*
+                
                 if(category == "rage")
                 {
                     if(obj->query_class_level("barbarian") > 5)
@@ -1839,7 +1863,6 @@ int number_feats(object obj, string category, string* valid_classes) {
                         j = 4;
                 }
                 else
-                */
                     j = ((obj->query_class_level(subset[i]) - 16) / 5);
                 break;
             case "thief":
