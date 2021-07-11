@@ -32,6 +32,7 @@ If the will save suceeds or the target is has a form of mind immunity they will 
 
 %^BOLD%^%^RED%^See also:%^RESET%^ help races");
     mental_spell();
+    diminish_returns();
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);
