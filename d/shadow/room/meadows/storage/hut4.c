@@ -10,9 +10,7 @@ void create()
    set_property("light",3);
    set_property("indoors",1);
    set_short("A nice hut");
-   set_long(
-   set_long(
-      "The room is covered in hides of various colors, sizes, and varieties."+
+   set_long("The room is covered in hides of various colors, sizes, and varieties."+
    " Stretched out in the center of the floor is a %^YELLOW%^lion skin rug%^RESET%^"+
    " that is over seven feet long. Antelope skins have been hung on the"+
    " walls here, some of them dyed with interesting patterns. There is"+
