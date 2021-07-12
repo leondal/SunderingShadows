@@ -17,12 +17,12 @@ void create()
 }
 
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 
 int prerequisites(object ob)
 {
-    
+
     if(!objectp(ob)) { return 0; }
 
     if(!ob->is_class("psion") && !ob->is_class("psywarrior"))
@@ -30,7 +30,7 @@ int prerequisites(object ob)
         dest_effect();
         return 0;
     }
-    
+
     return ::prerequisites(ob);
 }
 
@@ -38,7 +38,7 @@ int cmd_augment_power(string str)
 {
     object feat;
     if(!objectp(this_player())) { return 0; }
-    
+
     feat = new(base_name(this_object()));
     feat->setup_feat(this_player(), str);
     return 1;
@@ -56,21 +56,21 @@ void execute_feat()
         dest_effect();
         return;
     }
-    
+
     if(caster->cooldown("augment power"))
     {
         tell_object(caster, "You can't use augment power yet.");
         return;
     }
-    
+
     amount = 30;
-    
+
     if(amount > caster->query_mp())
     {
         tell_object(caster, "You don't have that many power points.");
         return;
     }
-    
+
     if(!USER_D->spend_pool(caster, 1, "focus"))
     {
         tell_object(caster, "You need to have psionic focus to use this feat.");
@@ -83,7 +83,7 @@ void execute_feat()
     tell_object(caster, "You use your meta psionic knowledge to augment your next power.");
     caster->set_property("augment power", 4);
     caster->add_cooldown("augment power", 60);
-    
+
     return;
 }
 

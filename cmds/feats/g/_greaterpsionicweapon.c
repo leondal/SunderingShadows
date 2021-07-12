@@ -22,7 +22,7 @@ void create() {
     psionic(1);
 }
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 int prerequisites(object ob){
     if(!objectp(ob)) return 0;
@@ -49,7 +49,7 @@ void execute_feat() {
     mapping tempmap;
     int delay;
     ::execute_feat();
-    
+
     if(caster->cooldown("psionicweapon"))
     {
     //if((int)caster->query_property("using smite") > time()) { //keeping the same variable to avoid stacking
@@ -97,7 +97,7 @@ void execute_attack()
     }
 
     caster->add_cooldown("psionicweapon", FEATTIMER);
-    
+
     die = 8;
 
     if (FEATS_D->usable_feat(caster, "mind wave")) {

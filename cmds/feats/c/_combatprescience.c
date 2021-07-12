@@ -24,7 +24,7 @@ void create()
 }
 
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 
 int prerequisites(object ob)
@@ -58,7 +58,7 @@ void execute_feat()
         TO->remove();
         return;
     }
-    
+
     if(!USER_D->spend_pool(caster, 1, "focus"))
     {
         tell_object(caster, "You must have psionic focus to use combatprescience!");

@@ -17,7 +17,7 @@ shadow stride, darkvision, shadow double, greater shadow conjuration, shadow evo
     set_required_for(({"shadow master",}));
 }
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 int prerequisites(object ob)
 {

@@ -3,7 +3,7 @@
 
 inherit FEAT;
 
-string *allowed = ({ "mage", "sorcerer", "cleric", "oracle", "bard", "inquisitor", "magus", "warlock" });
+string *allowed = ({ "mage", "sorcerer", "cleric", "oracle", "bard", "inquisitor", "magus", "warlock", "druid" });
 
 void create()
 {
@@ -19,14 +19,14 @@ void create()
 }
 
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 
 int prerequisites(object ob)
 {
     int success = 0;
     string *classes;
-    
+
     if(!objectp(ob)) { return 0; }
 
     classes = ob->query_classes();
@@ -39,7 +39,7 @@ int prerequisites(object ob)
                 success = 1;
         }
     }
-        
+
     if(!success)
     {
         dest_effect();
@@ -52,7 +52,7 @@ int cmd_empower_spell(string str)
 {
     object feat;
     if(!objectp(this_player())) { return 0; }
-    
+
     feat = new(base_name(this_object()));
     feat->setup_feat(this_player(), str);
     return 1;
@@ -70,7 +70,7 @@ void execute_feat()
         dest_effect();
         return;
     }
-    
+
     if(caster->cooldown("empower spell"))
     {
         tell_object(caster, "You can't use empower spell yet.");
@@ -82,7 +82,7 @@ void execute_feat()
     tell_object(caster, "You use your meta magic knowledge to empower your next spell.");
     caster->set_property("empower spell", 1);
     caster->add_cooldown("empower spell", 1200);
-    
+
     return;
 }
 

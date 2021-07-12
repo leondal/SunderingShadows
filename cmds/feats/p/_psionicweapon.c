@@ -20,7 +20,7 @@ void create()
 
 int allow_shifted()
 {
-    return 0;
+    return 1;
 }
 
 int prerequisites(object ob)
@@ -95,7 +95,7 @@ void execute_attack()
         dest_effect();
         return;
     }
-    
+
     caster->add_cooldown("psionicweapon", FEATTIMER);
 
     die = 6;

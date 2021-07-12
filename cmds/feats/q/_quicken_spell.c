@@ -3,7 +3,7 @@
 
 inherit FEAT;
 
-string *allowed = ({ "mage", "sorcerer", "cleric", "oracle", "bard", "inquisitor", "magus", "warlock" });
+string *allowed = ({ "mage", "sorcerer", "cleric", "oracle", "bard", "inquisitor", "magus", "warlock", "druid" });
 
 void create()
 {
@@ -19,14 +19,14 @@ void create()
 }
 
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 
 int prerequisites(object ob)
 {
     int success = 0;
     string *classes;
-    
+
     if(!objectp(ob)) { return 0; }
 
     classes = ob->query_classes();
@@ -39,7 +39,7 @@ int prerequisites(object ob)
                 success = 1;
         }
     }
-        
+
     if(!success)
     {
         dest_effect();
@@ -52,7 +52,7 @@ int cmd_quicken_spell(string str)
 {
     object feat;
     if(!objectp(this_player())) { return 0; }
-    
+
     feat = new(base_name(this_object()));
     feat->setup_feat(this_player(), str);
     return 1;
@@ -70,7 +70,7 @@ void execute_feat()
         dest_effect();
         return;
     }
-    
+
     if(caster->cooldown("quicken spell"))
     {
         tell_object(caster, "You can't use quicken spell yet.");
@@ -82,7 +82,7 @@ void execute_feat()
     tell_object(caster, "You use your meta magic knowledge to quicken your next spell.");
     caster->set_property("quicken spell", 1);
     caster->add_cooldown("quicken spell", 1200);
-    
+
     return;
 }
 
