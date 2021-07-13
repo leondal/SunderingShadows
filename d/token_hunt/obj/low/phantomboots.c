@@ -107,7 +107,7 @@ return 1;
 tracker = time() + 14400;
 tell_object(TP,"%^BOLD%^%^BLACK%^You concentrate for a "+
 "moment and soon feel light as air.%^RESET%^");
-new("/cmds/spells/f/_fly")->use_spell(TP,TP,20,100,"mage");
+new("/cmds/spells/l/_levitate")->use_spell(TP,TP,20,100,"mage");
 return 1;
 }
 
