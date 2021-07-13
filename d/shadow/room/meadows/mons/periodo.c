@@ -57,3 +57,17 @@ int should_interact(object ob) {
    }
    return 1;
 }
+
+void heart_beat() {
+    object *attackers;
+    ::heart_beat();
+    
+    attackers = (object *)this_player()->query_attackers();
+    if(attackers){
+        tell_room(ETP,"%^BOLD%^%^CYAN%^The halfling grabs a small orb, smashing it and creating a huge cloud of smoke! When it clears, the halfling is nowhere to be found.%^RESET%^");
+        TO->move("/d/shadowgate/void.c");
+        TO->remove();
+        return;
+    }
+}
+
