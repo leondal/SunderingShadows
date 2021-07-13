@@ -47,7 +47,13 @@ spell_effect(int prof) {
         dest_effect();
         return 0;
     }
-
+    
+    if(caster==target){
+        tell_object(caster,"%^BOLD%^%^CYAN%^You cannot drain life from yourself!%^RESET%^");
+        dest_effect();
+        return 0;
+    }
+    
     roll = random(20)+1;
     if (caster->Thaco(1,target,0) <= roll||caster->query_property("spectral_hand")) {
 //        if(){
