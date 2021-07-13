@@ -13,7 +13,7 @@ void create()
     feat_name("dirge of doom");
     feat_prereq("Bard L8");
     feat_classes("bard");
-    feat_desc("Your play a melody that inspires a sense of doom in your opponens. If they fail a save, they'll become momentarily shaken with fear.
+    feat_desc("You play a melody that inspires a sense of doom in your opponents. If they fail a save, they'll become momentarily shaken with fear.
 
 %^BOLD%^%^WHITE%^See also:%^RESET%^ status effects..");
     feat_syntax("dirge_of_doom");

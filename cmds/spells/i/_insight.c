@@ -16,7 +16,8 @@ void create() {
     set_spell_level(([ "cleric" : 3 ]));
     set_spell_sphere("divination");
     set_syntax("cast CLASS insight on TARGET");
-    set_damage_desc("+2 AC, Clevel/8 ATK Bonus.");
+    set_bonus_type("insight");
+    set_damage_desc("+2 AC, +2 Attack.");
     set_description("This spell grants the target a second's insight into the future, allowing her to both avoid attacks "
 "better, and to hit her targets better.  The spell is more effective when used by a priest that is solely dedicated to "
 "her faith. This spell does not stack with the foresight spell.");
@@ -43,11 +44,13 @@ int preSpell()
         tell_object(caster,"This spell requires a target.");
         return 0;
     }
+    /*
     if(target->query_property("foresight")){
         tell_object(caster,"The target has already been given the gift of "
             "foresight.");
         return 0;
     }
+    */
 
     return 1;
 }
@@ -56,7 +59,8 @@ void spell_effect(int prof){
     int duration;
     duration = (ROUND_LENGTH * 20) * clevel;
     bonus = 2;
-    attk_bonus = clevel/8;
+    //attk_bonus = clevel/8;
+    attk_bonus = 2;
     if(!present(target,place)){
         tell_object(caster,"Your target has left the area.");
         dest_effect();
@@ -79,7 +83,7 @@ void spell_effect(int prof){
     target->add_ac_bonus(bonus);
     spell_successful();
     target->add_attack_bonus(attk_bonus);
-    target->set_property("foresight",1);
+    //target->set_property("foresight",1);
     target->set_property("spelled",({TO}));
     addSpellToCaster();
     spell_duration = duration;
@@ -93,7 +97,7 @@ void dest_effect()
     if(objectp(target))
     {
         tell_object(target,"%^BOLD%^%^CYAN%^The sense of foresight fades.%^RESET%^");
-        target->remove_property("foresight");
+        //target->remove_property("foresight");
         target->add_ac_bonus(-bonus);
         target->add_attack_bonus(-attk_bonus);
     }

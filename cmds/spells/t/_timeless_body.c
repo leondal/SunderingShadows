@@ -9,9 +9,9 @@ object targ;
 void create() {
     ::create();
     set_spell_name("timeless body");
-    set_spell_level(([ "psion" : 9, "oracle":8, "bard" : 5 ]));
+    set_spell_level(([ "psion" : 9, "oracle":8 ]));
     set_mystery("ancestor");
-    set_spell_sphere("combat");
+    set_spell_sphere("psychoportation");
     set_syntax("cast CLASS timeless body");
     set_description("This power will enable a psion to take on a ghostly state, making him difficult to hit in combat.  "
 "The power has an equal chance each round to make the psion untouchable or not.  The psion's body fades, becoming "
@@ -21,7 +21,6 @@ void create() {
     set_verbal_comp();
     set_somatic_comp();
 	set_helpful_spell(1);
-    set_feats_required(([ "bard" : "timeweaver" ]));
 }
 
 string query_cast_string() {
@@ -47,7 +46,7 @@ void spell_effect(int prof)
     mylevel = clevel;
 
     targ = CASTER;
-    if(!FEATS_D->usable_feat(targ,"armored manifester")){
+    if(!FEATS_D->usable_feat(targ,"armored manifester") && !FEATS_D->usable_feat(targ,"eldritch conditioning")){
        if (!targ->is_ok_armour("mage")){
           if(!FEATS_D->usable_feat(targ,"armored caster")){
             tell_object(targ,"The power cannot offer protection while you "+
@@ -76,17 +75,17 @@ void test()
     if (!objectp(TO) || !objectp(targ))
         return;
     place = environment(targ);
-    if(!FEATS_D->usable_feat(targ,"armored manifester")){
-    if (!targ->is_ok_armour("mage"))
-    {
-        if(!FEATS_D->usable_feat(targ,"armored caster"))
+    if(!FEATS_D->usable_feat(targ,"armored manifester") && !FEATS_D->usable_feat(targ,"eldritch conditioning")){
+        if (!targ->is_ok_armour("mage"))
         {
-            tell_object(targ,"The power cannot offer protection while you "+
-               "wear such armor.");
-            TO->dest_effect();
-            return;
+            if(!FEATS_D->usable_feat(targ,"armored caster"))
+            {
+                tell_object(targ,"The power cannot offer protection while you "+
+                   "wear such armor.");
+                TO->dest_effect();
+                return;
+            }
         }
-    }
     }
     call_out("test", 5);
 }

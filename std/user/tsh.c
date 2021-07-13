@@ -151,6 +151,14 @@ string write_prompt()
             }
             else prompt = replace_string(prompt, "$_EW", "");
         }
+        
+        if(this_player()->is_class("psion") || this_player()->is_class("psywarrior"))
+        {
+            if(this_player()->query("available focus") == this_player()->query("maximum focus"))
+                prompt = replace_string(prompt, "$_PF", "Focused");
+            else
+                prompt = replace_string(prompt, "$_PF", "");
+        }
 
         if ((int)TP->query("maximum ki")) {
             prompt = replace_string(prompt, "$k", "" + (int)TP->query("available ki"));

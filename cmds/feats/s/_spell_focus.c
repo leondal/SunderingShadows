@@ -9,7 +9,7 @@ void create()
     feat_type("permanent");
     feat_category("MagicAccuracy");
     feat_name("spell focus");
-    feat_desc("Spell Focus is a feat that will allow the caster a better chance to bypass the saving throws of the target.");
+    feat_desc("Spell Focus is a feat that will allow the caster a better chance to bypass the saving throws of the target. It adds +1 to all of your spell DCs.");
     permanent(1);
     set_required_for(({"perfect caster","spell penetration","greater spell penetration","armored caster","eschew materials"}));
 }

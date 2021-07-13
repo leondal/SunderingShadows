@@ -11,7 +11,8 @@ void create()
     set_author("nienne");
     set_spell_name("recall death");
     set_spell_level(([ "psion" : 8 ]));
-    set_spell_sphere("alteration");
+    mental_spell();
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS recall death on TARGET");
     set_description("This spell parts the fabric of time, revealing wounds your foe has received in the past (or is yet to receive) that are potentially fatal. That target takes considerable damage as the past (or future) impinges briefly on the present. A failed will save will result in death. A successful save will result in the target still taking damage");
     set_verbal_comp();

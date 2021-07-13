@@ -30,7 +30,7 @@ int preSpell() {
     }
     if (!caster->is_ok_armour("mage"))
     {
-        if(!FEATS_D->usable_feat(caster,"armored caster"))
+        if(!FEATS_D->usable_feat(caster,"armored caster") && !FEATS_D->usable_feat(caster,"eldritch conditioning"))
         {
             tell_object(caster,"The spell can not offer protection to those wearing armor.");
             TO->remove();
@@ -46,7 +46,7 @@ void spell_effect(int prof) {
 
     if (!caster->is_ok_armour("mage"))
     {
-        if(!FEATS_D->usable_feat(caster,"armored caster"))
+        if(!FEATS_D->usable_feat(caster,"armored caster") && !FEATS_D->usable_feat(caster,"eldritch conditioning"))
         {
             tell_object(caster,"The spell can not offer protection to those wearing armor.");
             TO->remove();
@@ -73,7 +73,7 @@ void test() {
         return;
     if (!caster->is_ok_armour("mage"))
     {
-        if(!FEATS_D->usable_feat(caster,"armored caster"))
+        if(!FEATS_D->usable_feat(caster,"armored caster") && !FEATS_D->usable_feat(caster,"eldritch conditioning"))
         {
             tell_object(caster,"The spell can not offer protection to those wearing armor.");
             TO->dest_effect();

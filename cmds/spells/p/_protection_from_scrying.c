@@ -20,8 +20,9 @@ object blocker;
 void create() {
     ::create();
     set_spell_name("protection from scrying");
-    set_spell_level(([ "mage" : 3, "assassin" : 3, "inquisitor" : 3, "magus" : 3 ]));
+    set_spell_level(([ "mage" : 3, "assassin" : 3, "inquisitor" : 3, "magus" : 3, "cleric" : 3 ]));
     set_spell_sphere("abjuration");
+    set_domains("protection");
     set_syntax("cast CLASS protection from scrying [on TARGET]");
     set_description("The target of this spell can be a room or a person.  If cast on a person, the spell effect moves "
 "with them, sweeping the areas they pass though.  If cast without a target, the effect is centered on the room and "
@@ -110,19 +111,11 @@ void spell_effect(int prof) {
         dest_effect();
         return;
     }
-/*
-Previous block power
-    int_bonus = caster->query_stats("intelligence");
-    int_bonus = (int_bonus - 15) / 2;
-    blocker->set_block_power(CLEVEL + int_bonus);
-*/
-//updated by ~Circe~ 9/16/11 to use bonuses properly
-    int_bonus = caster->query_stats(casting_stat);
-    int_bonus = int_bonus-10;
+
+    int_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
     power = CLEVEL + int_bonus + random(6);
     blocker->set_block_power(power);
-//new block power by ~Circe~ to match scry power and add a
-//touch of randomness
+
     duration = 6 * (int)CLEVEL * ROUND_LENGTH;
     addSpellToCaster();
     spell_duration = duration;

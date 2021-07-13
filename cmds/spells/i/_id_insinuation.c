@@ -12,7 +12,8 @@ void create() {
     ::create();
     set_spell_name("id insinuation");
     set_spell_level(([ "psion" : 2 ]));
-    set_spell_sphere("enchantment_charm");
+    set_spell_sphere("telepathy");
+    mental_spell();
     set_syntax("cast CLASS id insinuation on TARGET");
     set_description("Id Insinuation allows the psion to befuddle the target's mind, making him react in unpredictable "
 "ways.  The target's confused state may make him babble incoherently, run away, or attack a nearby target - even one of "

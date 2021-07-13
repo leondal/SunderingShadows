@@ -33,7 +33,7 @@ OLI
       "west":MONASTERY+"m38",
    ]));
    set_smell("default","Must and dust make you cough.");
-   set_listen("default","Silemce, this must be a truly forgotten room.");
+   set_listen("default","Silence, this must be a truly forgotten room.");
 }
 
 void reset(){

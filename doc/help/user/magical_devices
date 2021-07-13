@@ -1,0 +1,48 @@
+%^CYAN%^BOLD%^MAGICAL DEVICES%^RESET%^
+
+Besides swinging your sword or casting spells, you can also use various magical
+devices found in the world. There are two main types of magical devices:
+
+%^CYAN%^BOLD%^SCROLLS:%^RESET%^
+Scrolls are spells that have been stored on parchment for later use. These are
+one-time use items and the scroll is consumed after the spell is cast.
+Characters with the Scribe feat can create new scrolls with spells they have
+memorized.
+
+As a general rule, a player may use a scroll spell that exists in their class's
+spell list with no penalties, provided they actually meet the requirements for
+casting the spell. Players may use a scroll from ANOTHER class's spell list
+but at great risk of failing the spell and losing the scroll. The chances to
+avoid failure are based on the player's intelligence stat and spellcraft
+skill. Be warned, however, that this failure chance will always be fairly high.
+
+Thieves and Bards with the Use Magic Device feat may also attempt to use a
+scroll, with success or failure based on their intelligence (charisma for bards)
+stat and overall thief or bard level compared against the scroll's caster level
+and level of the spell being cast. Bards may still cast scrolls from their own
+spell list without this additional check.
+
+%^CYAN%^BOLD%^WANDS:%^RESET%^
+Wands are another magical item that casts spells. Unlike scrolls, wands tend to
+have multiple uses, or charges. Wands are subject to the same rules as scrolls
+in terms of which spells can be cast for no penalty. The off-class rolls for
+using a wand are the same. Thieves with the Use Magical Device feat can also
+use these devices with greater success.
+
+%^MAGENTA%^The Stat Mod used is your highest among CHA, WIS, or INT
+
+%^CYAN%^On-class scroll or wand user:
+%^YELLOW%^Caster Level = Scroll Clevel Capped by Spellcraft Skill + Stat Mod
+%^YELLOW%^No Success Check
+
+%^CYAN%^NON-Thieves/Bards attempting off-class scroll or wand:%^RESET%^
+%^YELLOW%^Caster Level = Scroll Clevel Capped by Spellcraft Skill + Stat Mod
+%^YELLOW%^Scroll DC    = 20 + spell level
+%^YELLOW%^Scroll Roll  = d20 + highest casting stat mod + spellcraft skill / 10
+
+%^CYAN%^Thieves/Bards with UMD:%^RESET%^
+%^YELLOW%^Caster Level = Thief/Bard Level + Intelligence/Charisma Mod
+%^YELLOW%^Scroll DC    = Scroll Caster Level + Spell Level
+%^YELLOW%^Thief Roll   = d20 + Thief/Bard Level + Intelligence/Charisma Mod
+
+See Also: Spellcraft, Cast

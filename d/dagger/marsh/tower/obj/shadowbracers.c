@@ -150,7 +150,7 @@ int struck_fun(int damage, object what, object target) {
 "deflect your attack!%^RESET%^");
      tell_room(EETO,"%^BLUE%^"+ETO->QCN+"'s shadowy bracers seem to solidify, just enough to harmlessly "
 "deflect "+ETO->QP+"'s attack!%^RESET%^",({ETO,target}));
-     return (-1)*damage;
+     return 0;
    }
-   return 1;
+   return damage;
 }

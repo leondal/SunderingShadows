@@ -15,7 +15,7 @@ void create()
     ::create();
     set_spell_name("true metabolism");
     set_spell_level(([ "psion" : 8 ]));
-    set_spell_sphere("healing");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS true metabolism");
     set_description("This power will allow the psion to focus his energy on making minor bodily adjustments, in effect healing himself over time. The power will gradually expend itself over time.");
     set_verbal_comp();

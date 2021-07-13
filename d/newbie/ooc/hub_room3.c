@@ -16,7 +16,7 @@ void create() {
         set_property("no sticks",1);
 	set_property("ooc room", 1);
         set_short("%^MAGENTA%^OOC area hub to tutorial/info. rooms");
-        set_long("This room leads to the %^BOLD%^<tutorial>%^RESET%^ and a series of %^BOLD%^<info>%^RESET%^ rooms to help answer player's questions about how to get started and get the most from playing in ShadowGate.  When you have been through those and are ready to begin your adventure, the exit to the %^BOLD%^<city>%^RESET%^ will take you to the town square of Offestry.  You can return here anytime to look for answers to other questions you may have or to refresh your memory, or you can type %^BOLD%^%^GREEN%^<help hints>%^RESET%^ while anywhere in the game world for additional helpful hints. Please also remember that if you are searching for roleplay, %^BOLD%^%^BLUE%^<rumors> %^RESET%^will tell you where people are currently congretating if you wish to try your hand at seeking them out, OR you can set an RP flag %^YELLOW%^<help flag> %^RESET%^to draw them to you.
+        set_long("This room leads to the %^BOLD%^<tutorial>%^RESET%^ and a series of %^BOLD%^<info>%^RESET%^ rooms to help answer player's questions about how to get started and get the most from playing in Sundering Shadows.  When you have been through those and are ready to begin your adventure, the exit to the %^BOLD%^<city>%^RESET%^ will take you to the town square of Offestry.  You can return here anytime to look for answers to other questions you may have or to refresh your memory, or you can type %^BOLD%^%^GREEN%^<help hints>%^RESET%^ while anywhere in the game world for additional helpful hints. Please also remember that if you are searching for roleplay, %^BOLD%^%^BLUE%^<rumors> %^RESET%^will tell you where people are currently congretating if you wish to try your hand at seeking them out, OR you can set an RP flag %^YELLOW%^<help flag> %^RESET%^to draw them to you.
 
 There is also a special exit %^CYAN%^%^BOLD%^<portal>%^RESET%^ here, closed to common players.
 
@@ -75,7 +75,7 @@ int getmap() {
     if(!present("map",TP) && !TP->query_true_invis()) {
         tell_object(TP,"%^RED%^An obviously excited town citizen aproaches "+
         "you and exclaims:  %^RESET%^I see you don't have a map of "+
-        "the town, we can't have that, take one!");
+        "the town, we can't have that, take one! If you would like a text-only version of the map, please <request> one!");
 
         tell_room(TO,"%^RED%^An obviously excited town citizen "+
         "approaches "+TPQCN+"%^RED%^ and says something to "+TP->QO+

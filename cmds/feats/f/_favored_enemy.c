@@ -32,7 +32,7 @@ fighting an enemy type of their choice. The ranger will recieve a +2 bonus to\
 attack and damage rolls while fighting their favored enemy.\
 A ranger also adds this bonus when studying his favored enemy and doesn't need training in academics.\
 You can select from the following favored enemies: \n\n" + "%^GREEN%^" + implode(valid_choices, "\n") +
-"\n\n\To start selection process type <favored enemy>.");
+"\n\n\To start selection process type <favored_enemy>.");
     allow_tripped(1);
     set_required_for(({ "second favored enemy" }));
 }

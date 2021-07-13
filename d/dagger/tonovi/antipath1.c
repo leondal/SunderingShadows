@@ -23,6 +23,7 @@ void create(){
       ]) );
     set_exits( ([
 	"south" : RPATH "NWgate",
-        "northeast" : "/d/dagger/tonovi/antipath2"
+        "northeast" : "/d/dagger/tonovi/antipath2",
+        "west" : "/d/dagger/tonovi/town/cguilds/mages/tgate",
       ]) );
 }

@@ -25,7 +25,7 @@ AVATAR
   //set_size(2);
    //set_wc(1.8);
    //set_large_wc(1,10);
-        set_property("enchantment",4);
+        set_property("enchantment",5);
 	set_wield((:TO,"wield_func":));
      set_unwield((:TO,"unwield_func":));
 	set_hit((:TO,"hit_func":));
@@ -41,7 +41,7 @@ int unwield_func(){
 	return 1;
 }
 int hit_func(object targ){
-	if(random(1000) < 200){
+	if(!random(5)){
    switch(random(3)){
       case 0..1:
         tell_room(environment(query_wielded()),"%^BOLD%^%^CYAN%^"+ETOQCN+" breathes deeply with a mighty swing of the hammer that connects violently.",({ETO,targ}));
@@ -57,6 +57,6 @@ int hit_func(object targ){
       return roll_dice(3,4)+-2;
      break;
       }
-return 1;
+return 0;
 }
 }

@@ -65,7 +65,10 @@ void reset()
    ::reset();
    if(!present("guard 2")) {
       new(MONDIR+"guard")->move(TO);
-      new(MONDIR+"guard")->move(TO);
+      new(MONDIR+"guard_guide")->move(TO);
+   }
+   if(!present("PsyKnight Reinforcement")) {
+      new("/d/darkwood/tabor/mon/psyknight")->move(TO);
    }
   if(!present("street_light",TO))
     new("/d/common/obj/misc/street_light")->move(TO);

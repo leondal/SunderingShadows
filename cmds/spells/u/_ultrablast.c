@@ -10,11 +10,13 @@ void create() {
     ::create();
     set_spell_name("ultrablast");
     set_spell_level(([ "psion" : 7 ]));
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("telepathy");
+    set_damage_desc("Mental damage to enemies");
     set_syntax("cast CLASS ultrablast on TARGET");
     set_description("A psion begins manifesting this spell by creating a psychic 'grumbling' that toys with the minds of "
 "those nearby.  The psion allows his brain to emit an earsplitting shriek that resounds in the minds of the one targetted "
 "and those around him.");
+    mental_spell();
     set_verbal_comp();
     set_somatic_comp();
     set_target_required(1);

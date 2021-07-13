@@ -16,6 +16,9 @@ Sorcerers are spontaneous casters that use the %^ORANGE%^<master>%^RESET%^ comma
 
 Sorcerers get bonus spells from bloodlines. To see available bloodlines use %^ORANGE%^<help bloodlines>%^RESET%^.
 
+Sorcerers receive the following cantrips (type 'recall cantrip spells'):
+Daze, Detect Magic, Dancing Lights, Mending, Flare, Resistance
+
 Sorcerers cannot wield weapons while casting. They cannot use armor while casting, unless they have the applicable feats. 
 
 %^RESET%^%^CYAN%^See also: %^RESET%^ bloodlines, feats, stats, skills, spells, cast, buff, prepare, master, prestige classes, new caster

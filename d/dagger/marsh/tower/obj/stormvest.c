@@ -48,12 +48,11 @@ int remove_func(){
 	return 1;
 }
 int strike_func(int damage, object what, object who){
-	if(random(1000) < 175){
+	if(!random(10)){
 	tell_room(environment(query_worn()),"%^BOLD%^%^CYAN%^"+who->QCN+" is hit with an electrical discharge from "+ETOQCN+"'s vest as the smell of ozone lingers in the air.",({ETO,who}));
 	tell_object(ETO,"%^BOLD%^%^CYAN%^An electrical discharge issues forth from the vest shocking "+who->QCN+"");
 	tell_object(who,"%^BOLD%^%^CYAN%^You are struck with an electrical discharge from "+ETOQCN+"'s vest. The smell of ozone fills your senses!");
 		who->do_damage("torso",random(8)+8);
-//	return damage; - Taken out - it was doing double damage.  Circe 9/11/04
-	return 0;
 	}
+    return damage;
 }

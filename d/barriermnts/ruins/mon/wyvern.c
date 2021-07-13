@@ -30,7 +30,7 @@ create() {
    set_max_hp(random(100)+950);
    set_hp(query_max_hp());
    set_property("weapon resistance",1);
-   set_mob_magic_resistance("average");
+   //set_mob_magic_resistance("average");
    set_property("no animate",1);
    set_property("no death",1);
    set_property("no steal",1);

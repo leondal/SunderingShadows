@@ -11,6 +11,8 @@ void create()
 
     set_property("indoors", 0);
     set_property("light", 1);
+    set_travel(FRESH_BLAZE);
+    set_terrain(LIGHT_FOREST);
 
     set_climate("temperate");
     set_short("A Quiet Pond");
@@ -18,7 +20,7 @@ void create()
         "%^CYAN%^Tall %^ORANGE%^reeds %^CYAN%^and %^ORANGE%^morass %^CYAN%^harbor a quiet %^BOLD%^pond %^RESET%^%^CYAN%^in the center of a sheltered clearing. A natural pier of %^WHITE%^boulders %^CYAN%^allows one to walk out to where the water is clear. Giant %^GREEN%^firs %^CYAN%^allows a few strands of %^YELLOW%^sunlight %^RESET%^%^CYAN%^through the canopy, otherwise the area lies in %^BLUE%^shade%^CYAN%^. The lowest tree branches hover high above you, but a plenitude of the huge dark trunks is enough to block out the view. A well trodden %^BOLD%^%^BLACK%^path %^RESET%^%^CYAN%^winds northwards through the woods.%^RESET%^\n");
     set("night long", "%^BLUE%^A quiet pond%^RESET%^\n" +
         "%^BLUE%^Tall %^ORANGE%^reeds %^BLUE%^and %^ORANGE%^morass %^BLUE%^harbor a quiet %^BOLD%^%^CYAN%^pond %^RESET%^%^BLUE%^in the center of a sheltered clearing. A natural pier of %^WHITE%^boulders %^BLUE%^allows one to walk out to where the water is clear. Giant %^GREEN%^firs %^BLUE%^allows a glimpse of the %^YELLOW%^stars %^RESET%^%^BLUE%^through the canopy, otherwise the area is shrouded in darkness. The lowest tree branches hover high above you, but a plenitude of the huge dark trunks is enough to block out the view. A well trodden %^BOLD%^%^BLACK%^path %^RESET%^%^BLUE%^winds northwards through the woods.%^RESET%^\n");
-    set_smell("default", "%^BOLD%^%^CYAN%^The fresh fragrence of pine mixes with a whiff of murky water.%^RESET%^");
+    set_smell("default", "%^BOLD%^%^CYAN%^The fresh fragrance of pine mixes with a whiff of murky water.%^RESET%^");
     set_listen("default", "%^ORANGE%^You hear an occasional call of a bluejay, a rustling of a squirrel, and a barely audible howl in the wind.%^RESET%^");
     set_items(([
                    "path" : "%^GREEN%^The path is well defined, leading from the sacred grove to the natural pier in the pond.%^RESET%^",

@@ -12,7 +12,7 @@ void create()
     set_short("%^RESET%^%^BOLD%^%^GREEN%^Ch%^BLACK%^a%^GREEN%^os %^BLUE%^B%^GREEN%^lade%^RESET%^");
     
     set_long("%^BOLD%^%^BLACK%^The blade of this sword seems to be made "
-        "of nothing at all, or even the absense of anything.  It looks like "
+        "of nothing at all, or even the absence of anything.  It looks like "
         "a shimmering rift in the planes themselves, a small shard of "
         "nothingness that shimmers as its shape constantly undergoes subtle "
         "changes.  The rift that serves as a blade is almost four inches wide "

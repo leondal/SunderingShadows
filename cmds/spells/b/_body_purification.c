@@ -9,7 +9,7 @@ void create() {
     ::create();
     set_spell_name("body purification");
     set_spell_level(([ "psywarrior" : 4, "psion" : 3 ]));
-    set_spell_sphere("healing");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS body purification");
     set_description("This power will allow the psionic character to remove "
        "certain ailments from her body. While it does not restore lost hit "

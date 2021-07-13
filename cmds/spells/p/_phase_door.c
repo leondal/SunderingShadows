@@ -10,8 +10,7 @@ object dest;
 void create() {
     ::create();
     set_spell_name("phase door");
-    set_spell_level(([ "psion" : 7, "mage" : 7, "cleric" : 7]));
-    set_domains("travel");
+    set_spell_level(([ "psion" : 7, "mage" : 7 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS phase door on DIRECTION");
     set_description("With this spell the caster can teleport a short distance away, through doors or any exits. The spell can be used in combat and allows for fast escape, yet it will be barred by magically sealed doors. After phasing a door, caster must wait a while before she can do it again.");

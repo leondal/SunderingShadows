@@ -14,6 +14,7 @@ void create()
     set_spell_level(([ "mage" : 3, "bard" : 4, "inquisitor" : 3, "oracle" : 3, "magus" : 3, "cleric" : 3 ]));
     set_domains(({"charm"}));
     set_mystery("ancestor");
+    set_bonus_type("morale");
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS heroism [on TARGET]");
     set_damage_desc("+2 to attack bonus, saving throws, skills");
@@ -31,10 +32,12 @@ int query_heroism_bonus()
 
 int preSpell()
 {
+    /*
     if ((int)target->query_property("morale-boost")) {
         tell_object(CASTER, "That target is already under the influence of resistance or heroism.");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -78,7 +81,7 @@ void spell_effect(int prof) {
     for (i = 0; i < sizeof(CORE_SKILLS); i++) {
         target->add_skill_bonus(CORE_SKILLS[i], skillbonus);
     }
-    target->set_property("morale-boost", 1);
+    //target->set_property("morale-boost", 1);
     spell_duration = (clevel * 5 + roll_dice(1, 20)) * ROUND_LENGTH;
     set_end_time();
     call_out("dest_effect", spell_duration);
@@ -102,7 +105,7 @@ void dest_effect()
       target->add_saving_bonus("all",(-1)*thacobonus);
       for(i=0;i<sizeof(CORE_SKILLS);i++)
         target->add_skill_bonus(CORE_SKILLS[i],(-1)*skillbonus);
-      target->set_property("morale-boost",-1);
+      //target->set_property("morale-boost",-1);
     }
     ::dest_effect();
     if(objectp(TO)) TO->remove();

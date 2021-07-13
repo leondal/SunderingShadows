@@ -105,7 +105,7 @@
 
 inherit NPC;
 
-#define VALID_GODS ({"jarmila","callamir","kreysneothosies","ryorik","lord shadow","the faceless one","kismet","lysara","nimnavanon","nilith"})
+#define VALID_GODS ({"jarmila","callamir","kreysneothosies","seija","lord shadow","the faceless one","kismet","lysara","nimnavanon","nilith","khyron","cevahir"})
 
 mapping race_messages=([]);
 string *bad_races=({}),race_action,area_guarded,temple_guarded,jail_location,expel_location,capture_location;

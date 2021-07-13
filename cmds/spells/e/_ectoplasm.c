@@ -18,8 +18,9 @@ create()
     ::create();
     set_author("tlaloc");
     set_spell_name("ectoplasm");
-    set_spell_level(([ "psion" : 1 ]));
-    set_spell_sphere("conjuration_summoning");
+    set_spell_level(([ "psion" : 3 ]));
+    set_spell_sphere("metacreativity");
+    set_discipline("shaper");
     set_syntax("cast CLASS ectoplasm on TARGET");
     set_damage_desc("tripped for 1d8 rounds");
     set_description("Summons strands of ectoplasm from the Astral Plane to wrap themselves around the target and trip them.");

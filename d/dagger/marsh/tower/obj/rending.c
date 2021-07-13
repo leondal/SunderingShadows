@@ -88,8 +88,7 @@ int extra_hit(object ob)
             tell_object(ETO, "%^BOLD%^%^RED%^With your last blow, the dagger suddenly vanishes!%^RESET%^");
             TO->remove();
         }
-        vic->do_damage("torso", dam);
-        return 0;
+        return dam;
     }
     return 3;
 }

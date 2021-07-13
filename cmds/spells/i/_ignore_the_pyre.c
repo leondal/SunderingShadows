@@ -12,6 +12,7 @@ void create() {
     set_spell_name("ignore the pyre");
     set_spell_level(([ "warlock" : 2, ]));
     set_spell_sphere("abjuration");
+    set_bonus_type("resistance");
     set_syntax("cast CLASS ignore the pyre on ELEMENT");
     set_description("This invocation bestows the warlock with an innate affinity for the element of choice, which results "
 "in less damage taken from any attacks of that type. Elements that can be chosen are acid, cold, electricity, fire, or sonic.");
@@ -22,10 +23,12 @@ void create() {
 }
 
 int preSpell(){
+    /*
     if(caster->query_property("castspellresist")){
         tell_object(caster,"%^YELLOW%^You are already under the influence of similar spellcraft.");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -75,7 +78,7 @@ void spell_effect(int prof) {
     }
     active = 1;
     caster->set_resistance(ARG,clevel);
-    caster->set_property("castspellresist",1);
+    //caster->set_property("castspellresist",1);
     spell_successful();
     addSpellToCaster();
 }
@@ -84,7 +87,7 @@ void dest_effect(){
     if(objectp(caster) && active) {
       tell_object(caster,"%^BOLD%^%^WHITE%^You feel the protective ward fade from you.%^RESET%^");
       caster->set_resistance(ARG,-1*clevel);
-      caster->set_property("castspellresist",-1);
+      //caster->set_property("castspellresist",-1);
     }
     ::dest_effect();
     if(objectp(TO)) TO->remove();

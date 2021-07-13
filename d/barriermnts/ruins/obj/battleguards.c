@@ -55,6 +55,7 @@ int struck_fun(int damage,object what,object who){
      tell_object(who,"%^BLACK%^%^BOLD%^"+ETOQCN+" blocks your attack, and then kicks you painfully in "
 "the shins with "+ETO->QP+" steel-capped boots.  It's all you can do to remain standing!%^RESET%^");
      who->do_damage("right leg",random(5)+5);
-     return (-1)*damage;
+     return 0;
    }
+   return damage;
 }

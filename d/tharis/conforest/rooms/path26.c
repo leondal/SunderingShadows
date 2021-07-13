@@ -1,6 +1,6 @@
 #include <std.h>
 #include "../defs.h"
-inherit INC + "pathwe";
+inherit INC + "pathnwe";
 
 void create()
 {

@@ -30,7 +30,7 @@ void create(){
          "a grand temple dedicated to Tempus, the god of war."
     ]) );
     set_exits( ([
-       //"northwest" : RPATH"road37",
+       "northwest" : RPATH"road37",
        "southeast" : RPATH"p2"
     ]) );
 }

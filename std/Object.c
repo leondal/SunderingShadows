@@ -499,6 +499,9 @@ mixed query_property(string prop)
                 }
             }
         }
+        if(this_object()->is_class("psion") && this_object()->query("available focus"))
+            num += 1;
+    
         if ((string)TO->query_race() == "human") {
             subrace = (string)TO->query("subrace");
             if (subrace) {
@@ -557,15 +560,25 @@ mixed query_property(string prop)
         } else if (TO->query_race() == "troll") {
             num += 2;
         }
+        
+        if(FEATS_D->usable_feat(this_object(), "metabolic healing") && this_object()->query("available focus"))
+            num += 1;
+        
         num += props[prop];
         return (num + EQ_D->gear_bonus(TO, "fast healing"));
     }
 
 // we want this to pick up item "empowered" bonuses only, without spell power feats. Manually applied.
     if (prop == "spell dcs") {
-        if (FEATS_D->usable_feat(TO, "spell focus")) {
-            num += 2;
-        }
+        if (FEATS_D->usable_feat(TO, "spell focus"))
+            num += 1;
+        
+        if(FEATS_D->usable_feat(TO, "spell penetration"))
+            num += 1;
+        
+        if(FEATS_D->usable_feat(TO, "greater spell penetration"))
+            num += 1;
+        
         //num += props["empowered"]; //doesn't seem to do anything
         return (num + TO->query_property("empowered"));
     }
@@ -586,10 +599,13 @@ mixed query_property(string prop)
             worn = filter_array(distinct_array(TO->all_armour()), "light_armor_filter", TO);
             if (!sizeof(worn)) {
                 num += (query_guild_level("barbarian") - 10) / 6 + 1;
+
+                if(FEATS_D->usable_feat(this_object(), "unstoppable"))
+                    num += 3;
             }
-            if (FEATS_D->usable_feat(TO, "shadow master") && objectp(ETO) && ETO->query_light() < 2) {
-                num += 10;
-            }
+        }
+        if (FEATS_D->usable_feat(TO, "shadow master") && objectp(ETO) && ETO->query_light() < 2) {
+            num += 10;
         }
         if (FEATS_D->usable_feat(TO, "armor mastery")) {
             worn = filter_array(distinct_array(TO->all_armour()), "armor_filter", TO);
@@ -600,6 +616,9 @@ mixed query_property(string prop)
         if (FEATS_D->usable_feat(TO, "improved damage resistance")) {
             num += 2;
         }
+        if(FEATS_D->usable_feat(this_object(), "infused form"))
+            num += 5;
+        
         num += props[prop];
         return (num + EQ_D->gear_bonus(TO, "damage resistance"));
     }
@@ -709,9 +728,11 @@ mixed query_property(string prop)
         if (FEATS_D->usable_feat(TO, "unyielding soul")) {
             num += 6;
         }
+        /*
         if (FEATS_D->usable_feat(TO, "mind partition")) {
             num += 14;
         }
+        */
         if (TO->is_undead()) {
             return 20;
         }
@@ -738,13 +759,13 @@ mixed query_property(string prop)
             }
         }
         if (FEATS_D->usable_feat(TO, "resistance")) {
-            num += 4;
+            num += 5;
         }
         if (FEATS_D->usable_feat(TO, "increased resistance")) {
-            num += 6;
+            num += 7;
         }
         if (FEATS_D->usable_feat(TO, "improved resistance")) {
-            num += 8;
+            num += 9;
         }
         num += props[prop];
         return (num + EQ_D->gear_bonus(TO, "spell damage resistance"));
@@ -2721,7 +2742,7 @@ varargs int property_special(mixed arg, object enemy_weapon, object attacker)
 
     if (messages["special"] == "weapon") {
         if (!frequency) {
-            frequency = (enchantment * 2) + 6;
+            frequency = (enchantment * 2) + 8;
         }
         if (frequency > 20) {
             frequency = 20;
@@ -2730,7 +2751,7 @@ varargs int property_special(mixed arg, object enemy_weapon, object attacker)
         messages["weapon"] = TO;
     }else {
         if (!frequency) {
-            frequency = (enchantment * 5) + 5;
+            frequency = (enchantment * 5) + 10;
         }
         if (frequency > 40) {
             frequency = 40;
@@ -2804,7 +2825,7 @@ varargs int property_special(mixed arg, object enemy_weapon, object attacker)
 
         messages["type"] = "heal";
         send_messages(messages);
-        ETO->do_damage("torso", -1 * roll_dice(1, min_level) + enchantment + 5);
+        ETO->do_damage("torso", -1 * (roll_dice(1, min_level) + enchantment + 5));
         break;
 
     case "attack":
@@ -2911,7 +2932,7 @@ varargs int property_special(mixed arg, object enemy_weapon, object attacker)
     if (messages["special"] == "weapon") {
         return roll_dice(1, enchantment);
     }
-    return 0;
+    return damage;
 }
 
 string color_me(string str)

@@ -96,7 +96,7 @@ varargs int postit() {
     x = (int)BBOARD_D->post_message(board_id, title[TP]);
     if(x == BBOARD_OK) write("Posted.\n");
     else if(x == EDIT_ABORT) write("Edit aborted.\n");
-    else if(x == BAD_DATA) write("Error in posting call.\n");
+    else if(x == BAD_DATA) write("Error in posting call. Please try again.\n");
     map_delete(title, TP);
    if(x == BBOARD_OK) tell_room(ETO,TPQCN+" posts something on the "+query_name()+".",TP);
     return 1;

@@ -9,7 +9,7 @@ void create() {
     set_spell_name("tornado blast");
     set_spell_level(([ "psion" : 9 ]));
     set_discipline("kineticist");
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS tornado blast on TARGET");
     set_description("This power enables a kineticist to draw upon his knowledge of energy to create a whirling vortex in "
 "the area.  The vortex is directed at the target, who suffers a chance to be knocked down and lose anything he might be "

@@ -71,7 +71,7 @@ int* stat_mods(string subrace)   // stats in order: str, dex, con, int, wis, cha
     case "sildruath": return ({ 0, 4, -4, 0, 2, 0 }); break;
     case "szarkai": return ({ 0, 2, -2, 2, 0, 0 }); break;
     case "wild elf": return ({ 2, 2, 0, 0, 0, -2 }); break;
-    case "wood elf": return ({ 2, 2, 0, -2, 0, 0 }); break;
+    case "wood elf": return ({ 0, 2, -2, 0, 2, 0 }); break;
 
     default: return ({ 0, 2, -2, 2, 0, 0 }); break;   //moon elf default
     }

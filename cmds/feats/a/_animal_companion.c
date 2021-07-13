@@ -41,7 +41,7 @@ void create()
     feat_type("instant");
     feat_category("SavageCombat");
     feat_name("animal companion");
-    feat_prereq("Ranger L4");
+    feat_prereq("Druid L1 or Ranger L4");
     feat_syntax("animal_companion [TYPE] to summon or animal_companion to dismiss");
     feat_desc("Summons or dismisses your faithful animal companion. This companion will follow you through thick and thin, will level up with you, and gains several perks as it grows. The TYPE of animal will determine its base stats and natural armor.  The animal companion gains its own feats as follows:
 
@@ -70,7 +70,7 @@ int prerequisites(object ob)
     if(!objectp(ob))
         return 0;
     
-    if(ob->query_class_level("ranger") < 4)
+    if(ob->query_class_level("ranger") < 4 && ob->query_class_level("druid") < 1)
     {
         dest_effect();
         return 0;
@@ -156,7 +156,8 @@ void execute_feat()
     
     tell_object(caster, sprintf("You summon your trusty %s companion%s to your side.", arg, caster->query_chosen_animal() == arg ? "s" : ""));
     
-    class_level = caster->query_guild_level("ranger");
+    class_level = caster->query_prestige_level("ranger") + caster->query_prestige_level("druid");
+    
     comp_hd = class_level + 2;
     comp_ac = class_level + 10;
     
@@ -207,7 +208,7 @@ void execute_feat()
         //Chosen animal greatly buffs the animal companion
         if(FEATS_D->usable_feat(caster, "chosen animal"))
         {
-            companion->set_property("damage_resistance", 10);
+            companion->set_property("damage resistance", 10);
             companion->set_monster_feats( ({ "toughness", "improved toughness", "evasion", "resistance", "precise strikes", "stalwart", "rapid strikes" }) );
         }
     
@@ -229,7 +230,7 @@ void execute_feat()
                 pack_animal->set_hp(14 * comp_hd + 14);
                 pack_animal->set_alignment(caster->query_alignment());
                 pack_animal->set_owner(caster);
-                pack_animal->set_property("damage_resistance", 10);
+                pack_animal->set_property("damage resistance", 10);
        
                 caster->add_follower(pack_animal);
                 caster->add_protector(pack_animal);

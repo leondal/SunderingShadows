@@ -9,6 +9,7 @@ void create() {
     set_spell_name("lions charge");
     set_spell_level(([ "psywarrior" : 2 ]));
     set_syntax("cast CLASS lions charge on TARGET");
+    set_spell_sphere("psychometabolism");
     set_save("reflex");
     set_description("When manifesting this power, the psionic character "
        "charges toward her foe and attempts to knock him down. The damage "

@@ -243,1480 +243,315 @@ int* calc_weight(object play, int wpct)
     vals = allocate(2);
     gender = play->query_gender();
     height = play->query_height();
-    switch ((string)play->query_race()) {
+    switch ((string)play->query_race())
+    {
     case "dwarf":
-        if (gender == "male") {
-            base = 130;
-            switch (height) {
-            case 43..45:
-                adjust = -20;
-                die = 15;
-                break;
+        if (gender == "male")
+        {
+            base = 150;
+            adjust = height - 45;
 
-            case 46..50:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 51..53:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 54..56:
-                adjust = 20;
-                die = 20;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 105;
-            switch (height) {
-            case 41..43:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 44..48:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 49..51:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 52..54:
-                adjust = 15;
-                die = 20;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
         }
-        num = 4;
+        else
+        {
+            base = 120;
+            adjust = height - 43;
+        }
+        die = 4;
         break;
 
     case "elf":
-        if (gender == "male") {
-            base = 90;
-            switch (height) {
-            case 55..57:
-                adjust = -10;
-                die = 15;
-                break;
-
-            case 58..62:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 63..65:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 66..68:
-                adjust = 15;
-                die = 15;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 70;
-            switch (height) {
-            case 50..52:
-                adjust = -15;
-                die = 15;
-                break;
-
-            case 53..57:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 58..60:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 61..63:
-                adjust = 5;
-                die = 15;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+        if (gender == "male")
+        {
+            base = 100;
+            adjust = height - 64;
         }
-        num = 3;
+        else
+        {
+            base = 90;
+            adjust = height - 64;
+        }
+        die = 8;
         break;
 
     case "drow":
-        if (gender == "male") {
-            base = 70;
-            switch (height) {
-            case 50..52:
-                adjust = -15;
-                die = 15;
-                break;
-
-            case 53..57:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 58..60:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 61..63:
-                adjust = 5;
-                die = 15;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 90;
-            switch (height) {
-            case 55..57:
-                adjust = -15;
-                die = 15;
-                break;
-
-            case 58..62:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 63..65:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 66..68:
-                adjust = 15;
-                die = 15;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+        if (gender == "male")
+        {
+            base = 100;
+            adjust = height - 64;
         }
-        num = 3;
+        else
+        {
+            base = 90;
+            adjust = height - 64;
+        }
+        die = 8;
         break;
 
     case "half-elf":
         if (gender == "male") {
             base = 110;
-            switch (height) {
-            case 60..62:
-                adjust = -18;
-                die = 18;
-                break;
-
-            case 63..68:
-                adjust = 0;
-                die = 12;
-                break;
-
-            case 69..72:
-                adjust = 0;
-                die = 18;
-                break;
-
-            case 73..75:
-                adjust = 15;
-                die = 20;
-                break;
-
-            default:
-                adjust = 0;
-                die = 12;
-            }
-        }else {
-            base = 85;
-            switch (height) {
-            case 58..60:
-                adjust = -18;
-                die = 18;
-                break;
-
-            case 61..66:
-                adjust = -5;
-                die = 12;
-                break;
-
-            case 67..70:
-                adjust = 0;
-                die = 18;
-                break;
-
-            case 71..73:
-                adjust = 10;
-                die = 20;
-                break;
-
-            default:
-                adjust = 0;
-                die = 12;
-            }
+            adjust = height - 62;
         }
-        num = 3;
+        else
+        {
+            base = 90;
+            adjust = height - 60;
+        }
+        die = 8;
         break;
 
     case "half-drow":
         if (gender == "male") {
             base = 100;
-            switch (height) {
-            case 55..57:
-                adjust = -18;
-                die = 18;
-                break;
-
-            case 58..63:
-                adjust = -10;
-                die = 12;
-                break;
-
-            case 64..67:
-                adjust = 0;
-                die = 18;
-                break;
-
-            case 68..70:
-                adjust = 10;
-                die = 20;
-                break;
-
-            default:
-                adjust = 0;
-                die = 12;
-            }
-        }else {
-            base = 110;
-            switch (height) {
-            case 57..59:
-                adjust = -18;
-                die = 18;
-                break;
-
-            case 60..65:
-                adjust = -5;
-                die = 12;
-                break;
-
-            case 66..69:
-                adjust = 0;
-                die = 18;
-                break;
-
-            case 70..72:
-                adjust = 15;
-                die = 20;
-                break;
-
-            default:
-                adjust = 0;
-                die = 12;
-            }
+            adjust = height - 62;
         }
-        num = 3;
+        else
+        {
+            base = 90;
+            adjust = height - 60;
+        }
+        die = 8;
         break;
 
     case "gnome":
-        if (gender == "male") {
-            base = 72;
-            switch (height) {
-            case 38..40:
-                adjust = -10;
-                die = 6;
-                break;
-
-            case 41..43:
-                adjust = 0;
-                die = 4;
-                break;
-
-            case 44..45:
-                adjust = 0;
-                die = 6;
-                break;
-
-            default:
-                adjust = 0;
-                die = 4;
-            }
-        }else {
-            base = 68;
-            switch (height) {
-            case 36..38:
-                adjust = -10;
-                die = 6;
-                break;
-
-            case 39..41:
-                adjust = 0;
-                die = 4;
-                break;
-
-            case 42..43:
-                adjust = 0;
-                die = 6;
-                break;
-
-            default:
-                adjust = 0;
-                die = 4;
-            }
+        if (gender == "male")
+        {
+            base = 35;
+            adjust = height - 36;
         }
-        num = 5;
+        else
+        {
+            base = 30;
+            adjust = height - 34;
+        }
+        die = 4;
         break;
 
     case "halfling":
-        if (gender == "male") {
-            base = 52;
-            switch (height) {
-            case 32..36:
-                adjust = -10;
-                die = 6;
-                break;
-
-            case 37..43:
-                adjust = 0;
-                die = 4;
-                break;
-
-            case 44..48:
-                adjust = 0;
-                die = 6;
-                break;
-
-            case 49..52:
-                adjust = 5;
-                die = 6;
-                break;
-
-            default:
-                adjust = 0;
-                die = 4;
-            }
-        }else {
-            base = 48;
-            switch (height) {
-            case 30..34:
-                adjust = -10;
-                die = 6;
-                break;
-
-            case 35..41:
-                adjust = 0;
-                die = 4;
-                break;
-
-            case 42..46:
-                adjust = 0;
-                die = 6;
-                break;
-
-            case 47..50:
-                adjust = 5;
-                die = 6;
-                break;
-
-            default:
-                adjust = 0;
-                die = 4;
-            }
+        if (gender == "male")
+        {
+            base = 30;
+            adjust = height - 32;
         }
-        num = 5;
+        else
+        {
+            base = 25;
+            adjust = height - 30;
+        }
+        die = 4;
         break;
 
     case "human":
-        if (gender == "male") {
-            base = 150;
-            switch (height) {
-            case 60..65:
-                adjust = -40;
-                die = 15;
-                break;
-
-            case 66..74:
-                adjust = -10;
-                die = 10;
-                break;
-
-            case 75..80:
-                adjust = 20;
-                die = 15;
-                break;
-
-            case 81..86:
-                adjust = 30;
-                die = 25;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 110;
-            switch (height) {
-            case 55..60:
-                adjust = -10;
-                die = 15;
-                break;
-
-            case 61..69:
-                adjust = -5;
-                die = 10;
-                break;
-
-            case 70..75:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 76..81:
-                adjust = 15;
-                die = 15;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }
-        num = 8;
-        break;
-
     case "yuan-ti":
+    case "shade":
+    case "deva":
         if (gender == "male") {
-            base = 150;
-            switch (height) {
-            case 60..65:
-                adjust = -40;
-                die = 15;
-                break;
+            base = 120;
+            adjust = (height - 58);
 
-            case 66..74:
-                adjust = -10;
-                die = 10;
-                break;
-
-            case 75..80:
-                adjust = 20;
-                die = 15;
-                break;
-
-            case 81..86:
-                adjust = 30;
-                die = 25;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 110;
-            switch (height) {
-            case 55..60:
-                adjust = -10;
-                die = 15;
-                break;
-
-            case 61..69:
-                adjust = -5;
-                die = 10;
-                break;
-
-            case 70..75:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 76..81:
-                adjust = 15;
-                die = 15;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }
-        num = 8;
-        break;
-
-    case "beastman":
-        if (gender == "male") {
-            base = 105;
-            switch (height) {
-            case 55..57:
-                adjust = -15;
-                die = 15;
-                break;
-
-            case 58..64:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 65..67:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 68..70:
-                adjust = 10;
-                die = 18;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
         }else {
             base = 85;
-            switch (height) {
-            case 50..52:
-                adjust = -10;
-                die = 15;
-                break;
-
-            case 53..59:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 60..62:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 63..65:
-                adjust = 10;
-                die = 18;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust = (height - 53);
         }
-        num = 3;
+        die = 10;
         break;
-
+        
+    case "beastman":
+        if (gender == "male")
+        {
+            base = 105;
+            adjust = height - 58;
+        }
+        else
+        {
+            base = 85;
+            adjust  = height - 53;
+        }
+        die = 10;
+        break;
+        
     case "bugbear":
-        if (gender == "male") {
+        if (gender == "male")
+        {
             base = 210;
-            switch (height) {
-            case 72..77:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 78..86:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 87..92:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 93..98:
-                adjust = 10;
-                die = 18;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
+            adjust = height - 78;
+        }
+        else
+        {
             base = 180;
-            switch (height) {
-            case 68..73:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 74..82:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 83..88:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 89..94:
-                adjust = 10;
-                die = 18;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust  = height - 74;
         }
-        num = 6;
-        break;
-
-    case "firbolg":
-        if (gender == "male") {
-            base = 780;
-            switch (height) {
-            case 120..122:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 123..129:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 130..132:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 133..135:
-                adjust = 10;
-                die = 18;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 740;
-            switch (height) {
-            case 114..116:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 117..123:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 124..126:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 127..129:
-                adjust = 10;
-                die = 18;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }
-        num = 6;
+        die = 10;
         break;
 
     case "voadkyn":
-        if (gender == "male") {
+    case "firbolg":
+        if (gender == "male")
+        {
             base = 675;
-            switch (height) {
-            case 108..110:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 111..117:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 118..120:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 121..123:
-                adjust = 15;
-                die = 18;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
+            adjust = height - 111;
+        }
+        else
+        {
             base = 650;
-            switch (height) {
-            case 102..104:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 105..111:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 112..114:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 115..117:
-                adjust = 10;
-                die = 18;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust  = height - 105;
         }
-        num = 6;
-        break;
-
-    case "gnoll":
-        if (gender == "male") {
-            base = 180;
-            switch (height) {
-            case 84..86:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 87..93:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 94..96:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 97..99:
-                adjust = 10;
-                die = 17;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 160;
-            switch (height) {
-            case 80..82:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 83..89:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 90..92:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 93..95:
-                adjust = 10;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }
-        num = 4;
+        die = 15;
         break;
 
     case "minotaur":
-        if (gender == "male") {
+    case "gnoll":
+        if (gender == "male")
+        {
             base = 180;
-            switch (height) {
-            case 84..86:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 87..93:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 94..96:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 97..99:
-                adjust = 10;
-                die = 17;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 160;
-            switch (height) {
-            case 80..82:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 83..89:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 90..92:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 93..95:
-                adjust = 10;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust = height - 87;
         }
-        num = 4;
+        else
+        {
+            base = 160;
+            adjust  = height - 83;
+        }
+        die = 10;
         break;
 
     case "goblin":
     case "ratkin":
-        if (gender == "male") {
+        if (gender == "male")
+        {
             base = 72;
-            switch (height) {
-            case 43..45:
-                adjust = -10;
-                die = 6;
-                break;
-
-            case 46..50:
-                adjust = 0;
-                die = 4;
-                break;
-
-            case 51..53:
-                adjust = 0;
-                die = 6;
-                break;
-
-            case 54..56:
-                adjust = 5;
-                die = 7;
-                break;
-
-            default:
-                adjust = 0;
-                die = 4;
-            }
-        }else {
+            adjust = height - 46;
+        }
+        else
+        {
             base = 68;
-            switch (height) {
-            case 41..43:
-                adjust = -10;
-                die = 6;
-                break;
-
-            case 44..48:
-                adjust = 0;
-                die = 4;
-                break;
-
-            case 49..51:
-                adjust = 0;
-                die = 6;
-                break;
-
-            case 52..54:
-                adjust = 5;
-                die = 7;
-                break;
-
-            default:
-                adjust = 0;
-                die = 4;
-            }
+            adjust  = height - 41;
         }
-        num = 5;
+        die = 8;
         break;
-
+        
     case "hobgoblin":
-        if (gender == "male") {
+        if (gender == "male")
+        {
             base = 150;
-            switch (height) {
-            case 72..73:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 74..78:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 79..80:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 81..82:
-                adjust = 10;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 130;
-            switch (height) {
-            case 68..69:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 70..74:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 75..76:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 77..78:
-                adjust = 5;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust = height - 79;
         }
-        num = 5;
+        else
+        {
+            base = 130;
+            adjust  = height - 75;
+        }
+        die = 4;
         break;
-
+        
     case "kobold":
-        if (gender == "male") {
+        if (gender == "male")
+        {
             base = 130;
-            switch (height) {
-            case 32..34:
-                adjust = -10;
-                die = 6;
-                break;
-
-            case 35..41:
-                adjust = 0;
-                die = 4;
-                break;
-
-            case 42..44:
-                adjust = 0;
-                die = 6;
-                break;
-
-            case 45..47:
-                adjust = 5;
-                die = 7;
-                break;
-
-            default:
-                adjust = 0;
-                die = 4;
-            }
-        }else {
-            base = 105;
-            switch (height) {
-            case 30..32:
-                adjust = -10;
-                die = 6;
-                break;
-
-            case 33..39:
-                adjust = 0;
-                die = 4;
-                break;
-
-            case 40..42:
-                adjust = 0;
-                die = 6;
-                break;
-
-            case 43..45:
-                adjust = 5;
-                die = 7;
-                break;
-
-            default:
-                adjust = 0;
-                die = 4;
-            }
+            adjust = height - 42;
         }
-        num = 5;
+        else
+        {
+            base = 105;
+            adjust  = height - 33;
+        }
+        die = 6;
         break;
 
     case "ogre":
-        if (gender == "male") {
-            base = 320;
-            switch (height) {
-            case 96..101:
-                adjust = -30;
-                die = 30;
-                break;
-
-            case 102..114:
-                adjust = 0;
-                die = 20;
-                break;
-
-            case 115..120:
-                adjust = 0;
-                die = 30;
-                break;
-
-            case 121..127:
-                adjust = 20;
-                die = 32;
-                break;
-
-            default:
-                adjust = 0;
-                die = 20;
-            }
-        }else {
-            base = 280;
-            switch (height) {
-            case 93..98:
-                adjust = -30;
-                die = 30;
-                break;
-
-            case 99..111:
-                adjust = 0;
-                die = 20;
-                break;
-
-            case 112..117:
-                adjust = 0;
-                die = 30;
-                break;
-
-            case 118..124:
-                adjust = 20;
-                die = 32;
-                break;
-
-            default:
-                adjust = 0;
-                die = 20;
-            }
+        if (gender == "male")
+        {
+            base = 650;
+            adjust = height - 100;
         }
-        num = 3;
+        else
+        {
+            base = 600;
+            adjust  = height - 94;
+        }
+        die = 12;
         break;
 
     case "half-ogre":
         if (gender == "male") {
             base = 270;
-            switch (height) {
-            case 84..86:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 87..93:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 94..96:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 97..99:
-                adjust = 10;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 220;
-            switch (height) {
-            case 78..80:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 81..87:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 88..90:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 91..93:
-                adjust = 10;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust = height - 91;
         }
-        num = 6;
+        else
+        {
+            base = 220;
+            adjust  = height - 97;
+        }
+        die = 15;
         break;
-
+        
     case "ogre-mage":
         if (gender == "male") {
             base = 810;
-            switch (height) {
-            case 114..116:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 117..123:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 124..126:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 127..129:
-                adjust = 15;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 780;
-            switch (height) {
-            case 96..98:
-                adjust = -20;
-                die = 15;
-                break;
-
-            case 99..105:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 106..108:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 109..111:
-                adjust = 10;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust = height - 124;
         }
-        num = 4;
+        else
+        {
+            base = 780;
+            adjust  = height - 99;
+        }
+        die = 15;
         break;
 
     case "orc":
         if (gender == "male") {
             base = 130;
-            switch (height) {
-            case 58..60:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 61..67:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 68..70:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 71..73:
-                adjust = 15;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
-            base = 90;
-            switch (height) {
-            case 56..58:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 59..65:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 66..68:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 69..71:
-                adjust = 10;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust = height - 61;
         }
-        num = 6;
+        else
+        {
+            base = 95;
+            adjust  = height - 59;
+        }
+        die = 10;
         break;
-
+        
     case "half-orc":
         if (gender == "male") {
             base = 135;
-            switch (height) {
-            case 60..62:
-                adjust = -30;
-                die = 15;
-                break;
-
-            case 63..69:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 70..72:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 73..75:
-                adjust = 15;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
-        }else {
+            adjust = height - 63;
+        }
+        else
+        {
             base = 95;
-            switch (height) {
-            case 58..60:
-                adjust = -15;
-                die = 15;
-                break;
-
-            case 61..67:
-                adjust = 0;
-                die = 10;
-                break;
-
-            case 68..70:
-                adjust = 0;
-                die = 15;
-                break;
-
-            case 71..73:
-                adjust = 10;
-                die = 17;
-                break;
-
-            default:
-                adjust = 0;
-                die = 10;
-            }
+            adjust  = height - 61;
         }
-        num = 6;
-        break;
-
-    case "wemic":
-        if (gender == "male") {
-            base = 700;
-            switch (height) {
-            case 78..84:
-                adjust = -40;
-                die = 30;
-                break;
-
-            case 85..92:
-                adjust = 0;
-                die = 20;
-                break;
-
-            case 93..97:
-                adjust = 0;
-                die = 30;
-                break;
-
-            case 98..101:
-                adjust = 30;
-                die = 32;
-                break;
-
-            default:
-                adjust = 0;
-                die = 20;
-            }
-        }else {
-            base = 670;
-            switch (height) {
-            case 75..81:
-                adjust = -40;
-                die = 30;
-                break;
-
-            case 82..89:
-                adjust = 0;
-                die = 20;
-                break;
-
-            case 90..94:
-                adjust = 0;
-                die = 30;
-                break;
-
-            case 95..98:
-                adjust = 30;
-                die = 32;
-                break;
-
-            default:
-                adjust = 0;
-                die = 20;
-            }
-        }
-        num = 4;
+        die = 6;
         break;
 
     case "centaur":
-        if (gender == "male") {
+    case "wemic":
+        if (gender == "male")
+        {
             base = 700;
-            switch (height) {
-            case 78..84:
-                adjust = -40;
-                die = 30;
-                break;
-
-            case 85..92:
-                adjust = 0;
-                die = 20;
-                break;
-
-            case 93..97:
-                adjust = 0;
-                die = 30;
-                break;
-
-            case 98..101:
-                adjust = 30;
-                die = 32;
-                break;
-
-            default:
-                adjust = 0;
-                die = 20;
-            }
-        }else {
-            base = 670;
-            switch (height) {
-            case 75..81:
-                adjust = -40;
-                die = 30;
-                break;
-
-            case 82..89:
-                adjust = 0;
-                die = 20;
-                break;
-
-            case 90..94:
-                adjust = 0;
-                die = 30;
-                break;
-
-            case 95..98:
-                adjust = 30;
-                die = 32;
-                break;
-
-            default:
-                adjust = 0;
-                die = 20;
-            }
+            adjust = height - 85;
         }
-        num = 4;
+        else
+        {
+            base = 670;
+            adjust = height - 82;
+        }
+        die = 10;
         break;
 
     default:
         base = 140;
-        num = 8;
+        adjust = height - 72;
         die = 10;
-        adjust = 0;
     }
-    max = base + (num * die) / 2 + adjust; // average weight
-    num = wpct * num / 100;
-    base = wpct * base / 100;
-    adjust = (wpct > 100 ? wpct : 100) * adjust / 100;
-    weight = base + roll_dice(num, die) + adjust;
+    
+    max = base + (2 * die * adjust);
+    //max = base + (num * die) / 2 + adjust; // average weight
+    //num = wpct * num / 100;
+    //base = wpct * base / 100;
+    //adjust = (wpct > 100 ? wpct : 100) * adjust / 100;
+    //weight = base + roll_dice(num, die) + adjust;
+    weight = base + (roll_dice(2, die) * adjust);
     vals[0] = weight;
     vals[1] = max;
     return vals;
@@ -1863,6 +698,7 @@ int immunity_check(object obj, string type)
         }
         return 0;
     }
+    break;
 
     case "charm":
     {
@@ -1876,6 +712,7 @@ int immunity_check(object obj, string type)
             return 1;
         }
     }
+    break;
 
     case "fear":
     {
@@ -1895,11 +732,11 @@ int immunity_check(object obj, string type)
             return 1;
         }
         
-        if(obj->query_class_level("cleric"))
-        {
-            if(member_array("martyr", obj->query_divine_domain()) >= 0)
-                return 1;
-        }
+        if(obj->query_property("intellect fortress"))
+            return 1;
+        
+        if(FEATS_D->usable_feat(obj, "fearless rage") && obj->query_property("raged"))
+            return 1;
 
         switch (myrace) {
 
@@ -1923,19 +760,22 @@ int immunity_check(object obj, string type)
         }
         return 0;
     }
+    
+    break;
 
     case "fatigue":
     {
         if (obj->is_undead()) {
             return 1;
         }
-        if (member_array(obj->query_race(),
-                         ({"golem", "construct", "soulforged"}))) {
+        if (member_array(obj->query_race(),({"golem", "construct", "soulforged"})) >= 0) {
             return 1;
         }
 
         return 0;
     }
+    
+    break;
 
 
     default:

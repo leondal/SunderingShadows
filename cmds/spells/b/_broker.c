@@ -19,7 +19,8 @@ void create()
 
     set_spell_name("broker");
     set_spell_level( ([ "psion" : 1, ]) );
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
+    set_bonus_type("circumstance");
     set_syntax("cast CLASS broker");
     set_damage_desc("Clevel / 4 to influence skill");
     set_description("By meditating on your character and mannerisms, you can become more influential towards others.");
@@ -32,11 +33,13 @@ int preSpell()
 {
     target = caster;
 
+    /*
     if(target->query_property("broker"))
     {
         tell_object(target, "You are already under the influence of Broker.");
         return 0;
     }
+    */
 
     return 1;
 }
@@ -54,7 +57,7 @@ void spell_effect()
     caster->add_skill_bonus("influence", bonus);
 
     caster->set_property("spelled", ({ this_object() }) );
-    caster->set_property("broker", 1);
+    //caster->set_property("broker", 1);
     addSpellToCaster();
 
     spell_duration = (clevel + roll_dice(1, 20)) * ROUND_LENGTH * 2;
@@ -69,7 +72,7 @@ void dest_effect()
         target->add_skill_bonus("influence", -bonus);
         target->remove_property("spelled", ({ this_object() }) );
         tell_object(target, "%^CYAN%^You feel your command of influence fading away.%^RESET%^");
-        target->remove_property("broker");
+        //target->remove_property("broker");
     }
     ::dest_effect();
     if(objectp(this_object()))

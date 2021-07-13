@@ -27,6 +27,7 @@ void create()
     set_verbal_comp();
     set_target_required(1);
     set_helpful_spell(1);
+    set_feats_required(([ "druid" : "natures gift" ]));
 }
 
 string query_cast_string()

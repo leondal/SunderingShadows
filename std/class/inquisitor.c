@@ -40,8 +40,13 @@ string *class_feats(string myspec)
                 "shield proficiency"});
 }
 
+mapping query_cantrip_spells(object ob)
+{
+    return ([ "create water" : 1, "detect magic" : 1, "detect poison" : 1, "guidance" : 1, "resistance" : 1, "light" : 1, "mending" : 1, "disrupt undead" : 1 ]);
+}
+
 mapping class_featmap(string myspec) {
-    return ([ 1 : class_feats()+({"judgement","monster lore", }), 2 : ({ "track" }), 3:({"force of personality"}), 5: ({"bane"}), 6: ({"leadership"}), 8: ({"second judgement"}), 11: ({"stalwart"}), 14: ({"exploit weakness"}),16 : ({"third judgement"}), 17 : ({"slayer"}), 20 : ({"true judgement"})]);
+    return ([ 1 : class_feats()+({"judgement","monster lore", }), 2 : ({ "track" }), 5: ({"bane"}), 6: ({"leadership"}), 8: ({"second judgement"}), 11: ({"stalwart"}), 14: ({"exploit weakness"}),16 : ({"third judgement"}), 17 : ({"slayer"}), 20 : ({"true judgement"})]);
 }
 
 string *class_skills()

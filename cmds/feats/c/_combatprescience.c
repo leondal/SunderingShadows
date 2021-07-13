@@ -16,7 +16,7 @@ void create()
     feat_prereq("Psywarrior L1");
     feat_syntax("combatprescience");
     feat_classes("psywarrior");
-    feat_desc("This feat allows the psywarrior to use her mental prowess to gain insight into battle, granting her bonuses to attack and damage rolls and giving her a chance to slip in extra attacks. The feat grows in both strength and opportunities for extra attacks as the psywarrior gains levels and intelligence.");
+    feat_desc("This feat allows the psywarrior to use her mental prowess to gain insight into battle, granting her bonuses to attack and damage rolls and giving her a chance to slip in extra attacks. The feat grows in both strength and opportunities for extra attacks as the psywarrior gains levels and intelligence. This feat requires you to spend your Psionic Focus.");
     set_target_required(0);
     allow_blind(1);
     psionic(1);
@@ -24,7 +24,7 @@ void create()
 }
 
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 
 int prerequisites(object ob)
@@ -58,6 +58,13 @@ void execute_feat()
         TO->remove();
         return;
     }
+
+    if(!USER_D->spend_pool(caster, 1, "focus"))
+    {
+        tell_object(caster, "You must have psionic focus to use combatprescience!");
+        dest_effect();
+        return;
+    }
     ::execute_feat();
 
     if((int)caster->query_property("using instant feat"))
@@ -83,7 +90,7 @@ void execute_feat()
     caster->add_attack_bonus(mod); //+10
     caster->add_damage_bonus(mod); //+10
 
-    duration = 2 * (mod + BONUS_D->query_stat_bonus("intelligence", caster));
+    duration = ROUND_LENGTH * (2 + mod + BONUS_D->query_stat_bonus("intelligence", caster));
     duration *= ROUND_LENGTH;
     caster->set_property("prescienced",1);
     call_out("check",ROUND_LENGTH);

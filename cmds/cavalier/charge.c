@@ -151,12 +151,13 @@ void do_harm(int damage, object ob, object play)
         return 0;
     }
 
-
+	if((play->query_race() != "centaur") && (play->query_race() != "wemic")) {
     if(!play->query_in_vehicle() || !objectp((object)play->query_in_vehicle())) {
         notify_fail("Your charge fails since you are no longer mounted.\n");
         remove();
         return;
     }
+	}
 
     thaco  = tp->Thaco(1,ob,weapon[0],"cavalier");
     roll   = (roll_dice(1,20)-rooms);
@@ -208,11 +209,15 @@ void do_trample(int damage,object targ,object play) {
         remove();
         return;
     }
-    if (!play->query_in_vehicle() || !objectp((object)play->query_in_vehicle())) {
+    
+	if((play->query_race() != "centaur") && (play->query_race() != "wemic")) {
+	if (!play->query_in_vehicle() || !objectp((object)play->query_in_vehicle())) {
         notify_fail("Your charge fails since you are no longer mounted.\n");
         remove();
         return;
     }
+	}
+
     if(!FEATS_D->usable_feat(play,"trample")) return;
 
     attackers = play->query_attackers();
@@ -340,7 +345,8 @@ int do_room(string str) {
         return 0;
     }
 
-    if (!tp->query_in_vehicle() || !objectp((object)tp->query_in_vehicle())) {
+	if((tp->query_race() != "centaur") && (tp->query_race() != "wemic")) {
+	if (!tp->query_in_vehicle() || !objectp((object)tp->query_in_vehicle())) {
         tp->remove_property("charging");
         tp->remove_property("charging object");
         tp->remove_property("using instant feat");
@@ -348,7 +354,8 @@ int do_room(string str) {
         tell_object(tp,"You need to be mounted to do that.\n");
         remove();
         return 0;
-    }
+    }}
+
 
     tp->clean_up_attackers();
     ob->clean_up_attackers();
@@ -356,8 +363,14 @@ int do_room(string str) {
     tp->kill_ob(ob,1);
     level = tp->query_base_character_level();
     tp->set_property("charging",1);
+	if((tp->query_race() == "centaur") || (tp->query_race() == "wemic")){
+        tell_room(environment(tp),"%^BOLD%^%^BLUE%^"+tpqcn+" charges at full speed",tp);
+        tell_object(tp,"%^BOLD%^%^BLUE%^You charge at full speed!");
+    }
+	 else{
     tell_room(environment(tp), "%^BOLD%^%^BLUE%^"+tpqcn+" digs "+tp->QP+" heels into "+tp->QP+" "+tp->query_in_vehicle()->QCN+".",tp);
     tell_object(tp,"%^BOLD%^%^BLUE%^You dig your heels into your "+tp->query_in_vehicle()->QCN+".");
+	 }
     tell_object(ob,"%^BOLD%^%^BLUE%^"+tpqcn+" is charging toward you!!!");
 
     weapon = tp->query_wielded();
@@ -434,11 +447,13 @@ int can_charge(object who)
         return 0;
     }*/
 
-    if (!who->query_in_vehicle() || !objectp((object)who->query_in_vehicle()))
+    if((who->query_race() != "centaur") && (who->query_race() != "wemic")) {
+	if (!who->query_in_vehicle() || !objectp((object)who->query_in_vehicle()))
     {
         write("You need to be mounted to do that.\n");
         return 0;
     }
+	}
     if (environment(who)->query_property("no charge"))
     {
         if (environment(who)->query_charge_message() == 0) tell_object(who,"You are unable to charge in this room.");

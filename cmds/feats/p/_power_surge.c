@@ -5,7 +5,7 @@ inherit FEAT;
 
 int SURGE,count,bonus;
 
-void create() 
+void create()
 {
     ::create();
     feat_type("instant");
@@ -17,7 +17,7 @@ void create()
     set_required_for(({"perfect manifesting","kinetic conversion"}));
 }
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 int prerequisites(object ob)
 {
@@ -49,7 +49,7 @@ void execute_feat()
         dest_effect();
         return;
     }
-    ::execute_feat(); 
+    ::execute_feat();
 
     tell_object(caster,"%^RESET%^%^BOLD%^%^CYAN%^You turn your minds eye inwards, focusing on your mental strength and preparing to unleash it outwards.%^RESET%^");
     caster->set_property("active_feats",({TO}));
@@ -65,10 +65,10 @@ void execute_attack()
         return;
     }
     place = environment(caster);
-    
+
     if(SURGE) { count++; }
     if(!SURGE) { count = 0; }
-    
+
     if(sizeof(caster->query_attackers()))
     {
         if(!SURGE)
@@ -82,14 +82,14 @@ void execute_attack()
             }
         }
     }
-    
+
     if(SURGE && !sizeof(caster->query_attackers()))
     {
         SURGE = 0;
         tell_object(caster,"%^RESET%^%^BOLD%^%^CYAN%^You release the mental focus required to maintain the surge, preparing for the next.");
         caster->set_property("empowered",-1 * bonus);
     }
-    
+
     if(SURGE && (count > bonus) )
     {
         SURGE = 0;
@@ -105,18 +105,17 @@ void execute_attack()
 
 
 void dest_effect()
-{    
-    if(objectp(caster)) 
+{
+    if(objectp(caster))
     {
         if(SURGE)
         {
             tell_object(caster,"%^RESET%^%^BOLD%^%^CYAN%^You relax as you release the mental focus required to produce a surge.");
             caster->set_property("empowered",-1 * bonus);
         }
-        caster->remove_property_value("active_feats",({TO})); 
+        caster->remove_property_value("active_feats",({TO}));
     }
     ::dest_effect();
     remove_feat(TO);
     return;
 }
-

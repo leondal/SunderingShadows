@@ -14,7 +14,7 @@ void create() {
     set_spell_name("creation");
     set_spell_level(([ "psion" : 4 ]));
     set_discipline("shaper");
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("metacreativity");
     set_syntax("cast CLASS creation");
     set_description("This power creates psionic fighters to protect the psion.  These warriors do not truly exist but "
 "are rather manifestations of the psion's own protective impulse.  The warriors will stand before the psion, mindlessly "
@@ -94,9 +94,38 @@ void spell_effect(int prof) {
     spell_successful();
     spell_duration = (clevel + roll_dice(1, 20)) * ROUND_LENGTH * 4;
     set_end_time();
+    check();
     call_out("dest_effect",spell_duration);
 }
 
+void check()
+{
+    if(sizeof(mons))
+    {
+        foreach(object mon in mons)
+        {
+            if(mon && environment(mon) != environment(caster))
+            {
+                tell_room(environment(mon), "The psionic fighter seems to evaporate!");
+                mon->move("/d/shadowgate/void");
+                mon->remove();
+                continue;
+            }
+            
+            caster->add_protector(mon);
+            caster->add_follower(mon);
+        }
+    }
+    else
+    {
+        tell_object(caster, "Your psionic fighters vanish!");
+        dest_effect();
+        return;
+    }
+    
+    call_out("check", 5);
+}
+    
 void dest_effect() {
     int i;
     for (i=0;i<sizeof(mons);i++) {

@@ -9,7 +9,7 @@ void create()
     ::create();
     set_author("cythera/nienne");
     set_spell_name("divine weapon");
-    set_spell_level(([ "cleric" : 2, "paladin" : 1, "druid" : 2, "ranger" : 1 ]));
+    set_spell_level(([ "cleric" : 2, "paladin" : 1, "druid" : 2, "inquisitor": 2, "ranger" : 1 ]));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS divine weapon");
     set_description("It is not uncommon for a priest or knight to be drawn into combat to protect her faith or deity. For that reason the gods have blessed their servants with a prayer that grants them a divine weapon.  Each faith has a different weapon, some say magical copies of the favored weapons on their patron gods.  With this spell, a divine spellcaster will create a magical weapon in their hand.
@@ -50,6 +50,10 @@ void spell_effect(int prof)
         }else {
             dwpn = new("/d/magic/obj/weapons/" + normalizedDeity + "");
         }
+        if(normalizedDeity == "cevahir")
+            dwpn->set_size(caster->query_size() + 1);
+        else
+            dwpn->set_size(caster->query_size());
         ench = clevel / 7;
         if (ench < 0) {
             ench = 0;
@@ -66,7 +70,7 @@ void spell_effect(int prof)
 
         caster->remove_paralyzed();
         addSpellToCaster();
-        caster->force_me("wield weapon in left hand");
+        caster->force_me("wield weapon");
         spell_successful();
         return;
     }else {

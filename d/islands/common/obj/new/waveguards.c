@@ -71,7 +71,7 @@ int remove_func()
 
 int strike_func(int damage, object what, object who)
 {
-    if (random(1000) < 750) {
+    if (!random(2)) {
         tell_room(environment(query_worn()), "%^CYAN%^Droplets of water drip off of " +
                   "" + ETO->QCN + "'s bracers as " + ETO->QS + " surges forward to parry " +
                   "" + who->QCN + "'s attack.%^RESET%^", ({ ETO, who }));
@@ -79,6 +79,7 @@ int strike_func(int damage, object what, object who)
                     " wave as parry " + who->QCN + "%^CYAN%^%^BOLD%^'s wild thrust with your bracers.%^RESET%^");
         tell_object(who, "%^CYAN%^" + ETO->QCN + " surges forward to parry your attack as" +
                     "droplets of water drip off " + ETO->QP + " bracers.%^RESET%^");
-        return (-1) * (damage);
+        return 0;
     }
+    return damage;
 }

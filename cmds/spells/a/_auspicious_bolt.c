@@ -16,9 +16,10 @@ void create()
     set_spell_name("auspicious bolt");
     set_spell_level(([ "cleric" : 3 ]));
     set_domains("fate");
+    set_bonus_type("luck");
     set_spell_sphere("combat");
     set_syntax("cast CLASS auspicious bolt on TARGET");
-    set_damage_desc("Random clevel + 1 HP, Random clevel / 10 + 1 DMG and ATK bonus.");
+    set_damage_desc("Random clevel + 1 HP, Random clevel / 16 + 1 DMG and ATK bonus.");
     set_description("This spell will call on the fates to improve the fortune of the recipient in battle.  To what degree "
         "the fortunes are altered in favor of the target depends on the level of the caster, and of course fate itself."
         "This spell does not stack with other similar blessings.");
@@ -40,11 +41,13 @@ string query_cast_string()
 
 int preSpell()
 {
+    /*
     if(target->query_property("blessed"))
     {
         tell_object(caster, "Your target is already affected by similar magic.");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -74,7 +77,7 @@ void spell_effect(int prof)
     target->add_extra_hp(newhp);
     target->add_attack_bonus(mybonus);
     target->add_damage_bonus(mybonus);
-    target->set_property("blessed",1);
+    //target->set_property("blessed",1);
     target->set_property("spelled", ({TO}) );
     spell_successful();
     addSpellToCaster();
@@ -116,7 +119,7 @@ void dest_effect()
         }
         target->add_attack_bonus(-1 * mybonus);
         target->add_damage_bonus(-1 * mybonus);
-        target->remove_property("blessed");
+        //target->remove_property("blessed");
         tell_object(target,"%^BOLD%^%^BLUE%^The energy around you fades away.");
         tell_room(environment(target),"%^BOLD%^%^BLUE%^The iridescent force around "+target->QCN+" fades away.", target);
     }

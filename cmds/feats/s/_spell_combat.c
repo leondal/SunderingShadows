@@ -12,7 +12,7 @@ void create()
     feat_name("spell combat");
     feat_prereq("Magus L1");
     feat_syntax("spell_combat");
-    feat_desc("A magus learns to cast spells and fight with his weapon at the same time. The magus must have one hand free, while wielding a light or one-handed melee weapon in the other hand. The spell potency has a penalty but its lessened at 8th level and again at 14th level.");
+    feat_desc("A magus learns to cast spells and fight with his weapon at the same time. The magus must have one hand free, while wielding a light or one-handed melee weapon in the other hand. The spell potency has a penalty but its lessened at 8th level and again at 14th level. This will only work with spells from the magus spell list.");
     set_required_for(({ "enruned shield", "enruned offhand", "enruned great weapon" }));
 }
 
@@ -40,7 +40,7 @@ int cmd_spell_combat(string str)
     }
     wielded = (object*)TP->query_wielded();
     if (!sizeof(wielded) || //no weapons
-        wielded[0]->is_lrweapon() || //is ranged
+        //wielded[0]->is_lrweapon() || //is ranged
         (sizeof(wielded) == 2 && //using both hands and...
             ((wielded[0] != wielded[1] && !TP->query_property("enruned offhand")) || //weapons are different and no feat
                 (wielded[0] == wielded[1] && !TP->query_property("enruned great weapon")) //same weapon and no feat

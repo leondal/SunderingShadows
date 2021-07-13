@@ -40,7 +40,8 @@ int cmd_master(string args)
 
     if (!args || args == "map") {
         int mylvl = TP->query_prestige_level(myclass);
-        mapping spell_index = MAGIC_D->query_index(myclass);
+        //mapping spell_index = MAGIC_D->query_index(myclass);
+        mapping spell_index = MAGIC_D->index_castable_spells(this_player(), myclass);
         int i;
         int bonuslimit, max_spells, spell_access;
         int* spelllevels = allocate(9);
@@ -84,7 +85,8 @@ int cmd_master(string args)
     }
 
     if (args == "list") {
-        mapping spell_index = MAGIC_D->query_index(myclass);
+        //mapping spell_index = MAGIC_D->query_index(myclass);
+        mapping spell_index = MAGIC_D->index_castable_spells(this_player(), myclass);
         string* myspells = TP->query_mastered_base()[myclass];
         string spell;
         mixed* spellist = allocate(9);
@@ -318,7 +320,7 @@ This command is an extensive interface to your knowledge of spells. Some caster 
   With this command you will commit to learning a %^ORANGE%^%^ULINE%^SPELL%^RESET%^.
 
 %^ORANGE%^<master forget %^ORANGE%^%^ULINE%^SPELL%^RESET%^%^ORANGE%^>%^RESET%^
-  Once per 30 hours you can forget a %^ORANGE%^%^ULINE%^SPELL%^RESET%^ and learn a new one.
+  Once per 9 hours you can forget a %^ORANGE%^%^ULINE%^SPELL%^RESET%^ and learn a new one.
 
 %^CYAN%^SEE ALSO%^RESET%^
 

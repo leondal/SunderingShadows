@@ -12,12 +12,7 @@ void create()
 	set_property("light",2);
 	set_short("A rocky path");
 	set_long(
-	"You are traveling along a rocky mountain path. It leads through the"+
-	" foothills of the mountains, and the area isn't very inhabited.  A band "+
-      "of orcs and other creatures have made a home in some of the surrounding "+
-      "caves to the north, but they do not dare cross the stream.  These"+
-	" surrounding foothills aren't very attractive to most people - the area"+
-	" is simply too desolate and rocky.\n"
+	"%^BOLD%^%^WHITE%^You are traveling along a %^RESET%^%^ORANGE%^ro%^BOLD%^c%^RESET%^%^ORANGE%^ky mou%^BOLD%^nt%^RESET%^%^ORANGE%^a%^BOLD%^i%^RESET%^%^ORANGE%^n p%^BOLD%^a%^RESET%^%^ORANGE%^th%^BOLD%^%^WHITE%^. It leads through the %^RESET%^%^GREEN%^foothills %^BOLD%^%^WHITE%^of the mountains, and the area isn't very inhabited.  A band of %^RESET%^%^ORANGE%^orcs %^BOLD%^%^WHITE%^and other creatures have made a home in some of the surrounding %^RESET%^%^ORANGE%^caves %^BOLD%^%^WHITE%^to the north, but they do not dare cross the %^CYAN%^s%^RESET%^%^CYAN%^t%^BOLD%^re%^RESET%^%^CYAN%^a%^BOLD%^m%^WHITE%^.  These surrounding foothills aren't very attractive to most people - the area is simply too %^RESET%^de%^BOLD%^%^BLACK%^s%^RESET%^o%^BOLD%^l%^BLACK%^a%^RESET%^t%^BOLD%^e %^RESET%^a%^BOLD%^n%^BLACK%^d %^WHITE%^r%^RESET%^o%^BOLD%^c%^BLACK%^k%^WHITE%^y.%^RESET%^\n"
  	);
 	set_smell("default","The mountain air is crisp and cool.");
 	set_listen("default","A stream rushes by to the north.");

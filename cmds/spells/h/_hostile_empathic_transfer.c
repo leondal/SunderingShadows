@@ -9,6 +9,8 @@ void create() {
     ::create();
     set_spell_name("hostile empathic transfer");
     set_spell_level(([ "psywarrior" : 3, "psion" : 3 ]));
+    set_spell_sphere("telepathy");
+    mental_spell();
     set_discipline("telepath");
     set_syntax("cast CLASS hostile empathic transfer");
     set_description("By manifesting this power, the psionic character is able "
@@ -80,7 +82,7 @@ void spell_effect(int prof) {
     }
     tell_object(caster,"%^YELLOW%^You feel a rush of healing as you "
        "siphon off energy from your foes.%^RESET%^");
-    damage_targ(caster, caster->return_target_limb(), mytally, "positive energy");
+    damage_targ(caster, caster->return_target_limb(), -mytally, "untyped");
     dest_effect();
 }
 

@@ -85,7 +85,9 @@ int retrieve_stuff(string str)
         new(FILE_PATH "tokens")->move(ETO);
         return 1;
     }
+    
     return 0;
+    
     if(regexp(str,"device"))
     {
         object ob;

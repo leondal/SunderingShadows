@@ -19,7 +19,7 @@ void create()
 
 int allow_shifted()
 {
-    return 0;
+    return 1;
 }
 
 int prerequisites(object ob)

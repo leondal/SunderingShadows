@@ -18,11 +18,9 @@ void create() {
     set_spell_level(([ "cleric" : 7,"druid" : 7, "mage" : 7,"inquisitor" : 5, "psion" : 5, "magus" : 5 ]));
     set_spell_sphere("divination");
     set_spell_domain("magic");
-    set_domains("knowledge");
     set_mystery("dragon");
     set_syntax("cast CLASS true seeing");
-    set_description("This spell will allow the caster to see through all magical and non magical attempts at "
-"invisibility.");
+    set_description("This spell will allow you to see things as they truly are. It will allow you to see through magical invisibility and concealment. It will negate the effects of blindness on yourself, and the effects of blurred movement, discplacement and similar effects on opponents. Note: This spell does not negate non-magical hiding effects, such as hide in shadows.");
     set_verbal_comp();
     set_somatic_comp();
 	set_helpful_spell(1);

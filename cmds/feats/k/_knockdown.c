@@ -15,6 +15,7 @@ void create()
     feat_name("knockdown");
     feat_prereq("Expertise");
     feat_syntax("knockdown TARGET");
+    set_save("reflex");
     feat_desc("Knockdown is an instant combat feat that can be used to try to knock an opponent off of his or her feet. The command requires a target to work, and will use a small amount of stamina.
 
 A druid with the 'mastery of fang and claw' feat may also use this feat while in wolf form, even if it has not been purchased directly.");
@@ -45,7 +46,7 @@ int cmd_knockdown(string str)
 
 void execute_feat()
 {
-    object ammo, *weapons;
+    object ammo, *weapons, mod;
 
     if ((int)caster->query_property("using knockdown") > time()) {
         tell_object(caster, "You can't try to knock someone down yet!");
@@ -111,7 +112,7 @@ void execute_feat()
 
 void execute_attack()
 {
-    int myskill, yourskill;
+    int myskill, yourskill, mod;
     if(!objectp(caster)) {
         dest_effect();
         return;
@@ -141,8 +142,12 @@ void execute_attack()
     }
     if(target->query_in_vehicle()) myskill += 15;
     yourskill += random(20);
+    
+    mod = max( ({ BONUS_D->query_stat_bonus(caster, "dexterity"), BONUS_D->query_stat_bonus(caster, "strength") }) );
+    
 //    if(!thaco(target) || target->query_property("no knockdown"))
-    if( myskill < yourskill || target->query_property("no knockdown"))
+    //if( myskill < yourskill || target->query_property("no knockdown"))
+    if(do_save(target, mod))
     {
         tell_object(caster,"%^RED%^"+target->QCN+" twists at the last instant, avoiding "
             "your knockdown attempt!%^RESET%^");

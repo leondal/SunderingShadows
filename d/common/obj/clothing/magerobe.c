@@ -4,6 +4,7 @@
 // please be sure to update /d/magic/comp_bag if there is any change
 // to the functionality of this item; both function the same way.
 // taking the lock off non-casters; there's now no real extra benefit to them so no reason not to let them wear (unless specific items are geared to mages/etc). N, 10/15.
+// components are no longer a required item, returning the light encumbrance - Ts 6/2021
 #include <std.h>
 #include <move.h>
 inherit "/std/pocketarmour";
@@ -46,23 +47,23 @@ void init() {
    if(member_array("compx",TO->query_id()) == -1) TO->add_id("compx"); // will fix casting on existing robes.
    if(member_array("componenter",TO->query_id()) == -1) TO->add_id("componenter"); // will fix casting on existing robes.
    add_action("components","components");
-   add_action("produce","produce");
+   add_action("produce","produce"); 
    add_action("empty","empty");
    add_action("rummage","rummage");
    add_action("help","help");
 }
 
-int item_allowed(object item) { // these now only need to store a magebook. Bards have instrument cases, psions can wear their crystals.
-   if(sizeof(all_inventory(TO)) > 0) {
-     notify_fail("This garment is already holding something.\n");
-     return 0;
-   }
-   if(base_name(item) == "/d/magic/spellbook") {
-      return 1;
-   }
-   write("Only components or a small book would fit in the robe.");
-   return 0;
-}
+//int item_allowed(object item) { // these now only need to store a magebook. Bards have instrument cases, psions can wear their crystals.
+   //if(sizeof(all_inventory(TO)) > 0) {
+    // notify_fail("This garment is already holding something.\n");
+    // return 0;
+   //}
+   //if(base_name(item) == "/d/magic/spellbook") {
+      //return 1;
+   //}
+  // write("Only components and a small book will fit in the robe.");
+  // return 0;
+//}
 
 void remote_set_comp(string item, int quantity) { comp[item] = quantity; }
 

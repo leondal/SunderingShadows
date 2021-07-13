@@ -16,7 +16,7 @@ void create() {
    "  She's wearing a very low cut blouse and one might suppose she's looking for tips anyway she can."
   );
   set_moving(1);
-  set_speed(120);
+  set_speed(1200);
   set_gender("female");
   set_race("half-elf");
   set_hd(10,0);

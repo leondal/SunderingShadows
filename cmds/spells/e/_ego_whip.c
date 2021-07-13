@@ -22,7 +22,7 @@ void create()
     set_author("tlaloc");
     set_spell_name("ego whip");
     set_spell_level( ([ "psion" : 2 ]) );
-    set_spell_sphere("enchantment_charm");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS ego whip on TARGET");
     set_damage_desc("1d8 damage to CHA for 3 rounds. Daze on failed save");
     set_description("Your rapid mental lashings assault the ego of your enemy, debilitating its confidence. The target takes 1d8 points of Charisma damage. A target that fails its save is also dazed for 3 rounds.");
@@ -53,6 +53,8 @@ void spell_effect(int prof)
     int mylevel;
 
     myname = caster->QCN;
+    
+    spell_successful();
 
     tell_object(caster, "%^CYAN%^BOLD%^You lash out at " + target->QCN + ", assaulting " + target->query_possessive() + " ego!");
     tell_object(target, "%^BOLD%^" + " lashes out at you, assaulting your ego!");
@@ -61,13 +63,13 @@ void spell_effect(int prof)
     amount = roll_dice(1, 8);
 
     target->set_property("idiocied", 1);
-    target->ser_stat_bonus(-amount);
+    target->set_stat_bonus(-amount);
+    spell_kill(target, caster);
 
     if(!do_save(target, 0))
         target->set_paralyzed(3, "%^BOLD%^You are dazed by the mental attack!");
-
+    
     call_out("dest_effect", 3);
-    spell_successful();
 }
 
 void dest_effect()

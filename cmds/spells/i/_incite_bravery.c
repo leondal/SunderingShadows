@@ -17,7 +17,8 @@ void create() {
     set_author("circe");
     set_spell_name("incite bravery");
     set_spell_level((["psywarrior" : 2 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("telepathy");
+    set_bonus_type("morale");
     set_syntax ("cast CLASS incite bravery");
     set_description("Upon manifesting this power, the psionic character "
        "projects courageous impulses into his allies, bolstering their "

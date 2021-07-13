@@ -22,7 +22,7 @@ void create() {
     ::create();
     set_spell_name("remote viewing");
     set_spell_level(([ "psion" : 5 ]));
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS remote viewing on <object> (a crystal ball or equivalent)");
     set_description("By means of this power, the psion changes a normal crystal ball into a scrying device. The details "
 "of the use of such a scrying device can be accessed by typing <help crystal ball> after a successful cast on a crystal "
@@ -47,17 +47,21 @@ string query_cast_string() {
 }
 
 int preSpell(){
-   if(caster->query_property("remote scrying")){
-      tell_object(caster,"You have already focused your "+
-         "sight elsewhere!");
-      return 0;
-   }
-   if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
-   if((int)caster->query_property("remote scrying time")+DELAY > time()){
-      tell_object(caster,"You cannot command a scrying device again so soon.");
-      return 0;
-   }
-   return 1;
+    if(caster->query_property("remote scrying")){
+        tell_object(caster,"You have already focused your "+
+            "sight elsewhere!");
+        return 0;
+    }
+    if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
+    if((int)caster->query_property("remote scrying time")+DELAY > time()){
+        tell_object(caster,"You cannot command a scrying device again so soon.");
+        return 0;
+    }
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to scry while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.%^RESET%^");
+        return 0;
+    }
+    return 1;
 }
 
 void spell_effect(int prof) {
@@ -115,8 +119,7 @@ void spell_effect(int prof) {
 	scry_control = new(CONTROL);
 	scry_control->set_observer(caster);
 	scry_control->set_parent(TO);
-      bonus = caster->query_stats(casting_stat);
-      bonus = bonus-10;
+      bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
       power = mylevel + random(6) + bonus;
 	scry_control->set_scry_power(power);
 	scry_control->move(environment(target));

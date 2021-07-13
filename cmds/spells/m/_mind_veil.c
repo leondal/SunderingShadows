@@ -70,8 +70,7 @@ void spell_effect(int prof) {
       return;
    }
 //updated by ~Circe~ 9/16/11 to use bonuses properly
-   wis_bonus = caster->query_stats(casting_stat);
-   wis_bonus = wis_bonus-10;
+   wis_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
    power = CLEVEL + wis_bonus + random(6);
    blocker->set_block_power(power);
    caster->set_property("hidden alignment",5);

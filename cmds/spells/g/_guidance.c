@@ -11,9 +11,10 @@ int bonus;
 void create() {
     ::create();
     set_spell_name("guidance");
-    set_spell_level(([ "druid" : 1,"oracle":1 ]));
+    set_spell_level(([ "cantrip":1 ]));
     set_mystery(({"elemental", "nature"}));
     set_spell_sphere("alteration");
+    set_bonus_type("competence");
     set_syntax ("cast CLASS guidance on TARGET");
     set_description("This spell will offer guidance to the target, "
        "giving him a slightly better chance to hit in combat as "
@@ -26,6 +27,7 @@ void create() {
 
 int preSpell(){
     if(!target) { target = caster; }
+    /*
     if(target->query_property("blessed")){
      tell_object(caster,"%^ORANGE%^Your target has already blessed.");
         return 0;
@@ -34,6 +36,7 @@ int preSpell(){
      tell_object(caster,"%^ORANGE%^Your target has already received guidance.");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -60,7 +63,7 @@ void spell_effect(int prof)
     god = (string)caster->query_diety();
     if(!god) { god = "nature"; }
 
-    bonus = clevel/24+1;
+    bonus = 1;
     bonus = bonus>2?2:bonus;
 	if(target == caster)
     {
@@ -81,10 +84,9 @@ void spell_effect(int prof)
     }
     target->add_damage_bonus(bonus);
     target->add_attack_bonus(bonus);
-    target->set_property("empowered",bonus);
     addSpellToCaster();
     target->set_property("spelled",({TO}));
-    target->set_property("blessed",1);
+    //target->set_property("blessed",1);
     spell_duration = duration;
     set_end_time();
     call_out("dest_effect",spell_duration);
@@ -99,8 +101,7 @@ void dest_effect()
             "away.");
         target->add_damage_bonus(-1*bonus);
         target->add_attack_bonus(-1*bonus);
-        target->set_property("empowered",(-1*bonus));
-        target->remove_property("blessed");
+        //target->remove_property("blessed");
     }
     ::dest_effect();
     if(objectp(TO)) TO->remove();

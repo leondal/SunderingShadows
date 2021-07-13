@@ -13,6 +13,7 @@ void create(){
     set_spell_level(([ "mage" : 3, "bard" : 3, "assassin":3, "magus" : 3 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS haste");
+    set_bonus_type("dodge");
     set_damage_desc("1 attack bonus, 1 AC, 1 reflex, 2 athletics");
     set_description("This spell considerably speeds up the caster, and those allies in his or "
 "her immediate vicinity. It grants all affected targets an extra attack if they are striking "

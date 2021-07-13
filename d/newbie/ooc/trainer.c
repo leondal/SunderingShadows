@@ -55,7 +55,7 @@ void create()
     "how each works. \n\nFurthemore, you may type %^YELLOW%^examples "+
     "describe%^BOLD%^%^WHITE%^ and %^YELLOW%^examples adjective "+
     "%^BOLD%^%^WHITE%^to see a couple of examples of both from real "+
-    "ShadowGate players.\n%^RESET%^");
+    "Sundering Shadows players.\n%^RESET%^");
 	set_smell("default","A pleasing aroma saturates the area.");
 	set_listen("default","A stillness hangs over the area.");
 	set_property("Specialist",1);
@@ -66,6 +66,8 @@ void create()
     set_property("no starve",1);
     set_property("no magic",1);
     set_property("no steal",1);
+    set_travel(PAVED_ROAD);
+    set_terrain(VILLAGE);
     //set_pre_exit_functions(({"out"}),({"GoThroughDoor"}));
 	//set_light(2);
     isSetup = 0;

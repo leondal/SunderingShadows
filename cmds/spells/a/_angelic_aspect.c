@@ -34,6 +34,7 @@ void create(){
     set_spell_level(([ "cleric" : 5, "paladin" : 3, "mage" : 5, "oracle" : 5, "magus" : 5 ]));
     set_mystery("heavens");
     set_spell_sphere("alteration");
+    set_bonus_type("deflection");
     set_syntax("cast CLASS angelic aspect");
     set_damage_desc("levitating, AC2, 10 DR to Acid and Cold");
     set_description("You take on an aspect of an angelic being, including some of its physical characteristics. This spell won't last outside of combat.");
@@ -44,11 +45,13 @@ void create(){
 
 int preSpell()
 {
+    /*
     if(caster->query_property("angelic_aspect"))
     {
         tell_object(caster,"%^BOLD%^%^WHITE%^You're already infused with this aspect.%^RESET%^");
         return 0;
     }
+    */
     return 1;
 }
 

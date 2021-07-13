@@ -3,7 +3,7 @@
 #include "../horse.h"
 inherit OBJECT;
 
-#define SAVE_FILE STORAGE"horse_race_stuff"
+#define SAVE_FILE "/d/save/horse_race_stuff"
 
 mapping horse_stats;
 
@@ -882,9 +882,7 @@ void withdraw2(int num)
 
 void SAVE()
 {
-    seteuid(getuid());
     save_me(SAVE_FILE);
-    seteuid(getuid());
 
 	horse_master =find_object_or_load(STORAGE"horse_master.c");
 	horse_master->create();

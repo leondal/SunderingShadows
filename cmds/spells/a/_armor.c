@@ -17,6 +17,7 @@ void create()
     set_spell_name("armor");
     set_spell_level(([ "mage" : 1, "magus" : 1, "oracle" : 1 ]));
     set_mystery("spellscar");
+    set_bonus_type("armor");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS armor [on TARGET]");
     set_description("When armor is cast on someone, they will receive an AC bonus of 4. This bonus will only be "
@@ -31,11 +32,13 @@ void create()
 int preSpell()
 {
     if (!target) target = caster;
+    /*
     if(target->query_property("armoured"))
     {
         tell_object(caster,"%^BOLD%^%^BLACK%^You feel your spell repelled...");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -85,7 +88,7 @@ void spell_effect(int prof)
 
     target->add_ac_bonus(bonus);
     target->set_property("spelled", ({TO}) );
-    target->set_property("armoured",1);
+    //target->set_property("armoured",1);
     addSpellToCaster();
     call_out("test", 7);
 }
@@ -129,7 +132,7 @@ void dest_effect()
         target->remove_property_value("spelled", ({TO}) );
         tell_object(target, "%^CYAN%^The magic shielding around you glows briefly, then fades away.");
         tell_room(environment(target),"%^CYAN%^"+target->QCN+" glows briefly.", target );
-        target->remove_property("armoured");
+        //target->remove_property("armoured");
     }
 
     ::dest_effect();

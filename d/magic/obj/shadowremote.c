@@ -15,7 +15,7 @@ void defend(){
       if(!objectp(sword))
 	 continue;
       sword->kill_ob(tmp[num],1);
-      tell_room(caster,"%^BOLD%^%^RED%^The shadow attacks "+tmp[num]->query_cap_name()+"!");
+      tell_room(ENV(sword),"%^BOLD%^%^RED%^The shadow attacks "+tmp[num]->query_cap_name()+"!");
    }
    return;
 }

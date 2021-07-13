@@ -4,7 +4,7 @@
  *
  */
 
-mapping cooldowns = ([]);
+mapping cooldowns = ([  ]);
 
 /**
  * Tells the player when the cooldown is complete
@@ -20,7 +20,10 @@ int notify_available(string str)
  */
 int cooldown(string str)
 {
-    if (mapping_member(cooldowns, str)) {
+    if(!mapp(cooldowns))
+        cooldowns = ([  ]);
+    
+    if (member_array(str, keys(cooldowns)) >= 0) {
         return cooldowns[str];
     }
 
@@ -32,7 +35,10 @@ int cooldown(string str)
  */
 int add_cooldown(string str, int delay)
 {
-    if (mapping_member(cooldowns, str)) {
+    if(!mapp(cooldowns))
+        cooldowns = ([  ]);
+    
+    if (member_array(str, keys(cooldowns)) >= 0) {
         return 0;
     }
 
@@ -45,7 +51,10 @@ int add_cooldown(string str, int delay)
  */
 int remove_cooldown(string str)
 {
-    if (!mapping_member(cooldowns, str)) {
+    if(!mapp(cooldowns))
+        cooldowns = ([  ]);
+    
+    if (member_array(str, keys(cooldowns)) < 0) {
         return 0;
     }
 
@@ -75,12 +84,19 @@ mapping query_cooldowns()
 /**
  * Checks cooldown every heart beat
  */
+ 
+ /*
 void heart_beat()
 {
     if (sizeof(cooldowns)) {
         foreach(string key in(keys(cooldowns)))
+        {
+            tell_object(find_player("tlaloc"), "Attempting to process " + key);
             process_cooldowns(key, cooldowns[key]);
-    }else {
+        }    
+    }
+    else {
         cooldowns = ([]);
     }
 }
+*/

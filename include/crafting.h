@@ -4,6 +4,7 @@
 
 #define COMMONFILE "/d/common/obj/"
 
+
 mapping ARMORSMITH = ([]);
 ARMORSMITH = ([
                   "banded mail":(["file":COMMONFILE"armour/banded","units":6]),
@@ -19,6 +20,7 @@ ARMORSMITH = ([
                   "gauntlets":(["file":COMMONFILE"armour/gauntlets","units":1]),
                   "greaves":(["file":COMMONFILE"armour/greaves","units":1]),
                   "helm":(["file":COMMONFILE"armour/helm","units":2]),
+                  "horseshoes":(["file":COMMONFILE"armour/horseshoes","units":2]),
                   "plate mail":(["file":COMMONFILE"armour/plate","units":7]),
                   "ring mail":(["file":COMMONFILE"armour/ring","units":3]),
                   "scale mail":(["file":COMMONFILE"armour/scale","units":4]),
@@ -81,6 +83,8 @@ JEWEL = ([
              "circlet":(["file":COMMONFILE"jewelry/circlet","units":2]),
              "necklace":(["file":COMMONFILE"jewelry/necklace","units":2]),
              "ring":(["file":COMMONFILE"jewelry/ring","units":2]),
+             "pin":(["file":COMMONFILE"jewelry/pin","units":2]),
+			 "statue":(["file":COMMONFILE"rand/statue","units":1]),
              ]);
 
 mapping WEAPONSMITH = ([]);
@@ -175,6 +179,7 @@ WOODWORK = ([
                 "pipe":(["file":COMMONFILE"misc/pipe","units":1,"type":"carving"]),
                 "wand":(["file":COMMONFILE"weapon/wand","units":1,"type":"weapon"]),
                 "scroll case":(["file":COMMONFILE"misc/scroll_case","units":3,"type":"carving"]),
+				"statue":(["file":COMMONFILE"rand/statue","units":1,"type":"carving"]),
                 ]);
 
 #define CRAFT_TO_CHECK ([ "woodworker" : WOODWORK, "weaponsmith" : WEAPONSMITH, "jeweller" : JEWEL, \

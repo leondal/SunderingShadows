@@ -32,7 +32,7 @@ int eat(string str)
 		return 1;
 	}
    if(str != "herbs" && str != "herb") {
-      notify_fail("Are you sure you really want to put that in your mouth?");
+      notify_fail("Are you sure you really want to put that in your mouth?\n");
       return 0;
    }
    else {
@@ -45,4 +45,3 @@ herbs.",ETO);
       return 1;
    }
 }
-

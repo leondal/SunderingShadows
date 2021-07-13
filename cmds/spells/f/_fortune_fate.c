@@ -15,7 +15,7 @@ void create() {
     ::create();
     set_author("ares");
     set_spell_name("fortune fate");
-    set_spell_level(([ "cleric" : 8, "psion" : 8 ]));
+    set_spell_level(([ "cleric" : 8 ]));
     set_domains("fate");
     set_spell_sphere("healing");
     set_discipline("seer");

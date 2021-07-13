@@ -9,7 +9,7 @@ void create()
    feat_category("Rampage");
    feat_name("greater rage");
    feat_prereq("Barbarian L11");
-   feat_desc("This feat allows the barbarian to enter a fit of furious rage, boosting their strength, constitution, and will even more than rage. The ability will last longer, and grow stronger, as the barbarian gains levels.");
+   feat_desc("This feat allows the barbarian to enter a fit of furious rage, boosting their attack, damage, max health, will saves, fortitude saves even more than rage. The ability will last longer, and grow stronger, as the barbarian gains levels.");
    permanent(1);
    allow_blind(1);
    set_required_for("mighty rage");

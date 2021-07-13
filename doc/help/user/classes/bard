@@ -8,10 +8,13 @@
 %^RESET%^%^CYAN%^Class Feats:%^RESET%^
  %^RESET%^L1:  simple weapon proficiency, martial weapon proficiency, light armor proficiency, shield proficiency, spell focus, inspire, inspire courage, dodge, countersong
  %^RESET%^L3:  inspire competence
- %^RESET%^L9:  inspire greatness
+ %^RESET%^L5:  indomitable
+ %^RESET%^L7:  force of personality
  %^RESET%^L8:  dirge of doom
+ %^RESET%^L9:  inspire greatness
  %^RESET%^L10: tools of the trade
  %^RESET%^L12: soothing song
+ %^RESET%^L13: use magic device
  %^RESET%^L14: frightening tune
  %^RESET%^L15: inspire heroics
  %^RESET%^L20: deadly song
@@ -23,4 +26,7 @@ They are flexible and dabble in many areas of combat, rather than being a master
 
 Bards are spontaneous casters that prepare spell levels in place of individual spells. They use the %^ORANGE%^<master>%^RESET%^ command to learn new spells from the bard spell list. See %^ORANGE%^<spells bard (by level)>%^RESET%^. They can %^ORANGE%^<cast>%^RESET%^ a spell they have mastered by expending a spell slot, which they can prepare with the %^ORANGE%^<prepare>%^RESET%^ command. To see how many slots you can prepare, use %^ORANGE%^<recall bard spells>%^RESET%^. 
 
-%^RESET%^%^CYAN%^See also: %^RESET%^feats, stats, skills, spells, cast, buff, prepare, story, song, lore, prestige classes, new caster, recall, master
+Bards also get the following cantrip spells (type 'recall cantrip spells'):
+Daze, Detect Magic, Dancing Lights, Mending, Flare, Resistance
+
+%^RESET%^%^CYAN%^See also: %^RESET%^feats, stats, skills, spells, cast, buff, prepare, story, song, lore, prestige classes, new caster, recall, master, make

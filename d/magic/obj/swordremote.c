@@ -55,7 +55,7 @@ void defend(){
       if(!objectp(sword))
 	 continue;
       sword->kill_ob(tmp[num],1);
-      tell_room(caster,"%^BOLD%^%^RED%^The sword attacks "+tmp[num]->query_cap_name()+"!");
+      tell_room(ENV(sword),"%^BOLD%^%^RED%^The sword attacks "+tmp[num]->query_cap_name()+"!");
    }
    return;
 }
@@ -67,9 +67,9 @@ void heart_beat(){
    tmp = ({});
    if(!objectp(caster))
       remove();
-   if(!objectp(sword)) 
+   if(!objectp(sword))
        remove();
-    
+
    if(objectp(caster))
     {
         if((object *)caster->query_attackers() != ({}))

@@ -74,7 +74,7 @@ int buy_map(string str){
          "<draw tabor> or <draw area>.");
       return 1;
   }
-  if(str != "tabor" && str != "area") return notify_fail("Draw what?\n");
+  if(str != "tabor" && str != "area" && str != "text") return notify_fail("Draw what?\n");
   if((this_player()->query_money("gold") < amount))
     return notify_fail("You don't have "+amount+" gold!\n");
   if(str == "tabor"){
@@ -90,6 +90,13 @@ int buy_map(string str){
      tell_room(ETP,"The Scribe completes a map and hands it to "+
         ""+TPQCN+".",TP);
      new("/d/common/obj/misc/lowbie_map")->move(TP);
+     return 1;
+  }
+  if(str == "text"){
+     tell_object(TP,"The Scribe hands you text-only version of Tabor's map.");
+     tell_room(ETP,"The Scribe completes a map and hands it to "+
+        ""+TPQCN+".",TP);
+     new("/d/common/obj/misc/tabortextmap")->move(TP);
      return 1;
   }
 }
@@ -121,7 +128,7 @@ void reset(){
 	"item, by using %^RESET%^<%^BOLD%^estimate [item]%^RESET%^>%^CYAN%^.  "+
 	"If you are interested "+
        "in a map, you can have him %^RESET%^<%^BOLD%^%^CYAN%^draw "+
-       "tabor%^RESET%^> %^CYAN%^for a map of this fair city or "+
+       "tabor%^RESET%^> %^CYAN%^for a map of this fair city. If you prefer a detailed map with words instead of images, have him <%^BOLD%^%^CYAN%^draw text%^RESET%^>, %^CYAN%^or have him "+
        "%^RESET%^<%^BOLD%^%^CYAN%^draw area%^RESET%^> %^CYAN%^to "+
        "get a map of adventure areas around here.");
     ob->move(TO);

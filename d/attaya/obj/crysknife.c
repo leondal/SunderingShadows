@@ -194,9 +194,9 @@ int hitme(object targ){
                       }
                       break;
       }
-      return random(3)+2;
+      return roll_dice(1, 4);
    }
-   return random(3)+2;
+   return 0;
 }
 
 void init()

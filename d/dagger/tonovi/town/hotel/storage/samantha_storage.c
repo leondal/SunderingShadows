@@ -56,6 +56,12 @@ void reset(){
             new(OBJ"cigarette.c")->move(TO);
         }
     }
+    if (!present("cigar box")){
+        new(OBJ"cigar_box.c")->move(TO);
+    }
+    if (!present("cigarette case")){
+        new(OBJ"cigarette_case.c")->move(TO);
+    }
 }
 
 void call_reset(){

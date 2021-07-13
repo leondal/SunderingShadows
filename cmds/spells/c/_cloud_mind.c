@@ -9,7 +9,7 @@ void create() {
     ::create();
     set_spell_name("cloud mind");
     set_spell_level(([ "psion" : 2 ]));
-    set_spell_sphere("illusion");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS cloud mind on TARGET");
     set_description("This power allows the psion to create a minor alteration in the minds of onlookers, so that they no "
 "longer see the target.  The effect moves with the target, making him for all practical purposes invisible.  The power "

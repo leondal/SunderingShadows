@@ -40,6 +40,11 @@ int preSpell()
         return 0;
     }
 
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to scry while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.%^RESET%^");
+        return 0;
+    }
+
     if(!place->query_property("fill waterskin"))
     {
         tell_object(caster,"You can't find the right sort of water here.");
@@ -71,8 +76,7 @@ void spell_effect(int prof) {
     tell_object(caster,"Please type help reflection for instructions on how to use the reflection.");
 
     room = environment(caster);
-    bonus = caster->query_stats("wisdom");
-    bonus = bonus - 10;
+    bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
     power = clevel + random(6) + bonus;
 
     control = new("/d/magic/obj/scry_control.c");

@@ -12,7 +12,7 @@
  %^RESET%^L4: channel
  %^RESET%^L5: weapon bond OR armor bond OR bonded steed
  %^RESET%^L6: indomitable
- %^RESET%^L7: force of personality
+ %^RESET%^L7: divine grace
  %^RESET%^L8: aura of resolve
  %^RESET%^L11: aura of fury
  %^RESET%^L13: dedication
@@ -23,7 +23,7 @@
  %^RESET%^Also: one bonus melee feat at L21, and every five class levels thereafter
  %^RESET%^      one bonus divinebond feat at L5, and another at L21
 
-Paladins are the protectors of their chosen patron in the realm of ShadowGate. They are holy (or unholy) warriors selected by their faith to battle their enemies and uphold their charge. A paladin's purpose varies according to their patron's charge, but protection and order are almost always part of their oaths.
+Paladins are the protectors of their chosen patron in the realm of Sundering Shadows. They are holy (or unholy) warriors selected by their faith to battle their enemies and uphold their charge. A paladin's purpose varies according to their patron's charge, but protection and order are almost always part of their oaths.
 
 A paladin serves someone or some cause. They serve a lord or nobility, or the order of knighthood, or a higher power directly, like a deity. Only faiths with a lawful clergy require a degree of order to induct a paladin.
 
@@ -33,7 +33,7 @@ Paladins can cast their spells in any armor, but they cannot wield anything whil
 
 Paladins rely on melee combat and don't make good casters. Their combat powers come from the martial feat tree.
 
-In addition to spell casting, Paladins also draw from a Divine Grace pool, which is used to fuel their combat feats and enhancements.
+In addition to spell casting, Paladins also draw from a Grace pool, which is used to fuel their combat feats and enhancements.
 
-%^RESET%^%^CYAN%^See also:%^RESET%^ feats, stats, skills, spells, cast, prepare, buff, deities, prestige classes, divine grace, new caster
+%^RESET%^%^CYAN%^See also:%^RESET%^ feats, stats, skills, spells, cast, prepare, buff, deities, prestige classes, grace, new caster
 

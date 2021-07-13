@@ -8,6 +8,7 @@ void create()
     set_spell_name("suppress wild magic");
     set_spell_level(([ "cleric" : 4, "mage" : 4 ]));
     set_spell_sphere("abjuration");
+    set_domains("magic");
     set_syntax("cast CLASS supress wild magic");
     set_damage_desc("reduces wild magic effects in the area");
     set_description("You repair the weave in the area, laying own artificial framework over any wild magic effects.");

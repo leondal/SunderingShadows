@@ -1,0 +1,7 @@
+%^CYAN%^DIMINISHING RETURNS%^RESET%^
+
+Some spell help files will denote that they %^RED%^BOLD%^have diminishing returns%^RESET%^. When these spells are cast on a target, and the target makes a save, the caster gets a -5 to spell DC for subsequent casts (of the same spell) on that same target for 5 rounds (about 30 seconds). Each subsequent cast resulting in the target making a save will reset the timer.
+
+The diminishing returns are unique to the target and caster.
+
+Diminishing returns are only present on spells that denote that they have diminishing returns. This is meant to keep spam casting of certain spells to a minimum.

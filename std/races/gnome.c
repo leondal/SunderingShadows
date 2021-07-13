@@ -271,10 +271,10 @@ string* query_eye_colors(string subrace)
 string* query_subraces(object who)
 {
     string* subraces;
-    subraces = ({ "rock gnome", "forest gnome" });
-    if (OB_ACCOUNT->is_experienced(who->query_true_name()) || avatarp(who) || who->query("is_valid_npc")) {
-        subraces += ({ "deep gnome", "trixie" });
-    }
+    subraces = ({ "rock gnome", "forest gnome", "deep gnome", "trixie" });
+    // if (OB_ACCOUNT->is_experienced(who->query_true_name()) || avatarp(who) || who->query("is_valid_npc")) {
+    //     subraces += ({ "deep gnome", "trixie" });
+    // }
     return subraces;
 }
 

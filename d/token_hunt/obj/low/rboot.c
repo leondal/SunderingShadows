@@ -65,13 +65,16 @@ int unwearme(){
 }
 
 int strikeme(int damage, object what, object who){
-  
+	
+    if(!random(10))
+    {
         tell_room(environment(query_worn()),"%^ORANGE%^"+
            ""+ETOQCN+"'s boots are struck with a clank.",ETO);
         tell_object(ETO,"%^ORANGE%^When the boots are struck,"+
 		" the rocks deflect some of the damage.");
-
-       return -1;  
+        return 0;
+    }
+    return damage;
 }
 
 void init() {
@@ -81,7 +84,6 @@ void init() {
     if(TP != ETO) return;
    add_action("stomp_fun","stomp");
 }
-
 
 int stomp_fun(string str) {
    object *pplz;
@@ -103,8 +105,7 @@ int stomp_fun(string str) {
        tell_room(EETO,""+ETO->QCN+" %^YELLOW%^stomps%^RESET%^ "+ETO->QP+" causing a"+
 	   " tremor that shakes the area around you!\n",ETO);
        for(i=0;i<sizeof(pplz);i++) {
-         if(pplz[i] != ETO && !pplz[i]->query_true_invis() &&
-objectp(pplz[i])) {
+         if(pplz[i] != ETO && !pplz[i]->query_true_invis() && objectp(pplz[i])) {
            tell_object(pplz[i],"%^ORANGE%^The force of the tremor shakes you from"+
            " your feet!\n");
            if(!"/daemon/saving_throw_d.c"->reflex_save(pplz[i],-10))
@@ -120,3 +121,4 @@ objectp(pplz[i])) {
    " - just <stomp> to use their power.\n");
    return 1;
 }
+

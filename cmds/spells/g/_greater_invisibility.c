@@ -46,7 +46,7 @@ void spell_effect(int prof)
 void targ_vanish()
 {
     int num;
-    num = (clevel / 2);
+    num = clevel;
     spell_successful();
     invisob = new("/d/magic/obj/invisobgreater.c");
     invisob->set_property("spell", TO);

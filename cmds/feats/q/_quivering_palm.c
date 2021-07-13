@@ -266,9 +266,7 @@ void execute_attack()
     }
 
     qob = new("/cmds/feats/obj/quivering_object");
-    DC = flevel;
-    DC += "/daemon/bonus_d.c"->query_stat_bonus(caster, "wisdom");
-    DC += 10;
+    DC = "/daemon/bonus_d.c"->query_stat_bonus(caster, "wisdom");
     qob->set_dc(DC);
     qob->set_caster(caster);
     qob->move(target);

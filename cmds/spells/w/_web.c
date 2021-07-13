@@ -13,9 +13,9 @@ create()
 {
     ::create();
     set_spell_name("web");
-    set_spell_level(([ "mage" : 2, "assassin" : 2, "psion" : 3, "magus" : 2 ]));
+    set_spell_level(([ "mage" : 2, "assassin" : 2, "magus" : 2, "cleric" : 2 ]));
     set_spell_sphere("conjuration_summoning");
-    set_discipline("shaper");
+    set_domains("law");
     set_syntax("cast CLASS web on TARGET");
     set_damage_desc("tripped for 3d4 rounds");
     set_description("When someone is unfortunate enough to be the victim of a web spell, they might as well get a new hobby. If the web is successful, the victim will be immobilized within a massive web.");

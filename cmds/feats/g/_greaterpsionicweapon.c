@@ -22,7 +22,7 @@ void create() {
     psionic(1);
 }
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 int prerequisites(object ob){
     if(!objectp(ob)) return 0;
@@ -49,7 +49,10 @@ void execute_feat() {
     mapping tempmap;
     int delay;
     ::execute_feat();
-    if((int)caster->query_property("using smite") > time()) { //keeping the same variable to avoid stacking
+
+    if(caster->cooldown("psionicweapon"))
+    {
+    //if((int)caster->query_property("using smite") > time()) { //keeping the same variable to avoid stacking
         tell_object(caster,"You are not prepared to exert such mental force again so soon!");
         dest_effect();
         return;
@@ -67,11 +70,11 @@ void execute_feat() {
 
     tell_object(caster,"%^RESET%^%^BOLD%^You focus your mind, preparing to unleash a psionic attack.");
 
-    delay = time() + FEATTIMER;
-    delay_messid_msg(FEATTIMER,"%^BOLD%^%^WHITE%^You can %^CYAN%^greaterpsionicweapon%^WHITE%^ again.%^RESET%^");
+    //delay = time() + FEATTIMER;
+    //delay_messid_msg(FEATTIMER,"%^BOLD%^%^WHITE%^You can %^CYAN%^greaterpsionicweapon%^WHITE%^ again.%^RESET%^");
     caster->set_property("using instant feat",1);
-    caster->remove_property("using smite");
-    caster->set_property("using smite",delay);
+    //caster->remove_property("using smite");
+    //caster->set_property("using smite",delay);
     return;
 }
 
@@ -93,10 +96,12 @@ void execute_attack()
         return;
     }
 
-    die = 6;
+    caster->add_cooldown("psionicweapon", FEATTIMER);
+
+    die = 8;
 
     if (FEATS_D->usable_feat(caster, "mind wave")) {
-        die = 8;
+        die = 10;
     }
 
     targets = caster->query_attackers();
@@ -108,10 +113,8 @@ void execute_attack()
     }
 
     caster->set_property("magic", 1);
-    targets += ({ caster });
     tell_object(caster, "%^RESET%^%^CYAN%^The power within you grows to a fever pitch, and you release a psionic tempest that slices through your enemies!");
-    tell_room(place, "%^RESET%^%^CYAN%^A low hum resonates throughout the area before " + caster->QCN + " unleashes a psionic tempest that slices through " + caster->QP + " enemies!", targets);
-    targets -= ({ caster });
+    tell_room(place, "%^RESET%^%^CYAN%^A low hum resonates throughout the area before " + caster->QCN + " unleashes a psionic tempest that slices through " + caster->QP + " enemies!", ({ caster }));
 
     targets = shuffle(targets);
 
@@ -125,14 +128,14 @@ void execute_attack()
             continue;
         }
         tell_object(targets[i], "%^BOLD%^%^CYAN%^" + caster->QCN + " releashes a psionic tempest that slices through your mind like countless blades!%^RESET%^");
-        dmg = roll_dice(clevel, die);
+        dmg = roll_dice(clevel, die) + BONUS_D->query_stat_bonus(caster, "intelligence");
 
         caster->cause_damage_to(targets[i], "head", dmg);
         caster->add_attacker(targets[i]);
         targets[i]->add_attacker(caster);
     }
 
-    caster->add_mp(-roll_dice(1, 6));
+    caster->add_mp(-(roll_dice(1, 6) + clevel / 5));
     caster->set_property("magic", -1);
     dest_effect();
     return;

@@ -17,7 +17,8 @@ void create()
     set_author("tlaloc");
     set_spell_name("brutalize wounds");
     set_spell_level( ([ "psywarrior" : 6 ]) );
-    set_spell_sphere("combat");
+    set_spell_sphere("telepathy");
+    mental_spell();
     set_syntax("cast CLASS brutalize wounds on TARGET");
     set_damage_desc("Target takes additional physical damage.");
     set_description("You invade the target's mind and temporarily reduce its ability to " +

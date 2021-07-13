@@ -1,5 +1,6 @@
 #include <std.h>
-inherit "/std/comp_vend.c";
+inherit VENDOR;
+
 string *badpeople;
 void do_display_help();
 void do_say(string str);
@@ -9,20 +10,22 @@ void create() {
     set_name("Noma");
     set_id( ({ "noma", "clerk", "shop keeper", "shopkeeper"}) );
     set_short("Noma, the enabler of spells");
-   set("aggressive", 0);
-   set_level(30);
+    set("aggressive", 0);
+    set_level(30);
     set_long(
-"Noma is a lethe, strong, and magical elf. She wears robes of red, and her brown hair is long, trailing behind her. Noma is here to serve you, presenting you with components to weave your spells with. Please type <list comp> for a list of components she sells. ");
-   set_gender("female");
-   set_alignment(5);
-   set("race", "elf");
+"Noma is a lethe, strong, and magical elf. She wears robes of red, and her brown hair is long, trailing behind her. Noma is here to serve you, presenting you with scrolls, wands, and sundry tools of academia. ");
+    set_gender("female");
+    set_alignment(5);
+    set("race", "elf");
     set_class("mage");
     set_hd(144,1);
-  set_level(30);
+    set_level(30);
     set_body_type("elf");
     set_property("no bump", 1);
-set_property("no animate",1);
-      set_components(100);
+    set_property("no animate",1);
+    set_storage_room("/d/attaya/newseneca/cguilds/mage/noma_storage.c");
+    set_items_allowed("misc");
+    set_mymaxvalue(1);
     set_spell_chance(90);
     set_spells(({
 "acid arrow",

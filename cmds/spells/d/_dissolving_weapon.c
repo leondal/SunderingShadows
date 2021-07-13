@@ -19,7 +19,7 @@ void create()
     set_author("tlaloc");
     set_spell_name("dissolving weapon");
     set_spell_level( ([ "psywarrior" : 2 ]) );
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS dissolving weapon on WEAPON");
     set_damage_desc("4d6 Acid damage on enemy on hit.");
     set_description("With this power, the caster imbues their weapon with acid. The weapon has a chance on hit to do 4d6 acid damage on the victim.");
@@ -31,13 +31,13 @@ void spell_effect()
     mapping info;
     string pname, wname, pposs;
 
-    weapon = present(arg, caster);
-
     if(!arg)
     {
         tell_object(caster, "You need a target for dissolving weapon.");
         return;
     }
+    
+    weapon = present(arg, caster);
 
     if(!objectp(weapon))
     {

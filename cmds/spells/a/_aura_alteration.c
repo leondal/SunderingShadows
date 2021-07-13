@@ -9,7 +9,8 @@ void create()
     ::create();
     set_spell_name("aura alteration");
     set_spell_level(([ "psywarrior" : 3, "psion" : 6 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("telepathy");
+    mental_spell();
     set_syntax("cast CLASS aura alteration on <alignment>");
     set_description("By making use of this power, a psion can hide his inner thoughts from others, effectively masking "
         "his alignment.  There are, naturally, ways to bypass this power's protection, but it will offer the psion some peace of "

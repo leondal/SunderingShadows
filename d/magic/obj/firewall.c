@@ -58,7 +58,7 @@ void surround(object ob, object spell) {
        if(foes[k]->query_property("strength") &&
           strsrch(foes[k]->query_property("strength"),"fire") != -1)
            continue;
-       dmg = spellob->query_sdamage();
+       dmg = spellob->query_base_damage();
        tell_object(foes[k],"%^BOLD%^%^RED%^You get burned by the flames!");
        foes[k]->cause_typed_damage(foes[k],foes[k]->return_target_limb(),dmg,"fire" );
 
@@ -99,7 +99,7 @@ void monitor() {
                    continue;
                }
                tell_object(foes[k], "%^BOLD%^%^RED%^You get burned by the flames!");
-               dmg = spellob->query_sdamage();
+               dmg = spellob->query_base_damage();
                foes[k]->cause_typed_damage(foes[k], foes[k]->return_target_limb(), dmg, "fire");
                if (objectp(foes[k])) {
                    foes[k]->continue_attack();

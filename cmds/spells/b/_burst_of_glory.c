@@ -12,9 +12,10 @@ void create()
     set_spell_name("burst of glory");
     set_spell_level(([ "paladin" : 4, "cleric" : 5, "inquisitor":5]));
     set_domains(({"good"}));
+    set_bonus_type("sacred");
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS burst of glory");
-    set_damage_desc("clevel/22+1 to attack, damage bonus, clevel to hp bonus on allies");
+    set_damage_desc("+1 to attack, damage bonus, clevel to hp bonus on allies");
     set_description("Allies in the place of the time of casting become blessed. This spell won't stack with bless type spells.");
     set_verbal_comp();
     set_somatic_comp();
@@ -33,8 +34,9 @@ int spell_effect()
 
     duration = ROUND_LENGTH * (clevel * 6);
 
-    bonus = clevel / 22 + 1;
-
+    //bonus = clevel / 22 + 1;
+    bonus = 1;
+    
     allies = ({});
     allies = ob_party(caster) + (caster->query_followers() - caster->query_attackers()) + ({ caster });
     allies = distinct_array(allies);
@@ -48,7 +50,7 @@ int spell_effect()
         if(!objectp(ally))
             continue;
 
-        if(ally->query_property("blessed"))
+        if(ally->query_property("sacred"))
         {
             tell_room(place,"%^RESET%^%^WHITE%^The %^BOLD%^%^WHITE%^l%^RESET%^%^ORANGE%^i%^BOLD%^%^WHITE%^ght%^RESET%^%^WHITE%^ washes over " + ally->QCN + "%^WHITE%^, but nothing happens.%^RESET%^");
             continue;
@@ -58,7 +60,7 @@ int spell_effect()
         ally->add_damage_bonus(bonus);
         ally->add_attack_bonus(bonus);
         ally->add_max_hp_bonus(clevel);
-        ally->set_property("blessed", 1);
+        ally->set_property("sacred", 1);
         tracker += ({ally});
     }
 
@@ -85,7 +87,7 @@ void dest_effect()
         ally->add_damage_bonus(-bonus);
         ally->add_attack_bonus(-bonus);
         ally->add_max_hp_bonus(-clevel);
-        ally->remove_property("blessed");
+        ally->remove_property("sacred");
     }
     ::dest_effect();
     if (objectp(TO)) {

@@ -42,7 +42,7 @@ void create()
     set_property("add kits", 40);
     set_new_exp(50, "boss");
 
-    set_emotes(30, ({ "%^MAGENTA%^The Dead God growls%^RESET%^: I SHALL RETURN TO MORTAL PLANE AND HAVE MY REVENGE ON ALL OF YOU..", "%^MAGENTA%^The Dead God gorwls%^RESET%^: YOU SHALL FEEL MY PAIN AND PAIN OF MY SUBJECTS." }), 20);
+    set_emotes(30, ({ "%^MAGENTA%^The Dead God growls%^RESET%^: I SHALL RETURN TO THE MORTAL PLANE AND HAVE MY REVENGE ON ALL OF YOU..", "%^MAGENTA%^The Dead God growls%^RESET%^: YOU SHALL FEEL MY PAIN AND THE PAIN OF MY SUBJECTS." }), 20);
     set_funcs(({ "summoning" }));
     set_func_chance(40);
     set_monster_feats(({
@@ -58,7 +58,7 @@ void create()
                   "storm of vengeance",
                   "incendiary cloud",
                   "sleet storm",
-                  "entrophic storm",
+                  "entropic storm",
                   "horrid wilting",
                   "acid fog",
                   "meteor swarm",

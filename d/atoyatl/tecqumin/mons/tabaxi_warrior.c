@@ -47,7 +47,7 @@ void create()
       set_stats("charisma",6);
       set_stats("wisdom",20);
   	set_size(3);
-  	set("aggressive",30);
+        set("aggressive",8);
       set_skill("athletics", 45);
       set_skill("stealth", 45);
       set_skill("perception", 40);

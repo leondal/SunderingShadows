@@ -4,6 +4,7 @@
  */
 
 #define PATHFINDER "/daemon/pathfinder_d.c"  // added by Lujke, September 2005
+#define LIGHT_MAX_RANGE 5
 
 #include <std.h>
 #include <move.h>
@@ -11,6 +12,7 @@
 #include <daemons.h>
 #include <new_exp_table.h>
 #include <rooms.h>
+
 
 inherit "/std/weaponless_users.c"; // consolidating all weaponless combat into one spot -Ares
 
@@ -140,6 +142,7 @@ void create()
     stage = 60;
     path = ({});
     monster_feats = ({});
+    set_sight_bonus(1);
     if (objectp(TO)) {
         catch("/daemon/quests"->isMon(TO));
     }
@@ -1805,39 +1808,47 @@ void set_mob_magic_resistance(string perc)
         break;
 
     case "extremely low":
-        modifier = base_level * 70 / 100;
+        //modifier = base_level * 10;
+        modifier = 5;
         break;
 
     case "very low":
-        modifier = base_level * 80 / 100;
+        //modifier = base_level * 80 / 100;
+        modifier = 10;
         break;
 
     case "low":
-        modifier = base_level * 90 / 100;
+        //modifier = base_level * 90 / 100;
+        modifier = 15;
         break;
 
     case "average":
-        modifier = base_level;
+        //modifier = base_level;
+        modifier = 20;
         break;
 
     case "high":
-        modifier = base_level * 105 / 100;
+        //modifier = base_level * 105 / 100;
+        modifier = 30;
         break;
 
     case "very high":
-        modifier = base_level * 110 / 100;
+        //modifier = base_level * 110 / 100;
+        modifier = 35;
         break;
 
     case "extremely high":
-        modifier = base_level * 125 / 100;
+        //modifier = base_level * 125 / 100;
+        modifier = 40;
         break;
 
     case "insanely high":
-        modifier = base_level * 150 / 100;
+        //modifier = base_level * 150 / 100;
+        modifier = 45;
         break;
 
     default:
-        modifier = base_level;
+        modifier = 50;
         break;
     }
     TO->set_property("magic resistance", modifier);
@@ -1962,3 +1973,90 @@ void mon_look(){
     tell_object(TP, dsc);
     return;
 }
+
+int light_blind_remote(int actionbonus, object whichroom, int distance) {
+
+  int _total_light;
+  int _sight_bonus;
+  int calc;
+
+  if (!objectp(this_object())) {
+      return 0;
+  }
+  if (!objectp(whichroom)) {
+      return 0;
+  }
+  if (whichroom->query_property("ooc_room")) {
+      return 0;
+  }
+  if (whichroom->query_property("ooc room")) {
+      return 0;
+  }
+  if (geteuid(whichroom) == "Shadowgate") {
+      return 0;
+  }
+  _total_light = total_light(whichroom);
+  _sight_bonus = query_sight_bonus();
+
+  if (!D_BUG_D->user_new_light()) {
+      return (_total_light + _sight_bonus - actionbonus < 0);
+  }
+
+  if (_sight_bonus * _total_light < 0) {
+      calc = _sight_bonus + _total_light;
+  }else {
+      calc = _total_light;
+  }
+  if (D_BUG_D->calc_message()) {
+      tell_object(this_object(), "calc = " + calc);
+  }
+
+  if (member_array(query_race(), LIVING_D->night_races()) != -1) {
+      calc *= -1;
+      _total_light *= -1;
+  }
+
+  if (intp(actionbonus)) {
+      if (calc > (0 + actionbonus)) {
+          if (_total_light < (LIGHT_MAX_RANGE - actionbonus)) {
+              // proper light!
+              return 0;
+          } else {
+              //      tell_object(TO,"first return");
+              return (_total_light - (LIGHT_MAX_RANGE - actionbonus));
+          }
+      } else {
+          //      tell_object(TO,"second return");
+          return calc - actionbonus;
+      }
+  } else {
+      //      tell_object(TO,"second if");
+      if (calc > 0) {
+          if (_total_light < LIGHT_MAX_RANGE) {
+              return 0;
+          }else {
+              return (_total_light - LIGHT_MAX_RANGE);
+          }
+      }else {
+          return (calc - 0);
+      }
+  }
+  tell_object(this_object(), "Light error!");
+  return 0;
+}
+
+int light_blind(int actionbonus)
+{
+    object room;
+
+    if (!objectp(this_object()))
+        return 0;
+
+    room = environment(this_object());
+
+    if (!objectp(room))
+        return 0;
+
+    return light_blind_remote(actionbonus, room, 0);
+}
+

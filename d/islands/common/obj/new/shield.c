@@ -69,8 +69,12 @@ int remove_it()
 
 int struck(int damage, object what, object who)
 {
-    tell_room(EETO, "%^BOLD%^%^CYAN%^The lion on " + ETO->QCN + "'s shield suddenly releases a roar that appears to repel blows!%^RESET%^", ({ who, ETO }));
-    tell_object(who, "%^BOLD%^%^CYAN%^As you try to hit " + ETO->QCN + ", the shield roars at you, repelling your blow!%^RESET%^");
-    tell_object(ETO, "%^BOLD%^%^CYAN%^The shield roars and pushes the oncoming blow backward!%^RESET%^");
-    return (-1) * (damage);
+    if(!random(2))
+    {
+        tell_room(EETO, "%^BOLD%^%^CYAN%^The lion on " + ETO->QCN + "'s shield suddenly releases a roar that appears to repel blows!%^RESET%^", ({ who, ETO }));
+        tell_object(who, "%^BOLD%^%^CYAN%^As you try to hit " + ETO->QCN + ", the shield roars at you, repelling your blow!%^RESET%^");
+        tell_object(ETO, "%^BOLD%^%^CYAN%^The shield roars and pushes the oncoming blow backward!%^RESET%^");
+        return 0;
+    }
+    return damage;
 }

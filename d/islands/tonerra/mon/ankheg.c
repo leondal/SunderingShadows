@@ -21,7 +21,8 @@ void create()
              "small tree in half with a single bite.%^RESET%^");
     set_hd(13 + random(10), 8);
     set_hp(300 + random(75));
-    set_exp(query_hd() * 325);
+    //set_exp(query_hd() * 325);
+    set_new_exp(query_hd(), "high");
     set_max_level(25);
     set_overall_ac(-11);
     set_body_type("snake");

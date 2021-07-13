@@ -20,21 +20,25 @@ void create(){
 }
 
 int preSpell(){
-   if(caster->query_property("remote scrying")){
-      tell_object(caster,"You are already listening somewhere!");
-      return 0;
-   }
-   if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
-   if((int)caster->query_property("remote scrying time")+DELAY > time()){
-      tell_object(caster,"You cannot command your witnessob again so soon.");
-      return 0;
-   }
+    if(caster->query_property("remote scrying")){
+        tell_object(caster,"You are already listening somewhere!");
+        return 0;
+    }
+    if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
+    if((int)caster->query_property("remote scrying time")+DELAY > time()){
+        tell_object(caster,"You cannot command your witnessob again so soon.");
+        return 0;
+    }
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to scry while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.%^RESET%^");
+        return 0;
+    }
    return 1;
 }
 
 void spell_effect(int prof){
     object ob, blockobj;
-    int power, duration;
+    int bonus, power, duration;
 
     if (ob = find_player(caster->realNameVsProfile(arg)))
     {
@@ -44,7 +48,8 @@ void spell_effect(int prof){
                 tell_object(caster,"Something blocks your attempt!");
                 return;
             }
-            power = clevel + 6;
+            bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
+            power = clevel + bonus + random(6);
             if(blockobj = present("blockerx111", environment(ob)) || blockobj = present("blockerx111",ob)){
                if(power < blockobj->query_block_power()){
                   tell_object(caster, "Something blocks your attempt!");

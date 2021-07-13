@@ -23,7 +23,8 @@ void create(){
 	  "legs end in three inch long copper claws.%^RESET%^");
    set_hd(16+random(10),8);
    set_hp(roll_dice(query_hd(),15));
-   set_exp(query_hd()*325);
+   //set_exp(query_hd()*325);
+   set_new_exp(query_hd(), "normal");
    set_max_level(25);
    set_overall_ac(-10);
    set_body_type("quadruped");
@@ -43,7 +44,7 @@ void create(){
    set_base_damage_type("piercing");
    set_stats("strength",20);
    set_speed(50);
-   set_new_exp(35,"very high");
+   set_new_exp(25,"very high");
 }
 
 int crushing(object targ)

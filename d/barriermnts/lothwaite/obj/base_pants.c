@@ -44,7 +44,7 @@ inherit DAEMON;
 "%^BOLD%^%^WHITE%^rich cream",\
 "%^BOLD%^%^WHITE%^cream",\
 "%^BOLD%^%^WHITE%^white",\
-"%^YELLOW%^saphron",\
+"%^YELLOW%^saffron",\
 "%^YELLOW%^lemon yellow",\
 "%^ORANGE%^tangerine",\
 "%^BOLD%^%^MAGENTA%^mauve",\

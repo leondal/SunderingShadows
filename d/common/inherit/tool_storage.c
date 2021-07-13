@@ -56,18 +56,18 @@ void reset()
         new("/d/common/obj/misc/tools/writingcase")->move(TO);
     }
 
-    if (!present("portable lab case")) {
-        new("/d/common/obj/misc/tools/portable_lab_case")->move(TO);
-    }
-    if (!present("portable smithy bag")) {
-        new("/d/common/obj/misc/tools/portable_smithy_bag")->move(TO);
-    }
-    if (!present("portable scrying mirror")) {
-        new("/d/common/obj/misc/tools/portable_scrying_mirror")->move(TO);
-    }
-    if (!present("portable crystal ball")) {
-        new("/d/common/obj/misc/tools/portable_crystal_ball")->move(TO);
-    }
+    //if (!present("portable lab case")) {
+        //new("/d/common/obj/misc/tools/portable_lab_case")->move(TO);
+    //}
+    //if (!present("portable smithy bag")) {
+        //new("/d/common/obj/misc/tools/portable_smithy_bag")->move(TO);
+    //}
+    //if (!present("portable scrying mirror")) {
+       // new("/d/common/obj/misc/tools/portable_scrying_mirror")->move(TO);
+    //}
+    //if (!present("portable crystal ball")) {
+        //new("/d/common/obj/misc/tools/portable_crystal_ball")->move(TO);
+    //}
 
     switch (random(6)) {
     case 0:

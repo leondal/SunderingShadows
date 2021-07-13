@@ -12,12 +12,12 @@ void create()
 	set_property("light",2);
 	set_short("The Latrines");
 	set_long(
-	   "Several outhouses have been built here for obvious reasons. Placing"+
-	   " them southwest of the campground hopefully eliminates on the wind"+
-	   " blowing the smell back to the poor campers, since the wind typically"+
-	   " comes from the north. This is not the most pleasant of places, but"+
-   	   " at least the stench has died down some over the years. A few flies"+
-	   " still buzz about the outhouses.\n"
+	   "%^BOLD%^%^BLACK%^Several %^RESET%^%^RED%^outhouses %^BOLD%^%^BLACK%^have been built here for obvious reasons. Placing"+
+	   " %^BOLD%^%^BLACK%^them southwest of the campground hopefully %^RESET%^%^ORANGE%^eliminates %^BOLD%^%^BLACK%^the wind"+
+	   " %^BOLD%^%^BLACK%^blowing the %^RESET%^%^ORANGE%^smell %^BOLD%^%^BLACK%^back to the poor campers, since the wind typically"+
+	   " %^BOLD%^%^BLACK%^comes from the north. This is not the most pleasant of places, but"+
+   	   " %^BOLD%^%^BLACK%^at least the stench has died down some over the years. A few %^RESET%^fl%^BOLD%^i%^RESET%^e%^BOLD%^s"+
+	   " %^BOLD%^%^BLACK%^still %^GREEN%^b%^RESET%^%^CYAN%^u%^BOLD%^%^GREEN%^z%^RESET%^%^CYAN%^z %^BOLD%^%^BLACK%^about the outhouses.%^RESET%^\n"
 	);
 	set_smell("default","A rather awful stench permeates the area.");
 	set_listen("default","Flies buzz lazily around the outhouses.");

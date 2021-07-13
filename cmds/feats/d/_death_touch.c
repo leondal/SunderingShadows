@@ -17,6 +17,29 @@ If used without an argument this feat will pick up a random attacker.");
     set_save("will");
 }
 
+string get_casting_stat()
+{
+    string mycastingstat;
+    string fname;
+
+    if (!objectp(caster)) {
+        return;
+    }
+
+    fname = "/std/class/" + caster->query("base_class") + ".c";
+
+    if (!file_exists(fname)) {
+        mycastingstat = "intelligence";
+    } else {
+        mycastingstat = fname->query_casting_stat(caster);
+        if (!mycastingstat) {
+            mycastingstat = "intelligence";
+        }
+    }
+
+    return mycastingstat;
+}
+
 int allow_shifted() { return 0; }
 
 int prerequisites(object ob)
@@ -174,9 +197,9 @@ void execute_attack()
     tell_object(caster,"%^BLUE%^A ray of deadly negative energy releases of your finger and hits "+target->QCN+"!");
     tell_room(place,"%^BLUE%^A ray of death releases of "+caster->QCN+"'s finger and hits "+target->QCN+"!",caster);
 
-    bonusdc = clevel+BONUS_D->query_stat_bonus(caster, "intelligence");
+    bonusdc = BONUS_D->query_stat_bonus(caster, get_casting_stat());;
     spell_kill(target,caster);
-    if((string)target->query_property("no death") ||do_save(target,-bonusdc))
+    if((string)target->query_property("no death") ||do_save(target,bonusdc))
     {
         tell_object(target,"%^BOLD%^Your soul struggles, but manages to survive.");
         tell_room(place,"%^BOLD%^%^BLUE%^"+target->QCN+" is harmed but manages to survive the death!",target);

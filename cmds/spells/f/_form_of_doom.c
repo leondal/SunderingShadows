@@ -16,6 +16,7 @@ void create() {
     set_spell_name("form of doom");
     set_spell_level(([ "psywarrior" : 6 ]));
     set_syntax("cast CLASS form of doom");
+    set_spell_sphere("psychometabolism");
     set_description("The manifester calls on the stuff of nightmares, disguising "
        "himself in a terrifying visage of sleek, lashing tentacles. Your horrific "
        "appearance is enough to shake the confidence of those who oppose you, while "
@@ -150,7 +151,7 @@ void execute_attack(){
       if(!inven[i]->query_property("oppressed")){
 //         tell_object(inven[i],"%^BOLD%^%^BLACK%^You can't help but recoil "
 //            "from "+caster->QCN+"'s horrific visage!%^RESET%^");
-         if(!do_save(inven[i],0)) {
+         if(!do_save(inven[i],0) && !PLAYER_D->immunity_check(inven[i], "fear") && !inven[i]->query("no pk")) {
             tell_object(inven[i],"%^BOLD%^%^RED%^You cower away from "+caster->QCN+"!%^RESET%^");
             tell_object(caster,"%^BOLD%^%^RED%^"+inven[i]->QCN+" cowers in fear of your "
                "mighty presence!%^RESET%^");

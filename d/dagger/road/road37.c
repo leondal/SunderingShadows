@@ -21,7 +21,7 @@ void create(){
     set_exits( ([
 	"southwest" : RPATH "road36",
 	"northeast" : RPATH "road38",
-      //"southeast" : RPATH"p1"
+    "southeast" : RPATH"p1"
       ]) );
 }
 void reset()

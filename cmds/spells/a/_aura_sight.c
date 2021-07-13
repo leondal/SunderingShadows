@@ -7,7 +7,7 @@ void create()
     ::create();
     set_spell_name("aura sight");
     set_spell_level(([ "psion" : 4 ]));
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS aura sight on TARGET");
     set_description("This power will allow the seer to focus on a target to discover the target's alignment.  The "
         "target's mind might fight the seer, in which case the seer will get no reading.  Other manners of magic or psionics "

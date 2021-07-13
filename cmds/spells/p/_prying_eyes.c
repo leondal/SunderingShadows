@@ -6,16 +6,16 @@ inherit SPELL;
 
 object eyes,remote;
 string theName;
-#define DELAY 120
+//#define DELAY 120
+#define DELAY 300 //Tlaloc changed this to be in line with silver sight.
 
 void create(){
     ::create();
     set_author("nienne");
     set_spell_name("prying eyes");
-    set_spell_level(([ "mage" : 5, "psion" : 7, "bard" : 6, "cleric" : 5 ]));
+    set_spell_level(([ "mage" : 5, "bard" : 6, "cleric" : 5 ]));
     set_domains("knowledge");
     set_spell_sphere("divination");
-    set_discipline("seer");
     set_syntax("cast CLASS prying eyes on TARGET");
     set_description("The pinnacle of ability for a skilled diviner, this spell allows the caster to watch and listen in "
 "upon a distant person without the need for components or a mirror. Or, they may focus upon their surroundings and then "
@@ -27,15 +27,19 @@ void create(){
 }
 
 int preSpell(){
-   if(caster->query_property("remote scrying")){
-      tell_object(caster,"Your concentration is already upon a distant location!");
-      return 0;
-   }
-   if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
-   if((int)caster->query_property("remote scrying time")+DELAY > time()){
-      tell_object(caster,"You need time to rest before you can try that again.");
-      return 0;
-   }
+    if(caster->query_property("remote scrying")){
+        tell_object(caster,"Your concentration is already upon a distant location!");
+        return 0;
+    }
+    if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
+    if((int)caster->query_property("remote scrying time")+DELAY > time()){
+        tell_object(caster,"You need time to rest before you can try that again.");
+        return 0;
+    }
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to scry while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.%^RESET%^");
+        return 0;
+    }
    return 1;
 }
 
@@ -61,8 +65,7 @@ void spell_effect(int prof){
         eyes->set_eye_color(caster->query_eye_color());
         eyes->set_property("spell",TO);
         eyes->set_property("spelled", ({TO}) );
-        bonus = caster->query_stats("intelligence");
-        bonus = (bonus - 10)/2;
+        bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
         power = clevel + bonus + random(6);
         eyes->set_scry_power(power);
         eyes->move(place);
@@ -89,9 +92,8 @@ void spell_effect(int prof){
             eyes->set_property("spell",TO);
             eyes->set_property("spelled", ({TO}) );
             eyes->set_target(ob);
-            bonus = caster->query_stats("intelligence");
-            bonus = (bonus - 10)/2;
-            power = clevel + bonus + 3;
+            bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
+            power = clevel + bonus + random(6);
             eyes->set_scry_power(power);
             eyes->move(environment(ob));
             theName = ob->query_short();

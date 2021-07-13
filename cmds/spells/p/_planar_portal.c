@@ -14,7 +14,7 @@ void create(){
     set_spell_name("planar portal");
     set_spell_level(([ "psion" : 7 ]));
     set_discipline("nomad");
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychoportation");
     set_syntax("cast CLASS planar portal to <location>");
     set_description("This potent power enables a nomad to open up a portal, allowing beings to pass from the place he "
 "currently stands to one he has locked firmly in his memory.  By using this power, the nomad commands a temporary "
@@ -188,11 +188,12 @@ void do_next(object endplace){
        "%^YELLOW%^flashes%^RESET%^ %^BOLD%^%^MAGENTA%^and a portal opens, leading "+
        "to "+newplace+"!");
     open_portal();
-    call_out("close_portal",clevel * ROUND_LENGTH);
+    call_out("dest_effect",clevel * ROUND_LENGTH);
     return;
 }
 
 int open_portal(){
+   addSpellToCaster();
    tell_room(endplace,"%^BOLD%^A shimmering portal opens in the air!");
    endplace->add_exit(base_name(place), "portal");
    place->add_exit(base_name(endplace), "portal");
@@ -205,12 +206,12 @@ int close_portal(){
    tell_room(place,"%^BOLD%^%^BLACK%^The portal shimmers briefly, "+
       "then closes and fades away.");
    place->remove_exit("portal");
-   endplace->remove_exit("portal");
-   dest_effect();
+   endplace && endplace->remove_exit("portal");
    return 1;
 }
 
 void dest_effect() {
+    close_portal();
     ::dest_effect();
     if(objectp(TO)) TO->remove();
 }

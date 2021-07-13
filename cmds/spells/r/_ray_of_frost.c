@@ -6,7 +6,7 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("ray of frost");
-    set_spell_level(([ "mage" : 1, "magus" : 1 ]));
+    set_spell_level(([ "cantrip" : 1 ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS ray of frost on TARGET");
     set_description("With this spell you direct a freezing ray at your target.");

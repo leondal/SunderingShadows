@@ -17,7 +17,7 @@ void create() {
     set_type("armour");
     set_limbs( ({ "head" }) );
     set_ac(1);
-    set_property("enchantment",3);
+    set_property("enchantment",4);
     set_wear((:TO,"wearit":));
     set_remove((:TO,"removeit":));
 }

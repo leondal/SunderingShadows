@@ -120,7 +120,6 @@ void ignore_7(){
     string queststring2;
     force_me("emote shudders violently then stops abruptly, slumping over onto his side.");
     queststring = "%^BOLD%^%^CYAN%^Let Revis Die%^RESET%^";
-    queststring2 = "%^BOLD%^%^CYAN%^A Revis Encounter%^RESET%^";
       fighterz = ({});
       fighterz += filter_array(all_living(ETO),"is_non_immortal_player",FILTERS_D);
       ppl = ({});
@@ -199,7 +198,6 @@ void reply_func(string msg, object who){
       force_me("emote begins to slowly gather his things.");
       force_me("emote leaves towards the west with a few of his things, waving to you as he leaves.");
       queststring = "%^BOLD%^%^CYAN%^Saved Revis%^RESET%^";
-      queststring2 = "%^BOLD%^%^CYAN%^A Revis Encounter%^RESET%^";
       fighterz = ({});
       fighterz += filter_array(all_living(ETO),"is_non_immortal_player",FILTERS_D);
       ppl = ({});

@@ -240,7 +240,9 @@ void inspire_courage(object ally, int direction)
 {
     int power;
     power = clevel / 6 + 1;
-    power = power > 6 ? 6 : power;
+    
+    power = power > 4 ? 4 : power;
+    power += FEATS_D->usable_feat(caster, "epic tales") * 2;
 
     ally->add_attack_bonus(power * direction);
     ally->add_damage_bonus(power * direction);
@@ -260,6 +262,7 @@ void inspire_competence(object ally, int direction)
 
     power = clevel / 8 + 1;
     power = power > 6 ? 6 : power;
+    power += FEATS_D->usable_feat(caster, "epic tales") * 2;
 
     for (i = 0; i < sizeof(CORE_SKILLS); i++) {
         ally->add_skill_bonus(CORE_SKILLS[i], power * direction);
@@ -271,7 +274,8 @@ void inspire_greatness(object ally, int direction)
     int power;
 
     power = clevel / 8 + 1;
-    power = power > 6 ? 6 : power;
+    power = power > 4 ? 4 : power;
+    power += FEATS_D->usable_feat(caster, "epic tales") * 2;
 
     ally->add_max_hp_bonus((clevel * 3 / 2) * direction);
     ally->add_attack_bonus(power * direction);
@@ -283,8 +287,9 @@ void inspire_heroics(object ally, int direction)
 {
     int power;
 
-    power = clevel / 4 + 1;
-    power = power > 8 ? 8 : power;
+    power = clevel / 6 + 1;
+    power = power > 4 ? 4 : power;
+    power += FEATS_D->usable_feat(caster, "epic tales") * 2;
 
     ally->add_saving_bonus("all", power * direction);
     ally->add_ac_bonus(power * direction);

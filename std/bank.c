@@ -37,9 +37,12 @@ void init() {
    add_action("withdraw", "withdraw");
    add_action("balance", "balance");
    add_action("exchange", "exchange");
-   add_action("admdeposit", "admdeposit");
-   add_action("admwithdraw", "admwithdraw");
-   add_action("cell_action","cell");
+   add_action("storage", "storage");
+   if (avatarp(TP)) {
+       add_action("admdeposit", "admdeposit");
+       add_action("admwithdraw", "admwithdraw");
+   }
+   /* add_action("cell_action","cell"); */
 }
 
 object load_cell(object player)
@@ -122,6 +125,13 @@ int cell_action(string str)
         return upgrade_cell();
     }
 
+    return 1;
+}
+
+int storage(mixed arg)
+{
+    tell_object(this_player(), "You touch a magical handle on the wall, and begin to summon a chest.");
+    "/cmds/spells/s/_secret_chest.c"->use_spell(this_player(), arg, 50);
     return 1;
 }
 
@@ -288,7 +298,7 @@ int deposit(string str) {
    }
 
    amount2 = amount;
-   amount2 = (amount * 85) / 100;
+   amount2 = (amount * 90) / 100;
    x = (int)BANK_D->deposit((string)this_player()->query_name(), BANK_ID, amount2, type);
    if(x != TRANSACTION_OK) {
       switch(x) {
@@ -359,14 +369,18 @@ int read(string str) {
    write(
 @MELNMARN
 
-%^CYAN%^%^BOLD%^ open account%^BLACK%^ ----------------- %^RESET%^: %^CYAN%^Will open an account for you.
-%^CYAN%^%^BOLD%^ close account%^BLACK%^ ---------------- %^RESET%^: %^CYAN%^Closes your account.
-%^CYAN%^%^BOLD%^ balance%^BLACK%^ ---------------------- %^RESET%^: %^CYAN%^Gives your account balance info.
-%^CYAN%^%^BOLD%^ deposit NUM TYPE%^BLACK%^ ------------- %^RESET%^: %^CYAN%^Deposits NUM of currency of TYPE.
-%^CYAN%^%^BOLD%^ withdraw NUM TYPE%^BLACK%^ ------------ %^RESET%^: %^CYAN%^Withdraws NUM of currency of TYPE.
-%^CYAN%^%^BOLD%^ exchange NUM TYPE for TYPE2%^BLACK%^ -- %^RESET%^: %^CYAN%^Exchanges currencies.
+%^CYAN%^%^BOLD%^ open account%^BLACK%^ ------------------------- %^RESET%^: %^CYAN%^Will open an account for you.
+%^CYAN%^%^BOLD%^ close account%^BLACK%^ ------------------------ %^RESET%^: %^CYAN%^Closes your account.
+%^CYAN%^%^BOLD%^ balance%^BLACK%^ ------------------------------ %^RESET%^: %^CYAN%^Gives your account balance info.
+%^CYAN%^%^BOLD%^ deposit NUM TYPE%^BLACK%^ --------------------- %^RESET%^: %^CYAN%^Deposits NUM of currency of TYPE.
+%^CYAN%^%^BOLD%^ withdraw NUM TYPE%^BLACK%^ -------------------- %^RESET%^: %^CYAN%^Withdraws NUM of currency of TYPE.
+%^CYAN%^%^BOLD%^ exchange NUM TYPE for TYPE2%^BLACK%^ ---------- %^RESET%^: %^CYAN%^Exchanges currencies.
+%^CYAN%^%^BOLD%^ storage%^BLACK%^ ------------------------------ %^RESET%^: %^CYAN%^Summon your magical storage chest.
+%^CYAN%^%^BOLD%^ - give ITEM to chest%^BLACK%^ ----------------- %^RESET%^: %^CYAN%^Stores an item in the storage chest.
+%^CYAN%^%^BOLD%^ - command chest to give ITEM to WHOM%^BLACK%^ - %^RESET%^: %^CYAN%^Gives ITEM from chest to WHOM.
+%^CYAN%^%^BOLD%^ - dismiss chest %^BLACK%^ --------------------- %^RESET%^: %^CYAN%^Returns the storage chest to the bank.
 
-A 15% service fee will be charged to all deposits.
+A 10% service fee will be charged to all deposits.
 MELNMARN
    );
    if(archp(TP)) {

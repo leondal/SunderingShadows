@@ -26,8 +26,8 @@ void create(){
         "%^ORANGE%^o%^BOLD%^%^BLACK%^ny %^RESET%^and %^ORANGE%^oak %^BOLD%^%^BLACK%^"+
         "do%^RESET%^%^ORANGE%^o%^BOLD%^%^BLACK%^rs %^RESET%^that stand opposite each "+
         "other.%^RESET%^");
-    set_smell("The air carries a mix of white tea and vanilla, with a hint of cedar.");
-    set_listen("It is very quiet here.");
+    set_smell("default","The air carries a mix of white tea and vanilla, with a hint of cedar.");
+    set_listen("default","It is very quiet here.");
     set_items(([
         ({"wall", "walls"}) : "%^RESET%^%^CYAN%^Uneven %^BOLD%^%^BLACK%^stones "+
             "%^RESET%^%^CYAN%^of %^BOLD%^%^BLACK%^black %^RESET%^%^CYAN%^and %^WHITE%^"+

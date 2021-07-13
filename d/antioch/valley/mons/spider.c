@@ -50,6 +50,7 @@ void create()
     set_mlevel("fighter", 15);
     set_funcs(({ "web" }));
     set_func_chance(10);
+    set_sight_bonus(2);
     add_money("silver", random(500));
     set_emotes(8, ({
         "The giant spider clacks her pincers together.",

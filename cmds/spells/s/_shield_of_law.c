@@ -12,6 +12,7 @@ void create()
     set_spell_name("shield of law");
     set_spell_level(([ "cleric":8, "mage":8]));
     set_mystery("godclaw");
+    set_bonus_type(({ "resistance", "deflection" }));
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS shield of law");
     set_damage_desc("divine damage, 4 AC, 4 to all saves");
@@ -25,6 +26,10 @@ int preSpell()
     int align = caster->query_true_align();
     if (caster->query_property("nimbus")) {
         tell_object(caster, "You are still affected by shield of law or another nimbus spell.");
+        return 0;
+    }
+    if (caster->query_property("protection from spells")) {
+        tell_object(caster, "You are affected by similar magic.");
         return 0;
     }
     if (!(align == 1 || align == 2 || align == 3)) {
@@ -45,6 +50,7 @@ void spell_effect(int prof)
 
     caster->set_property("spelled", ({TO}));
     caster->set_property("nimbus",1);
+    caster->set_property("protection from spells");
     caster->set_property("added short",({"%^BLUE%^ (in a dim blue haze)%^RESET%^"}));
     addSpellToCaster();
     spell_successful();
@@ -114,6 +120,7 @@ void dest_effect()
     {
         tell_object(caster,"%^RESET%^%^BOLD%^%^BLUE%^The haze around you fades.");
         caster->remove_property("nimbus");
+        caster->remove_property("protection from spells");
         caster->add_ac_bonus(-4);
         caster->add_saving_bonus("all",-4);
 	    caster->remove_property_value("added short",({"%^BLUE%^ (in a dim blue haze)%^RESET%^"}));

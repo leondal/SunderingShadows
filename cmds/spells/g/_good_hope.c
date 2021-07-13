@@ -14,10 +14,11 @@ int counter,mybonus,flag;
 void create(){
     ::create();
     set_spell_name("good hope");
-    set_spell_level(([ "cleric" : 3 ]));
+    set_spell_level(([ "cleric" : 3, "bard" : 3 ]));
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS good hope on TARGET");
-    set_damage_desc("(clevel + 9) / 10 to ATK bonus and saving throws.");
+    set_bonus_type("morale");
+    set_damage_desc("+2 ATK bonus and saving throws.");
     set_description("Invoking the blessings of good hope, this spell will grant the target a heightened sense in battle "
 "and a blessing on resisting some attacks (saving throws). It does not stack with similar morale-boosting spells, such "
 "as heroism.");
@@ -33,11 +34,13 @@ int preSpell()
         tell_object(caster,"This spell requires a target.");
         return 0;
     }
+    /*
     if (target->query_property("morale-boost"))
     {
         tell_object(caster,"%^BOLD%^%^MAGENTA%^Hope flows already through "+target->QCN+".");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -53,7 +56,8 @@ string query_cast_string()
 
 void spell_effect(int prof)
 {
-    mybonus = (clevel+9)/10;
+    //mybonus = (clevel+9)/10;
+    mybonus = 2;
 
     if(target == caster)
     {
@@ -80,7 +84,7 @@ void spell_effect(int prof)
     addSpellToCaster();
     target->add_attack_bonus(mybonus);
     target->add_saving_bonus("all",(mybonus));
-    target->set_property("morale-boost",1);
+    //target->set_property("morale-boost",1);
     target->set_property("spelled", ({TO}) );
 }
 
@@ -112,7 +116,7 @@ void dest_effect()
     {
         target->add_attack_bonus(-1 * mybonus);
         target->add_saving_bonus("all",(-1 * mybonus));
-        target->set_property("morale-boost",-1);
+        //target->set_property("morale-boost",-1);
         tell_room(place,"%^BOLD%^%^MAGENTA%^"+target->QCN+" lets a heavy "+
             "sigh out, as the hope in "+target->QP+" fades away.",target);
         tell_object(target,"%^BOLD%^%^MAGENTA%^The hope that swells inside of"+

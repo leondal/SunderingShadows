@@ -542,7 +542,7 @@ void do_random_effect(int which)
                 "light!%^RESET%^", ETO);
 				
                 ETO->set_temporary_blinded(10);
-                ETO->cause_typed_damage(ETO, "torso", roll_dice(amt, 20), "darkness");
+                ETO->cause_typed_damage(ETO, "torso", roll_dice(amt, 20), "negative energy");
             }
             tell_room(EETO, "%^BOLD%^%^RED%^An angry voice %^BOLD%^%^WHITE%^T"+
             "%^BOLD%^%^YELLOW%^H%^BOLD%^%^WHITE%^U%^BOLD%^%^YELLOW%^N%^BOLD%^%^WHITE%^"+

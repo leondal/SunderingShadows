@@ -12,7 +12,7 @@ void create() {
     ::create();
     set_spell_name("mylight");
     set_spell_level(([ "psion" : 1, "psywarrior" : 1 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS mylight on TARGET");
     set_description("When the psionic character manifests this power, "
        "the target receives a sight bonus to help him see. Races with "

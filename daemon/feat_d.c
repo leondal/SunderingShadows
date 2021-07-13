@@ -455,6 +455,10 @@ int can_gain_type_feat(object ob, string feat, string feattype)
         MAX_ALLOWED = number_feats(ob, "divinebond", ({ "paladin" }));
         GAINED = ob->query_divinebond_feats_gained();
         break;
+    case "rage":
+        MAX_ALLOWED = number_feats(ob, "rage", ({ "barbarian" }));
+        GAINED = ob->query_rage_feats_gained();
+        break;
     default:
         MAX_ALLOWED = 0;
         GAINED = 0;
@@ -568,6 +572,18 @@ int add_my_feat(object ob, string type, string feat)
             return 1;
         }
         else return 0;
+    case "rage":
+        num = 1;
+        if (gain_feat(ob, type, feat, num))
+        {
+            num = 0;
+            num = ob->query_rage_feats_gained();
+            num += 1;
+            ob->set_rage_feats_gained(num);
+            update_usable(ob);
+            return 1;
+        }
+        else return 0;
     case "other":
         if(gain_feat(ob,type,feat,level))
         {
@@ -646,6 +662,13 @@ int remove_my_feat(object ob,string feat,int bypass)
         if (!num) num = 0;
         num -= 1;
         ob->set_divinebond_feats_gained(num);
+        update_usable(ob);
+        return 1;
+    case "rage":
+        num = ob->query_rage_feats_gained();
+        if (!num) num = 0;
+        num -= 1;
+        ob->set_rage_feats_gained(num);
         update_usable(ob);
         return 1;
     case "other":
@@ -815,6 +838,14 @@ int display_is_activable(string feat, object ob)
     if (pick_color(feat, ob) == "%^BOLD%^%^CYAN%^") return 1;
     if (pick_color(feat, ob) == "%^YELLOW%^") return 1;
     return 0;
+}
+
+int display_is_known(string feat, object ob)
+{
+    if(!objectp(ob) || !stringp(feat))
+        return 0;
+    
+    return has_feat(ob, feat);
 }
 
 int filter_feats(object ob, string feat)
@@ -1269,6 +1300,12 @@ void set_feats(object ob,string type,mapping feats)
     case "divinebond":
         ob->set_divinebond_feats(feats);
         break;
+    case "rage":
+        ob->set_rage_feats(feats);
+        break;
+    case "talent":
+        ob->set_talent_feats(feats);
+        break;
     case "other":
         ob->set_other_feats(feats);
         break;
@@ -1302,6 +1339,12 @@ mapping get_feats(object ob,string type)
         break;
     case "divinebond":
         feats = ob->query_divinebond_feats();
+        break;
+    case "rage":
+        feats = ob->query_rage_feats();
+        break;
+    case "talent":
+        feats = ob->query_talent_feats();
         break;
     case "other":
         feats = ob->query_other_feats();
@@ -1490,6 +1533,10 @@ string format_feat(string feat,object targ) {
         tmp = "%^BOLD%^%^YELLOW%^" + level + "%^RESET%^";
     } else if (bought_as_type_feat(feat, targ, "divinebond")) {
         tmp = "%^BOLD%^%^YELLOW%^" + level + "%^RESET%^";
+    } else if (bought_as_type_feat(feat, targ, "rage")) {
+        tmp = "%^BOLD%^%^YELLOW%^" + level + "%^RESET%^";
+    } else if (bought_as_type_feat(feat, targ, "talent")) {
+        tmp = "%^BOLD%^%^YELLOW%^" + level + "%^RESET%^";
     } else {
         tmp = "%^CYAN%^" + level + "%^RESET%^";
     }
@@ -1534,6 +1581,8 @@ void display_feats(object ob,object targ, string mytype)
       case "hybrid": currentlist += SPELLFEATS; currentlist += MELEEFEATS;  break;
       case "arcana": currentlist += MAGUSFEATS;  break;
       case "divinebond": currentlist += PALADINFEATS;  break;
+      case "rage": currentlist += RAGEFEATS; break;
+      //case "talent": currentlist += TALENTFEATS; break;
       case "general": currentlist += GENERALFEATS; break;
       case "epic": currentlist += EPICFEATS; break;
       case "prestige": currentlist += PRESTIGE_FEATS; break;
@@ -1564,6 +1613,15 @@ void display_feats(object ob,object targ, string mytype)
     if (!targ->is_class("paladin") && !avatarp(targ)) {
         currentlist -= ({ "DivineBond" });
     }
+    
+    if (!targ->is_class("barbarian") && !avatarp(targ)) {
+        currentlist -= ({ "RagePower" });
+    }
+    /*
+    if (!targ->is_class("paladin") && !targ->is_class("bard") && !avatarp(targ)) {
+        currentlist -= ({ "RogueTalent" });
+    }
+    */
 
     classes = targ->query_classes();
     for (i = 0; i < sizeof(PRESTIGE_FEATS); i++) {
@@ -1587,6 +1645,10 @@ void display_feats(object ob,object targ, string mytype)
             }
             if (mytype == "active") {
                 temp = filter_array(temp, "display_is_activable", TO, targ);
+            }
+            if(mytype == "known")
+            {
+                temp = filter_array(temp, "display_is_known", this_object(), targ);
             }
             good = ({});
             for (j = 0; j < sizeof(temp); j++) {
@@ -1709,6 +1771,12 @@ int bought_as_type_feat(string feat, object targ, string feattype) {
     case "divinebond":
         type_feats = targ->query_divinebond_feats();
         break;
+    case "rage":
+        type_feats = targ->query_rage_feats();
+        break;
+    case "talent":
+        type_feats = targ->query_talent_feats();
+        break;
     default:
         type_feats = targ->query_class_feats();
         break;
@@ -1761,11 +1829,14 @@ int number_feats(object obj, string category, string* valid_classes) {
             switch (subset[i]) {
                 //martials
             case "fighter":
+                j = 1 + ((obj->query_class_level("fighter") + 1) / 2);
+                /*
                 if (obj->query_class_level("fighter") < 21) {
                     j = (obj->query_class_level(subset[i]) / 2) + 2;
                 } else {
                     j = 12 + (((obj->query_class_level(subset[i])) - 16) / 5);
                 }
+                */
                 break;
             case "paladin":
                 if (category == "divinebond") {
@@ -1778,11 +1849,47 @@ int number_feats(object obj, string category, string* valid_classes) {
                     j = ((obj->query_class_level(subset[i]) - 16) / 5);
                 }
                 break;
+            case "barbarian":
+                
+                if(category == "rage")
+                {
+                    if(obj->query_class_level("barbarian") > 5)
+                        j = 1;
+                    if(obj->query_class_level("barbarian") > 11)
+                        j = 2;
+                    if(obj->query_class_level("barbarian") > 20)
+                        j = 3;
+                    if(obj->query_class_level("barbarian") > 30)
+                        j = 4;
+                }
+                else
+                    j = ((obj->query_class_level(subset[i]) - 16) / 5);
+                break;
+            case "thief":
+                /*
+                if(category == "talent")
+                {
+                    if(obj->query_class_level("thief") > 5)
+                        j = 1;
+                    if(obj->query_class_level("thief") > 10)
+                        j = 2;
+                    if(obj->query_class_level("thief") > 20)
+                        j = 3;
+                    if(obj->query_class_level("thief") > 30)
+                        j = 4;
+                }
+                    
+                else
+                */
+                    j = ((obj->query_class_level(subset[i]) - 16) / 5);
+                break;
+            
                 //casters
             case "psion":
             case "sorcerer":
             case "mage":
             case "oracle":
+            case "cleric":
                 j = ((obj->query_class_level(subset[i]) + 4) / 5);
                 break;
                 //hybrids
@@ -1800,6 +1907,19 @@ int number_feats(object obj, string category, string* valid_classes) {
                 } else {
                     j = 7 + (((obj->query_class_level(subset[i])) - 16) / 5);
                 }
+                break;
+            case "bard":
+                /*
+                if(category == "talent")
+                {
+                    if(obj->query_class_level("bard") > 10)
+                        j = 1;
+                    if(obj->query_class_level("bard") > 20)
+                        j = 2;
+                }
+                else
+                */
+                    j = ((obj->query_class_level(subset[i]) - 16) / 5);
                 break;
             default:
                 j = ((obj->query_class_level(subset[i]) - 16) / 5);

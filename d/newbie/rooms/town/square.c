@@ -14,7 +14,7 @@ void create()
   set_long("%^RESET%^%^GREEN%^Offestry town square%^RESET%^\n"
 "You are standing in the middle of the town of Offestry, where four cobblestone %^ORANGE%^streets %^RESET%^converge upon "
 "this town square.  A light but constant stream of %^CYAN%^traffic %^RESET%^passes through, day and night, as the town "
-"serves as a waypoint to the people passing into the greater realm of Shadowgate.  The "
+"serves as a waypoint to the people passing into the greater realm of Sundering Shadows.  The "
 "atmosphere is relatively slow and relaxed, in this quiet but prosperous town.  All around you rise a jumbled array of "
 "%^RED%^buildings%^RESET%^.  There is a grand "
 "%^BOLD%^%^WHITE%^statue%^RESET%^ standing here, drawing the eyes of travellers as they pass by.  Upon the front wall, a "
@@ -40,7 +40,7 @@ void create()
 "power, or whatever you like, and hopefully one day, being written into the annals of the world as a high mortal, forever "
 "remembered. For after you leave, what is left if not memories?'%^RESET%^",
     "map":"%^YELLOW%^There is a rough map attached to the bottom of the sign.  You should try to %^RESET%^%^ORANGE%^read "
-"%^YELLOW%^it.%^RESET%^",
+"%^YELLOW%^it. %^RESET%^NOTE: If you have requested a text-only version of the map, the ascii version in the room will override it. Please type <read my map> to access the one in your inventory.",
   ]));
   set_exits(([
     "north":MAINTOWN"nstreet1",
@@ -66,6 +66,7 @@ void init()
 {
     object myOb;
     ::init();
+    add_action("request_map","request");
     if(!objectp(TO)) return;
     if(!objectp(TP)) return;
     if(!userp(TP)) return;
@@ -76,6 +77,14 @@ void init()
     }
     return;
 }
+
+int request_map(string str){
+	 if(!str || (str != "map" && str != "text map"));
+	write("The citizen hands you another map.");
+        tell_room(ETP,"The citizen hands "+TPQCN+" a piece of paper.",TP);
+	new("/d/newbie/obj/offestrytextmap.c")->move(TP);
+	return 1;
+  }
 
 void reset(){
   ::reset();

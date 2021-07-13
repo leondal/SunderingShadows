@@ -16,7 +16,7 @@ void create() {
     set_spell_name("hypercognition");
     set_spell_level(([ "psion" : 3 ]));
     set_discipline("seer");
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS hypercognition");
     set_description("Drawing upon the might of the inner eye, a seer can focus himself and gain an insight into battles "
 "that lie ahead.  This insight translates itself into better protection for the seer.  The protection granted the seer "
@@ -41,7 +41,7 @@ void spell_effect(int prof) {
     }
     if (!target->is_ok_armour("mage"))
     {
-        if(!FEATS_D->usable_feat(target,"armored caster"))
+        if(!FEATS_D->usable_feat(target,"armored caster") && !FEATS_D->usable_feat(target,"armored manifester") && !FEATS_D->usable_feat(target,"eldritch conditioning"))
         {
             tell_object(caster,"The power cannot offer protection to those wearing armor.");
             TO->remove();
@@ -81,7 +81,7 @@ void test() {
 
     if (!target->is_ok_armour("mage"))
     {
-        if(!FEATS_D->usable_feat(target,"armored caster"))
+        if(!FEATS_D->usable_feat(target,"armored caster") && !FEATS_D->usable_feat(target,"armored manifester") && !FEATS_D->usable_feat(target,"eldritch conditioning"))
         {
             tell_object(caster,"The power cannot offer protection to those wearing armor.");
             TO->dest_effect();

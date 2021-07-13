@@ -14,7 +14,7 @@ int query_unbound_age()
 int *restricted_alignments(string subrace) { return ({ 1,2,3,4,5,6 }); }
 
 string *restricted_classes(string subrace) {
-    return ({  "paladin", "fighter", "barbarian", "mage", "magus",  "psion", "psywarrior", "monk", "inquisitor" });
+    return ({  "paladin", "fighter", "barbarian", "mage", "magus", "psion", "psywarrior", "monk", "inquisitor" });
 }
 
 // this only affects rolling in creation; does not prevent dedication to a deity in-game, to allow for character evolution. N, 3/16.
@@ -62,12 +62,14 @@ int *stat_adj() { return ({ 0, 0, 2, 0, 0, 2 }); }
 
 int is_restricted() { return 1; } // restricted races by approval
 
-int is_rollable() { return 0; } // rollable in creation
+int is_rollable() { return 1; } // rollable in creation
 
 int is_gender_locked(string mygender)
 {
+    /*
     if(mygender!="male")
         return 1;
+    */
     return 0;
 }
 

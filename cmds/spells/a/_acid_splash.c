@@ -4,7 +4,7 @@ inherit SPELL;
 void create() {
     ::create();
     set_spell_name("acid splash");
-    set_spell_level(([ "mage" : 1, "inquisitor" : 1, "magus" : 1]));
+    set_spell_level(([ "cantrip" : 1, "inquisitor" : 1 ]));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS acid splash on TARGET");
     set_description("This spell opens a tiny portal into the paraelemental plane of ooze above your target.");

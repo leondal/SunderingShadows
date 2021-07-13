@@ -1,33 +1,48 @@
+/*
+  _worldly_traveler.c
+  
+  Nomad feat.
+  
+  -- Tlaloc --
+*/
+
 #include <std.h>
-#include <daemons.h>
 
 inherit FEAT;
 
-void create()
+void create() 
 {
     ::create();
     feat_type("permanent");
-    feat_category("Chronicler");
-    feat_name("remember the future");
-    feat_prereq("Chronicler L1");
-    feat_desc("A chronicler starts out by learning to see the past and future, before later learning to manipulate it. They gain the ability to see, and thereby avoid, stabs from rogues of the same level or less.");
+    feat_category("Psionics");
+    feat_name("worldly traveler");
+    feat_prereq("Psion (Nomad) L21");
+    feat_desc("Nomads are the masters of travel, and in that regard, they are unrivalled. This feat grants the nomad +2 to caster level when using teleportation powers. They also can remember 5 additional locations.");
     permanent(1);
-    set_required_for(({"temporal displacement"}));
+    psionic(1);
 }
 
 int allow_shifted() { return 1; }
 
 int prerequisites(object ob)
 {
-    if(!objectp(ob)) { return 0; }
-
-    if((int)ob->query_class_level("chronicler") < 4)
+    if(!objectp(ob))
+        return 0;
+    
+    if(ob->query_class_level("psion") < 21)
+    {
+        dest_effect();
+        return 0;
+    }
+    
+    if(ob->query_discipline() != "nomad")
     {
         dest_effect();
         return 0;
     }
     return ::prerequisites(ob);
 }
+
 
 void execute_feat()
 {
@@ -55,3 +70,4 @@ void dest_effect()
     remove_feat(TO);
     return;
 }
+

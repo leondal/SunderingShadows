@@ -16,6 +16,7 @@ void create(){
     set_spell_level(([ "cleric" : 4]));
     set_spell_sphere("divination");
     set_domains("sun");
+    set_bonus_type("deflection");
     set_damage_desc("AC, attack, sight bonuses");
     set_syntax("cast CLASS nimbus of light");
     set_description("This spell will surrounds the caster in a protective nimbus of light.  The light will make the caster "
@@ -48,7 +49,7 @@ void spell_effect(int prof){
 // removing multiclass distinction, no longer relevant under 3e. N, 3/17.
 //    if(sizeof(caster->query_classes()) == 1){
        armor_bonus = 2;
-       attk_bonus = clevel/10;
+       attk_bonus = 2;
 /*    }else{
        armor_bonus = 1;
        attk_bonus = clevel/12;

@@ -12,6 +12,7 @@ void create()
     set_spell_name("holy aura");
     set_spell_level(([ "cleric" : 8, "mage":8]));
     set_spell_sphere("abjuration");
+    set_bonus_type(({ "resistance", "deflection" }));
     set_syntax("cast CLASS holy aura");
     set_damage_desc("divine damage, 4 AC, 4 to all saves");
     set_description("You are surrounded by an aura of good that will harm all your opponents and will slightly protect you. This is nimbus-family spell that won't work with other nimbuses.");
@@ -24,6 +25,10 @@ int preSpell()
     int align = caster->query_true_align();
     if (caster->query_property("nimbus")) {
         tell_object(caster, "You are still affected by shield of law or another nimbus spell.");
+        return 0;
+    }
+    if (caster->query_property("protection from spells")) {
+        tell_object(caster, "You are already affected by similar magic.");
         return 0;
     }
     if (!(align == 1 || align == 4 || align == 7)) {
@@ -43,6 +48,7 @@ void spell_effect(int prof)
 
     caster->set_property("spelled", ({TO}));
     caster->set_property("nimbus",1);
+    caster->set_property("protection from spells", 1);
     caster->set_property("added short",({"%^BOLD%^%^WHITE%^ (in a light halo)%^RESET%^"}));
     addSpellToCaster();
     spell_successful();
@@ -112,6 +118,7 @@ void dest_effect()
     {
         tell_object(caster,"%^RESET%^%^BOLD%^The halo around you fades.");
         caster->remove_property("nimbus");
+        caster->remove_property("protection from spells");
         caster->add_ac_bonus(-4);
         caster->add_saving_bonus("all",-4);
 	    caster->remove_property_value("added short",({"%^BOLD%^%^WHITE%^ (in a light halo)%^RESET%^"}));

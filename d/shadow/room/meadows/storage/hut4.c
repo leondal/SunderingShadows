@@ -10,15 +10,15 @@ void create()
    set_property("light",3);
    set_property("indoors",1);
    set_short("A nice hut");
-   set_long(
-   "The room is covered in hides of various colors, sizes, and varieties."+
+   set_long("The room is covered in hides of various colors, sizes, and varieties."+
    " Stretched out in the center of the floor is a %^YELLOW%^lion skin rug%^RESET%^"+
    " that is over seven feet long. Antelope skins have been hung on the"+
    " walls here, some of them dyed with interesting patterns. There is"+
    " a wooden table on the east side of the room with a single chair. In"+
    " the northeastern corner is a bed with a %^ORANGE%^cheetah hide%^RESET%^"+
    " covering it. Many other furs and skins are hung around the room, some"+
-   " have been made into hats and things, while others are still drying."
+   " have been made into hats and things, while others are still drying."+
+   " %^RED%^The room is a blood-splattered mess!%^RESET%^"
    );
    set_smell("default","The scent of cured hides is strong here.");
    if(query_night() == 1) {
@@ -64,9 +64,9 @@ void create()
 void reset()
 {
    ::reset();
-   if(!present("vendor")) {
-      new(MONS+"periodo")->move(TO);
-   }
+   //if(!present("vendor")) {
+      //new(MONS+"periodo")->move(TO);
+   //}
 }
 
 int GoThroughDoor()

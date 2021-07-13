@@ -41,13 +41,19 @@ string *class_feats(string myspec)
 mapping class_featmap(string myspec)
 {
     return ([
-                1 : ({ "light armor proficiency", "medium armor proficiency", "simple weapon proficiency", "shield proficiency", "spell focus", "divine domain" }),
+                1 : ({ "light armor proficiency", "medium armor proficiency", "simple weapon proficiency", "shield proficiency", "spell focus", "divine domain", "animal companion" }),
                 3 : ({ "tracklessstep" }),
                 4 : ({ "shapeshift" }),
                 9 : ({ "venom immunity" }),
-                11 : ({ "wild speech", "wild knowledge" }),
+                11 : ({ "wild speech" }),
                 15 : ({ "timeless body" }),
+                16 : ({ "wild knowledge" }),
             ]);
+}
+
+mapping query_cantrip_spells(object ob)
+{
+    return ([ "create water" : 1, "detect magic" : 1, "detect poison" : 1, "guidance" : 1, "resistance" : 1, "light" : 1, "mending" : 1 ]);
 }
 
 string *class_skills()

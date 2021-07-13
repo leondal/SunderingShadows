@@ -20,7 +20,7 @@ void create(){
 	  "crafted exclusively by holy dwarven smiths and blessed by "+
 	  "clerics of renown power lending it a quality of cooled "+
 	  "temperature and light weight.  It is worn by the loyal "+
-	  "order of Paladins found within Shadowgate.");
+	  "order of Paladins found within the realms.");
    set_lore("Legend holds that at the beginning of time all the "+
       "paladins of old were united under an organization known merely "+
       "as the Order. In the stories the full plate of the Order was "+

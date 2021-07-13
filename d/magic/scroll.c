@@ -6,9 +6,6 @@ inherit OBJECT;
 string spell, * readpassed;
 mapping readfailed;
 
-#define ARCANE_CLASSES ({"mage", "sorcerer", "bard", "assassin", "magus",})
-#define DIVINE_CLASSES ({"cleric", "oracle", "druid", "inquisitor", "paladin", "ranger",})
-
 #define SCRL_CLASSES ({"bard", "mage", "cleric", "druid", "inquisitor", "paladin", "ranger", "magus"})
 
 /**
@@ -88,28 +85,6 @@ string query_short()
         return ("%^RESET%^" + color + "scr%^BOLD%^o%^RESET%^" + color + "ll%^RESET%^");
     }
     return ("%^RESET%^" + color + "scr%^BOLD%^o%^RESET%^" + color + "ll of " + spell + "%^RESET%^");
-}
-
-void jolt(object targ)
-{
-    if (!objectp(TO)) {
-        return;
-    }
-    if (targ->query_true_invis()) {
-        return;
-    }
-    tell_room(environment(targ), "%^YELLOW%^The scroll explodes from the release of the magical energy, shocking " + targ->QCN + "!", targ);
-    tell_object(targ, "%^YELLOW%^The scroll explodes from the release of the magic energy and you get a serious jolt!");
-
-    if (!random(10)) {
-        if (newbiep(targ) || !level) {
-            targ->do_damage("torso", roll_dice(1, 6));
-        } else {
-            targ->do_damage("torso", roll_dice(level ? level : targ->query_level(), 6));
-        }
-    }
-
-    TP->set_paralyzed(roll_dice(1, 3) * 2, "%^BOLD%^You're shaking with pain.%^RESET%^");
 }
 
 varargs void set_spell(int mylevel, myclevel)
@@ -232,11 +207,11 @@ int transcribe(string str)
 
 int use_scroll(string str)
 {
-    int lev, back, num, valid;
+    int lev, back, num, valid, rogue_clevel;
     int stat;
     string caster, targ, what, what2, * classes;
     string * scroll_classes, *player_classes;
-    int lowest_spell_level, lowest_mental_stat_bonus;
+    int lowest_spell_level, highest_mental_stat;
     object ob;
 
     caster = TP->query_name();
@@ -266,10 +241,7 @@ int use_scroll(string str)
     player_classes = TP->query_classes();
     scroll_classes = keys(MAGIC_D->query_index_row(spell)["levels"]);
     lowest_spell_level = min(values(MAGIC_D->query_index_row(spell)["levels"]));
-    lowest_mental_stat_bonus = 10 - min(({TP->query_stats("intelligence"),
-                    TP->query_stats("wisdom"),
-                    TP->query_stats("charisma"),
-                    }));
+    highest_mental_stat = max(({this_player()->query_stats("intelligence"), this_player()->query_stats("wisdom"), this_player()->query_stats("charisma") })) - 10;
 
     if (TP->query_property("shapeshifted")) {
         tell_object(TP, "You can't read scrolls while shapeshifted.");
@@ -282,39 +254,93 @@ int use_scroll(string str)
     }
 
     if (TP->query_gagged()) {
-        tell_object(TP, "You can't speak so you can't read the scroll!");
+        tell_object(TP, "You can't speak so you can't read the scroll aloud!");
         return 1;
     }
+    
+    /*
+    if(this_player()->cooldown("use scroll"))
+    {
+        tell_object(this_player(), "You are still recovering from your last scroll failure.");
+        return 1;
+    }
+    */
+    
+    valid = 0;
+    rogue_clevel = 0;
+    
+    foreach(string cls in player_classes)
+    {
+        if(member_array(cls, scroll_classes) >= 0)
+            valid = 1;
+    }
+    
+    if(this_player()->is_class("cypher"))
+        valid = 1;
+    
+    if(lowest_spell_level > this_player()->query_level() / 2)
+        valid = 0;
+    
+    lev = TO->query_clevel();
+    
+    if(!valid)
+    {   
+        //Thieves/bards can use a different roll based on class levels
+        if(FEATS_D->usable_feat(this_player(), "use magic device"))
+        {
+            int roll = roll_dice(1, 20);
+            int DC = this_object()->query_clevel() + lowest_spell_level;
 
-    if (!((sizeof(ARCANE_CLASSES - (ARCANE_CLASSES - scroll_classes)) && sizeof(ARCANE_CLASSES - (ARCANE_CLASSES - player_classes))) ||
-        (sizeof(DIVINE_CLASSES - (DIVINE_CLASSES - scroll_classes)) && sizeof(DIVINE_CLASSES - (DIVINE_CLASSES - player_classes)))) ) {
-        int roll = roll_dice(1, 20);
-        int roll_bonus = 0;
-
-        // Can you activate the scroll properly? This is deterministic UMD check
-        if (lowest_mental_stat_bonus < lowest_spell_level) {
-            if ((TP->query_skill("spellcraft") < lowest_spell_level + 15)) {
-                tell_object(TP,"%^BOLD%^You fail to decypher writings on the scroll.");
+            rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
+            
+            if(rogue_clevel / 2 < lowest_spell_level)
+            {
+                tell_object(this_player(), "The scroll is too complex to decipher.");
+                return;
+            }
+            
+            if(this_player()->is_class("bard"))
+                rogue_clevel += BONUS_D->query_stat_bonus(this_player(), "charisma");
+            else
+                rogue_clevel += BONUS_D->query_stat_bonus(this_player(), "intelligence");
+            
+            roll += rogue_clevel;
+            
+            if((roll < DC || roll == 1) && roll != 20)
+            {
+                //this_player()->add_cooldown("use scroll", 180);
+                tell_object(this_player(), "You fail to properly recite the scroll and mess up the spell! The scroll evaporates in your hands!");
+                remove();
+                return 1;
+            }
+            
+            lev = rogue_clevel;
+        }
+        //Other users have to pass a check to try to cast off-class. Kind of difficult, for a reason.
+        else if(highest_mental_stat < lowest_spell_level)
+        {
+            int DC = 20 + lowest_spell_level;
+            int roll = roll_dice(1, 20) + (highest_mental_stat / 2) + (this_player()->query_skill("spellcraft") / 10);
+            
+            if((roll < DC || roll == 1) && roll != 20)
+            {
+                //this_player()->add_cooldown("use scroll", 180);
+                tell_object(this_player(), "You fail to properly recite the scroll and mess up the spell! The scroll evaporates in your hands!");
+                remove();
                 return 1;
             }
         }
-
-        if (FEATS_D->usable_feat(TP, "insightful scroll")) {
-            roll_bonus = 7;
-        }
-
-        // Can you activate the magic within?
-        if (roll == 1 || (TP->query_skill("spellcraft") + roll + roll_bonus < lowest_spell_level + level ? level : 0) && roll != 20) {
-            // It is supposed to be 24 hour lock, but whatever
-            jolt(TP);
-            return 1;
-        }
     }
-
-    lev = TO->query_clevel();
+    
+    //Thieves use their rogue_level as a cap
+    //Others use their spellcraft as a cap
+    if(rogue_clevel)
+        lev = min( ({ lev, rogue_clevel }) );
+    else
+        lev = min( ({ lev, this_player()->query_skill("spellcraft") + highest_mental_stat / 2 }) );
 
     if (FEATS_D->usable_feat(TP, "enhance scroll")) {
-        lev = TP->query_guild_level(TP->query("base_class"));
+        lev = TP->query_prestige_level(TP->query("base_class"));
         lev += TP->query_property("empowered");
     }
 
@@ -335,7 +361,10 @@ int use_scroll(string str)
     ob->use_spell(TP, targ, lev);
 
     if (FEATS_D->usable_feat(TP, "insightful scroll")) {
-        if (roll_dice(1, 100) < ((TP->query_stats("intelligence") + 20) - 2 * query_spell_level())) {
+        //if (roll_dice(1, 100) < ((TP->query_stats("intelligence") + 30) - 2 * query_spell_level())) {
+        //if(roll_dice(1, 100) < this_player()->query_stats("intelligence") + 30)
+        if(roll_dice(1, 100) < (30 + this_player()->query_skill("spellcraft") / 2))
+        {
             tell_object(TP, "%^RESET%^%^MAGENTA%^Your %^BOLD%^%^CYAN%^k%^RESET%^%^CYAN%^n%^BOLD%^%^CYAN%^owledge%^RESET%^%^MAGENTA%^ of the %^BOLD%^%^CYAN%^Wea%^RESET%^%^CYAN%^v%^CYAN%^e%^MAGENTA%^ is so %^CYAN%^pe%^BOLD%^%^CYAN%^r%^RESET%^%^CYAN%^f%^BOLD%^%^CYAN%^e%^RESET%^%^CYAN%^ct%^MAGENTA%^ that you %^BOLD%^%^CYAN%^preserve%^RESET%^%^MAGENTA%^ the scroll!%^RESET%^");
             return 1;
         }

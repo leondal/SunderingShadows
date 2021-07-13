@@ -76,7 +76,7 @@ string user_finger_display(string who) {
     tmp = true_name;
     who = sprintf("%s/%s/%s", DIR_USERS, tmp[0..0], tmp);
     if (file_size(who + ".o") < 0)
-        return "No such member of the Shadow Gate World.\n";
+        return "No such member of Sundering Shadows.\n";
     restore_object(who);
     desc = new(DESC_D);
     desc->restore_profile_settings(TO,"default");

@@ -7,10 +7,11 @@ even powerful curses.
 
 Clerics with the Magic Domain gain the following benefits:
 - %^BOLD%^CYAN%^Dispelling Touch%^RESET%^ as an innate spell.
+- A +1 bonus to caster level when casting abjuration spells.
 
 The magic domain contains the following spells:
 
-Resist Energy, Break Curse, Analyze Dweomer, Mystic Bolt, Protection from spells
+Suppress Wild Magic, Break Curse, Analyze Dweomer, Mystic Bolt, Protection from spells
 
 %^CYAN%^Deities%^RESET%^: Kismet
 

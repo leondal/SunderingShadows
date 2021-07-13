@@ -54,7 +54,7 @@ void create()
     "cone of cold"}));
     set_spell_chance(90);
     set_funcs(({"leech_life", "chaos"}));
-    set_func_chance(90);
+    set_func_chance(70);
     set_property("no tripped", 1);
     set_monster_feats(({
         "perfect caster",
@@ -127,7 +127,7 @@ void leech_life(object targ)
 	
     targs = all_living(ETO);
     targs -= ({TO});
-    x = 3;
+    x = 2;
 
     while(x--)
     {
@@ -140,7 +140,7 @@ void leech_life(object targ)
         "withered tendrils%^BOLD%^%^BLACK%^ grasps at "+targ->QCN+
         "%^BOLD%^%^BLACK%^!%^RESET%^", targ);
 	
-        if(targ->reflex_save(45)) 
+        if(targ->reflex_save(25)) 
         {
             tell_object(targ, "%^BOLD%^%^GREEN%^You move quickly and "+
             "are able to avoid the %^BOLD%^%^BLACK%^withered "+

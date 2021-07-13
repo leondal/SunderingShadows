@@ -172,7 +172,7 @@ void race_ck(object targ){
 			return;
 		}
 	}
-	if(mrace == "goblin" || mrace == "orc" || mrace == "kobold" ||
+	if(mrace == "goblin" || mrace == "orc" || mrace == "kobold" || mrace == "troll" ||
 		mrace == "half-orc" || mrace == "half-drow" || mrace == "yuan-ti" ||
 		mrace == "hobgoblin" || mrace == "human" || mrace == "half-ogre"  ||
 		(mrace == "dwarf" && srace == "gray dwarf")){

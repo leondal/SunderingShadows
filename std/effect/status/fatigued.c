@@ -27,7 +27,8 @@ void status_effect()
         return;
     }
 
-    if (LIVING_D->immunity_check(target, "fatigue")) {
+    if (PLAYER_D->immunity_check(target, "fatigue")) {
+        tell_object(target, "You are immune to fatigue.");
         TO->remove();
         return;
     }

@@ -64,7 +64,7 @@ void create(){
 	"of the Black Dawn and the forces within has been going on for ages with "+
 	"no end in sight.");
     set_property("lore",13);
-    set_property("enchantment",4);
+    set_property("enchantment",5);
     set_wear((:TO,"wearme":));
     set_value(4500);
 }

@@ -460,7 +460,7 @@ int ragnarok_em(mapping info)
             tell_room(eeto,"%^RED%^You watch in horrified awe as the beam collides "
                 "with "+targ->QCN+"'s body the unholy power flaying at "+targ->QP+" very "
                 "soul!%^RESET%^",({eto,targ}));
-            targ->do_damage("torso",roll_dice(30,30));
+            targ->set_hp(targ->query_max_hp()/10);//a rare special that gives world emotes should knock the target on their a$$ if not outright kill them. -Ts
         }
         info["count"] = 4;
         call_out("ragnarok_em",15,info);

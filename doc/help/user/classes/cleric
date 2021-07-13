@@ -7,10 +7,7 @@
 %^RESET%^%^CYAN%^Class Skills:%^RESET%^ healing, influence, perception, spellcraft
 %^RESET%^%^CYAN%^Class Feats:%^RESET%^
  %^RESET%^L1: light armor proficiency, medium armor proficiency, simple weapon proficiency, shield proficiency, divine domain, second divine domain, spell focus, channel
- %^RESET%^L5: indomitable
- %^RESET%^L10: force of personality
- %^RESET%^L15: leadership
- %^RESET%^Also: one bonus spellcraft feat at L21, and every five class levels thereafter
+ %^RESET%^Also: one bonus spellcraft feat at L1, and every five class levels thereafter
 
 Clerics are as diverse a class as the pantheon of the realm, united only in their service to their deity. They draw their powers from their chosen deity and must serve their cause. Should they lose favor with their deity, they also lose their powers. They spend much of their time in prayer and meditation to gain their spells, and to attempt to discern what their deity expects of them. Their insight and use of their wisdom grow as they spend their lives learning to understand people and the teachings of their deity. They apply these teachings to their daily life, in order to further their deity’s cause.  This includes attempting to convert others to their faith.
 
@@ -22,6 +19,9 @@ Clerics of good and neutral alignments may also spontaneously cast any prepared 
 
 Additionally, clerics can choose a small number of domains. The spells in these domains are added to their cleric spell list and they can prepare and cast them as normal. See <help domains> for a list of available domains. 
 
-Clerics are versatile, they can choose both melee and spellcasting paths. They are also able to <channel> positive or negative energy from a divine grace pool. Clerics can cast in any armor, but not while wielding anything. 
+Clerics also gain the following cantrips (type 'recall cantrip spells'):
+Create Water, Detect Magic, Detect Poison, Guidance, Resistance, Light, Mending
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes, new caster, channel, divine grace
+Clerics are versatile, they can choose both melee and spellcasting paths. They are also able to <channel> positive or negative energy from a Grace pool. Clerics can cast in any armor, but not while wielding anything. 
+
+%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes, new caster, channel, grace

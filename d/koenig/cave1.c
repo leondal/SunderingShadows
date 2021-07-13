@@ -11,7 +11,7 @@ void create(){
 ::create();
   set_property("indoors",1);
   set_property("light",1);
-  set_travel(ROCKY);
+  set_travel(SLICK_FLOOR);
   set_terrain(NAT_CAVE);
   set_name("A dank cavern");
   set_short("%^RESET%^%^BLUE%^%^A %^BOLD%^%^BLACK%^dark %^RESET%^%^BLUE%^cavern%^RESET%^");

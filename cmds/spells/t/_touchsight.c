@@ -8,7 +8,7 @@ void create() {
     ::create();
     set_spell_name("touchsight");
     set_spell_level(([ "psion" : 3, "psywarrior" : 3 ]));
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS touchsight");
     set_description("Manifesting this power will allow the psionic character to focus his eyes on things oft unseen.  This power will "
 "grant the psion better vision in the dark, as well as allow him to see invisible creatures.");

@@ -9,13 +9,13 @@ void create()
     feat_type("permanent");
     feat_category("Metamind");
     feat_name("mind partition");
-    feat_desc("The mind partition feat grants the ability to repel mind-controlling affects often through sheer will.");
+    feat_desc("The mind partition feat grants the ability to repel mind-controlling affects often through sheer will. While the Metamind is focused, he will gain an extra layer of protection against mind control effects. When such an attempt is made, if the Metamind would normally succumb to the mind control, they instead lose their focus and resist the attempt instead.");
     feat_prereq("Metamind L1");
     permanent(1);
     set_required_for(({"mental fortress","perfect manifestation"}));
 }
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 int prerequisites(object ob)
 {

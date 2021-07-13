@@ -6,12 +6,13 @@
 %^RESET%^%^CYAN%^Saving throws:%^RESET%^ fort/will strong, reflex weak
 %^RESET%^%^CYAN%^Class Skills:%^RESET%^ endurance, healing, perception, survival
 %^RESET%^%^CYAN%^Class Feats:%^RESET%^
- %^RESET%^L1: light armor proficiency, medium armor proficiency, shield proficiency, simple weapon proficiency, spell focus, divine domain
+ %^RESET%^L1: light armor proficiency, medium armor proficiency, shield proficiency, simple weapon proficiency, spell focus, divine domain, animal companion
  %^RESET%^L3: tracklessstep
  %^RESET%^L4: shapeshift
  %^RESET%^L9: venom immunity
- %^RESET%^L11: wild speech, wild knowledge
+ %^RESET%^L11: wild speech
  %^RESET%^L15: timeless body
+ %^RESET%^L16: wild knowledge
  %^RESET%^Also: one bonus hybrid feat at L21, and every five class levels thereafter
 
 Druids are champions of nature, though they claim no power over it. Instead, a druid's power comes from being one with the natural world: Reveling in the awesome destructive power of a storm and finding strength in the gentle rejuvenating potential of a calm pool. Druids are a mixed lot, following the paths of various deities and even holding to diverse truths about the natural world. As such, any two druids may not see eye-to-eye on many matters, including the very essence of nature itself. Many druids prefer to be solitary.
@@ -22,7 +23,10 @@ Druids are versatile and they can take many paths in their lives: Powerful spell
 
 Druids prepare individual spells with the %^ORANGE%^<prepare>%^RESET%^ command from the druid spell list, which you can view with the %^ORANGE%^<spells druid (by level)>%^RESET%^ command. They can cast prepared spells with the %^ORANGE%^<cast>%^RESET%^ command. To see which spells you have prepared, use %^ORANGE%^<recall druid spells>%^RESET%^. To remove a spell from the list, use the %^ORANGE%^<forget>%^RESET%^ command. 
 
-They may choose one domain from the following list: air, animal, earth, fire, plant, water, storm. The spells from that domain are added to their list of available spells and can be prepared normally.
+They may choose one domain from the following list: %^GREEN%^BOLD%^air, animal, cold, earth, fire, plant, renewal%^RESET%^. The spells from that domain are added to their list of available spells and can be prepared normally.
+
+Druids also get the following cantrips (type 'recall cantrip spells'):
+Create Water, Detect Magic, Detect Poison, Guidance, Resistance, Light, Mending
 
 They can cast in any armor they can wear, but not while wielding anything. 
 

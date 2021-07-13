@@ -13,7 +13,7 @@ void create() {
     ::create();
     set_spell_name("breath of the black dragon");
     set_spell_level(([ "psion" : 6, "psywarrior" : 6 ]));
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS breath of the black dragon on TARGET");
     set_description("This power allows the psion an acidic breath weapon, which can be directed once at a target and "
 "those surrounding him.  Thereafter, those hit by the acid continue to burn until the acid has run its course.");
@@ -74,7 +74,7 @@ void spell_effect(int prof) {
     }
     removefoes = ({}); //setting up to revoke anyone with the dot effect already on them, as this stacks out of control! N, 5/11.
     for(x=0;x<sizeof(foes);x++){
-      if(foes[x]->query_property("black dragon breath",1)) removefoes += ({ foes[x] });
+      if(foes[x] && foes[x]->query_property("black dragon breath",1)) removefoes += ({ foes[x] });
     }
     foes -= removefoes;
 

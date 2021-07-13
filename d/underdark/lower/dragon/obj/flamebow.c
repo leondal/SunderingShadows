@@ -34,9 +34,9 @@ void create(){
     set_wield((:TO,"wield_func":));
     set_unwield((:TO,"unwield_func":));
     set_lrhit((:TO,"extra_lrhit":));
-    set_item_bonus("attack bonus",3);
-    set_item_bonus("damage bonus",3);
-    set_item_bonus("sight bonus",3);
+    set_item_bonus("attack bonus",4);
+    set_item_bonus("damage bonus",4);
+    set_item_bonus("sight bonus",4);
     set_property("no alter",1);
     owners = ({});
     set_ammo("%^BOLD%^%^WHITE%^silver flame arrow%^RESET%^");
@@ -184,7 +184,8 @@ int extra_lrhit(object targ){
 	tell_room(EETO,"%^BOLD%^%^WHITE%^"+ETO->QCN+" shoots a fiery arrow directly at "+targ->QCN+", and as it hits it seems to "
 "turn to %^RESET%^%^RED%^m%^BOLD%^%^RED%^o%^YELLOW%^l%^BOLD%^%^WHITE%^t%^BOLD%^%^RED%^e%^RESET%^%^RED%^n %^BOLD%^%^WHITE%^liquid, "
 "spreading over "+targ->QP+" skin as it continues to burn!%^RESET%^",({ETO,targ}));
-      targ->do_damage("torso",roll_dice(3,10));
+      //targ->do_damage("torso",roll_dice(3,10));
+      targ->cause_typed_damage(targ, targ->return_target_limb(), roll_dice(3,10), "fire");
       tell_object(targ,"%^BOLD%^%^YELLOW%^The molten fire sears into your skin!%^RESET%^");
       new(OBJ"flamebow-tick")->move(targ);
     }
@@ -207,7 +208,8 @@ int extra_lrhit(object targ){
           if(!"daemon/saving_throw_d"->reflex_save(targetz[i],-25) && !"daemon/feat_d"->usable_feat(targetz[i],"evasion")) {
             tell_object(targetz[i],"%^BOLD%^%^YELLOW%^You are caught by the edge of the explosion!%^RESET%^");
             tell_room(EETO,"%^BOLD%^%^YELLOW%^"+targetz[i]->QCN+" is caught by the edge of the explosion!%^RESET%^",targetz[i]);
-            targetz[i]->do_damage("torso",roll_dice(2,10));          
+            targets[i]->cause_typed_damage(targets[i], targets[i]->return_target_limb(), roll_dice(2,10), "fire");
+            //targetz[i]->do_damage("torso",roll_dice(2,10));
           }
         }
       }

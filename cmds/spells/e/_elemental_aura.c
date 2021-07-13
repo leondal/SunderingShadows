@@ -28,8 +28,7 @@ void create()
 {
     ::create();
     set_spell_name("elemental aura");
-    set_spell_level(([ "mage" : 3, "oracle" : 3, "magus" : 3, "cleric" : 3 ]));
-    set_domains("elements");
+    set_spell_level(([ "mage" : 3, "oracle" : 3, "magus" : 3, "druid" : 3 ]));
     set_mystery("elemental");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS elemental aura on [acid|cold|electricity|fire]");
@@ -41,6 +40,7 @@ void create()
     set_helpful_spell(1);
     set_arg_needed(1);
     traveling_aoe_spell(1);
+    set_feats_required(([ "druid" : "natures gift" ]));
 }
 
 string query_cast_string()

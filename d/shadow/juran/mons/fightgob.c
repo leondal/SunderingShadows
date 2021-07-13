@@ -170,7 +170,7 @@ void race_ck(object targ){
 			return;
 		}
 	}else if(mrace == "drow" || mrace == "ogre" || mrace == "bugbear" || mrace == "minotaur" ||
-		mrace == "gnoll" || mrace == "ogre-mage" || mrace == "half-ogre" || mrace == "yuan-ti" ||
+		mrace == "gnoll" || mrace == "ogre-mage" || mrace == "troll" || mrace == "half-ogre" || mrace == "yuan-ti" ||
 		mrace == "firbolg" || (mrace == "dwarf" && srace == "gray dwarf")){
 		if(targ->query_unconscious()){
 			if(targ->query_bound())return 1;

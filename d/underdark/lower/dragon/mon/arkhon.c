@@ -105,7 +105,8 @@ void breath_fun(object target) {
      else {
        tell_object(vars[i],"%^BOLD%^%^GREEN%^From his fanged maw issues a breath of choking, corrosive gas. You dive "
 "aside to avoid the worst of it, but it still %^YELLOW%^burns %^GREEN%^horribly as it touches your skin!%^RESET%^");
-       vars[i]->do_damage("torso",150+random(50));
+       //vars[i]->do_damage("torso",150+random(50));
+       vars[i]->cause_typed_damage(vars[i], vars[i]->return_target_limb(), 150 + random(50), "acid");
      }
    }
    tell_room(ETO,"%^BOLD%^%^GREEN%^From his fanged maw issues a breath of choking, corrosive gas that %^YELLOW%^burns "
@@ -121,7 +122,8 @@ void reburn(object target) {
    tell_room(ETO,"%^BOLD%^%^GREEN%^"+target->QCN+" screams in agony as the corrosive gas continues to eat into "
 +target->QP+" skin!%^RESET%^",target);
    TO->set_property("magic",1);
-   target->do_damage("torso",200+random(100));
+   //target->do_damage("torso",200+random(100));
+   target->cause_typed_damage(target, target->return_target_limb(), 200 + random(100), "acid");
    TO->remove_property("magic");
 }
 
@@ -160,7 +162,8 @@ void teeth_fun(object target) {
 "shoulder and lifting "+target->QO+" bodily from the ground.  A jerk of that powerful serpentine neck, and suddenly "
 +target->QS+" is flying through the air, to impact the cavern wall with an audible thud!%^RESET%^",target);
    TO->set_property("magic",1);
-   target->do_damage("torso",random(75)+100);
+   //target->do_damage("torso",random(75)+100);
+   target->cause_typed_damage(target, target->return_target_limb(), 100 + random(75), "piercing");
    TO->remove_property("magic");
 }
 
@@ -195,16 +198,20 @@ void claws_fun(object target) {
          tell_room(ETO,"%^RED%^Razor-sharp fangs pierce "+target->QCN+"'s skin!%^RESET%^",target);
        break;
      }
-     target->do_damage("torso",random(25)+50);
+   target->cause_typed_damage(target, target->return_target_limb(), 100 + random(75), "slashing");
    }
 }
 
 void heart_beat() {
-    object myob, thatroom;
+    object myob, thatroom, room;
     int currhp, maxhp, i;
     string printme;
     ::heart_beat();
+
     if(!objectp(TO)) return;
+    room = environment(this_object());
+    if(!room)
+        return;
     if((int)TO->query_hp() < (int)TO->query_max_hp() && !active) {
       TO->add_hp(random(60)+60);
     }

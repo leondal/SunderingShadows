@@ -10,7 +10,7 @@ void create(){
     set_exits(([
         "west" : ROOMS"westcross",
         "east" : ROOMS"shadway4",
-        "north" : "/realms/chernobog/coliseum/room/thoroughfare.c",
+        "north" : "/d/shadow/coliseum/room/thoroughfare.c",
     ]));
 }
 

@@ -10,7 +10,7 @@ void create(){
     set_long(::query_long()+" The hallway ends here, with an %^YELLOW%^im%^RESET%^"+
         "%^ORANGE%^p%^BOLD%^re%^RESET%^%^ORANGE%^s%^BOLD%^si%^RESET%^%^ORANGE%^v"+
         "%^BOLD%^e %^BLACK%^m%^RESET%^i%^BOLD%^rr%^RESET%^o%^BOLD%^%^BLACK%^r %^RESET%^"+
-        "set against the far wall.%^RESET%^");
+        "set against the far wall.%^RESET%^\n");
     add_item("mirror","%^RESET%^%^CYAN%^Bordered with an elaborate %^YELLOW%^g%^WHITE%^o"+
         "%^ORANGE%^ld l%^WHITE%^e%^ORANGE%^af f%^RESET%^%^ORANGE%^r%^BOLD%^am%^RESET%^"+
         "%^ORANGE%^e%^CYAN%^, this floor length %^BOLD%^%^BLACK%^m%^RESET%^i%^BOLD%^rr"+

@@ -438,7 +438,7 @@ varargs int thaco(object targ, int mod, int flag)
         weap = weaps[0];
     }
     //get bonus as if it was their first attack - Saide
-    roll = BONUS_D->process_hit(caster, targ, 0, weap, 0, flag);
+    roll = BONUS_D->process_hit(caster, targ, 0, weap, 0, flag, mod);
     //20 is a hit that ignores shieldmiss and deflection - Saide
     if(roll == 20) return 1;
     if(!roll) return 0;
@@ -505,26 +505,34 @@ varargs int thaco(object targ, int mod, int flag)
     return 1;
 }*/
 
+//Tlaloc changed this ti standardize with spell.c do_save
+//Please only send stat bonuses as mod except in very rare circumstances
 varargs int do_save(object ob,int mod)
 {
     string save;
-    int num;
+    int num, DC, mylvl;
 
     if(!objectp(ob)) { return 0; }
     save = query_save_type();
+    
+    mylvl = max( ({ flevel, caster->query_level() - 10 }) );
+    //Base 10 plus a modifier to coincide with spell level boost on spells
+    DC = 19 + mylvl / 5;
+    //MOD should include whatever stat mod you're using for the feat
+    DC += mod;
 
     switch(save)
     {
     case "fort":
     case "fortitude":
-        num = (int)"/daemon/saving_throw_d"->fort_save(ob,mod);
+        num = (int)"/daemon/saving_throw_d"->fort_save(ob,DC);
         break;
     case "will":
     case "willpower":
-        num = (int)"/daemon/saving_throw_d"->will_save(ob,mod);
+        num = (int)"/daemon/saving_throw_d"->will_save(ob,DC);
         break;
     case "reflex":
-        num = (int)"/daemon/saving_throw_d"->reflex_save(ob,mod);
+        num = (int)"/daemon/saving_throw_d"->reflex_save(ob,DC);
         break;
     }
     return num;

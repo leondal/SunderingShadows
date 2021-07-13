@@ -9,14 +9,10 @@ void create() {
     set_travel(FRESH_BLAZE);
     set_property("light",2);
     set_property("indoors",1);
-    set_short("Under the boardwalk.");
+    set_short("%^ORANGE%^U%^BOLD%^%^BLACK%^n%^RESET%^%^ORANGE%^d%^WHITE%^e%^ORANGE%^r %^BOLD%^%^BLACK%^t%^RESET%^%^ORANGE%^h%^BOLD%^%^BLACK%^e %^RESET%^%^ORANGE%^b%^BOLD%^%^BLACK%^o%^RESET%^%^ORANGE%^a%^BOLD%^%^BLACK%^r%^RESET%^%^ORANGE%^d%^BOLD%^%^BLACK%^w%^RESET%^%^ORANGE%^a%^WHITE%^l%^ORANGE%^k%^RESET%^");
     set_long("
-    You are standing beneath a wooden pier that leads south over the ocean
-to the city of Seneca.  A cool breeze can be felt here in the shade.  The
-beach is very wide here.  The sand gives way beneath your feet making your
-ankles grow tired quickly. The coastline of the beach curves to the southwest
-here.
-    You can see an opening in the fence to the east.
+%^ORANGE%^You are standing %^BOLD%^%^BLACK%^beneath %^RESET%^%^ORANGE%^a %^WHITE%^wooden pier %^ORANGE%^that leads south over the ocean to the city of %^MAGENTA%^Se%^BOLD%^n%^RESET%^%^MAGENTA%^e%^BOLD%^c%^RESET%^%^MAGENTA%^a%^ORANGE%^.  A cool breeze can be felt here in the shade.  The b%^BOLD%^ea%^RESET%^%^ORANGE%^c%^BOLD%^h %^RESET%^%^ORANGE%^is very wide here.  The sand gives way beneath your feet making your ankles grow tired quickly. The %^CYAN%^c%^BOLD%^oa%^RESET%^%^CYAN%^s%^BOLD%^tl%^RESET%^%^CYAN%^i%^BOLD%^n%^RESET%^%^CYAN%^e %^ORANGE%^of the beach curves to the southwest here.
+%^ORANGE%^You can see an opening in the %^BOLD%^%^WHITE%^fen%^RESET%^c%^BOLD%^e %^RESET%^%^ORANGE%^to the east.%^RESET%^
 ");
 
      set_listen("default","The waves pound against the rocky "+

@@ -53,7 +53,6 @@ set_short("%^RESET%^%^CYAN%^Clari%^RESET%^%^BOLD%^"+
   	set_stats("wisdom", 10);
   	set_stats("intelligence", 14);
   	set_exp(10);
-  	set_hp(159);
    	set_class("fighter");
 	set_spoken("wizish");
     command("speech %^CYAN%^speak in a clear melodic voice%^RESET%^");
@@ -71,7 +70,7 @@ void heart_beat(){
     x = random(20);
 	y++;
     if(x == 1){
-        if(y > 200){ //one race every 20 minutes if people are here
+        if(y > 100){ //one race every 10 minutes if people are here
 	    run_a_race();
 		return;
 	}

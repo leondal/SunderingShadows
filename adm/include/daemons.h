@@ -17,6 +17,7 @@
 #define BUS_D               (DIR_SECURE_DAEMONS+"/bus_d")
 #define BONUS_D              (DIR_DAEMONS+"/bonus_d")
 #define CASTLE_D             (DIR_DAEMONS+"/castle")
+#define CHAMPION_D          (DIR_DAEMONS+"/champion_d")
 #define CHAT_D               (DIR_DAEMONS+"/chat")
 #define CHECK_D              (DIR_DAEMONS+"/item_level_d")
 #define CLASS_NEWS      (DIR_DAEMONS+"/class_news")

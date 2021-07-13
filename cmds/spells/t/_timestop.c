@@ -7,8 +7,7 @@ void create() {
     ::create();
     set_author("nienne");
     set_spell_name("timestop");
-    set_spell_level(([ "mage" : 9, "bard" : 6, "oracle":9, "psion" : 9 ]));
-    set_domains("trickery");
+    set_spell_level(([ "mage" : 9, "oracle":9, "psion" : 9 ]));
     set_discipline("nomad");
     set_mystery("lore");
     set_spell_sphere("alteration");
@@ -19,7 +18,6 @@ void create() {
 "after a brief interval, while the very strongest of opponents may manage to resist the effect entirely.");
     set_verbal_comp();
     set_somatic_comp();
-    set_feats_required(([ "bard" : "timeweaver" ]));
     splash_spell();
 }
 

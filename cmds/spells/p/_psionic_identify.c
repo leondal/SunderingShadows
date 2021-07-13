@@ -14,7 +14,7 @@ void create()
     ::create();
     set_spell_name("psionic identify");
     set_spell_level(([ "psion" : 2, "psywarrior": 2 ]));
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS psionic identify on <object>");
     set_description("This power allows a psion to attune his mind, focusing on the moment of an item's creation.  The "
         "psion then reveals what he has found, marking the enchantment of the item as well as the name, should the item have a "

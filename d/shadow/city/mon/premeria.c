@@ -1,5 +1,5 @@
 #include <std.h>
-inherit "/std/vendor";
+inherit "/std/assvendor";
 
 create() {
    ::create();

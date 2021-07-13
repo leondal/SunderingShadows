@@ -10,7 +10,7 @@ void create()
     set_spell_level(([ "mage" : 5, "bard" : 5, "innate" : 5, "magus" : 5 ]));
     set_spell_sphere("illusion");
     set_syntax("cast CLASS shadow evocation on SPELL_NAME [on SPELL_ARGS]");
-    set_description("You tap energy from the Plane of Shadow to cast a quasi-real, illusory version of an evocation mage spell of 4th level or lower.
+    set_description("You create an illusory version of an evocation spell of 4th level or lower. The source of the illusion can differ based on the caster.
 
 %^BOLD%^%^RED%^E.G.%^RESET%^ <cast mage shadow evocation on fireball on goblin>");
     set_arg_needed(1);
@@ -26,6 +26,7 @@ int preSpell()
 {
     int max_level = query_spell_level(spell_type) - 1;
     int slevel;
+    string *reqs;
     object spell_to_cast;
     string spl, sargs;
     string splfn;
@@ -60,7 +61,18 @@ int preSpell()
         tell_object(TP, "Only " + replace_string(shadow_school(), "_", "/") + " school spells are allowed!");
         return 0;
     }
-
+    
+    reqs = keys(spell_to_cast->query_feats_required("mage"));
+    
+    if(sizeof(reqs) && member_array(spell_type, reqs) >= 0)
+    {
+        if(!FEATS_D->usable_feat(caster, reqs[0]))
+        {
+            tell_object(caster, "You don't have the correct feats to cast that spell.");
+            return 0;
+        }
+    }
+    
     slevel = spell_to_cast->query_spell_level("mage");
     if (slevel > max_level || slevel == 0) {
         tell_object(TP, "This spell is too powerful for " + spell_name + "!");

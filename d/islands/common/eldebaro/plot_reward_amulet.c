@@ -273,6 +273,6 @@ int strike_func(int damage, object what, object who)
         }
     }
     ETO->heal(damage);
-    return 0;
+    return damage;
 }
 

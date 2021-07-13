@@ -10,7 +10,7 @@ void create()
     set_spell_name("hail of crystals");
     set_spell_level(([ "psion" : 5 ]));
     set_discipline("shaper");
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("metacreatvity");
     set_syntax("cast CLASS hail of crystals");
     set_description("This power will cause the shaper to fill the air with razor-sharp crystals, which churn and damage "
         "most things in the area.  Due to the shaper's natural control over crytals, this power will not damage the shaper, his "
@@ -58,7 +58,7 @@ void execute_attack()
     foes -= ({caster});
     if(caster->query_followers()) { foes -= caster->query_followers(); }
 
-    if(time > clevel)
+    if(time > clevel * 3)
     {
         dest_effect();
     }
@@ -99,7 +99,7 @@ void execute_attack()
 
         time++;
 
-        if (present(caster,place) && caster != target)
+        if (present(caster,place))
         {
             environment(caster)->addObjectToCombatCycle(TO,1);
         }

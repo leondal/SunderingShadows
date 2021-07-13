@@ -4,7 +4,7 @@
                      \                 %^YELLOW%^M%^RESET%^
                       \                |
                        |               |
-                       |               |
+                   %^YELLOW%^Ba%^RESET%^--|--%^YELLOW%^Sm%^RESET%^           |
        %^BOLD%^%^GREEN%^#   %^RESET%^%^YELLOW%^T   P       %^RESET%^|               |
         \  |   |    %^YELLOW%^j  %^RESET%^|  %^YELLOW%^Cl%^RESET%^           |
          \ |   |    |  |  |           /
@@ -32,11 +32,12 @@
                  %^YELLOW%^Map of Tabor %^CYAN%^- %^YELLOW%^Legend%^RESET%^
 
 %^BOLD%^%^CYAN%^@%^RESET%^:  Town Square  %^YELLOW%^CT%^RESET%^: Caer Tabor      %^YELLOW%^M%^RESET%^: Mage Tower
-%^BOLD%^%^GREEN%^#%^RESET%^:  Road Out     %^YELLOW%^F%^RESET%^:  Forge           %^YELLOW%^O%^RESET%^: Temple of Oghma
+%^BOLD%^%^GREEN%^#%^RESET%^:  Road Out     %^YELLOW%^F%^RESET%^:  Forge           %^YELLOW%^O%^RESET%^: Gathering Hall
 %^YELLOW%^A%^RESET%^:  Armorer      %^YELLOW%^G%^RESET%^:  General Store   %^YELLOW%^Q%^RESET%^: Crown and Castle 
 %^YELLOW%^B%^RESET%^:  Bank         %^YELLOW%^H%^RESET%^:  Healer             Inn & Quest Room
 %^YELLOW%^b%^RESET%^:  CNC Bar      %^YELLOW%^h%^RESET%^:  Hitching Post   %^YELLOW%^S%^RESET%^: Scribe
-%^YELLOW%^C%^RESET%^:  Cathedral    %^YELLOW%^J%^RESET%^:  Jail            %^YELLOW%^s%^RESET%^: Stable
-%^YELLOW%^c%^RESET%^:  CNC Cafe     %^YELLOW%^j%^RESET%^:  Jeweler         %^YELLOW%^T%^RESET%^: Trainer
-%^YELLOW%^Cl%^RESET%^: Tailor       %^YELLOW%^L%^RESET%^:  Library         %^YELLOW%^t%^RESET%^: Theater
-%^YELLOW%^W%^RESET%^: Weaponsmith   %^YELLOW%^Y%^RESET%^: CNC Courtyard    %^YELLOW%^P%^RESET%^: Pig and Whistle
+%^YELLOW%^Ba%^RESET%^: Bard Shop    %^YELLOW%^J%^RESET%^:  Jail            %^YELLOW%^s%^RESET%^: Stable
+%^YELLOW%^C%^RESET%^:  Cathedral    %^YELLOW%^j%^RESET%^:  Jeweler         %^YELLOW%^Sm%^RESET%^: Firbolg Smith
+%^YELLOW%^c%^RESET%^:  CNC Cafe     %^YELLOW%^L%^RESET%^:  Library         %^YELLOW%^T%^RESET%^: Trainer
+%^YELLOW%^Cl%^RESET%^: Tailor       %^YELLOW%^Y%^RESET%^: CNC Courtyard    %^YELLOW%^t%^RESET%^: Theater
+%^YELLOW%^W%^RESET%^: Weaponsmith                       %^YELLOW%^P%^RESET%^: Pig and Whistle

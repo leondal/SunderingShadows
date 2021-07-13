@@ -16,7 +16,7 @@ void create()
     feat_classes(({"mage", "sorcerer", "oracle", "druid", "cleric", "psion"}));
     feat_desc("This feat allows a caster to enchant weapons or rings with charges of spells they already know. The enchanted item can be used as easily by the caster themselves, as those without training. Creating such an item drains the essence of the mage, however, and should not be taken lightly.
 
-You can not use channeling spells such as heal or harm for this feat.
+You can not use spells that channel positive or negative energy with each cast, such as heal or harm, with this feat.
 
 Enchanting uses gems and gold as material components. Any gem would do, but it will be destroyed on use.");
     feat_prereq("Mage, Sorcerer, Psion, Cleric, Druid, Oracle");
@@ -128,7 +128,9 @@ void select_spell(string str, object ob)
     }
     write("%^BOLD%^%^RED%^You have selected: %^GREEN%^" + str + "...");
 
-    if (regexp(spell, ".*(cure|cause).*wounds") || regexp(spell, "repair.*undead")|| regexp(spell, (".*(heal|harm)"))) {
+    spell = str;
+
+    if ((regexp(spell, ".*(cure|cause).*wounds") || regexp(spell, "repair.*undead")|| regexp(spell, (".*(heal|harm)"))) && spell != "aura of healing" && spell != "shadow healing") {
         tell_object(caster,"%^BOLD%^%^RED%^You can not use channeling spells such as harm or heal.");
         write("%^YELLOW%^Enter spell name:");
         write("~q to cancel");

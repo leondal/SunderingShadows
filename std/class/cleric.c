@@ -29,25 +29,22 @@ string *combat_styles() {
 }
 
 string *class_feats(string myspec)
-{                
-    return ({ "light armor proficiency",
-              "medium armor proficiency",
-              "simple weapon proficiency" });
+{   
+    return ({  });
 }
 
 mapping class_featmap(string myspec, object player) {
 
     mapping feats;
     
-    feats = ([ 1: ({ "light armor proficiency", "medium armor proficiency", "simple weapon proficiency", "shield proficiency", "divine domain", "spell focus", "channel", "second divine domain"}), 5 : ({ "indomitable" }), 10: ({ "force of personality" }), 15: ({ "leadership" }), ]);
+    feats = ([ 1: ({ "light armor proficiency", "medium armor proficiency", "simple weapon proficiency", "shield proficiency", "divine domain", "spell focus", "channel", "second divine domain"}), ]);
     
     if(player && member_array("war", player->query_divine_domain()) >= 0)    
-        feats[1] += ({ "martial weapon proficiency" });
-    if(player && member_array("protection", player->query_divine_domain()) >= 0)    
-        feats[1] += ({ "heavy armor proficiency" });
-    if(player && member_array("cavern", player->query_divine_domain()) >= 0)    
-        feats[1] += ({ "blindfight" });
-    
+        feats = ([ 1: ({ "light armor proficiency", "medium armor proficiency", "simple weapon proficiency", "martial weapon proficiency", "shield proficiency", "divine domain", "spell focus", "channel", "second divine domain"}), ]);
+
+    if(player && member_array("protection", player->query_divine_domain()) >= 0)
+        feats = ([ 1: ({ "light armor proficiency", "medium armor proficiency", "heavy armor proficiency", "simple weapon proficiency", "shield proficiency", "divine domain", "spell focus", "channel", "second divine domain"}), ]);    
+
     return feats;
 }
 
@@ -154,11 +151,6 @@ mapping query_innate_spells(object player)
         innate_spells += ([ "bramble armor" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
     if(member_array("undeath", player->query_divine_domain()) >= 0)
         innate_spells += ([ "bleeding touch" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
-    if(member_array("storms", player->query_divine_domain()) >= 0)
-    {
-        innate_spells += ([ "gale aura" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
-        innate_spells += ([ "call lightning" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
-    }
     if(member_array("magic", player->query_divine_domain()) >= 0)
         innate_spells += ([ "dispelling touch" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
     if(member_array("charm", player->query_divine_domain()) >= 0)
@@ -173,14 +165,15 @@ mapping query_innate_spells(object player)
         innate_spells += ([ "ray of enfeeblement" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
     if(member_array("law", player->query_divine_domain()) >= 0)
         innate_spells += ([ "touch of law" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
-    if(member_array("madness", player->query_divine_domain()) >= 0)
-        innate_spells += ([ "touch of madness" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
     if(member_array("sun", player->query_divine_domain()) >= 0)
         innate_spells += ([ "blinding flash" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
-    if(member_array("water", player->query_divine_domain()) >= 0)
-        innate_spells += ([ "ice bolt" : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]), ]);
 
     return innate_spells;
+}
+
+mapping query_cantrip_spells(object ob)
+{
+    return ([ "create water" : 1, "detect magic" : 1, "detect poison" : 1, "guidance" : 1, "resistance" : 1, "light" : 1, "mending" : 1 ]);
 }
 
 int caster_level_calcs(object player, string the_class)

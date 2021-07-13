@@ -41,9 +41,11 @@ int remove_func(){
 	return 1;
 }
 int strike_func(int damage, object what, object who){
-	if(random(1000) < 400){
+	if(!random(5)){
 	tell_room(environment(query_worn()),"%^RESET%^%^BOLD%^Just as "+who->QCN+" is about to strike "+ETOQCN+", he rushes forward, his form becoming that of a %^BLACK%^shadowy wolf%^WHITE%^ as he avoids the blow.",({ETO,who}));
 	tell_object(ETO,"%^RESET%^%^BOLD%^Just as "+who->QCN+" is about to strike you, there is a low snap and growl as you leap forward, avoiding the blow.%^RESET%^");
 	tell_object(who,"%^RESET%^%^BOLD%^As you strike "+ETOQCN+", he transforms into a %^BLACK%^shadowy wolf%^WHITE%^ and your blow passes right through him!%^RESET%^");
-return (-1)*damage;	}
+    return 0;;
+    }
+    return damage;
 }

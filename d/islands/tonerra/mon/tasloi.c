@@ -19,14 +19,14 @@ posture, touching knuckles to the ground from time to time. They are
 green with coarse dark hair. Slit, golden eyes peer at you.
 OLI
 	);
-	set_hd(13,1);
-	set_hp(roll_dice(10,8));
-	set_exp(600);
-
-set_max_level(25);
+	set_hd(15,1);
+	set_hp(roll_dice(15,10) + 10);
+	//set_exp(600);
+    set_new_exp(15, "normal");
+    set_max_level(25);
 	set_body_type("humanoid");
 	set_wielding_limbs(({"right hand","left hand"}));
-	set_overall_ac(3);
+	set_overall_ac(-10);
 	set_size(1);
 	if(!random(5)){
 		new("/d/shadow/obj/weapon/longsword")->move(TO);
@@ -49,5 +49,4 @@ set_max_level(25);
 	set_property("swarm",1);
 	if(random(4))
 		set_invis();
-    set_new_exp(25,"normal");
 }

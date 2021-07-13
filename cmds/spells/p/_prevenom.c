@@ -12,7 +12,7 @@ void create() {
     ::create();
     set_spell_name("prevenom");
     set_spell_level(([ "psywarrior" : 1, ]));
-    set_spell_sphere("combat");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS prevenom on <weapon>");
     set_description("Upon using this power, the psionic character manifests "
        "a powerful poison to coat his weapon. A target struck by the poisoned "

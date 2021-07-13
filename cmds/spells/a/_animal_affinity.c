@@ -11,13 +11,13 @@ void create() {
     ::create();
     set_spell_name("animal affinity");
     set_spell_level(([ "psywarrior" : 2, "psion" : 1 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_discipline("egoist");
+    set_bonus_type("enhancement");
     set_syntax("cast CLASS animal affinity on <stat>");
     set_description("This power allows a psionic character to focus her "
-       "mental acuity, resulting in a bonus to one of her stats. Only one "
-       "stat can be raised at a time, and this power does not stack with "
-       "similar spells and abilities.");
+       "mental acuity, granting a +4 enhancement bonus to one of her stats. Only one "
+       "stat can be raised at a time.");
     set_verbal_comp();
     set_somatic_comp();
     set_arg_needed();
@@ -49,12 +49,17 @@ void spell_effect(int prof) {
        dest_effect();
        return;
     }
+    
+    target = caster;
+    
     if (objectp(place)) place = environment(caster);
+    /*
     if((int)caster->query_property("augmentation")){
       tell_object(caster,"%^YELLOW%^You are already under the influence of such a spell.%^RESET%^");
       dest_effect();
       return;
     }
+    */
     if(member_array(arg,VALIDSTATS) == -1){
       tell_object(caster,""+capitalize(arg)+" is not a valid attribute to augment.");
       dest_effect();
@@ -94,18 +99,19 @@ void spell_effect(int prof) {
                                  "as you harness the dexterity of the cat.%^RESET%^");
                               break;
        default:               tell_room(place,"%^RESET%^%^RED%^"+caster->QCN+" gives a ponderous "
-                                 "snuffle and lets out a low ursine roar.%^RESET%^",caster); 
+                                 "snuffle and lets out a low ursine roar.%^RESET%^",caster);
                               tell_object(caster,"%^RESET%^%^RED%^You let out a low ursine roar as "
                                  "you harness the constitution of the bear.%^RESET%^");
                               break;
     }
 
-    mydiff = 2;
-    if(caster->query_stats(arg) > 28) mydiff = 1;
-    if(caster->query_stats(arg) > 29) mydiff = 0;
+    mydiff = 4;
+    mydiff = min(({ mydiff, (30 - target->query_stats(arg)) }));
+    //if(caster->query_stats(arg) > 28) mydiff = 1;
+    //if(caster->query_stats(arg) > 29) mydiff = 0;
     if(mydiff) {
       caster->add_stat_bonus(arg,mydiff);
-      caster->set_property("augmentation",1);
+      //caster->set_property("augmentation",1);
     }
     spell_successful();
     addSpellToCaster();
@@ -116,7 +122,7 @@ void dest_effect(){
     if(objectp(caster) && mydiff) {
       tell_object(caster,"%^BOLD%^%^GREEN%^The spell of animal affinity fades from you.%^RESET%^");
       caster->add_stat_bonus(arg,(-1)*mydiff);
-      caster->set_property("augmentation",-1);
+      //caster->set_property("augmentation",-1);
     }
      ::dest_effect();
     if(objectp(TO)) TO->remove();

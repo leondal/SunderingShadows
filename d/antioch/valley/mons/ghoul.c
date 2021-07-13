@@ -46,6 +46,7 @@ void create(){
 	set_damage(1,8);
 	add_money("copper",random(4000));
 	set_property("swarm",1);
+    set_sight_bonus(2);
 	set("aggressive",25);
 	set_funcs(({"paralyze"}));
 	set_func_chance(10);

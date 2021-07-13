@@ -9,8 +9,8 @@ void create(){
 ::create();
   set_property("indoors",1);
   set_property("light",1);
-  set_travel(NAT_CAVE);
-  set_terrain(ROCKY);
+  set_travel(SLICK_FLOOR);
+  set_terrain(BUILT_CAVE);
   set_name("Gretlexsh's room");
   set_short("%^BOLD%^%^BLACK%^A very dark cavern%^RESET%^");
   set_long("%^BOLD%^%^BLACK%^This is a very dark room with hardly any light at all, despite the immensely high ceiling. Various %^RESET%^%^ORANGE%^leathers %^BOLD%^%^BLACK%^and %^RESET%^%^ORANGE%^furs %^BOLD%^%^BLACK%^are thrown against the rocky sides of the cave, and weapons litter the floor. A single massive chair sits in the center of the room, atop a small stone platform.%^RESET%^\n");

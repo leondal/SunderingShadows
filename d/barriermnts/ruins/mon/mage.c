@@ -33,7 +33,7 @@ create() {
    set_exp(60000);
    set_overall_ac(-2);
    set_hd(40,15);
-   set_max_hp(random(200)+1000);
+   set_max_hp(random(200)+1200);
    set_hp(query_max_hp());
    set_attacks_num(1);
    add_money("gold",random(300)+15);
@@ -41,7 +41,7 @@ create() {
    command("speak common");
    command("speech speak resonantly");
    set_property("no bows",1);
-   set_mob_magic_resistance("average");
+   //set_mob_magic_resistance("average");
    set("aggressive","agg_fun");
    set_emotes(1, ({"The mage closes his hands around the amulet at his neck, murmuring softly to it.",
 "The mage brushes a lock of blonde hair away from his face.",

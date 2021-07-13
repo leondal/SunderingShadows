@@ -25,7 +25,7 @@ int readpage_fun(string str) {
 	notify_fail("Read what?\n");
 	return 0;
     }
-if(!TP->is_class("mage")) {
+if(!TP->is_class("mage") && !TP->is_class("sorcerer")) {
 	write("You cannot understand what is written on the tablet.\n");
 	return 1;
     }

@@ -14,7 +14,6 @@ void create()
     ::create();
     set_spell_name("acid arrow");
     set_spell_level(([ "mage" : 2, "cleric" : 2, "magus" : 2 ]));
-    set_domains(({"water"}));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS acid arrow on TARGET");
     set_damage_desc("acid, versatile arcanist");

@@ -39,7 +39,7 @@ armor","granite fullplate armor"}));
      TO->remove_property("enchantment");
      TO->set_property("enchantment",5);
    }
-   set_item_bonus("damage resistance",3);
+   set_item_bonus("damage resistance",5);
    set_item_bonus("constitution",4);
    set_size(-1);
    set_wear((:TO,"wearme":));
@@ -134,10 +134,10 @@ int strikeme(int damage, object what, object who){
 "skin!%^RESET%^",({ETO,who}));
      myrandom = roll_dice(2,4)+2;
      skinned = (int)(ETO->query_stoneSkinned());
-     skinned = skinned + myrandom;
+     !skinned && skinned = skinned + myrandom;
      ETO->set_stoneSkinned(skinned);
    }
-   return 1;
+   return damage;
 }
 
 void bind_me(string *pplz) {

@@ -4,6 +4,7 @@
 
 
 #include <std.h>
+#include <daemons.h>
 
 inherit DAEMON;
 
@@ -43,7 +44,7 @@ int cmd_remember(string str) {
         remembered[name] = filename;
         sortrem = distinct_array(({ name}) + sortrem);
         if ( sizeof(sortrem) > (int)TP->query_base_stats("intelligence") && !avatarp(TP) )
-            shorten( (int)TP->query_base_stats("intelligence") );
+            shorten( (int)TP->query_base_stats("intelligence") + (FEATS_D->usable_feat(TP, "worldly traveler") * 5) );
         TP->set_rem_rooms(remembered, sortrem);
         tell_object(TP, "You study the location, retaining its features firmly in your mind.");
     } else {

@@ -59,10 +59,14 @@ int wear_it()
 
 int struck(int damage, object what, object who)
 {
-    tell_room(environment(query_worn()),"%^BOLD%^%^BLUE%^"+ETO->QCN+" almost appears to be in a different spot as the cape %^BOLD%^%^WHITE%^shimmers%^RESET%^!",({who,ETO}));
-    tell_object(who,"%^BOLD%^%^BLUE%^As you try to hit "+ETO->QCN+", the cloak %^BOLD%^%^WHITE%^shimmers%^BOLD%^%^BLUE%^ and your target almost appears to be in a different spot%^RESET%^!");
-    tell_object(ETO,"%^BOLD%^%^BLUE%^Your cape lights up with color as you watch the blow go completely by you!%^RESET%^");
-    return (-1*damage);
+    if(!random(2))
+    {
+        tell_room(environment(query_worn()),"%^BOLD%^%^BLUE%^"+ETO->QCN+" almost appears to be in a different spot as the cape %^BOLD%^%^WHITE%^shimmers%^RESET%^!",({who,ETO}));
+        tell_object(who,"%^BOLD%^%^BLUE%^As you try to hit "+ETO->QCN+", the cloak %^BOLD%^%^WHITE%^shimmers%^BOLD%^%^BLUE%^ and your target almost appears to be in a different spot%^RESET%^!");
+        tell_object(ETO,"%^BOLD%^%^BLUE%^Your cape lights up with color as you watch the blow go completely by you!%^RESET%^");
+        return 0;
+    }
+    return damage;
 }
 
 

@@ -11,6 +11,7 @@ void create() {
     set_spell_name("eagles splendor");
     set_spell_level(([ "paladin" : 2, "bard" : 2, "cleric" : 2, "mage" : 2,"paladin":2 ]));
     set_spell_sphere("alteration");
+    set_bonus_type("enhancement");
     set_syntax("cast CLASS eagles splendor on TARGET");
     set_description("This spell allows the caster to infuse their target with the presence of an eagle, enhancing their force of personality.  This spell doesn't stack with similarly powerful spells of enhancement.");
     set_verbal_comp();
@@ -25,11 +26,13 @@ void spell_effect(int prof) {
         return;
     }
     if (objectp(place)) place = environment(caster);
+    /*
     if((int)target->query_property("augmentation")){
       tell_object(caster,"%^YELLOW%^"+target->QCN+" is already under the influence of a similar spell.");
       dest_effect();
       return;
     }
+    */
     if(prof == -100) { // hack for potions. Cuz lib doesn't seem to call reverse spell anymore, and I'm lazy. N, 6/15.
       reverse_spell();
       return;
@@ -49,9 +52,10 @@ void spell_effect(int prof) {
         tell_room(place,"%^YELLOW%^"+caster->QCN+" intones a spell over "+target->QCN+".%^RESET%^",({caster,target}));
       }
     }
-    mydiff = 2;
-    if(target->query_stats("charisma") > 28) mydiff = 1;
-    if(target->query_stats("charisma") > 29) mydiff = 0;
+    mydiff = 4;
+    mydiff = min(({ mydiff, (30 - target->query_stats("charisma")) }));
+    //if(target->query_stats("charisma") > 28) mydiff = 1;
+    //if(target->query_stats("charisma") > 29) mydiff = 0;
     if(mydiff) {
       target->add_stat_bonus("charisma",mydiff);
       target->set_property("augmentation",1);
@@ -75,7 +79,7 @@ void reverse_spell(){
     // adding in backfires for potions! Can't find where lib actually calls this anymore.
     tell_object(caster,"%^CYAN%^A queasy feeling runs through you, leaving you self-conscious.%^RESET%^");
 
-    mydiff = -2;
+    mydiff *= -1;
     if(target->query_stats("charisma") < 4) mydiff = -1;
     if(target->query_stats("charisma") < 3) mydiff = 0;
     if(mydiff) {

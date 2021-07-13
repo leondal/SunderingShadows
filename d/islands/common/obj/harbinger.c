@@ -156,7 +156,9 @@ int struck(int damage, object what, object who)
     string *ids;
     if(!objectp(ETO) || !objectp(EETO) || !living(ETO)) { return 0; }
 
-
+    if(random(4))
+        return damage;
+    
     switch(random(6))
     {
     case 0:
@@ -217,6 +219,8 @@ int struck(int damage, object what, object who)
         ETO->add_hp(damage * roll_dice(1,6));
         return 0;
     }
+    
+    return damage;
 
 }
 

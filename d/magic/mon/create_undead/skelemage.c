@@ -42,7 +42,7 @@ void create()
 
     set_spells(({ "touch of fatigue",
                     "touch of sickening",
-                    "burning hands",
+                    "frostfield",
                     "ray of frost",
                     "shocking grasp",
                     "chill touch", }));
@@ -50,7 +50,9 @@ void create()
     set_property("specral_hand", 1);
 
     set_monster_feats(({
-                "spell reflection",
+                "spell focus",
+                "spell penetration",
+                "perfect caster",
                     }));
 
     command("message in floats in.");

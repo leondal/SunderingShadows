@@ -36,7 +36,7 @@ void display_hint()
         hint = hints[random(sizeof(hints))];
         foreach(peep in people)
         {
-            message("hint", "%^CYAN%^Hint fairy %^BLUE%^whispers%^CYAN%^: %^RESET%^" + hint + "%^RESET%^", peep);
+            message("hint", "%^CYAN%^[%^GREEN%^Hint%^CYAN%^]%^RESET%^" + hint + "%^RESET%^", peep);
         }
     }
     call_out("display_hint", FREQ);

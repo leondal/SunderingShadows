@@ -40,8 +40,8 @@ void create() {
       TO->remove_property("enchantment");
       TO->set_property("enchantment",5);
     }
-    set_item_bonus("attack bonus",3);
-    set_item_bonus("stealth",3);
+    set_item_bonus("attack bonus",4);
+    set_item_bonus("stealth",4);
     set_property("magic",1);
     set_wield((:TO,"wield_func":));
     set_unwield((:TO,"unwield_func":));

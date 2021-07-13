@@ -478,6 +478,8 @@ int cmd_feats(string str)
         case "hybrid":
         case "general":
         case "arcana":
+        //case "talent":
+        case "rage":
         case "divinebond":
             FEATS_D->display_feats(TP, TP, info[0]);
             return 1;
@@ -506,6 +508,7 @@ int cmd_feats(string str)
             if (!TP->query("free_feat_wipe")) {
                 TP->set("free_feat_wipe", 1);
                 TP->clear_feats();
+                TP->set_divine_domain(({}));
                 num_feats = ((int)TP->query_level() / 3) + 1;
                 TP->set("free_feats", num_feats);
                 if (!avatarp(TP)) {
@@ -550,7 +553,7 @@ int cmd_feats(string str)
                 continue;
             }
             tmp = (string)TP->query_combat_spec(required[bonus]);         // new combat spec code, N 1/14.
-            classfeats = category->class_featmap(tmp);
+            classfeats = category->class_featmap(tmp, TP);
             if (!mapp(classfeats)) {
                 continue;
             }
@@ -661,6 +664,19 @@ int cmd_feats(string str)
                 num_bonus = (int)TP->query_divinebond_feats_gained();
                 feat_types_labels = "divine";
                 break;
+            
+            case "rage":
+                BONUS_ALLOWED = FEATS_D->number_feats(TP, feat_types[i], ({ "barbarian" }));
+                num_bonus = (int)TP->query_rage_feats_gained();
+                feat_types_labels = feat_types[i];
+                break;
+            /*
+            case "talent":
+                BONUS_ALLOWED = FEATS_D->number_feats(TP, feat_types[i], ({ "bard", "thief" }));
+                num_bonus = (int)TP->query_divinebond_feats_gained();
+                feat_types_labels = feat_types[i];
+                break;
+            */
             default:
                 BONUS_ALLOWED = 0;
                 num_bonus = 0;
@@ -686,6 +702,11 @@ int cmd_feats(string str)
     case "active":
         FEATS_D->display_feats(TP, TP, "active");
         return 1;
+        break;
+    case "known":
+        FEATS_D->display_feats(this_player(), this_player(), "known");
+        return 1;
+        break;
 
     case "add":
     case "racial":
@@ -693,6 +714,8 @@ int cmd_feats(string str)
     case "spellcraft":
     case "hybrid":
     case "arcana":
+    //case "talent":
+    case "rage":
     case "divinebond":
         if (sscanf(str, "%s %s", category, tmp) != 2) {
             tell_object(TP, "See <help feats> for syntax.");
@@ -840,6 +863,22 @@ int validation_messages(object obj, string group, string feat_name) {
         can_gain = FEATS_D->can_gain_type_feat(obj, feat_name, "divinebond");
         group_2 = group;
         break;
+    case "rage":
+        valid_classes = ({ "barbarian" });
+        valid_categories = RAGEFEATS;
+        num_bonus = (int)obj->query_rage_feats_gained();
+        can_gain = FEATS_D->can_gain_type_feat(obj, feat_name, "rage");
+        group_2 = group;
+        break;
+    /*
+    case "talent":
+        valid_classes = ({ "thief", "bard" });
+        valid_categories = TALENTFEATS;
+        num_bonus = (int)obj->query_divinebond_feats_gained();
+        can_gain = FEATS_D->can_gain_type_feat(obj, feat_name, "talent");
+        group_2 = group;
+        break;
+    */
     case "add"://class
         valid_classes = ({ });
         valid_categories = ({ });
@@ -914,6 +953,19 @@ int validation_messages(object obj, string group, string feat_name) {
                 "This feat can only be selected as a divinebond feat.%^RESET%^");
             return 1;
         }
+
+        if ((string)FEATS_D->get_category(feat_name) == "RagePower") {
+            tell_object(obj, "%^RESET%^%^BOLD%^This is a barbarian class feat. "
+                "This feat can only be selected as a rage feat.%^RESET%^");
+            return 1;
+        }
+/*
+        if ((string)FEATS_D->get_category(feat_name) == "RogueTalent") {
+            tell_object(obj, "%^RESET%^%^BOLD%^This is a bard or thief class feat. "
+                "This feat can only be selected as a talent feat.%^RESET%^");
+            return 1;
+        }
+*/
     }
     else {
         if ((string)FEATS_D->get_category(feat_name) == "EpicFeats") {
@@ -1027,6 +1079,7 @@ feats - manipulate or view your feats
 %^CYAN%^SYNOPSIS%^RESET%^
 
 feats allowed
+feats known
 feats check|add|remove %^ULINE%^%^ORANGE%^FEAT_NAME%^RESET%^
 feats racial|martial|spellcraft|hybrid|arcana|divinebond %^ULINE%^%^ORANGE%^FEAT_NAME%^RESET%^
 feats list [martial|spellcraft|hybrid|arcana|divinebond|general]
@@ -1043,6 +1096,8 @@ The following commands apply:
 
 %^ORANGE%^<feats allowed>%^RESET%^
     Tells you how many feats you are allowed at your current level.
+%^ORANGE%^<feats known>%^RESET%^
+    Tells you which feats you already have.
 %^ORANGE%^<feats check %^ORANGE%^%^ULINE%^FEAT%^RESET%^%^ORANGE%^>%^RESET%^
     Tells you if you meet all the requirements to take this feat.
 %^ORANGE%^<feats add %^ORANGE%^%^ULINE%^FEAT%^RESET%^%^ORANGE%^>%^RESET%^

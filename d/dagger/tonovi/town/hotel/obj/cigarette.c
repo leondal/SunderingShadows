@@ -1,5 +1,6 @@
 // cigar by Odin 5/2/2020
 // altered by Chernobog (1/27/21)
+
 #include <std.h>
 #include <move.h>
 inherit OBJECT;
@@ -25,7 +26,7 @@ void create()
     hasmsgs = 1;
     tracker = 0;
     mymsgs = ({ "%^RESET%^%^ORANGE%^You enjoy the pungent taste of the tobacco.%^RESET%^" });
-    yourmsgs = ({ "%^RESET%^%^ORANGE%^You smell the pungent aroma of the burning tobacco.%^RESET%^" });
+    yourmsgs = ({ "%^RESET%^%^ORANGE%^You smell the pungent aroma of the burning tobacco from the cigar.%^RESET%^" });
     intox = 0;
 }
 
@@ -132,3 +133,8 @@ int get_tracker()
 {
     return tracker;
 }
+
+int is_cigarette(){
+    return 1;
+}
+

@@ -23,6 +23,7 @@ void create()
 "length of %^WHITE%^s%^RESET%^i%^BOLD%^l%^RESET%^v%^BOLD%^er %^CYAN%^supports the "+
 "%^RESET%^d%^BOLD%^ia%^CYAN%^m%^WHITE%^on%^RESET%^d %^BOLD%^%^CYAN%^set into the base of the sword.%^RESET%^");
         set_value(0);
+        set_damage_type("slashing");
         set_hit((:TO,"hit_func":));
 }
 int hit_func(object targ){
@@ -38,7 +39,7 @@ int hit_func(object targ){
 "w%^RESET%^i%^BOLD%^th a %^YELLOW%^b%^CYAN%^r%^WHITE%^i%^CYAN%^g%^ORANGE%^h%^CYAN%^t g%^WHITE%^l%^ORANGE%^o%^CYAN%^w%^RESET%^ as %^ORANGE%^"+ETO->QS+" %^WHITE%^slashes into %^CYAN%^you%^WHITE%^!%^RESET%^");
         tell_room(environment(ETO),"%^BOLD%^The silver mesh around %^ORANGE%^"+ETO->QCN+"'s %^WHITE%^blade "+
 "blazes with a %^YELLOW%^b%^CYAN%^r%^WHITE%^i%^CYAN%^g%^ORANGE%^h%^CYAN%^t g%^WHITE%^l%^ORANGE%^o%^CYAN%^w%^RESET%^ as %^ORANGE%^"+ETO->QS+" %^WHITE%^slashes into %^CYAN%^"+targ->QCN+"%^WHITE%^!%^RESET%^",({ETO,targ}));
-           
+
         return random(4)+8;
    }
 }

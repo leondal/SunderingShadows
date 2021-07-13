@@ -62,7 +62,7 @@ int remove_func(){
 	return 1;
 }
 int strike_func(int damage, object what, object who){
-	if(random(1000) < 175){
+	if(!random(8)){
 	tell_room(environment(query_worn()),"%^BOLD%^%^RED%^Flames "+
          " erupt around "+ETOQCN+" and burn "+
          ""+who->QCN+"!",({ETO,who}));
@@ -72,6 +72,6 @@ int strike_func(int damage, object what, object who){
          " and %^B_RED%^%^YELLOW%^burn"+
          "%^BOLD%^%^RED%^ you!");
 	who->cause_typed_damage(who, "torso", roll_dice(1, 10), "fire");
-  return 0;
      }
+     return damage;
 }

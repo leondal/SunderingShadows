@@ -32,7 +32,7 @@ int cmd_recall(string str)
             return 1;
         }else {
             int roomnw;
-            int maxknown = TP->query_base_stats("intelligence");
+            int maxknown = TP->query_base_stats("intelligence") + ( FEATS_D->usable_feat(this_player(), "worldly traveler") * 5);
 
             string* output = ({});
 
@@ -119,6 +119,11 @@ int cmd_recall(string str)
         if (recall_innate_spells(TP)) {
             return 1;
         }
+    }
+    if(str == "cantrip spells")
+    {
+        if(recall_cantrips(TP))
+            return 1;
     }
     if (str == "monk spells") {
         tell_object(TP, "See <help ki>");
@@ -266,6 +271,30 @@ mixed MakeTimeDisplay(int MyTime)
         MySec = "0" + MySec;
     }
     return MyHour + ":" + MyMin + ":" + MySec;
+}
+
+int recall_cantrips(object who)
+{
+    mixed cantrips;
+    string msg;
+    
+    if(!objectp(who))
+        return 0;
+    
+    cantrips = who->query_cantrip_spells();
+    
+    if(!sizeof(cantrips))
+        return 0;
+    
+    cantrips = sort_array(cantrips, "alphabetical_sort", FILTERS_D);
+    
+    msg = FR + "Cantrips" + BK;
+    
+    foreach(string str in cantrips)
+        msg += "\n%^BOLD%^WHITE%^" + str + "%^RESET%^";
+        
+    tell_object(this_player(), msg);
+    return 1;
 }
 
 int recall_innate_spells(object who)
@@ -539,6 +568,7 @@ recall monsters
 recall monster %^ORANGE%^%^ULINE%^NUMBER%^RESET%^
 recall %^ORANGE%^%^ULINE%^CLASS%^RESET%^ spells [%^ORANGE%^%^ULINE%^LEVEL%^RESET%^]
 recall innate spells
+recall cantrip spells
 
 %^CYAN%^DESCRIPTION%^RESET%^
 

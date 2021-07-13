@@ -140,7 +140,7 @@ int prerequisites(object player)
         return 0;
     }
     skills = player->query_skills();
-    if (skills["stealth"] < 10) {
+    if (!skills["stealth"] || skills["stealth"] < 10) {
         write("failed skill");
         return 0;
     }
@@ -154,6 +154,10 @@ int prerequisites(object player)
         return 0;
     }
     if (!player->is_class(base)) {
+        return 0;
+    }
+    if(player->query("no pk")){
+        tell_object(player,"%^YELLOW%^You are unable to pick this class while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.%^RESET%^");
         return 0;
     }
     return 1;

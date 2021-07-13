@@ -20,7 +20,7 @@ void create()
     set_author("tlaloc");
     set_spell_name("fuse flesh");
     set_spell_level(([ "psion" : 6, ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS fuse flesh on TARGET");
     set_description("You cause the target's flesh to ripple, grow together into a seamless whole. The subject's eyelids are directly affected, causing immediate blindness if they do not make a fortitude save..");
     set_target_required(1);

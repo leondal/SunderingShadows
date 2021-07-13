@@ -4,7 +4,7 @@ inherit OBJECT;
 
 int potency, count, freq, allow_save;
 
-void create() 
+void create()
 {
     ::create();
     set_name("spider curse");
@@ -19,7 +19,15 @@ void create()
     allow_save = 0;
 }
 
-void set_save_allowed(int x) { allow_save = x; }
+int is_disease()
+{
+    return 1;
+}
+
+void set_save_allowed(int x)
+{
+    allow_save = x;
+}
 
 void uncurse_me()
 {
@@ -28,7 +36,7 @@ void uncurse_me()
     tell_object(ETO, "%^BOLD%^%^RED%^You feel different "+
     "suddenly as the %^BOLD%^%^BLACK%^S%^BOLD%^%^YELLOW%^p%^BOLD%^%^BLACK%^"+
     "i%^BOLD%^%^YELLOW%^d%^BOLD%^%^BLACK%^e%^BOLD%^%^YELLOW%^"+
-    "r%^BOLD%^%^BLACK%^'s %^BOLD%^%^RED%^curse is lifted!%^RESET%^"); 
+    "r%^BOLD%^%^BLACK%^'s %^BOLD%^%^RED%^curse is lifted!%^RESET%^");
     TO->remove();
 }
 
@@ -52,32 +60,32 @@ void heart_beat()
             }
         }
         count = 0;
-        potency--;  
-        Spider = new(FFMON+"spiderling");   
+        potency--;
+        Spider = new(FFMON+"spiderling");
         Spider->delete("aggressive");
 
-        tell_object(ETO, "%^BOLD%^%^GREEN%^You hear a "+    
-        "sudden %^BOLD%^%^YELLOW%^SKITTERING%^BOLD%^%^GREEN%^ "+    
+        tell_object(ETO, "%^BOLD%^%^GREEN%^You hear a "+
+        "sudden %^BOLD%^%^YELLOW%^SKITTERING%^BOLD%^%^GREEN%^ "+
         "noise as a "+Spider->query_short()+
         "%^BOLD%^%^GREEN%^ comes out of nowhere and jumps at "+
         "you!%^RESET%^");
 
         tell_room(EETO, "%^BOLD%^%^GREEN%^You hear a "+
-        "sudden %^BOLD%^%^YELLOW%^SKITTERING%^BOLD%^%^GREEN%^ "+    
+        "sudden %^BOLD%^%^YELLOW%^SKITTERING%^BOLD%^%^GREEN%^ "+
         "noise as a "+Spider->query_short()+
-        "%^BOLD%^%^GREEN%^ comes out of nowhere and jumps at "+ 
+        "%^BOLD%^%^GREEN%^ comes out of nowhere and jumps at "+
         ETOQCN+"%^BOLD%^%^GREEN%^!%^RESET%^", ETO);
 
         Spider->move(EETO);
         Spider->kill_ob(ETO, 0);
         Spider->poison_bite(ETO);
-		
+
     }
-    if(potency <= 0) 
+    if(potency <= 0)
     {
         uncurse_me();
     }
-    return;	  
+    return;
 }
 
 void set_frequency(int x)
@@ -89,7 +97,7 @@ void increase_potency(int x)
 {
     if(!x) return;
     potency += x;
-    if(potency >= 5) potency = 5;	
+    if(potency >= 5) potency = 5;
 }
 
 int query_potency() { return potency; }

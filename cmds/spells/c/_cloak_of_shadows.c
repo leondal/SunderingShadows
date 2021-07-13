@@ -67,7 +67,7 @@ void targ_vanish()
         TO->remove();
         return;
       }
-      num = (clevel/2);
+      num = clevel;
       tell_object(caster,"%^CYAN%^The shadows collapse around your form and hide you from view!%^RESET%^");
       tell_room(place,"%^CYAN%^The shadows collapse around "+caster->QCN+", and "+caster->QS+" disappears from view!%^RESET%^",caster);
       spell_successful();
@@ -95,9 +95,7 @@ void targ_vanish()
         dest_effect();
         return;
       }
-      if(spell_type == "warlock") stat_bonus = caster->query_stats("charisma");
-      else stat_bonus = caster->query_stats("wisdom"); // monks!
-      stat_bonus = stat_bonus-10;
+      stat_bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
       power = CLEVEL + stat_bonus + random(6); // set to match scry power & other block effects
       blocker->set_block_power(power);
       caster->set_property("spelled",({TO}));

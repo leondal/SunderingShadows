@@ -45,7 +45,7 @@ int preSpell() {
 void spell_effect(int prof) {
     int armor, mylevel;
 
-    if(FEATS_D->usable_feat(caster,"armored manifester")){
+    if(FEATS_D->usable_feat(caster,"armored manifester") || FEATS_D->usable_feat(caster,"eldritch conditioning")){
        armor = 0;
     }else if(!caster->is_ok_armour("mage") && !FEATS_D->usable_feat(caster,"armored caster")){
        armor = 1;
@@ -87,7 +87,7 @@ void test(){
     int armor;
     if (!objectp(TO) || !objectp(caster))
         return;
-    if(FEATS_D->usable_feat(caster,"armored manifester")){
+    if(FEATS_D->usable_feat(caster,"armored manifester") || FEATS_D->usable_feat(caster,"eldritch conditioning")){
        armor = 0;
     }else if(!caster->is_ok_armour("mage") && !FEATS_D->usable_feat(caster,"armored caster")){
        armor = 1;

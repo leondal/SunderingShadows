@@ -25,9 +25,9 @@ void create(){
         "%^BOLD%^in si%^RESET%^n%^BOLD%^k %^RESET%^and %^BOLD%^%^BLACK%^m%^RESET%^i"+
         "%^BOLD%^rr%^RESET%^o%^BOLD%^%^BLACK%^r%^RESET%^. A set of %^YELLOW%^t"+
         "%^RESET%^%^ORANGE%^o%^BOLD%^%^BLACK%^we%^RESET%^%^ORANGE%^l%^BOLD%^s "+
-        "%^RESET%^hang nearby, at the disposal of the hotel guests.");
-    set_smell("The air carries a mix of white tea and vanilla, with a hint of cedar.");
-    set_listen("There is the occasional echo of a drip of water.");
+        "%^RESET%^hang nearby, at the disposal of the hotel guests.\n");
+    set_smell("default","The air carries a mix of white tea and vanilla, with a hint of cedar.");
+    set_listen("default","There is the occasional echo of a drip of water.");
     set_items(([
         ({"sink", "mirror"}) : "%^RESET%^CYAN%^The %^BOLD%^%^BLACK%^m%^RESET%^i%^BOLD%^r"+
             "r%^RESET%^o%^BOLD%^%^BLACK%^r %^RESET%^%^CYAN%^is oblong and oval, "+

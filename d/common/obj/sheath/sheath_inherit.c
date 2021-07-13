@@ -1,5 +1,5 @@
-//Had to add a check for lrweapon with the weight check for the 
-//put_into and sheath_into.  The lrweapon code increases the query_size 
+//Had to add a check for lrweapon with the weight check for the
+//put_into and sheath_into.  The lrweapon code increases the query_size
 //to lrweapons to force them to two handed for larger races, which made
 //the size 3 bow not fit in a size 3 sheath when a large PC was holding it.
 //Garrett identified the source of the problem, fix by Styx  8/3/01
@@ -37,7 +37,7 @@ int query_value() {
 int query_weight() {
   if (sizeof(all_inventory(TO)))
     return TO->query_property("original_weight") + TO->query_internal_encumbrance();
-  else 
+  else
     return TO->query_property("original_weight");
 }
 
@@ -62,7 +62,7 @@ string query_long(string i_do_not_know_why) {
     str += "and "+possible_places[maxiter-1]+".\n";
     // str += "You can %^BLUE%^adjust "+((string *)TO->query_id())[0]+" into";
     // str += " <place> %^RESET%^to change it's position.\n";
-  } else 
+  } else
     str += "This "+CM+" can be worn only on "+possible_places[0]+".\n";
   maxiter=sizeof(possible_places=TO->query_property("can_hold"));
   if ( maxiter > 1) {
@@ -74,7 +74,7 @@ string query_long(string i_do_not_know_why) {
 	str += possible_places[iter-1]+" ";
     str += "and "+possible_places[maxiter-1]+".\n";
     str += "";
-  } else 
+  } else
     str += "This "+CM+" can only contain "+possible_places[0]+".\n";
   if (TP==TP)
     str += "%^BOLD%^(Try typing <help "+CM+"> as well.)\n";
@@ -107,7 +107,7 @@ void create(){
   set_long(
 @GARRETT
 This is a weapons sheath. It is meant to hold a single weapon,
-and has adjustable straps to hold it on your body. The straps could be 
+and has adjustable straps to hold it on your body. The straps could be
 easily adjusted to hold the sheath in more than one location, allowing
 easy access for the weapon that it holds.
 GARRETT
@@ -145,10 +145,10 @@ int is_mixable() {return 1;}
 int check_shifted(object tp)
 {
     if(!objectp(tp)) { return 1; }
-    if(tp->query_property("shapeshifted")) 
-    { 
+    if(tp->query_property("shapeshifted"))
+    {
         tell_object(tp,"You can't use sheaths while shapeshifted.");
-        return 0; 
+        return 0;
     }
     return 1;
 }
@@ -164,7 +164,7 @@ int will_work(object ths, object tht) {
   if(!sizeof(allowed))
   {
       return notify_fail("Error, no valid types fit in this object. Contact a wiz.");
-  }  
+  }
 
   // Allow for explicit cases first...
 
@@ -209,7 +209,7 @@ int change_limb(string str) {
   if ( (!stringp(str)) || (sscanf(str,"%s onto %s", alpha, beta) != 2))
     return notify_fail("Adjust <what> onto <where>?\n");
   else {
-    // if (!TO->id(alpha)) return 0; 
+    // if (!TO->id(alpha)) return 0;
     // if(id(alpha)) ob = this_object();
     // else
   ob =present(alpha,TP);
@@ -251,12 +251,12 @@ int put_into(string str)
         return 0;
     }
 */
-    if (stringp(str) && sscanf(str,"%s in %s",this,that) == 2) 
+    if (stringp(str) && sscanf(str,"%s in %s",this,that) == 2)
     {
-        if (present(this,this_player())) 
+        if (present(this,this_player()))
         {
-            if (present(that,this_player()) || present(that,environment(this_player()))) 
-            {                
+            if (present(that,this_player()) || present(that,environment(this_player())))
+            {
 	            ths = present(this,this_player());
 	            tht = present(that, this_player());
 	            if(ths == tht) /* Plura 930208 */{
@@ -282,7 +282,7 @@ int put_into(string str)
                     return 0;
                 }
 
-                if((ths->query_is_lrweapon() != 0) && 
+                if((ths->query_is_lrweapon() != 0) &&
                 (ths->query_size() > query_property("sheath_size"))) {
                     notify_fail("This weapon is too large for this "+CM+"!\n");
                     return 0;
@@ -312,7 +312,7 @@ int put_into(string str)
       }
     notify_fail("You are not carrying "+this+".\n");
         return 0;
-}	
+}
 return 0;
 }
 
@@ -323,7 +323,7 @@ int get_from(string str) {
     string what, where;
     if(!stringp(str)) return 0;
     if(this_player()->query_ghost()) return 0;
-    
+
     if(TP->query_bound() || TP->query_unconscious()
     || TP->query_paralyzed()){
 	    TP->send_paralyzed_message("info",TP);
@@ -349,9 +349,9 @@ int get_from(string str) {
 
     if(!check_shifted(TP)) { return 1; }
 
-    if(this_object()->receive_objects()) 
+    if(this_object()->receive_objects())
     {
-	if(what != "all") 
+	if(what != "all")
     {
 	    ob = present(what, this_object());
 	    if(!ob) ob = parse_objects(this_object(), what);
@@ -451,7 +451,7 @@ int draw_from(string str) {
 	    tell_room(ETP,"%^BOLD%^%^BLUE%^"+this_player()->query_cap_name()+" draws "+ob->query_short()+" from "+this_object()->query_short()+".", this_player());
 	    if (ob->size() <= TP->size())
 	      TP->force_me("wield "+ ((string *)ob->query_id())[0]);
-	    else 
+	    else
 	      TP->force_me("wield "+ ((string *)ob->query_id())[0] +" in right hand and left hand");
 
 	    return 1;
@@ -483,10 +483,18 @@ int sheath_into(string str){
           notify_fail(TP->light_blind_fail_message(silly)+"\n");
 	  return 0;
 	}*/
-	if (stringp(str) && sscanf(str,"%s",this) == 1) {
+	if (stringp(str)) {
+      if(sscanf(str,"%s into %s",this,that) == 2) {
+        if(!tht = present(that,this_player())) {
+          notify_fail("You are not carrying "+that+".\n");
+          return 0;
+        }
+      }
+      else if (stringp(str) && sscanf(str,"%s",this) == 1) {
+        tht = TO;
+      }
 	  if (present(this,this_player())) {
 	    ths = present(this,this_player());
-	    tht = TO;
 	    if(ths == tht) /* Plura 930208 */{
 		notify_fail("Get real!\n");
 		return 0;
@@ -507,7 +515,7 @@ int sheath_into(string str){
 		    notify_fail("You can't seem to find one that will work for that weapon unused.\n");
 		    return 0;
 	    }
-	    if((ths->query_is_lrweapon() != 0) && 
+	    if((ths->query_is_lrweapon() != 0) &&
 	      (ths->query_size() > query_property("sheath_size"))) {
 		    notify_fail("This weapon is too large for your available "+CM+"!\n");
 		    return 0;
@@ -531,7 +539,7 @@ int sheath_into(string str){
 	}
 	notify_fail("You are not carrying "+this+".\n");
 	return 0;
-    }	
+    }
     return 0;
 }
 
@@ -541,13 +549,13 @@ string query_short() {
     int i;
     inv = all_inventory(TO);
     str = ::query_short();
-    if(!sizeof(inv)) 
+    if(!sizeof(inv))
 	str = str+" (empty)";
-    /*  This worked to add what it was holding.  However, when you "put" 
-    or "sheath" the weapon, the messages showed it was already holding the 
+    /*  This worked to add what it was holding.  However, when you "put"
+    or "sheath" the weapon, the messages showed it was already holding the
     weapon when it went in.  Styx 6/25/01
-	if(sizeof(inv) != 0) 
-	str = str +" holding "+ (string)inv[i]->query_short(); 
+	if(sizeof(inv) != 0)
+	str = str +" holding "+ (string)inv[i]->query_short();
     */
     return str;
 }
@@ -561,8 +569,8 @@ Commands for weapon sheaths
 
    adjust <what> onto <position>
 
-This command moves the sheath around to a different position. 
-You are not doing magic, you are repositioning the thing by 
+This command moves the sheath around to a different position.
+You are not doing magic, you are repositioning the thing by
 moving buckles and straps.
 
   put <weapon> in <what>
@@ -577,6 +585,10 @@ Takes a weapon from a sheath, and makes you wield it.
   sheath <weapon>
 
 Sticks a weapon in the first available sheath it can fit in.
+
+  sheath <weapon> into <sheath>
+
+Sticks a weapon into a specific sheath if it can fit.
 
 OLI
     );

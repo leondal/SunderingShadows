@@ -1,5 +1,5 @@
 #include <std.h>
-inherit "/std/vendor";
+inherit "/std/assvendor";
 
 create() {
    ::create();
@@ -21,3 +21,9 @@ create() {
    set_items_allowed("misc");
    set_max_hp(query_hp());
 }
+
+
+
+
+
+

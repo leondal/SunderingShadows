@@ -175,7 +175,7 @@ void race_ck(object targ){
 			return;
 		}
 	}else if(mrace == "drow" || mrace == "ogre-mage" || mrace == "half-ogre" ||
-		mrace == "minotaur" || (mrace == "dwarf" && srace == "gray dwarf")){
+		mrace == "minotaur" || mrace == "troll" || (mrace == "dwarf" && srace == "gray dwarf")){
 		if(targ->query_unconscious()){
 			if(targ->query_bound())return 1;
 			call_out("killem",0,TP);

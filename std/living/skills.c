@@ -194,7 +194,7 @@ int query_max_skills()
 
 // finally if necessary, add in human bonus of 4 skillpoints if not planetouched.
     if (myrace == "human") {
-        if (!subrace || subrace == "" || (subrace != "tiefling" && subrace != "aasimar" && subrace != "feytouched")) {
+        if (!subrace || subrace == "" || (subrace != "tiefling" && subrace != "aasimar" && subrace != "feytouched" && subrace != "dhampir") ) {
             num = num + 4; //extra 4 skill points at L1 for human non-plane-touched
         }
     }
@@ -341,6 +341,10 @@ int query_skill(string skill)
     if ((skill == "perception" || skill == "stealth") && FEATS_D->usable_feat(TO, "shadow perception")) {
         x += 5;
     }
+    
+    if(skill == "perception" && FEATS_D->usable_feat(this_object(), "danger sense")){
+        x += ((this_object()->query_class_level("barbarian") / 10)  + (this_object()->query_class_level("thief") / 10) + 1);
+    }
 
     if(skill == "endurance" && FEATS_D->usable_feat(TO, "rangers endurance"))
     {
@@ -363,6 +367,21 @@ int query_skill(string skill)
             x += (FEATS_D->usable_feat(TO, "resist undead") * 2);
         }
     }
+    
+    //Represents the Jack of All Trades feature in tabletop which gives +1 to all skill checks
+    if(this_object()->is_class("bard"))
+        x += 1;
+    
+    //Inquisitors use wisdom instead of cha for influence
+    //Stern gaze feat in pathfinder
+    //Save this for inquisition
+    /*
+    if(skill == "influence")
+    {
+        if(this_object()->is_class("inquisitor"))
+            mystat = "wisdom";
+    }
+    */
 
     mymod = ((int)this_object()->query_stats(mystat) - 10) / 2;
     x += mymod;

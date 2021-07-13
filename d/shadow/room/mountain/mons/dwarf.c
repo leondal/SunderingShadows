@@ -65,7 +65,7 @@ void init() {
    ::init();
    race = (string)TP->query_race();
    if(!TP->query_invis()){
-      if(race == "ogre" || race == "hobgoblin" || race == "bugbear" ) {
+      if(race == "ogre" || race == "hobgoblin" || race == "bugbear" || race == "troll") {
         force_me("say %^RED%^I'll kill ya or die tryin' ya foul overgrown beast!");
         force_me("kill "+race);
       }

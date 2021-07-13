@@ -3,7 +3,7 @@
 
 int checkDispel(object ob, int clevel, object caster)
 {
-    int roll, level_diff;
+    int roll, level_diff, DC;
     object mycast, yourcast;
 
     if (!objectp(ob)) {
@@ -24,6 +24,7 @@ int checkDispel(object ob, int clevel, object caster)
     }
 
     level_diff = clevel - ob->query_clevel();
+    DC = 10 - level_diff;
 
     roll = roll_dice(1, 20);
 
@@ -37,18 +38,18 @@ int checkDispel(object ob, int clevel, object caster)
 
     if (FEATS_D->usable_feat(yourcast, "elusive spellcraft") &&
         !FEATS_D->usable_feat(caster, "elusive spellcraft")) {
-        roll -= 8;
+        DC += 8;
     }
 
     if (FEATS_D->usable_feat(yourcast, "mystic arcana")) {
-        roll -= ((yourcast->query_stats("charisma") - 10) / 3);
+        DC += (BONUS_D->query_stat_bonus(yourcast, "charisma") / 2);
     }
 
     if (yourcast->query_property("dispelling_buffer") > 0) {
-        roll -= yourcast->query_property("dispelling_buffer");
+        DC += yourcast->query_property("dispelling_buffer");
     }
 
-    if (roll >= level_diff ) {
+    if (roll >= DC ) {
         return 1;
     } else {
         return 0;

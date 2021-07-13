@@ -38,14 +38,14 @@ int preSpell()
 
 string query_cast_string()
 {
-    if(member_array(spell_type,({"mage","sorcerer","bard"}))!=-1)
+    if(member_array(spell_type,({"mage","sorcerer","bard","magus"}))!=-1)
     {
         tell_object(caster,"%^BOLD%^%^GREEN%^You call upon the weave, "+
             "drawing upon it as you murmur the words of a spell.%^RESET%^");
         tell_room(place,"%^BOLD%^%^GREEN%^"+caster->QCN+" whispers a "+
             "soft murmur to the winds.%^RESET%^",caster);
     }
-    if(member_array(spell_type,({"cleric","ranger","paladin"}))!=-1)
+    if(member_array(spell_type,({"cleric","ranger","paladin","inquisitor","oracle"}))!=-1)
     {
         tell_object(caster,"%^BOLD%^%^GREEN%^You call upon the power of "+
             ""+capitalize(caster->query_diety())+" to grant you a "+

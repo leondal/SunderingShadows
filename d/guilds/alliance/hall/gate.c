@@ -9,6 +9,8 @@ void create()
     ::create();
     set_indoors(1);
     set_light(2);
+    set_travel(PAVED_ROAD);
+    set_terrain(STONE_BUILDING);
     set_property("teleport proof", "/daemon/player_housing"->get_phouse_tp_proof("legendary"));
     set_property("no phase", 1);
     set_short("At the Drawbridge gate");

@@ -21,24 +21,26 @@ void create() {
    set_weight(0);
    set_value(0);
    set_property("no curse",1);
-   set_type("piercing");
+   set_type("divine");
+   set_prof_type("magic weapons");
+   set_weapon_prof("simple");
    set_damage_type("piercing");
    set_hit((:TO,"hit_fun":));
    set_property("able to cast",1);
 }
 
 void __ActuallyUnwield() {
-   ::__ActuallyUnwield();
-   if(objectp(claw)) { if((int)claw->query_wielded()) {
-     claw->__ActuallyUnwield();
-   }}
-   if(objectp(bracer)) {
-     if((int)bracer->query_status()) {
-       tell_room(EETO,"%^BLUE%^The shadowy claws shimmer and disappear.%^RESET%^");
-       bracer->do_reset();
-     }
-   }
-   TO->remove();
+    ::__ActuallyUnwield();
+    if(objectp(claw)) { if((int)claw->query_wielded()) {
+            claw->__ActuallyUnwield();
+        }}
+    if(objectp(bracer)) {
+        if((int)bracer->query_status()) {
+            tell_room(EETO,"%^BLUE%^The shadowy claws shimmer and disappear.%^RESET%^");
+            bracer->do_reset();
+        }
+    }
+    TO->remove();
 }
 
 void set_claw(object ob1) { claw = ob1; }
@@ -57,11 +59,10 @@ int hit_fun(object targ){
 "your flesh!%^RESET%^");
       tell_room(EETO,"%^BLUE%^"+ETO->QCN+"'s claws seem to become insubstancial as they pass right through "
 +targ->QCN+"'s flesh!%^RESET%^",({ETO,targ}));
-      dam = random(5)+6;
+      dam = roll_dice(1, 10);
       TO->set_property("magic",1);
-      targ->do_damage(targ->return_target_limb(),dam);
       TO->remove_property("magic");
-      return 1;
+      return dam;
    }
 
    if(!random(8)) {
@@ -71,12 +72,11 @@ int hit_fun(object targ){
 "you with them.%^RESET%^");
       tell_room(EETO,"%^BOLD%^%^BLACK%^The shadowy claws seem to glitter darkly as "+ETO->QCN+" slashes at "
 +targ->QCN+" with them.%^RESET%^",({ETO,targ}));
-      dam = random(5)+6;
+      dam = roll_dice(1, 10);
       TO->set_property("magic",1);
-      ETO->do_damage("torso",(-1)*dam);
-      targ->do_damage(targ->return_target_limb(),dam);
+      ETO->add_hp(dam);
       TO->remove_property("magic");
-      return 1;
+      return dam;
    }
 
    if(!random(10)) {
@@ -85,7 +85,7 @@ int hit_fun(object targ){
 "your claws!%^RESET%^");
       tell_room(EETO,"%^RED%^"+ETO->QCN+" moves with fluid grace, following up one vicious attack from "
 +ETO->QP+" claws with another!%^RESET%^","ETO");
-      return 1;
+      return 0;
    }
-   return 1;
+   return 0;
 }

@@ -79,7 +79,7 @@ int strike_func(int damage, object what, object targ)
     tell_object(ETO, "%^GREEN%^You hear a faint slithering in your ear, " +
                 "imparting you with fragments of knowledge.");
 
-    switch (random(10)) {
+    switch (random(2)) {
     case 0..1:
         new("/cmds/spells/a/_acid_breath")->use_spell(ETO, targ, ETO->query_base_character_level(), 100, "mage");
         break;
@@ -92,4 +92,5 @@ int strike_func(int damage, object what, object targ)
         new("/cmds/spells/a/_acid_arrow")->use_spell(ETO, targ, ETO->query_base_character_level(), 100, "mage");
         break;
     }
+    return damage;
 }

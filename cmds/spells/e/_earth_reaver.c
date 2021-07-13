@@ -9,11 +9,12 @@
 inherit SPELL;
 
 object sword;
+int iter=0;
 
 void create() {
     ::create();
     set_spell_name("earth reaver");
-    set_spell_level(([ "innate" : 5, "mage" : 5, "cleric" : 5, "oracle" : 5 ]));
+    set_spell_level(([ "innate" : 5, "mage" : 5, "cleric" : 5, "oracle" : 5, "druid" : 5 ]));
     set_spell_sphere("alteration");
     set_domains("earth");
     set_mystery("stone");
@@ -51,7 +52,7 @@ int preSpell()
 }
 
 void spell_effect(int prof){
-    int num,i,skinned,dam;
+    int num,skinned,dam;
 
     if(!objectp(caster))
     {
@@ -91,17 +92,24 @@ void spell_effect(int prof){
     }
 
     dam=sdamage;
+    if(iter) { //ongoing hits
+        define_base_damage(0);//lazy reroll
+        dam = sdamage / 4;
+    }
 
-    if(!do_save(target))
-        damage_targ(target,"torso",dam,"bludgeoning");
-    else damage_targ(target,"torso",dam/2,"bludgeoning");
-    spell_successful();
-    caster->set_property("earth reaver",1);
-    caster->set_property("spelled", ({TO}) );
+    if(!do_save(target)) damage_targ(target,"torso",dam,"bludgeoning");
+    else if(!evade_splash(target)) damage_targ(target,"torso",dam/2,"bludgeoning");
+    if(!iter){ //initial hit
+        spell_successful();
+        caster->set_property("earth reaver",1);
+        caster->set_property("spelled", ({TO}) );
+        addSpellToCaster();
+        spell_duration = (clevel / 4 + 1) * ROUND_LENGTH;
+        set_end_time();
+        call_out("dest_effect",spell_duration);
+    }
+    iter++;
     call_out("spell_effect",ROUND_LENGTH);
-    spell_duration = (clevel / 2 + 1) * ROUND_LENGTH;
-    set_end_time();
-    call_out("dest_effect",spell_duration);
 }
 
 void dest_effect(){

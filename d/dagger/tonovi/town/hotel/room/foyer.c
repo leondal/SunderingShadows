@@ -31,9 +31,9 @@ void create(){
         "%^RED%^e%^BOLD%^t %^RESET%^lines the center of the walkway over ruddy "+
         "%^ORANGE%^mahogany floors%^WHITE%^. To the side is a large and intricate front"+
         " desk, complete with a ledger and %^BOLD%^%^BLACK%^s%^RESET%^i%^BOLD%^lv"+
-        "%^RESET%^e%^BOLD%^%^BLACK%^r b%^WHITE%^e%^RESET%^l%^BOLD%^%^BLACK%^l%^RESET%^.");
-    set_smell("The air carries a mix of white tea and vanilla, with a hint of cedar.");
-    set_listen("You hear the gentle susurrus of patrons coming and going.");
+        "%^RESET%^e%^BOLD%^%^BLACK%^r b%^WHITE%^e%^RESET%^l%^BOLD%^%^BLACK%^l%^RESET%^.\n");
+    set_smell("default","The air carries a mix of white tea and vanilla, with a hint of cedar.");
+    set_listen("default","You hear the gentle susurrus of patrons coming and going.");
     set_items(([
         ({"wall", "walls"}) : "%^RESET%^%^CYAN%^Uneven %^BOLD%^%^BLACK%^stones "+
             "%^RESET%^%^CYAN%^of %^BOLD%^%^BLACK%^black %^RESET%^%^CYAN%^and %^WHITE%^"+

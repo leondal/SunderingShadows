@@ -1,4 +1,4 @@
-//jungle.c
+//jungle.c - d/islands/tonerra/mountain.c
 //updated to make sure there is a down exit to ankheg rooms - should not be trapped - Saide
 
 #include <std.h>
@@ -10,32 +10,48 @@ string what, dir;
 object room;
 int flag;
 
-string * features = ({
-        "%^CYAN%^The slope is unusually steep here.%^RESET%^",
-            "%^CYAN%^A couple of %^ORANGE%^bushes%^CYAN%^ grow here.%^RESET%^",
-            "%^CYAN%^The %^BOLD%^wind%^RESET%^%^CYAN%^ is pushing you to the mountain.%^RESET%^",
-            "%^ORANGE%^Some animals, perhaps goats, passed through here recently.%^RESET%^",
-            "%^CYAN%^A %^GREEN%^lone tree%^CYAN%^ grows here.%^RESET%^",
-            "%^CYAN%^A couple of %^ORANGE%^h%^BOLD%^%^BLACK%^awk%^RESET%^%^ORANGE%^s%^CYAN%^ cast shadows over you.%^RESET%^",
-            "%^CYAN%^A flat %^BOLD%^%^BLACK%^boulder%^RESET%^%^CYAN%^ forms a natural seat here.%^RESET%^",
-            "%^CYAN%^Some rocks slid through the path here, making it harder to pass.%^RESET%^",
-            "%^CYAN%^%^GREEN%^Toxic fumes%^CYAN%^ rise here through the ground.%^RESET%^",
-            "%^CYAN%^A %^WHITE%^geyser%^CYAN%^ forms a natural hot spring here.%^RESET%^",
-            "%^CYAN%^An abandoned campfire still %^BOLD%^%^BLACK%^gl%^RED%^i%^BLACK%^mmers%^RESET%^%^CYAN%^ here.%^RESET%^",
-            "%^CYAN%^Some people passed through here recently, their steps are seen in the gravel.%^RESET%^",
-            "%^CYAN%^There is %^RED%^blood%^CYAN%^ on the road.%^RESET%^",
-            "%^CYAN%^A weathered spear with a %^BOLD%^%^WHITE%^skull%^RESET%^%^CYAN%^ hanging on its shaft is stuck into ground here.%^RESET%^",
-            "%^CYAN%^Human %^BOLD%^%^WHITE%^bones%^RESET%^%^CYAN%^ lie on the side.%^RESET%^",
-            "%^CYAN%^An unusually big pile of %^ORANGE%^shit%^CYAN%^ almost blocks the road here. You see some %^BOLD%^%^WHITE%^bones%^RESET%^%^CYAN%^ in it.%^RESET%^",
-    });
+//string * features = ({
+//        "%^CYAN%^The slope is unusually steep here.%^RESET%^",
+//            "%^CYAN%^A couple of %^ORANGE%^bushes%^CYAN%^ grow here.%^RESET%^",
+//            "%^CYAN%^The %^BOLD%^wind%^RESET%^%^CYAN%^ is pushing you to the mountain.%^RESET%^",
+//            "%^ORANGE%^Some animals, perhaps goats, passed through here recently.%^RESET%^",
+//            "%^CYAN%^A %^GREEN%^lone tree%^CYAN%^ grows here.%^RESET%^",
+//            "%^CYAN%^A couple of %^ORANGE%^h%^BOLD%^%^BLACK%^awk%^RESET%^%^ORANGE%^s%^CYAN%^ cast shadows over you.%^RESET%^",
+//            "%^CYAN%^A flat %^BOLD%^%^BLACK%^boulder%^RESET%^%^CYAN%^ forms a natural seat here.%^RESET%^",
+//            "%^CYAN%^Some rocks slid through the path here, making it harder to pass.%^RESET%^",
+//            "%^CYAN%^%^GREEN%^Toxic fumes%^CYAN%^ rise here through the ground.%^RESET%^",
+//            "%^CYAN%^A %^WHITE%^geyser%^CYAN%^ forms a natural hot spring here.%^RESET%^",
+//            "%^CYAN%^An abandoned campfire still %^BOLD%^%^BLACK%^gl%^RED%^i%^BLACK%^mmers%^RESET%^%^CYAN%^ here.%^RESET%^",
+//            "%^CYAN%^Some people passed through here recently, their steps are seen in the gravel.%^RESET%^",
+//            "%^CYAN%^There is %^RED%^blood%^CYAN%^ on the road.%^RESET%^",
+//            "%^CYAN%^A weathered spear with a %^BOLD%^%^WHITE%^skull%^RESET%^%^CYAN%^ hanging on its shaft is stuck into ground here.%^RESET%^",
+//            "%^CYAN%^Human %^BOLD%^%^WHITE%^bones%^RESET%^%^CYAN%^ lie on the side.%^RESET%^",
+//            "%^CYAN%^An unusually big pile of %^ORANGE%^shit%^CYAN%^ almost blocks the road here. You see some %^BOLD%^%^WHITE%^bones%^RESET%^%^CYAN%^ in it.%^RESET%^",
+//    });
 
 void create(){
 	::create();
 	set_terrain(SCRUB_LANDS);
 	set_travel(FOOT_PATH);
     set_short("%^CYAN%^Side of the %^RED%^volcano%^RESET%^");
-    set_long("%^CYAN%^Side of the %^RED%^volcano%^RESET%^
-%^CYAN%^You are making your way up the side of a large volcano. The slope is steep, but there seems to be a well-worn path. You can see a large building about halfway up the side of the mountain."+make_fdesc());
+    set_long("%^CYAN%^Side of the %^RED%^Volcano%^RESET%^\n"+
+"%^BOLD%^%^BLACK%^You stand on a steep and rocky incline, far enough above the "+
+"trees that you can see the %^CYAN%^b%^RESET%^%^CYAN%^l%^GREEN%^u%^BOLD%^e "+
+"%^BLUE%^wa%^GREEN%^t%^RESET%^%^GREEN%^e%^CYAN%^r%^BOLD%^s %^BLACK%^of the sea "+
+"surrounding the island on all its sides. A path has been cut into the side of "+
+"the volcano, and has been travelled so often and for so long that it's practically "+
+"smooth, with the rocky terrain providing natural hand and foot holds when you need "+
+"them. Some courageous %^RESET%^%^GREEN%^s%^ORANGE%^hr%^GREEN%^ubb%^ORANGE%^er%^GREEN%^y "+
+"%^BOLD%^%^BLACK%^has managed to poke through the volcanic stones here and there, "+
+"but the ground is, for the most part, free of vegetation. Your senses are well "+
+"attuned to the fact that somewhere beneath your feet roils "+
+"%^RED%^f%^RESET%^%^RED%^i%^BOLD%^e%^RESET%^%^RED%^r%^BOLD%^y %^BLACK%^and "+
+"%^RED%^f%^RESET%^%^RED%^a%^BOLD%^t%^RESET%^%^RED%^a%^BOLD%^l %^BLACK%^lava. "+
+"You just hope this volcano remains %^RESET%^dormant %^BOLD%^%^BLACK%^during "+
+"your visit.%^RESET%^\n");
+
+    set_smell("default", "A lingering scent of ash mixes with the scent of the sea.");
+    set_listen("default", "The wind blows through the trees from the jungle below.");
 }
 
 void reset(){
@@ -227,22 +243,22 @@ string query_long(string str){
 	return hold;
 }
 
-string make_fdesc()
-{
-    int *featurearr;
-    int i;
-    string fdesc;
-    fdesc = "";
-    featurearr = distinct_array(
-        map_array(
-            explode(
-                crypt(file_name(TO),
-                      "$1$")[4..6],
-                ""),
-            (:atoi(sprintf("%d",$1[0]))%$2:),
-            sizeof(features)));
-    for (i=0; i<sizeof(featurearr); ++i)
-        fdesc+=" "+features[featurearr[i]];
-    return fdesc;
-
-}
+//string make_fdesc()
+//{
+//    int *featurearr;
+//    int i;
+//    string fdesc;
+//    fdesc = "";
+//    featurearr = distinct_array(
+//        map_array(
+//            explode(
+//                crypt(file_name(TO),
+//                      "$1$")[4..6],
+//                ""),
+//            (:atoi(sprintf("%d",$1[0]))%$2:),
+//            sizeof(features)));
+//    for (i=0; i<sizeof(featurearr); ++i)
+//        fdesc+=" "+features[featurearr[i]];
+//    return fdesc;
+//
+//}

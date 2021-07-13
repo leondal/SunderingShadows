@@ -185,7 +185,7 @@ spell_effect(int prof)
     spell_successful();
 
     damage_targ(target, target_limb, sdamage , damtype );
-    if (objectp(target) && !checkMagicResistance(target) )
+    if (objectp(target))
     {
         stat_change(target,"strength",-1);
         target->set_property("spelled", ({TO}) );

@@ -10,7 +10,7 @@ void create()
     feat_category("Cypher");
     feat_name("enhance scroll");
     feat_prereq("Cypher L1");
-    feat_desc("With this knowledge a cypher uses her base class caster levels as a basis for scroll caster levels.");
+    feat_desc("With this knowledge a cypher uses her base class caster levels as a basis for scroll caster levels. This feat also allows the cypher to use scrolls from any class.");
     permanent(1);
     allow_blind(1);
 }

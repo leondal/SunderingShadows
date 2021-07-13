@@ -27,8 +27,8 @@ void create(){
         "worn from use but %^BOLD%^%^BLACK%^pol%^RESET%^ish%^BOLD%^ed %^RESET%^and well-"+
         "maintained, connected to the staircase by intricate %^BOLD%^%^BLACK%^ironwork "+
         "spindles%^RESET%^.");
-    set_smell("The air carries a mix of white tea and vanilla, with a hint of cedar.");
-    set_listen("You hear the gentle susurrus of patrons coming and going.");
+    set_smell("default","The air carries a mix of white tea and vanilla, with a hint of cedar.");
+    set_listen("default","You hear the gentle susurrus of patrons coming and going.");
     set_items(([
         ({"wall", "walls"}) : "%^RESET%^%^CYAN%^Uneven %^BOLD%^%^BLACK%^stones "+
             "%^RESET%^%^CYAN%^of %^BOLD%^%^BLACK%^black %^RESET%^%^CYAN%^and %^WHITE%^"+

@@ -19,30 +19,35 @@ void create(){
     ::create();
     set_author("circe");
     set_spell_name("inner eye");
-    set_spell_level(([ "cleric" : 8 ]));
-    set_spell_sphere("divination");
+    set_spell_level(([ "psion" : 7 ]));
+    set_spell_sphere("clairsentience");
+    set_discipline("seer");
     set_syntax("cast CLASS inner eye on TARGET");
-    set_description("Upon casting this spell, the priest focuses his inner eye and commands it to watch a particular "
-"place for him.  Without an argument, the eye will watch the room the priest is currently in.  When targeted upon a "
-"person known to the priest, the eye will instead focus on that person.");
+    set_description("Upon manifesting this power, the psion focuses his inner eye and commands it to watch a particular " +
+"place for him.  Without an argument, the eye will watch the room the psion is currently in.  When targeted upon a " +
+"person known to the psion, the eye will instead focus on that person.");
     set_verbal_comp();
     set_somatic_comp();
     set_arg_needed();
 }
 
 int preSpell(){
-   if(caster->query_property("remote scrying")){
-      tell_object(caster,"You have already focused your "+
-         "sight elsewhere!");
-      return 0;
-   }
-   if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
-   if((int)caster->query_property("remote scrying time")+DELAY > time()){
-      tell_object(caster,"You cannot invoke your inner eye "+
-         "again so soon.");
-      return 0;
-   }
-   return 1;
+    if(caster->query_property("remote scrying")){
+        tell_object(caster,"You have already focused your "+
+            "sight elsewhere!");
+        return 0;
+    }
+    if(avatarp(caster)) return 1; // let avatars use to follow players regardless of timer.
+    if((int)caster->query_property("remote scrying time")+DELAY > time()){
+        tell_object(caster,"You cannot manifest your inner eye "+
+            "again so soon.");
+        return 0;
+    }
+    if(caster->query("no pk")){
+        tell_object(caster,"%^YELLOW%^You are unable to scry while you have a %^MAGENTA%^NoPK %^YELLOW%^flag.%^RESET%^");
+        return 0;
+    }
+    return 1;
 }
 
 string query_cast_string(){
@@ -64,10 +69,7 @@ void spell_effect(int prof){
          tell_object(caster,"Something blocks your attempt!");
          return;
       }
-//new power stuff by ~Circe~ 6/20/08 to be in line with
-//other scry spells
-      bonus = caster->query_stats("wisdom");
-      bonus = bonus - 10;
+      bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
       power = clevel + bonus + random(6);
       if(blockobj = present("blockerx111", place)){
         if(power < blockobj->query_block_power()){
@@ -99,10 +101,7 @@ void spell_effect(int prof){
             tell_object(caster,"Something blocks your attempt!");
             return;
          }
-//new power stuff by ~Circe~ 6/20/08 to be in line with
-//other scry spells
-         bonus = caster->query_stats("wisdom");
-         bonus = bonus - 10;
+         bonus = calculate_bonus(caster->query_stats(get_casting_stat()));
          power = clevel + bonus + random(6);
          if(blockobj = present("blockerx111", environment(ob)) || blockobj = present("blockerx111",ob)){
             if(power < blockobj->query_block_power()){

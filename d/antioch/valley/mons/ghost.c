@@ -36,6 +36,7 @@ void create(){
 	set_attacks_num(2);
 	set_base_damage_type("slashing");
 	set_damage(1,8);
+    set_sight_bonus(2);
 	set_hit_funcs(([
 		"right hand":(:TO,"touch":),
 		"left hand":(:TO,"drain":)

@@ -16,7 +16,7 @@ void create() {
     set_long( (:TO, "long_desc" :) );
     msgs = ({"A thin beam of %^BOLD%^%^BLACK%^dark"
       +" en%^RESET%^%^BLUE%^e%^BOLD%^%^BLACK%^rgy %^RESET%^streams from the"
-      +" heart of the stone toward its target.", 
+      +" heart of the stone toward its target.",
 
       "The %^BLUE%^j%^BOLD%^%^BLACK%^e%^RESET%^%^BLUE%^tst%^RESET%^"
       +"o%^BLUE%^ne's %^BOLD%^%^RED%^bl%^RESET%^%^RED%^ood"
@@ -83,8 +83,6 @@ void create() {
 
 void init(){
   ::init();
-  add_action("release_energy", "release");
-
 }
 
 string long_desc(){
@@ -96,14 +94,14 @@ string long_desc(){
             +" pentagram %^BOLD%^CYAN%^gl%^RESET%^%^CYAN%^o%^BOLD%^CYAN%^ws"
             +" %^BOLD%^%^BLACK%^with an eerie %^RESET%^inner%^BOLD%^%^BLACK%^"
             +" l%^BOLD%^%^CYAN%^i%^BOLD%^%^BLACK%^ght.";
-  if (objectp(ETO) && TP == ETO && objectp(EETO)  
-       && (base_name(EETO)==ROOMS + "carved_gate" || base_name(EETO)==TEST + "carved_gate")         
+  if (objectp(ETO) && TP == ETO && objectp(EETO)
+       && (base_name(EETO)==JUNG_ROOM10 + "carved_gate" || base_name(EETO)==TEST + "carved_gate")
        && EETO->query_exit("down") == "/d/shadowgate/void"){
     desc += " %^RESET%^The %^BLUE%^jetstone%^RESET%^ vibrates and pulls"
       +" toward the gate. You have the feeling that you could%^BOLD%^"
       +" %^YELLOW%^release%^RESET%^ its energy against the gate.";
   }
-  if (objectp(ETO) && TP == ETO && objectp(EETO)  
+  if (objectp(ETO) && TP == ETO && objectp(EETO)
        && (base_name(EETO)==ROOMS + "cavern" || base_name(EETO)==TEST + "cavern")
        && EETO->query_seal_revealed()){
     desc += " %^RESET%^The %^BLUE%^jetstone%^RESET%^ vibrates and pulls"
@@ -113,4 +111,3 @@ string long_desc(){
 
   return desc;
 }
-

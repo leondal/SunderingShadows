@@ -1,3 +1,13 @@
+/*
+  saving_throw_d.c
+  
+  Rebuilt to solve the existing problems with saves.
+  Previous saves were very difficult to balance. This
+  effectively squishes the numbers down.
+  
+  -- Tlaloc --
+*/
+
 #include <std.h>
 #include <daemons.h>
 #include <dirs.h>
@@ -11,146 +21,140 @@ void create() { ::create(); }
 
 varargs void do_save(object ob, int dc, string type, raw_save)
 {
-    int *saves,num,save,roll1,i,level,statbonus,mod;
+    int *saves,num,save,roll1,i,level,statbonus,mod, *cls_save;
     string *classes,file;
     object rider;
-
-    switch (type) {
-    case "fortitude": case "fort":   num = 0; save_info["save_type"] = "fort"; break;
-    case "reflex": num = 1; save_info["save_type"] = "reflex"; break;
-    case "will":   num = 2; save_info["save_type"] = "will"; break;
-    }
-
-    classes = ob->query_classes();
+    
+    saves = ({ 0, 0, 0 });
     save = 0;
-    for (i = 0; i < sizeof(classes); i++) {
-        file = DIR_CLASSES + "/" + classes[i] + ".c";
-        if (!file_exists(file)) {
-            continue;
-        }
-
-        level = ob->query_class_level(classes[i]);
-        if (level > 20) {
-            level = 20;
-        }
-        saves = file->saving_throws(ob);
-        if (!sizeof(saves)) {
-            continue;
-        }
-
-        // starting saving throw from class template; if 1 it is a strong throw (2+ level/2), if 0 it is weak (level/3)
-        if (saves[num]) {
-            save += (2 + (level / 2));
-        } else {
-            save += (level / 3);
-        }
-
-        // step 2: get any extra points from levels past 20, if applicable
-        level = ob->query_class_level(classes[i]);
-
-        if (!userp(ob)) {
-            save += level / 2;
-        } else {
-            save += level > 20 ? ((level - 20) / 2) : 0;
-        }
-    }
-
-    if (ob->is_undead() && num == 2) {
-        save = (ob->query_level() / 2) + 2;
-    }
-
-    save_info["base_class_save"] = save;         // this is without any modifiers
-
-    switch (type) {
-    case "fort": case "fortitude":  statbonus = (int)ob->query_stats("constitution"); break;
-    case "reflex": statbonus = (int)ob->query_stats("dexterity");    break;
-    case "will":   statbonus = (int)ob->query_stats("wisdom");       break;
-    }
-
-    if (ob->is_undead())
-        if (type == "fort" ||
-            type == "fortitude") {
-            statbonus = ob->query_stats("charisma");
-        }
-
-    statbonus = (statbonus - 10)/2;
-    save_info["base_stat_bonus"] = statbonus;
-    save += statbonus;
-
+    mod = 0;
+    level = ob->query_level() / 5;
+    
+    classes = ob->query_classes();
+    
+    foreach(string cls in classes)
     {
-        switch (type) {
-        case "fort": case "fortitude":
-            mod = (int)ob->query_saving_bonus("fortitude");
-            if (ob->query_race() == "human" &&
-                ob->query("subrace") == "aesatri") {
+        file = DIR_CLASSES + "/" + cls + ".c";
+        
+        if(!load_object(file))
+            continue;
+        
+        cls_save = file->saving_throws(ob);
+        
+        if(!sizeof(cls_save))
+            continue;
+        
+        saves[0] = cls_save[0] > saves[0] ? cls_save[0] : saves[0];
+        saves[1] = cls_save[1] > saves[1] ? cls_save[1] : saves[1];
+        saves[2] = cls_save[2] > saves[2] ? cls_save[2] : saves[2];
+    }
+    
+    switch(type)
+    {
+        //FORTITUDE SAVES
+        case "fortitude": case "fort":
+            save_info["save_type"] = "fort";
+            if(ob->is_undead())
+                statbonus = BONUS_D->query_stat_bonus(ob, "charisma");
+            else
+                statbonus = BONUS_D->query_stat_bonus(ob, "constitution");
+            
+            if(FEATS_D->usable_feat(ob, "divine grace"))
+                statbonus += 5;
+            
+            mod += ob->query_saving_bonus("fortitude");
+            level += saves[0];
+        
+            if(ob->query("subrace") == "aesatri")
                 mod += 1;
-            }
-            break;
+        break;
+        
+        //REFLEX SAVES
         case "reflex":
-            mod = (int)ob->query_saving_bonus("reflex");
-            if (ob->query_race() == "human" &&
-                ob->query("subrace") == "senzokuan") {
-                mod += 1;
+            save_info["save_type"] = "reflex";
+            statbonus = BONUS_D->query_stat_bonus(ob, "dexterity");
+            
+            if(FEATS_D->usable_feat(ob, "divine grace"))
+                statbonus += 5;
+            
+            if(FEATS_D->usable_feat(ob, "danger sense"))
+            {
+                mod += (ob->query_class_level("barbarian") / 10 + 2);
+                mod += (ob->query_class_level("thief") / 10 + 2);
             }
-            break;
+            
+            mod += ob->query_saving_bonus("reflex");
+            level += saves[1];
+            
+            if(ob->query("subrace") == "senzokuan")
+                mod += 1;
+        break;
+        
+        //WILL SAVES
         case "will":
-            mod = (int)ob->query_saving_bonus("will");
-            if (ob->query_race() == "human" &&
-                ob->query("subrace") == "maalish") {
+            save_info["save_type"] = "will";
+            //These don't stack
+            if(ob->is_class("psion") || ob->is_class("psywarrior"))
+                statbonus = BONUS_D->query_stat_bonus(ob, "intelligence");
+            else if(FEATS_D->usable_feat(ob, "force of personality") && !FEATS_D->usable_feat(ob, "divine grace"))
+                statbonus = BONUS_D->query_stat_bonus(ob, "charisma");
+            else
+                statbonus = BONUS_D->query_stat_bonus(ob, "wisdom");
+            
+            //Undead will save is always high (as if they had the right stat)
+            if(ob->is_indead())
+                statbonus = 10;
+            
+            if(FEATS_D->usable_feat(ob, "divine grace"))
+                statbonus += 5;
+            
+            mod += ob->query_saving_bonus("will");
+            level += saves[2];
+        
+            if(ob->query("subrace") == "maalish")
                 mod += 1;
-            }
-            if(member_array("stars", ob->query_divine_domain()) >= 0)
-                mod += 2;
+            
+            //Paladin Auras
             if(LIVING_D->check_aura(ob, "courage") == 2)
                 mod += 2;
             if(LIVING_D->check_aura(ob, "resolve") == 2)
                 mod += 2;
-            break;
-        }
 
-        if (ob->query_race() == "halfling" &&
-            ob->query("subrace") == "lightfoot halfling") {
-            mod += 1;
-        }
-
-        if (ob->query_race() == "gnome" &&
-            (ob->query("subrace") == "deep gnome" || ob->query("subrace") == "svirfneblin")) {
-            mod += 0;                                                                                                                                                // svirfneblin +2 saves racial - changed in racial update
-        }
-        if (FEATS_D->usable_feat(ob, "resistance")) {
-            mod += 2;
-        }
-        if (FEATS_D->usable_feat(ob, "force of personality")) {
-            int sbonus = BONUS_D->query_stat_bonus(ob, "charisma");
-            mod += sbonus > 5 ? 5 : sbonus;
-        }
-        if (FEATS_D->usable_feat(ob, "shadow master") && objectp(ENV(ob)) && ENV(ob)->query_light() < 2) {
-            num += 2;
-        }
-        if(member_array("madness", ob->query_divine_domain()) >= 0)
-            num -= roll_dice(1, 4);
-
-        save_info["misc_modifiers"] = mod;
-        {
-            if (type == "will") {
-                if (ob->is_vampire()) {
-                    mod -= (20000 - (int)ob->query_bloodlust()) / 2000;
-                }
-            }
-        }
+            //Vampires
+            if (ob->is_vampire())
+                mod -= (20000 - (int)ob->query_bloodlust()) / 2000;
+        break;
     }
+    
+    save = level;
+
+    save_info["base_class_save"] = save;         // this is without any modifiers
+    save_info["base_stat_bonus"] = statbonus;
+    
+    save += statbonus;
+
+    //SAVE ROLL MODIFIERS
+    if (ob->query_race() == "halfling" && ob->query("subrace") == "lightfoot halfling")
+            mod += 1;
+        
+    if(FEATS_D->usable_feat(ob, "resistance"))
+        mod += 1;
+    
+    if(FEATS_D->usable_feat(ob, "increased resistance"))
+        mod += 1;
+    
+    if(FEATS_D->usable_feat(ob, "improved resistance"))
+        mod += 1;
+
+    if (FEATS_D->usable_feat(ob, "shadow master") && objectp(ENV(ob)) && ENV(ob)->query_light() < 2)
+        mod += 2;
+
+    save_info["misc_modifiers"] = mod;
 
     save += mod;
+
     if (raw_save) {
         return save;
-    }
-    //tell_object(find_player("saide"), "save now = "+save+", mod = "+mod);
-    if (!ob->query("new_class_type")) {    // this is just a throwback to average out mobs... we'll need something better longterm?
-        if (!save || !sizeof(classes)) {
-            save = 0;
-        }else {
-            save = save / sizeof(classes);
-        }
     }
 
     if (ob->is_animal()) {
@@ -165,11 +169,16 @@ varargs void do_save(object ob, int dc, string type, raw_save)
     save_info["dc"] = dc;
     save_info["final_saving_throw"] = save;
 
-    if (dc > 0) {
+    if (dc > 0)
         dc *= -1;
-    }
 
     roll1 = roll_dice(1, 20);
+    
+    //Chronicler gets advantage on saving throws
+    if(FEATS_D->usable_feat(ob, "live to tell the tale") ||
+       FEATS_D->usable_feat(ob, "spellcasting harrier") ||
+       (FEATS_D->usable_feat(ob, "perpetual foresight") && ob->query("available focus")))
+        roll1 = max( ({ roll1, roll_dice(1, 20) }) );
 
     //Touch of Law makes the roll 11
     if(ob->query_property("touch of law"))
@@ -193,17 +202,30 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         if(ob->query_class_level("cleric"))
         {
             //Fate domain has a chance to add 1d4 to save and try again
-            if(member_array("fate", ob->query_divine_domain()) && !random(5))
+            if(member_array("fate", ob->query_divine_domain()) >= 0)
             {
                 roll1 += roll_dice(1, 4);
                 if(roll1 + save + dc >= 0)
                 {
-                    tell_object(ob, "%^MAGENTA%^You feel the hand of fate change the outcome!%^RESET%^");
+                    tell_object(ob, "%^BOLD%^MAGENTA%^You feel the hand of fate change the outcome!%^RESET%^");
                     save_info["save_result"] = 1;
                 }
             }
         }
-    }       
+        //Barbarian with Eater of Magic can heal from a second save roll
+        if(ob->is_class("barbarian"))
+        {
+            if(FEATS_D->usable_feat(ob, "eater of magic"))
+            {
+                roll1 = roll_dice(1, 20);
+                if(roll1 + save + dc >= 0)
+                {
+                    tell_object(ob, "%^GREEN%^Your body seems to absorb the magic!%^RESET%^");
+                    ob->add_hp(roll_dice(level, 10));
+                }
+            }
+        }
+    }
 }
 
 int get_save(object who, string type)
@@ -303,7 +325,6 @@ int magic_save_throw_adjust(object targ, object caster)
             caster_bonus -= 1;
         }
     }
-
 
     if (arrayp(targ->query_property("protection_from_alignment"))) {
         if (member_array(caster->query_alignment(), targ->query_property("protection_from_alignment")) != -1) {

@@ -211,7 +211,7 @@ string* query_eye_colors(string who)
 }
 
 string *query_subraces(object who) {
-    return ({"fire", "water", "kuwa", "void"});
+    return ({"fire oni", "water oni", "kuwa oni", "void oni"});
 }
 
 string* query_languages(string subrace)

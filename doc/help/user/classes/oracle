@@ -22,6 +22,9 @@ Oracles are spontaneous casters that use the %^ORANGE%^<master>%^RESET%^ command
 
 Oracles get bonus spells from mysteries. To see the available mysteries use %^ORANGE%^<help mysteries>%^RESET%^.
 
+Oracles also receive the following cantrips (type 'recall cantrip spells'):
+Create Water, Detect Magic, Detect Poison, Guidance, Resistance, Light, Mending
+
 Oracles can cast in any armor, but they must take the appropriate feats first. They cannot cast while wielding a weapon.
 
 %^RESET%^%^CYAN%^See also: %^RESET%^ mysteries, feats, stats, skills, spells, cast, buff, prepare, domains, deities, prestige classes, new caster

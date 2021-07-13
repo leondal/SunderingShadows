@@ -3,7 +3,7 @@
 
 inherit FEAT;
 
-void create() 
+void create()
 {
     ::create();
     feat_type("permanent");
@@ -15,7 +15,7 @@ void create()
     set_required_for(({"metabolic perfection"}));
 }
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 int prerequisites(object ob)
 {

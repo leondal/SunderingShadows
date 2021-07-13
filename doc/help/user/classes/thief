@@ -8,9 +8,11 @@
 %^RESET%^%^CYAN%^Class Feats:%^RESET%^
  %^RESET%^L1: light armor proficiency, simple weapon proficiency, martial weapon proficiency, dodge
  %^RESET%^L4: combat reflexes
+ %^RESET%^L5: danger sense
  %^RESET%^L7: mobility
  %^RESET%^L10: tools of the trade
  %^RESET%^L11: evasion
+ %^RESET%^L13: use magic device
  %^RESET%^L14: scramble
  %^RESET%^L17: spring attack
  %^RESET%^Also: one bonus melee feat at L21, and every five class levels thereafter
@@ -23,5 +25,5 @@ A major part of a thief's roleplay is interaction with the thieves guilds across
 
 Thieves rely on learning melee feats to expand their options in combat.
 
-%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, stab, stealth, prestige classes, fence, spellcraft
+%^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, stab, stealth, prestige classes, fence, spellcraft, make
 

@@ -1,5 +1,5 @@
 //modified for multiclass by ~Circe~ 9/27/05 after observations
-//by testers that the extra attacks were too powerful for 
+//by testers that the extra attacks were too powerful for
 //multiclass psions
 //prescience
 //~Circe~ 7/25/05
@@ -13,12 +13,13 @@ inherit SPELL;
 int mybonus;
 
 
-void create() 
+void create()
 {
     ::create();
     set_spell_name("prescience");
     set_spell_level(([ "psion" : 7 ]));
-    set_spell_sphere("combat");
+    set_spell_sphere("clairsentience");
+    set_bonus_type("insight");
     set_syntax("cast CLASS prescience");
     set_description("This power will allow the psion foreknowledge, granting him additional prowess in battle.  The power "
         "gives the psion a bonus to hit and damage his opponents for a time, as well as a chance for an extra attack. "
@@ -33,7 +34,7 @@ void create()
 string query_cast_string() { return "%^RED%^"+caster->QCN+" closes "+caster->QP+" eyes and clinches "+caster->QP+" fists!"; }
 
 
-int preSpell() 
+int preSpell()
 {
     if (caster->query_property("prescienced"))
     {
@@ -56,15 +57,21 @@ void spell_effect(int prof)
     mybonus = clevel - BONUS_D->new_bab(caster->query_base_level(), caster);
 
     //Without improved, gets you to 3/4 BAB, otherwise full
-    if(!FEATS_D->usable_feat(caster,"improved prescience"))
+    if(!FEATS_D->usable_feat(caster,"improved prescience")) {
         mybonus /= 2;
-    
+        if(mybonus > 7)
+            mybonus = 7;
+    }
+
     if(mybonus < 2)
         mybonus = 2;
 
+    if(mybonus > 10)
+        mybonus = 10;
+
     target->add_attack_bonus(mybonus);
     target->add_damage_bonus(mybonus);
-    
+
     target->set_property("prescienced",1);
     target->set_property("spelled", ({TO}) );
     addSpellToCaster();
@@ -73,23 +80,23 @@ void spell_effect(int prof)
 }
 
 
-void do_extra() 
+void do_extra()
 {
     int i,extra,chance;
-    
+
     if(!objectp(target))
     {
         dest_effect();
         return;
     }
-    
+
     if(sizeof(target->query_attackers()))
     {
         extra = mybonus / 3;
         if(!extra) { extra = 1; }
-        
+
         chance = mybonus * 6;
-        
+
         for(i=0;i<extra;i++)
         {
             if(chance > roll_dice(1,100) && !target->query_paralyzed())
@@ -100,14 +107,14 @@ void do_extra()
             }
         }
     }
-    
+
     call_out("do_extra",ROUND_LENGTH);
 }
 
 
-void dest_effect() 
+void dest_effect()
 {
-    if(objectp(target)) 
+    if(objectp(target))
     {
         tell_object(target,"%^RED%^The equations jumble together and "+
             "fade away.");
@@ -119,8 +126,7 @@ void dest_effect()
         target->remove_property_value("spelled", ({TO}) );
         remove_call_out("do_extra");
     }
-    
+
     ::dest_effect();
     if(objectp(TO)) TO->remove();
 }
-

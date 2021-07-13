@@ -87,7 +87,9 @@ int change_outof_message(object obj)
 
 int can_cast()
 {
-    return 0;
+    if(!objectp(query_owner())) { return 0; }
+    if(FEATS_D->usable_feat(query_owner(),"wild spellcraft")) { return 1; }
+    return can_cast_spells;
 }
 
 // custom unarmed attack functions go here, functions can be added just like hit functions for weapons

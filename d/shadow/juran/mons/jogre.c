@@ -214,7 +214,7 @@ void race_ck(object targ){
 		}
 	}
 	if(mrace == "goblin" || mrace == "orc" || mrace == "kobold" || mrace == "yuan-ti" ||
-		mrace == "half-orc" || mrace == "half-drow" ||
+		mrace == "half-orc" || mrace == "half-drow" || mrace == "troll" ||
 		mrace == "hobgoblin" || mrace == "human" || mrace == "half-ogre" ||
 		(mrace == "dwarf" && srace == "gray dwarf")){
 		if(targ->query_unconscious()){

@@ -46,6 +46,12 @@ void spell_effect(int prof)
     string arg, where, placename, mygod;
     int mypower, startpower, endpower, bonus;
 
+    if(!ARG || !strlen(ARG))
+    {
+        tell_object(caster, "Invalid destination argument.");
+        return;
+    }
+    
     arg = lower_case(ARG);
     tell_object(CASTER, "You reach your hands out and wave them in strange motions.");
     tell_room(PLACE, YOU + " reaches out and waves " + MINE + " arms in strange motions.", ({ CASTER }));
@@ -130,7 +136,7 @@ void spell_effect(int prof)
         where = "/d/islands/elf/church";
     placename = "ice";
     break;
-    default:
+    case "temple":
         mygod = (string)CASTER->query_diety();
         if (member_array(mygod, ACTIVETEMPLES) != -1) {
             placename = "the Temple of " + capitalize(mygod);
@@ -142,6 +148,10 @@ void spell_effect(int prof)
             placename = "Shadow";
             break;
         }
+    default:
+        where = "/d/darkwood/room/road18";
+        placename = "Shadow";
+        break;
     }
 
     if (!objectp(find_object_or_load(where))) {

@@ -11,13 +11,14 @@ int duration;
 void create() {
     ::create();
     set_spell_name("foresight");
-    set_spell_level(([ "mage" : 7, "bard" : 4,"oracle":7, "cleric":9, "psion" : 9, "magus" : 6 ]));
+    set_spell_level(([ "mage" : 7,"oracle":7, "cleric":9, "magus" : 6 ]));
     set_domains("knowledge");
     set_spell_sphere("divination");
     set_discipline("seer");
     set_mystery("battle");
+    set_bonus_type("insight");
     set_syntax("cast CLASS foresight [on TARGET]");
-    set_damage_desc("clvel/16 to armor bonus, clevel/12 to reflex save, death ward feat");
+    set_damage_desc("+2 to armor bonus, +2 to reflex save, death ward feat");
     set_description("The caster uses this spell to heighten their awareness for a time, allowing them to perceive fragments of their immediate future. This allows them to react pre-emptively to many threats, defending better against attacks that they can see coming before they actually land, and they may even be able avoid the death itself.");
     set_verbal_comp();
     set_somatic_comp();
@@ -25,7 +26,6 @@ void create() {
     set_components(([
                         "mage" : ([ "pearl" : 2, ]),
                         ]));
-    set_feats_required(([ "bard" : "timeweaver" ]));
     set_property("keywords", ({ "defensive", "personal", "targeted"}));
     set_helpful_spell(1);
 }
@@ -33,11 +33,13 @@ void create() {
 int preSpell()
 {
     if (!target) target = caster;
+    /*
     if(target->query_property("foresighted"))
     {
         tell_object(caster,"%^BOLD%^%^BLACK%^You feel your spell repelled...");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -45,8 +47,10 @@ void spell_effect(int prof)
 {
 
     duration = (clevel + roll_dice(1, 20)) * ROUND_LENGTH * 7;
-    abonus = 1 + (clevel / 16);
-    rbonus = 1 + (clevel / 12);
+    abonus = 2;
+    //abonus = 1 + (clevel / 16);
+    rbonus = 2;
+    //rbonus = 1 + (clevel / 12);
 
     if (!target)
         target = caster;
@@ -84,7 +88,7 @@ void spell_effect(int prof)
         target->add_temporary_feat("death ward");
         nodeathflag = 1;
     }
-    target->set_property("foresighted",1);
+    //target->set_property("foresighted",1);
     addSpellToCaster();
     call_out("test", 10);
     spell_duration = duration;
@@ -122,7 +126,7 @@ void dest_effect()
             target->remove_temporary_feat("death ward");
         target->remove_property_value("spelled", ({TO}) );
         tell_object(target, "%^CYAN%^The future no longer is present in your mind.");
-        target->remove_property("foresighted");
+        //target->remove_property("foresighted");
     }
 
     ::dest_effect();

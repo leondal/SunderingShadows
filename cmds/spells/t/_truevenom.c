@@ -14,7 +14,7 @@ void create() {
     ::create();
     set_spell_name("truevenom");
     set_spell_level(([ "psywarrior" : 4 ]));
-    set_spell_sphere("combat");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS truevenom on <weapon>");
     set_description("Upon using this power, the psionic character manifests "
        "a powerful poison to coat his weapon. A target struck by the poisoned "

@@ -234,23 +234,40 @@ varargs void look_msg(object ob, string str, object obj)
 
     if( ob != this_player() )
     {
-        if(objectp(obj))
+        if(objectp(ob))
         {
+            if(living(obj))
+            {
+                if(ob->query_obvious_short()==0)
+                {
+                    tell_room(ETP,TPQCN+" looks at "+obj->QCN+"'s "+str+".",({obj,TP}));
+                    tell_object(obj,TP->QCN+" looks over your "+str+".");
+                    tell_object(TP,"You look over "+obj->QCN+"'s "+str+"");
+                }
+                else
+                {
+                    tell_room(ETP,TPQCN+" looks at "+obj->QCN+"'s "+ob->query_obvious_short()+".",({obj,TP}));
+                    tell_object(obj,TP->QCN+" looks over your "+ob->query_obvious_short()+".");
+                    tell_object(TP,"You look over "+obj->QCN+"'s "+str+"");
+                }
+                return;
+            }
+
             if(living(ob))
             {
-                tell_room(ETP,TPQCN+" looks at "+ob->QCN+"'s "+str+"",({ob,TP}));
-                tell_object(ob,TP->QCN+" looks over your "+str+"");
-                tell_object(TP,"You look over "+ob->QCN+"'s "+str+"");
+                tell_room(ETP,TPQCN+" looks over "+ob->query_cap_name()+ ".", ({ob,TP}));
+                tell_object(ob, this_player()->query_cap_name() + " looks you over.");
+                return;
             }
-            return;
+            if(ob->query_obvious_short()==0)
+            {
+                tell_room(ETP,""+TPQCN+" looks over the "+ str +".",TP);
+            }
+            else
+            {
+                tell_room(ETP,""+TPQCN+" looks over "+ ob->query_obvious_short() +".",TP);
+            }
         }
-        if(living(ob))
-        {
-            tell_room(ETP,TPQCN+" looks over "+ob->query_cap_name()+ ".", ({ob,TP}));
-            tell_object(ob, this_player()->query_cap_name() + " looks you over.");
-        }
-        else
-        tell_room(ETP,TPQCN+" looks over the "+str+".",TP);
     }
 }
 

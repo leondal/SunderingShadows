@@ -82,8 +82,9 @@ int struck_fun(int damage,object what,object who){
 "shards of %^WHITE%^r%^RESET%^a%^BOLD%^%^BLACK%^z%^RESET%^o%^BOLD%^%^WHITE%^r-s%^RESET%^h%^BOLD%^%^BLACK%^a%^RESET%^r"
 "%^BOLD%^%^WHITE%^p %^BLACK%^metal shear painfully into your flesh!%^RESET%^");
      who->do_damage("left arm",random(15)+35);
-     return (-1)*damage;
+     return 0;
    }
+   return damage;
 }
 
 void set_mydesc(int worn) {

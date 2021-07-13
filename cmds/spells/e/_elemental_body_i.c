@@ -19,10 +19,12 @@ string query_element()
 
 void effect(int direction)
 {
+    /*
     if(direction>0)
         caster->set_property("augmentation");
     else
         caster->remove_property("augmentation");
+    */
 
     switch(query_element())
     {
@@ -59,15 +61,14 @@ void create()
     set_spell_level(([ "mage" : 4, "oracle" : 4 ]));
     set_mystery("elemental");
     set_spell_sphere("alteration");
+    set_bonus_type(({ "size", "natural armor" }));
     set_syntax("cast CLASS "+query_spell_name()+" on fire|air|earth|water");
     set_description("When you cast this spell, you infuse yourself with the power of the element. Infusions give the next effects as follows:
 
   fire:  +2 dexterity,     +2 armor class
   air:   +2 dexterity,     +2 armor class
   earth: +2 strength,      +4 armor class
-  water: +2 constitution,  +4 armor class
-
-This spell won't work together with other augmenting spells such as fox's cunning.");
+  water: +2 constitution,  +4 armor class");
     set_verbal_comp();
     set_somatic_comp();
     set_arg_needed();
@@ -86,10 +87,12 @@ int preSpell()
         tell_object(caster, "Invalid form, valid forms are: " + implode(valid_forms(), ", "));
         return 0;
     }
+    /*
     if (caster->query_property("augmentation")) {
         tell_object(caster, "%^YELLOW%^You are already under the influence of a similar spell.");
         return 0;
     }
+    */
     if(spell_type == "innate" && FEATS_D->usable_feat(caster,"command the stone") && arg != "earth") {
         tell_object(caster,"You can only take on the form of an EARTH elemental!");
         return 0;
@@ -114,10 +117,11 @@ void spell_effect(int prof)
     shape = caster->query_property("shapeshifted");
     shape->set_clevel(clevel);
     caster->set_property("spelled", ({ TO }));
-    caster->set_property("augmentation", 1);
+    //caster->set_property("augmentation", 1);
 
     effect(1);
     addSpellToCaster();
+    spell_successful();
 }
 
 void dest_effect()
@@ -129,7 +133,7 @@ void dest_effect()
         }
         tell_object(caster, "You feel loss and weakness as your body looses infusion of " + elementmap[element] + ".");
         effect(-1);
-        caster->remove_property("augmentation");
+        //caster->remove_property("augmentation");
     }
     ::dest_effect();
     if (objectp(TO)) {

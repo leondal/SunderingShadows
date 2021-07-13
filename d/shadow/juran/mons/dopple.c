@@ -162,7 +162,7 @@ void race_ck(object targ){
 			return;
 	}else if(mrace == "kobold" || mrace == "goblin"|| mrace == "orc" || mrace == "yuan-ti" ||
 		mrace == "hobgoblin" || mrace == "ogre" || mrace == "bugbear" || mrace == "minotaur" ||
-		mrace == "gnoll" || mrace == "ogre-mage" || mrace == "half-ogre" ||
+		mrace == "gnoll" || mrace == "ogre-mage" || mrace == "half-ogre" || mrace == "troll" ||
 		mrace == "firbolg" || mrace == "wemic" || mrace == "human" || mrace == "half-drow" ||
 		mrace == "half-orc" || (mrace == "dwarf" && srace == "gray dwarf")){
 		if(targ->query_unconscious()){

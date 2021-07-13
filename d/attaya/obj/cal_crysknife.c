@@ -64,7 +64,7 @@ void create(){
       "pulse in the hands of a foreigner, they shall assume the worst, "+
       "and the foreigner will most likely become but the sand they walk upon.");
    set_property("lore difficulty",25);
-   set_property("enchantment",4);
+   set_property("enchantment",5);
    set_wield((:TO,"wieldme":));
    set_unwield((:TO,"unwieldme":));
    set_hit((:TO,"hitme":));
@@ -197,7 +197,7 @@ int hitme(object targ){
                       }
                       break;
       }
-      return random(3)+2;
+      return 0;
    }
-   return random(3)+2;
+   return 0;
 }

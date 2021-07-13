@@ -91,7 +91,7 @@ void execute_feat()
         in_shapeshift = 0;
     }
     if (!in_shapeshift) {
-        if (!caster->validate_combat_stance("two hander")) {
+        if (!caster->validate_combat_stance("two hander") || !sizeof(weapons)) {
             tell_object(caster, "You need to be wielding a two handed weapon to use this feat.");
             dest_effect();
             return;
@@ -263,13 +263,11 @@ void execute_attack()
         dest_effect();
         return;
     }
+    
+    mult = 6;
+    
     if (FEATS_D->usable_feat(caster, "the reaping")) {
-        reaping = 1;
-    }
-
-    mult = 8; // this was 4, which was average damage of about 60 hitpoints at level 50, average of about 24 damage at level 20...
-    if (reaping) {
-        mult = 16;
+        mult = 10;
     }
 
 // picking up 12 as a benchmark for druid shift, two-hand sword equiv
@@ -278,15 +276,13 @@ void execute_attack()
     }else {
         dam = 12;
     }
-    dam = ((clevel - 1) / 10 + 1) * (dam / 2); //let it scale properly in 10-level blocks. -N, 9/10
-    if (sizeof(weapons)) {
-        dam += roll_dice(mult, dam) + weapons[0]->query_wc();
-    }else {
-        dam += roll_dice(mult, dam) + 12;
-    }
-    dam += "/daemon/bonus_d"->damage_bonus(caster->query_stats("strength"));
-    dam += (int)caster->query_damage_bonus();
-    mod = dam * -1;
+
+    mod = BONUS_D->query_stat_bonus(caster, "strength");
+    
+
+    //dam = ((clevel - 1) / 10 + 1) * (dam / 2); //let it scale properly in 10-level blocks. -N, 9/10
+    dam += clevel;
+    dam = roll_dice(dam, mult) + mod + caster->query_damage_bonus();
 
     if (!in_shapeshift) {
         theweapon = weapons[0]->query_short();

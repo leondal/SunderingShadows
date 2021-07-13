@@ -103,7 +103,11 @@ void init()
 
 void heart_beat(){
   ::heart_beat();
-  if (objectp(ETO) && present("player", ETO)){
+  
+  if(!objectp(this_object()) || !environment(this_object()))
+      return;
+  
+  if(present("player", ETO)){
     heartcount = 0;
   }
 }

@@ -60,4 +60,5 @@ int struck_fun(int damage,object what,object who){
 +ETO->QS+" launches another attack at you!%^RESET%^");
      ETO->execute_attack();
    }
+   return damage;
 }

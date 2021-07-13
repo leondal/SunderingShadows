@@ -148,12 +148,12 @@ int step_4(string str)
     if(!str) flag = 1;
     else if(stringp(str))
     {
-        if(strsrch(str, myName +" is going to see the world!") == -1) flag = 1;
+        if(strsrch(str, myName +" is going to see the world") == -1) flag = 1;
     }
     if(flag)
     {
         tell_object(TP,"\n%^RESET%^%^MAGENTA%^The man shakes his head before speaking:%^RESET%^ No, not that's not quite "+
-        "it. Just type %^YELLOW%^<say me is going to see the world!>%^RESET%^ when you are "+
+        "it. Just type %^YELLOW%^<say mynickname is going to see the world!>%^RESET%^ when you are "+
         "ready to continue. I want you to see the functionality of nicknames in action!%^RESET%^");
         return 1;
     }
@@ -161,7 +161,7 @@ int step_4(string str)
     TP->force_me("say "+str);
     tell_object(TP, "\n\n%^RESET%^%^MAGENTA%^The man cheers loudly before speaking again:%^RESET%^ That is very good! "+
     "And yes you will! This is a perfect example of the functional power of nicknames. Remember them and use them "+
-    "wisely as you explore the world of SSundering Shadows and make a name for yourself. See <help nickname> for how to "
+    "wisely as you explore the world of Sundering Shadows and make a name for yourself. See <help nickname> for how to "
     "adjust your nicknames and even delete them.\n\n%^RESET%^%^MAGENTA%^The man "+
     "continues speaking, quieter now and more serious:%^RESET%^ The world of Sundering Shadows is very large, and "+
     "there are many things that would see you dead. Sometimes they will succeed. You must not lose heart, though, "+

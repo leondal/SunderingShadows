@@ -26,7 +26,7 @@ void create()
     feat_type("insant");
     feat_name("smite");
     feat_category("Presence");
-    feat_syntax("smite");
+    feat_syntax("smite [TARGET]");
     feat_prereq("Paladin L1");
     feat_classes("paladin");
     feat_desc("With this feat, the paladin calls out to the powers of her beliefs to aid her in battle against those who oppose those beliefs. This results in an initial burst of divine damage against her primary attacker. If that enemy is of an opposed alignment, the damage is increased and the enemy becomes vulnerable to the paladin's attacks. For a few rounds, the paladin's attacks do additional damage based on her charisma modifier. Smite costs one Divine Grace point to use.");
@@ -101,7 +101,9 @@ void execute_attack()
     caster->remove_property("using instant feat");
     ::execute_attack();
     
-    target = caster->query_current_attacker();
+    if(!target)
+        target = caster->query_current_attacker();
+    
     if(!target)
         return;
     
@@ -110,7 +112,7 @@ void execute_attack()
     
     glvl = caster->query_guild_level("paladin");
     mod = BONUS_D->query_stat_bonus(caster, "charisma");
-    dam = 5 + glvl + mod;
+    dam = 5 + roll_dice(glvl / 2, 8) + mod;
     opposed = LIVING_D->opposed_alignment(caster, target);
     
     //Does double damage against opposed, triple damage against polar opposite

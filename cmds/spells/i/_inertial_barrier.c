@@ -8,7 +8,7 @@ void create() {
     ::create();
     set_spell_name("inertial barrier");
     set_spell_level(([ "psywarrior" : 4, "psion" : 4 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS inertial barrier");
     set_description("Using this power, the psionic character bolsters "
        "his physical defenses, gaining some resistance to "

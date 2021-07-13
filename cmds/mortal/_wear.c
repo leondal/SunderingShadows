@@ -245,7 +245,7 @@ This command will attempt to equip the given item_name.
 
 %^CYAN%^SEE ALSO%^RESET%^
 
-wearall, remove, wield, unwield, limbs, inv, eq, look
+wearall, remove, wield, unwield, limbs, inv, eq, look, limbs 
 
 ");
 }

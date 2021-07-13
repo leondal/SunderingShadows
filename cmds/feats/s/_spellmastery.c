@@ -45,7 +45,7 @@ void create() {
 
 %^BOLD%^N.B.%^RESET%^ Spellmastery is not connected to <master> in any way. It just allows you to cast the spell without memorization. You still have to know the spell to cast it, have it in your spellbook, mastered or in your spell list.
 
-%^BOLD%^N.B.%^RESET%^ Psions, Monks and Warlocks spells are not affected by this feat.");
+%^BOLD%^N.B.%^RESET%^ Psions, Psywarriors, Monks and Warlocks are not affected by this feat.");
 
     permanent(1);
     allow_tripped(1);

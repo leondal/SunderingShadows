@@ -14,6 +14,7 @@ void create() {
     set_spell_name("bless");
     set_spell_level(([ "cleric" : 1,"inquisitor" : 1, "paladin" : 1 ]));
     set_spell_sphere("alteration");
+    set_bonus_type("morale");
     set_syntax("cast CLASS bless on TARGET");
     set_damage_desc("clevel / 24 + 1 to damage and attack bonus, but no more than 2");
     set_description("This spell will bless the target, giving them a slightly better chance to hit in combat as well as "
@@ -28,10 +29,12 @@ int preSpell()
 {
 //    if(!ALIGN_D->is_good(caster)) {
     if(!target) { target = caster; }
+    /*
     if(target->query_property("blessed")) {
         tell_object(caster,"%^BOLD%^%^RED%^Your target is already enjoying the blessings of a deity!%^RESET%^");
         return 0;
     }
+    */
     return 1;
 }
 
@@ -80,7 +83,7 @@ void spell_effect(int prof) {
     target->add_damage_bonus(bonus);
     target->add_attack_bonus(bonus);
     target->set_property("spelled",({TO}));
-    target->set_property("blessed",1);
+    //target->set_property("blessed",1);
     spell_duration = duration;
     set_end_time();
     call_out("dest_effect",spell_duration);
@@ -97,7 +100,7 @@ void dest_effect() {
       else tell_object(target,"%^ORANGE%^You can feel the blessing you have been granted fade away.");
       target->add_damage_bonus(-1*bonus);
       target->add_attack_bonus(-1*bonus);
-      target->remove_property("blessed");
+      //target->remove_property("blessed");
     }
     ::dest_effect();
     if(objectp(TO)) TO->remove();

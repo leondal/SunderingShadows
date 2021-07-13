@@ -9,6 +9,8 @@ string entry_method;
 
 void create(){
   ::create();
+  set_property("indoors", 1);
+  set_property("light", 2);
   DESTINATIONS_D->add_waystation( file_name(TO), file_name(TO), 1);
   DESTINATIONS_D->add_waystation( file_name(TO), TABAXROOM + "northeast_corner", 2);
   DESTINATIONS_D->add_waystation( file_name(TO), TABAXROOM + "northwest_corner", 2);

@@ -5,14 +5,14 @@ void create()
 {
    ::create();
    set_name("writing quill");
-   set_short("A fantastic quill");
+   set_short("%^BOLD%^%^RED%^A%^RESET%^%^RED%^n %^BOLD%^e%^ORANGE%^x%^RED%^q%^RESET%^%^RED%^u%^BOLD%^isi%^ORANGE%^t%^RED%^e f%^RESET%^%^RED%^i%^BOLD%^e%^ORANGE%^r%^RED%^y-fe%^ORANGE%^a%^RED%^t%^RESET%^%^RED%^h%^BOLD%^er%^ORANGE%^e%^RED%^d wr%^RESET%^%^RED%^i%^BOLD%^ti%^ORANGE%^n%^RED%^g qu%^RESET%^%^RED%^i%^YELLOW%^l%^RED%^l%^RESET%^");
    set_id(({"quill","pen","feather"}));
    set_long(
       "%^BOLD%^%^RED%^This unusual quill has been formed from a "+
-      "fiery red feather that is soft to the touch.  The feather "+
+      "fiery red feather that is soft to the touch. The feather "+
       "changes color from deep red near the sharpened tip through "+
       "various shades of orange to a %^YELLOW%^bright yellow %^RED%^at "+
-      "the end.  It would probably make a wonderful writing tool, and "+
+      "the end. It would probably make a wonderful writing tool, and "+
       "you feel a strange form of energy that seems to make the quill "+
       "want to spin in your fingers.%^RESET%^"
    );

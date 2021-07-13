@@ -16,7 +16,7 @@ void create()
     set_spell_name("recall agony");
     set_spell_level(([ "psion" : 2 ]));
     set_damage_desc("mental");
-    set_spell_sphere("alteration");
+    set_spell_sphere("clairsentience");
     set_save("will");
     set_syntax("cast CLASS recall agony on TARGET");
     set_description("The fabric of time parts to your will, revealing wounds your foe has received in the past (or has yet to receive). That foe takes damage as the past (or future) impinges briefly on the present.");

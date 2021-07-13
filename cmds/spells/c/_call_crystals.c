@@ -11,7 +11,7 @@ void create() {
     ::create();
     set_spell_name("call crystals");
     set_spell_level(([ "psion" : 3 ]));
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("metacreativity");
     set_syntax("cast CLASS call crystals");
     set_description("This power will summon a certain number of crystals based on the shaper's skill.  The crystals are "
 "animated matter from the Astral Plane, drawn here by the shaper's abilities.  The crystals are non-intelligent beings "

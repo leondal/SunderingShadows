@@ -11,7 +11,7 @@ void create()
     feat_category("WeaponAndShield");
     feat_name("improved shieldbash");
     feat_prereq("Shieldbash");
-    feat_desc("With this feat you are able avoid being staggered on the missed shieldbash.");
+    feat_desc("With this feat you are able avoid being staggered on the missed shieldbash. Your shieldbash also gets a +2 modifier to its attack roll, and +2 damage dice.");
     permanent(1);
 }
 

@@ -37,6 +37,11 @@ string *class_feats(string myspec)
               "spell focus" });
 }
 
+mapping query_cantrip_spells(object ob)
+{
+    return ([ "acid splash" : 1, "detect magic" : 1, "daze" : 1, "dancing lights" : 1, "disrupt undead" : 1, "resistance" : 1, "ray of frost" : 1 ]);
+}
+
 mapping class_featmap(string myspec) {
     return ([ 1 : ({ "simple weapon proficiency", "spell focus", }) ]);
 }

@@ -61,11 +61,10 @@ void stench(object targ)
         if (inven[i] == TO) {
             continue;
         }
-        if (!"daemon/saving_d"->saving_throw(inven[i], "paralyzation_poison_death")) {
+    if (!"/daemon/saving_d"->fort_save(targ, -20)) {
             tell_object(inven[i], "%^BOLD%^%^GREEN%^The sickly stench of the" +
                         " zombie lord causes you to become nauseaus and gag!");
-            inven[i]->add_attack_bonus(-2);
-            inven[i]->set_paralyzed(random(10) + 5, "You can't stop yourself from vomiting!");
+            inven[i]->set_paralyzed(roll_dice(1, 4), "You can't stop yourself from vomiting!");
         }else {
             tell_object(inven[i], "You can barely manage to withstand the stench" +
                         " of the zombie lord and continue fighting.");

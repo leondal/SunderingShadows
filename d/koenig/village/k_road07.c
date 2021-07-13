@@ -12,13 +12,7 @@ void create() {
    set_name("An old abandoned road");
    set_short("An old abandoned road");
    set_long(
-      "This narrow roadway leads deeper into the Quiet Forest.  "+
-      "The forest closes in oppressively in all directions except "+
-      "for a narrow pathway winding through the tree trunks to the west, "+
-      "and the broken road leading to the village just south of here.  "+
-      "Though this looks to have once been a peaceful village of "+
-      "loggers, it has been ravaged and left abandoned.  Several "+
-      "small buildings stand in relief against the forest to the south."+
+      "%^BOLD%^%^GREEN%^This %^BLACK%^na%^RESET%^rr%^BOLD%^o%^BLACK%^w r%^WHITE%^oa%^RESET%^dw%^BOLD%^%^BLACK%^ay %^GREEN%^leads deeper into the %^RESET%^%^CYAN%^Quiet Forest%^BOLD%^%^GREEN%^. The forest closes in %^RESET%^%^CYAN%^oppressively %^BOLD%^%^GREEN%^in all directions except for a %^RESET%^%^ORANGE%^narrow pathway %^BOLD%^%^GREEN%^winding through the tree trunks to the west, and the %^RESET%^%^ORANGE%^broken road %^BOLD%^%^GREEN%^leading to the village just south of here. Though this looks to have once been a %^CYAN%^peaceful village %^GREEN%^of loggers, it has been %^RESET%^%^CYAN%^ravaged %^BOLD%^%^GREEN%^and left %^RESET%^%^CYAN%^abandoned%^BOLD%^%^GREEN%^. Several small %^RED%^buildings %^GREEN%^stand in relief against the forest to the south.%^RESET%^"+
       "\n");
    set_smell("default","A strange charred scent rises on the wind.");
    set_listen("default","The only sounds are those you make.  Not even a bird sings here.");

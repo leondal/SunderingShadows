@@ -11,6 +11,7 @@ set_short("%^WHITE%^l%^BOLD%^anc%^WHITE%^e %^ORANGE%^e%^GREEN%^n%^BOLD%^twin%^WH
 set_id(({"weapon","lance","lance entwined in roses","thornkiss"}));
 set_long("%^WHITE%^Not an e%^BOLD%^le%^WHITE%^g%^BOLD%^an%^WHITE%^t s%^BOLD%^h%^WHITE%^a%^BOLD%^f%^WHITE%^t perfectly carved out of p%^BOLD%^ures%^WHITE%^t w%^BOLD%^hit%^WHITE%^e b%^BOLD%^irc%^WHITE%^h, or engraved %^BOLD%^g%^ORANGE%^olde%^WHITE%^n %^ORANGE%^r%^WHITE%^i%^ORANGE%^ngs %^WHITE%^that enclose it every ten inches along its length, but numerous %^ORANGE%^t%^GREEN%^h%^BOLD%^orn%^WHITE%^%^GREEN%^e%^ORANGE%^d %^BOLD%^%^GREEN%^v%^WHITE%^%^GREEN%^ine%^BOLD%^s %^WHITE%^of %^RED%^l%^BOLD%^ivin%^WHITE%^%^RED%^g r%^BOLD%^o%^WHITE%^%^RED%^s%^BOLD%^e%^WHITE%^%^RED%^s %^WHITE%^that entwine this weapon leaving only the d%^BOLD%^oubl%^WHITE%^e e%^BOLD%^dge%^WHITE%^d %^ORANGE%^g%^BOLD%^old%^WHITE%^en b%^ORANGE%^lad%^WHITE%^%^ORANGE%^e %^WHITE%^fully exposed, are the main f%^BOLD%^e%^WHITE%^ature of this guardless lance. Peculiar %^RED%^r%^BOLD%^o%^WHITE%^%^RED%^s%^BOLD%^e%^WHITE%^%^RED%^s%^WHITE%^, you can tell, as they m%^BOLD%^o%^WHITE%^v%^BOLD%^e %^WHITE%^in%^BOLD%^s%^WHITE%^tantly out of the way when you grip the weapon. And the trace, %^CYAN%^faint %^WHITE%^and %^MAGENTA%^sweet%^WHITE%^, reaches out to you.%^WHITE%^");
 set_value(0);
+set_damage_type("piercing");
 set_hit((:TO,"hit_func":));
 }
 

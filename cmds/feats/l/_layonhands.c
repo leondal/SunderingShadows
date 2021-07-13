@@ -109,7 +109,7 @@ void execute_attack()
     if(target != caster)
         tell_object(target,"%^BOLD%^%^CYAN%^"+caster->QCN+" touches you and concentrates for a moment.%^RESET%^");
     
-    amount = caster->query_guild_level("paladin");
+    amount = caster->query_guild_level("paladin") * 2;
     amount = 30 + roll_dice(amount, 6) + BONUS_D->query_stat_bonus(caster, "charisma");
     dedication = caster->query_dedication();
     

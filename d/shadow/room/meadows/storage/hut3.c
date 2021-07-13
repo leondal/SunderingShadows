@@ -80,9 +80,9 @@ void create()
 void reset()
 {
    ::reset();
-   if(!present("seamstress")) {
-      new(MONS+"farith")->move(TO);
-   }
+   //if(!present("seamstress")) {
+      //new(MONS+"farith")->move(TO);
+   //}
 }
 
 int GoThroughDoor()

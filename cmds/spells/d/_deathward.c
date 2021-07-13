@@ -8,11 +8,9 @@ void create()
     ::create();
     set_spell_name("deathward");
     set_spell_level(([ "paladin" : 4, "druid" : 5, "inquisitor" : 4, "cleric" : 4, "psion" : 4]));
-    set_domains(({ "knowledge", "law" }));
     set_discipline("egoist");
     set_spell_sphere("abjuration");
     set_syntax("cast CLASS deathward [on TARGET]");
-    set_domains("repose");
     set_description("Those most blessed of the gods can call upon their favor to ward away the very hand of death itself. This spell protects against death spells, as well as many spell-like effects.");
     set_verbal_comp();
     set_somatic_comp();

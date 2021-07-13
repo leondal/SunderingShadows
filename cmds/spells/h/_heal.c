@@ -11,7 +11,6 @@ void create()
     set_spell_name("heal");
     set_spell_level(([ "cleric" : 6,"inquisitor":6,"oracle":6 ]));
     set_mystery("life");
-    set_domains("renewal");
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS heal on TARGET");
     set_damage_desc("positive energy");
@@ -74,7 +73,7 @@ spell_effect(int prof)
     rnd = sdamage * 7/6;
     damage_targ(target, target->return_target_limb(), rnd, "positive energy");
 
-    if(query_spell_name()=="heal")
+    if(query_spell_name()=="heal" || query_spell_name() == "greater heal")
         if(member_array(target,caster->query_attackers())==-1)
             "/std/magic/cleanse"->cleanse(target);
 

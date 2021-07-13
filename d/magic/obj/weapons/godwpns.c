@@ -27,6 +27,7 @@ void create()
     set_property("repairtype",({"woodwork", "weaponsmith"})); //ppl complaining about repair type
 }
 
+/*
 int query_size()
 {
     if (living(ETO)) {
@@ -35,6 +36,7 @@ int query_size()
         return 3;
     }
 }
+*/
 
 void init()
 {
@@ -59,7 +61,7 @@ void init()
       set_property("enchantment",clevel/7);
    }
  */
-    switch (TP->query_size()) {
+    switch (TO->query_size()) {
     case 1:
         set_wc(1, 6);
         set_large_wc(1, 6);

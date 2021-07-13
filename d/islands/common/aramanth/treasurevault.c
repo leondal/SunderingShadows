@@ -12,6 +12,7 @@ int weapons1 = 0, weapons2 = 0, armor1 = 0, armor2 = 0, other1 = 0, other2 = 0, 
 void create()
 {
     ::create();
+    set_terrain(NAT_CAVE);
     set_property("indoors", 1);
     set_short("Treasure room");
 

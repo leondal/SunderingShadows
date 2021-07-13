@@ -11,7 +11,7 @@ void create()
     ::create();
     set_spell_name("microcosm");
     set_spell_level(([ "psion" : 9 ]));
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS microcosm on TARGET");
     set_description("When a psion manifests microcosm, he affects the target's mind to make him feel as though he is "
         "happily in a world of his own, effectively rendering the target utterly helpless.  The success of the power depends upon "
@@ -45,21 +45,14 @@ void spell_effect(int prof)
     tell_room(place,"%^YELLOW%^"+caster->QCN+" mouths a few syllables, "+
         "but you hear no sound.",({caster}));
 
-    spell_kill(target, caster);
+    if(!userp(target))
+        spell_kill(target, caster);
 
     if(target->query_property("no hold") || target->query_property("no paralyze"))
     {
         tell_object(target,"%^YELLOW%^The spell disperses futilely around you.");
         tell_room(place,"%^YELLOW%^The spell disperses futilely around "+
             ""+target->QCN+".",({target}));
-        spell_successful();
-        dest_effect();
-        return;
-    }
-
-    if (checkMagicResistance(target,10 - prof/10))
-    {
-        sendDisbursedMessage(target);
         spell_successful();
         dest_effect();
         return;
@@ -78,7 +71,7 @@ void spell_effect(int prof)
         return;
     }
 
-    if(mind_immunity_damage(target, "default"))
+    if(mind_immunity_damage(target, "default") && !userp(target))
     {
         target->add_attacker(caster);
         damage_targ(target, target->return_target_limb(), roll_dice(9,8),"mental");

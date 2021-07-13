@@ -427,7 +427,7 @@ varargs int hit_bonus(object who, object targ, int attack_num, object current)
 }
 
 //flag = 1 for a touch attack - Saide
-varargs int process_hit(object who, object targ, int attack_num, mixed current, object DebugOb, int flag)
+varargs int process_hit(object who, object targ, int attack_num, mixed current, object DebugOb, int flag, int mod)
 {
     object PlayerBoss;
     int attack_roll, bon, AC = 0, pFlag;
@@ -475,6 +475,9 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
     if (attack_roll == 20) {
         return 20;
     }
+    
+    attack_roll += mod;
+    
     //if(attack_roll == 1) return -1;
     //does this change make AC less OP? - Saide, August 2017
     if ((bon + 15) < AC) {

@@ -4,7 +4,7 @@
 
 inherit FEAT;
 
-void create() 
+void create()
 {
     ::create();
     feat_type("permanent");
@@ -15,7 +15,7 @@ void create()
     permanent(1);
 }
 
-int allow_shifted() { return 0; }
+int allow_shifted() { return 1; }
 
 int prerequisites(object ob)
 {
@@ -55,4 +55,3 @@ void dest_effect()
     remove_feat(TO);
     return;
 }
-

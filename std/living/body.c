@@ -218,6 +218,9 @@ void set_missChance(int i)
 
 int query_missChance()
 {
+    if(FEATS_D->usable_feat(this_object(), "inconstant position"))
+        return missChance + 10;
+    
     return missChance;
 }
 
@@ -715,7 +718,7 @@ int query_resistance(string res)
         if ((string)TO->query("warlock heritage") == "demonic" && res == "electricity") {
             myres += 10;
         }
-		if((string)TO->query("warlock heritage") == "star" && res == "psychic") {
+        if((string)TO->query("warlock heritage") == "astral" && res == "psychic") {
             myres += 10;
         }
         if ((string)TO->query("warlock heritage") == "gloom" && res == "cold") {
@@ -734,6 +737,20 @@ int query_resistance(string res)
                 (subrace == "ooze" && res == "acid")) {
                 myres += TO->query_base_character_level();
             }
+        }
+    }
+    
+    if(FEATS_D->usable_feat(this_object(), "infused form"))
+    {
+        switch(res)
+        {
+            case "fire":
+            case "cold":
+            case "electricity":
+            case "acid":
+            case "sonic":
+            myres += 10;
+            break;
         }
     }
     
@@ -767,12 +784,23 @@ int query_resistance(string res)
 
     if (TO->query_race() == "shade") {
         if (res == "cold" || res == "electricity") {
-            myres += 5;
+            myres += 10;
         }
     }
-
+    if (TO->query_race() == "deva") {
+        if (res == "acid" || res == "fire") {
+            myres += 10;
+        }
+    }
+    
+    if(FEATS_D->usable_feat(this_object(), "master of elements"))
+    {
+        if(this_object()->query("elementalist") == res)
+            myres += 30;
+    }
+    
     if (FEATS_D->usable_feat(TO, "no fear of the flame") && res == "fire") {
-        myres += 10;
+        myres += 30;
     }
     return (myres + EQ_D->gear_bonus(TO, res));
 }
@@ -784,6 +812,19 @@ int query_resistance_percent(string res)
     if (!valid_resistance(res)) {
         return 0;
     }
+    if(TO->is_shade())
+    {
+        //Shades only get their benefits in darkness
+        if(environment(this_object())->query_light() < 1)
+        {
+            if(res == "electricity" || res == "cold")
+                mod += 50;
+        }
+    }
+    if(TO->is_deva())
+        if(res == "fire" || res == "acid")
+            mod += 25;
+        
     if (TO->is_undead()) {
         if (res == "fire") {
             mod += -25;
@@ -812,15 +853,6 @@ int query_resistance_percent(string res)
     {
         if(res == "electricity" || res == "cold" || res == "acid")
             mod = 100;
-    }
-
-    if(TO->is_class("cleric"))
-    {
-        if(res == "fire" || res == "cold" || res == "acid" || res == "electricity")
-        {
-            if(member_array("elements", TO->query_divine_domain()) >= 0 )
-                mod += 25;
-        }
     }
     
     //Mage is invulnerable for duration of prismatic sphere
@@ -1037,12 +1069,6 @@ int query_ac()
         !TO->query_tripped() && !TO->query_bound() && TO->is_ok_armour("thief")) {
         myac += 4;
     }
-    
-    /*
-    if(TO->is_class("cleric"))
-        if(member_array("protection", TO->query_divine_domain()) >= 0)
-            myac += 4;
-    */
 
     if(FEATS_D->usable_feat(TO, "canny defense") && !TO->query_paralyzed() &&
        !TO->query_tripped() && !TO->query_bound() && TO->is_ok_armour("thief"))
@@ -1051,6 +1077,9 @@ int query_ac()
     if(FEATS_D->usable_feat(TO, "spiritual body") && !TO->query_paralyzed() &&
        !TO->query_tripped() && !TO->query_bound())
            myac += BONUS_D->query_stat_bonus(TO, "charisma");
+           
+    if(FEATS_D->usable_feat(this_object(), "kinetic aura"))
+        myac += (1 + this_object()->query_prestige_level("psion") / 11);
 
     if (TO->query_blind() || TO->query_temporary_blinded()) {
         myac -= TO->query_level() / 12 + 1;
@@ -1706,7 +1735,6 @@ void check_armor_active_feats(object wornBy, string type, string limb, string ac
    int i, j;
    int num, holdac, hold;
    object *tmp;
-
    num = 0;
    holdac = -10;
    hold = -1;
@@ -2377,3 +2405,4 @@ mapping query_player_data()
 {
     return player_data;
 }
+

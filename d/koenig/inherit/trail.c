@@ -11,13 +11,7 @@ void create()
 	set_property("light",2);
 	set_short("A dirt trail");
 	set_long(
-	"This is a dirt path that winds its way through the lower foothills of"+
-	" the mountains. It has been fairly well defined. The larger stones"+
-	" have been removed completely, the smaller ones have been set on the"+
-	" sides to help define it more clearly. The dirt of the path is fine,"+
-	" as though it has gotten much use in its day. Your footsteps stir up"+
-	" the dust as you move along the trail. A fine red film of dust has"+
-	" settled itself over your belongings already.\n" 
+	"%^BOLD%^%^GREEN%^This is a %^ORANGE%^di%^RESET%^%^ORANGE%^r%^BOLD%^t %^RESET%^%^ORANGE%^p%^BOLD%^ath %^GREEN%^that winds its way through %^RESET%^%^GREEN%^the lower foothills %^BOLD%^of the mountains. It has been fairly well defined. The larger %^RESET%^sto%^BOLD%^ne%^RESET%^s %^BOLD%^%^GREEN%^have been removed completely, the smaller ones have been set on the sides to help define it more clearly. The dirt of the path is fine, as though it has gotten %^RESET%^%^GREEN%^much use %^BOLD%^in its day. Your footsteps stir up the %^BLACK%^d%^RESET%^us%^BOLD%^%^BLACK%^t %^GREEN%^as you move along the %^ORANGE%^tra%^RESET%^%^ORANGE%^i%^BOLD%^l%^GREEN%^. A fine %^RESET%^%^RED%^red %^BOLD%^%^GREEN%^film of dust has settled itself over your belongings already.%^RESET%^\n" 
 	);
 	set_smell("default","The dust from the trail fills your nose.");
 	set_listen("default","The wind whispers along the trail.");

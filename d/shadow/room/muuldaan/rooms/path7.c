@@ -10,7 +10,7 @@ void create(){
 "splatters%^RESET%^ and %^ORANGE%^handprints%^RESET%^ of paint, that may or may not have some meaning to "
 "them.  The stench of dampness and decay emanates from the cave opening, carried on the air along with the "
 "sounds of chattering, screeches, grumbles, and other indiscernable sounds.  The path itself heads back to "
-"the south, through the crushed and broken remains of the surrounding %^GREEN%^forest%^RESET%^.\n");
+"the west, through the crushed and broken remains of the surrounding %^GREEN%^forest%^RESET%^.\n");
    set("night long","%^BOLD%^Cavern entrance%^RESET%^\n"
 "The %^ORANGE%^rough trail%^RESET%^ comes to an end here, at the wide mouth of a cavern in the side of the "
 "mountain, which is difficult to see in the darkness of the night.  The rocky outline of the hole is is "

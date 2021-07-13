@@ -97,7 +97,9 @@ int struck_fun(int damage,object what,object who){
 "va%^RESET%^n%^CYAN%^ish %^BOLD%^%^BLACK%^as you strike at "+ETO->QO+", only "
 "to reappear beside you and launch another attack!%^RESET%^");
      ETO->execute_attack();
+     return 0;
    }
+   return damage;
 }
 
 void bind_me(string *pplz) {

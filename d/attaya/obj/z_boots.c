@@ -25,8 +25,8 @@ AVATAR
         set_type("clothing");
 	set_limbs(({ "right foot", "left foot" }));
 	set_size(2);
-        set_property("enchantment",4);
-	set_item_bonus("magic resistance",1);
+        set_property("enchantment",5);
+	set_item_bonus("spell damage resistance",10);
 	set_wear((:TO,"wear_func":));
 	set_remove((:TO,"remove_func":));
 }

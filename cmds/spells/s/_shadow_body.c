@@ -98,7 +98,7 @@ void spell_effect(int prof)
 
 void dest_effect()
 {
-    tell_object(caster, "%^MAGENTA%^BOLD%^The shadows subsuming your body seem to dissapate.");
+    tell_object(caster, "%^MAGENTA%^BOLD%^The shadows subsuming your body seem to dissipate.");
     caster->remove_property_value("added short",({ashort}));
     effect(-1);
     ::dest_effect();

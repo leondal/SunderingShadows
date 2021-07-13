@@ -57,6 +57,7 @@ Available codes:
 
 Additional codes:
   %^MAGENTA%^$_EW%^WHITE%^ Eldritch Warfare
+  %^MAGENTA%^$_PF%^WHITE%^ Psionic Focus
   %^MAGENTA%^$r%^WHITE%^ rage status
   %^MAGENTA%^$E%^WHITE%^ eldritch essence
   %^MAGENTA%^$k%^WHITE%^ available ki

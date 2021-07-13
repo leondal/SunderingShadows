@@ -128,7 +128,7 @@ void adjust_sash(object who)
         return;
     }
     switch (myClass) {
-    case "druid": case "cleric":
+    case "druid": case "cleric": case "monk":
         set_item_bonus("wisdom", 2);
         set_item_bonus("caster level", 1);
         break;
