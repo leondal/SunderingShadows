@@ -1588,8 +1588,8 @@ void display_feats(object ob,object targ, string mytype)
       case "prestige": currentlist += PRESTIGE_FEATS; break;
       case "custom":
         if(sizeof(targ->query("custom_feat_array"))) currentlist += targ->query("custom_feat_array"); break;
-      case "all": case "allowed": currentlist += SPELLFEATS; currentlist += MELEEFEATS; currentlist += GENERALFEATS; currentlist += MAGUSFEATS; currentlist += PALADINFEATS; currentlist += EPICFEATS; currentlist += PRESTIGE_FEATS; break;
-      default: currentlist += SPELLFEATS; currentlist += MELEEFEATS; currentlist += GENERALFEATS; currentlist += MAGUSFEATS; currentlist += PALADINFEATS; currentlist += EPICFEATS; currentlist += PRESTIGE_FEATS; break;
+      case "all": case "allowed": currentlist += SPELLFEATS; currentlist += MELEEFEATS; currentlist += GENERALFEATS; currentlist += MAGUSFEATS; currentlist += PALADINFEATS; currentlist += EPICFEATS; currentlist += PRESTIGE_FEATS; currentlist += RAGEFEATS; break;
+      default: currentlist += SPELLFEATS; currentlist += MELEEFEATS; currentlist += GENERALFEATS; currentlist += MAGUSFEATS; currentlist += PALADINFEATS; currentlist += EPICFEATS; currentlist += PRESTIGE_FEATS; currentlist += RAGEFEATS; break;
     }
 
     if (!targ->is_class("bard") && !avatarp(targ)) {
