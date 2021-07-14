@@ -20,7 +20,7 @@ int prerequisites(object ob)
 {
     if(!objectp(ob)) { return 0; }
 
-    if(!ob->query_class_level("barbarian"))
+    if(!ob->is_class("barbarian"))
     {
         dest_effect();
         return 0;
