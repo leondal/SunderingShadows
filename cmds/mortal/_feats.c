@@ -663,8 +663,7 @@ int cmd_feats(string str)
                 BONUS_ALLOWED = FEATS_D->number_feats(TP, feat_types[i], ({ "paladin" }));
                 num_bonus = (int)TP->query_divinebond_feats_gained();
                 feat_types_labels = "divine";
-                break;
-            
+                break;           
             case "rage":
                 BONUS_ALLOWED = FEATS_D->number_feats(TP, feat_types[i], ({ "barbarian" }));
                 num_bonus = (int)TP->query_rage_feats_gained();
@@ -1081,8 +1080,8 @@ feats - manipulate or view your feats
 feats allowed
 feats known
 feats check|add|remove %^ULINE%^%^ORANGE%^FEAT_NAME%^RESET%^
-feats racial|martial|spellcraft|hybrid|arcana|divinebond %^ULINE%^%^ORANGE%^FEAT_NAME%^RESET%^
-feats list [martial|spellcraft|hybrid|arcana|divinebond|general]
+feats racial|martial|spellcraft|hybrid|arcana|divinebond|rage %^ULINE%^%^ORANGE%^FEAT_NAME%^RESET%^
+feats list [martial|spellcraft|hybrid|arcana|divinebond|rage|general]
 feats fix
 feats active
 
@@ -1090,7 +1089,7 @@ feats active
 
 Feats represents specialized techniques or powers a character can learn throughout its career. Some feats are class-specific (usually gained for free with class-levels), while others are generic and must be paid for by adding to your exp tax (see <help exp tax>). A character gains 1 generic feat every 3. level which can be bought in such a way. Feats awarded by character class are added automatically. Some classes gain additional free feats known as bonus feats. When you level your character, you will get notified if you are allowed new feats.
 
-Feats are divided into types (martial, spellcraft, hybrid, arcana, generic, epic) and organized in feat trees.  Some feats have prerequisites as specified in their individual help files.
+Feats are divided into types (martial, spellcraft, hybrid, arcana, rage, generic, epic) and organized in feat trees.  Some feats have prerequisites as specified in their individual help files.
 
 The following commands apply:
 
@@ -1104,9 +1103,9 @@ The following commands apply:
     Will add the feat if you have any remaining levelling feats.
 %^ORANGE%^<feats remove %^ORANGE%^%^ULINE%^FEAT%^RESET%^%^ORANGE%^>%^RESET%^
     Will remove the feat if you no longer want to retain it.
-%^ORANGE%^<feats racial|martial|spellcraft|hybrid|arcana|divinebond %^ORANGE%^%^ULINE%^FEAT%^RESET%^%^ORANGE%^>%^RESET%^
+%^ORANGE%^<feats racial|martial|spellcraft|hybrid|arcana|divinebond|rage %^ORANGE%^%^ULINE%^FEAT%^RESET%^%^ORANGE%^>%^RESET%^
     Will add the feat of given category if you have any bonus feats in it.
-%^ORANGE%^<feats list martial|spellcraft|hybrid|arcana|divinebond|general|epic>%^RESET%^
+%^ORANGE%^<feats list martial|spellcraft|hybrid|arcana|divinebond|rage|general|epic>%^RESET%^
     Displays the specified feat trees.
 %^ORANGE%^<feats fix>%^RESET%^
     Will attempt to fix your feat tree. If your feats seem incorrect, use this command.
@@ -1127,7 +1126,7 @@ If your terminal supports color, you may benefit from color coding of the feats 
 The numbers listed before the feats indicate which level the feats were gained at:
   %^BOLD%^%^CYAN%^00%^RESET%^: The feat has been bought normally.
   %^BOLD%^%^MAGENTA%^00%^RESET%^: The feat has been granted for free (class feats).
-  %^YELLOW%^00%^RESET%^: The feat has been bought with bonus racial, combat, magic, hybrid, arcana or dvinebond feats.
+  %^YELLOW%^00%^RESET%^: The feat has been bought with bonus racial, combat, magic, hybrid, arcana, rage or dvinebond feats.
 
 Adding and removing normal feats will add to your character improvement tax (see %^ORANGE%^<help exp tax>%^RESET%^) and slow your level advancement. This is to simulate the extra training that it requires to learn the new abilities or to forget your previous training.
 

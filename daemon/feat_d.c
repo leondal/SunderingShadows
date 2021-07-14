@@ -791,7 +791,7 @@ varargs int gain_feat(object ob, string type, string feat,int level)
         tell_object(ob,"You have already bought one epic feat, you can't buy another.");
         return 0;
     }
-    if(member_array(type,({"class","racial","martial","magic","other","hybrid","arcana","divinebond" })) == -1) { return 0; }
+    if(member_array(type,({"class","racial","martial","magic","other","hybrid","arcana","divinebond", "rage" })) == -1) { return 0; }
 
     add_feat(ob,type,feat,level);
 
@@ -1167,7 +1167,7 @@ string get_feat_type(object ob,string feat)
     if(!stringp(feat))      { return 0; }
     if(!has_feat(ob,feat))  { return 0; }
     if(!is_feat(feat))      { return 0; }
-    tmp = ({ "class","racial","martial","magic","other","hybrid","arcana","divinebond" });
+    tmp = ({ "class","racial","martial","magic","other","hybrid","arcana","divinebond","rage" });
     for(i=0;i<sizeof(tmp);i++)
     {
         feats = get_feats(ob,tmp[i]);
@@ -1612,8 +1612,7 @@ void display_feats(object ob,object targ, string mytype)
     }
     if (!targ->is_class("paladin") && !avatarp(targ)) {
         currentlist -= ({ "DivineBond" });
-    }
-    
+    }  
     if (!targ->is_class("barbarian") && !avatarp(targ)) {
         currentlist -= ({ "RagePower" });
     }
@@ -1855,7 +1854,7 @@ int number_feats(object obj, string category, string* valid_classes) {
                 {
                     if(obj->query_class_level("barbarian") > 5)
                         j = 1;
-                    if(obj->query_class_level("barbarian") > 11)
+                    if(obj->query_class_level("barbarian") > 10)
                         j = 2;
                     if(obj->query_class_level("barbarian") > 20)
                         j = 3;
