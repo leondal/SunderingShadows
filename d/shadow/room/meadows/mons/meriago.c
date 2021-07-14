@@ -57,7 +57,7 @@ int should_interact(object ob)
    return 1;
 }
 
-void heart_beat() {
+/*void heart_beat() {
     object *attackers;
     ::heart_beat();
     
@@ -68,5 +68,5 @@ void heart_beat() {
         TO->remove();
         return;
     }
-}
+}*/
 

@@ -25,7 +25,7 @@ void create()
    set_exp(100);
 }
 
-void heart_beat() {
+/*void heart_beat() {
     object *attackers;
     ::heart_beat();
     
@@ -36,5 +36,5 @@ void heart_beat() {
         TO->remove();
         return;
     }
-}
+}*/
 
