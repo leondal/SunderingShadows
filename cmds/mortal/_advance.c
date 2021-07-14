@@ -571,8 +571,8 @@ int pick_human_subrace(string str,object ob) {
       tell_object(ob,"  %^YELLOW%^Human ethnicities");
       tell_object(ob,"  %^BLUE%^-----------------");
       tell_object(ob,"\n   heartlander\n   zin'charu\n   aesatri\n   attayan\n   tsarven\n   morinnen\n   tonaz'tlacar\n   senzokuan\n   maalish\n" );
-      tell_object(ob,"%^RED%^Type <abort> to exit if you need to spend more time before making your choice. "
-        "Descriptions can be found at the shadowgate.org website. <help advance> will return you here when you are ready.");
+	tell_object(ob,"%^RED%^Type <abort> to exit if you need to spend more time before making your choice. ");
+       // "Descriptions can be found at the shadowgate.org website. <help advance> will return you here when you are ready.");
       tell_object(ob,"%^BOLD%^Please enter your ethnicity:");
       input_to("pick_human_subrace",ob);
       return 1;
@@ -786,7 +786,7 @@ int cmd_advance(string myclass){
                   }
                   TP->move(newbroom);
                   write("%^BOLD%^%^GREEN%^Congratulations, you are now a full-fledged player.\nYou may exit through the portal in this "
-                     "room when you are ready to adventure into the greater realm of ShadowGate!%^RESET%^");
+                     "room when you are ready to adventure into the greater realm of Sundering Shadows!%^RESET%^");
                   TP->force_me("look");
                   while(objectp(present("charactercreationsetterobject", TP))){
                      tell_object(TP, "The powerful object unattaches from you and fades away!");
@@ -838,7 +838,7 @@ int cmd_advance(string myclass){
                   }
                   TP->move(newbroom);
                   write("%^BOLD%^%^GREEN%^Congratulations, you are now a full-fledged player.\nYou may exit through the portal in this "
-                     "room when you are ready to adventure into the greater realm of ShadowGate!%^RESET%^");
+                     "room when you are ready to adventure into the greater realm of Sundering Shadows!%^RESET%^");
                   TP->force_me("look");
                }
                return 1;
@@ -867,7 +867,7 @@ int cmd_advance(string myclass){
                }
                TP->move(newbroom);
                write("%^BOLD%^%^GREEN%^Congratulations, you are now a full-fledged player.\nYou may exit through the portal in this "
-                  "room when you are ready to adventure into the greater realm of ShadowGate!%^RESET%^");
+                  "room when you are ready to adventure into the greater realm of Sundering Shadows!%^RESET%^");
                TP->force_me("look");
             }
 	      return 1;
