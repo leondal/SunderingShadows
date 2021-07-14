@@ -182,45 +182,53 @@ void activate_rage(int direction)
 
 void simple_rage(int direction)
 {
+    int amount;
+    
+    amount = 2 + FEATS_D->usable_feat(caster, "reckless abandon");
     /*
     caster->add_stat_bonus("strength", 4 * direction);
     caster->add_stat_bonus("constitution", 4 * direction);
     */
-    caster->add_attack_bonus(2 * direction);
+    caster->add_attack_bonus(amount * direction);
     caster->add_damage_bonus(2 * direction);
     caster->add_max_hp_bonus((flevel * 2) * direction);
     caster->add_saving_bonus("will", 2 * direction);
     caster->add_saving_bonus("fortitude", 2 * direction);
-    caster->add_ac_bonus(-2 * direction);
+    caster->add_ac_bonus(-amount * direction);
 }
 
 void greater_rage(int direction)
 {
+    int amount;
+    
+    amount = 3 + FEATS_D->usable_feat(caster, "reckless abandon");
     /*
     caster->add_stat_bonus("strength", 6 * direction);
     caster->add_stat_bonus("constitution", 6 * direction);
     */
-    caster->add_attack_bonus(3 * direction);
+    caster->add_attack_bonus(amount * direction);
     caster->add_damage_bonus(3 * direction);
     caster->add_max_hp_bonus((flevel * 3) * direction);
     caster->add_saving_bonus("will", 3 * direction);
     caster->add_saving_bonus("fortitude", 3 * direction);
-    caster->add_ac_bonus(-2 * direction);
+    caster->add_ac_bonus(-amount * direction);
 }
 
 void mighty_rage(int direction)
 {
+    int amount;
+    amount = 4 + FEATS_D->usable_feat(caster, "reckless abandon");
     /*
     caster->add_stat_bonus("strength", 8 * direction);
     caster->add_stat_bonus("constitution", 8 * direction);
     */
-    caster->add_attack_bonus(4 * direction);
+    caster->add_attack_bonus(amount * direction);
     caster->add_damage_bonus(4 * direction);
     caster->add_max_hp_bonus((flevel * 4 + unstop) * direction);    
     caster->add_saving_bonus("will", (4 + save_bonus) * direction);
     caster->add_saving_bonus("fortitude", 4 * direction);
     caster->set_property("fast healing", 2 * direction);
-    caster->add_ac_bonus(-2 * direction);
+    caster->add_ac_bonus(-amount * direction);
 }
 
 void spirit_warrior(int direction)
@@ -300,7 +308,7 @@ void execute_attack()
             }
             
             dam = (roll_dice(1, 6) * (1 + flevel /  10)) + enchant;
-            caster->cause_typed_damage(target,target->return_target_limb(),dam,"piercing");
+            caster->cause_typed_damage(target,target->return_target_limb(),dam ,"piercing");
         }
     }
         
