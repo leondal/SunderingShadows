@@ -52,17 +52,17 @@ void status_effect()
     tell_room(ENV(target),"%^BOLD%^%^BLUE%^"+target->QCN+" cowers in terror!%^RESET%^",target);
     target->set_paralyzed(duration*8,"%^BLUE%^You cannot contain your fear to do that!");
 
-    call_out("dest_effect",ROUND_LENGTH*duration);
+    call_out("dest_effect",ROUND_LENGTH*duration, target);
 }
 
-void dest_effect()
+void dest_effect(object ob)
 {
     int i;
-    if(objectp(target))
+    if(objectp(ob))
     {
-        tell_object(target,"%^BLUE%^You are no longer cowering.%^RESET%^");
-        target->add_ac_bonus(power);
-        target->remove_property("effect_cowering");
+        tell_object(ob,"%^BLUE%^You are no longer cowering.%^RESET%^");
+        ob->add_ac_bonus(power);
+        ob->remove_property("effect_cowering");
     }
 
     ::dest_effect();
