@@ -232,9 +232,8 @@ void execute_attack()
 {
     object* attackers = ({ });
     object* allies = ({ });
-    int i;
-
-
+    object target;
+    int i, dam, enchant;
 
     if (!objectp(caster)) {
         dest_effect();
@@ -265,6 +264,46 @@ void execute_attack()
             tell_object(caster, "%^BOLD%^%^WHITE%^You feel insubstantial as your rage continues.");
         }
     }
+    
+    if(FEATS_D->usable_feat(caster, "animal fury"))
+    {
+        target = caster->query_current_attacker();
+        enchant = COMBAT_D->unarmed_enchantment(caster);
+        
+        if(target && thaco(target, enchant))
+        {
+            switch(random(4))
+            {
+                case 0:
+                tell_object(caster, "%^RESET%^%^RED%^A %^BOLD%^f%^MAGENTA%^e%^RED%^r%^MAGENTA%^a%^RED%^l snarl %^RESET%^%^RED%^escapes your lips as you drive your %^BOLD%^%^WHITE%^teeth %^RESET%^%^RED%^into " + target->QCN + "%^RESET%^%^RED%^!%^RESET%^");
+                tell_object(target, "%^RESET%^%^RED%^" + caster->QCN + " %^RESET%^%^RED%^lets out a %^BOLD%^f%^MAGENTA%^e%^RED%^r%^MAGENTA%^a%^RED%^l snarl %^RESET%^%^RED%^as he drives his %^BOLD%^%^WHITE%^teeth %^RESET%^%^RED%^into you!%^RESET%^");
+                tell_room(place, "%^RESET%^%^RED%^" + caster->QCN + " %^RESET%^%^RED%^lets out a %^BOLD%^f%^MAGENTA%^e%^RED%^r%^MAGENTA%^a%^RED%^l snarl %^RESET%^%^RED%^as he drives his %^BOLD%^%^WHITE%^teeth %^RESET%^%^RED%^into " + target->QCN + "%^RESET%^%^RED%^!%^RESET%^", ({ caster, target }));
+                break;
+                
+                case 1:
+                tell_object(caster, "%^RESET%^%^MAGENTA%^As you close in combat, you take %^BOLD%^%^BLACK%^advantage %^RESET%^%^MAGENTA%^and %^BOLD%^%^WHITE%^bi%^RESET%^t%^BOLD%^e %^RESET%^%^MAGENTA%^into " + target->QCN + " %^BOLD%^%^RED%^viciously!%^RESET%^");
+                tell_object(target, "%^RESET%^%^MAGENTA%^As " + caster->QCN + " %^RESET%^%^MAGENTA%^closes with you, they take %^BOLD%^%^BLACK%^advantage %^RESET%^%^MAGENTA%^with a %^BOLD%^%^RED%^vicious %^WHITE%^bi%^RESET%^t%^BOLD%^e%^RED%^!%^RESET%^");
+                tell_room(place, "%^RESET%^%^MAGENTA%^As " + caster->QCN + " %^RESET%^%^MAGENTA%^closes with " + target->QCN + "%^RESET%^%^MAGENTA%^, they take %^BOLD%^%^BLACK%^advantage %^RESET%^%^MAGENTA%^with a %^BOLD%^%^RED%^vicious %^WHITE%^bi%^RESET%^t%^BOLD%^e%^RED%^!%^RESET%^", ({ target, caster }));
+                break;
+                
+                case 2:
+                tell_object(caster, "%^BOLD%^%^BLACK%^You lock with " + target->QCN + "%^BOLD%^%^BLACK%^, %^RESET%^%^RED%^lunging %^BOLD%^%^BLACK%^forward to drive your %^WHITE%^tee%^RESET%^t%^BOLD%^h %^BLACK%^into %^RESET%^%^ORANGE%^soft flesh%^BOLD%^%^BLACK%^!%^RESET%^");
+                tell_object(target, "%^BOLD%^%^BLACK%^" + caster->QCN + " %^BOLD%^%^BLACK%^locks with you, %^RESET%^%^RED%^lunging %^BOLD%^%^BLACK%^forward to drive their %^WHITE%^tee%^RESET%^t%^BOLD%^h %^BLACK%^into %^RESET%^%^ORANGE%^soft flesh%^BOLD%^%^BLACK%^!%^RESET%^");
+                tell_room(place, "%^BOLD%^%^BLACK%^" + caster->QCN + " %^BOLD%^%^BLACK%^locks with " + target->QCN + "%^BOLD%^%^BLACK%^, %^RESET%^%^RED%^lunging %^BOLD%^%^BLACK%^forward to drive their %^WHITE%^tee%^RESET%^t%^BOLD%^h %^BLACK%^into %^RESET%^%^ORANGE%^soft flesh%^BOLD%^%^BLACK%^!%^RESET%^", ({ caster, target }));
+                break;
+                
+                default:
+                tell_object(caster, "%^RESET%^%^ORANGE%^You sink your %^BOLD%^%^WHITE%^tee%^RESET%^t%^BOLD%^h %^RESET%^%^ORANGE%^into " + target->QCN + "%^RESET%^%^ORANGE%^, %^RED%^ripping %^ORANGE%^free with a %^BOLD%^%^RED%^go%^MAGENTA%^u%^RED%^t of %^MAGENTA%^b%^RED%^lo%^MAGENTA%^o%^RED%^d %^RESET%^%^ORANGE%^in the air!%^RESET%^");
+                tell_object(target, "%^RESET%^%^ORANGE%^" + caster->QCN + " %^RESET%^%^ORANGE%^sinks thier %^BOLD%^%^WHITE%^tee%^RESET%^t%^BOLD%^h %^RESET%^%^ORANGE%^into you, %^RED%^ripping %^ORANGE%^free with a %^BOLD%^%^RED%^go%^MAGENTA%^u%^RED%^t of %^MAGENTA%^b%^RED%^lo%^MAGENTA%^o%^RED%^d %^RESET%^%^ORANGE%^in the air!%^RESET%^");
+                tell_room(place, "%^RESET%^%^ORANGE%^" + caster->QCN + " %^RESET%^%^ORANGE%^sinks thier %^BOLD%^%^WHITE%^tee%^RESET%^t%^BOLD%^h %^RESET%^%^ORANGE%^into " + target->QCN + "%^RESET%^%^ORANGE%^, %^RED%^ripping %^ORANGE%^free with a %^BOLD%^%^RED%^go%^MAGENTA%^u%^RED%^t of %^MAGENTA%^b%^RED%^lo%^MAGENTA%^o%^RED%^d %^RESET%^%^ORANGE%^in the air!%^RESET%^", ({ caster, target }));
+                break;
+            }
+            
+            dam = (roll_dice(1, 6) * (1 + flevel /  10)) + enchant;
+            caster->cause_typed_damage(target,target->return_target_limb(),dam,"piercing");
+        }
+    }
+        
 
     if (objectp(place)) {
         place->addObjectToCombatCycle(TO, 1);
