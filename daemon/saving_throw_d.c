@@ -215,7 +215,7 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         //Barbarian with Eater of Magic can heal from a second save roll
         if(ob->is_class("barbarian"))
         {
-            if(FEATS_D->usable_feat(ob, "eater of magic"))
+            if(FEATS_D->usable_feat(ob, "eater of magic") && ob->query_property("raged"))
             {
                 roll1 = roll_dice(1, 20);
                 if(roll1 + save + dc >= 0)

@@ -15,7 +15,7 @@ void create()
              "green. She gives off a mixed aura, as if she is kind but also not very trusting "+
              "of anyone. The rest of her body is mostly cloaked with a gray robe with "+
              "the insignia of Shadow, three coins of gold, silver and copper.");
-    set_race("squole");
+    set_race("human");
     set_gender("female");
 
     set_stats("intelligence",22);

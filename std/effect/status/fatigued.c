@@ -40,19 +40,23 @@ void status_effect()
     target->add_stat_bonus("strength", -2);
     target->add_stat_bonus("dexterity", -2);
 
-    call_out("dest_effect",ROUND_LENGTH*duration);
+    call_out("dest_effect",ROUND_LENGTH*duration,target);
 }
 
-void dest_effect()
+void dest_effect(object ob)
 {
-    int i;
-    if(objectp(target))
+    if(!objectp(ob))
     {
-        tell_object(target,"%^RED%^You no longer are fatigued.%^RESET%^");
-        target->add_stat_bonus("strength", 2);
-        target->add_stat_bonus("dexterity", 2);
-        target->remove_property("effect_fatigued");
+        ::dest_effect();
+        return;
     }
 
-    ::dest_effect();
+    tell_object(ob,"%^RED%^You no longer are fatigued.%^RESET%^");
+    ob->add_stat_bonus("strength", 2);
+    ob->add_stat_bonus("dexterity", 2);
+    ob->remove_property("effect_fatigued");
+    
+    if(objectp(this_object()))
+        ::dest_effect();
 }
+

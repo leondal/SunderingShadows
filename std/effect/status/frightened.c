@@ -78,21 +78,21 @@ void status_effect()
     tell_room(ENV(target),"%^BOLD%^"+target->QCN+" flees in fright!%^RESET%^",target);
     target->run_away();
 
-    call_out("dest_effect",ROUND_LENGTH*duration);
+    call_out("dest_effect",ROUND_LENGTH*duration,target);
 }
 
-void dest_effect()
+void dest_effect(object ob)
 {
     int i;
-    if(objectp(target))
+    if(objectp(ob))
     {
-        tell_object(target,"%^BLUE%^You no longer feel frightened.%^RESET%^");
+        tell_object(ob,"%^BLUE%^You no longer feel frightened.%^RESET%^");
         for(i=0;i<sizeof(CORE_SKILLS);i++)
-            target->add_skill_bonus(CORE_SKILLS[i],power);
-        target->add_attack_bonus(power);
-        target->add_damage_bonus(power);
-        target->add_saving_bonus("all",power);
-        target->remove_property("effect_frightened");
+            ob->add_skill_bonus(CORE_SKILLS[i],power);
+        ob->add_attack_bonus(power);
+        ob->add_damage_bonus(power);
+        ob->add_saving_bonus("all",power);
+        ob->remove_property("effect_frightened");
     }
 
     ::dest_effect();

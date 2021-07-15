@@ -32,27 +32,27 @@ int status_effect()
     tell_room(ENV(target), "%^RED%^" + target->QCN + "'s face turns dull," + target->QS + " appears to be staggered.", target);
 
 
-    call_out("dest_effect", ROUND_LENGTH * duration);
+    call_out("dest_effect", ROUND_LENGTH * duration, target);
     return 1;
 }
 
-int dest_effect()
+int dest_effect(object ob)
 {
     int i;
-    if (objectp(target)) {
-        target->set_property("effect_staggered", -1);
+    if (objectp(ob)) {
+        ob->set_property("effect_staggered", -1);
 
-        if (target->query_property("effect_staggered")) {
-            tell_object(target, "%^RED%^You no longer feel staggered.%^RESET%^");
+        if (ob->query_property("effect_staggered")) {
+            tell_object(ob, "%^RED%^You no longer feel staggered.%^RESET%^");
         }
 
-        if (userp(target)) {
-            target->set_static("spell interrupt", 0);
+        if (userp(ob)) {
+            ob->set_static("spell interrupt", 0);
         } else {
-            target->remove_property("spell interrupt");
+            ob->remove_property("spell interrupt");
         }
 
-        tell_room(ENV(target), "%^RED%^" + target->QCN + " no longer looks staggered.", target);
+        tell_room(ENV(ob), "%^RED%^" + ob->QCN + " no longer looks staggered.", ob);
     }
     ::dest_effect();
     return 1;

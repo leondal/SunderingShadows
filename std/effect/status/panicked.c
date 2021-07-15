@@ -82,20 +82,20 @@ void status_effect()
         target->run_away();
     }
 
-    call_out("dest_effect", ROUND_LENGTH * duration);
+    call_out("dest_effect", ROUND_LENGTH * duration, target);
 }
-void dest_effect()
+void dest_effect(object ob)
 {
     int i;
-    if (objectp(target)) {
-        tell_object(target, "%^BLUE%^You no longer feel panicked.%^RESET%^");
+    if (objectp(ob)) {
+        tell_object(ob, "%^BLUE%^You no longer feel panicked.%^RESET%^");
         for (i = 0; i < sizeof(CORE_SKILLS); i++) {
-            target->add_skill_bonus(CORE_SKILLS[i], power);
+            ob->add_skill_bonus(CORE_SKILLS[i], power);
         }
-        target->add_attack_bonus(power);
-        target->add_damage_bonus(power);
-        target->add_saving_bonus("all", power);
-        target->remove_property("effect_panicked");
+        ob->add_attack_bonus(power);
+        ob->add_damage_bonus(power);
+        ob->add_saving_bonus("all", power);
+        ob->remove_property("effect_panicked");
     }
 
     ::dest_effect();

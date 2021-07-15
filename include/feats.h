@@ -21,7 +21,7 @@
 #define ALIGN_SPACER 39 - strlen(IDT)
 #define FEAT_SPACER 33 - strlen(IDT)
 
-#define FEAT_TYPES ({ "racial", "martial", "spellcraft", "hybrid", "arcana", "divinebond" })
+#define FEAT_TYPES ({ "racial", "martial", "spellcraft", "hybrid", "arcana", "divinebond", "rage" })
 
 /*
 #define HYBRIDFEATS ({"MeleeDamage","MeleeAccuracy","TwoHandedWeapons","WeaponAndShield","TwoWeapons","Evasion","Horsemanship","Archery","GeneralCombat", "WeaponMastery","Rampage","KiEnhancement", "SavageCombat","MagicDamage","MagicAccuracy","MagicProtection","ArcaneSpellcraft","DivineSpellcraft","WildernessLore","Psionics" })
