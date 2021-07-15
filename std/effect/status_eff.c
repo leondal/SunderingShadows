@@ -112,3 +112,8 @@ void dest_effect()
     if(objectp(TO))
         TO->remove();
 }
+
+int query_noclean()
+{
+    return 1;
+}
