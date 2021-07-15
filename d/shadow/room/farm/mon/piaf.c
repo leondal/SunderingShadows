@@ -163,7 +163,7 @@ void receive_given_item(object obj){
       if(!userp(TP))  return;
       if(member_array("Piaf Huffelmuffin's Dilemma",TP->query_mini_quests()) == -1) {
          tell_object(TP,"%^CYAN%^You helped solve Piaf Huffelmuffin's Dilemma!%^RESET%^");
-         TP->set_mini_quest("Piaf Huffelmuffin's Dilemma",26500,"%^CYAN%^Piaf Huffelmuffin's Dilemma%^RESET%^");
+         TP->set_mini_quest("Piaf Huffelmuffin's Dilemma",150000,"%^CYAN%^Piaf Huffelmuffin's Dilemma%^RESET%^");
       }
       tell_object(TP,"Piaf races into his house and back out to give something to you.");
       reward = new(OBJ"clockwork2");
