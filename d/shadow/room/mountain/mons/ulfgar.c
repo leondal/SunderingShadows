@@ -275,7 +275,7 @@ void receive_given_item(object obj){
         tell_object(TP,"%^BOLD%^%^BLUE%^You have completed the Pipe Quest!%^RESET%^");
         TP->set_quest("Pipe Quest");
         TP->set("pipequest", "dwarf");
-        TP->fix_exp(10000,TP);
+        TP->fix_exp(800000,TP);
         "/cmds/avatar/_note.c"->cmd_note("add "+TPQN+" helped out the dwarf "
           "on the Pipe Quest.");
       }
