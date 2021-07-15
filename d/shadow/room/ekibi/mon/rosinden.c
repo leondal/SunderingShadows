@@ -104,7 +104,7 @@ void receive_given_item(object obj){
       if(member_array("Rosinden's Mission",TP->query_mini_quests()) == -1) {
          tell_object(TP,"%^BOLD%^%^BLUE%^You've just finished "+
             "Rosinden's Mission!%^RESET%^");
-         TP->set_mini_quest("Rosinden's Mission",3500,"%^BOLD%^%^CYAN%^Rosinden's Mission%^RESET%^");
+         TP->set_mini_quest("Rosinden's Mission",50000,"%^BOLD%^%^CYAN%^Rosinden's Mission%^RESET%^");
       }
       tell_object(TP,"Rosinden hands you a small money pouch.");
       TP->add_money("gold",20+random(20));
