@@ -1002,7 +1002,7 @@ void interim(){
       tell_object(TP,"%^BOLD%^%^MAGENTA%^You have solved the "+
          "Nereid's Riddle!%^RESET%^");
       TP->set_quest("Riddle Quest");
-      TP->fix_exp(50000,TP);
+      TP->fix_exp(800000,TP);
    }
    return 1;
 }
