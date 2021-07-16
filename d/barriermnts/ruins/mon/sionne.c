@@ -195,7 +195,7 @@ void receive_given_item(object obj){
    force_me("say %^CYAN%^%^BOLD%^may death only find you when it is your time, and may Lysara's own "
 "hand guide you safely from this life to the next.");
    TP->set_quest("Sionne's final rest");
-   TP->fix_exp(250000,TP);
+   TP->fix_exp(2000000,TP);
    tell_room(ETO,"The spirit smiles softly, her body becoming more and more translucent, until she "
 "finally disappears.\n");
    tell_object(TP,"%^WHITE%^%^BOLD%^You have finished the quest, 'Sionne's final rest'!\n");

@@ -100,18 +100,18 @@ int finish_quest(string str){
     ob->remove();
     tell_room(environment(TP),"%^BOLD%^%^GREEN%^You see that "+TPQCN+" has completed the Quest for the Swords!\n",TP);
     tell_object(TP,"%^BOLD%^%^GREEN%^\n\nCongratulations, you have completed the Quest for the Swords!\n");
-    tell_object(TP,"%^BOLD%^%^RED%^You now have Advanced Player status.\n");
+    //tell_object(TP,"%^BOLD%^%^RED%^You now have Advanced Player status.\n");
     TP->set_quest("Quest for the Swords");
     TP->set_hm_quest(1);
-    TP->fix_exp(150000,TP);
+    TP->fix_exp(2000000,TP);
     /*if(TP->query("no pk")) {
       TP->delete("no pk");
       tell_object(TP,"\n\n%^BOLD%^%^BLUE%^As a highlevel player, your PK immunity is now dropped for you. Good luck!%^RESET%^");
       message("info","%^YELLOW%^"+capitalize(TP->query_name())+"'s %^MAGENTA%^PK immunity %^YELLOW%^has just been removed.%^RESET%^\n",users());
     }*/
-    seteuid(UID_ADVANCE);
-    seteuid(getuid());
-    log_file("advplayer", TP->query_name()+" became AP: "+ctime(time())+" by completing the Quest for the Swords.\n");
+    //seteuid(UID_ADVANCE);
+    //seteuid(getuid());
+    //log_file("advplayer", TP->query_name()+" became AP: "+ctime(time())+" by completing the Quest for the Swords.\n");
     return 1;
   }
   else{

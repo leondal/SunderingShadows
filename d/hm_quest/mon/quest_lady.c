@@ -62,7 +62,7 @@ int give_quest(object ob){
 		tell_object(ob,"%^BOLD%^%^YELLOW%^The time has come, not to use the power of the swords, but to return them to their rightful home.");
 		tell_object(ob,"%^BOLD%^%^BLUE%^I ask you to collect the pieces of one of these swords from across the lands.  Once the sword is assembled, you must take it to an ancient temple on a hidden island.");
                 tell_object(ob,"%^BOLD%^I can give you only this - a note leading to the location of the first piece of the sword.  One warning, my friend: Be sure to keep close watch over the pieces - they will disappear if they leave your possession.");
-		tell_object(ob,"%^BOLD%^%^GREEN%^Those who succeed in this task will truly be considered great and high mortals.");
+		//tell_object(ob,"%^BOLD%^%^GREEN%^Those who succeed in this task will truly be considered great and high mortals.");
 		
 		r = random(3);
 		switch (r){

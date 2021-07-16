@@ -416,7 +416,7 @@ void receive_given_item(object obj){
            "Lothwaite and gained the respect of an Imp!");
         TP->set_quest("Lothwaite Quest");
         TP->set("lothwaitequest","E");
-        TP->fix_exp(150000,TP);
+        TP->fix_exp(2000000,TP);
         "/cmds/avatar/_note.c"->cmd_note("add "+TPQN+" gave the belt to the "+
            "imp.");
         call_out("open_up",1);

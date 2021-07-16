@@ -493,7 +493,7 @@ void receive_given_item(object obj){
            "Lothwaite and returned the spirits to their rest!");
         TP->set_quest("Lothwaite Quest");
         TP->set("lothwaitequest","G");
-        TP->fix_exp(150000,TP);
+        TP->fix_exp(2000000,TP);
         "/cmds/avatar/_note.c"->cmd_note("add "+TPQN+" returned the belt to "+
            "the firbolgs of Lothwaite.");
         call_out("reset_give_out",30);
