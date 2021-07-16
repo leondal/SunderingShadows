@@ -403,7 +403,7 @@ void greet_great_defenders(object ob){
         if (sizeof(quests) <1 || member_array("Great Defender of the Tabaxi", quests) ==-1)
         {
           defender->set_quest("Great Defender of the Tabaxi");
-          defender->add_exp(200000);
+          defender->add_exp(2100000);
         }
       }
     }

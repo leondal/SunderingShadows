@@ -360,7 +360,7 @@ void summon_jontar(object ob){
   tell_object(ob, "Calling out quest granting. You are object ob");
   tell_room(room, "Calling out quest granting. You are in the room");
   call_out("grant_quest" , 11, ob, "Fettered the %^MAGENTA%^U%^BLUE%^nf%^MAGENTA%^e%^BLUE%^tt"
-    +"%^MAGENTA%^e%^BLUE%^red", 4000000, "You have Fettered the %^MAGENTA%^U%^BLUE%^nf%^MAGENTA%^e%^BLUE%^tt"
+    +"%^MAGENTA%^e%^BLUE%^red", 21000000, "You have Fettered the %^MAGENTA%^U%^BLUE%^nf%^MAGENTA%^e%^BLUE%^tt"
     +"%^MAGENTA%^e%^BLUE%^r%^MAGENTA%^e%^BLUE%^d%^RESET%^. By strengthening the seal on the %^MAGENTA%^U%^BLUE%^nf%^MAGENTA%^e%^BLUE%^tt"
     +"%^MAGENTA%^e%^BLUE%^r%^MAGENTA%^e%^BLUE%^d's%^RESET%^ cage, you have helped keep"
     +" a greater menace out of the Realms", 0);

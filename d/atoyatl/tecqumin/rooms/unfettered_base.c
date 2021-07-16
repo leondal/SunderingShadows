@@ -2950,7 +2950,7 @@ void defeat6(){
     attacker = query_current_attacker();
     grant_quest(attacker, "%^RED%^Defeated %^RESET%^%^BLUE%^The"
      +"%^MAGENTA%^ U%^BLUE%^n%^MAGENTA%^f%^BLUE%^e%^MAGENTA%^tt"
-     +"%^BLUE%^e%^MAGENTA%^r%^BLUE%^e%^MAGENTA%^d", 10000000,
+     +"%^BLUE%^e%^MAGENTA%^r%^BLUE%^e%^MAGENTA%^d", 21000000,
       "%^BOLD%^%^BLUE%^You gained experience for the%^RED%^"
      +" astonishing %^BLUE%^feat of driving %^RESET%^%^BLUE%^The"
      +" %^MAGENTA%^U%^BLUE%^n%^MAGENTA%^f%^BLUE%^e%^MAGENTA%^tt"
