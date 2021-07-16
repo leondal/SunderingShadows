@@ -307,7 +307,7 @@ void receive_given_item(object obj){
 			}
 			if(member_array(("Failed Grizon's Job" || "Finished Grizon's Job"),
 				TP->query_quests()) == -1){
-					TP->fix_exp(75000,TP);
+					TP->fix_exp(2000000,TP);
 					TP->set_quest("Failed Grizon's Job");
 					tell_object(TP,"You failed Grizon's job!");
 					"/cmds/avatar/_note.c"->cmd_note("add "+TPQN+" Failed Grizon's Job!");

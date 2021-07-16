@@ -248,7 +248,7 @@ void heart_beat()
             if(member_array("Undead Quest",player->query_quests()) == -1)
             {
                 player->set_quest("Undead Quest");
-                player->fix_exp(500000,player);
+                player->fix_exp(6200000,player);
             }
 
             command("say For your idiocy you shall die!");

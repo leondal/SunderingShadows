@@ -87,7 +87,7 @@ void complete_quest() {
 		"to my research!  ");
 
   	TP->set_quest("Stellar Quest");
-TP->fix_exp(750000, TP);
+TP->fix_exp(2000000, TP);
    	present("bootoken",TP)->remove();
     	present("castoken",TP)->remove();
    	present("cygtoken",TP)->remove();
