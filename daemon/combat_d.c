@@ -26,6 +26,7 @@ mapping DAMAGE_TRACKING;
 
 int critical_roll = 0;
 int counter_damage = 0;
+int surprise_accuracy = 0;
 
 void save_damage_tracker()
 {
@@ -667,6 +668,10 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                 crit_mult += 2;
             }
             else if (FEATS_D->has_feat(attacker, "weapon mastery")) {
+                crit_mult += 1;
+            }
+            else if(FEATS_D->has_feat(attacker, "lethal accuracy") && surprise_accuracy)
+            {
                 crit_mult += 1;
             }
         }
@@ -1551,6 +1556,13 @@ your " + used + "!%^RESET%^";
         me = me + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         you = you + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         others = others + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
+    }
+    
+    if(surprise_accuracy && x > 0)
+    {
+        me = me + "%^BOLD%^BLACK%^[%^YELLOW%^Accurate%^BLACK%^]%^RESET%^";
+        you = you + "%^BOLD%^BLACK%^[%^YELLOW%^Accurate%^BLACK%^]%^RESET%^";
+        others = others + "%^BOLD%^BLACK%^[%^YELLOW%^Accurate%^BLACK%^]%^RESET%^";
     }
     
     if(victim->query_property("paladin smite") == attacker && x > 0)
@@ -3221,8 +3233,22 @@ void internal_execute_attack(object who)
             fumble = 0;
         }
 
-
         target_thing = (string)victim->return_target_limb();
+        
+        surprise_accuracy = 0;
+        
+        if(who->query_property("raged"))
+        {
+            if(FEATS_D->usable_feat(who, "surprise accuracy"))
+            {
+                if(50 + who->query_class_level("barbarian") > random(1000))
+                {
+                    surprise_accuracy = 1 + who->query_class_level("barbarian") / 10;
+                }
+            }
+        }
+            
+        roll += surprise_accuracy;            
         roll = BONUS_D->process_hit(who, victim, i, current, 0, touch_attack);
         //crit stuff
         if (sizeof(weapons)) {
@@ -3235,6 +3261,12 @@ void internal_execute_attack(object who)
 
         if (FEATS_D->usable_feat(who, "lethal strikes")) {
             temp1 *= 2;
+        }
+        
+        if(surprise_accuracy)
+        {
+            if(FEATS_D->usable_feat("deadly accuracy"))
+                temp1 += surprise_accuracy;
         }
 
         if (victim->query_property("fortification 75")) {
