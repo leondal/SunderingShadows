@@ -197,7 +197,7 @@ int say_password(string str)
     TP->set_quest("Treasury Quest");//**add this line back in once the**
                                       //** quest is approved.*************
                                       //**********************************
-    TP->add_exp(200000);
+    TP->add_exp(6200000);
     tell_object(TP,"%^BOLD%^%^CYAN%^You have gained experience for"
                   +" speaking in the %^BOLD%^%^RED%^inf%^RESET%^"
                   +"%^RED%^e%^BOLD%^%^RED%^rn%^RESET%^%^GREEN%^a"
