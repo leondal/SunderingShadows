@@ -87,6 +87,6 @@ void exp_grant(){
     write("%^BOLD%^%^CYAN%^The gods look upon you with benevolence!");
     write("%^BOLD%^%^CYAN%^They grant you a reward for simply living through that adventure!!");
     tell_room(environment(TP),"%^BLUE%^ a faint blue haze surrounds "+TPQCN+" for a moment. Then it is gone.",TP);
-    TP->set_mini_quest("The crypt",50000,"%^BOLD%^A treacherous passage through the Crypt keeper's domain");
+    TP->set_mini_quest("The crypt",500000,"%^BOLD%^A treacherous passage through the Crypt keeper's domain");
     exp_grants += ({TPQCN});
 }

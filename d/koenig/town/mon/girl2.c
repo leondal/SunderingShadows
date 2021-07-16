@@ -111,7 +111,7 @@ void start_talk2(string str) {
       "given me. Now I can rest in peace. Thank you!");
    step = 5;
    TP->set_quest("Muileann Quest");
-   TP->fix_exp(100000, TP);
+   TP->fix_exp(1000000, TP);
    ob = present("boy",TP);
    if(objectp(ob)) ob->remove();
    tell_object(TP,"You feel some gain in experience.");
