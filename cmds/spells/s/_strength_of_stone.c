@@ -14,7 +14,7 @@ void create() {
     set_spell_level(([ "druid" : 3, "cleric" : 3 ]));
     set_spell_sphere("alteration");
     set_domains("earth");
-    set_syntax("cast CLASS strength of stone");
+    set_syntax("cast CLASS strength of stone [ON TARGET]");
     set_description("This spell will imbue the caster with the strength of the earth, slightly empowering both their melee and spell abilities. The spell does not stack with other bless-type spells.");
     set_verbal_comp();
     set_helpful_spell(1);
@@ -42,7 +42,6 @@ int preSpell(){ //converting this over to the bless category of spells, to allow
 void spell_effect(int prof) {
     int duration;
 
-    target = caster;
     duration = (ROUND_LENGTH * 20) * clevel;
         bonus = clevel/18+1;
     bonus = bonus>3?3:bonus;
@@ -55,7 +54,6 @@ void spell_effect(int prof) {
 
     target->add_damage_bonus(bonus);
     target->add_attack_bonus(bonus);
-    //target->set_property("empowered",bonus);
     addSpellToCaster();
     target->set_property("spelled",({TO}));
     target->set_property("blessed",1); //using this property so it won't stack with similar spells
@@ -70,7 +68,6 @@ void dest_effect() {
       tell_object(target,"%^BOLD%^You can feel the strength of stone leave you.");
       target->add_damage_bonus(-1*bonus);
       target->add_attack_bonus(-1*bonus);
-      target->set_property("empowered",(-1*bonus));
       target->set_property("blessed",-1);
     }
     ::dest_effect();
