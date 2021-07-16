@@ -83,7 +83,7 @@ void flashit(object targ) {
 void die(object ob){
     object oba;
 tell_room(ETO,"As the man collapses he makes one last snarl, looking to the woman on the bed.");
-TP->set_mini_quest("Dispatch the Murderer",100500,"%^CYAN%^Dispatch the Murderer%^RESET%^");
+TP->set_mini_quest("Dispatch the Murderer",1000000,"%^CYAN%^Dispatch the Murderer%^RESET%^");
 oba = new(MON"wife");
 oba->move(ETO);
    ::die(TO);
@@ -108,7 +108,7 @@ void ask_1(){
       if(interactive(fighterz[i])) {
         ppl += ({ fighterz[i] });
         if(member_array(queststring,fighterz[i]->query_mini_quests()) == -1) {
-          fighterz[i]->set_mini_quest(queststring,100000,queststring);
+          fighterz[i]->set_mini_quest(queststring,1000000,queststring);
           tell_object(fighterz[i],"\n%^BOLD%^%^RED%^You chose gold over good nature. Wins everytime.%^RESET%^\n");
         }
           fighterz[i]->move(HAMLET"merchanthouse2");
