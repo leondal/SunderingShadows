@@ -180,7 +180,7 @@ void die(object ob) {
 att = all_living(ETO);
     for(i=0;i<sizeof(att);i++){
       if(!interactive(att[i])) continue;
-      att[i]->set_mini_quest("Desert Sun Theater", 50000,"%^RED%^You solved the mystery of %^BOLD%^The %^YELLOW%^D%^RESET%^%^ORANGE%^e%^YELLOW%^s%^RESET%^%^ORANGE%^e%^YELLOW%^r%^RESET%^%^ORANGE%^t%^RED%^ S%^BOLD%^u%^RESET%^%^RED%^n%^BOLD%^ Theater.");
+      att[i]->set_mini_quest("Desert Sun Theater", 1000000,"%^RED%^You solved the mystery of %^BOLD%^The %^YELLOW%^D%^RESET%^%^ORANGE%^e%^YELLOW%^s%^RESET%^%^ORANGE%^e%^YELLOW%^r%^RESET%^%^ORANGE%^t%^RED%^ S%^BOLD%^u%^RESET%^%^RED%^n%^BOLD%^ Theater.");
       tell_object(att[i], "\n%^CYAN%^With the death of the eryines, the "+
 		"mystery of The Desert Sun Theater has been solved.\n");
     }
