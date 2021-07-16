@@ -119,7 +119,7 @@ int lift(string str)
         if(objectp(inven[i]))
         {
             inven[i]->set_mini_quest("Combined wisdom, strength, dexterity and "
-                "intelligence",250000,"Combined strength wisdom dexterity and intelligence");
+                "intelligence",2000000,"Combined strength wisdom dexterity and intelligence");
         }
     }
    
