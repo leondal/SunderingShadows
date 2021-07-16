@@ -204,7 +204,7 @@ int smash_sphere(string str) {
 			    query_mini_quests()) == -1)
 	      {
                 TP->set_mini_quest(
-			"Drow Temple Doors",500000,"%^BOLD%^%^BLUE%^You "
+			"Drow Temple Doors",2000000,"%^BOLD%^%^BLUE%^You "
         	        "mastered the secret of the Drow symbols to gain "
 			"permanent "
 	                "passage into their temple.%^RESET%^"

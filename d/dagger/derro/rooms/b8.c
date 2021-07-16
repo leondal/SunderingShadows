@@ -62,7 +62,7 @@ int press_cube(string str){
   obs[x]->remove();
   flag=0;
   if(member_array("Friend of the Stone",TP->query_mini_quests())== -1) {
-    TP->set_mini_quest("Friend of the Stone",100000,"You"
+    TP->set_mini_quest("Friend of the Stone",2000000,"You"
       " are a friend of the stones");
   }
   return 1;

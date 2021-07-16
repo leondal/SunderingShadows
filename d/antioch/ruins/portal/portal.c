@@ -122,7 +122,7 @@ void sacrifice(string str)
    " that rests on the ground to the right of the portal. In the center"+
    " a small but very intense %^BOLD%^%^MAGENTA%^lavender flame%^RESET%^"+
    " is burning contentedly.");
-   TP->set_mini_quest("Plane of Fire", 1000, "%^BOLD%^%^RED%^Opened portal in the Plane of Fire\n");
+   TP->set_mini_quest("Plane of Fire", 1000000, "%^BOLD%^%^RED%^Opened portal in the Plane of Fire\n");
    OPEN = 1;
    return 1;
 }
