@@ -35,7 +35,7 @@ int destroy_sack(string str)
 		tell_room(environment(ETO),"%^BOLD%^"+ETO->query_cap_name()+" throws the"+
 		" spider eggs onto the ground and stomps on them, completely"+
 		" destroying them.",ETO);
-		TP->set_mini_quest("Spider Eggs", 1500, "%^BOLD%^Destroyed Spider Eggs\n");
+		TP->set_mini_quest("Spider Eggs", 500000, "%^BOLD%^Destroyed Spider Eggs\n");
 		TO->remove();
 		return 1;
 	}

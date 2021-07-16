@@ -61,7 +61,7 @@ int pull(){
    if(!present("rogue"))
      tell_object(TP, "There is no one to help");
    else{
-     TP->set_mini_quest("Deep Echoes1", 9000,
+     TP->set_mini_quest("Deep Echoes1", 1000000,
       "You helped a dwarf trapped in a cave in");
 	 tell_object(TP,"You help a dwarf get out from under a rock.");	 
 	 tell_room(ETP,TP->query_cap_name()+" moves a rock off the dwarf.\n",TP);

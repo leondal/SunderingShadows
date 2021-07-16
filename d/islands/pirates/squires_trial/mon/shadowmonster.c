@@ -91,7 +91,7 @@ void stab_em(object targ){
 
 void die(object obj){
   if(objectp(ETO)){
-    all_living(ETO)->set_mini_quest("Squire's Trial", 75000, 
+    all_living(ETO)->set_mini_quest("Squire's Trial", 500000, 
         "%^BOLD%^%^CYAN%^Defeated the Shadow Monster, serving a Forgotten " +
         "Order.%^RESET%^%^WHITE%^\n");
     ETO->portal_active();

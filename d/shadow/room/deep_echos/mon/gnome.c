@@ -81,7 +81,7 @@ void receive_given_item(object obj){
   
    force_me("emote hops up on the machine puts some goggles on.  "+  
    "She flips a switch and steam starts billowing out of the machine.");
-   TP->set_mini_quest("gnomely helper",15000,"helped a gnome in echo mountain");
+   TP->set_mini_quest("gnomely helper",1000000,"helped a gnome in echo mountain");
    tell_room(ETO,"The machine starts drilling, "+
    "heading off into the rock, leaving an impassable"+
    " pile of rocks as the exit falls back down.\n");

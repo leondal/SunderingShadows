@@ -168,7 +168,7 @@ void die(object ob){
     for(i=0;i<sizeof(ppl);i++) {
 
         if(member_array(queststring,ppl[i]->query_mini_quests()) ==-1)
-          ppl[i]->set_mini_quest(queststring,150000,queststring);
+          ppl[i]->set_mini_quest(queststring,3100000,queststring);
 
       }
  tell_room(ETO,"\n%^BOLD%^%^CYAN%^As the watcher dies his ilusion fades, he is actually a %^RED%^fey'ri.\n");

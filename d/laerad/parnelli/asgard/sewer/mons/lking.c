@@ -122,7 +122,7 @@ void die(object ob) {
 att = all_living(ETO);
     for(i=0;i<sizeof(att);i++){
       if(!interactive(att[i])) continue;
-      att[i]->set_mini_quest("Lizardmen Tribe", 25000,"%^BOLD%^%^GREEN%^You commited a genocidal act against Lizardmen! Congratulations!");
+      att[i]->set_mini_quest("Lizardmen Tribe", 500000,"%^BOLD%^%^GREEN%^You commited a genocidal act against Lizardmen! Congratulations!");
       tell_object(att[i], "\n%^GREEN%^With Slagruss' death, the lizardmen are left broken and confused.\n");
     }
 	new("/d/common/obj/rand/epants.c")->move(TO);

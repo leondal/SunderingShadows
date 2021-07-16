@@ -137,7 +137,7 @@ void check_has_all_heads()
             {
                 if(member_array("Altar of Fire", TP->query_mini_quests()) == -1)
                 {
-                    TP->set_mini_quest("Altar of Fire", 100000, 
+                    TP->set_mini_quest("Altar of Fire", 1000000, 
                     "Servitude:  %^BOLD%^%^RED%^Served "+
                     "The War Mongrel!%^RESET%^");
                 }

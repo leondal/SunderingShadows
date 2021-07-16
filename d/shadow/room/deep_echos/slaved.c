@@ -70,7 +70,7 @@ int free(){
    if(!present("slave"))
      tell_object(TP, "There is no one to free");
    else{
-     TP->set_mini_quest("Deep Echoes", 9000,
+     TP->set_mini_quest("Deep Echoes", 1000000,
       "You freed the captive dwarves in echo mountains");
 	 tell_object(TP,"You break the chains on the dwarves."+
      "  they hoot for joy and run off cheering about their"+

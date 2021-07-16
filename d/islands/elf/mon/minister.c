@@ -58,7 +58,7 @@ void receive_given_item(object obj){
    "  but I'm true to my word.  Here is you spear.");
   
    force_me("emote goes to a rack and pulls a spear out.");
-   TP->set_mini_quest("guard killer",15000,"delivered a tonovi guard's head to the elves.");
+   TP->set_mini_quest("guard killer",6200000,"delivered a tonovi guard's head to the elves.");
    
    new(OBJ"tspear")->move(TO);
    force_me("give spear to "+name);

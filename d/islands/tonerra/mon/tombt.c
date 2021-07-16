@@ -192,7 +192,7 @@ void die(object ob)
    { 
        if(!objectp(attackers[i])) { continue; }
       if(member_array("Silenced the Spirit of the Catacombs, Defeated Tomb Tapper",attackers[i]->query_mini_quests()) == -1){
-	     attackers[i]->set_mini_quest("Silenced the Spirit of the Catacombs, Defeated Tomb Tapper",25000,"%^BOLD%^%^BLACK%^Silenced the Spirit of the Catacombs, Defeated Tomb Tapper%^RESET%^");
+	     attackers[i]->set_mini_quest("Silenced the Spirit of the Catacombs, Defeated Tomb Tapper",1000000,"%^BOLD%^%^BLACK%^Silenced the Spirit of the Catacombs, Defeated Tomb Tapper%^RESET%^");
       }
    }	  
    ::die(ob);

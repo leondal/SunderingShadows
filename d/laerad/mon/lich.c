@@ -244,7 +244,7 @@ void die(object targ)
         tooth->move(ETO);
         who = query_current_attacker();
         if (objectp(who)) {
-            who->set_mini_quest("Killed Hansoth", 0, "Killed Hansoth");
+            who->set_mini_quest("Killed Hansoth", 500000, "Killed Hansoth");
             tell_room(ETO, who->query_cap_name() + " is briefly surrounded by a "
                       "%^BOLD%^%^BLACK%^dark, eerie haze %^RESET%^from the explosion.", who);
             tell_object(who, "You are briefly surrounded by a %^BOLD%^%^BLACK%^"
