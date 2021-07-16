@@ -100,7 +100,7 @@ void receive_given_item(object obj){
       if(member_array("Assisted the Kobolds",TP->query_mini_quests()) == -1){
          tell_object(TP,"%^BOLD%^You've just finished Assisted the "+
             "Kobolds!");
-         TP->set_mini_quest("Assisted the Kobolds",100000,"Assisted the Kobolds");
+         TP->set_mini_quest("Assisted the Kobolds",500000,"Assisted the Kobolds");
       }
       if(ob = present("bldscl",TP)){
          ob->move("/d/shadowgate/void");
