@@ -173,7 +173,7 @@ SAVE_D->remove_name_from_array("gith_quest_asked", TPQN); }
 " I give you my thanks. Though, now that they are stuck here, I wonder what the Githyanki "+
 "will do?");
    TP->set_quest("Isolated the Githyanki");
-   TP->fix_exp(200000,TP);
+   TP->fix_exp(2000000,TP);
    tell_room(ETO,"%^%^RED%^The woman closes her eyes and casts a spell of recall.%^RESET%^\n");
    tell_object(TP,"You have finished the quest, 'Isolated the Githyanki'!\n");
    TO->remove();
