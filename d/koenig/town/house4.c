@@ -39,7 +39,7 @@ int retrieve_brick(string str)
   object brick;
   if(str != "brick" || key_wait != 0)
   return 0;
-  if(present("key",TP))
+  if(present("small golden key",TP))
 {
   write("You find nothing more here.\n");
   say(TPQCN+" is snooping about for something more.");
