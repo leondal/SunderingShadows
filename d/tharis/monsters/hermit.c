@@ -93,7 +93,7 @@ void do_end(object ob,object head){
   		if(member_array("Peace to the Forest",ob->query_quests()) == -1){
         	ob->set_quest("Peace to the Forest");
         	if((ALIGN->is_good(ob) && present("evil head",ob)) || (ALIGN->is_evil(ob) && present("good head",ob)) || ALIGN->is_neutral(ob)){
-				ob->fix_exp(500000,ob);
+				ob->fix_exp(1000000,ob);
             ob->add_money("gold",40000);
 			} else {
 				force_me("say Silly boy, yes I thank you for the peace you have brought us. But what price you pay. You have brought to an end your own way of life here. You will always suffer I'm afraid for this");
