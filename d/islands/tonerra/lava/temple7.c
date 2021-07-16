@@ -168,7 +168,7 @@ int quest()
    if(member_array("Finished Shar's failed Deed",TP->query_quests()) == -1){
 
       TP->set_quest("Finished Shar's failed Deed");
-      TP->fix_exp(1000000,TO);
+      TP->fix_exp(21000000,TO);
    }
    return 1;
 }
