@@ -80,7 +80,7 @@ void bring(string str){
 	force_me("offerall");
 	tell_object(TP,"You have completed the Legacy of Hansoth quest!");
 	TP->set_quest("Legacy of Hansoth");
-	TP->fix_exp(1000000,TP);
+	TP->fix_exp(6200000,TP);
 	return 1;
     }
     write("%^MAGENTA%^Sage says%^RESET%^:  You don't have the Lich's life source fool!");

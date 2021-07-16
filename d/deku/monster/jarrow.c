@@ -161,7 +161,7 @@ if(member_array("Stone Quest",player->query_quests()) == -1){
      obj = new("/d/deku/weapons/Deku");
      obj->move(player);
      player->set_quest("Stone Quest");
-     player->fix_exp(50000,player);
+     player->fix_exp(2000000,player);
      tell_object(player,"%^BOLD%^You have finished the Quest for the Stones!");
 }
 	}
