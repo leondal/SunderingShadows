@@ -114,7 +114,7 @@ void die(object ob) {
     att = all_living(ETO);
     for(i=0;i<sizeof(att);i++){
       if(!interactive(att[i])) continue;
-      att[i]->set_mini_quest("Ogre Hordes", 20000,"You defeated Ahstuz, "+
+      att[i]->set_mini_quest("Ogre Hordes", 1000000,"You defeated Ahstuz, "+
          "and sealed the Gate to Hell, freeing the souls of the Ogres.");
       tell_object(att[i], "%^BOLD%^%^BLUE%^   You have sealed the gate to "+
          "Hell, and have freed the souls of the ogres, so that some day "+
