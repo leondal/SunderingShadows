@@ -92,6 +92,9 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
     if(attacker->true_seeing())
         MissChance = 0;
     
+    if(surprise_accuracy && FEATS_D->has_feat(attacker, "sharpened accuracy"))
+        MissChance = 0;
+    
     if (AttackerMissChance) {
         return 1;
     }

@@ -1,6 +1,7 @@
 #include <std.h>
 #include <magic.h>
 #include <skills.h>
+#include <daemons.h>
 
 inherit STATUS;
 
@@ -17,6 +18,13 @@ int status_effect()
 
     if (target->query_property("effect_sickened") > 4) {
         TO->remove();
+        return;
+    }
+    
+    if(FEATS_D->has_feat(target, "internal fortitude") && target->query_property("raged"))
+    {
+        tell_object(target, "You are immune to being sickened.");
+        this_object()->remove();
         return;
     }
 
