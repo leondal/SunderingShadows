@@ -10,7 +10,7 @@ void create()
     feat_category("RagePower");
     feat_name("deadly accuracy");
     feat_prereq("Surprise Accuracy");
-    feat_desc("With this feat, the barbarian's 'Accurate' attacks get a bonus equal to their surprise accuracy bonus to confirm critical strikes.");
+    feat_desc("While raging, the barbarian's 'Accurate' attacks get a bonus equal to their surprise accuracy bonus to confirm critical strikes.");
     set_required_for(({ "lethal accuracy" }));
     permanent(1);
 }

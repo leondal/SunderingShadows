@@ -10,7 +10,7 @@ void create()
     feat_category("RagePower");
     feat_name("surprise accuracy");
     feat_prereq("Barbarian");
-    feat_desc("With this feat, the barbarian has a chance to periodically gain an attack bonus on a single attack equal to 1 + barbarian level / 10. This attack is known as an 'accurate' attack.");
+    feat_desc("While raging, the barbarian has a chance to periodically gain an attack bonus on a single attack equal to 1 + barbarian level / 10. This attack is known as an 'accurate' attack.");
     set_required_for(({ "deadly accuracy" }));
     permanent(1);
 }

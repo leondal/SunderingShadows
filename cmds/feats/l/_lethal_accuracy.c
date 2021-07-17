@@ -10,7 +10,7 @@ void create()
     feat_category("RagePower");
     feat_name("lethal accuracy");
     feat_prereq("Deadly Accuracy");
-    feat_desc("With this feat, the barbarian's 'Accurate' attacks gain a +1 modifier to critical multiplier.
+    feat_desc("While raging, the barbarian's 'Accurate' attacks gain a +1 modifier to critical multiplier.
     
 N.B. This feat does not stack with Exploit Weakness or Weapon Mastery.");
     permanent(1);
