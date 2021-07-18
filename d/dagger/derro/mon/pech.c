@@ -369,7 +369,7 @@ void receive_given_item(object obj){
     if(member_array("Ruldizar's Request",TP->query_mini_quests()) == -1) {
       tell_object(TP,"%^RED%^You helped fufill Ruldizar's Request!"
                      +"%^RESET%^");
-      TP->set_mini_quest("Ruldizar's Request",10000,"%^RED%^Ruldizar's"
+      TP->set_mini_quest("Ruldizar's Request",1000000,"%^RED%^Ruldizar's"
                         +" Request%^RESET%^");
     }
     force_me("say Now comes a time for your reward, from the gems here,"

@@ -411,7 +411,7 @@ void gasp(object speaker){
     }
     quests = people[i]->query_mini_quests();
     if (member_array("Told Jontar that Quali Lives",quests)==-1){
-      people[i]->set_mini_quest("Told Jontar that Quali Lives");
+      people[i]->set_mini_quest("Told Jontar that Quali Lives",10000000,"%^BOLD%^%^Told Jontar that Quali Lives\n");
     }
   }
   force_me("emote gasps and leans forward eagerly");
@@ -452,7 +452,7 @@ void downfall(object speaker){
       continue;
     }
     people[i]->set_mini_quest("Knows about the downfall of the"
-     +" Tecqumin");
+     +" Tecqumin",10000000,"%^BOLD%^Knows about the downfall of the Tecqumin!");
   }
 }
 
@@ -633,7 +633,7 @@ void lives(){
     }
     quests = people[i]->query_mini_quests();
     if (member_array("Told Jontar that Quali Lives",quests)==-1){
-      people[i]->set_mini_quest("Told Jontar that Quali Lives");
+      people[i]->set_mini_quest("Told Jontar that Quali Lives",10000000,"%^BOLD%^Told Jontar that Qauli Lives");
     }
   }
 }
@@ -672,13 +672,13 @@ void maddened(){
     }
     quests = people[i]->query_mini_quests();
     if (member_array("Heard of the Jetstone",quests)==-1){
-      people[i]->set_mini_quest("Heard of the Jetstone");
+      people[i]->set_mini_quest("Heard of the Jetstone",10000000,"%^BOLD%^Heard of the Jetstone.");
     }
     if (member_array("Told Jontar of Quali's madness", quests)==-1){
-      people[i]->set_mini_quest("Told Jontar of Quali's madness");
+      people[i]->set_mini_quest("Told Jontar of Quali's madness",10000000,"%^BOLD%^Told Jontar of Quali's madness");
     }
     if (member_array("Told Jontar that Quali Lives",quests)==-1){
-      people[i]->set_mini_quest("Told Jontar that Quali Lives");
+      people[i]->set_mini_quest("Told Jontar that Quali Lives",10000000,"%^BOLD%^Told jontar that Quali Lives");
     }
   }
 }
@@ -706,7 +706,7 @@ void smile(){
     }
     quests = critters[i]->query_mini_quests();
     if (member_array("Told Jontar that Quali Lives", quests)==-1){
-      critters[i]->set_mini_quest("Told Jontar that Quali Lives");
+      critters[i]->set_mini_quest("Told Jontar that Quali Lives",10000000,"%^BOLD%^Told Jontar that Quali Lives");
     }
   }
 }

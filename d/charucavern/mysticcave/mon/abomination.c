@@ -311,7 +311,7 @@ void die(object ob)
         if(environment(MyKillers[Amt]) != ETO) continue;
         tmpquests = MyKillers[Amt]->query_mini_quests();
         if(member_array(ABOMDEED, tmpquests) != -1) continue;
-        MyKillers[Amt]->set_mini_quest(ABOMDEED, 175000, ABOMDEED);
+        MyKillers[Amt]->set_mini_quest(ABOMDEED, 1000000, ABOMDEED);
             
         tell_object(MyKillers[Amt], "%^BOLD%^%^CYAN%^You have destroyed the abomination that "+
         "plagued the charu caverns!%^RESET%^");

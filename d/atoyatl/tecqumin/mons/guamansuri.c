@@ -101,7 +101,7 @@ void meet_me(){
   for (i=0;i<num;i++){
     if (objectp(critters[i]) && critters[i]->is_player()){
       critters[i]->set_mini_quest("Met the ghost of Guamansuri,"
-             +" consort to the %^CYAN%^Tecqumin%^RESET%^ Empress");
+             +" consort to the %^CYAN%^Tecqumin%^RESET%^ Empress",1000000,"%^BOLD%^Met the ghost of Guarmansuri, constor to the %^CYAN%^Tecqumin %^RESET%^Empress.");
     }
   }
 }
@@ -430,10 +430,10 @@ void greet_empress17(){
     if ((int)critters[i]->is_player()==1){
       quests = critters[i]->query_mini_quests();
       if (member_array("Tasked to slay Epithon", quests)==-1){
-        critters[i]->set_mini_quest("Tasked to slay Epithon");
+        critters[i]->set_mini_quest("Tasked to slay Epithon",1000000,"%^BOLD%^Tasked to slay Epithon.");
       }
       if (member_array("Tasked to slay Taluc", quests)==-1){
-        critters[i]->set_mini_quest("Tasked to slay Taluc");
+        critters[i]->set_mini_quest("Tasked to slay Taluc",1000000,"%^BOLD%^Tasked to slay Taluc.");
       }
     }
   }

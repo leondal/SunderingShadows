@@ -228,7 +228,7 @@ void quest_complete(object quester)
     if (member_array("%^RESET%^%^MAGENTA%^%^Defeated the masters of the Vasati Aadhyaatmika.%^RESET%^", quester->query_mini_quests()) == -1) {
         force_me("emoteat " + quester->query_name() + " %^RESET%^%^CYAN%^$M smiles at $N.%^RESET%^");
         force_me("say %^MAGENTA%^'%^RESET%^I see that you have, for the first time, overcome our masters.  Well done.%^MAGENTA%^'%^RESET%^");
-        quester->set_mini_quest("%^RESET%^%^MAGENTA%^%^Defeated the masters of the Vasati Aadhyaatmika.%^RESET%^", 250000, "%^RESET%^%^MAGENTA%^%^Defeated the masters of the Vasati Aadhyaatmika.%^RESET%^");
+        quester->set_mini_quest("%^RESET%^%^MAGENTA%^%^Defeated the masters of the Vasati Aadhyaatmika.%^RESET%^", 3100000, "%^RESET%^%^MAGENTA%^%^Defeated the masters of the Vasati Aadhyaatmika.%^RESET%^");
         tell_object(TP, "%^YELLOW%^You have achieved: %^RESET%^%^MAGENTA%^%^Defeated the masters of the Vasati Aadhyaatmika!%^RESET%^");
     }
     force_me("emoteat tattva %^RESET%^%^CYAN%^$M gracefully inclines her head.%^RESET%^");

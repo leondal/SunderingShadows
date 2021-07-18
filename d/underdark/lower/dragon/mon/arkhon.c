@@ -284,7 +284,7 @@ void die(object ob){
      if(userp(fighterz[i])) {
        ppl += ({ fighterz[i] });
        if(member_array(queststring,fighterz[i]->query_mini_quests()) == -1) {
-         fighterz[i]->set_mini_quest(queststring,1000000,queststringb);
+         fighterz[i]->set_mini_quest(queststring,3100000,queststringb);
          tell_object(fighterz[i],"\n%^BOLD%^%^CYAN%^A thrilling sense of accomplishment runs through you as you realise "
 "the mighty deep dragon has fallen to your hand!%^RESET%^\n");
        }

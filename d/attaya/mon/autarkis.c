@@ -143,7 +143,7 @@ void die(object ob){
    for(i=0;i<sizeof(attackers);i++){
       if(!objectp(attackers[i])) { continue; }
       if(member_array("Life force of the Kinnesaruda has faded, Intruder and Autarkis are defeated",attackers[i]->query_mini_quests()) == -1){
-	     attackers[i]->set_mini_quest("Life force of the Kinnesaruda has faded, Intruder and Autarkis are defeated",100000,"%^BOLD%^%^BLACK%^Life force of the Kinnesaruda has faded, Intruder and Autarkis are defeated%^RESET%^");
+	     attackers[i]->set_mini_quest("Life force of the Kinnesaruda has faded, Intruder and Autarkis are defeated",10000000,"%^BOLD%^%^BLACK%^Life force of the Kinnesaruda has faded, Intruder and Autarkis are defeated%^RESET%^");
       }
    }
 

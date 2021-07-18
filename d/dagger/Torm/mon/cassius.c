@@ -258,7 +258,7 @@ void die(object ob){
          if(member_array("Defeated Cassius in a Duel",targ->query_mini_quests()) == -1){
             tell_object(targ,"%^BOLD%^%^CYAN%^You've just defeated Cassius "+
                "in a duel!%^RESET%^");
-            targ->set_mini_quest("Defeated Cassius in a Duel",15000,"%^BOLD%^%^CYAN%^Defeated Cassius in a Duel%^RESET%^");
+            targ->set_mini_quest("Defeated Cassius in a Duel",1000000,"%^BOLD%^%^CYAN%^Defeated Cassius in a Duel%^RESET%^");
          }
       }
    }else{

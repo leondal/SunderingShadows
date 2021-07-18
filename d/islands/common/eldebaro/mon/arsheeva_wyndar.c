@@ -172,7 +172,7 @@ void die(object ob)
             MyKillers[Amt]->set("KilledArsheeva", 2);
             tmpquests = (string *)MyKillers[Amt]->query_mini_quests();
             if(member_array(MYQUEST, tmpquests) != -1) continue;
-            MyKillers[Amt]->set_mini_quest(MYQUEST, 2000000, MYQUEST);
+            MyKillers[Amt]->set_mini_quest(MYQUEST, 10000000, MYQUEST);
             tell_object(MyKillers[Amt], "%^BOLD%^%^WHITE%^You have freed the tormented "+
             "Lysaraian Monk, Arsheeva Wyndar, but you know that whatever had "+
             "possessed him still lives... somewhere.%^RESET%^");

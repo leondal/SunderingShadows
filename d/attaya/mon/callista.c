@@ -143,7 +143,7 @@ void die(object ob){
    for(i=0;i<sizeof(attackers);i++){
       if(!objectp(attackers[i])) { continue; }
 	  if(member_array("Deadly Beauty, Defeated Callista",attackers[i]->query_mini_quests()) == -1){
-	     attackers[i]->set_mini_quest("Deadly Beauty, Defeated Callista",50000,"%^RESET%^%^RED%^Deadly Beauty, Defeated Callista%^RESET%^");
+	     attackers[i]->set_mini_quest("Deadly Beauty, Defeated Callista",3100000,"%^RESET%^%^RED%^Deadly Beauty, Defeated Callista%^RESET%^");
       }
    }
    ::die(ob);

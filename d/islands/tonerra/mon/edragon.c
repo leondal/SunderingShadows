@@ -408,7 +408,7 @@ void die(object obj)
                 if(ob->query_highest_level() > 15)
                 {
                     tell_object(ob,"You have helped to silence the voice of the volcano.");
-                    ob->set_mini_quest("Silence the volcano voice\n",45000,"Silence the volcano voice\n");
+                    ob->set_mini_quest("Silence the volcano voice\n",1000000,"Silence the volcano voice\n");
                 }
             }
         }

@@ -100,7 +100,7 @@ void init(){
       if (interactive(people[i])){
         quests = people[i]->query_mini_quests();
         if (member_array("Discovered the Madness of Quali", quests)==-1){
-          people[i]->set_mini_quest("Discovered the Madness of Quali");
+          people[i]->set_mini_quest("Discovered the Madness of Quali",10000000,"%^BOLD%^%^BLACK%^Discovered the madness of Quali");
         }
       }
     }
@@ -344,7 +344,7 @@ void reply_func(string msg, object speaker){
       if (!userp(people[i])) continue;
       quests = people[i]->query_mini_quests();
       if (member_array("Knows of the Heart of the Jungle", quests, 1)==-1){
-        people[i]->set_mini_quest("Knows of the Heart of the Jungle");
+        people[i]->set_mini_quest("Knows of the Heart of the Jungle",10000000,"%^BOLD%^Knows of the Heart of the Jungle!");
       }
     } 
     return;
@@ -441,7 +441,7 @@ void reply_func(string msg, object speaker){
         if (member_array("Knows of the Heart of the Jungle",quests)!=-1){
           continue;
         }
-        people[i]->set_mini_quest("Knows of the Heart of the Jungle");
+        people[i]->set_mini_quest("Knows of the Heart of the Jungle",10000000,"%^BOLD%^Knows of the Heart of the Jungle!");
       }
       call_out("destroy_crystal2",2);
     }
@@ -819,7 +819,7 @@ void unfettered2(){
     if (member_array("Secret of the Chamber",quests)!=-1){
       continue;
     }
-    people[i]->set_mini_quest("Secret of the Chamber");
+    people[i]->set_mini_quest("Secret of the Chamber",10000000,"%^BOLD%^Secret of the Chamber");
   }
 }
 
@@ -870,7 +870,7 @@ void destruction3(){
     if (member_array("Heard of the Unfettered",quests)){
       return;
     }
-    people[i]->set_mini_quest("Heard of the Unfettered");
+    people[i]->set_mini_quest("Heard of the Unfettered",10000000,"%^BOLD%^Heard of the Unfettered!");
   }
 }
 

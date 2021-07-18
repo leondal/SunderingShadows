@@ -276,7 +276,7 @@ void die(object ob)
             if(environment(MyKillers[Amt]) != ETO) continue;
             tmpquests = (string *)MyKillers[Amt]->query_mini_quests();
             if(member_array(MYQUEST, tmpquests) != -1) continue;
-            MyKillers[Amt]->set_mini_quest(MYQUEST, 550000, MYQUEST);
+            MyKillers[Amt]->set_mini_quest(MYQUEST, 3200000, MYQUEST);
             tell_object(MyKillers[Amt], "%^BOLD%^%^BLACK%^You have broken the husk of Ao'rus Devar... "+
             "but somehow you feel as if parts of the strange being %^BOLD%^%^CYAN%^still "+
             "exist%^BOLD%^%^BLACK%^ somewhere....");

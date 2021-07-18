@@ -481,7 +481,7 @@ void die(object ob)
         tell_room(ETO, "%^MAGENTA%^Batlin whispers%^RESET%^: Be cursed forever...");
         start_event();
         if (objectp(attackers[0])) {
-            attackers[0]->set_mini_quest(qst, 2000000, qst);
+            attackers[0]->set_mini_quest(qst, 10000000, qst);
         }
     } else {
         tell_room(ETO, "Batlin chuckles with a smug grin...");

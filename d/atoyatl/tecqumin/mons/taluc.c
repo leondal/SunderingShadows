@@ -368,7 +368,7 @@ void entrap_func(){
       continue;
     }
     people[i]->set_mini_quest("Learned of the Unfettered's"
-                             +" entrapment");
+                             +" entrapment",10000000,"%^BOLD%^%^BLUE%^Learned of the Unfettered's entrapment!");
   }
 }
 
@@ -392,7 +392,7 @@ void jetstone(){
     if (member_array("Heard of the Jetstone",quests)!=-1){
       continue;
     }
-    people[i]->set_mini_quest("Heard of the Jetstone");
+    people[i]->set_mini_quest("Heard of the Jetstone",10000000,"%^BOLD%^Heard of the Jetstone!");
   }
 }
 
@@ -412,7 +412,7 @@ void reality(){
     if (member_array("Heard of the Unfettered",quests)!=-1){
       continue;
     }
-    people[i]->set_mini_quest("Heard of the Unfettered");
+    people[i]->set_mini_quest("Heard of the Unfettered",10000000,"%^BOLD%^Heard of the Unfettered!");
   }
   for (i=0;i<sizeof(people);i++){
     if (!interactive(people[i])){
@@ -422,7 +422,7 @@ void reality(){
     if (member_array("Nature of the Unfettered",quests)!=-1){
       continue;
     }
-    people[i]->set_mini_quest("Nature of the Unfettered");
+    people[i]->set_mini_quest("Nature of the Unfettered",10000000,"%^BOLD%^Nature of the Unfettered");
   }
 }
 
@@ -442,7 +442,7 @@ void tell_slay(){
     }
     quests = critters[i]->query_mini_quests();
     if (sizeof(quests)<1 || member_array("Was asked to slay Quali", quests) == -1){
-      critters[i]->set_mini_quest("Was asked to slay Quali");
+      critters[i]->set_mini_quest("Was asked to slay Quali",10000000,"%^BOLD%^Was asked to slay Qauli");
     }
   }
 }
