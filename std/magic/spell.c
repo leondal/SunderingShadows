@@ -1608,6 +1608,10 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
 
         if(!clevel)
             clevel = max( ({ caster->query_level(), 1 }) );
+
+        if ((int)caster->query_property("empowered")) {
+            clevel += (int)caster->query_property("empowered");
+        }
     }
 
     if (classtype == "innate") {
@@ -1632,6 +1636,10 @@ varargs void use_spell(object ob, mixed targ, int ob_level, int prof, string cla
         }
         if (clevel < 1) {
             clevel = 1;
+        }
+
+        if ((int)caster->query_property("empowered")) {
+            clevel += (int)caster->query_property("empowered");
         }
     }
 
@@ -3206,10 +3214,10 @@ varargs int do_save(object targ, int mod)
             }
         }
     }
-    
+
     if(diminish_returns)
         caster_bonus -= (5 * targ->is_diminish_return(spell_name, caster));
-        
+
     //Likewise, telepaths with the guarded thoughts feat have a bonus against mental spells
     if(mental_spell && FEATS_D->usable_feat(targ, "guarded thoughts") && targ->query("available focus"))
         caster_bonus -= 10;
@@ -3306,7 +3314,7 @@ varargs int do_save(object targ, int mod)
         tell_object(caster, "Save result (1 pass, 0 fail): " + debug_map["save_result"] + "");
         tell_object(caster, "Throw passed or failed by: " + debug_map["pass_or_fail_by"] + "");
     }
-    
+
     if(diminish_returns && debug_map["save_result"])
         targ->add_diminish_return(spell_name, caster);
 
