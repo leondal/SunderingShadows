@@ -7,7 +7,7 @@ int ticker;
 void create() {
     ::create();
     set_spell_name("regenerate");
-    set_spell_level(([ "cleric" : 7, "oracle":7 ]));
+    set_spell_level(([ "cleric" : 7, "oracle":7, "druid" : 7 ]));
     set_mystery("life");
     set_domains("renewal");
     set_spell_sphere("healing");
