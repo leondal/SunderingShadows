@@ -68,7 +68,7 @@ int cmd_cast(string str)
     } else {
         healharm = 0;
     }
-    
+
     if (regexp(str, implode(LIVING_D->list_classes(), "|") + "|innate|cantrip")) {
         if (!sscanf(str, "%s %s", type, str2)) {
             return notify_fail("Syntax: <cast CLASS CAST_STRING>\n");
@@ -215,7 +215,7 @@ int cmd_cast(string str)
 
     if (TP->query("relationship_profile")) {
         if (strsrch((string)TP->query("relationship_profile"), "druid_") >= 0) {
-            if (TP->query_property("shapeshifted") && type != "innate" && type != "druid") {
+            if (TP->query_property("shapeshifted") && type != "innate" && type != "cantrip" && type != "druid") {
                 tell_object(TP, "You can only cast druid spells or innate abilities while in druidic form.");
                 return 1;
             }
@@ -297,7 +297,7 @@ int cmd_cast(string str)
     if (type == "cantrip") { //this should really use wizard interface somehow to pick up the proper clevels, might need to define cantrips differently
         targ->use_spell(this_player(), tar, TP->query_base_character_level(), 100, "cantrip");
     }
-    
+
     return 1;
 }
 
