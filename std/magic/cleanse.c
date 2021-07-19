@@ -29,7 +29,7 @@ void cleanse(object target)
                effect->query_name() == "effect_negative_level" ||
                effect->query_name() == "effect_sicken"
                 )
-                effect->dest_effect();
+                effect->dest_effect(target);
         }
     }
 
@@ -60,7 +60,7 @@ void restore(object target)
                effect->query_name() == "effect_negative_level" ||
                effect->query_name() == "effect_confused"
                 )
-                effect->dest_effect();
+                effect->dest_effect(target);
         }
     }
 
@@ -80,7 +80,7 @@ void lesser_restore(object target)
         object effect = effects[random(sizeof(effects))];
 
         if(objectp(effect))
-            effect->dest_effect();
+            effect->dest_effect(target);
     }
 }
 
@@ -103,7 +103,7 @@ void regenerate(object target)
                 continue;
             if(effect->query_name() == "effect_fatigued" ||
                effect->query_name() == "effect_exhausted")
-                effect->dest_effect();
+                effect->dest_effect(target);
         }
     }
 
