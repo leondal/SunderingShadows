@@ -1275,12 +1275,12 @@ void wizard_interface(object user, string type, string targ)
 
         // can_cast call in magic_d defines conditions that allow to cast these spells without memorizing
 
-        if ((FEATS_D->usable_feat(caster, "supreme healer") && (member_array(spell_name, supreme_healer_spells) != -1)) && roll_dice(1, 20) > 16) {
+        if ((FEATS_D->usable_feat(caster, "supreme healer") && (member_array(spell_name, supreme_healer_spells) != -1)) && roll_dice(1, 20) < 16) {
             tell_object(caster,"%^BOLD%^%^WHITE%^The divine preserves the spell in your memory.");
             preserve_in_memory = 1;
         }
 
-        if ((FEATS_D->usable_feat(caster, "raging healer") && (member_array(spell_name, raging_healer_spells) != -1) && caster->query_property("raged") && roll_dice(1, 20) > 14)) {
+        if ((FEATS_D->usable_feat(caster, "raging healer") && (member_array(spell_name, raging_healer_spells) != -1) && caster->query_property("raged") && roll_dice(1, 20) < 14)) {
             tell_object(caster,"%^BOLD%^%^RED%^You're so angry you forgot to forget the spell.");
             preserve_in_memory = 1;
         }
