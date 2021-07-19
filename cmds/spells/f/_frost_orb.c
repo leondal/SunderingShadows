@@ -16,7 +16,7 @@ void create() {
     ::create();
     set_author("cythera");
     set_spell_name("frost orb");
-    set_spell_level(([ "mage" : 3, "cleric" : 3 ]));
+    set_spell_level(([ "mage" : 3, "cleric" : 3, "druid": 3 ]));
     set_domains("cold");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS frost orb on TARGET");

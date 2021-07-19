@@ -16,7 +16,7 @@ string element;
 void create(){
     ::create();
     set_spell_name("incendiary cloud");
-    set_spell_level(([ "mage" : 8, "oracle" : 8, "cleric":8]));
+    set_spell_level(([ "mage" : 8, "oracle" : 8, "cleric":8, "druid" : 8]));
     set_domains("fire");
     set_mystery(({"flame","apocalypse"}));
     set_spell_sphere("conjuration_summoning");
