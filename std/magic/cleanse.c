@@ -69,6 +69,21 @@ void restore(object target)
     target->set_poisoning(-target->query_poisoning());
 }
 
+void lesser_restore(object target)
+{
+    object * effects;
+
+    effects = target->query_property("status_effects");
+
+    if(sizeof(effects))
+    {
+        object effect = effects[random(sizeof(effects))];
+
+        if(objectp(effect))
+            effect->dest_effect();
+    }
+}
+
 
 void regenerate(object target)
 {
