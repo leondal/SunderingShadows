@@ -102,8 +102,7 @@ void set_guard_stuff()
 {
     set_jail_location("/d/darkwood/tabor/room/jail");
     set_guarding("Tabor");
-    set_bad_races(({ "drow", "half-drow", "goblin", "hobgoblin", "kobold", "ogre", "minotaur", "yuan-ti", "fey'ri", "dragon"
-                     "half-ogre", "orc", "gnoll", "bugbear", "ogre-mage" }));
+    set_bad_races(({ "drow", "half-drow", "goblin", "hobgoblin", "kobold", "ogre", "minotaur", "yuan-ti", "fey'ri", "dragon", "half-ogre", "orc", "gnoll", "bugbear", "ogre-mage", "troll", "dragon", "demon" }));
     set_race_action("capture");
     set_race_messages(([
                            "drow"      : "Arg, its a drow, sound the horn, stop it before it starts killing children.",
@@ -117,6 +116,9 @@ void set_guard_stuff()
                            "half-orc"  : "It's not human fellas, get that half-orc.",
                            "bugbear"   : "A bugbear - it's gonna be mean but let's get it.",
                            "orc"       : "Don't let the orc escape!  You know it's spying for an invasion.",
+                           "troll"     : "Careful, these things can take a beating!",
+                           "dragon"    : "Eyes to the skies, lads!",
+                           "demon"     : "Let's send this beast back to the pits!",
                        ]));
     ARREST_MSG = "%^BOLD%^%^CYAN%^Stop in the name of the law!";
     CAPTURE_MSG = "%^BOLD%^You are under arrest you criminal!";
