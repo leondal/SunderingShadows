@@ -26,7 +26,7 @@ void create()
     hasmsgs = 1;
     tracker = 0;
     mymsgs = ({ "%^RESET%^%^ORANGE%^You enjoy the pungent taste of the tobacco.%^RESET%^" });
-    yourmsgs = ({ "%^RESET%^%^ORANGE%^You smell the pungent aroma of the burning tobacco from the cigar.%^RESET%^" });
+    yourmsgs = ({ "%^RESET%^%^ORANGE%^You smell the pungent aroma of the burning tobacco from the cigarette.%^RESET%^" });
     intox = 0;
 }
 
