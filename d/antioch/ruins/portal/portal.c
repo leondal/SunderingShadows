@@ -1,4 +1,5 @@
 #include <std.h>
+#include <daemons.h>
 #include "../ruins.h"
 inherit ROOM;
 
@@ -77,7 +78,10 @@ void init()
 
 void sacrifice(string str)
 {
-   object obj;
+   object obj, *questors;
+   int i;
+   questors = ({});
+   questors = filter_array(all_living(TO),"is_non_immortal_player",FILTERS_D);
    if(!str) {
       tell_object(TP,"You need to specify an item that you think will"+
       " appease the flames.");
@@ -122,8 +126,13 @@ void sacrifice(string str)
    " that rests on the ground to the right of the portal. In the center"+
    " a small but very intense %^BOLD%^%^MAGENTA%^lavender flame%^RESET%^"+
    " is burning contentedly.");
-   TP->set_mini_quest("Plane of Fire", 1000000, "%^BOLD%^%^RED%^Opened portal in the Plane of Fire\n");
-   OPEN = 1;
+   for(i=0;i<sizeof(questors);i++){
+      if(!objectp(questors[i])) { continue; }
+      if(member_array("Plane of Fire",questors[i]->query_mini_quests()) == -1){
+   questors[i]->set_mini_quest("Plane of Fire", 1000000, "%^BOLD%^%^RED%^Opened portal in the Plane of Fire\n");
+      }
+   }  
+   OPEN = 1;  
    return 1;
 }
 
