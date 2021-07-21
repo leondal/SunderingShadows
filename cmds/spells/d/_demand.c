@@ -1,4 +1,5 @@
 #include <magic.h>
+#include <daemons.h>
 
 inherit SPELL;
 
@@ -65,6 +66,7 @@ void spell_effect()
 
     if (do_save(target, 0) ||
         target->query_property("no dominate", 1) ||
+        PLAYER_D->immunity_check(target, "charm") ||
         mind_immunity_damage(target, "default")) {
         tell_object(caster, "%^BOLD%^" + target->QCN + " resisted your attempt!");
         spell_kill(target, caster);

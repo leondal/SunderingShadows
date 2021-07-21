@@ -71,6 +71,7 @@ int is_proper_target(object targ)
 int cant_be_dominated(object targ)
 {
     return do_save(targ, 0) ||
+        PLAYER_D->immunity_check(targ, "charm") ||
         mind_immunity_damage(targ, "default");
 }
 
