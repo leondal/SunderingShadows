@@ -45,13 +45,20 @@ create() {
     set_hit((: TO,"extra_hit" :));
 }
 
-int extra_wield() {
-    if(!userp(ETO)) return 1;
-    if((int)ETO->query_level() < 17) {
+int extra_wield()
+{
+    object player;
+    
+    player = environment(this_object());
+    
+    if(!player || !objectp(player))
+        return 0;
+    
+    if((int)player->query_level() < 17) {
 	write("You are to inexperienced to wield such a weapon!\n");
 	return 0;
     }
-    if(!ETO->is_class("cleric")) {
+    if(!player->is_class("cleric") && !player->is_class("druid")) {
 	write("This is not for you!");
 	return 0;
     }
@@ -60,9 +67,9 @@ int extra_wield() {
 	TO->remove();
 	return 0;
     }
-	if (!ETO->query_property("silent_wield")) {
-		tell_object(ETO, "%^GREEN%^Your heart is filled with ancient anguish and sorrow!%^RESET%^");
-		tell_room(EETO, "%^GREEN%^A look of great sorrow crosses over " + ETOQCN + "'s face.%^RESET%^", ETO);
+	if (!player->query_property("silent_wield")) {
+		tell_object(player, "%^GREEN%^Your heart is filled with ancient anguish and sorrow!%^RESET%^");
+		tell_room(environment(player), "%^GREEN%^A look of great sorrow crosses over " + ETOQCN + "'s face.%^RESET%^", player);
 	}
     return 1;
 }
