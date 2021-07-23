@@ -10,14 +10,14 @@ string *races_allowed()
     return ({"human", "elf", "half-elf", "drow", "half-drow", "half-orc", "beastkin", "dwarf", "half-dwarf"});
 }
 
-int is_rollable() { return 0; } // rollable in creation
+int is_rollable() { return 0; } // not rollable in creation
 
 mapping innate_spells()
 {
     return ([ "shadow stride" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "shadow travel" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "invisibility"  : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
-              "darkness"      : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
+              "darkness"      : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]), 
            ]);
 }
 

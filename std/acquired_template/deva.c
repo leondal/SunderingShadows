@@ -10,7 +10,7 @@ string *races_allowed()
     return ({"human", "elf", "half-elf", "drow", "half-drow", "half-orc", "beastkin", "dwarf", "half-dwarf"});
 }
 
-int is_rollable() { return 0; } // rollable in creation
+int is_rollable() { return 0; } // not rollable in creation
 
 mapping innate_spells()
 {
