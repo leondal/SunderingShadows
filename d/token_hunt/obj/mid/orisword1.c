@@ -34,6 +34,7 @@ void create() {
    set_wield((:TO,"wield_fun":));
    set_unwield((:TO,"unwield_fun":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int wield_fun(){

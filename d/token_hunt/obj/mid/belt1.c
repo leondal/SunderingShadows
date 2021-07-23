@@ -43,6 +43,7 @@ void create() {
    set_wear((:TO,"wear_fun":));
    set_remove((:TO,"remove_fun":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 void init(){

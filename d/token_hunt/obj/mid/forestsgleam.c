@@ -37,7 +37,8 @@ void create(){
 	set_wield((:TO,"wield_func":));
 	set_unwield((:TO,"unwield_func":));
 	set_hit((:TO,"hit_func":));
-   set_overallStatus(220);
+    set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 int wield_func(){
 	tell_room(environment(ETO),"%^RESET%^%^CYAN%^The sigils along the length of "+ETOQCN+"'s "+query_short()+" %^RESET%^%^CYAN%^glow faintly.%^RESET%^",ETO);

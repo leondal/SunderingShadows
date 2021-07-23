@@ -56,6 +56,7 @@ void create(){
         set_wear((:TO,"wearme":));
         set_remove((:TO,"removeme":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int wearme(){

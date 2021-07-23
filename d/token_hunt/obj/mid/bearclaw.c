@@ -41,7 +41,8 @@ void create(){
    }
       set_item_bonus("damage bonus",2);
 	set_hit((:TO,"hit_func":));
-   set_overallStatus(220);
+    set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 
 int hit_func(object targ){

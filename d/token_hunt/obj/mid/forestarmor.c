@@ -40,6 +40,7 @@ void create(){
 	set_remove((:TO,"remove_func":));
 	set_struck((:TO,"strike_func":));
 	set_overallStatus(150);
+    set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_room(environment(ETO),""+ETOQCN+" slips the form fitting "+query_short()+" on.",ETO);

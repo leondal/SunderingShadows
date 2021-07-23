@@ -36,6 +36,7 @@ void create(){
    set_wear((:TO,"wear_func":));
    set_remove((:TO,"remove_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wear_func(){
    tell_room(environment(ETO),"%^RESET%^%^ORANGE%^The %^GREEN%^tree %^ORANGE%^on the front of the armor takes on its"

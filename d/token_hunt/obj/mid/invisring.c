@@ -33,6 +33,7 @@ void create() {
    set_wear((:TO,"wear_fun":));
    charges = random(4)+3;
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 void init(){

@@ -44,6 +44,7 @@ void create() {
    set_remove((:TO,"unwearme":));
    set_struck((:TO,"strikeme":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int wearme(){

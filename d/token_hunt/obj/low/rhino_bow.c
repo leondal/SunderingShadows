@@ -60,6 +60,7 @@ void create()
     set_unwield((:TO,"unwield_func":));
     set_overallStatus(220);
     charged = 0;
+    set_property("no disenchant",1);
 }
 
 

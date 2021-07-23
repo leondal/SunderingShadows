@@ -37,6 +37,7 @@ void create(){
 "self-assured as before.%^RESET%^");
    set_struck((:TO,"strikeme":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int wearme(){

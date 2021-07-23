@@ -17,4 +17,5 @@ void create() {
     set_type("clothing");
     set_limbs( ({ "head" }) );
     set_ac(0);
+    set_property("no disenchant",1);
 }
