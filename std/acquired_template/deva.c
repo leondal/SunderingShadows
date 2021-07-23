@@ -18,7 +18,14 @@ mapping innate_spells()
               "dimension door" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "invisibility"   : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "light"          : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
+              "aura of healing" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
+              "true seeing"    : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),             
            ]);
+}
+
+int query_unbound_age()
+{
+    return 1;
 }
 
 int apply_template(object ob)

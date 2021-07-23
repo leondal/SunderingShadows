@@ -17,8 +17,15 @@ mapping innate_spells()
     return ([ "shadow stride" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "shadow travel" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "invisibility"  : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
-              "darkness"      : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]), 
+              "darkness"      : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
+              "blurred movement"  : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
+              "listening shadow"  : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
            ]);
+}
+
+int query_unbound_age()
+{
+    return 1;
 }
 
 int apply_template(object ob)
