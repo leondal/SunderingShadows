@@ -105,7 +105,7 @@ int shape_attack(object tp, object targ)
 
     etp = environment(tp);
 
-    if (!objectp(tp)) {
+    if (!objectp(tp) || !objectp(targ)) {
         return 0;
     }
     chance = (int)tp->query_level() + 10;
