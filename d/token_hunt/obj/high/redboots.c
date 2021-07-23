@@ -25,7 +25,8 @@ void create(){
       set_item_bonus("charisma",4);
 	set_wear((:TO,"wear_func":));
 	set_remove((:TO,"remove_func":));
-   set_overallStatus(220);
+    set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_object(ETO,"%^BOLD%^%^RED%^You feel handsome as you slip on the fine boots.%^RESET%^");

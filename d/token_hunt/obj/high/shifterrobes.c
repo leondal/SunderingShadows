@@ -32,6 +32,7 @@ void create(){
    set_max_internal_encumbrance(21);
    set_struck((:TO,"strike_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int wearme(){

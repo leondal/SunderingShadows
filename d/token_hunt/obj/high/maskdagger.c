@@ -28,6 +28,7 @@ void create()
     set_property("enchantment", 5);
     set_hit((: TO, "hit_func" :));
     set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 
 int wield_func()

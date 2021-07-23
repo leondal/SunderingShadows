@@ -28,6 +28,7 @@ void create()
    }
 //      set_property("enchantment",5);
      set_item_bonus("survival",5);
+     set_property("no disenchant",1);
 }
 
 

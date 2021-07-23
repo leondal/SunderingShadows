@@ -39,6 +39,7 @@ void create(){
 	set_unwield((:TO,"unwield_func":));
 	set_hit((:TO,"hit_func":));
 	set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 int wield_func(){
 	tell_room(environment(ETO),"%^BOLD%^%^WHITE%^"+ETOQCN+" pulls on the white leather glove.  A %^CYAN%^frosted runes%^WHITE%^ crackle to life across the back of their hand.  A %^B_CYAN%^%^BOLD%^%^WHITE%^frosted aura%^RESET%^%^BOLD%^ wraps around their hand.",ETO);

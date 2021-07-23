@@ -34,6 +34,7 @@ set_remove((:this_object(),"unwearme":));
 set_max_internal_encumbrance(21);
    deception = 0;
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wearme(string str){
  tell_room(environment(ETO),"%^BOLD%^%^BLACK%^As if they were living, breathing beings, the shadows around "+ETOQCN+" begin to stir as "+ETO->query_subjective()+" slides into the dark robe, causing the area to feel much darker%^RESET%^.",ETO);

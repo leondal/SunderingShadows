@@ -26,6 +26,7 @@ void create(){
    set_item_bonus("survival",5);
    set_size(-1);
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int wear(){

@@ -43,6 +43,7 @@ create() {
    burn = 0;
    charm = 0;
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 void init(){
   ::init();

@@ -65,6 +65,7 @@ void create(){
    set_struck((:TO,"struck_fun":));
    con = 100;
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 void heart_beat(){

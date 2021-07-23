@@ -28,5 +28,5 @@ void create() {
         "To retrieve components from the bag type:\n"
         "<produce [quantity] [component name]>\n"
         "<produce [all] [component name]>\n");
-    
+    set_property("no disenchant",1);
 }

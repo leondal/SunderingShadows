@@ -25,7 +25,8 @@ void create(){
       set_item_bonus("spell damage resistance",15);
 	set_wear((:TO,"wear_func":));
 	set_remove((:TO,"remove_func":));
-   set_overallStatus(220);
+    set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_room(environment(ETO),"",ETO);

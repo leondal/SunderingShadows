@@ -26,4 +26,5 @@ void create() {
       "     This satchel will only hold those crystals needed for \n"+
       "     manifesting psionic powers.\n" );
 	set_property("no animate",1); // psion will love this
+    set_property("no disenchant",1);
 }

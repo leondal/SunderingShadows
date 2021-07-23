@@ -64,6 +64,7 @@ create()
     set_wield((: TO, "wield_func" :));
     set_unwield((: TO, "unwield_func" :));
     set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 int wield_func()
 {

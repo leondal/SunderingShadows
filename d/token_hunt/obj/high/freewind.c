@@ -86,6 +86,7 @@ void create(){
    set_wear((:TO,"wear_it":));
    uses = 2;
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int wear_it(string str){

@@ -35,7 +35,8 @@ AVATAR
      TO->set_property("enchantment",5);
    }
 	set_wear((:TO,"wear_func":));
-   set_overallStatus(220);
+    set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 
 int isMagic(){ return 1; }

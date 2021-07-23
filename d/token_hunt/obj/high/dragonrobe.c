@@ -54,6 +54,7 @@ void create(){
      set_remove((:TO,"remove_it":));
      set_struck((:TO,"struck":));
 	set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 
 int wear_it(){

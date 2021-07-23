@@ -28,7 +28,8 @@ void create(){
 	set_wear((:TO,"wear_func":));
 	set_remove((:TO,"remove_func":));
 	set_struck((:TO,"strike_func":));
-   set_overallStatus(220);
+    set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_room(environment(ETO),"%^BOLD%^%^BLACK%^"+ETOQCN+" growls softly as he buckles on the greaves, his voice low and %^RESET%^%^RED%^feral%^BOLD%^%^BLACK%^.%^RESET%^",ETO);

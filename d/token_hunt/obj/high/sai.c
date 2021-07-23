@@ -29,6 +29,7 @@ create() {
    set_unwield((:TO,"unwield_func":));
    w = 0;
    set_overallStatus(220);
+   set_property("no disenchant",1);
    set_value(0);   
 }
 int wield_func(){

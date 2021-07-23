@@ -44,7 +44,8 @@ void create(){
 	set_wear((:TO,"wear_func":));
 	set_remove((:TO,"remove_func":));
 	set_struck((:TO,"strike_func":));
-   set_overallStatus(220);
+    set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_room(environment(ETO),"%^BOLD%^%^BLACK%^"+ETOQCN+" screams out in pain as they wrap the "+query_short()+" %^BOLD%^%^BLACK%^around their head, driving the thin %^RESET%^spikes of bone %^BOLD%^%^BLACK%^into their own head!%^RESET%^",ETO);

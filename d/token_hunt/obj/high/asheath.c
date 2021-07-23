@@ -29,6 +29,7 @@ void create(){
 
   set_max_internal_encumbrance(20);
    set_value(0);
+   set_property("no disenchant",1);
 }
 
 int isMagic(){ return 1; }
