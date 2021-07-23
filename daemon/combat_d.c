@@ -483,6 +483,12 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
                             reduction += 5;
                     }
                 }
+                
+                if(targ->is_deva())
+                {
+                    if(LIVING_D->opposed_alignment(targ, attacker))
+                        reduction += 5;
+                }
 
                 if(targ->is_class("cleric"))
                 {
