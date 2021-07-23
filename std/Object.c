@@ -592,6 +592,13 @@ mixed query_property(string prop)
                 num += 8;
             }
         }
+        if(this_object()->is_shade())
+        {
+            if(environment(this_object())->query_light() < 1)
+                num += 10;
+            else
+                num -= 10;
+        }
         if (FEATS_D->usable_feat(TO, "damage resistance")) {
             num += 2;
         }
