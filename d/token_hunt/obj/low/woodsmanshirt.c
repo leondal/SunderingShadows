@@ -27,4 +27,5 @@ void create(){
      TO->set_property("enchantment",1);
    }
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }

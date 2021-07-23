@@ -34,6 +34,7 @@ void create(){
 	set_unwield((:TO,"unwield_func":));
 	set_hit((:TO,"hit_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
     set_damage_type("bludgeoning");
 }
 int wield_func(){

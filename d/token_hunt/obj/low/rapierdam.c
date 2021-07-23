@@ -14,6 +14,7 @@ void create() {
    set_weight(0);
    hits=random(10)+10;
    set_heart_beat(1);
+   set_property("no disenchant",1);
 }
 
 int drop(){ return 1;}

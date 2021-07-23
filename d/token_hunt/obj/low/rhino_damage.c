@@ -15,6 +15,7 @@ void create()
     set_property("no animate", 1);
     set_weight(0);
     hits=random(10)+10;
+    set_property("no disenchant",1);
 }
 
 

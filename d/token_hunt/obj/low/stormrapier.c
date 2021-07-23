@@ -23,6 +23,7 @@ void create() {
    set_unwield((:TO,"unwield_func":));
    elec = 0;
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wield_func(){
    tell_object(ETO,"%^YELLOW%^The energy of the elements surge through you as the blade in your hand comes to life!%^RESET%^");

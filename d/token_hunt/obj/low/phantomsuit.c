@@ -65,6 +65,7 @@ set_item_bonus("stealth",1);
 set_overallStatus(220);
 set_wear((:TO,"wear_fun":));
 set_remove((:TO,"remove_fun":));
+set_property("no disenchant",1);
 }
 
 int wear_fun(){

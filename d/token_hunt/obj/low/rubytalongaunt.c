@@ -28,6 +28,7 @@ AVATAR
    }
 	set_struck((:TO,"strike_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int strike_func(int damage, object what, object who){

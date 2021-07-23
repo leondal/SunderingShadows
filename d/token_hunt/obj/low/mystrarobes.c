@@ -49,6 +49,7 @@ void create()
     
     set_max_internal_encumbrance(21);
     set_overallStatus(220);
+    set_property("no disenchant",1);
 }
 
 

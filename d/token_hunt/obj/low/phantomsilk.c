@@ -24,6 +24,7 @@ void create(){
 	set_remove((:TO,"remove_func":));
     set_item_bonus("charisma",1);
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_room(environment(ETO),"%^BOLD%^%^BLACK%^As "+ETOQCN+" slips a lightweight cloak about their shoulders, something else seems to settle there as well.%^RESET%^",ETO);

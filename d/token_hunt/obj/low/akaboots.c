@@ -29,6 +29,7 @@ AVATAR
 	set_remove((:TO,"remove_func":));
 	set_struck((:TO,"strike_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_room(environment(ETO),"",ETO);

@@ -25,6 +25,7 @@ void create()
       set_wear((:this_object(),"wearme":));
       set_remove((:this_object(),"unwearme":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wearme(string str){
    tell_room(environment(ETO),"%^BOLD%^%^WHITE%^The whispy fabric of "+ETOQCN+"'s dress blows softly in the wind.%^RESET%^",ETO);

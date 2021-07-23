@@ -30,6 +30,7 @@ AVATAR
 	set_unwield((:TO,"unwield_func":));
 	set_hit((:TO,"hit_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wield_func(){
 	tell_object(ETO,"%^BOLD%^%^CYAN%^The "+query_short()+" %^BOLD%^%^CYAN%^settles into your hand as though it were an extension of your arm.%^RESET%^");

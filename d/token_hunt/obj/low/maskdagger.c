@@ -26,6 +26,7 @@ void create() {
    set_item_bonus("attack bonus",1);
    set_item_bonus("damage bonus",1);
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wield_func(){
       int enchantnum;

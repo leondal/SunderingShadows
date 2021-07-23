@@ -26,6 +26,7 @@ void create(){
       set_item_bonus("charisma",1);
 	set_wear((:TO,"wear_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_room(environment(ETO),"%^BOLD%^%^MAGENTA%^The room suddenly smells like %^RED%^roses%^MAGENTA%^!%^RESET%^",ETO);

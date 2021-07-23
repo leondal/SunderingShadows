@@ -33,6 +33,7 @@ void create() {
    set_ac(0);
    set_type("ring");
    mycharge = roll_dice(2,3);
+   set_property("no disenchant",1);
 }
 
 void init() {

@@ -202,6 +202,12 @@ int cmd_disenchant(string str)
         return 1;
     }
 
+    if(obj->query_property("no disenchant"))
+    {
+        tell_object(TP,"There doesn't seem to be a way to disenchant that item.");
+        return 1;
+    }
+
     if(obj->query_property("no repair"))
     {
         tell_object(TP,"There doesn't seem to be a way to disenchant that item.");

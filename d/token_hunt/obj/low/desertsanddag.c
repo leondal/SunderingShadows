@@ -31,6 +31,7 @@ void create(){
    }
 	set_hit((:TO,"hit_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 
 int hit_func(object targ){

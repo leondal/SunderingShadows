@@ -46,6 +46,7 @@ void create(){
 	set_wear((:TO,"wear_func":));
 	set_remove((:TO,"remove_func":));
    set_overallStatus(220);
+   set_property("no disenchant",1);
 }
 int wear_func(){
 	tell_object(ETO,"%^BOLD%^%^BLACK%^Using the %^RESET%^%^BLUE%^black sapphire %^BOLD%^%^BLACK%^buckles, you synch the %^RESET%^"+query_short()+" %^BOLD%^%^BLACK%^tight around your leg.%^RESET%^");
