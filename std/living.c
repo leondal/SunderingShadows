@@ -423,23 +423,23 @@ void heart_beat()
             add_mp(sizeof(targs));
         }
         
-        if(this_object()->is_shade() && !random(5))
+        if(this_object()->is_shade() && !random(8))
         {
             object room = environment(this_object());
             
             switch(total_light(room))
             {
                 case 0:
-                tell_object(this_object(), "Whisps of darkness coalesce from the shadows around you.");
-                tell_room(room, "Whisps of darkness coalesce from the shadows around " + this_object()->QCN, this_object());
+                tell_object(this_object(), "%^BLACK%^BOLD%^Whisps of darkness coalesce from the shadows around you.%^RESET%^");
+                tell_room(room, "%^BOLD%^BLACK%^Whisps of darkness coalesce from the shadows around " + this_object()->QCN, this_object());
                 break;
                 case -5..-1:
-                tell_object(this_object(), "You feel your body meld with the darkness around you.");
-                tell_room(room, this_object()->QCN + "'s body seems to meld with the darkness around them.", this_object());
+                tell_object(this_object(), "%^BOLD%^BLACK%^You feel your body meld with the darkness around you.");
+                tell_room(room, "%^BOLD%^BLACK%^" + this_object()->QCN + "'s body seems to meld with the darkness around them.", this_object());
                 break;
                 case -10..-6:
-                tell_object(this_object(), "You are engulfed in a miasma of shadowy energy.");
-                tell_room(room, this_object()->QCN + " is engulfed in a miasma of shadowy energy.", this_object());
+                tell_object(this_object(), "%^BOLD%^BLACK%^You are engulfed in a miasma of shadowy energy.");
+                tell_room(room, "%^BOLD%^BLACK%^" + this_object()->QCN + " is engulfed in a miasma of shadowy energy.", this_object());
                 break;
             }
         }

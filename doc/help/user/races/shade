@@ -1,28 +1,37 @@
-%^BOLD%^%^BLUE%^Shade:
+%^BOLD%^%^BLACK%^Shade:
 
-%^BOLD%^%^BLUE%^Stat adjustments: %^RESET%^+2 dexterity, +2 charisma, -2 wisdom
-%^BOLD%^%^BLUE%^Skill adjustments: %^RESET%^+2 stealth, +2 academics
-%^BOLD%^%^BLUE%^Misc bonuses: %^RESET%^5 cold/electricity resistance, low light vision 4, fast healing 1
-%^BOLD%^%^BLUE%^Innate spells: %^RESET%^ shadow travel
-%^BOLD%^%^BLUE%^Size: %^RESET%^medium
+%^BOLD%^%^BLACK%^Standard alignments allowed:%^RESET%^BOLD%^%^CYAN%^ any non good
+%^BOLD%^%^BLACK%^Races allowed:%^RESET%^BOLD%^CYAN%^ Human, Elf, Half-Elf, Half-Orc, Half-Ogre, Ogre, Yuan-Ti, Drow, Half-Drow, Minotaur, Saurian, Goblin, Gnoll, Bugbear, Orc, Firbolg, Halfling, Dwarf, Beastkin
 
-%^BOLD%^%^BLUE%^Standard alignments: %^RESET%^any evil
-%^BOLD%^%^BLUE%^Classes restricted: %^RESET%^druid, ranger
-%^BOLD%^%^BLUE%^Normal adventuring starting age: %^RESET%^18-20
-%^BOLD%^%^BLUE%^Average life span: %^RESET%^850
+%^BOLD%^%^BLACK%^Features:%^RESET%^%^BOLD%^CYAN%^
+%^CYAN%^BOLD%^ * Shadow Infusion:
+%^CYAN%^BOLD%^   * No aging, age category is always normal
+%^CYAN%^BOLD%^   + cold resistance in darkness (increases with more darkness)
+%^CYAN%^BOLD%^   + electricity resistance in darkness (increases with more darkness)
+%^CYAN%^BOLD%^   +/- damage resistance depending on light in room
+%^CYAN%^BOLD%^   - 25% fire resistance
+%^CYAN%^BOLD%^   - 25% divine resistance
+%^CYAN%^BOLD%^   * Innate shadow stride, shadow travel, listening shadow, darkness, invisibility, and blurred movement spells
+%^CYAN%^BOLD%^   * Effects of negative and positive energy are reversed
 
-%^BOLD%^%^BLUE%^Description:
-Almost 1,200 years ago, when the Zin'Charu disappeared, only one of their flying fortresses was saved by a man known now as Lord Shadow, who transported his entire city onto the Plane of Shadow. Ever since, it had been lost to human knowledge, but in 726SG by a hidden ritual it was returned to the prime. Quickly taking advantage of the tumultuous situation in Tharis, the newly returned Shadovar quickly established themselves as the new rulers of the City of Shadows. Intensely dedicated to the worship of Lord Shadow, their once-mortal leader, the Shadovar believe themselves to be the future rulers of the realm under His divine power.
+%^BOLD%^%^BLACK%^Description:
+"Shade" is a template that can be applied to any living creature in order to transform it into a monster of undeath such as a zombie, animated skeleton, or a vampire, or to creatures that are innately unique such as mohrgs, wights.
 
-Not all Shadovar are shades. Shadovar is the name given to the Zin'Charu people who survived their extended passage through the Plane of Shadows. Lord Shadow and his children, the Princes of Shade, select only the most loyal and resourceful among the Shadovar to become shades. Empowered by a secret ritual known only to the Princes, these candidates surrender a piece of their soul to become bonded to the stuff of shadow. This exchange results in an extraordinarily long lifespan for the resulting shade, and an empowerment far beyond the means of normal mortals.
+Undead use their Charisma score in place of their Constitution score when calculating hit points, Fortitude saves, and any special ability that relies on Constitution.
 
-Shades look very much like humans, although their skin is gray to inky black, and their eyes are of a dark solid shade with no pupils. They are thinner than most humans, and tend to prefer dark-hued clothes and equipment. Shadovar are never made into shades until they have reached adulthood; there is no such thing as a young shade, and the offspring of those empowered are still normal humans.
+Undead beings are considered abominations in the world of Eera. they are an affront to the natural order, and their mere presence invites destruction. Whether this is true or a folk belief remains a topic for scholars to debate. The common folk that drive most civilizations unilaterally strive to destroy and to end the existence of any undead or necromancer that they encounter. Intelligent undead, too, are never an exception to this rule. The vast majority of them are plagued with insanity, becoming monsters that hate everything living, even if in life they rooted for the side of good. Few ever bother to hold conversations with inferior living beings. They are more likely to destroy both good and evil beings rather than trying to build an alliance with them. Ancient liches, nosferatu, and aswang cannot be communicated with, and they are considered to be enemies to all life.
 
-Shades are an extremely politically- and religiously-aligned race, and are expected to be played as such; even beyond the choice of the most loyal for the ritual, the gift is quickly taken away from those who betray the Shadovar cause, leaving them 'mere humans' once more. Please take this into account before rolling the race, as they will be expected to be played accordingly.
+That being said, to every rule there is an exception. If this exception is supported by divinity, then the variables that governed the world change, and bring new rules into the game. Greater undead, intelligent and sane, are those marked by Nilith's unholy graft. If they do not follow her, they are at least never enemies of the church.
 
-%^RED%^Warning:%^RESET%^ This is an advanced race, known as a PK-race. It imposes disadvantages on your gameplay: You will be banned in some cities and shunned and feared across the realm. Other players may attack you because of your race. You may not, however, attack a player of a standard race without additional provocation.
+%^BOLD%^%^BLACK%^Player characters:
+Playing an undead character gives no meaningful bonuses, and imposes severe punitive mechanical elements onto your gameplay. You will be harmed by most means of healing. Many spells will cause greater damage to you. You will be brought down almost everywhere if you are found to be undead, other players have additional excuse to start pk with you. With all of that, inexperienced players should not consider this path.
 
-%^CYAN%^Note:%^RESET%^ Shade is an acquired template that may only be gained through RP and avatar-interaction. It requires the outmost dedication to the Princes of the Shadovar.
+The only available template to be gained for players is a necropolitain character. Visually indistinguisable from the living, these are undead dwellers of undead kingdoms raised by Nilith allies and followers.
 
-%^BOLD%^%^BLUE%^See also:%^RESET%^ races, pk rules, human
+%^CYAN%^Note: If, for some reason, your undead character is rolled during creation, you begin play with an invisible 16 con score.
 
+%^RED%^Warning:%^RESET%^ This is an advanced race, known as a PK-race. It imposes disadvantages on your gameplay: If revealed, you may be attacked on sight and shunned in cities throughout the realm. You start with your NOPK-flag turned off and other players may attack you because of your race. You may not, however, attack a player of a standard race without additional provocation. 
+
+%^CYAN%^Note:%^RESET%^ Undead is an acquired template that may only be gained through RP and avatar-interaction.
+
+%^BOLD%^%^BLACK%^See also:%^RESET%^%^ORANGE%^ races, vampire, pk rules
