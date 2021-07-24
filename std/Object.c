@@ -556,7 +556,7 @@ mixed query_property(string prop)
             }
         }
         if (TO->query_race() == "shade" || this_object()->is_shade()) {
-            num += 1;
+            num -= min( ({ 0, total_light(environment(this_object())) }) );
         } else if (TO->query_race() == "troll") {
             num += 2;
         }
