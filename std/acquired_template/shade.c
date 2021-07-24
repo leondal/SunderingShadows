@@ -18,7 +18,6 @@ mapping innate_spells()
               "shadow travel" : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "invisibility"  : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "darkness"      : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
-              "blurred movement"  : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
               "listening shadow"  : (["type" : "spell", "daily uses" : -1, "level required" : 0, ]),
            ]);
 }

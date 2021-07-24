@@ -1,7 +1,7 @@
 %^BOLD%^%^BLACK%^Shade:
 
-%^BOLD%^%^BLACK%^Standard alignments allowed:%^RESET%^BOLD%^%^CYAN%^ any non good
-%^BOLD%^%^BLACK%^Races allowed:%^RESET%^BOLD%^CYAN%^ Human, Elf, Half-Elf, Half-Orc, Half-Ogre, Ogre, Yuan-Ti, Drow, Half-Drow, Minotaur, Saurian, Goblin, Gnoll, Bugbear, Orc, Firbolg, Halfling, Dwarf, Beastkin
+%^BOLD%^%^BLACK%^Standard alignments allowed:%^RESET%^BOLD%^%^CYAN%^ Typically Lawful Evil
+%^BOLD%^%^BLACK%^Races allowed:%^RESET%^BOLD%^CYAN%^ Most commonly human, but can be any living humanoid
 
 %^BOLD%^%^BLACK%^Features:%^RESET%^%^BOLD%^CYAN%^
 %^CYAN%^BOLD%^ * Shadow Infusion:
@@ -15,23 +15,19 @@
 %^CYAN%^BOLD%^   * Effects of negative and positive energy are reversed
 
 %^BOLD%^%^BLACK%^Description:
-"Shade" is a template that can be applied to any living creature in order to transform it into a monster of undeath such as a zombie, animated skeleton, or a vampire, or to creatures that are innately unique such as mohrgs, wights.
+"Shade" is a template that can be applied to any living creature in order to transform it into a living being that is infused with negative energy from the Shadow Plane. In normal light, they are visually indistinguishable from another member of their base race. But as darkness falls, their true nature becomes more and more apparent.
 
-Undead use their Charisma score in place of their Constitution score when calculating hit points, Fortitude saves, and any special ability that relies on Constitution.
+During the fall of the Zin'Charu empire, over a thousand years ago, a single city escaped destruction through the supreme efforts of a powerful mage, now known as Lord Shadow. The city was transported into the Plane of Shadows, where it existed for a millenia. During that time, the people, now known as the Shadovar, fought a never ending battle for survival against the horrors of the plane. Such was the existential fight that it was inevitable that the great minds of the city found a way to use the negative energy all around them to their own benefit. A process was devised which would grant great power to an individual, infusing them with pure shadow energy and transforming them into a shade.
 
-Undead beings are considered abominations in the world of Eera. they are an affront to the natural order, and their mere presence invites destruction. Whether this is true or a folk belief remains a topic for scholars to debate. The common folk that drive most civilizations unilaterally strive to destroy and to end the existence of any undead or necromancer that they encounter. Intelligent undead, too, are never an exception to this rule. The vast majority of them are plagued with insanity, becoming monsters that hate everything living, even if in life they rooted for the side of good. Few ever bother to hold conversations with inferior living beings. They are more likely to destroy both good and evil beings rather than trying to build an alliance with them. Ancient liches, nosferatu, and aswang cannot be communicated with, and they are considered to be enemies to all life.
-
-That being said, to every rule there is an exception. If this exception is supported by divinity, then the variables that governed the world change, and bring new rules into the game. Greater undead, intelligent and sane, are those marked by Nilith's unholy graft. If they do not follow her, they are at least never enemies of the church.
+In recent times, the Shadovar were returned to the prime plane, and the Shadovar have begun to once more spread their influence. Lord Shadow and the Princes of Tenebrosa grant the shadow infusion to the most loyal and capable of their subjects, a great reward to showcase the great power of Lord Shadow.
 
 %^BOLD%^%^BLACK%^Player characters:
-Playing an undead character gives no meaningful bonuses, and imposes severe punitive mechanical elements onto your gameplay. You will be harmed by most means of healing. Many spells will cause greater damage to you. You will be brought down almost everywhere if you are found to be undead, other players have additional excuse to start pk with you. With all of that, inexperienced players should not consider this path.
+Playing as a shade can be difficult. Their very nature will engender hatred from most people, and fear in others. However, they are no mere monsters. They carry out Lord Shadow's bidding within the bounds of the law. Most of their actions are performed with a long-term plan in mind.
 
-The only available template to be gained for players is a necropolitain character. Visually indistinguisable from the living, these are undead dwellers of undead kingdoms raised by Nilith allies and followers.
+This template is gifted through great service to Lord Shadow and the shadovar.
 
-%^CYAN%^Note: If, for some reason, your undead character is rolled during creation, you begin play with an invisible 16 con score.
+%^RED%^Warning:%^RESET%^ This is an advanced character template. It imposes disadvantages on your gameplay: If revealed, you may be attacked on sight and shunned in good-aligned cities. 
 
-%^RED%^Warning:%^RESET%^ This is an advanced race, known as a PK-race. It imposes disadvantages on your gameplay: If revealed, you may be attacked on sight and shunned in cities throughout the realm. You start with your NOPK-flag turned off and other players may attack you because of your race. You may not, however, attack a player of a standard race without additional provocation. 
+%^CYAN%^Note:%^RESET%^ Shade is an acquired template that may only be gained through RP and avatar-interaction.
 
-%^CYAN%^Note:%^RESET%^ Undead is an acquired template that may only be gained through RP and avatar-interaction.
-
-%^BOLD%^%^BLACK%^See also:%^RESET%^%^ORANGE%^ races, vampire, pk rules
+%^BOLD%^%^BLACK%^See also:%^RESET%^%^CYAN%^ races, undead, deva, vampire, werewolf, weretiger, pk rules
