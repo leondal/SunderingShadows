@@ -1601,7 +1601,21 @@ string query_al_title()
 
 int query_sight_bonus()
 {
-    return (EQ_D->gear_bonus(TO, "sight bonus") + sight_bonus);
+    string temp;
+    object file;
+    int temp_bonus = 0;
+    
+    temp = this_object()->query_acquired_template();
+    
+    if(temp)
+    {
+        file = find_object("/std/acquired_template/" + temp + ".c");
+        
+        if(objectp(file))
+            temp_bonus = file->sight_bonus();
+    }          
+    
+    return (EQ_D->gear_bonus(TO, "sight bonus") + sight_bonus + temp_bonus);
 }
 
 int query_age()

@@ -22,6 +22,11 @@ mapping innate_spells()
            ]);
 }
 
+int sight_bonus()
+{
+    return 5;
+}
+
 int query_unbound_age()
 {
     return 1;

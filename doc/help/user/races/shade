@@ -6,12 +6,13 @@
 %^BOLD%^%^BLACK%^Features:%^RESET%^%^BOLD%^CYAN%^
 %^CYAN%^BOLD%^ * Shadow Infusion:
 %^CYAN%^BOLD%^   * No aging, age category is always normal
-%^CYAN%^BOLD%^   + cold resistance in darkness (increases with more darkness)
-%^CYAN%^BOLD%^   + electricity resistance in darkness (increases with more darkness)
+%^CYAN%^BOLD%^   + cold resistance percentage in darkness (increases with more darkness)
+%^CYAN%^BOLD%^   + electricity resistance percentage in darkness (increases with more darkness)
+%^CYAN%^BOLD%^   + 5 sight bonus to see in the dark
 %^CYAN%^BOLD%^   +/- damage resistance depending on light in room
 %^CYAN%^BOLD%^   - 25% fire resistance
 %^CYAN%^BOLD%^   - 25% divine resistance
-%^CYAN%^BOLD%^   * Innate shadow stride, shadow travel, listening shadow, darkness, invisibility, and blurred movement spells
+%^CYAN%^BOLD%^   * Innate shadow stride, shadow travel, listening shadow, darkness, and invisibility spells
 %^CYAN%^BOLD%^   * Effects of negative and positive energy are reversed
 
 %^BOLD%^%^BLACK%^Description:
