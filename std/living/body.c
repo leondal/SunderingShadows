@@ -218,19 +218,21 @@ void set_missChance(int i)
 
 int query_missChance()
 {
+    int sub_chance = 0;
+    
     if(FEATS_D->usable_feat(this_object(), "inconstant position"))
-        missChance += 10;
+        sub_chance += 10;
     
     //Negative light yields balance, positive light yields penalty.
     if(this_object()->is_shade())
     {
         if(total_light(environment(this_object())) < 1)
-            missChance += 5;
+            sub_chance += 5;
         else
-            missChance -= 5;
+            sub_chance -= 5;
     }   
     
-    return missChance;
+    return missChance + sub_chance;
 }
 
 void set_shieldMiss(int i)
