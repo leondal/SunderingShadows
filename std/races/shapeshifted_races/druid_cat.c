@@ -23,7 +23,7 @@ void create()
     set_shape_race("cat");
     set_shape_language("sylvan");
     set_shape_profile("druid_cat_999"); // needs to be something the player is unlikely to name one of their profiles when disguise goes in
-    set_shape_bonus("perception",2);
+    set_shape_bonus("perception",4);
     set_shape_bonus("survival",4);
     set_shape_bonus("athletics",2);
     set_shape_bonus("stealth",2);
@@ -123,6 +123,8 @@ int bite_attack(object player, object target)
         player->add_hp(10 + roll_dice(level/2, 4));
     }
     
+    tell_object(player, "You ferociously bite your opponent.");
+    
     set_new_damage_type("piercing");
     
     return roll_dice(1 + (level / 2), 6);   
@@ -148,6 +150,8 @@ int claw_attack(object player, object target)
         level += 2;
         player->add_hp(10 + roll_dice(level/2, 4));
     }
+    
+    tell_object(player, "You tear into your opponent with your razor-sharp claws.");
     
     set_new_damage_type("piercing");
     

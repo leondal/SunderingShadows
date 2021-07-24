@@ -72,6 +72,14 @@ int cmd_kill(string str)
     if (!objectp(victim)) {
         return 1;
     }
+    if(this_player()->is_deva())
+    {
+        if(!LIVING_D->opposed_alignment(this_player(), victim))
+        {
+            tell_object(this_player(), "Your very nature resists causing harm to that being.");
+            return 1;
+        }
+    }
     write("%^RED%^%^BOLD%^You attack " + (string)victim->query_cap_name() + "!");
     tell_room(ETP, this_player()->query_cap_name() + " attacks " +
               victim->query_cap_name() + "!", ({ victim, TP }));
