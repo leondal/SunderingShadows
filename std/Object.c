@@ -555,7 +555,7 @@ mixed query_property(string prop)
                 return num < 0 ? 0 : num;
             }
         }
-        if (TO->query_race() == "shade") {
+        if (TO->query_race() == "shade" || this_object()->is_shade()) {
             num += 1;
         } else if (TO->query_race() == "troll") {
             num += 2;
