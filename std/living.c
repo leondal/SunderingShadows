@@ -427,7 +427,7 @@ void heart_beat()
         {
             object room = environment(this_object());
             
-            switch(true_light(room))
+            switch(total_light(room))
             {
                 case 0:
                 tell_object(this_object(), "Whisps of darkness coalesce from the shadows around you.");
