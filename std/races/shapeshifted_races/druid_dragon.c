@@ -136,6 +136,8 @@ int bite_attack(object player, object target)
         player->add_hp(10 + roll_dice(level, 4));
     }
     
+    set_new_damage_type("piercing");
+    
     breath_count++;
     death_count++;
     
@@ -168,6 +170,8 @@ int claw_attack(object player, object target)
         level += 2;
         player->add_hp(10 + roll_dice(level, 4));
     }
+    
+    set_new_damage_type("piercing");
     
     swipe_count++;
     
