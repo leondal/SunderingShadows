@@ -87,6 +87,9 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
         else
             MissChance -= 5;
     }
+
+    if(FEATS_D->usable_feat(victim, "inconstant position"))
+        MissChance += 10;
     
     if (mount && FEATS_D->usable_feat(rider, "mounted shield")) {
         ShieldMissChance = (int)rider->query_shieldMiss();
