@@ -8,14 +8,16 @@ inherit SHAPESHIFT;
 // when making a new shape, be sure to include those functions or it'll fall back to the defaults
 void create()
 {
+    int bonus;
+    
     ::create();
-
+    
     set_attack_limbs( ({ "fangs","right fore claw","left fore claw","right rear claw","left rear claw" }) );
     set_new_damage_type("piercing");
     set_limbs( ({ "fangs","head","torso","right fore claw", "left fore claw", "right rear claw","left rear claw","right foreleg","right forepaw","left foreleg","left forepaw","right rear leg","right rear paw","left rear leg","left rear paw","tail" }) );
     set_attack_functions( ([ "fangs" : (:TO,"bite_attack":), "right fore claw" : (:TO,"claw_attack":), "left fore claw" : (:TO,"claw_attack":), "right rear claw": (:TO,"grab_attack":),"left rear claw" : (:TO,"grab_attack":)   ]) );
     set_ac_bonus(-10); // ac bonus is different from the other bonuses because of the way ac is calculated with different body types -Ares
-    set_base_attack_num(4);
+    set_base_attack_num(6);
     set_castable(0);
     set_can_talk(0);
     set_shape_race("cat");
@@ -26,8 +28,9 @@ void create()
     set_shape_bonus("athletics",2);
     set_shape_bonus("stealth",2);
     set_shape_bonus("sight bonus",5);
-    set_shape_bonus("damage bonus",3);
-    set_shape_bonus("attack bonus",3);
+    set_shape_bonus("damage bonus",5);
+    set_shape_bonus("attack bonus",5);
+    set_shape_bonus("damage resistance", 5);
     set_shape_height(36+random(12));
     set_shape_weight(200+random(100));
     set_shape_mastery_feat("whirl");
@@ -122,7 +125,7 @@ int bite_attack(object player, object target)
     
     set_new_damage_type("piercing");
     
-    return roll_dice(1 + (level / 3), 6);   
+    return roll_dice(1 + (level / 2), 6);   
 }
 
 int claw_attack(object player, object target)
@@ -148,7 +151,7 @@ int claw_attack(object player, object target)
     
     set_new_damage_type("piercing");
     
-    return roll_dice(1 + (level / 3), 6);
+    return roll_dice(1 + (level / 2), 6);
 }
 
 int grab_attack(object tp, object targ)
