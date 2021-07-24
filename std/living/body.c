@@ -222,7 +222,7 @@ int query_missChance()
     
     if(FEATS_D->usable_feat(this_object(), "inconstant position"))
         sub_chance += 10;
-    
+    /*
     //Negative light yields balance, positive light yields penalty.
     if(this_object()->is_shade())
     {
@@ -230,7 +230,8 @@ int query_missChance()
             sub_chance += 5;
         else
             sub_chance -= 5;
-    }   
+    }
+    */    
     
     return missChance + sub_chance;
 }
