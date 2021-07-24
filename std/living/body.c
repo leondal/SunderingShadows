@@ -220,9 +220,10 @@ int query_missChance()
 {
     int sub_chance = 0;
     
+    /*
     if(FEATS_D->usable_feat(this_object(), "inconstant position"))
         sub_chance += 10;
-    /*
+    
     //Negative light yields balance, positive light yields penalty.
     if(this_object()->is_shade())
     {
@@ -793,13 +794,13 @@ int query_resistance(string res)
                 myres += TO->query_class_level("cleric");
         }
     }              
-
+    
     if (TO->query_race() == "shade") {
         if (res == "cold" || res == "electricity") {
             myres += 10;
         }
     }
-    if (TO->query_race() == "deva") {
+    if (TO->query_race() == "deva" || this_object()->is_deva()) {
         if (res == "acid" || res == "fire") {
             myres += 10;
         }

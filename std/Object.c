@@ -754,6 +754,10 @@ mixed query_property(string prop)
                 num += 10;
             }
         }
+        if(this_object()->is_deva())
+        {
+            num += 30;
+        }
         if(this_object()->is_shade())
         {
             num -= (2 * total_light(environment(this_object())));
