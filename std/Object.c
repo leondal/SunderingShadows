@@ -710,7 +710,7 @@ mixed query_property(string prop)
     }
 
     if (prop == "negative energy affinity") {
-        if (TO->is_undead()) {
+        if (TO->is_undead() || this_object()->is_shade()) {
             return 1;
         }
         //Unlike other racial bonuses this one must be valid for all
@@ -754,6 +754,11 @@ mixed query_property(string prop)
                 num += 10;
             }
         }
+        if(this_object()->is_shade())
+        {
+            num -= (2 * total_light(environment(this_object())));
+        }
+            
         if ((string)TO->query_race() == "human") {
             subrace = (string)TO->query("subrace");
             if (subrace) {

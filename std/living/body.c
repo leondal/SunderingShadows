@@ -817,14 +817,12 @@ int query_resistance_percent(string res)
         //Shades only get their benefits in darkness. They are weaker during the day.
         if(total_light(environment(this_object())) < 1)
         {
-            if(res == "electricity" || res == "cold" || res == "negative energy")
-                mod -= (total_light(environment(this_object())) * 2);
+            if(res == "electricity" || res == "cold")
+                mod -= min( ({ (total_light(environment(this_object())) * 5), 50 }));            
         }
-        else
-        {
-            if(res == "fire" || res == "divine")
-                mod -= 25;
-        }
+
+        if(res == "fire" || res == "divine")
+            mod -= 25;
     }
     if(this_object()->is_deva())
         if(res == "fire" || res == "acid")
