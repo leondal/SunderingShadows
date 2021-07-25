@@ -15,7 +15,7 @@ void create()
 {
     ::create();
     set_property("indoors",1); 
-    set_property("light",1);
+    set_property("light",-1);
     set_terrain(STONE_BUILDING);
     set_travel(PAVED_ROAD);
     set_name("Chapel of the Primordial Dark"); 

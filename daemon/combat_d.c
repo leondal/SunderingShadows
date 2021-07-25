@@ -84,7 +84,7 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
     {
         if(total_light(environment(victim)) < 1)
             MissChance += 5;
-        else
+        else if(total_light(environment(victim)) > 1)
             MissChance -= 5;
     }
 

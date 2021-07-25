@@ -18,7 +18,7 @@ void create()
 {
     ::create();
     set_property("indoors",1); 
-    set_property("light",1);
+    set_property("light",-1);
     set_temple("ashra");
     set_terrain(STONE_BUILDING);
     set_travel(PAVED_ROAD);
