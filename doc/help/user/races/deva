@@ -1,25 +1,31 @@
-%^BOLD%^%^BLUE%^Deva:
+%^BOLD%^Deva:
 
-%^BOLD%^%^BLUE%^Stat adjustments: %^RESET%^+2 charisma
-%^BOLD%^%^BLUE%^Skill bonuses: %^RESET%^+2 perception, +2 survival
-%^BOLD%^%^BLUE%^Misc bonuses: %^RESET%^1MR, flight ability
-%^BOLD%^%^BLUE%^Innate spells:%^RESET%^ light
-%^BOLD%^%^BLUE%^Size: %^RESET%^medium
+%^BOLD%^Standard alignments allowed:%^RESET%^BOLD%^%^CYAN%^ Any Good
+%^BOLD%^Races allowed:%^RESET%^BOLD%^CYAN%^ Any
 
-%^BOLD%^%^BLUE%^Standard alignments: %^RESET%^any good
-%^BOLD%^%^BLUE%^Classes restricted: %^RESET%^druid
-%^BOLD%^%^BLUE%^Normal adventuring starting age: %^RESET%^18-30
-%^BOLD%^%^BLUE%^Average life span: %^RESET%^1500
+%^BOLD%^Features:%^RESET%^%^BOLD%^CYAN%^
+%^CYAN%^BOLD%^ * Divinity:
+%^CYAN%^BOLD%^   * No aging, age category is always normal
+%^CYAN%^BOLD%^   + 10 Acid and Fire resistance
+%^CYAN%^BOLD%^   + 30 Spell damage resistance
+%^CYAN%^BOLD%^   + 2 sight bonus to see in the dark
+%^CYAN%^BOLD%^   + 10 Damage resistance against evil
+%^CYAN%^BOLD%^   * Innate holy smite, dimension door, cure light wounds, invisibility, light, remove disease, remove fear, and true seeing spells
+%^CYAN%^BOLD%^   * Can only attack evil beings or beings attacking other non-evil beings
+%^CYAN%^BOLD%^   * Flight ability
 
-%^BOLD%^%^BLUE%^Description:
-Devas serve as warriors in divine legions, though most of their times they patrol the feywild, the plane of shadows, and the material plane, battling numerous fell creatures that either inhabit these realms or spawn from The Void at the edge of existence. Their rare visits to the material plane were usually to aid powerful mortals when a great menace threatened to plunge an entire realm into evil, or to rid the world of the menace themselves.
+%^BOLD%^Description:
+"Deva" is a template that can be applied to any living creature in order to transform it into a divine being, directly serving the will of a good-aligned god. They are winged beings with otherworldly complexions which stand out in a crowd.
 
-Devas either align themselves with good-natured divinities, or they choose to serve nature. Although pacifists in their hearts, they are fearsome soldiers and they will resort to violence if no other choice is left. To avoid conflict they never form civilizations or build cities outside of the domain of their patrons. Communicating with beings of the material plane, devas try to sway their hearts toward peace and good, no matter how lost the cause is.
+In the aftermath of the Silence, a power struggle ensued as new, nascent gods asserted their claims over the domains and followers of the world. The good-aligned gods called upon those of true faith to carry out their will. Heroes and martyrs alike were gifted great divine powers for their undying service.
 
-It is not clear how most of them come into being, but a faithful paragon of virtue among mortals might, after his death, join the ranks of celestial legions. As such, devas share various traits of humanoid races. Most of them have a youthful, human-like appearance with large feathered wings trailing behind their back. Devas live long lives that are limited only by the dangers of their occupation.
+%^BOLD%^Player characters:
+Playing as a deva is hazardous. You have a single-minded purpose to carry out and enforce the will of your chosen deity and this will put you at odds with those with differing views. You are alien to most people and most lesser beings will find it difficult to understand the greater purpose you serve. Deva tend to think in absolutes, with a single-minded view on the right course of action. Deva do not get involved in mortal affairs, such as politics or war. They protect the innocent at all costs and do not initiate fights except to cleanse the world of evil.
 
-%^CYAN%^Note:%^RESET%^ Deva is an acquired template that may only be gained through RP and avatar-interaction. It requires the outmost dedication to a good-aligned deity and to a cause supported by said deity.
+This template is gifted through great service to a good-aligned god.
 
-%^RED%^Warning:%^RESET%^ This is an advanced race, known as a PK-race. Other players may attack you because of your race. You may not, however, attack a player of a standard race without additional provocation. 
+%^RED%^Warning:%^RESET%^ This is an advanced character template. It imposes disadvantages on your gameplay: Deva are like beacons of light in the dark, and often attract the ire of evil beings around them. 
 
-%^BOLD%^%^BLUE%^See also:%^RESET%^ races, pk rules
+%^CYAN%^Note:%^RESET%^ Deva is an acquired template that may only be gained through RP and avatar-interaction.
+
+%^BOLD%^%^BLACK%^See also:%^RESET%^%^CYAN%^ races, undead, shade, vampire, werewolf, weretiger, pk rules

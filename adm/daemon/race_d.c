@@ -300,6 +300,9 @@ int can_fly(object ob)
     if (!objectp(ob)) {
         return;
     }
+    
+    if(ob->is_deva())
+        return 1;
 
     return (member_array(TP->query_visual_race(), flyraces) != -1) ||
         (member_array(TP->query("subrace"), flysubraces) != -1) ||
