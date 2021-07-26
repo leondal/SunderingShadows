@@ -423,7 +423,12 @@ void heart_beat()
             add_mp(sizeof(targs));
         }
         
-        if(this_object()->is_shade() && !random(8))
+        if(this_object()->is_shade() &&
+        !random(8) &&
+        !avatarp(this_object()) &&
+        !wizardp(this_object()) &&
+        !this_object()->query_hidden() &&
+        !this_object()->query_invis())
         {
             object room = environment(this_object());
             
