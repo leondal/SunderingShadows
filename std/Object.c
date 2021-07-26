@@ -556,7 +556,7 @@ mixed query_property(string prop)
             }
         }
         if (TO->query_race() == "shade" || this_object()->is_shade()) {
-            num -= min( ({ 0, (total_light(environment(this_object())) - 2) / 2 }) );
+            num -= min( ({ 0, (total_light(environment(this_object())) - 1) / 2 }) );
         } else if (TO->query_race() == "troll") {
             num += 2;
         }
@@ -594,7 +594,7 @@ mixed query_property(string prop)
         }
         if(this_object()->is_shade())
         {
-            num += ((total_light(environment(this_object())) - 2) * -1);
+            num += ((total_light(environment(this_object())) - 1) * -1);
         }
         if (FEATS_D->usable_feat(TO, "damage resistance")) {
             num += 2;
@@ -760,7 +760,7 @@ mixed query_property(string prop)
         }
         if(this_object()->is_shade())
         {
-            num -= (2 * total_light(environment(this_object())));
+            num -= (2 * (total_light(environment(this_object())) - 1));
         }
             
         if ((string)TO->query_race() == "human") {
