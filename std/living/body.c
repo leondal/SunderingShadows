@@ -831,7 +831,7 @@ int query_resistance_percent(string res)
         if(total_light(environment(this_object())) < 1)
         {
             if(res == "electricity" || res == "cold")
-                mod -= min( ({ ((total_light(environment(this_object())) - 1) * 10), 50 }));           
+                mod -= max( ({ ((total_light(environment(this_object())) - 1) * 10), -50 }));           
         }
 
         if(res == "fire" || res == "divine")
