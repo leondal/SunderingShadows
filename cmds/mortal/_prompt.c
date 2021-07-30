@@ -53,6 +53,7 @@ Available codes:
   %^MAGENTA%^$X%^WHITE%^ maximum encumbrance level
   %^MAGENTA%^$T%^WHITE%^ time of day (word)
   %^MAGENTA%^$t%^WHITE%^ time of day (clock)
+  %^MAGENTA%^$_LL%^WHITE%^ light level
   %^MAGENTA%^$d%^WHITE%^ drunkeness
 
 Additional codes:

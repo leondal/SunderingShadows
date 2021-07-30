@@ -97,7 +97,7 @@ void initialize() {
 string write_prompt()
 {
     object shape;
-    string path, prompt, am_invis, tmp,shape_race;
+    string path, prompt, am_invis, tmp, shape_race, light_level;
     int rage, expperc;
     if( custom_prompt )
     {
@@ -151,7 +151,7 @@ string write_prompt()
             }
             else prompt = replace_string(prompt, "$_EW", "");
         }
-        
+
         if(this_player()->is_class("psion") || this_player()->is_class("psywarrior"))
         {
             if(this_player()->query("available focus") == this_player()->query("maximum focus"))
@@ -218,6 +218,35 @@ string write_prompt()
         prompt = replace_string(prompt, "$B", ""+bloodlust2string(this_player()));
         prompt = replace_string(prompt, "$e", ""+expperc);
         prompt = replace_string(prompt, "$d", ""+"cmds/mortal/_hp.c"->intox2str(TP->query_intox()*100 / TP->query_formula()));
+
+        switch(total_light(environment(this_object()))) {
+            case -20..-4:
+                light_level = "Darkest";
+                break;
+            case -3..-2:
+                light_level = "Darker";
+                break;
+            case -1..0:
+                light_level = "Dark";
+                break;
+            case 1:
+                light_level = "Normal";
+                break;
+            case 2..3:
+                light_level = "Bright";
+                break;
+            case 4..5:
+                light_level = "Brighter";
+                break;
+            case 6..20:
+                light_level = "Brightest";
+                break;
+            default:
+                light_level = "Unreasonable - stop it!";
+                break;
+        }
+        if(stringp(light_level)) prompt = replace_string(prompt, "$_LL", light_level);
+
         if (stringp(this_object()->query("warlock_blast_type"))) {
             prompt = replace_string(prompt, "$E", "" + this_object()->query("warlock_blast_type") + "");
         } else {
