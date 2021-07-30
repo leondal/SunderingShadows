@@ -4586,6 +4586,9 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
   if (whichroom->query_property("ooc room")) {
       return 0;
   }
+  if(this_object()->query_property("darkvision"))
+      return 0;
+  
   if (geteuid(whichroom) == "Shadowgate") {
       return 0;
   }

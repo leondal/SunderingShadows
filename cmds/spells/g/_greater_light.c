@@ -13,7 +13,7 @@ create()
 {
     ::create();
     set_spell_name("greater light");
-    set_spell_level(([ "paladin": 3, "cleric" : 3 ]));
+    set_spell_level(([ "paladin": 3, "cleric" : 3, "inquisitor": 3, "mage" : 3, "magus" : 3, "bard" : 3 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS greater light");
     set_description("This will create a large ball of light, which will light your way. This ball is more powerful than that given by the light spell. You may only possess one ball of light at a time.");

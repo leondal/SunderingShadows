@@ -1,4 +1,5 @@
 #include <std.h>
+#include <stdprops.h>
 
 inherit OBJECT;
 
@@ -12,6 +13,9 @@ void create() {
     set_short("A tiny ball of bright light");
     set_long("A tiny ball of bright light. It puts off no heat, only a bright light which can light your way.  You can <darken> it when you no longer need it.");
     set_weight(0);
+    set_property(NO_DROP, 1);
+    set_property(NO_GIVE, 1);
+    set_property(NO_PUT, 1);
     set("value", 0);
 }
 void init() {
