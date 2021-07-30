@@ -1816,6 +1816,9 @@ int query_attack_bonus()
         if(valid)
             ret += 2;
     }
+    
+    //Paladin capstone
+    ret += this_object()->query_property("hand of the gods");
 
     if (FEATS_D->usable_feat(TO, "true strikes") &&
         TO->validate_combat_stance("one hander")) {
