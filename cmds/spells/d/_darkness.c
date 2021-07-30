@@ -14,12 +14,10 @@ void create()
     set_spell_sphere("invocation_evocation");
     set_monk_way("way of the shadow");
     set_monk_way("way of the shadow");
-    set_syntax("cast CLASS darkness on TARGET");
-    set_description("This will create a globe of darkness, which will overcome normal light sources. You can cast it on "
-                    "an object or player which it will follow, instead of the caster.");
+    set_syntax("cast CLASS darkness");
+    set_description("This will create a globe of darkness, which will overcome normal light sources. You can only possess one globe of darkness at a time.");
     set_verbal_comp();
     set_non_living_ok(1);
-    set_target_required(1);
     set_helpful_spell(1);
 }
 
@@ -42,6 +40,13 @@ void spell_effect(int prof)
     int duration;
 
     level = clevel;
+    
+    if(present("globe of darkness", caster))
+    {
+        tell_object(caster, "You already have a globe of darkness.");
+        return;
+    }
+    
     if (userp(caster)) {
         tell_object(caster, "You create a darkness around you.");
         tell_room(place, caster->QCN + " causes the room to darken.", ({ caster, target }));

@@ -21,17 +21,17 @@ void init() {
 //added living(ETO) and ETO->is_room() because of strange 
 //bugs with lights put into containers.  If we find another fix, 
 //we can probably take it out.  Circe 2/6/04
-int move(mixed dest) {
+int move(mixed dest, int power) {
     int x;
 
     if (objectp(ETO)){
         if(living(ETO) || ETO->is_room())
-        environment(this_object())->set_property("light", -2);
+        environment(this_object())->set_property("light", -power);
     }
     x = ::move(dest);
     if (objectp(ETO)){
         if(living(ETO) || ETO->is_room())
-        environment(this_object())->set_property("light", 2);
+        environment(this_object())->set_property("light", power);
     }
     return x;
 }
