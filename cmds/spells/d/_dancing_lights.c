@@ -25,6 +25,12 @@ void spell_effect(int prof)
 {
     int level;
     int duration;
+    
+    if(present("dancing lights", caster))
+    {
+        tell_object(caster, "You already have dancing lights on you.");
+        return;
+    }
 
     tell_object(caster, "%^BOLD%^%^WHITE%^Gleaming trails of l%^CYAN%^i%^WHITE%^gh%^YELLOW%^t %^WHITE%^spring into existance, following the motion of your fingertips!");
     tell_room(place, "%^BOLD%^%^WHITE%^Gleaming trails of l%^CYAN%^i%^WHITE%^gh%^YELLOW%^t %^WHITE%^spring into existance, following the motion of " + caster->QCN + "'s fingertips!", caster);

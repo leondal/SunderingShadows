@@ -10,7 +10,7 @@ void create() {
     ::create();
     set_author("nienne");
     set_spell_name("darkvision");
-    set_spell_level(([ "mage" : 2, "ranger" : 3, "monk" : 3, "assassin": 3]));
+    set_spell_level(([ "mage" : 2, "ranger" : 3, "monk" : 3, "assassin": 3, "magus": 3]));
     set_spell_sphere("alteration");
     set_monk_way("way of the shadow");
     set_syntax("cast CLASS darkvision");
