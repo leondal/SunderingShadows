@@ -60,12 +60,9 @@ void spell_effect(int prof)
         ob->set_property("spell", TO);
         ob->set_property("spelled", ({ TO }));
     }
+    
+    ob->move(caster, power);
 
-    if (!target) {
-        ob->move((TP), power);
-    }else {
-        ob->move((target), power);
-    }
     spell_successful();
 }
 
