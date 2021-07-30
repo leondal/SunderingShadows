@@ -3,6 +3,7 @@
 inherit OBJECT;
 
 int duration;
+int lpower;
 
 void create() {
     ::create();
@@ -23,6 +24,8 @@ void init() {
 //we can probably take it out.  Circe 2/6/04
 int move(mixed dest, int power) {
     int x;
+    
+    lpower = power;
 
     if (objectp(ETO)){
         if(living(ETO) || ETO->is_room())
@@ -39,7 +42,7 @@ int move(mixed dest, int power) {
 
 remove() {
     if (objectp(ETO))
-        ETO->set_property("light",-2);
+        ETO->set_property("light",-lpower);
     tell_room(environment(TO),"A light source has gone out.");
 
     return ::remove();
