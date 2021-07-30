@@ -47,17 +47,8 @@ void spell_effect(int prof)
         return;
     }
     
-    if (userp(caster)) {
-        tell_object(caster, "You create a darkness around you.");
-        tell_room(place, caster->QCN + " causes the room to darken.", ({ caster, target }));
-        if (interactive(target) && !(caster == target)) {
-            tell_object(target, caster->QCN + " touches you and light disappears.\n");
-        }
-    } else {
-        //level = (( 11 - level ) * 2 );
-
-        tell_room(place, caster->QCN + " causes the room to darken.", caster);
-    }
+    tell_object(caster, "You create a darkness around you.");
+    tell_room(place, caster->QCN + " causes the room to darken.", ({ caster, target }));
 
     ob = new("/d/magic/obj/darkness");
     duration = 60 * clevel + 180;
