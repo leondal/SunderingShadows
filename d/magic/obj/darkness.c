@@ -12,8 +12,8 @@ void create() {
     set_name("darkness");
     set_short("A globe of darkness");
     set_long("A globe of darkness. It puts off no heat or cold, only a void which sucks in light.  You can <raise> it when you no longer need it.");
-    set_property(NO_DROP, 1);
-    set_property(NO_GIVE, 1);
+    set_property("no drop", 1);
+    set_property("no give", 1);
     set_property(NO_PUT, 1);
     set_weight(0);
     set("value", 0);
