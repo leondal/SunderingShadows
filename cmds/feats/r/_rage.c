@@ -166,11 +166,15 @@ void activate_rage(int direction)
         unstop = FEATS_D->usable(caster, "unstoppable") * 2;
     
     //MOON TOTEM
-    if(FEATS_D->usable_feat(caster, "lesser moon totem"))
-        caster->add_sight_bonus(direction * 8);
-
     if(FEATS_D->usable_feat(caster, "moon totem"))
-        caster->add_skill_bonus("perception", direction * 8);
+    {
+        caster->add_sight_bonus(direction * 8);
+        
+        if(direction > 0)
+            caster->set_property("darkvision", 1);
+        else
+            caster->remove_property("darkvision");
+    }
 
     if (direction == -1 && caster->query_hp() > caster->query_max_hp()) {
         caster->set_hp(caster->query_max_hp());
