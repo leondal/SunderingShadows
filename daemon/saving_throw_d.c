@@ -339,6 +339,11 @@ int magic_save_throw_adjust(object targ, object caster)
     if (FEATS_D->usable_feat(targ, "closed mind")) {
         caster_bonus -= 2;
     }
+    
+    if(FEATS_D->usable_feat(targ, "superstition") && targ->query_property("raged"))
+    {
+        caster_bonus -= 2;
+    }
 
     return caster_bonus;
 }

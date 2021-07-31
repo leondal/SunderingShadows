@@ -1852,14 +1852,19 @@ int number_feats(object obj, string category, string* valid_classes) {
                 
                 if(category == "rage")
                 {
+                    j = obj->query_class_level("barbarian") / 8;
+                    /*
                     if(obj->query_class_level("barbarian") > 5)
                         j = 1;
-                    if(obj->query_class_level("barbarian") > 10)
+                    if(obj->query_class_level("barbarian") > 11)
                         j = 2;
-                    if(obj->query_class_level("barbarian") > 20)
+                    if(obj->query_class_level("barbarian") > 17)
                         j = 3;
-                    if(obj->query_class_level("barbarian") > 30)
+                    if(obj->query_class_level("barbarian") > 23)
                         j = 4;
+                    if(obj->query_class_level("barbarian") > 29)
+                        j = 5;
+                    */
                 }
                 else
                     j = ((obj->query_class_level(subset[i]) - 16) / 5);

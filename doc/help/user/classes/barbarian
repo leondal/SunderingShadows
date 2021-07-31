@@ -16,6 +16,7 @@
  %^RESET%^L20: mighty rage
  %^RESET%^L31: unstoppable
  %^RESET%^Also: one bonus melee feat at L21, and every five class levels thereafter
+ %^RESET%^Also: one rage power feat at L8 and every eight levels thereafter
 
 The barbarian is a fearsome warrior that channels his rage to devastating effect in battle. Barbarians typically hail from the edge of civilization, or in some cases, even beyond it. Eschewing the extensive training and professionalism found commonly among fighters, the barbarian taps into his primal rage to more than make up for his lack of regimented training.
 
@@ -24,6 +25,8 @@ Strength and constitution are the main attributes of the barbarian. The higher t
 The barbarian's primary ability in battle is %^ORANGE%^<rage>%^RESET%^. Rage increases his innate strength, constitution, and will saves throughout its duration. This allows the barbarian to deal and take a great deal of damage, with its effect and duration increasing as the barbarian gains levels.
 
 The barbarian is a melee class, so should rely on feats taken from the martial tree, check %^ORANGE%^<feats list martial>%^RESET%^ for a full list of what is potentially available to you.
+
+Barbarians also gain an additional rage power feat every eight levels. Check %^ORANGE%^<feats list rage>%^RESET%^ for a list available rage power feats.
 
 %^RESET%^%^CYAN%^See also: %^RESET%^ feats, stats, skills, rage *feats, prestige classes
 
