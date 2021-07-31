@@ -322,7 +322,21 @@ void execute_attack()
             caster->cause_typed_damage(target,target->return_target_limb(),dam ,"piercing");
         }
     }
+    
+    if(FEATS_D->usable_feat(caster, "beast totem"))
+    {
+        target = caster->query_current_attacker();
+        enchant = COMBAT_D->unarmed_enchantment(caster);
         
+        if(target && thaco(target, enchant))
+        {
+            tell_object(caster, "%^YELLOW%^You rake your claws across " + target->QCN + "'s chest!");
+            tell_object(target, caster->QCN + " rakes " + caster->QP + " claws across your chest!");
+            tell_room(place, caster->QCN + " rakes " + caster->QP + " claws across " + target->QCN + "'s chest!");
+            dam = roll_dice(2, 6) + enchant + BONUS_D->query_stat_bonus(caster, "strength");
+            caster->cause_typed_damage(target, target->return_target_limb(), dam, "slashing");
+        }
+    }   
 
     if (objectp(place)) {
         place->addObjectToCombatCycle(TO, 1);

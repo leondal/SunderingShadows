@@ -87,12 +87,6 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
         else if(total_light(environment(victim)) > 1)
             MissChance -= 5;
     }
-    
-    if(attacker->is_class("barbarian"))
-    {
-        if(FEATS_D->usable_feat(attacker, "greater moon totem") && attacker->query_property("raged"))
-            MissChance -= 20;
-    }
 
     if(FEATS_D->usable_feat(victim, "inconstant position"))
         MissChance += 10;
