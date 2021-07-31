@@ -3822,6 +3822,15 @@ varargs int check_death(object who, object pot)
                     attackers[i]->set_property("GainedExpFrom", who);
                     attackers[i]->doExp(attackers[i], exp, sizeof(attackers) + minions);
                     attackers[i]->remove_property("GainedExpFrom");
+                    
+                    if(attackers[i]->is_class("barbarian"))
+                    {
+                        if(FEATS_D->usable_feat(attackers[i], "daemon totem") && attackers[i]->query_property("raged"))
+                        {
+                            tell_object(attackers[i], "%^GREEN%^You are emboldened as your opponent perishes.");
+                            attackers[i]->add_hp(10 + attackers[i]->query_class_level("barbarian"));
+                        }
+                    }
                     continue;
                 }
                 if (!sizeof(attackers)) {
