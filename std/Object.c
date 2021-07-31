@@ -594,7 +594,7 @@ mixed query_property(string prop)
         }
         if(this_object()->is_shade())
         {
-            num += ((total_light(environment(this_object())) - 1) * -1);
+            num -= (total_light(environment(this_object())) - 1);
         }
         if (FEATS_D->usable_feat(TO, "damage resistance")) {
             num += 2;
@@ -1685,6 +1685,9 @@ int drop()
     if (query_property("monsterweapon")) {
         return 1;
     }
+    if(query_property("no drop"))
+        return 1;
+    
     if (unique_item == 1) {
         UNIQUE_D->clear_lease(TO->query_unique_id());
     }
