@@ -60,9 +60,9 @@ spell_effect(int prof)
     ob->set_property("spelled", ({ TO }));
 
     if (!target) {
-        ob->move((TP), 2);
+        ob->move((TP), 1);
     }else {
-        ob->move((target), 2);
+        ob->move((target), 1);
     }
     spell_successful();
 }
