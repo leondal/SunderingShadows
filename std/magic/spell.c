@@ -2650,6 +2650,15 @@ void define_base_damage(int adjust)
             if(FEATS_D->usable_feat(caster, "power specialization"))
                 sdamage += (BONUS_D->query_stat_bonus(caster, "intelligence") * (1 + clevel / 12));
         }
+        
+        if(target && evil_spell)
+        {
+            if(target->is_class("barbarian"))
+            {
+                if(FEATS_D->usable_feat(target, "celestial totem"))
+                    sdamage -= (11 + target->query_class_level("barbarian") / 2);
+            }
+        }
     }
 
     if (!wasreflected) {
