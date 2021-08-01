@@ -332,7 +332,7 @@ void execute_attack()
         {
             tell_object(caster, "%^YELLOW%^You rake your claws across " + target->QCN + "'s chest!");
             tell_object(target, caster->QCN + " rakes " + caster->QP + " claws across your chest!");
-            tell_room(place, caster->QCN + " rakes " + caster->QP + " claws across " + target->QCN + "'s chest!");
+            tell_room(place, caster->QCN + " rakes " + caster->QP + " claws across " + target->QCN + "'s chest!", ({ caster, target }));
             dam = (roll_dice(1, 6) * (1 + flevel / 10)) + enchant;
             caster->cause_typed_damage(target, target->return_target_limb(), dam, "slashing");
         }
