@@ -9,12 +9,12 @@ int bonus;
 void create()
 {
     ::create();
-    set_spell_name("infernal healing");
+    set_spell_name("celestial healing");
     set_spell_level(([ "mage" : 1, "cleric" : 1, "magus" : 1 ]));
     set_spell_sphere("conjuration_summoning");
     set_syntax("cast CLASS celestial healing [on TARGET]");
     set_damage_desc("fast healing 1");
-    set_description("You anoint a wounded creature with holy water, giving it fast healing 1.
+    set_description("You anoint a wounded creature with celestial energy, giving it fast healing 1.
 
 %^BOLD%^%^RED%^See also:%^RESET%^ status effects");
 	set_helpful_spell(1);
