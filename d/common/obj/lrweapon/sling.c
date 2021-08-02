@@ -29,7 +29,7 @@ void create(){
     set_rate_of_fire(2);
     set_weapon_speed(2);
     set_damage_type("bludgeoning");
-    set_property("repairtype",({"woodwork"}));
+    set_property("repairtype",({"woodwork", "leatherwork"}));
     set_critical_threat_range(1);
     set_critical_hit_multiplier(2);
 }

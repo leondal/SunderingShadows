@@ -48,7 +48,7 @@ void spell_effect(int prof)
 
     caster->set_property("spelled", ({TO}));
     caster->set_property("nimbus",1);
-    caster->set_property("added short",({"%^BOLD%^%^YELLOW%^ (surrounding by crackling energy)%^RESET%^"}));
+    caster->set_property("added short",({"%^BOLD%^%^YELLOW%^ (surrounded by crackling energy)%^RESET%^"}));
     addSpellToCaster();
     spell_successful();
     execute_attack();
