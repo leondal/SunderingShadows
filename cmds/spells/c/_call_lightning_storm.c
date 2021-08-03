@@ -89,7 +89,7 @@ void execute_attack(){
                 damage_targ(foes[i],foes[i]->return_target_limb(),sdamage/2,"electricity");
             } else {
                 tell_object(foes[i],"%^RESET%^%^BOLD%^A bolt of electricity leaps out from "+caster->QCN+"'s body and you barely turn aside at the last instant, avoiding most of the damage!");
-                damage_targ(foes[i],foes[i]->return_target_limb(),sdamage,"electricity");
+                foes[i] && damage_targ(foes[i],foes[i]->return_target_limb(),sdamage,"electricity");
             }
         }
     }
