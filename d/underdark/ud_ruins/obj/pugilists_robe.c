@@ -118,7 +118,7 @@ int wear_func() {
         );
     }
     tell_room(EETO,
-        "%^ORANGE%^+ETO->QCN+ dons the plain brown robe."
+        "%^ORANGE%^"+ETO->QCN+ "%^RESET%^%^ORANGE%^dons the plain brown robe."
     ,({ETO}));
     return 1;
 }
@@ -128,7 +128,7 @@ int remove_func() {
         "%^ORANGE%^You pull the plain brown robe off."
     );
     tell_room(EETO,
-        "%^ORANGE%^"+ETO->QCN+" pulls the plain brown robe off."
+        "%^ORANGE%^"+ETO->QCN+" %^RESET%^%^ORANGE%^pulls the plain brown robe off."
     ,({ETO}));
     return 1;
 }
