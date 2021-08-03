@@ -147,7 +147,7 @@ int prerequisites(object player)
         return 0;
     }
     
-    if(player->query_race() != "deva" && player->query("subrace") != "sildruath")
+    if(player->query_race() != "deva" && !player->is_deva())
     {
         write("fail race");
         return 0;
