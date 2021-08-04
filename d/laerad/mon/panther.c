@@ -1,5 +1,6 @@
 //Coded by Bane//
 #include <std.h>
+#include <daemons.h>
 inherit WEAPONLESS;
 void create(){
     object ob;
@@ -44,7 +45,7 @@ void pounce(object targ){
     if(!"daemon/saving_d"->saving_throw(targ,"rod_staff_wand")){
 	tell_object(targ,"%^CYAN%^The Panther pounces on you pinning you to the ground!");
 	tell_room(ETO,"%^CYAN%^The Panther pounces on "+targ->query_cap_name()+" pinning "+targ->query_objective()+" to the ground!",targ);
-	targ->set_paralyzed(30,"You are pinned to the ground.");
+	targ->set_paralyzed(24 - BONUS_D->query_stat_bonus(targ, "strength"),"You are pinned to the ground.");
         return 1;
     }
     tell_object(targ,"%^CYAN%^The Panther leaps at you but you dodge out of the way!");

@@ -259,7 +259,7 @@ void execute_attack()
         return;
     }
 
-    if (caster->query_ghost() || caster->query_unconscious()) {
+    if (caster->query_ghost() || caster->query_unconscious() || caster->query_bound() || caster->query_paralyzed()) {
         dest_effect();
         return;
     }
