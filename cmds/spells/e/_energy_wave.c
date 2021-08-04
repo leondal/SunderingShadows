@@ -149,6 +149,9 @@ void spell_effect(int prof){
         damage_targ(target, target->return_target_limb(), to_int(sdamage/2),dam_type);
     }
     stop = random(mylevel);
+    
+    foes -= ({ target });
+    
     if(sizeof(foes)){
        for(num=0;num<sizeof(foes);num++){
           if(!objectp(foes[num])) continue;
