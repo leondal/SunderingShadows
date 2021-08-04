@@ -9,9 +9,9 @@ inherit SHAPESHIFT;
 void create()
 {
     int bonus;
-    
+
     ::create();
-    
+
     set_attack_limbs( ({ "fangs","right fore claw","left fore claw","right rear claw","left rear claw" }) );
     set_new_damage_type("piercing");
     set_limbs( ({ "fangs","head","torso","right fore claw", "left fore claw", "right rear claw","left rear claw","right foreleg","right forepaw","left foreleg","left forepaw","right rear leg","right rear paw","left rear leg","left rear paw","tail" }) );
@@ -101,68 +101,68 @@ int can_cast()
     if(FEATS_D->usable_feat(query_owner(),"wild spellcraft")) { return 1; }
     return can_cast_spells;
 }
-    
+
 int bite_attack(object player, object target)
 {
     object room;
-           
+
     int dice,
         level;
-    
+
     if(!player || !target)
         return 0;
-   
+
     level = player->query_guild_level("druid");
 
     if(random(3))
         return roll_dice(1, 6);
-    
+
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
-    
+
     if(FEATS_D->usable_feat(player,"perfect predator"))
     {
         level += 2;
         player->add_hp(10 + roll_dice(level/2, 4));
     }
-    
+
     tell_object(player, "You ferociously bite your opponent.");
-    
+
     set_new_damage_type("piercing");
-    
-    return roll_dice(1 + (level / 2), 6);   
+
+    return roll_dice(1 + (level / 2), 6);
 }
 
 int claw_attack(object player, object target)
 {
     object room;
-           
+
     int dice,
         level;
-    
+
     if(!player || !target)
         return 0;
-   
+
     level = player->query_guild_level("druid");
-    
+
     if(random(3))
         return roll_dice(1,4);
-    
+
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
-    
+
     if(FEATS_D->usable_feat(player,"perfect predator"))
     {
         level += 2;
         player->add_hp(10 + roll_dice(level/2, 4));
     }
-    
+
     tell_object(player, "You tear into your opponent with your razor-sharp claws.");
-    
+
     set_new_damage_type("piercing");
-    
+
     return roll_dice(1 + (level / 2), 6);
 }
 
@@ -181,9 +181,9 @@ int grab_attack(object tp, object targ)
     chance = (int)tp->query_guild_level("druid");
 
     if(chance > 60) { chance = 60; }
-    if(chance > 29 && !FEATS_D->usable_feat(TP,"savage instincts iii")) { chance = 29; }
-    if(chance > 19 && !FEATS_D->usable_feat(TP,"savage instincts ii")) { chance = 19; }
-    if(chance > 9 && !FEATS_D->usable_feat(TP,"savage instincts i")) { chance = 9; }
+    if(chance > 39 && !FEATS_D->usable_feat(TP,"savage instincts iii")) { chance = 39; }
+    if(chance > 29 && !FEATS_D->usable_feat(TP,"savage instincts ii")) { chance = 29; }
+    if(chance > 19 && !FEATS_D->usable_feat(TP,"savage instincts i")) { chance = 19; }
 
     dice = ( chance / 4) + 2;
 

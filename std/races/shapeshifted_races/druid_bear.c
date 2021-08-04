@@ -114,9 +114,9 @@ int bite_attack(object tp, object targ) // bear bite attack significantly more l
     chance = (int)tp->query_guild_level("druid");
 
     if(chance > 60) { chance = 60; }
-    if(chance > 29 && !FEATS_D->usable_feat(TP,"savage instincts iii")) { chance = 29; }
-    if(chance > 19 && !FEATS_D->usable_feat(TP,"savage instincts ii")) { chance = 19; }
-    if(chance > 9 && !FEATS_D->usable_feat(TP,"savage instincts i")) { chance = 9; }
+    if(chance > 39 && !FEATS_D->usable_feat(TP,"savage instincts iii")) { chance = 39; }
+    if(chance > 29 && !FEATS_D->usable_feat(TP,"savage instincts ii")) { chance = 29; }
+    if(chance > 19 && !FEATS_D->usable_feat(TP,"savage instincts i")) { chance = 19; }
 
     dice = ( chance / 4) + 2;
 
@@ -218,9 +218,9 @@ int claw_attack(object tp, object targ)
     chance = (int)tp->query_guild_level("druid");
 
     if(chance > 60) { chance = 60; }
-    if(chance > 29 && !FEATS_D->usable_feat(TP,"savage instincts iii")) { chance = 29; }
-    if(chance > 19 && !FEATS_D->usable_feat(TP,"savage instincts ii")) { chance = 19; }
-    if(chance > 9 && !FEATS_D->usable_feat(TP,"savage instincts i")) { chance = 9; }
+    if(chance > 39 && !FEATS_D->usable_feat(TP,"savage instincts iii")) { chance = 39; }
+    if(chance > 29 && !FEATS_D->usable_feat(TP,"savage instincts ii")) { chance = 29; }
+    if(chance > 19 && !FEATS_D->usable_feat(TP,"savage instincts i")) { chance = 19; }
 
     dice = ( chance / 3) + 2;
 
