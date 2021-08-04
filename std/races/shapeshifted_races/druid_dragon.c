@@ -124,8 +124,12 @@ int bite_attack(object player, object target)
     
     if(!player || !target)
         return 0;
-   
+       
     level = player->query_guild_level("druid");
+    
+    if(roll_dice(1, 100) > (10 + level / 2))
+        return 0;
+    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
@@ -161,6 +165,10 @@ int claw_attack(object player, object target)
         return 0;
    
     level = player->query_guild_level("druid");
+    
+    if(roll_dice(1, 100) > (10 + level / 2))
+        return 0;
+    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
@@ -192,6 +200,10 @@ int tail_attack(object player, object target)
         return 0;
    
     level = player->query_guild_level("druid");
+    
+    if(roll_dice(1, 100) > (10 + level / 2))
+        return 0;
+    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
