@@ -16,7 +16,7 @@ void create()
     set_limbs( ({ "mouth","head","torso","right claw", "left claw", "right foreleg","right forepaw","left foreleg","left forepaw","right rear leg","right rear paw","left rear leg","left rear paw" }) );
     set_attack_functions(([ "maw" : (:TO,"bite_attack":), "right claw" : (:TO,"claw_attack":), "left claw" : (:TO,"claw_attack":) ]));
     set_ac_bonus(-20); // ac bonus is different from the other bonuses because of the way ac is calculated with different body types -Ares
-    set_base_attack_num(2);
+    set_base_attack_num(3);
     set_castable(0);
     set_can_talk(0);
     set_shape_race("bear");
