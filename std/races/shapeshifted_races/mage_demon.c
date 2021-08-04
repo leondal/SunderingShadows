@@ -98,7 +98,7 @@ int claw_attack(object tp, object targ)
 {
     int rand;
     rand = random(10);
-    if(rand)
+    if(rand > 5)
     {
         tell_object(tp,"%^RED%^You %^BOLD%^%^BLACK%^rake%^RESET%^%^RED%^ your massive claws into "+targ->QCN+"'s flesh!");
         tell_object(targ,"%^RED%^"+tp->QCN+" %^BOLD%^%^BLACK%^rakes%^RESET%^%^RED%^ its massive claws into your flesh!");
@@ -113,7 +113,7 @@ int claw_attack(object tp, object targ)
         targ->cause_typed_damage(targ,targ->return_target_limb(),roll_dice(clevel/3,6),"piercing");
     }
 
-    return roll_dice(2,6);
+    return roll_dice(1,6);
 
     //2d6+13
 }

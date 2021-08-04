@@ -107,13 +107,13 @@ int hand_attack(object tp, object targ)
         tell_object(tp,"%^BLUE%^You swing at "+targ->QCN+" with your mighty fists, the blows connecting solidly!");
         tell_object(targ,"%^BLUE%^"+tp->QCN+" swings at you with its mighty fists, the blows connecting solidly!");
         tell_room(ENV(tp),"%^BLUE%^"+tp->QCN+" swings at "+targ->QCN+" with its mighty fists, the blows connecting solidly!",({tp,targ}));
-        targ->cause_typed_damage(targ,targ->return_target_limb(),roll_dice(clevel,6),"bludgeoning");
+        targ->cause_typed_damage(targ,targ->return_target_limb(),roll_dice(1 + clevel / 3,6),"bludgeoning");
         break;
     case 3:
         tell_object(tp,"%^BOLD%^%^BLUE%^You grasp your hands together above the head before bringing them down in unison at "+targ->QCN+"!");
         tell_object(targ,"%^BOLD%^%^BLUE%^"+tp->QCN+"grasps its hands together above the head before bringing them down in unison at you!");
         tell_room(ENV(tp),"%^BOLD%^%^BLUE%^"+tp->QCN+" grasps its hands together above the head before bringing them in unison at "+targ->QCN+"!",({tp,targ}));
-        targ->cause_typed_damage(targ,targ->return_target_limb(),roll_dice(clevel,12),"bludgeoning");
+        targ->cause_typed_damage(targ,targ->return_target_limb(),roll_dice(1 + clevel / 3,8),"bludgeoning");
     }
     return roll_dice(1,12);
 }
