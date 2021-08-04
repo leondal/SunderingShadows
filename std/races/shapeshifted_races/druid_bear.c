@@ -24,7 +24,7 @@ void create()
     set_shape_profile("druid_bear_999"); // needs to be something the player is unlikely to name one of their profiles when disguise goes in
     set_shape_bonus("perception",2);
     set_shape_bonus("survival",4);
-    set_shape_bonus("constitution",2);
+    set_shape_bonus("constitution",4);
     set_shape_bonus("cold resistance",10);
     set_shape_bonus("sight bonus",2);
     set_shape_bonus("damage resistance",20);
