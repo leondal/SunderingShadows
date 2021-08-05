@@ -32,20 +32,20 @@ void create(){
     set_property("no disenchant",1);
 }
 int wear_func(){
-	tell_room(environment(ETO),"%^BOLD%^%^BLACK%^"+ETOQCN+" growls softly as he buckles on the greaves, his voice low and %^RESET%^%^RED%^feral%^BOLD%^%^BLACK%^.%^RESET%^",ETO);
+	tell_room(environment(ETO),"%^BOLD%^%^BLACK%^"+ETOQCN+" growls softly as "+ETO->query_subjective()+" buckles on the greaves, "+ETO->query_possessive()+" voice low and %^RESET%^%^RED%^feral%^BOLD%^%^BLACK%^.%^RESET%^",ETO);
 	tell_object(ETO,"%^BOLD%^%^BLACK%^You buckle on the greaves and feel your blood %^RED%^boil%^RESET%^.");
 	return 1;
 }
 int remove_func(){
-	tell_room(environment(ETO),"%^BOLD%^%^BLACK%^"+ETOQCN+" calms down visibly as he removes the greaves, shaking his head to clear some unknown sound.%^RESET%^",ETO);
+	tell_room(environment(ETO),"%^BOLD%^%^BLACK%^"+ETOQCN+" calms down visibly as "+ETO->query_subjective()+" removes the greaves, shaking "+ETO->query_possessive()+" head to clear some unknown sound.%^RESET%^",ETO);
 	tell_object(ETO,"%^BOLD%^%^BLACK%^You unbuckle the greaves slowly, the howls of a pack of feral wolves ringing in your head.%^RESET%^");
 	return 1;
 }
 int strike_func(int damage, object what, object who){
 	if(!random(5)){
-	tell_room(environment(query_worn()),"%^RESET%^%^BOLD%^Just as "+who->QCN+" is about to strike "+ETOQCN+", he rushes forward, his form becoming that of a %^BLACK%^shadowy wolf%^WHITE%^ as he avoids the blow.",({ETO,who}));
+	tell_room(environment(query_worn()),"%^RESET%^%^BOLD%^Just as "+who->QCN+" is about to strike "+ETOQCN+", "+ETO->query_subjective()+" rushes forward, "+ETO->query_possessive()+" form becoming that of a %^BLACK%^shadowy wolf%^WHITE%^ as "+ETO->query_subjective()+" avoids the blow.",({ETO,who}));
 	tell_object(ETO,"%^RESET%^%^BOLD%^Just as "+who->QCN+" is about to strike you, there is a low snap and growl as you leap forward, avoiding the blow.%^RESET%^");
-	tell_object(who,"%^RESET%^%^BOLD%^As you strike "+ETOQCN+", he transforms into a %^BLACK%^shadowy wolf%^WHITE%^ and your blow passes right through him!%^RESET%^");
+	tell_object(who,"%^RESET%^%^BOLD%^As you strike "+ETOQCN+", "+ETO->query_subjective()+" transforms into a %^BLACK%^shadowy wolf%^WHITE%^ and your blow passes right through "+ETO->query_objective()+"!%^RESET%^");
     return 0;;
     }
     return damage;
