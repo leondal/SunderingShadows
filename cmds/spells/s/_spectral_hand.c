@@ -31,7 +31,7 @@ void spell_effect(int prof)
 {
     if (caster->query_property("spectral_hand"))
     {
-        tell_object(caster,"The spell is repelled by its own magic.");
+        tell_object(caster,"You are already gaining a bonus to touch attack spells.");
         TO->remove();
     }
     spell_successful();

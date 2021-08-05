@@ -36,15 +36,26 @@ void create()
     feat_name("arcane_bond");
     feat_prereq("Mage L1");
     feat_syntax("arcane_bond [TYPE] to summon or arcane_bond to dismiss");
-    feat_desc("Summons or dismisses your trusty familiar. This familiar will follow you through thick and thin and will level up with you. The TYPE of familiar will determine its base stats and natural armor.  The familiar can also assist with touch attack spells, much like spectral hand.
+    feat_desc("Summons or dismisses your trusty familiar. This familiar will follow you through thick and thin and will level up with you. The TYPE of familiar will determine its base stats and natural armor.  The familiar can also assist with touch attack spells, much like spectral hand. The familiar is a non-combat companion, and won't fight or protect you in combat.
 
-  
+The available familiars are as follows, along with their passive benefits:
+%^CYAN%^BOLD%^ Armadillo %^RESET%^: +1 Natural Armor
+%^CYAN%^BOLD%^ Cat       %^RESET%^: +3 Stealth
+%^CYAN%^BOLD%^ Fox       %^RESET%^: +2 Reflex Save
+%^CYAN%^BOLD%^ Goat      %^RESET%^: +3 Survival
+%^CYAN%^BOLD%^ Hedgehog  %^RESET%^: +2 Will Save
+%^CYAN%^BOLD%^ Lemming   %^RESET%^: +2 Fortitude Save
+%^CYAN%^BOLD%^ Monkey    %^RESET%^: +3 Athletics
+%^CYAN%^BOLD%^ Owl       %^RESET%^: +3 Perception
+%^CYAN%^BOLD%^ Peacock   %^RESET%^: +3 Influence
+%^CYAN%^BOLD%^ Raccoon   %^RESET%^: +3 Thievery
+
 The Familiar will hide if you use the 'hide_in_shadows' command, allowing you to effectively sneak about with your faithful friend. It will also go invisible with you.
 
 The Familiar can also be customized through several commands, which will allow you to change its description:
 
-  'animal short [DESCRIPTION]' - Changes the short description of the companion.
-  'animal long  [DESCRIPTION]' - Changes the long description of the companion.
+%^ORANGE%^<familiar short [DESCRIPTION]>%^RESET%^ - Changes the short description of the familiar.
+%^ORANGE%^<familiar long  [DESCRIPTION]>%^RESET%^ - Changes the long description of the familiar.
 
   To have the familiar follow you, use 'familiar follow'.  
   To command the familiar, use %^ORANGE%^<familiar command %^ULINE%^ACTION%^RESET%^ORANGE%^>.%^RESET%^");
@@ -147,7 +158,7 @@ void execute_feat()
        
     caster->set_property("familiar", companion);
     caster->add_follower(companion);
-    caster->add_protector(companion);
+    //caster->add_protector(companion);
 
     companion->set_property("minion", caster);
     companion->move(environment(caster));

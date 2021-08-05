@@ -2350,6 +2350,7 @@ int is_undead()
     return (query("undead") ||
             query_property("undead") ||
             query_race() == "undead" ||
+            query_race() == "nightwing" ||
             member_array("undead", query_id()) != -1 ||
             query_acquired_template() == "undead" ||
             query_acquired_template() == "vampire") || 0;

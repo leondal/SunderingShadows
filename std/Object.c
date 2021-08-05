@@ -746,6 +746,14 @@ mixed query_property(string prop)
         }
         return num;
     }
+    
+    if(prop == "spectral hand")
+    {
+        if(PLAYER_D->check_familiar(this_object()))
+            return 1;
+        
+        return 0;
+    }
 
 
     if (prop == "spell damage resistance") {

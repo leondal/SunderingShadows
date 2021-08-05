@@ -1093,6 +1093,12 @@ int query_ac()
            
     if(FEATS_D->usable_feat(this_object(), "kinetic aura"))
         myac += (1 + this_object()->query_prestige_level("psion") / 11);
+    
+    if(this_object()->is_class("mage"))
+    {
+        if(PLAYER_D->check_familiar(this_object(), "armadillo"))
+            myac += 1;
+    }
 
     if (TO->query_blind() || TO->query_temporary_blinded()) {
         myac -= TO->query_level() / 12 + 1;

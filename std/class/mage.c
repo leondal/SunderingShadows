@@ -36,7 +36,7 @@ string *class_feats(string myspec)
 }
 
 mapping class_featmap(string myspec) {
-    return ([ 1 : ({ "simple weapon proficiency", "spell focus", "magic school", "scribe" }), ]);
+    return ([ 1 : ({ "simple weapon proficiency", "spell focus", "magic school", "scribe", "arcane bond" }), ]);
 }
 
 mapping query_cantrip_spells(object ob)
