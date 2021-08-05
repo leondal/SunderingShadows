@@ -14,6 +14,7 @@ void create() {
     set_spell_level(([ "druid" : 3, "cleric" : 3 ]));
     set_spell_sphere("alteration");
     set_domains("earth");
+    set_bonus_type("sacred");
     set_syntax("cast CLASS strength of stone [ON TARGET]");
     set_description("This spell will imbue the caster with the strength of the earth, slightly empowering both their melee and spell abilities. The spell does not stack with other bless-type spells.");
     set_verbal_comp();
