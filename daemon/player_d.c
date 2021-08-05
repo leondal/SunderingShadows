@@ -669,6 +669,27 @@ int check_aura(object target, string type)
     return 0;
 }
 
+int check_familiar(object target, string type)
+{
+    object fam;
+    
+    if(!target || !type)
+        return 0;
+    
+    if(!objectp(target))
+        return 0;
+    
+    fam = target->query_property("familiar");
+    
+    if(!fam || !objectp(fam))
+        return 0;
+    
+    if(fam->query_name() != type)
+        return 0;
+    
+    return 1;
+}
+    
 int immunity_check(object obj, string type)
 {
     string myrace, mysubrace;
