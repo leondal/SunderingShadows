@@ -16,8 +16,8 @@ void create()
     set_new_damage_type("piercing");
     set_limbs( ({ "mouth","head","torso","right foreleg","right forepaw","left foreleg","left forepaw","right rear leg","right rear paw","left rear leg","left rear paw","tail" }) );
     set_attack_functions( ([ "maw" : (:TO,"shape_attack":) ]) );
-    set_ac_bonus(1); // ac bonus is different from the other bonuses because of the way ac is calculated with different body types -Ares
-    set_base_attack_num(2);
+    set_ac_bonus(2); // ac bonus is different from the other bonuses because of the way ac is calculated with different body types -Ares
+    set_base_attack_num(4);
     set_castable(0);
     set_can_talk(0);
     set_shape_race("wolf");
@@ -27,8 +27,8 @@ void create()
     set_shape_bonus("survival",4);
     set_shape_bonus("cold resistance",5);
     set_shape_bonus("sight bonus",3);
-    set_shape_bonus("damage bonus",1);
-    set_shape_bonus("attack bonus",1);
+    set_shape_bonus("damage bonus",3);
+    set_shape_bonus("attack bonus",3);
     set_shape_height(30+random(12));
     set_shape_weight(90+random(50));
     set_shape_mastery_feat("knockdown");

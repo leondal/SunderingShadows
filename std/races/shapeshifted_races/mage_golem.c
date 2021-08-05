@@ -23,8 +23,8 @@ void create()
     set_new_damage_type("piercing");
     set_limbs( ({ "head","torso","right hand", "left hand", "right arm","right arm","left leg","right leg",}) );
     set_attack_functions(([ "right hand" : (:TO,"hand_attack":), "left hand" : (:TO,"hand_attack":) ]));
-    set_ac_bonus(-6);
-    set_base_attack_num(4);
+    set_ac_bonus(-12);
+    set_base_attack_num(3);
     set_castable(1);
     set_can_talk(1);
     set_shape_race("golem");
@@ -33,7 +33,7 @@ void create()
     set_shape_bonus("sight bonus",3);
     set_shape_bonus("damage bonus",3);
     set_shape_bonus("attack bonus",3);
-    set_shape_bonus("spell damage resistance",30);
+    set_shape_bonus("damage resistance",20);
     set_shape_height(900+random(100));
     set_shape_weight(5000+random(500));
 }

@@ -259,7 +259,8 @@ void execute_attack()
         return;
     }
 
-    if (caster->query_ghost() || caster->query_unconscious() || caster->query_bound() || caster->query_paralyzed()) {
+    if (caster->query_ghost() || caster->query_unconscious())
+    {
         dest_effect();
         return;
     }
@@ -268,6 +269,9 @@ void execute_attack()
         dest_effect();
         return;
     }
+    
+    if(caster->query_bound() || caster->query_paralyzed())
+        return;
 
     place = environment(caster);
     attackers = caster->query_attackers();
