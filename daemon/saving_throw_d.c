@@ -67,6 +67,10 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         
             if(ob->query("subrace") == "aesatri")
                 mod += 1;
+            
+            if(PLAYER_D->check_familiar(ob, "lemming"))
+                mod += 2;
+            
         break;
         
         //REFLEX SAVES
@@ -88,6 +92,9 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             
             if(ob->query("subrace") == "senzokuan")
                 mod += 1;
+
+            if(PLAYER_D->check_familiar(ob, "fox"))
+                mod += 2;
         break;
         
         //WILL SAVES
@@ -123,6 +130,9 @@ varargs void do_save(object ob, int dc, string type, raw_save)
             //Vampires
             if (ob->is_vampire())
                 mod -= (20000 - (int)ob->query_bloodlust()) / 2000;
+
+            if(PLAYER_D->check_familiar(ob, "hedgehog"))
+                mod += 2;
         break;
     }
     

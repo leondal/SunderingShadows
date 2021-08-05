@@ -368,6 +368,42 @@ int query_skill(string skill)
         }
     }
     
+    if(this_object()->is_class("mage"))
+    {
+        switch(PLAYER_D->check_familiar(this_object()))
+        {
+            case "goat":
+            if(skill == "survival")
+                x += 3;
+            break;
+            
+            case "cat":
+            if(skill == "stealth")
+                x += 3;
+            break;
+            
+            case "owl":
+            if(skill == "perception")
+                x += 3;
+            break;
+            
+            case "monkey":
+            if(skill == "athletics")
+                x += 3;
+            break;
+            
+            case "raccoon":
+            if(skill == "thievery")
+                x += 3;
+            break;
+            
+            case "peacock":
+            if(skill == "influence")
+                x += 3;
+            break;
+        }
+    }
+    
     //Represents the Jack of All Trades feature in tabletop which gives +1 to all skill checks
     if(this_object()->is_class("bard"))
         x += 1;

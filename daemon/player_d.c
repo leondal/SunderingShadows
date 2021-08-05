@@ -669,11 +669,11 @@ int check_aura(object target, string type)
     return 0;
 }
 
-int check_familiar(object target, string type)
+mixed check_familiar(object target, string type)
 {
     object fam;
     
-    if(!target || !type)
+    if(!target)
         return 0;
     
     if(!objectp(target))
@@ -683,6 +683,13 @@ int check_familiar(object target, string type)
     
     if(!fam || !objectp(fam))
         return 0;
+    
+    if(environment(fam) != environment(target))
+        return 0;
+
+    //To check what type of familiar they have if we don't know
+    if(!strlen(type))
+        return fam->query_name();
     
     if(fam->query_name() != type)
         return 0;
