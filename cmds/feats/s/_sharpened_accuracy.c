@@ -28,6 +28,13 @@ int prerequisites(object ob)
         dest_effect();
         return 0;
     }
+    
+    if(!FEATS_D->has_feat(ob, "surprise accuracy"))
+    {
+        dest_effect();
+        return 0;
+    }
+    
     return ::prerequisites(ob);
 }
 
