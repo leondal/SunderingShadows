@@ -1,4 +1,5 @@
 #include <std.h>
+#include <daemons.h>
 #include "../inherit/ruins.h"
 inherit WEAPONLESS;
 
@@ -100,7 +101,14 @@ int amulet(object targ){
 }
 
 void die(object ob) {
-   object who;
+   object who, *killers;
+   int i;
+   killers = ({});
+   killers = filter_array(all_living(ETO),"is_non_immortal_player",FILTERS_D);
+      for(i=0;i<sizeof(killers);i++){
+      if(!objectp(killers[i])) { continue; }
+      killers[i]->set_mini_quest("Killed Archemond");//temporary place setting for party friendly quests. This is worth no experience in itself
+      }
    tell_room(ETO,"%^RED%^The mage lets out a dying scream and slumps to the floor");
    switch(random(4)) {
      case 0:

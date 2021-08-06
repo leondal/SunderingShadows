@@ -194,14 +194,31 @@ void receive_given_item(object obj){
    tell_room(ETO,"The spirit drifts back again.\n");
    force_me("say %^CYAN%^%^BOLD%^may death only find you when it is your time, and may Lysara's own "
 "hand guide you safely from this life to the next.");
-   TP->set_quest("Sionne's final rest");
-   TP->fix_exp(2000000,TP);
+   call_out("reward",1);
+}
+
+void reward(){
+   object *questors;
+   int i,j;
+   questors = ({});
+   questors = filter_array(all_living(ETO),"is_non_immortal_player",FILTERS_D);
+   j= sizeof(questors);
+   if(!j) return;
+   for(i=0;i<j;i++){
+      if(!objectp(questors[i])) { continue; }
+      if(member_array("Sionne's final rest",questors[i]->query_quests()) == -1 && member_array("Killed Archemond",questors[i]->query_mini_quests()) != -1){
+         questors[i]->set_quest("Sionne's final rest");
+         questors[i]->fix_exp(2000000);
+         questors[i]->remove_mini_quest("Killed Archemond");
+		 tell_object(questors[i],"%^WHITE%^%^BOLD%^You have finished the quest, 'Sionne's final rest'!\n");
+	  }
+   }
    tell_room(ETO,"The spirit smiles softly, her body becoming more and more translucent, until she "
 "finally disappears.\n");
-   tell_object(TP,"%^WHITE%^%^BOLD%^You have finished the quest, 'Sionne's final rest'!\n");
    TO->remove();
    return;
-}
+ }
+
 
 void heart_beat() {
    ::heart_beat();
