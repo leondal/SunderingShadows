@@ -1,5 +1,6 @@
 //Coded by Bane//
 #include <std.h>
+#include <daemons.h>
 inherit NPC;
 object ob;
 void create(){
@@ -78,11 +79,26 @@ void bring(string str){
 	tooth->move(TO);
 	force_me("offer tooth");
 	force_me("offerall");
-	tell_object(TP,"You have completed the Legacy of Hansoth quest!");
-	TP->set_quest("Legacy of Hansoth");
-	TP->fix_exp(6200000,TP);
+	call_out("reward",1);
 	return 1;
     }
     write("%^MAGENTA%^Sage says%^RESET%^:  You don't have the Lich's life source fool!");
     return 1;
+}
+void reward(){
+  object *questors;
+   int i,j;
+   questors = ({});
+   questors = filter_array(all_living(ETO),"is_non_immortal_player",FILTERS_D);
+   j= sizeof(questors);
+   if(!j) return;
+   for(i=0;i<j;i++){
+	   if(!objectp(questors[i])) { continue; }
+	   if(member_array("Legacy of Hansoth",questors[i]->query_quests()) == -1 && member_array("Killed Hansoth",questors[i]->query_mini_quests()) != -1){
+        tell_object(questors[i],"You have completed the Legacy of Hansoth quest!");
+	    questors[i]->set_quest("Legacy of Hansoth");
+	    questors[i]->fix_exp(6200000);
+	   }
+   }
+return;
 }

@@ -234,7 +234,10 @@ void set_paralyzed(string message, int time)
 
 void die(object targ)
 {
-    object who;
+   object who, *killers;
+   int i;
+   killers = ({});
+   killers = filter_array(all_living(ETO),"is_non_immortal_player",FILTERS_D);
     if (objectp(TO) && objectp(ETO) && present("phylactery", ETO)) {
         phy = present("phylactery", ETO);
         tell_room(ETO, "The body of the lich withers away into dust.");
@@ -243,8 +246,9 @@ void die(object targ)
         tooth = new("/d/laerad/cavern2/special/tooth");
         tooth->move(ETO);
         who = query_current_attacker();
-        if (objectp(who)) {
-            who->set_mini_quest("Killed Hansoth", 500000, "Killed Hansoth");
+        for(i=0;i<sizeof(killers);i++){
+        if(!objectp(killers[i])) { continue; }
+            killers[i]->set_mini_quest("Killed Hansoth", 500000, "Killed Hansoth");
             tell_room(ETO, who->query_cap_name() + " is briefly surrounded by a "
                       "%^BOLD%^%^BLACK%^dark, eerie haze %^RESET%^from the explosion.", who);
             tell_object(who, "You are briefly surrounded by a %^BOLD%^%^BLACK%^"

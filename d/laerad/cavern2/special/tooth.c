@@ -15,11 +15,11 @@ void create(){
     set_value(0);
     set_property("no animate",1);
 }
-void init(){
+/*void init(){
     ::init();
     if(interactive(TP) && !owner) owner = TPQN;
-}
-void heart_beat(){
+}*/
+/*void heart_beat(){
     object holder, env;
     env = ETO;
     if(!objectp(ETO)) return;
@@ -34,4 +34,4 @@ void heart_beat(){
         } else {
         return;
     }
-}
+}*/
