@@ -31,8 +31,6 @@ int preSpell()
 }
 
 void spell_effect(int prof) {
-    object Vob;
-    int bonus;
     if (!objectp(caster)) {
         TO->remove();
         return;
@@ -43,16 +41,16 @@ void spell_effect(int prof) {
 
     caster->add_max_hp_bonus(bonus);
     caster->set_property("spell_bonus_hp",1);
-    caster->set_property("spelled",({TO}));    
+    caster->set_property("spelled",({TO}));
     addSpellToCaster();
-    spell_successful();            
+    spell_successful();
 }
 
 void dest_effect() {
-    if(objectp(caster)) 
+    if(objectp(caster))
     {
         caster->add_max_hp_bonus(-bonus);
-        caster->remove_property("spell_bonus_hp");        
+        caster->remove_property("spell_bonus_hp");
     }
     ::dest_effect();
     if(objectp(TO)) TO->remove();
