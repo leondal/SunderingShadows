@@ -42,7 +42,6 @@ void create()
 
     set_spells(({ "touch of fatigue",
                     "touch of sickening",
-                    "frostfield",
                     "ray of frost",
                     "shocking grasp",
                     "chill touch", }));
