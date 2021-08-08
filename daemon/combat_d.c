@@ -71,7 +71,7 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
         }
     }
     MissChance = (int)victim->query_missChance();
-    
+
     if(attacker->query_blind() || attacker->light_blind())
     {
         if(FEATS_D->usable_feat(attacker, "blindfight"))
@@ -79,7 +79,7 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
         else
             MissChance += 50;
     }
-    
+
     if(victim->is_shade())
     {
         if(total_light(environment(victim)) < 1)
@@ -90,7 +90,7 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
 
     if(FEATS_D->usable_feat(victim, "inconstant position"))
         MissChance += 10;
-    
+
     if (mount && FEATS_D->usable_feat(rider, "mounted shield")) {
         ShieldMissChance = (int)rider->query_shieldMiss();
     }else {
@@ -98,14 +98,14 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
     }
     AttackerMissChance = (int)attacker->query_property("noMissChance");
     //attacker has a property set so that they cannot miss - Saide
-    
+
     //True seeing negates misschance
     if(attacker->true_seeing())
         MissChance = 0;
-    
+
     if(surprise_accuracy && FEATS_D->has_feat(attacker, "sharpened accuracy"))
         MissChance = 0;
-    
+
     if (AttackerMissChance) {
         return 1;
     }
@@ -320,7 +320,7 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
         }
         return damage;
     }
-    
+
     //Prismatic sphere prevents damage between combatants.
     if(targ->query_property("prismatic sphere") || attacker->query_property("prismatic sphere"))
         return 0;
@@ -345,7 +345,7 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
     resist_perc = (int)targ->query_resistance_percent(type);
 
     resist = (int)targ->query_resistance(type);
-    
+
     if(type == targ->query_property("energetic recharge"))
     {
         targ->add_mp(1 + targ->query_max_mp() / 100);
@@ -484,7 +484,7 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
                 }
 
                 reduction = (int)targ->query_property("damage resistance");
-                
+
                 if(LIVING_D->check_aura(targ, "justification") == 2)
                 {
                     if(LIVING_D->opposed_alignment(targ, attacker))
@@ -494,7 +494,7 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
                             reduction += 5;
                     }
                 }
-                
+
                 if(targ->is_deva())
                 {
                     if(LIVING_D->opposed_alignment(targ, attacker))
@@ -538,13 +538,13 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
                 reduction = (int)targ->query_property("spell damage resistance");
                 //if we want something to work through this property, it should be set here - Saide
                 mod = 0;
-                
+
                 if(FEATS_D->usable_feat(attacker, "spell penetration"))
                     mod += 5;
-                
+
                 if(FEATS_D->usable_feat(attacker, "greater spell penetration"))
                     mod += 5;
-                
+
                 reduction -= mod;
                 if (reduction < 0) {
                     reduction = 0;
@@ -580,8 +580,6 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
 
     if (crit_hit) {
         if (
-            !attacker->query_property("shapeshifted") &&
-            objectp(weapon) &&
             !random(3) &&
             FEATS_D->usable_feat(attacker, "shadow master")) {
             tell_object(attacker, "%^BLUE%^You strike " + target->QCN + " with precision as you channel your command of the shadows, and " + target->QS + " blinks sightlessly!%^RESET%^");
@@ -801,29 +799,29 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
         }
     }
     //END BANE SECTION
-    
+
     if(!attacker)
         return;
-    
+
     //CLEAVE SECTION
     if(FEATS_D->usable_feat(attacker, "cleave") && objectp(weapon))
     {
         int cleave_dmg, flvl;
         object first;
-        
+
         att = attacker->query_attackers() - ({ target });
         att = shuffle(att);
-        
+
         if(sizeof(att) && BONUS_D->process_hit(attacker, att[0], 0, weapon, 0, 0, 0));
         {
             flvl = attacker->query_player_level() / 2;
             flvl += (FEATS_D->usable_feat(attacker, "great cleave") * 2);
             cleave_dmg = roll_dice(flvl, weapon->query_wc());
             //cleave_dmg = (weapon->query_wc() + 2) * (1 + flvl / 10);
-            
+
             //Cleave happens once per HB unless they have the improved cleave feat
             if(!attacker->query_property("cleaving") || (FEATS_D->usable_feat(attacker, "improved cleave") && attacker->query_property("cleaving") < 5))
-            {               
+            {
                 if(sizeof(att) && objectp(att[0]))
                 {
                     //Can only cleave once per round
@@ -833,11 +831,11 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                     att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
                 }
             }
-            
+
             //In case a counter attack kills the attacker
             if(!attacker)
                 return;
-        
+
             if(FEATS_D->usable_feat(attacker, "cleaving finish") && sizeof(att))
             {
                 if(!objectp(target) || target->query_hp() < 1)
@@ -847,9 +845,9 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                     att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
                 }
             }
-        }                  
-    }        
-    //END CLEAVE SECTION    
+        }
+    }
+    //END CLEAVE SECTION
 
     //monster feat stuff
     if (attacker->query("combat_feats_enabled") &&
@@ -1047,9 +1045,9 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
         }
         damage += COMBAT_D->unarmed_enchantment(attacker);
     }
-    
+
     damage = damage_done(attacker, weapon, damage, fired);
-    
+
     if (!objectp(targ) || !objectp(attacker)) {
         return;
     }
@@ -1101,22 +1099,22 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
     if (critical_hit) {
         damage = crit_damage(attacker, targ, weapon, attacker_size, damage, cant_shot);
     }
-    
+
     targ && paladin = targ->query_property("paladin smite");
-    
+
     if(objectp(paladin))
     {
-        
+
         //Paladin smite target takes additional damage based on CHA mod
         //Smite debuff lasts a few rounds
         if(attacker->query_guild_level("paladin") && paladin == attacker)
             damage += BONUS_D->new_damage_bonus(attacker, attacker->query_stats("charisma"));
-        
+
         //Aura of Fury adds smite bonus of +2 to rest of party for duration
         if(LIVING_D->check_aura(attacker, "fury") == 2)
             damage += 2;
     }
-    
+
     sneak = 0;
 
     if(damage)
@@ -1127,16 +1125,16 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             sneak = attacker->query_prestige_level("thief") / 2;
             //Arcane trickster sneak attack progression
             sneak += attacker->query_class_level("arcane_trickster") / 3;
-    
+
             //Making this baseline and replacing combat reflexes with something else.
             /*
             if(!FEATS_D->usable_feat(attacker, "combat reflexes"))
                 sneak = 0;
             */
-    
+
             if(FEATS_D->usable_feat(targ, "mighty resilience"))
                 sneak = 0;
-        
+
             //Armor bond sneak attack resistance
             if(targ->query_property("fortification 75"))
                 sneak /= 4;
@@ -1144,40 +1142,40 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
                 sneak /= 2;
             else if(targ->query_property("fortification 25"))
                 sneak = (sneak * 3) / 4;
-    
+
             if(FEATS_D->usable_feat(targ, "undead graft"))
                 sneak /= 2;
-        
+
             //Barbarians/Thieves with danger sense gain resistance to sneak attacks
             if(FEATS_D->usable_feat(targ, "danger sense") && targ->query_level() + 4 > attacker->query_level())
                 sneak /= 2;
-    
+
             if(attacker->query_blind() || attacker->light_blind())
             {
                 if(FEATS_D->usable_feat(attacker, "blindfight"))
                     sneak /= 2;
-                else 
+                else
                     sneak = 0;
             }
         }
     }
-        
+
     //target is blind, bound or paralyzed or is attacking another target
     if(sneak && targ->is_vulnerable_to(attacker))
         damage += roll_dice(sneak, 6);
     else
         sneak = 0;
-        
+
     //Brutalize wounds causes victim to take extra damage from physical attacks.
     bonus_hit_damage += targ->query_property("brutalized");
 
     damage += bonus_hit_damage;
-    
+
     new_struck(damage, weapon, attacker, target_thing, targ, fired, ammoname, critical_hit, cant_shot, sneak);
 
     if(!targ || !attacker)
         return;
-    
+
     if (!objectp(weapon) || attacker->query_property("shapeshifted")) {
         attacker->increment_stamina(1);
     }else {
@@ -1408,15 +1406,15 @@ void send_messages(object attacker, int magic, object weapon, string what, int x
     }else if (interactive(victim)) {
         verbose = victim->query_verbose_combat();
     }
-    
+
     room = environment(attacker);
-    
+
     //Screen reader support for combat messages
     //Removes some room combat spam for them
     readers = ({  });
     readers = all_inventory(room);
     readers = filter_array(readers, (: $1->query("reader") :));
-    
+
     if(sizeof(readers))
     {
         foreach(object owner in readers)
@@ -1570,21 +1568,21 @@ your " + used + "!%^RESET%^";
         others = "%^BOLD%^%^RED%^(Critical) %^RESET%^" + others;
         attacker->reset_critical();
     }
-    
+
     if(sneak && x > 0)
     {
         me = me + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         you = you + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
         others = others + "%^BOLD%^RED%^[%^BLACK%^Sneak%^RED%^]%^RESET%^";
     }
-    
+
     if(surprise_accuracy && x > 0)
     {
         me = me + "%^BOLD%^BLACK%^[%^YELLOW%^Accurate%^BLACK%^]%^RESET%^";
         you = you + "%^BOLD%^BLACK%^[%^YELLOW%^Accurate%^BLACK%^]%^RESET%^";
         others = others + "%^BOLD%^BLACK%^[%^YELLOW%^Accurate%^BLACK%^]%^RESET%^";
     }
-    
+
     if(victim->query_property("paladin smite") == attacker && x > 0)
     {
         if(attacker->query_true_align() == 3 ||
@@ -1609,7 +1607,7 @@ your " + used + "!%^RESET%^";
         }
         else
             tell_object(attacker, me);
-        
+
         if (objectp(environment(attacker))) {
             if(sizeof(readers))
                 tell_room(environment(attacker), others, ({ attacker, victim }) + readers);
@@ -1779,16 +1777,16 @@ void miss(object attacker, int magic, object target, string type, string target_
     if (interactive(attacker)) {
         verbose = attacker->query_verbose_combat();
     }
-    
+
     room = environment(attacker);
-    
+
     //Screen reader spam reduction
     treader = target->query("reader");
     areader = attacker->query("reader");
     readers = filter_array(all_inventory(room), (: $1->query("reader") :));
     if(!pointerp(readers) || !sizeof(readers))
         readers = ({  });
-    
+
     if (objectp(target)) {
         if (interactive(target)) {
             verbose = target->query_verbose_combat();
@@ -1808,7 +1806,7 @@ void miss(object attacker, int magic, object target, string type, string target_
 
     if(!attacker->query("reader"))
         tell_object(attacker, "%^YELLOW%^You miss.%^RESET%^");
-    
+
     tell_room(room, "" + attacker->QCN + " misses " + attacker->QP + " target.", ({ attacker }) + readers);
     return;
 }
@@ -2736,7 +2734,7 @@ void ok_to_wield(object who)
                         if (!wielded[1]->query_property("enchantment") || (int)wielded[1]->query_property("enchantment") > 0) {
                             wielded[1]->move(environment(who));
                         }
-                    
+
                     }
                     */
                 }
@@ -3259,9 +3257,9 @@ void internal_execute_attack(object who)
         }
 
         target_thing = (string)victim->return_target_limb();
-        
+
         surprise_accuracy = 0;
-        
+
         if(who->query_property("raged"))
         {
             if(FEATS_D->usable_feat(who, "surprise accuracy"))
@@ -3272,8 +3270,8 @@ void internal_execute_attack(object who)
                 }
             }
         }
-            
-        roll += surprise_accuracy;            
+
+        roll += surprise_accuracy;
         roll = BONUS_D->process_hit(who, victim, i, current, 0, touch_attack);
         //crit stuff
         if (sizeof(weapons)) {
@@ -3287,7 +3285,7 @@ void internal_execute_attack(object who)
         if (FEATS_D->usable_feat(who, "lethal strikes")) {
             temp1 *= 2;
         }
-        
+
         if(surprise_accuracy)
         {
             if(FEATS_D->usable_feat("deadly accuracy"))
@@ -3413,7 +3411,7 @@ void internal_execute_attack(object who)
         }
     }
     */
-    
+
     if (((int)who->query_scrambling() == 1) && who->is_ok_armour("thief") && who->is_class("thief")) {
         if (D_BUG_D->scramble_change()) {
             who->set_scrambling(2);
@@ -3558,12 +3556,12 @@ void counter_attack(object ob)
                 "counter attack!%^RESET%^");
     tell_room(environment(ob), "%^RESET%^%^BOLD%^%^GREEN%^" + ob->QCN + " takes advantage "
               "of the opening and counter attacks!%^RESET%^", ob);
-              
+
     counter_damage = ob->query_property("shieldwall") * 10;
-        
+
     if(FEATS_D->usable_feat(ob, "elaborate parry"))
         counter_damage = ob->query_property("combat_expertise") * 10;
-    
+
     ob->execute_attack();
     counter_damage = 0;
     return;
@@ -3822,7 +3820,7 @@ varargs int check_death(object who, object pot)
                     attackers[i]->set_property("GainedExpFrom", who);
                     attackers[i]->doExp(attackers[i], exp, sizeof(attackers) + minions);
                     attackers[i]->remove_property("GainedExpFrom");
-                    
+
                     if(attackers[i]->is_class("barbarian"))
                     {
                         if(FEATS_D->usable_feat(attackers[i], "daemon totem") && attackers[i]->query_property("raged"))
