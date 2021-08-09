@@ -1254,8 +1254,7 @@ void wizard_interface(object user, string type, string targ)
     if ((FEATS_D->usable_feat(caster, "spellmastery") && (caster->query("spellmastery_spell") == spell_name)) ||
   (FEATS_D->usable_feat(caster, "natures gift") && (member_array(spell_name, MAGIC_SS_D->query_class_special_spells("archdruid", "all")) != -1)) ||
   (FEATS_D->usable_feat(caster, "timeweaver") && (member_array(spell_name, MAGIC_SS_D->query_class_special_spells("chronicler", "all")) != -1)) ||
-  (FEATS_D->usable_feat(caster, "greater spell mastery") && casting_level < 5 && spell_sphere == caster->query_school()) ||
-  (FEATS_D->usable_feat(caster, "inspired necromancy") && casting_level < 7 && spell_sphere == "necromancy"))
+  (FEATS_D->usable_feat(caster, "greater spell mastery") && casting_level < 5 && spell_sphere == caster->query_school()))
     {
         preserve_in_memory = 1;
         tell_object(caster, "%^CYAN%^The spell preserves in your memory.");
@@ -1266,7 +1265,15 @@ void wizard_interface(object user, string type, string targ)
         tell_object(caster, "%^CYAN%^Arcana preserves the spell in your memory.");
         preserve_in_memory = 1;
     }
-
+    
+    if(FEATS_D->usable_feat(caster, "inspired necromancy") && spell_sphere == "necromancy")
+    {
+        if(roll_dice(1, 20) <= 12)
+        {
+            preserve_in_memory = 1;
+            tell_object(caster, "%^BOLD%^BLACK%^Your necromantic affinity preserves the spell.");
+        }
+    }
 
     {
         string * supreme_healer_spells,
@@ -2522,7 +2529,7 @@ void define_clevel()
     }
 
     if (caster->is_class("gravecaller")) {
-        if (FEATS_D->usable_feat(caster, "negative energy conduit")) {
+        if (FEATS_D->usable_feat(caster, "inspired necromancy")) {
             if (spell_sphere == "necromancy") {
                 clevel += 3;
             }

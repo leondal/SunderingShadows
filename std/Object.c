@@ -713,6 +713,10 @@ mixed query_property(string prop)
         if (TO->is_undead() || this_object()->is_shade()) {
             return 1;
         }
+        if(FEATS_D->usable_feat(this_object(), "negative energy conduit"))
+        {
+            return 1;
+        }
         //Unlike other racial bonuses this one must be valid for all
         //half-races as well.
         if (TO->query("subrace") == "dhampir") {
