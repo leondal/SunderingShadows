@@ -12,7 +12,7 @@ void create()
 {
     ::create();
     set_spell_name("shadow vortex");
-    set_spell_level(([ "mage":3, "cleric" : 3 ]));
+    set_spell_level(([ "innate" : 3 ]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS shadow vortex");
     set_damage_desc("half cold, half electricity");
@@ -21,7 +21,6 @@ void create()
     set_somatic_comp();
     set_save("reflex");
     aoe_spell(1);
-    set_feats_required(([ "mage" : "gift of the shadows", "cleric" : "gift of the shadows" ]));
     set_aoe_message("%^RESET%^%^MAGENTA%^(%^BOLD%^%^BLACK%^p%^RESET%^%^MAGENTA%^o%^BOLD%^%^BLACK%^p%^RESET%^%^MAGENTA%^u%^BOLD%^%^BLACK%^l%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^t%^RESET%^%^MAGENTA%^e%^BOLD%^%^BLACK%^d w%^RESET%^%^MAGENTA%^i%^BOLD%^%^BLACK%^th sh%^RESET%^%^MAGENTA%^a%^BOLD%^%^BLACK%^d%^RESET%^%^MAGENTA%^o%^BOLD%^%^BLACK%^w v%^RESET%^%^MAGENTA%^o%^BOLD%^%^BLACK%^rt%^RESET%^%^MAGENTA%^i%^BOLD%^%^BLACK%^c%^RESET%^%^MAGENTA%^e%^BOLD%^%^BLACK%^s%^RESET%^%^MAGENTA%^)%^RESET%^");
 }
 

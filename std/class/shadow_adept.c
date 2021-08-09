@@ -160,3 +160,23 @@ void process_newbie_choice(object who, string str) { return base_class_ob(who)->
 string query_casting_stat(object ob) { return base_class_ob(ob)->query_casting_stat(); }
 
 mapping query_class_spells(object ob) { return base_class_ob(ob)->query_class_spells(); }
+
+mapping query_innate_spells(object player)
+{
+    mapping innate_spells;
+    
+    innate_spells = ([ 
+                      
+        "umbral sight"              : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),
+        "shield of shadows"         : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),
+        "shadow vortex"             : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),
+        "night armor"               : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),
+        "darkbolt"                  : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),
+        "shadow blast"              : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),
+        "shadow double"             : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),
+        "nightmare maw"             : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),
+        "shadow nova"               : ([ "type" : "spell", "daily uses" : -1, "level required" : 0 ]),                    
+    ]);
+    
+    return innate_spells;
+}

@@ -10,7 +10,7 @@ void create()
     ::create();
     set_author("nienne");
     set_spell_name("shadow nova");
-    set_spell_level(([ "mage" : 9, "cleric" : 9 ]));
+    set_spell_level(([ "innate" : 9 ]));
     set_spell_sphere("necromancy");
     set_syntax("cast CLASS shadow nova");
     set_damage_desc("untyped");
@@ -23,7 +23,6 @@ void create()
     set_somatic_comp();
     splash_spell(2);
     set_save("reflex");
-    set_feats_required(([ "mage" : "gift of the shadows", "cleric" : "gift of the shadows" ]));
 }
 
 

@@ -5,7 +5,7 @@ void create() {
     ::create();
     set_author("nienne");
     set_spell_name("shield of shadows");
-    set_spell_level(([ "mage" : 1, "cleric" : 1 ]));
+    set_spell_level(([ "innate" : 1 ]));
     set_spell_sphere("illusion");
     set_bonus_type("shield");
     set_syntax("cast CLASS shield of shadows");
@@ -18,7 +18,6 @@ void create() {
       "mage" : ([ "clear crystal" : 1, ]),
     ]));
     set_helpful_spell(1);
-    set_feats_required(([ "mage" : "gift of the shadows", "cleric" : "gift of the shadows" ]));
 }
 
 int preSpell(){

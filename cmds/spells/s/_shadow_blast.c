@@ -10,7 +10,7 @@ void create()
 {
     ::create();
     set_spell_name("shadow blast");
-    set_spell_level(([ "mage" : 6, "cleric" : 6]));
+    set_spell_level(([ "innate" : 6]));
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS shadow blast");
     set_damage_desc("half cold, half electricity");
@@ -19,7 +19,6 @@ void create()
     set_somatic_comp();
     splash_spell(3);
     set_save("reflex");
-    set_feats_required(([ "mage" : "gift of the shadows", "cleric" : "gift of the shadows" ]));
 }
 
 string query_cast_string()

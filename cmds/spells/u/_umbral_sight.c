@@ -9,7 +9,7 @@ void create() {
     ::create();
     set_author("nienne");
     set_spell_name("umbral sight");
-    set_spell_level(([ "mage" : 2, "cleric" : 2 ]));
+    set_spell_level(([ "innate" : 2 ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS umbral sight");
     set_description("This spell will imbue the caster's vision with the stuff of darkness, allowing them to see easily "
@@ -17,7 +17,6 @@ void create() {
     set_verbal_comp();
     set_somatic_comp();
     set_helpful_spell(1);
-    set_feats_required(([ "mage" : "gift of the shadows", "cleric" : "gift of the shadows" ]));
 }
 
 string query_cast_string() {

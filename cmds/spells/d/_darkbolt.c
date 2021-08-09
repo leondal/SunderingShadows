@@ -7,7 +7,7 @@ void create()
 {
     ::create();
     set_spell_name("darkbolt");
-    set_spell_level(([ "mage" : 5, "cleric" : 5 ]));
+    set_spell_level(([ "innate" : 5 ]));
     set_spell_sphere("necromancy");
     set_domains("darkness");
     set_syntax("cast CLASS darkbolt on TARGET");
@@ -19,7 +19,6 @@ void create()
     set_target_required(1);
     splash_spell(1);
     set_save("reflex");
-    set_feats_required(([ "mage" : "gift of the shadows", "cleric" : "gift of the shadows" ]));
 }
 
 int preSpell()
