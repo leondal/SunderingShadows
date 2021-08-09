@@ -2524,7 +2524,7 @@ void define_clevel()
     if (caster->is_class("gravecaller")) {
         if (FEATS_D->usable_feat(caster, "negative energy conduit")) {
             if (spell_sphere == "necromancy") {
-                clevel += 2;
+                clevel += 3;
             }
         }
     }
