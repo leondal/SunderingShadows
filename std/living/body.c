@@ -617,6 +617,11 @@ int query_max_hp_base()
     if (FEATS_D->usable_feat(TO, "epic toughness")) {
         num += TO->query_level();
     }
+    
+    if(FEATS_D->usable_feat(this_object(), "negative energy conduit"))
+    {
+        num += this_object()->query_prestige_level(this_object()->query("base_class");
+    }
 
     if (FEATS_D->usable_feat(TO, "psionic body")) {
         mypsi = 0;
