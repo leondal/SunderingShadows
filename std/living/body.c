@@ -618,9 +618,10 @@ int query_max_hp_base()
         num += TO->query_level();
     }
     
+    //Represents the Unholy Fortitude Feat for Agent of the Grave
     if(FEATS_D->usable_feat(this_object(), "negative energy conduit"))
     {
-        num += this_object()->query_prestige_level(this_object()->query("base_class");
+        num += this_object()->query_prestige_level(this_object()->query("base_class"));
     }
 
     if (FEATS_D->usable_feat(TO, "psionic body")) {

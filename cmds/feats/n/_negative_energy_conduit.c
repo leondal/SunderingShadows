@@ -10,7 +10,7 @@ void create()
     feat_category("Gravecaller");
     feat_name("negative energy conduit");
     feat_prereq("Gravecaller L4");
-    feat_desc("With this feat the gravecaller gains extended powers when channeling necromancy spells. Although inferior to power of archmage necromancer, this knowledge bears no penalties.");
+    feat_desc("With this feat the gravecaller becomes infused with the powers of the grave. They gain negative energy affinity and an unholy fortitude, granting them bonus hit points equal to their prestige level.");
     permanent(1);
 }
 

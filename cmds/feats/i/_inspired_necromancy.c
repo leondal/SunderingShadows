@@ -10,7 +10,7 @@ void create()
     feat_category("Gravecaller");
     feat_name("inspired necromancy");
     feat_prereq("Gravecaller L1");
-    feat_desc("With this knowledge master necromancer learns to preserve any necromantic spell of level six or less in the memory.");
+    feat_desc("The gravecaller is singular specialized in the arts of necromancy. With this feat, the gravecaller gains +3 to caster level when casting spells of the necromancy school. Additionally, they have a chance to preserve cast necromancy spells in memory.");
     permanent(1);
 }
 
