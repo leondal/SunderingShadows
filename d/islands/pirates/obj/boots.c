@@ -24,6 +24,7 @@ void create() {
 "sturdy make and the secure buckles.  Not to mention their stylish appearance.%^RESET%^\n");
    set_property("lore difficulty",8);
    set_item_bonus("dexterity",1);
+   set_property("repairtype",({"tailor", "leatherwork"}));
 }
 
 int wear_fun() {
