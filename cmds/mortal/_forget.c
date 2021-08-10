@@ -65,6 +65,6 @@ Removes spell from your memorized list. If it fails and spell is still there you
 
 %^CYAN%^SEE ALSO%^RESET%^
 
-fixspells, recall, prepare, cast
+fixspells, recall, prepare, cast, master
 ");
 }

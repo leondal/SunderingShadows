@@ -5,7 +5,7 @@
 
 inherit OBJECT;
 
-#define ACTIVETEMPLES ({ "jarmila","kreysneothosies","lord shadow","nimnavanon","lysara","callamir","nilith","kismet","ryorik","varda","the faceless one"})
+#define ACTIVETEMPLES ({ "jarmila","kreysneothosies","lord shadow","nimnavanon","lysara","callamir","nilith","kismet","ryorik","varda","the faceless one","cevahir","seija","khyron"})
 object ob;
 
 void create() 
@@ -740,7 +740,7 @@ int now(string str){
                         "AN%^m%^WHITE%^i%^CYAN%^r and on the floor, %^WHITE%^two dice %^CYAN%^with the sixes up.");
          dest_effect();
          break;    
-	case "ryorik":
+	case "khyron":
          tell_object(TP,"%^YELLOW%^A bolt of %^BLACK%^black lightning %^YELLOW%^"+
 		"strikes from the sky, leaving you feeling the blissful energy of the storm!");
          tell_room(environment(ETO),"%^YELLOW%^A bolt of %^BLACK%^black lightning"+
@@ -753,7 +753,7 @@ int now(string str){
 		"that leaves you before the altar of Ryorik!");
          dest_effect();
       break;        
-   case "varda":
+   case "cevahir":
          tell_object(TP,"%^RESET%^%^RED%^As you call for aid, you hear the din of "+
 		"battle rise around you. Suddenly, a spectral warhorse charges into the"+
 		" area and speeds away with you before your vision fades!");

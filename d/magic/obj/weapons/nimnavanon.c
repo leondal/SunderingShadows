@@ -13,7 +13,7 @@ void create()
         set_short("%^GREEN%^A %^BOLD%^l%^RESET%^%^ORANGE%^i%^BOLD%^%^GREEN%^v"+
         "%^RESET%^%^GREEN%^i%^ORANGE%^n%^BOLD%^%^GREEN%^g %^RESET%^%^GREEN%^o%^ORANGE%^a"+
         "%^GREEN%^k %^YELLOW%^c%^GREEN%^u%^RED%^d%^GREEN%^g%^RED%^e%^ORANGE%^l%^RESET%^");
-        set_id(({"cudgal","staff","living oak","weapon"}));
+        set_id(({"cudgel","staff","living oak","weapon"}));
         set_long("%^RESET%^%^GREEN%^This short staff looks as though it grew "+
 "naturally from the t%^ORANGE%^r%^BOLD%^%^GREEN%^u%^RESET%^%^ORANGE%^n%^GREEN%^k of "+
 "an %^ORANGE%^o%^GREEN%^a%^ORANGE%^k%^GREEN%^-t%^ORANGE%^r%^GREEN%^e%^ORANGE%^e%^GREEN%^. "+
