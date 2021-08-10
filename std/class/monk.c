@@ -85,7 +85,8 @@ mapping class_featmap(string myspec)
                18 : ({ "empty body" }),
                19 : ({ "tongue of the sun and moon" }),
                20 : ({ "perfect self" }),
-               21 : ({ "defensive roll" }), ]);
+               21 : ({ "defensive roll" }),
+               31 : ({ "unchained" }), ]);
 
     switch (myspec) {
     case "way of the fist":
@@ -143,8 +144,11 @@ void advanced_func(object player)
     return;
 }
 
-int hit_dice()
+int hit_dice(object ob)
 {
+    if(FEATS_D->has_feat(ob, "unchained"))
+        return 10;
+    
     return 8;
 }                             // hit dice rolled for hitpoints each level
 
@@ -180,6 +184,10 @@ int attack_bonus(object player)
     
     full_level = to_float(player->query_base_character_level());
     class_level = to_float(player->query_prestige_level("monk"));
+    
+    //Full BAB with unchained capstone
+    if(FEATS_D->has_feat(player, "unchained"))
+        return class_level;
     
     if(full_level < 20.00)
     {
