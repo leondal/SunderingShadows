@@ -246,9 +246,9 @@ int grab_attack(object tp, object targ)
 
         case "high damage":
 
-            tell_object(tp,"%^RED%^You leap onto "+targ->QCN+", holding on with both front claws as you visciously rake your hind legs down over "+targ->QP+" middle!");
-            tell_object(targ,"%^RED%^"+tp->QCN+" leaps onto you, holding on with both front claws and visciously raking "+tp->QP+" hind legs down over your middle!");
-            tell_room(etp,"%^RED%^"+tp->QCN+" leaps onto "+targ->QCN+", holding on with both front claws and visciously raking "+tp->QP+" hind legs down over "+targ->QP+" middle!",({tp,targ}));
+            tell_object(tp,"%^RED%^You leap onto "+targ->QCN+", holding on with both front claws as you viciously rake your hind legs down over "+targ->QP+" middle!");
+            tell_object(targ,"%^RED%^"+tp->QCN+" leaps onto you, holding on with both front claws and viciously raking "+tp->QP+" hind legs down over your middle!");
+            tell_room(etp,"%^RED%^"+tp->QCN+" leaps onto "+targ->QCN+", holding on with both front claws and viciously raking "+tp->QP+" hind legs down over "+targ->QP+" middle!",({tp,targ}));
 
             targ->cause_typed_damage(targ,targ->return_target_limb(),roll_dice(dice,6),get_new_damage_type());
             break;

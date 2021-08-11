@@ -76,7 +76,7 @@ void dest_effect()
 {
     if (objectp(caster)) {
         caster->remove_property_value("added short", ({ ashort }));
-        tell_room(ENV(caster), "%^BOLD%^%^RED%^" + caster->QCN + " silhouette looses its fiery appearance.%^RESET%^");
+        tell_room(ENV(caster), "%^BOLD%^%^RED%^" + caster->QCN + " silhouette loses its fiery appearance.%^RESET%^");
         effect(-1);
     }
     ::dest_effect();
