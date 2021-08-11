@@ -600,7 +600,12 @@ int query_max_hp_base()
 
     if (TO->is_undead()) {
         num = "/daemon/bonus_d.c"->query_con_bonus((int)TO->query_stats("charisma"));
-    }else {
+    }
+    else if(FEATS_D->has_feat(this_object(), "natures gift"))
+    {
+        num = BONUS_D->query_con_bonus(this_object()->query_stats("wisdom"));
+    }
+    else {
         num = "/daemon/bonus_d.c"->query_con_bonus((int)TO->query_stats("constitution"));
     }
 

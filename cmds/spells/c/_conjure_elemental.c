@@ -10,7 +10,7 @@ object elem;
 void create() {
     ::create();
     set_spell_name("conjure elemental");
-    set_spell_level(([ "mage" : 5, "innate" : 1, "cleric" : 5, "oracle" : 5, "druid" : 5 ]));
+    set_spell_level(([ "mage" : 5, "innate" : 1, "cleric" : 5, "oracle" : 5 ]));
     set_spell_sphere("conjuration_summoning");
     set_mystery( ({ "flame", "waves" }) );
     set_syntax("cast CLASS conjure elemental on water|fire|earth|air");
@@ -27,7 +27,6 @@ To dismiss elemental use %^ORANGE%^<dismiss elemental>%^RESET%^.");
       "mage" : ([ "soft clay" : 2, ]),
     ]));
     set_helpful_spell(1);
-    set_feats_required(([ "druid" : "natures gift" ]));
 }
 
 string query_cast_string() {

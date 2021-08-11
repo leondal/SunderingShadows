@@ -104,12 +104,6 @@ class_spell_storage =
         ({"chill touch","spectral hand","necrotic burst","animate dead","create undead","exhume corpses","finger of death","create greater undead"}),
 ]),
 
-"shadow_adept":
-([
-    "all":
-        ({ "umbral sight", "shield of shadows", "shadow vortex", "night armor", "darkbolt", "shadow blast", "shadow double", "nightmare maw", "shadow nova" }),
-]),
-
 "chronicler":
 ([
     "all":

@@ -81,9 +81,11 @@ int can_cast(object target, int spell_level, string spell_type, string spell_nam
             if (FEATS_D->usable_feat(target, "supreme healer") && member_array(spell_name, supreme_healer_spells) != -1) {
                 return 1;
             }
+            /*
             if (FEATS_D->usable_feat(target, "natures gift") && member_array(spell_name, MAGIC_SS_D->query_class_special_spells("archdruid", "all")) != -1) {
                 return 1;
             }
+            */
             if (FEATS_D->usable_feat(target, "raging healer") && member_array(spell_name, raging_healer_spells) != -1) {
                 return 1;
             }

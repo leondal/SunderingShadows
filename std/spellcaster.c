@@ -746,7 +746,7 @@ mapping query_mastered_bonus()
         }
     }
 
-
+    /*
     if (TO->is_class("shadow_adept")) {
         if (FEATS_D->usable_feat(TO, "gift of the shadows")) {
             string baseclass = TO->query("base_class");
@@ -756,6 +756,7 @@ mapping query_mastered_bonus()
             tmp[baseclass] += MAGIC_SS_D->query_class_special_spells("shadow_adept", "all");
         }
     }
+    */
 
     if (TO->is_class("chronicler")) {
         if (FEATS_D->usable_feat(TO, "epic tales")) {

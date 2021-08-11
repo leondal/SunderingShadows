@@ -10,7 +10,7 @@ void create()
     feat_category("Archdruid");
     feat_name("natures gift");
     feat_prereq("Archdruid L4");
-    feat_desc("The archdruid is in-tune with the forces of nature, above and beyond the capabilities of other druids. The elemental forces of the world lend their aid to the archdruid. The following spells can be cast without preparation: elemental aura, conjure elemental and elemental swarm. The archdruid also gains protection from these natural forces, and has 25% resistance to fire, cold, acid, and electricity damage.");
+    feat_desc("The archdruid is in-tune with the forces of nature, above and beyond the capabilities of other druids. The elemental forces of the world lend their aid to the archdruid. The archdruid uses wisdom instead of constitution to determine his bonus hit points. He also gain protection from the natural forces of the world, and has 25% resistance to fire, cold, acid, and electricity damage.");
     permanent(1);
 }
 
