@@ -87,9 +87,11 @@ int can_cast(object target, int spell_level, string spell_type, string spell_nam
             if (FEATS_D->usable_feat(target, "raging healer") && member_array(spell_name, raging_healer_spells) != -1) {
                 return 1;
             }
+            /*
             if (FEATS_D->usable_feat(target, "inspired necromancy") && spell_level < 7 && spellIndex[spell_name]["sphere"] == "necromancy") {
                 return 1;
             }
+            */
         }
     }
 
