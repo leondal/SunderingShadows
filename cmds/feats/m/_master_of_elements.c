@@ -10,7 +10,7 @@ void create()
     feat_category("VersatileArcanist");
     feat_name("master of elements");
     feat_prereq("Versatile Arcanist L4");
-    feat_desc("A versatile arcanist can cast certain spells of a particular element as a different element of their choosing. Affected spells include: chill touch, burning hands, scorcher, fireball, ice storm, cone of cold, ball lightning, chain lightning, incendiary cloud, polar ray, meteor swarm, ride the lightning. In addition, the Versatile Arcanist gains +2 to caster level when casting spells that use the chosen element. Finally, the Versatile Arcanist gains resistance to the chosen element.
+    feat_desc("A versatile arcanist can cast certain spells of a particular element as a different element of their choosing. Affected spells include: chill touch, burning hands, scorcher, fireball, ice storm, cone of cold, ball lightning, chain lightning, incendiary cloud, polar ray, meteor swarm, ride the lightning. In addition, the Versatile Arcanist gains +3 to caster level when casting spells that use the chosen element. Finally, the Versatile Arcanist gains 30% resistance to the chosen element.
 
 %^BOLD%^See also:%^RESET%^help elementalist.");
     permanent(1);
