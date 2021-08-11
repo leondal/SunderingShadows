@@ -41,10 +41,7 @@ spell_effect(int prof)
     
     if (interactive(caster)) {
         tell_object(caster, "You create a mystical light source.");
-        tell_room(place, caster->QCN + " makes a mystical light source.", ({ caster, target }));
-        if (interactive(target) && !(caster == target)) {
-            tell_object(target, caster->QCN + " touches you and a light appears.\n");
-        }
+        tell_room(place, caster->QCN + " makes a mystical light source.", ({ caster }));
     } else {
         tell_room(place, caster->QCN + " creates a mystical light source.", caster);
     }
