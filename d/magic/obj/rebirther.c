@@ -1,7 +1,7 @@
-//rebirther object for use with the rebirth spell to 
+//rebirther object for use with the rebirth spell to
 //give players the option of coming back or not
 //The included files are the ones included in user.c
-//Likely not all of them are necessary, but better safe 
+//Likely not all of them are necessary, but better safe
 //than sorry :) ~Circe~ 5/19/08
 #include <config.h>
 #include <dieties.h>
@@ -123,7 +123,7 @@ void do_rebirth()
     //forgoing exp penalty when reborn - at least for now - Saide - November 2016 (just comment the following code in to enable it)
     /*if((int)reborn->query_class_level(reborn->query_class()) > 1 && !wizardp(reborn) && (int)"/daemon/config_d.c"->check_config("death") == 1)
     {
-        reborn->set_XP_tax(0, 0, "death"); 
+        reborn->set_XP_tax(0, 0, "death");
     }*/
     //half exp loss when reborn.  May change if the spell is too good.
     reborn->set_ghost(0);
@@ -137,7 +137,7 @@ void do_rebirth()
     PLAYER_D->add_player_info();
     reborn->remove_property("rebirth");
     if(myob = present("kelemvor-rebirth-blessing999",reborn)) myob->remove();
-    if(!stringp(reztype) || reztype != "foresight") 
+    if(!stringp(reztype) || reztype != "foresight")
     {
         tell_object(reborn,"%^YELLOW%^You have chosen to accept your deity's blessing "+
         "of rebirth!  You feel your consciousness slip back into "+
@@ -145,7 +145,7 @@ void do_rebirth()
         tell_room(environment(reborn),"%^YELLOW%^"+ETOQCN+" suddenly stirs and "+
         "takes a ragged breath, rising once more!%^RESET%^",reborn);
     }
-    else 
+    else
     {
         tell_object(reborn,"%^YELLOW%^The unsettling sensation of slowed time seems to "+
         "slowly return to normal, and you step aside from the blow that would end your life!.%^RESET%^");
@@ -186,7 +186,7 @@ void do_death()
             add_money(currs[i],-query_money(currs[i]));
             money_ob->set_property("died time",time());
         }
-        money_ob->move(corpse);       
+        money_ob->move(corpse);
 
         if((objectp(klr)) && klr->is_player() && reborn->is_player())
         {
@@ -203,7 +203,7 @@ void do_death()
                 num = (sizeof(stuff)*10)/100;
                 if(num && sizeof(stuff))
                 {
-                    i=0; 
+                    i=0;
                     while(sizeof(keeping) != num && i<50)
                     {
                         i++;
@@ -225,7 +225,7 @@ void do_death()
                 if(!objectp(stuff[i])) { continue; }
                 if(stuff[i]->is_armor() && stuff[i]->query_worn()) { stuff[i]->set_not_equipped(); }
                 if (stuff[i]->query_wielded()) { stuff[i]->set_not_inhand(); }
-                continue; 
+                continue;
             }
             if(stuff[i]->query_property("monsterweapon") ||stuff[i]->query_property("death remove"))
             {
@@ -237,7 +237,7 @@ void do_death()
             {
                 stuff[i]->clear_item_owners();
             }
-            else if(stuff[i]->query_item_owner_prop("death_remove")) 
+            else if(stuff[i]->query_item_owner_prop("death_remove"))
             {
                 stuff[i]->remove_item_owner(reborn->query_name());
             }
@@ -245,7 +245,8 @@ void do_death()
             stuff[i]->set_property("died time",time());
         }
     }
-    else if((int)"/daemon/config_d.c"->check_config("death") == 1)
+    // this is handled in /std/church.c
+    /* else if((int)"/daemon/config_d.c"->check_config("death") == 1)
     {
         stuff = deep_inventory(reborn);
         for(i=0;i<sizeof(stuff);i++)
@@ -254,14 +255,14 @@ void do_death()
             if(stuff[i]->is_armor() && stuff[i]->query_worn()) { stuff[i]->set_not_equipped(); }
             if (stuff[i]->query_wielded()) { stuff[i]->set_not_inhand(); }
             stuff[i]->set_overallStatus((int)stuff[i]->query_overallStatus()/2);
-            continue; 
+            continue;
         }
-    }
+    } */
     save_player( query_name() );
     PLAYER_D->add_player_info();
     if(!present("kelemvor-rebirth-blessing999",reborn)) reborn->remove_property("rebirth");
     tell_object(reborn,"%^BOLD%^%^CYAN%^You have chosen to forgo your "+
-        "chance at life and accept Kelemvor's judgment!%^RESET%^");
+        "chance at life and accept Lysara's judgment!%^RESET%^");
     reborn->move("/d/shadowgate/death/death_room");
     TO->remove();
     return;
