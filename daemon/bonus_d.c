@@ -370,7 +370,12 @@ varargs int hit_bonus(object who, object targ, int attack_num, object current)
             mysize -= (int)current->query_size();
             if (FEATS_D->usable_feat(who, "weapon finesse") && ((mysize >= 0) || current->query_property("finesse"))) { // if has-feat & weapon is smaller/same size as user - Odin 5/24/2020 or weapon has the property - Venger dec20
                 to_hit += (query_dex_bonus(who) * -1);
-            }else {
+            }
+            else if(FEATS_D->usable_feat(who, "cunning insight"))
+            {
+                to_hit += query_stat_bonus(who, "charisma");
+            }
+            else {
                 to_hit += query_stat_bonus(who, "strength");
             }
         }
@@ -379,7 +384,12 @@ varargs int hit_bonus(object who, object targ, int attack_num, object current)
     else {
         if (FEATS_D->usable_feat(who, "weapon finesse")) {
             to_hit += (query_dex_bonus(who) * -1);
-        }else {
+        }
+        else if(FEATS_D->usable_feat(who, "cunning insight"))
+        {
+            to_hit += query_stat_bonus(who, "charisma");
+        }
+        else {
             to_hit += query_stat_bonus(who, "strength");
         }
     }

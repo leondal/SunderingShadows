@@ -1012,7 +1012,12 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             weapon && mysize -= (int)weapon->query_size();
             if (FEATS_D->usable_feat(attacker, "weapon finesse") && ((mysize >= 0) || weapon->query_property("finesse"))) { // if has-feat & weapon is smaller than / same size as user - Saide, November 23rd, 2017 or weapon has the property - Venger dec20
                 damage += BONUS_D->new_damage_bonus(attacker, attacker->query_stats("dexterity"));
-            }else {
+            }
+            else if(FEATS_D->usable_feat(attacker, "cunning insight"))
+            {
+                damage += BONUS_D->new_damage_bonus(attacker, attacker->query_stats("charisma"));
+            }
+            else {
                 damage += BONUS_D->new_damage_bonus(attacker, attacker->query_stats("strength"));
             }
         }
