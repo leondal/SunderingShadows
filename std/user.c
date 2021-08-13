@@ -4589,6 +4589,9 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
   if(this_object()->query_property("darkvision"))
       return 0;
   
+  if(FEATS_D->has_feat(this_object(), "devils sight"))
+      return 0;
+  
   if (geteuid(whichroom) == "Shadowgate") {
       return 0;
   }
