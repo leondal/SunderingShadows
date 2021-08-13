@@ -103,10 +103,7 @@ void regenerate_target()
         damage_targ(target, target->return_target_limb(), sdamage, "positive energy");
     }
 
-    if (target->query_property("effect_fatigued") ||
-        target->query_property("effect_exhausted")) {
-        "/std/magic/cleanse"->regenerate(target);
-    }
+    "/std/magic/cleanse"->regenerate(target);
 
     call_out("regenerate_target", ROUND_LENGTH);
     ticker--;
