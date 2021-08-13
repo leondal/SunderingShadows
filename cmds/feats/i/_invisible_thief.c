@@ -15,7 +15,7 @@ void create() {
 
 To become visible again she must use the %^ORANGE%^<step>%^RESET%^ command.
 
-In addition, this feat gives the Arcane Trickster a passive +5 adjustment to their stab levels.");
+In addition, this feat gives the Arcane Trickster a passive +5 adjustment to levels for determining sneak attack dice.");
     set_target_required(0);
 }
 
