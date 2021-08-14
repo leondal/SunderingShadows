@@ -1081,7 +1081,7 @@ int id(string str)
         return 1;
     }
 
-    if (!ob_data["id"]) {
+    if (!sizeof(ob_data) || !ob_data["id"]) {
         return 1;
     }
 
