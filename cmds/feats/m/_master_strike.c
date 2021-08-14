@@ -23,6 +23,7 @@ void create()
     
     set_author("tlaloc");
     feat_type("instant");
+    feat_category("MeleeDamage");
     feat_name("master strike");
     feat_prereq("Thief L31");
     feat_syntax("master_strike [TARGET]");
