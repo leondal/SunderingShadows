@@ -40,7 +40,6 @@ int wearme()
         return 0;
     }
 
-<<<<<<< HEAD
     //if(!(TP->is_class("mage") || TP->is_class("sorcerer")) || ((int)ETO->query_guild_level("mage") < 35 && (int)ETO->query_guild_level("sorcerer") < 35))
     if(this_player()->query_class_level("mage") < 20 &&
     this_player()->query_class_level("sorcerer") < 20 &&
@@ -51,7 +50,6 @@ int wearme()
     //if(this_player()->query_class_level("mage") < 35 &&
     //this_player()->query_class_level("sorcerer") < 35 &&
     //this_player()->query_class_level("magus") < 35)
->>>>>>> 084761372dff32b595cb0838bc5ce55f16b9253b
     {
         tell_object(ETO,"You have not yet powerful enough to make use of this item.");
         return 0;
