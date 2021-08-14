@@ -514,7 +514,7 @@ varargs int do_save(object ob,int mod)
 
     if(!objectp(ob)) { return 0; }
     save = query_save_type();
-    
+
     mylvl = max( ({ flevel, caster->query_level() - 10 }) );
     //Base 10 plus a modifier to coincide with spell level boost on spells
     DC = 19 + mylvl / 5;
@@ -568,18 +568,28 @@ void define_flevel()
     if (!feat_clss || !sizeof(feat_clss) || !userp(caster)) {
         flevel = clevel;
     } else {
-        string s;
-        int mlvl;
+        object class_ob;
+        string s, *my_classes;
 
         flevel = 0;
 
         if (feat_clss[0] == "base_class") {
             flevel = caster->query_guild_level(caster->query("base_class"));
-        } else {
-            foreach(s in feat_clss) {
-                mlvl = caster->query_guild_level(s);
-                if (mlvl > flevel) {
-                    flevel = mlvl;
+        }
+        else { // full levels from feat classes, 1/2 levels for others
+            my_classes = caster->query_classes();
+
+            foreach(s in my_classes) {
+                class_ob = find_object_or_load(DIR_CLASSES + "/" + s + ".c");
+
+                if(class_ob->is_prestige_class() && member_array(caster->query("base_class"), feat_clss) != -1) {
+                    continue;
+                }
+                if(member_array(s,feat_clss) != -1) {
+                    flevel += caster->query_prestige_level(s);
+                }
+                else {
+                    flevel += (caster->query_class_level(s) / 2);
                 }
             }
         }
