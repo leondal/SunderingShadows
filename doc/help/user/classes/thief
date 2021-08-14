@@ -15,6 +15,7 @@
  %^RESET%^L13: use magic device
  %^RESET%^L14: scramble
  %^RESET%^L17: spring attack
+ %^RESET%^L31: master strike
  %^RESET%^Also: one bonus melee feat at L21, and every five class levels thereafter
 
 The thief is a master of the shadows. Their attacks are based on surprise, jumping from the shadows to deal great damage upon a target. %^ORANGE%^<stab>%^RESET%^ target will deal a great blow of damage to an unsuspecting foe, dependent on the thief's stealth. They can also %^ORANGE%^<spy>%^RESET%^ on a target to assess their belongings, hopefully without being noticed.

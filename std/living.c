@@ -383,7 +383,10 @@ void heart_beat()
     }
 
     if (!(living_ticker % 3)) {
-        // change help status effects when adjusting this
+        //Central way to remove instant feat locks when out of combat
+        if(!this_object()->query_current_attacker())
+            this_object()->remove_property("using instant feat");
+        
         if (FEATS_D->usable_feat(TO, "regeneration")) {
             if (query_hp() < query_max_hp()) {
                 add_hp(roll_dice(1, TO->query_level()) / 2 + 1);

@@ -167,7 +167,12 @@ void execute_attack()
     object *weapons, stagger;
     string ename, pname;
     
-    if(!caster || !target)
+    if(!caster)
+        return;
+    
+    caster->remove_property("using instant feat");
+    
+    if(!target)
         return;
    
     if(!present(target, place))
@@ -177,7 +182,6 @@ void execute_attack()
         return;
     
     spell_kill(target, caster);
-    caster->remove_property("using instant feat");
     //Bypasses physical avoidance...needs to have a cooldown....starting with 5 minutes
     caster->add_cooldown("master strike", 300);
     ename = target->QCN;
