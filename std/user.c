@@ -943,6 +943,7 @@ void create() {
 		  "time_of_login":0,
 		  "autosave":500,
 		  "stage":0,
+          "emaciated":0,
 		  "protectors":({}),
 		  "blinking":0,
 		  ]);
@@ -1648,24 +1649,30 @@ void heart_beat()
                 !TO->query_property("inactive") &&
                 !TO->is_undead() &&
                 !TO->query_ghost() &&
-                !TO->query_race() == "soulforged" &&
+                !(TO->query_race() == "soulforged") &&
                 random(2)){
                 if (!TO->query_stuffed())
                 {
-                    do_damage("torso",roll_dice(2,6));
+                    static_user["emaciated"]++;
+                    do_damage("torso",roll_dice((static_user["emaciated"]+1),6));
                     message("environment","You are getting weaker from Starvation!",TO);
                 }
                 if (!TO->query_quenched())
                 {
-                    do_damage("torso",roll_dice(2,6));
+                    static_user["emaciated"]++;
+                    do_damage("torso",roll_dice((static_user["emaciated"]+1),6));
                     message("environment","You are getting weaker from Thirst!",TO);
                 }
-                if(!(TO->query_stuffed()&&TO->query_quenched()))
+
+                if(!(TO->query_stuffed()&&TO->query_quenched())) {
                     if(TO->query_hp()<-(TO->query_max_hp()*4/5))
                     {
                         TO->add_death("Emaciation");
                         die();
                     }
+                } else {
+                    static_user["emaciated"] = 0;
+                }
             }
             if (TO->query_poisoning()) {
                 ob2->set_name("Poison");
@@ -4335,7 +4342,7 @@ string realNameVsProfile(string who)
                 return name;
             }
         }
-        
+
         return sizeof(outnames) ? outnames[random(sizeof(outnames))] : "";
     }
 
@@ -4588,10 +4595,10 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
   }
   if(this_object()->query_property("darkvision"))
       return 0;
-  
+
   if(FEATS_D->has_feat(this_object(), "devils sight"))
       return 0;
-  
+
   if (geteuid(whichroom) == "Shadowgate") {
       return 0;
   }
@@ -5637,16 +5644,16 @@ int is_diminish_return(string spell, object source)
 {
     if(!spell || !source)
         return 0;
-    
+
     if(member_array(spell, keys(diminish_returns)) < 0)
         return 0;
-    
+
     if(!sizeof(diminish_returns[spell]))
         return 0;
-    
+
     if(member_array(source, diminish_returns[spell]) < 0)
         return 0;
-    
+
     return 1;
 }
 
@@ -5654,21 +5661,21 @@ int add_diminish_return(string spell, object source)
 {
     if(!spell || !source)
         return 0;
-    
+
     if(is_diminish_return(spell, source))
     {
         remove_call_out("remove_diminish_return");
         call_out("remove_diminish_return", 30, spell, source);
         return 1;
     }
-    
+
     if(member_array(spell, keys(diminish_returns)) < 0)
         diminish_returns += ([ spell : ({ source }) ]);
     else
         diminish_returns[spell] += ({ source });
-    
+
     call_out("remove_diminish_return", 30, spell, source);
-    
+
     return 1;
 }
 
@@ -5676,17 +5683,14 @@ int remove_diminish_return(string spell, object source)
 {
     if(!spell || !source)
         return 0;
-    
+
     if(!is_diminish_return(spell, source))
         return 0;
-    
+
     diminish_returns[spell] -= ({ source });
-    
+
     if(!sizeof(diminish_returns[spell]))
         map_delete(diminish_returns, spell);
-    
+
     return 1;
 }
-    
-    
-    
