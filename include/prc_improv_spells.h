@@ -3,11 +3,16 @@ supreme_healer_spells = ({ "cure light wounds",
             "cure moderate wounds",
             "cure serious wounds",
             "cure critical wounds",
+            "heal",
+            "greater heal",
             "mass cure light wounds",
             "mass cure moderate wounds",
             "mass cure serious wounds",
             "mass cure critical wounds",
-            "regeneration",
+            "mass heal",
+            "greater mass heal",
+            "rejuvenation",
+            "regenerate",
             "aura of healing", });
 
 raging_healer_spells = ({
