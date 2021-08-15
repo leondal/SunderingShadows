@@ -102,6 +102,10 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
     //True seeing negates misschance
     if(attacker->true_seeing())
         MissChance = 0;
+    
+    //Ranger with wild hunter active sees through quarry's concealment
+    if(attacker->query_property("quarry") == victim && FEATS_D->is_active(attacker, "wild hunter"))
+        MissChance = 0;
 
     if(surprise_accuracy && FEATS_D->has_feat(attacker, "sharpened accuracy"))
         MissChance = 0;

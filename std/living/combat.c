@@ -579,6 +579,9 @@ int is_vulnerable_to(object source)
     if(environment(this_object()) != environment(source))
         return 0;
     
+    if(this_object()->query_property("quarry") == source && FEATS_D->is_active(this_object(), "wild hunter"))
+        return 0;
+    
     if(this_object()->query_paralyzed() || this_object()->query_bound())
         return 1;
     
