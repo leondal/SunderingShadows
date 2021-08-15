@@ -19,6 +19,7 @@
  %^RESET%^L18: improved quarry
  %^RESET%^L19: third favored terrain
  %^RESET%^L21: seen it before
+ %^RESET%^L31: wild hunter
  %^RESET%^Also: one bonus melee feat at L21, and every five class levels thereafter
  
 In addition to that, rangers use different pre-set combat styles they can choose with %^ORANGE%^<combatstyle>%^RESET%^ command.
@@ -39,7 +40,7 @@ In addition to that, rangers use different pre-set combat styles they can choose
  L5: blade block
  L9: impale
  L13: light weapon
- L17: strenght of arm
+ L17: strength of arm
 
 The ranger is a hunter and woodsman who lives by not only his sword or bow, but also his wits. Rangers, like nature itself, can be of any alignment. Their role and outlook changes depending upon their alignment, but they all have a few things in common. They are more comfortable in the wilderness than the city, and they have a strong affinity for nature that defines them.
 

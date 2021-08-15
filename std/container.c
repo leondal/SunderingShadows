@@ -119,6 +119,15 @@ int query_living_visibility(object item, object viewer)
     if (!objectp(viewer)) {
         return 0;
     }
+    
+    if(viewer->is_class("ranger"))
+    {
+        if(FEATS_D->is_active(viewer, "wild hunter"))
+        {
+            if(viewer->query_property("quarry") == item)
+                return 1;
+        }
+    }
 
     if ((item->query_true_invis() && avatarp(item) && !avatarp(viewer)) || !item->is_detectable()) {
         return 0;
