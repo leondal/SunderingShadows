@@ -228,24 +228,27 @@ int unarmed_damage(object player)
     }
     myLev = (int)player->query_guild_level("monk");
     switch (myLev) {
-    case 0..10:
+    case 0..9:
         amt = roll_dice(1, 6);
         break;
 
-    case 11..20:
+    case 10..19:
         amt = roll_dice(1, 8);
         break;
 
-    case 21..30:
+    case 20..29:
         amt = roll_dice(1, 10);
         break;
 
-    case 31..40:
-        amt = roll_dice(1, 12);
+    case 30..39:
+        amt = roll_dice(2, 6);
         break;
 
-    case 41..50:
-        amt = roll_dice(1, 14);
+    case 40..49:
+        amt = roll_dice(2, 8);
+        break;
+    case 50:
+        amt = roll_dice(2, 10);
         break;
         /*     break;
            case 26..30:
@@ -261,8 +264,11 @@ int unarmed_damage(object player)
              return (roll_dice(1, 12) + roll_dice(1, 10));*/
     }
     if (FEATS_D->usable_feat(player, "fists of fury")) {
-        amt += roll_dice(1, 2);
+        amt += 2;
     }
+    if(FEATS_D->usable_feat(player, "unchained"))
+        amt += 2;
+    
     return amt;
 }
 

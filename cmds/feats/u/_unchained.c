@@ -10,7 +10,7 @@ void create()
     feat_category("KiOffense");
     feat_name("unchained");
     feat_prereq("Monk L31");
-    feat_desc("A monk who has dedicated their life and absolute focus to self-perfection will eventually reach a threshold in their power. Once surpassed, their latent Ki becomes unchained, making the monk into a formidable fighting machine. With this feat, the monk gains full BAB and their hit die increases to d10.");
+    feat_desc("A monk who has dedicated their life and absolute focus to self-perfection will eventually reach a threshold in their power. Once surpassed, their latent Ki becomes unchained, making the monk into a formidable fighting machine. With this feat, the monk gains full BAB and their hit die increases to d10. They also gain +2 to their base unarmed damage.");
     permanent(1);
 }
 

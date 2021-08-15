@@ -28,11 +28,12 @@ They despise most traditional armor as it gets in the way of their life-long ded
 Some monks use small weapons. Others limit themselves to using their bare hands.
 
 Unarmed monks use the following damage table:
- Levels  1-10 : 1d6 damage
- Levels 11-20 : 1d8 damage
- Levels 21-30 : 1d10 damage
- Levels 31-40 : 1d12 damage
- Levels 41-50 : 1d14 damage
+ Levels 1 - 9 : 1d6  damage
+ Levels 10-19 : 1d8  damage
+ Levels 20-29 : 1d10 damage
+ Levels 30-39 : 2d6  damage
+ Levels 40-49 : 2d8  damage
+ Level   50   : 2d10 damage
 
 Unarmed monks have a base critical multiplier of 2, and receive an increased critical damage multiplier of their monk level divided by 10. A level 10 monk, for example, would have a critical damage multiplier of 3.
 
