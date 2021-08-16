@@ -1082,7 +1082,7 @@ int id(string str)
     }
 
     if (!sizeof(ob_data) || !ob_data["id"]) {
-        return 1;
+        return 0;
     }
 
     if (member_array(str, ob_data["id"]) != -1) {
