@@ -343,7 +343,7 @@ void head_damage(object targ, int heads)
     tell_object(targ, "%^BOLD%^%^CYAN%^You begin screaming in agony and collapse to your knees as the "+
     "force penetrates your mind!%^RESET%^");
 
-    tell_room(TO, targ->QCN+"%^BOLD%^%^CYAN%^ begins creaming in agony and collapses to "+targ->QP+
+    tell_room(TO, targ->QCN+"%^BOLD%^%^CYAN%^ begins screaming in agony and collapses to "+targ->QP+
     " knees!%^RESET%^", targ);
     dam = roll_dice((20*heads), 4);
 
