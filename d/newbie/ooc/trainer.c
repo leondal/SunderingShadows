@@ -221,7 +221,7 @@ int example_act(string str)
                 "%^BLACK%^flesh. Running diagonally the scar is obviously old "+
                 "and runs from high on the left down to the right between the "+
                 "lines of his jaw. Whatever the rest of his body looks "+
-                "like is hidden by the looosely fitting robe ending just above his "+
+                "like is hidden by the loosely fitting robe ending just above his "+
                 "ankles. Stitched onto the right shoulder of his robe is a "+
                 "%^RESET%^%^BLUE%^s%^BOLD%^%^WHITE%^p%^BLUE%^a%^WHITE%^"+
                 "r%^RESET%^%^BLUE%^r%^BOLD%^%^WHITE%^o%^BLUE%^w%^WHITE%^h"+
