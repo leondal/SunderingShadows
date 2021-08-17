@@ -15,6 +15,7 @@ void create()
     set_domains("war");
     set_spell_sphere("invocation_evocation");
     set_syntax("cast CLASS divine power");
+    set_damage_desc("Full BAB plus clevel/12 +1 to ATK and DMG. Periodic damage to self.");
     set_description("This spell will fill the caster with the rage of war, causing him to berserk madly. The strength of the caster's deity and a blessed speed result in blind fighting and reckless fearlessness. This spell does not work in conjunction with similar magical effects, such as rally, rage, haste, transformation, dance of a thousand cuts, or fell flight.%^RESET%^");
     set_verbal_comp();
     set_helpful_spell(1);
@@ -72,7 +73,7 @@ void berserk()
 
     if ((!caster->is_in_combat()) && (!random(10))) {
         //caster->do_damage("torso", random(2) + 1);
-        damage_targ(caster, "torso", roll_dice(1,2), "untyped");
+        damage_targ(caster, "torso", roll_dice(1,4) + 1, "untyped");
         tell_object(caster, "%^BOLD%^%^RED%^You hurt yourself in your lust for battle and victory.");
     }
     call_out("berserk", ROUND_LENGTH);
