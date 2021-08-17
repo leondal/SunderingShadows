@@ -476,7 +476,7 @@ void set_inventory(string level)
                 "/d/azha/obj/gmr_ring",});
     HIGH_H = ({ "/d/common/obj/armour/fullplate",
                 "/d/common/obj/armour/helm",
-                "/d/islands/common/obj/obj-old-nienne/shield",
+                "/d/islands/argentrock/obj/shd_bskeletal",
                 "/d/common/obj/armour/greaves",
                 "/d/common/obj/armour/gauntlets", });
     HIGH_L =  ({ "/d/common/obj/armour/hide",
