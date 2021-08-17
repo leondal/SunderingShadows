@@ -189,6 +189,11 @@ void setup_guardian(object caster, string myType)
     setup_as(myType);
     duration = (num*4) + 20;
     myMaster = caster;
+    set_monster_feats(({
+        "spell focus",
+        "spell penetration",
+        "perfect caster",
+        }));
     return;
 }
 
