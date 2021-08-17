@@ -27,7 +27,7 @@ You are standing in the guards barracks.  A few bunks line the northern "+
     set_smell("default","The barracks smell of old food and sweat.");
     set_listen("default","You hear the low whispers of a few people.");
 */
-   set_long(::query_long()+"\nThe wooden rubble in the rooom and the stone "
+   set_long(::query_long()+"\nThe wooden rubble in the room and the stone "
       "walls suggest that this was once one of the guard barracks, though "
       "it is useless now.\n");
     set_exits( ([
