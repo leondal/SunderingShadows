@@ -609,7 +609,7 @@ int handle_critter(string str)
         if (TP->is_class("ranger")) {
             num -= 5;
         }
-        prof = (int) TP->query_skill("athletics");
+        prof = (int) TP->query_skill("survival");
 
         if ((prof + roll_dice(1, 20)) < (num + 10)) {
             tell_object(TP, "The " + orig_short + " snorts at you.");
