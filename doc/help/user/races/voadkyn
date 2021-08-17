@@ -1,13 +1,13 @@
 %^BOLD%^%^BLUE%^Voadkyn:
 
-%^BOLD%^%^BLUE%^Stat adjustments: %^RESET%^+4 strength, +2 dexterity, -2 constitution, -2 wisdom
-%^BOLD%^%^BLUE%^Skill adjustments: %^RESET%^+2 stealth, +2 survival
-%^BOLD%^%^BLUE%^Misc bonuses: %^RESET%^+2 natural armor
+%^BOLD%^%^BLUE%^Stat adjustments: %^RESET%^+4 strength, -2 dexterity, +2 constitution, -2 intelligence
+%^BOLD%^%^BLUE%^Skill adjustments: %^RESET%^+2 perception, +2 stealth, +2 survival
+%^BOLD%^%^BLUE%^Misc bonuses: %^RESET%^+4 natural armor
 %^BOLD%^%^BLUE%^Innate spells: %^RESET%^none
 %^BOLD%^%^BLUE%^Size: %^RESET%^large
 
 %^BOLD%^%^BLUE%^Standard alignments: %^RESET%^neutral good, true neutral, chaotic good
-%^BOLD%^%^BLUE%^Classes restrictted: %^RESET%^cleric, bard, psion, psywarrior,  paladin, mage, magus,  monk, warlock, inquisitor
+%^BOLD%^%^BLUE%^Classes restricted: %^RESET%^cleric, bard, psion, psywarrior, paladin, mage, magus,  monk, warlock, inquisitor, oracle
 %^BOLD%^%^BLUE%^Normal adventuring starting age: %^RESET%^76-105
 %^BOLD%^%^BLUE%^Average life span: %^RESET%^350
 
