@@ -3468,7 +3468,7 @@ object *target_selector()
 // fodder from list of stuff that spells will hit.. hopefully
 int perfect_filter(object obj)
 {
-    object* party = ({}), * followers = ({}), ally;
+    object* party = ({}), * followers = ({}), ally, owner;
 
     int i;
 
@@ -3534,6 +3534,19 @@ int perfect_filter(object obj)
     if (member_array(obj, followers) != -1) {
         return 0;
     }                                                   // 0 to filter if it's following ANYONE in the party
+    
+    if(owner = caster->query_property("minion"))
+    {
+        party = ob_party(owner);
+        party = distinct_array(party);
+        
+        if(sizeof(party))
+        {
+            if(member_array(obj->query_property("minion"), party) >= 0)
+                return 0;
+        }
+    }
+    
     return 1;
 }
 
