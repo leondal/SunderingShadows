@@ -59,15 +59,13 @@ mapping monster_stat_rolls() { return ([ "str" : 2, "con" : 0, "int" : 0, "wis" 
 
 int size() { return 3; }
 
-mapping query_racial_innate(string subrace)
-{
-	return (["project image" : (["type" : "spell", "casting level" : 0.5,
-				   "daily uses" : 1, "delay" : 1, "uses left" : 1,
-				   "refresh time" : -1, "level required" : 0,
-				   "class specific" : 0])]);
-
+mapping query_racial_innate(string subrace) {
+	return ([
+                    "alter self" : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
+                    "reduce person" : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
+                    "detect magic" : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
+                    ]);
 }
-
 
 string *limbs() {
     return ({  "head",
