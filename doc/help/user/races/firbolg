@@ -1,13 +1,13 @@
 %^BOLD%^%^BLUE%^Firbolg:
 
 %^BOLD%^%^BLUE%^Stat adjustments: %^RESET%^+4 strength, -2 dexterity
-%^BOLD%^%^BLUE%^Skill adjustments: %^RESET%^+2 survival
-%^BOLD%^%^BLUE%^Misc bonuses: %^RESET%^fearless
-%^BOLD%^%^BLUE%^Innate spells: %^RESET%^project image
+%^BOLD%^%^BLUE%^Skill adjustments: %^RESET%^+2 survival, +2 perception
+%^BOLD%^%^BLUE%^Misc bonuses: %^RESET%^fearless, +4 natural armor
+%^BOLD%^%^BLUE%^Innate spells: %^RESET%^reduce person, alter self, detect magic
 %^BOLD%^%^BLUE%^Size: %^RESET%^large
 
 %^BOLD%^%^BLUE%^Standard alignments: %^RESET%^any non-evil
-%^BOLD%^%^BLUE%^Classes restricted: %^RESET%^thief, mage, magus,  psion, psywarrior, cavalier, paladin, sorcerer, monk, warlock
+%^BOLD%^%^BLUE%^Classes restricted: %^RESET%^thief, mage, magus, psion, psywarrior, cavalier, paladin, sorcerer, monk, warlock, inquisitor
 %^BOLD%^%^BLUE%^Normal adventuring starting age: %^RESET%^41-70
 %^BOLD%^%^BLUE%^Average life span: %^RESET%^350
 
