@@ -127,9 +127,6 @@ int bite_attack(object player, object target)
        
     level = player->query_guild_level("druid");
     
-    if(random(3))
-        return roll_dice(1, 6);
-    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
@@ -150,6 +147,8 @@ int bite_attack(object player, object target)
     if(death_count >= DEATH_COUNT)
         death_attack(player, target, level);
         
+    if(random(3))
+        return roll_dice(1, 6);
     
     return roll_dice(1 + (level / 3), 6);   
 }
@@ -166,14 +165,11 @@ int claw_attack(object player, object target)
    
     level = player->query_guild_level("druid");
     
-    if(random(3))
-        return roll_dice(1, 4);
-    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
     
-    if(FEATS_D->usable_feat(player,"perfect predator"))
+    if(FEATS_D->usable_feat(player,"perfect predator") && !random(3))
     {
         level += 2;
         player->add_hp(10 + roll_dice(level, 4));
@@ -185,6 +181,9 @@ int claw_attack(object player, object target)
     
     if(swipe_count >= SWIPE_COUNT)
         swipe_attack(player, target, level);
+    
+    if(random(3))
+        return roll_dice(1, 4);
     
     return roll_dice(1 + (level / 3), 6);
 }
@@ -201,9 +200,6 @@ int tail_attack(object player, object target)
    
     level = player->query_guild_level("druid");
     
-    if(random(3))
-        return roll_dice(1, 6);
-    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
@@ -218,6 +214,9 @@ int tail_attack(object player, object target)
     
     if(sweep_count >= SWEEP_COUNT)
         sweep_attack(player, target, level);
+
+    if(random(3))
+        return roll_dice(1, 6);
     
     return roll_dice(1 + (level / 3), 6);
 }
