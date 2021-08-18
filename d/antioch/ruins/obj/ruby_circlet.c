@@ -67,6 +67,9 @@ void create()
 
 int wearme()
 {
+   if(ETO->is_monster()){
+      return 1;
+   }
    if(ETO->query_lowest_level() < 19) {
       tell_object(ETO,"You're not experienced enough to utilize this equipment.");
       return 0;

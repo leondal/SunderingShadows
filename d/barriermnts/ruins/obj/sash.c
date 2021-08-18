@@ -45,6 +45,9 @@ void init() {
 }
 
 int wear_fun() {
+   if(ETO->is_monster()){
+     return 1;
+   }
    if((int)ETO->query_lowest_level() < 15) {
      tell_object(ETO,"%^BOLD%^%^WHITE%^You need more training to use this item!");
      tell_room(EETO,"%^BOLD%^%^WHITE%^The sash doesn't seem to fit "+ETO->QCN+".",ETO);
