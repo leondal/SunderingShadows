@@ -23,6 +23,8 @@ void reset() {
 
 if(!present("large hammer"))         new(CWEAP"hammer_lg")->move(TO);
 if(!present("large spear"))          new(CWEAP"spear_lg")->move(TO);
+if(!present("giant hammer"))         new(CWEAP"giant_hammer")->move(TO);
+if(!present("giant axe"))            new(CWEAP"giant_battle_axe")->move(TO);
 if(!present("club"))                 new(CWEAP"club")->move(TO); 
 if(!present("large club"))           new(CWEAP"club_lg")->move(TO);
 if(!present("small spear"))          new(CWEAP"spear_sm")->move(TO);
