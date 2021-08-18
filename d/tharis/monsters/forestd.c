@@ -121,12 +121,18 @@ void reset_flag(){
 
 
 void die(object thing){
-	object ob;
+	object ob, hammer, room;
+    
+    room = environment(this_object());
 
 	ob = new("std/obj/body_part");
 	ob->set_limb("Forest Linnorm","head");
 	ob->set_id(({"limb","head","dragon head","Forest Quest","evil head"}));
-	ob->move(ETO);
+	ob && room && ob->move(room);
+    
+    hammer = new("/d/tharis/obj/verdant_hammer");
+    hammer && hammer->move(environment(this_object());
+    
 	return ::die(thing);
 }
 

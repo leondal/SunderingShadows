@@ -20,6 +20,8 @@ void create()
     set_language("sylvan");
     set_property("lore difficulty", 25);
     set_property("enchantment", 5);
+    set_item_bonus("constitution", 2);
+    set_item_bonus("fast healing", 1);
     set_wield((: "wield_func" :));
     set_unwield((: "unwield_func" :));   
     set_lore(CRAYON_D->color_string("Not long ago, during the re-awakening of the great and ancient primordials, a new god was formed from the vestige of the dying god, Ryorik. As the new god was forming, Ashra stuck the being, corrupting part of its essence. The god split into two shards. The two shards became the gods Seija and Khyron. While Khyron wrought the influence of chaos and destruction upon the world, Seija sought to assert balance upon nature, and began to put plans into motion to offset the great evil she saw spreading in the world. To that end, a great and powerful hammer was created, infused with the fertile power of nature. This hammer has been set upon the world, awaiting a champion worthy of wielding its verdant power. This champion, who will be known as the Verdant Champion, will once more return balance to nature and protect the wilds of the world.", "light green")); 
