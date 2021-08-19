@@ -2411,7 +2411,7 @@ void set_paralyzed(object who, int x, string paralyze_msg)
         message("my_action", "Your Archhood just saved you from being paralyzed.", who);
         return;
     }
-    if (who->query_property("no paralyze")) {
+    if (who->query_property("no paralyze") || PLAYER_D->immunity_check("paralysis")) {
         message("my_action", "You are uneffected by the paralysis.", who);
         if (objectp(environment(who)) && !who->query_invis()) {
             tell_room(environment(who), who->QCN + " %^BOLD%^%^GREEN%^is totally uneffected by " +
@@ -3273,7 +3273,7 @@ void internal_execute_attack(object who)
         {
             if(FEATS_D->usable_feat(who, "surprise accuracy"))
             {
-                if(50 + who->query_class_level("barbarian") > random(1000))
+                if(100 + who->query_class_level("barbarian") > random(1000))
                 {
                     surprise_accuracy = 1 + who->query_class_level("barbarian") / 10;
                 }

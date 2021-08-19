@@ -804,7 +804,18 @@ int immunity_check(object obj, string type)
     }
     
     break;
-
+    
+    case "paralysis":
+    {
+        if(obj->is_class("barbarian"))
+        {
+            if(obj->query_property("raged") && FEATS_D->has_feat(obj, "unrestrained rage"))
+                return 1;
+        }
+    
+        return 0;
+    }
+    break;
 
     default:
         return 0;

@@ -7,6 +7,13 @@
   -- Tlaloc -- 2.18.20
 */
 
+/*
+By request, fox added. Basing stats off of this link:
+http://www.pathfindercommunity.net/iconic-characters/feiya---iconic-witch/feiya-iconic-witch-1
+
+-- Tlaloc -- 8.18.21
+*/
+
 #include <std.h>
 #include <daemons.h>
 #include <magic.h>
@@ -27,6 +34,7 @@ mapping valid_types = ([
                          "crocodile" : ({ 15, 14, 15, 1, 12, 2, 2, 8,  }),
                          "dinosaur" :  ({ 11, 17, 17, 2, 12, 14, 2, 2, }),
                          "dog" :       ({ 13, 17, 15, 2, 12, 6, 2, 4,  }),
+                         "fox" :       ({  9, 15, 13, 6, 12, 6, 1, 4,  }),
                          "horse" :     ({ 16, 13, 15, 2, 12, 6, 3, 8,  }),
                          "lion" :      ({ 13, 17, 13, 2, 15, 10, 3, 2, }),
                          "snake" :     ({ 15, 17, 13, 1, 12, 2, 3, 4,  }),

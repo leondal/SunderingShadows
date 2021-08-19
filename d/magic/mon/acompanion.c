@@ -239,6 +239,12 @@ void special_attack(object target)
         if(!random(5))
             target && "/std/effect/status/sickened"->apply_effect(target,2);
         break;
+        case "fox":
+        tell_room(room, "%^BOLD%^" + sprintf("%s bites and trips %s.", aname, tname));
+        attacks += ([ "one" : ({ (scale * roll_dice(1, 4)), "piercing" }) ]);
+        if(!random(5))
+            target && target->set_tripped(1, "%^WHITE%^You are struggling to regain your footing! %^RESET%^");
+        break;        
         case "lion":
         tell_room(room, "%^BOLD%^" + sprintf("%s bites %s.", aname, tname));
         tell_room(room, "%^BOLD%^" + sprintf("%s claws %s twice.", aname, tname));

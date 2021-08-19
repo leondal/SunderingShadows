@@ -127,14 +127,11 @@ int bite_attack(object player, object target)
        
     level = player->query_guild_level("druid");
     
-    if(random(3))
-        return roll_dice(1, 6);
-    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
     
-    if(FEATS_D->usable_feat(player,"perfect predator"))
+    if(FEATS_D->usable_feat(player,"perfect predator") && !random(3))
     {
         level += 2;
         player->add_hp(10 + roll_dice(level, 4));
@@ -150,6 +147,8 @@ int bite_attack(object player, object target)
     if(death_count >= DEATH_COUNT)
         death_attack(player, target, level);
         
+    if(random(3))
+        return roll_dice(1, 6);
     
     return roll_dice(1 + (level / 3), 6);   
 }
@@ -166,14 +165,11 @@ int claw_attack(object player, object target)
    
     level = player->query_guild_level("druid");
     
-    if(random(3))
-        return roll_dice(1, 4);
-    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
     
-    if(FEATS_D->usable_feat(player,"perfect predator"))
+    if(FEATS_D->usable_feat(player,"perfect predator") && !random(3))
     {
         level += 2;
         player->add_hp(10 + roll_dice(level, 4));
@@ -185,6 +181,9 @@ int claw_attack(object player, object target)
     
     if(swipe_count >= SWIPE_COUNT)
         swipe_attack(player, target, level);
+    
+    if(random(3))
+        return roll_dice(1, 4);
     
     return roll_dice(1 + (level / 3), 6);
 }
@@ -201,23 +200,25 @@ int tail_attack(object player, object target)
    
     level = player->query_guild_level("druid");
     
-    if(random(3))
-        return roll_dice(1, 6);
-    
     level += FEATS_D->usable_feat(TP,"savage instincts i") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts ii") * 2;
     level += FEATS_D->usable_feat(TP,"savage instincts iii") * 2;
     
-    if(FEATS_D->usable_feat(player,"perfect predator"))
+    if(FEATS_D->usable_feat(player,"perfect predator") && !random(3))
     {
         level += 2;
         player->add_hp(10 + roll_dice(level, 4));
     }
     
+    set_new_damage_type("bludgeoning");
+    
     sweep_count++;
     
     if(sweep_count >= SWEEP_COUNT)
         sweep_attack(player, target, level);
+
+    if(random(3))
+        return roll_dice(1, 6);
     
     return roll_dice(1 + (level / 3), 6);
 }
@@ -349,7 +350,7 @@ void swipe_attack(object player, object target, int clevel)
         else
         {
             tell_object(ob,"%^BOLD%^"+player->QCN+"'s claw strikes you on the way by!");
-            ob->cause_typed_damage(ob,ob->return_target_limb(), dam,get_new_damage_type());
+            ob->cause_typed_damage(ob,ob->return_target_limb(), dam, "slashing");
         }
     }
 }
@@ -393,7 +394,7 @@ void sweep_attack(object player, object target, int clevel)
             tell_object(player,"%^YELLOW%^You catch "+ob->QCN+" with your tail, knocking "+ob->QO+" from "+ob->QP+" feet!");
             tell_object(ob,"%^YELLOW%^"+player->QCN+" catches you with "+player->QP+" tail, knocking you from your feet!");
             tell_room(room,"%^YELLOW%^"+player->QCN+" catches "+ob->QCN+" with "+player->QP+" tail, knocking "+ob->QO+" from "+ob->QP+" feet!",({player,ob}));
-            ob->cause_typed_damage(ob,ob->return_target_limb(), dam,get_new_damage_type());
+            ob->cause_typed_damage(ob,ob->return_target_limb(), dam, "bludgeoning");
             ob->set_tripped(roll_dice(1,6),"%^RESET%^%^YELLOW%^You are struggling to get your feet back under you!");
         }
     }
