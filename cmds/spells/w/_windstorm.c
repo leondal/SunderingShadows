@@ -42,7 +42,7 @@ string query_cast_string()
 
 void spell_effect(int prof)
 {
-    duration = (ROUND_LENGTH * clevel)/2;
+    duration = (ROUND_LENGTH * clevel) * 2;
     tell_room(place,"%^BOLD%^"+caster->QCN+" whispers a soft chant into the winds "
         "and a gale force wind howls into the area!");
     tell_object(caster,"%^BOLD%^You whisper a soft chant into the winds and a "

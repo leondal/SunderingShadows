@@ -63,7 +63,7 @@ void do_storm()
 
     foes = target_selector();
 
-    if(time > clevel || !present(caster,place))
+    if(time > clevel * 2 || !present(caster,place))
     {
         dest_effect();
         return;
