@@ -152,6 +152,19 @@ string write_prompt()
             else prompt = replace_string(prompt, "$_EW", "");
         }
 
+        if(TP->is_class("bard")) {
+            object* inv;
+            string inspiration;
+
+            inv = all_inventory(TP);
+            inv = filter_array(inv, (: $1->is_inspiration() :));
+
+            if (sizeof(inv)) {
+                prompt = replace_string(prompt, "$_BI", inv[0]->query_active_inspiration());
+            }
+            else prompt = replace_string(prompt, "$_BI", "");
+        }
+
         if(this_player()->is_class("psion") || this_player()->is_class("psywarrior"))
         {
             if(this_player()->query("available focus") == this_player()->query("maximum focus"))
