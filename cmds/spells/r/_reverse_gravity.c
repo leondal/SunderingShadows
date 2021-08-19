@@ -71,6 +71,7 @@ void spell_effect(int prof){
             define_base_damage(0);
             tell_object(foe,"%^RESET%^%^WHITE%^You smash into the ceiling!%^RESET%^");
             tell_room(place,"%^RESET%^"+foe->QCN+" smashes into the ceiling!%^RESET%^");
+            newfoes->set_tripped(duration,"%^BOLD%^You are floating uncontrollably in the air!%^RESET%^",4);
             damage_targ(foe,"torso",sdamage,"untyped");
         }
     else
