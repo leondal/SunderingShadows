@@ -3298,7 +3298,7 @@ void internal_execute_attack(object who)
         if(surprise_accuracy)
         {
             if(FEATS_D->usable_feat("deadly accuracy"))
-                temp1 += surprise_accuracy;
+                temp1 += 21;
         }
 
         if (victim->query_property("fortification 75")) {
