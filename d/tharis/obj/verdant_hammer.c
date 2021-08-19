@@ -19,7 +19,7 @@ void create()
     set_long(CRAYON_D->color_string("The head of this gigantic hammer is a massive quartz crystal, one end coming to a point while the other is a mess of spinters and errant shards. As if growing from the translucent stone, a small tree trunk extends down in a natural handle, its roots twisting and knotting around the crystal. The stryations in the warp and weave of the bark are echoed in the facets of the crystal above, forming strange and mystical sigls of power.", "green"));
     set_language("sylvan");
     set_property("lore difficulty", 25);
-    set_property("enchantment", 5);
+    set_property("enchantment", 4);
     set_item_bonus("constitution", 2);
     set_item_bonus("fast healing", 1);
     set_wield((: "wield_func" :));
