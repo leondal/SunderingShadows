@@ -149,6 +149,8 @@ varargs void do_save(object ob, int dc, string type, raw_save)
         
     if(ob->query_race() == "nightwing" && total_light(environment(ob)) > -1)
         mod -= 4;
+    else
+        mod += 4;
         
     if(FEATS_D->usable_feat(ob, "resistance"))
         mod += 1;
