@@ -240,7 +240,7 @@ void breath_attack(object player, object target, int clevel)
     
     breath_count = 0;
     
-    if(player->is_undead())
+    if(player->query_property("negative energy affinity"))
     {
         tell_object(player,"%^CYAN%^BOLD%^You inhale a deep breath of air, feeling the ball of ice deep inside of you!");
         tell_room(room,"%^CYAN%^BOLD%^"+player->QCN+"'s chest swells with a deep breath of air!",player);
@@ -268,14 +268,14 @@ void breath_attack(object player, object target, int clevel)
             tell_object(player,"%^MAGENTA%^"+ob->QCN+" is able to dive away at the last instant, avoiding most of the breath!");
             tell_object(ob,"%^MAGENTA%^You dive away at the last instant, avoiding most of the breath!");
             tell_room(room,"%^MAGENTA%^"+ob->QCN+" dives away at the last instant, avoiding most of the breath!",({ player, ob }));
-            if(player->is_undead())
-                ob->cause_typed_damage(ob,ob->return_target_limb(),dam/2,"fire");
-            else
+            if(player->query_property("negative energy affinity"))
                 ob->cause_typed_damage(ob,ob->return_target_limb(),dam/2,"cold");
+            else
+                ob->cause_typed_damage(ob,ob->return_target_limb(),dam/2,"fire");
         }
         else
         {
-            if(player->is_undead())
+            if(player->query_property("negative energy affinity"))
             {
                 tell_object(player,"%^BOLD%^%^CYAN%^"+ob->QCN+" is horribly frozen by the frost!");
                 tell_object(ob,"%^BOLD%^%^CYAN%^You are horribly frozen by the frost!");
