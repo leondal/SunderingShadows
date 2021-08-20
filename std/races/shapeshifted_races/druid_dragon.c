@@ -240,10 +240,20 @@ void breath_attack(object player, object target, int clevel)
     
     breath_count = 0;
     
-    tell_object(player,"%^ORANGE%^You inhale a deep breath of air, feeling the spark of ignition deep inside of you!");
-    tell_room(room,"%^ORANGE%^"+player->QCN+"'s chest swells with a deep breath of air!",player);
-    tell_object(player,"%^RED%^You open your mouth and unleash the fury of dragon fire on your foes!");
-    tell_room(room,"%^RED%^"+player->QCN+"'s mouth opens and a withering torrent of fire pours forth!",player);
+    if(player->is_undead())
+    {
+        tell_object(player,"%^CYAN%^BOLD%^You inhale a deep breath of air, feeling the ball of ice deep inside of you!");
+        tell_room(room,"%^CYAN%^BOLD%^"+player->QCN+"'s chest swells with a deep breath of air!",player);
+        tell_object(player,CRAYON_D->color_string("You open your mouth and unleash the chill of ice cold breath on your foes!", "ice blue"));
+        tell_room(room,CRAYON_D->color_string(player->QCN+"'s mouth opens and a withering torrent of frost pours forth!", "ice blue"),player);
+    }
+    else
+    {
+        tell_object(player,"%^ORANGE%^You inhale a deep breath of air, feeling the spark of ignition deep inside of you!");
+        tell_room(room,"%^ORANGE%^"+player->QCN+"'s chest swells with a deep breath of air!",player);
+        tell_object(player,"%^RED%^You open your mouth and unleash the fury of dragon fire on your foes!");
+        tell_room(room,"%^RED%^"+player->QCN+"'s mouth opens and a withering torrent of fire pours forth!",player);
+    }
     
     attackers = player->query_attackers();
     attackers = shuffle(attackers);
@@ -255,17 +265,30 @@ void breath_attack(object player, object target, int clevel)
     {
         if(ob->reflex_save(clevel))
         {
-            tell_object(player,"%^MAGENTA%^"+ob->QCN+" is able to dive away at the last instant, avoiding most of the flames!");
-            tell_object(ob,"%^MAGENTA%^You dive away at the last instant, avoiding most of the flames!");
-            tell_room(room,"%^MAGENTA%^"+ob->QCN+" dives away at the last instant, avoiding most of the flames!",({ player, ob }));
-            ob->cause_typed_damage(ob,ob->return_target_limb(),dam/2,"fire");
+            tell_object(player,"%^MAGENTA%^"+ob->QCN+" is able to dive away at the last instant, avoiding most of the breath!");
+            tell_object(ob,"%^MAGENTA%^You dive away at the last instant, avoiding most of the breath!");
+            tell_room(room,"%^MAGENTA%^"+ob->QCN+" dives away at the last instant, avoiding most of the breath!",({ player, ob }));
+            if(player->is_undead())
+                ob->cause_typed_damage(ob,ob->return_target_limb(),dam/2,"fire");
+            else
+                ob->cause_typed_damage(ob,ob->return_target_limb(),dam/2,"cold");
         }
         else
         {
-            tell_object(player,"%^BOLD%^%^RED%^"+ob->QCN+" is seared horribly by the flames!");
-            tell_object(ob,"%^BOLD%^%^RED%^You are seared horribly by the flames!");
-            tell_room(room,"%^BOLD%^%^RED%^"+ob->QCN+" is seared horribly by the flames!",({ player, ob}));
-            ob->cause_typed_damage(ob,ob->return_target_limb(),dam,"fire");
+            if(player->is_undead())
+            {
+                tell_object(player,"%^BOLD%^%^CYAN%^"+ob->QCN+" is horribly frozen by the frost!");
+                tell_object(ob,"%^BOLD%^%^CYAN%^You are horribly frozen by the frost!");
+                tell_room(room,"%^BOLD%^%^CYAN%^"+ob->QCN+" is horribly frozen by the frost!",({ player, ob}));
+                ob->cause_typed_damage(ob,ob->return_target_limb(),dam,"cold");
+            }
+            else
+            {
+                tell_object(player,"%^BOLD%^%^RED%^"+ob->QCN+" is seared horribly by the flames!");
+                tell_object(ob,"%^BOLD%^%^RED%^You are seared horribly by the flames!");
+                tell_room(room,"%^BOLD%^%^RED%^"+ob->QCN+" is seared horribly by the flames!",({ player, ob}));
+                ob->cause_typed_damage(ob,ob->return_target_limb(),dam,"fire");
+            }
         }
     }
 }
