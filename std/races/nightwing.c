@@ -4,7 +4,7 @@
 
 
 // Light aversion
-// This race will get -4 to attack, damage, saves, skills in anything above 0 light level.
+// This race will get -4 saves, skills in anything above 0 light level.
 // gains +8 to stealth in light -1 or below.
 // Race should be paired with undead template for all of the undead traits
 
@@ -23,12 +23,12 @@ int query_unbound_age()
 
 int unarmed_enchantment(object player)
 {
-    return player->query_base_character_level() / 8;
+    return player->query_base_character_level() / 6;
 }
 
 int *restricted_alignments(string subrace) { return ({ 9 }); }
 
-string *restricted_classes(string subrace) { return ({ "cleric", "ranger", "paladin", "inquisitor" }); }
+string *restricted_classes(string subrace) { return ({ "cleric", "ranger", "paladin", "inquisitor", "druid" }); }
 
 // this only affects rolling in creation; does not prevent dedication to a deity in-game, to allow for character evolution. N, 3/16.
 string *restricted_deities(string subrace) {
@@ -36,21 +36,21 @@ string *restricted_deities(string subrace) {
 }
 
 int *stat_mods(string subrace) { // stats in order: str, dex, con, int, wis, cha
-    return ({ 2, 0, 0, 0, -2, 2 });
+    return ({ 2, 4, 0, 0, -2, -2 });
 }
 
 mapping skill_mods(string subrace, object ob) { 
 
     if(total_light(environment(ob)) < 0)
-        return ([ "stealth" : 8, "academics": -2, "perception" : 2]); 
+        return ([ "stealth" : 8, "academics": -2, "perception" : 2]);
         
-    return ([ "stealth" : -2, "academics": -2, "perception" : -2]);
+    return ([ "stealth" : -4, "academics": -4, "perception" : -4]);
 }
 
 
 int natural_AC(string subrace) { return 18; }
 
-int sight_bonus(string subrace) { return 5; }
+int sight_bonus(string subrace) { return -5; }
 
 mapping daily_uses(string subrace) { return ([ "shadow travel" : 1,]); }
 
@@ -61,7 +61,7 @@ mapping query_racial_innate(string subrace) {
                     "fear"            : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
                     "alter self"      : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
                     "detect magic"    : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
-                    "invisibility "   : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),                    
+                    "invisibility"    : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),                    
                     "shadow travel"   : (["type" : "spell", "daily uses" : -1,"level required" : 0,]),
                     ]);
 }
@@ -172,4 +172,11 @@ int is_pk_race()
 string *query_languages(string subrace)
 {
     return (["required":({"common",}),"optional":({"undercommon","abyssal",})]);
+}
+
+int unarmed_damage_bonus(object me, object you)
+{
+    int level = me->query_character_level();
+    
+    return roll_dice(1 + level / 10, 6);
 }
