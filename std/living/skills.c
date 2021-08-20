@@ -418,6 +418,10 @@ int query_skill(string skill)
             mystat = "wisdom";
     }
     */
+    
+    if(this_object()->query_race() == "nightwing" && skill == "stealth")
+        if(total_light(environment(this_object())) < 0)
+            x += 8;
 
     mymod = ((int)this_object()->query_stats(mystat) - 10) / 2;
     x += mymod;

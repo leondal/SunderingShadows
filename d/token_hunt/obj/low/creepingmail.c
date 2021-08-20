@@ -66,15 +66,16 @@ int remove_fun() {
 }
 
 int struck_fun(int damage,object what,object who){
-   if(!random(5)){
+   if(!random(10)){
      tell_room(EETO,"%^WHITE%^%^BOLD%^"+ETOQCN+"'s suit of scalemail %^RESET%^%^BLUE%^ri%^BOLD%^p%^RESET%^%^BL"
 "UE%^ples%^BOLD%^%^WHITE%^ and seems to shift, deflecting "+who->QCN+"'s blow harmlessly aside!",({ETO,who}));
      tell_object(ETO,"%^WHITE%^%^BOLD%^The scales of your armor %^RESET%^%^BLUE%^ri%^BOLD%^p%^RESET%^%^BLUE%^"
 "ple %^BOLD%^%^WHITE%^and seems to shift, deflecting "+who->QCN+"'s blow harmlessly aside!%^RESET%^");
      tell_object(who,"%^WHITE%^%^BOLD%^The scales of "+ETOQCN+"'s armor %^RESET%^%^BLUE%^ri%^BOLD%^p%^RESET%^"
 "%^BLUE%^ple%^BOLD%^%^WHITE%^ and seems to shift, deflecting your blow harmlessly aside!%^RESET%^");
-     return (-1)*damage;
+     return 0;
    }
+   return damage;
 }
 
 int is_metal() { return 0; }
