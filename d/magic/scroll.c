@@ -238,7 +238,7 @@ int use_scroll(string str)
         return 0;
     }
 
-    player_classes = TP->query_classes();
+    player_classes = this_player()->query_classes();
     scroll_classes = keys(MAGIC_D->query_index_row(spell)["levels"]);
     lowest_spell_level = min(values(MAGIC_D->query_index_row(spell)["levels"]));
     highest_mental_stat = max(({this_player()->query_stats("intelligence"), this_player()->query_stats("wisdom"), this_player()->query_stats("charisma") })) - 10;
@@ -258,14 +258,6 @@ int use_scroll(string str)
         return 1;
     }
     
-    /*
-    if(this_player()->cooldown("use scroll"))
-    {
-        tell_object(this_player(), "You are still recovering from your last scroll failure.");
-        return 1;
-    }
-    */
-    
     valid = 0;
     rogue_clevel = 0;
     
@@ -282,6 +274,8 @@ int use_scroll(string str)
         valid = 0;
     
     lev = TO->query_clevel();
+    
+    tell_object(this_player(), "%^YELLOW%^VALID CLASS = %^RESET%^" + valid);
     
     if(!valid)
     {   
