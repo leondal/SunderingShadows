@@ -1353,6 +1353,7 @@ int get_hand_damage(object attacker, string limb1, int damage, object attacked)
 {
     string* attack_limbs = ({});
     mapping attack_funcs = ([]);
+    object file;
 
     if (!objectp(attacker)) {
         return 0;
@@ -1388,6 +1389,14 @@ int get_hand_damage(object attacker, string limb1, int damage, object attacked)
         seteuid(geteuid());
         return damage;
     }
+    
+    if(functionp(attack_funcs[limb1]))
+    {
+        file = load_object("/std/races/" + attacker->query_race() + ".c");
+        
+        if(objectp(file))
+            damage += file->unarmed_damage_bonus(attacker, attacked);
+    }   
 
     if (functionp(attack_funcs[limb1])) {
         damage += call_other(attacker, (*attack_funcs[limb1])(1), attacked);
