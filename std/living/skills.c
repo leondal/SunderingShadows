@@ -327,7 +327,7 @@ int query_skill(string skill)
     file = "/std/races/" + myrace + ".c";
 
     if (file_exists(file)) {
-        myraceskills = file->skill_mods(mysubrace);
+        myraceskills = file->skill_mods(mysubrace, this_object());
         if (myraceskills) {
             if (myraceskills[skill]) {
                 x += myraceskills[skill];
@@ -418,10 +418,6 @@ int query_skill(string skill)
             mystat = "wisdom";
     }
     */
-    
-    if(this_object()->query_race() == "nightwing" && skill == "stealth")
-        if(total_light(environment(this_object())) < 0)
-            x += 8;
 
     mymod = ((int)this_object()->query_stats(mystat) - 10) / 2;
     x += mymod;
