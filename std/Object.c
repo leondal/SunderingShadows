@@ -592,7 +592,7 @@ mixed query_property(string prop)
                 num += 8;
             }
         }
-        if(this_object()->is_shade())
+        if(this_object()->is_shade() || this_object()->query_race() == "nightwing")
         {
             num -= (total_light(environment(this_object())) - 1);
         }
@@ -774,7 +774,7 @@ mixed query_property(string prop)
         {
             num -= (2 * (total_light(environment(this_object())) - 1));
         }
-            
+                     
         if ((string)TO->query_race() == "human") {
             subrace = (string)TO->query("subrace");
             if (subrace) {
