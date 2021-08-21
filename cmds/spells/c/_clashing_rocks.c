@@ -53,7 +53,7 @@ void spell_effect(int prof)
         spell_successful();
         tell_object(target, "%^ORANGE%^%^BOLD%^You are hit by the giant rocks!\n");
         tell_room(place, "%^ORANGE%^%^BOLD%^" + target->QCN + " is hit by the giant rocks!", ({ caster, target }));
-        tell_object(caster, "%^BOLD%^%^BLACK%^The rocks clash together and crush" + target->QCN + "!\n");
+        tell_object(caster, "%^BOLD%^%^BLACK%^The rocks clash together and crush " + target->QCN + "!\n");
 
         // Ray of ending, WOK and this one should share disadvantage value
         if (combat_death_save(target, 0)) {
