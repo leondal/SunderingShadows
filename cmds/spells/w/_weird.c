@@ -46,7 +46,7 @@ void spell_effect(int prof)
         }
         define_base_damage(0);
         admg = sdamage;
-        if (do_save(target)) {
+        if (do_save(attackers[i])) {
             admg = admg / 2;
         }else {
             "/std/effect/status/cowering"->apply_effect(attackers[i], clevel / 18 + 1);
