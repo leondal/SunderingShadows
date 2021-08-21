@@ -12,7 +12,7 @@
 
 inherit FEAT;
 
-string *valid_types = ({ "ape", "badger", "bear", "bird", "boar", "camel", "cheetah", "crocodile", "dinosaur", "dog", "horse", "lion", "snake", "wolf", });
+string *valid_types = ({ "ape", "badger", "bear", "bird", "boar", "camel", "cheetah", "crocodile", "dinosaur", "dog", "horse", "lion", "snake", "wolf", "fox" });
 
 void create()
 {
