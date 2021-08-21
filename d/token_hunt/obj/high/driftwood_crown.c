@@ -1,5 +1,5 @@
 #include <std.h>
-inherit "/d/common/obj/armour/coif_leather";
+inherit "/d/common/obj/jewelry/circlet";
 
 void create(){
 	::create();
