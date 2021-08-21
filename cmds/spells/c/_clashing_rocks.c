@@ -40,20 +40,20 @@ void spell_effect(int prof)
     roll = BONUS_D->process_hit(caster, target, 1, 0, 0, 1);
 
     spell_kill(target, caster);
-    tell_object(caster, "%^BOLD%^As rocks grow large and float in the air, you propel them forcefully at " + target->QCN);
-    tell_room(place, "%^BOLD%^As rocks grow large and float in the air, " + caster->QCN + " propels them forcefully at " + target->QCN, caster);
+    tell_object(caster, "%^BOLD%^As the rocks grow large and float in the air, you propel them forcefully at " + target->QCN);
+    tell_room(place, "%^BOLD%^As the rocks grow large and float in the air, " + caster->QCN + " propels them forcefully at " + target->QCN, caster);
 
     if (!roll || roll == -1 && !caster->query_property("spectral_hand")) {
-        tell_object(target, "%^ORANGE%^You barely make an escape from rocks clashing at you!.");
-        tell_room(place, "%^ORANGE%^" + target->QCN + " barely makes an ascape from rocks clashing at them!", ({ caster, target }));
-        tell_object(caster, "%^ORANGE%^Propelled rocks missed  " + target->QCN + "!");
+        tell_object(target, "%^ORANGE%^You barely make an escape from the clashing rocks!.");
+        tell_room(place, "%^ORANGE%^" + target->QCN + " barely makes an escape from the clashing rocks!", ({ caster, target }));
+        tell_object(caster, "%^ORANGE%^The propelled rocks miss " + target->QCN + "!");
 
         TO->remove();
     } else {
         spell_successful();
         tell_object(target, "%^ORANGE%^%^BOLD%^You are hit by the giant rocks!\n");
         tell_room(place, "%^ORANGE%^%^BOLD%^" + target->QCN + " is hit by the giant rocks!", ({ caster, target }));
-        tell_object(caster, "%^BOLD%^%^BLACK%^Your ray of ending hits " + target->QCN + "!\n");
+        tell_object(caster, "%^BOLD%^%^BLACK%^The rocks clash together and crush" + target->QCN + "!\n");
 
         // Ray of ending, WOK and this one should share disadvantage value
         if (combat_death_save(target, 0)) {
