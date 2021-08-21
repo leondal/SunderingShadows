@@ -3306,7 +3306,7 @@ void internal_execute_attack(object who)
         
         if(surprise_accuracy)
         {
-            if(FEATS_D->usable_feat("deadly accuracy"))
+            if(FEATS_D->usable_feat(who, "deadly accuracy"))
                 temp1 = 20;
         }
 
@@ -3333,7 +3333,7 @@ void internal_execute_attack(object who)
                 critical_roll = roll;
                 if (!victim->query_property("no crit") && (!interactive(victim) || ((int)victim->query_level() > 5))) {
                     temp2 = BONUS_D->process_hit(who, victim, i, current);
-                    if (temp2 || temp1 >= 20) {
+                    if (temp2) {
                         who->adjust_combat_mapps("static vars", "critical hit", 1);
                         who->adjust_combat_mapps("static vars", "critical message", 1);
                         critical_hit = 1;
