@@ -27,7 +27,7 @@ void create()
 
     set_short("%^BOLD%^%^YELLOW%^Gr%^BOLD%^%^WHITE%^ea%^BOLD%^%^YELLOW%^t"+
     "%^BOLD%^%^WHITE%^e%^BOLD%^%^YELLOW%^r B%^BOLD%^%^WHITE%^a%^BOLD%^%^YELLOW%^"+
-    "nd %^BOLD%^%^WHITE%^O%^BOLD%^%^YELLOW%^f D%^BOLD%^%^WHITE%^e%^BOLD%^%^YELLOW%^"+
+    "nd %^BOLD%^%^WHITE%^o%^BOLD%^%^YELLOW%^f D%^BOLD%^%^WHITE%^e%^BOLD%^%^YELLOW%^"+
     "t%^BOLD%^%^WHITE%^e%^BOLD%^%^YELLOW%^ct%^BOLD%^%^WHITE%^io%^BOLD%^%^YELLOW%^n"+
     "%^RESET%^");
 
