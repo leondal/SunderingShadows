@@ -8,7 +8,7 @@ void create() {
     feat_category("Presence");
     feat_name("champion");
     feat_prereq("Paladin L20");
-    feat_desc("The paladin becomes a rallying beacon for her cause and an object of awe for her enemies. She has become a guardian of her home and a bane to all who would invade. This feat grants the paladin an additional 5 damage reduction against enemies of the opposing alignment. In addition, her smite now banishes the souls of outsiders, of the opposing alignment, back to their home planes.");
+    feat_desc("The paladin becomes a rallying beacon for her cause and an object of awe for her enemies. She has become a guardian of her home and a bane to all who would invade. This feat grants the paladin an additional 5 damage reduction against enemies of the opposing alignment. In addition, her smite now banishes the souls of outsiders, of the opposing alignment, back to their home plane on a failed fortitude save.");
     permanent(1);
     set_required_for(({}));
 }

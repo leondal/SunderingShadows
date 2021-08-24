@@ -34,8 +34,8 @@
                          "monstrous humanoids"   : ({ "monstrous humanoids", "beastkin", "wemic", "centaur", "ratkin", "minotaur", "gnoll", "kitsune", "werewolf", "wererat", "weretiger", "alaghi", "monstrous humanoid", }), \
                          "ogres"      : ({ "ogre", "ogre-mage", "half-ogre", "ogroid", }), \
                          "orcs"       : ({ "orc", "half-orc", "orog", "tanarukk", "orcoid", }), \
-                         "outsiders"  : ({ "deva", "solar", "aasimar", "angel", "demon", "devil", "imp", "tiefling", "githyanki", "githzerai", "outsider"  }), \
+                         "outsiders"  : ({ "deva", "solar", "aasimar", "angel", "demon", "devil", "imp", "tiefling", "githyanki", "githzerai", "outsider", "nightwing", "nightwalker", "shade" }), \
                          "plants" : ({ "plants", "shambler", "shambling mound", "tree", "vine", "plant"}), \
                          "smallfolk"  : ({ "gnome", "halfling", "kender", "derro", "pech", "smallfolk", }), \
-                         "undead"     : ({ "ghost", "skeleton", "lich", "zombie", "ghast", "entity", "spirit", "undead", "wraith", "wight" }), \
+                         "undead"     : ({ "ghost", "skeleton", "lich", "zombie", "ghast", "entity", "spirit", "undead", "wraith", "wight", "nightwalker", "nightwing" }), \
                      ])
