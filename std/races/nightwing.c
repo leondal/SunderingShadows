@@ -48,7 +48,7 @@ mapping skill_mods(string subrace, object ob) {
 }
 
 
-int natural_AC(string subrace) { return 18; }
+int natural_AC(string subrace) { return 10; }
 
 int sight_bonus(string subrace) { return -5; }
 
