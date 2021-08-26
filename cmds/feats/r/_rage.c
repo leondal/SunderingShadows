@@ -158,18 +158,18 @@ void activate_rage(int direction)
         mighty_rage(direction);
         break;
     }
-    
+
     if(!save_bonus)
         save_bonus = FEATS_D->usable_feat(caster, "indomitable will") * 2;
-    
+
     if(!unstop)
         unstop = FEATS_D->usable(caster, "unstoppable") * 2;
-    
+
     //MOON TOTEM
     if(FEATS_D->usable_feat(caster, "moon totem"))
     {
         caster->add_sight_bonus(direction * 8);
-        
+
         if(direction > 0)
             caster->set_property("darkvision", 1);
         else
@@ -194,7 +194,7 @@ void activate_rage(int direction)
 void simple_rage(int direction)
 {
     int amount;
-    
+
     amount = 2 + FEATS_D->usable_feat(caster, "reckless abandon");
     /*
     caster->add_stat_bonus("strength", 4 * direction);
@@ -211,7 +211,7 @@ void simple_rage(int direction)
 void greater_rage(int direction)
 {
     int amount;
-    
+
     amount = 3 + FEATS_D->usable_feat(caster, "reckless abandon");
     /*
     caster->add_stat_bonus("strength", 6 * direction);
@@ -235,7 +235,7 @@ void mighty_rage(int direction)
     */
     caster->add_attack_bonus(amount * direction);
     caster->add_damage_bonus(4 * direction);
-    caster->add_max_hp_bonus((flevel * 4 + unstop) * direction);    
+    caster->add_max_hp_bonus((flevel * 4 + unstop) * direction);
     caster->add_saving_bonus("will", (4 + save_bonus) * direction);
     caster->add_saving_bonus("fortitude", 4 * direction);
     caster->set_property("fast healing", 2 * direction);
@@ -269,7 +269,7 @@ void execute_attack()
         dest_effect();
         return;
     }
-    
+
     if(caster->query_bound() || caster->query_paralyzed())
         return;
 
@@ -282,17 +282,17 @@ void execute_attack()
             tell_room(place, cm(caster->QCN + "'s attacks become a frenzied blur."), caster);
             caster->execute_attack();
         }
-        if (!random(5)) {
-            tell_room(place, "%^BOLD%^%^WHITE%^" + caster->QCN + " takes on a ghostly appearance.", caster);
-            tell_object(caster, "%^BOLD%^%^WHITE%^You feel insubstantial as your rage continues.");
+        if (!random(20)) {
+            tell_room(place, "%^BOLD%^%^WHITE%^" + caster->QCN + " takes on an ethereal appearance.", caster);
+            tell_object(caster, "%^BOLD%^%^WHITE%^You feel the spirit realm as your rage continues.");
         }
     }
-    
+
     if(FEATS_D->usable_feat(caster, "animal fury"))
     {
         target = caster->query_current_attacker();
         enchant = COMBAT_D->unarmed_enchantment(caster) + BONUS_D->query_stat_bonus(caster, "strength");
-        
+
         if(target && thaco(target, enchant))
         {
             switch(random(4))
@@ -302,36 +302,36 @@ void execute_attack()
                 tell_object(target, "%^RESET%^%^RED%^" + caster->QCN + " %^RESET%^%^RED%^lets out a %^BOLD%^f%^MAGENTA%^e%^RED%^r%^MAGENTA%^a%^RED%^l snarl %^RESET%^%^RED%^as he drives his %^BOLD%^%^WHITE%^teeth %^RESET%^%^RED%^into you!%^RESET%^");
                 tell_room(place, "%^RESET%^%^RED%^" + caster->QCN + " %^RESET%^%^RED%^lets out a %^BOLD%^f%^MAGENTA%^e%^RED%^r%^MAGENTA%^a%^RED%^l snarl %^RESET%^%^RED%^as he drives his %^BOLD%^%^WHITE%^teeth %^RESET%^%^RED%^into " + target->QCN + "%^RESET%^%^RED%^!%^RESET%^", ({ caster, target }));
                 break;
-                
+
                 case 1:
                 tell_object(caster, "%^RESET%^%^MAGENTA%^As you close in combat, you take %^BOLD%^%^BLACK%^advantage %^RESET%^%^MAGENTA%^and %^BOLD%^%^WHITE%^bi%^RESET%^t%^BOLD%^e %^RESET%^%^MAGENTA%^into " + target->QCN + " %^BOLD%^%^RED%^viciously!%^RESET%^");
                 tell_object(target, "%^RESET%^%^MAGENTA%^As " + caster->QCN + " %^RESET%^%^MAGENTA%^closes with you, they take %^BOLD%^%^BLACK%^advantage %^RESET%^%^MAGENTA%^with a %^BOLD%^%^RED%^vicious %^WHITE%^bi%^RESET%^t%^BOLD%^e%^RED%^!%^RESET%^");
                 tell_room(place, "%^RESET%^%^MAGENTA%^As " + caster->QCN + " %^RESET%^%^MAGENTA%^closes with " + target->QCN + "%^RESET%^%^MAGENTA%^, they take %^BOLD%^%^BLACK%^advantage %^RESET%^%^MAGENTA%^with a %^BOLD%^%^RED%^vicious %^WHITE%^bi%^RESET%^t%^BOLD%^e%^RED%^!%^RESET%^", ({ target, caster }));
                 break;
-                
+
                 case 2:
                 tell_object(caster, "%^BOLD%^%^BLACK%^You lock with " + target->QCN + "%^BOLD%^%^BLACK%^, %^RESET%^%^RED%^lunging %^BOLD%^%^BLACK%^forward to drive your %^WHITE%^tee%^RESET%^t%^BOLD%^h %^BLACK%^into %^RESET%^%^ORANGE%^soft flesh%^BOLD%^%^BLACK%^!%^RESET%^");
                 tell_object(target, "%^BOLD%^%^BLACK%^" + caster->QCN + " %^BOLD%^%^BLACK%^locks with you, %^RESET%^%^RED%^lunging %^BOLD%^%^BLACK%^forward to drive their %^WHITE%^tee%^RESET%^t%^BOLD%^h %^BLACK%^into %^RESET%^%^ORANGE%^soft flesh%^BOLD%^%^BLACK%^!%^RESET%^");
                 tell_room(place, "%^BOLD%^%^BLACK%^" + caster->QCN + " %^BOLD%^%^BLACK%^locks with " + target->QCN + "%^BOLD%^%^BLACK%^, %^RESET%^%^RED%^lunging %^BOLD%^%^BLACK%^forward to drive their %^WHITE%^tee%^RESET%^t%^BOLD%^h %^BLACK%^into %^RESET%^%^ORANGE%^soft flesh%^BOLD%^%^BLACK%^!%^RESET%^", ({ caster, target }));
                 break;
-                
+
                 default:
                 tell_object(caster, "%^RESET%^%^ORANGE%^You sink your %^BOLD%^%^WHITE%^tee%^RESET%^t%^BOLD%^h %^RESET%^%^ORANGE%^into " + target->QCN + "%^RESET%^%^ORANGE%^, %^RED%^ripping %^ORANGE%^free with a %^BOLD%^%^RED%^go%^MAGENTA%^u%^RED%^t of %^MAGENTA%^b%^RED%^lo%^MAGENTA%^o%^RED%^d %^RESET%^%^ORANGE%^in the air!%^RESET%^");
                 tell_object(target, "%^RESET%^%^ORANGE%^" + caster->QCN + " %^RESET%^%^ORANGE%^sinks thier %^BOLD%^%^WHITE%^tee%^RESET%^t%^BOLD%^h %^RESET%^%^ORANGE%^into you, %^RED%^ripping %^ORANGE%^free with a %^BOLD%^%^RED%^go%^MAGENTA%^u%^RED%^t of %^MAGENTA%^b%^RED%^lo%^MAGENTA%^o%^RED%^d %^RESET%^%^ORANGE%^in the air!%^RESET%^");
                 tell_room(place, "%^RESET%^%^ORANGE%^" + caster->QCN + " %^RESET%^%^ORANGE%^sinks thier %^BOLD%^%^WHITE%^tee%^RESET%^t%^BOLD%^h %^RESET%^%^ORANGE%^into " + target->QCN + "%^RESET%^%^ORANGE%^, %^RED%^ripping %^ORANGE%^free with a %^BOLD%^%^RED%^go%^MAGENTA%^u%^RED%^t of %^MAGENTA%^b%^RED%^lo%^MAGENTA%^o%^RED%^d %^RESET%^%^ORANGE%^in the air!%^RESET%^", ({ caster, target }));
                 break;
             }
-            
+
             dam = (roll_dice(1, 6) * (1 + flevel /  10)) + enchant;
             caster->cause_typed_damage(target,target->return_target_limb(),dam ,"piercing");
         }
     }
-    
+
     if(FEATS_D->usable_feat(caster, "beast totem"))
     {
         target = caster->query_current_attacker();
         enchant = COMBAT_D->unarmed_enchantment(caster);
-        
+
         if(target && thaco(target, enchant))
         {
             tell_object(caster, "%^YELLOW%^You rake your claws across " + target->QCN + "'s chest!");
@@ -340,7 +340,7 @@ void execute_attack()
             dam = (roll_dice(1, 6) * (1 + flevel / 10)) + enchant;
             caster->cause_typed_damage(target, target->return_target_limb(), dam, "slashing");
         }
-    }   
+    }
 
     if (objectp(place)) {
         place->addObjectToCombatCycle(TO, 1);

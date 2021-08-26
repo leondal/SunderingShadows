@@ -37,7 +37,7 @@ void spell_effect(int prof)
     prevlight=place->query_light();
     if(prevlight<1)
         place->set_light(1);
-    counter = clevel * 2;
+    counter = clevel * 3;
     place->set_property("spelled", ({ this_object() }) );
     caster->set_property("spelled",({ this_object() }));
     addSpellToCaster();
@@ -76,7 +76,7 @@ void execute_attack()
             "/std/effect/status/dazzled"->apply_effect(foes[i],1);
         }
         tell_object(targ,"%^BOLD%^%^WHITE%^The brightness threatens to dazzle you!");
-        
+
         if(foes[i]->is_undead())
         {
             sdamage = (sdamage * 5) / 4;

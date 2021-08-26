@@ -561,7 +561,7 @@ int* calc_weight(object play, int wpct)
 // 12/31/2003 - garrett
 string* night_races()
 {
-    return ({ "drow", "half-drow", "bugbear", "kobold", "hobgoblin", "gnoll", "orc", "lich", "ogre", "ogre-mage", "goblin", "minotaur", "ratkin", "troll"});
+    return ({ "drow", "half-drow", "bugbear", "kobold", "hobgoblin", "gnoll", "orc", "lich", "ogre", "ogre-mage", "goblin", "minotaur", "ratkin", "troll", "nightwing"});
 }
 
 string* list_base_classes()

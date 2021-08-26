@@ -180,6 +180,14 @@ WOODWORK = ([
                 "wand":(["file":COMMONFILE"weapon/wand","units":1,"type":"weapon"]),
                 "scroll case":(["file":COMMONFILE"misc/scroll_case","units":3,"type":"carving"]),
 				"statue":(["file":COMMONFILE"rand/statue","units":1,"type":"carving"]),
+
+                "anklet":(["file":COMMONFILE"jewelry/anklet","units":2]),
+                "bracelet":(["file":COMMONFILE"jewelry/bracelet","units":2]),
+                "bracers":(["file":COMMONFILE"armour/bracers","units":3]),
+                "circlet":(["file":COMMONFILE"jewelry/circlet","units":2]),
+                "necklace":(["file":COMMONFILE"jewelry/necklace","units":2]),
+                "ring":(["file":COMMONFILE"jewelry/ring","units":2]),
+                "pin":(["file":COMMONFILE"jewelry/pin","units":2]),
                 ]);
 
 #define CRAFT_TO_CHECK ([ "woodworker" : WOODWORK, "weaponsmith" : WEAPONSMITH, "jeweller" : JEWEL, \

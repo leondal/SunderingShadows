@@ -1830,6 +1830,9 @@ int query_attack_bonus()
 
     if(FEATS_D->usable_feat(TO, "slay the undead") && attacker && attacker->is_undead())
         ret += 2;
+    
+    if(this_object()->query_race() == "nightwing" && total_light(environment(this_object())) > -1)
+        ret -= 4;
 
     return ret;
 }
@@ -1912,6 +1915,9 @@ int query_damage_bonus()
                 ret += 2;
         }
     }
+    
+    if(this_object()->query_race() == "nightwing" && total_light(environment(this_object())) > -1)
+        ret -= 4;
 
     return ret;
 }

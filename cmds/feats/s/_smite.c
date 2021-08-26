@@ -127,7 +127,8 @@ void execute_attack()
         if(FEATS_D->usable_feat(caster, "champion"))
         {
             if(member_array(target->query_race(), VALID_ENEMY["outsiders"]) >= 0 && 
-            !userp(target) && 
+            !userp(target) &&
+            !fort_save(target) && 
             caster->query_level() + 10 >= target->query_level())
             {
                 tell_object(caster, "You smite your opponent, banishing their soul back to their home plane!");

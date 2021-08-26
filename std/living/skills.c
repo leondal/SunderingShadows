@@ -327,7 +327,7 @@ int query_skill(string skill)
     file = "/std/races/" + myrace + ".c";
 
     if (file_exists(file)) {
-        myraceskills = file->skill_mods(mysubrace);
+        myraceskills = file->skill_mods(mysubrace, this_object());
         if (myraceskills) {
             if (myraceskills[skill]) {
                 x += myraceskills[skill];

@@ -48,7 +48,7 @@ string query_cast_string()
 
 void spell_effect(int prof)
 {
-    duration = (ROUND_LENGTH * clevel)/2;
+    duration = (ROUND_LENGTH * clevel) * 3;
     tell_room(place,"%^YELLOW%^"+caster->QCN+" stomps "+caster->QP+" "+
         "foot, and the %^BLACK%^ground%^YELLOW%^ rumbles ominously"+
         "!%^RESET%^",caster);

@@ -35,7 +35,7 @@ string query_cast_string(){
 }
 
 void spell_effect(int prof){
-   duration = (ROUND_LENGTH * clevel)/2;
+   duration = (ROUND_LENGTH * clevel) * 3;
    tell_object(caster,"%^RESET%^%^RED%^You find the flaw in reality you seek and reach past it, and the air around you takes on an ominous %^BOLD%^%^RED%^glow%^RESET%^%^RED%^!%^RESET%^");
    tell_room(PLACE,"%^RESET%^%^RED%^"+caster->QCN+"'s attention snaps sharply back to reality, and the air around you takes on an ominous %^BOLD%^%^RED%^glow%^RESET%^%^RED%^!%^RESET%^",caster);
     PLACE->set_property("spelled", ({TO}));

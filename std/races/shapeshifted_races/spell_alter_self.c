@@ -4,6 +4,9 @@
 #include <daemons.h>
 inherit SHAPESHIFT;
 
+int height, weight;
+object file;
+
 void create(){
     ::create();
     set_ac_bonus(0);
@@ -70,10 +73,26 @@ int init_shape(object obj,string str){
     obj->set("relationship_profile",shape->query_shape_profile());
     obj->add_id(shape->query_shape_race());
 
+    height = obj->query_player_height();
+    weight = obj->query_player_weight();
+    
+    /*
     if(userp(obj)){
         shape->set_shape_height(obj->query_player_height());
         shape->set_shape_weight(obj->query_player_weight());
     }
+    */
+
+    if(userp(obj))
+    {
+        if(file = find_object("/std/races/" + str + ".c"))
+        {
+            weight = file->weight_base(obj->query_gender());
+            height = file->height_base(obj->query_gender());
+            shape->set_shape_weight(weight);
+            shape->set_shape_height(height);
+        }
+    }    
 
     if(objectp(to_object(DESC_D)))     {
         desc = new(DESC_D); //

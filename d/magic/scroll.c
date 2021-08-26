@@ -7,6 +7,7 @@ string spell, * readpassed;
 mapping readfailed;
 
 #define SCRL_CLASSES ({"bard", "mage", "cleric", "druid", "inquisitor", "paladin", "ranger", "magus"})
+#define DEBUG 0
 
 /**
  * @file
@@ -238,12 +239,12 @@ int use_scroll(string str)
         return 0;
     }
 
-    player_classes = TP->query_classes();
+    player_classes = this_player()->query_classes();
     scroll_classes = keys(MAGIC_D->query_index_row(spell)["levels"]);
     lowest_spell_level = min(values(MAGIC_D->query_index_row(spell)["levels"]));
     highest_mental_stat = max(({this_player()->query_stats("intelligence"), this_player()->query_stats("wisdom"), this_player()->query_stats("charisma") })) - 10;
 
-    if (TP->query_property("shapeshifted")) {
+    if (this_player()->query_property("shapeshifted")) {
         tell_object(TP, "You can't read scrolls while shapeshifted.");
         return 1;
     }
@@ -258,20 +259,24 @@ int use_scroll(string str)
         return 1;
     }
     
-    /*
-    if(this_player()->cooldown("use scroll"))
-    {
-        tell_object(this_player(), "You are still recovering from your last scroll failure.");
-        return 1;
-    }
-    */
-    
     valid = 0;
     rogue_clevel = 0;
     
     foreach(string cls in player_classes)
     {
-        if(member_array(cls, scroll_classes) >= 0)
+        string temp;
+        
+        temp = cls;
+        
+        if(temp == "sorcerer")
+            temp = "mage";
+        
+        if(temp == "oracle")
+            temp = "cleric";
+        
+        //tell_object(this_player(), "%^MAGENTA%^BOLD%^Checking class : " + temp);
+        
+        if(member_array(temp, scroll_classes) >= 0)
             valid = 1;
     }
     
@@ -282,6 +287,8 @@ int use_scroll(string str)
         valid = 0;
     
     lev = TO->query_clevel();
+    
+    //tell_object(this_player(), "%^YELLOW%^VALID CLASS = %^RESET%^" + valid);
     
     if(!valid)
     {   

@@ -1353,6 +1353,7 @@ int get_hand_damage(object attacker, string limb1, int damage, object attacked)
 {
     string* attack_limbs = ({});
     mapping attack_funcs = ([]);
+    object file;
 
     if (!objectp(attacker)) {
         return 0;
@@ -1388,6 +1389,14 @@ int get_hand_damage(object attacker, string limb1, int damage, object attacked)
         seteuid(geteuid());
         return damage;
     }
+    
+    if(functionp(attack_funcs[limb1]))
+    {
+        file = load_object("/std/races/" + attacker->query_race() + ".c");
+        
+        if(objectp(file))
+            damage += file->unarmed_damage_bonus(attacker, attacked);
+    }   
 
     if (functionp(attack_funcs[limb1])) {
         damage += call_other(attacker, (*attack_funcs[limb1])(1), attacked);
@@ -3273,7 +3282,7 @@ void internal_execute_attack(object who)
         {
             if(FEATS_D->usable_feat(who, "surprise accuracy"))
             {
-                if(100 + who->query_class_level("barbarian") > random(1000))
+                if(100 + (who->query_class_level("barbarian") * 2) > random(1000))
                 {
                     surprise_accuracy = 1 + who->query_class_level("barbarian") / 10;
                 }
@@ -3294,11 +3303,11 @@ void internal_execute_attack(object who)
         if (FEATS_D->usable_feat(who, "lethal strikes")) {
             temp1 *= 2;
         }
-
+        
         if(surprise_accuracy)
         {
-            if(FEATS_D->usable_feat("deadly accuracy"))
-                temp1 += surprise_accuracy;
+            if(FEATS_D->usable_feat(who, "deadly accuracy"))
+                temp1 = 20;
         }
 
         if (victim->query_property("fortification 75")) {

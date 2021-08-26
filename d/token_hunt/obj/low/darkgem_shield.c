@@ -53,7 +53,7 @@ int remove_func(){
 }
 
 int strike_func(int damage, object what, object who){
-	if(random(1000) < 250){
+	if(!random(10)){
 	tell_room(environment(query_worn()),"%^RESET%^%^BLUE%^The %^RED%^rubies %^BLUE%^of "+ETOQCN+"'s %^RESET%^"+query_short()+" %^RESET%^%^BLUE%^suddenly spark and a field of protection swirls around them!  "+ETOQCN+"'s attack is easily deflected!",({ETO,who}));
 	tell_object(ETO,"%^RESET%^%^BLUE%^The %^RED%^rubies %^BLUE%^of your %^RESET%^"+query_short()+" %^RESET%^%^BLUE%^suddenly spark and a field of protection swirls around you!  "+who->QCN+"'s attack is easily deflected!");
 	tell_object(who,"%^RESET%^%^BLUE%^The %^RED%^rubies %^BLUE%^of "+ETOQCN+"'s %^RESET%^"+query_short()+" %^RESET%^%^BLUE%^suddenly spark and a field of protection swirls around them!  Your attack is easily deflected!");
@@ -61,6 +61,7 @@ int strike_func(int damage, object what, object who){
 //the above was doing nothing
     return 0;
    }
+   return damage;
 }
 
 int is_metal() { return 0; }

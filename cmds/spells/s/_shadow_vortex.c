@@ -33,7 +33,7 @@ string query_cast_string()
 void spell_effect(int prof)
 {
     tell_room(place,"%^MAGENTA%^Multiple shadow vertices pop into existence.%^RESET%^");
-    counter = clevel/2;
+    counter = clevel * 3;
     addSpellToCaster();
     spell_successful();
     execute_attack();

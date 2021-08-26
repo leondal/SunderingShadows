@@ -4,10 +4,10 @@ inherit OBJECT;
 
 object spell_ob;
 string spell, args;
-int prof,flag=0;
+int prof,level,flag=0;
 
 
-void create() 
+void create()
 {
     ::create();
     set_name("spellstaff");
@@ -28,7 +28,7 @@ int clean_up()
 }
 
 
-void init() 
+void init()
 {
     ::init();
     add_action("now","now");
@@ -39,6 +39,7 @@ set_prof(int i) { prof = i; }
 int get_prof() { return prof; }
 set_spell(string xxx) { spell = xxx; }
 set_args(string arg) { args = arg; }
+set_clevel(int i) { level = i; }
 int save_me(string str) { return 1; }
 int drop() { return 1; }
 int is_detectable() { return 0; }
@@ -67,11 +68,10 @@ int has_staff(object tp)
 }
 
 
-int now() 
+int now()
 {
     object spellobj;
 
-    int level;
     if(!spell) return 0;
     if(flag) return 0;
     flag = 1;
@@ -82,41 +82,39 @@ int now()
         remove();
         return 1;
     }
-    
-    level = TP->query_guild_level("druid");
 
     spellobj = new(spell);
 
-    if(prof >= 100) 
+    if(prof >= 100)
     {
-        if(!stringp(args)) 
+        if(!stringp(args))
         {
             spellobj->use_spell(TP,TP->query_name(),level, prof);
         }
-        else 
+        else
         {
             spellobj->use_spell(TP,args,level, prof);
         }
     }
 
-    else if(prof < random(100)) 
+    else if(prof < random(100))
     {
-        if(!stringp(args)) 
+        if(!stringp(args))
         {
             spellobj->use_spell(TP,TP->query_name(),level, prof);
         }
-        else 
+        else
         {
             spellobj->use_spell(TP,args,level, prof);
         }
     }
-    else 
+    else
     {
-        if(!stringp(args)) 
+        if(!stringp(args))
         {
             spellobj->use_spell(TP,TP->query_name(),level, prof);
         }
-        else 
+        else
         {
             spellobj->use_spell(TP,args,level, prof);
         }
