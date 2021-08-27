@@ -17,14 +17,14 @@ set_id(({"Emerald gem","Gem","gem","emerald","Gem","emerald gem","powergem","pow
    set_obvious_short("%^RESET%^%^GREEN%^a large e%^BOLD%^m%^RESET%^"+
       "%^GREEN%^e%^BOLD%^r%^RESET%^%^GREEN%^a%^BOLD%^ld%^RESET%^");
    set_lore("The legendary Emerald of Power is said to make the weak "+
-      "strong the slow fast, the cowardly brave.  He who possesses this "+
-	  "item is said to become strong, fast, and skilled in weaponry.  "+
+      "strong, the slow fast, and the cowardly brave. He who possesses this "+
+	  "item is said to become strong, fast, and skilled in weaponry. "+
 	  "There is no true proof, but the historical references are "+
-	  "consistent.  It is rumored that gems of this type hail from "+
+	  "consistent. It is rumored that gems of this type hail from "+
 	  "the Inner Planes, and that the emerald variety are especially "+
 	  "coveted by Geonslu, the draconic queen of Tonerra.");
    set_long("%^RESET%^%^GREEN%^This roughly-hewn emerald is about the "+
-      "size of a grapefruit.  It sparkles with an alluring light that "+
+      "size of a grapefruit. It sparkles with an alluring light that "+
 	  "originates deep within the gem...%^RESET%^");
    //set_weight(25);
    set_weight(10); // changing weight along with other encumbrance changes -Ares
