@@ -29,6 +29,7 @@ void create()
     feat_syntax("smite [TARGET]");
     feat_prereq("Paladin L1");
     feat_classes("paladin");
+    set_save("fort");
     feat_desc("With this feat, the paladin calls out to the powers of her beliefs to aid her in battle against those who oppose those beliefs. This results in an initial burst of divine damage against her primary attacker. If that enemy is of an opposed alignment, the damage is increased and the enemy becomes vulnerable to the paladin's attacks. For a few rounds, the paladin's attacks do additional damage based on her charisma modifier. Smite costs one Divine Grace point to use.");
 }
 
@@ -128,7 +129,7 @@ void execute_attack()
         {
             if(member_array(target->query_race(), VALID_ENEMY["outsiders"]) >= 0 && 
             !userp(target) &&
-            !fort_save(target) && 
+            !do_save(target, 0) && 
             caster->query_level() + 10 >= target->query_level())
             {
                 tell_object(caster, "You smite your opponent, banishing their soul back to their home plane!");
