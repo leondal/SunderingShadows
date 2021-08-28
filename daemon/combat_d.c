@@ -2420,7 +2420,7 @@ void set_paralyzed(object who, int x, string paralyze_msg)
         message("my_action", "Your Archhood just saved you from being paralyzed.", who);
         return;
     }
-    if (who->query_property("no paralyze") || PLAYER_D->immunity_check("paralysis")) {
+    if (who->query_property("no paralyze") || PLAYER_D->immunity_check(who, "paralysis")) {
         message("my_action", "You are uneffected by the paralysis.", who);
         if (objectp(environment(who)) && !who->query_invis()) {
             tell_room(environment(who), who->QCN + " %^BOLD%^%^GREEN%^is totally uneffected by " +
