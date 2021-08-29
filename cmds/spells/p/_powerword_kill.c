@@ -18,6 +18,7 @@ void create() {
     set_spell_sphere("enchantment_charm");
     set_syntax("cast CLASS powerword kill on TARGET");
     set_damage_desc("untyped");
+    set_save("fortitude");
     set_description("The caster utters a word of power which seeks to unravel the very nature of the target. Any target with less than 75% of their maximum health must make a death save or be immediately killed. Otherwise, the target takes the half normalized untyped spell damage. All other enemies must also make a death save if their health is below 25%. They otherwise take 1/4 normalized untyped spell damage.");
     mental_spell();
     set_verbal_comp();
@@ -36,7 +37,7 @@ void spell_effect(int prof)
     int difflevel, myoutput, mydmg;
     object *targets;
 
-    if (!present(target,environment(caster)))
+    if (!target || !present(target,environment(caster)))
     {
         tell_object(caster,"%^BOLD%^Your target is not in this area.\n");
         dest_effect();
