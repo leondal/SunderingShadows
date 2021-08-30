@@ -29,4 +29,5 @@
   "dragon",\
   "fey,ri",\
   "troll",\
-  "ratkin"})
+  "ratkin"\
+  "nightwing"})

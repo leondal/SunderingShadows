@@ -35,7 +35,7 @@ string query_cast_string(){
 }
 
 void spell_effect(int prof){
-   duration = (ROUND_LENGTH * clevel)/2;
+   duration = (ROUND_LENGTH * clevel) * 2;
    tell_object(caster,"%^GREEN%^Weaving threads of planar energy into the illusion, you shape a terrifying d%^CYAN%^re%^GREEN%^am%^CYAN%^sc%^GREEN%^ap%^CYAN%^e%^GREEN%^ and interpose it upon reality!%^RESET%^");
    tell_room(PLACE,"%^GREEN%^"+caster->QCN+" completes "+caster->QP+" spell, as the world around you suddenly descends into a state of %^BLUE%^n%^CYAN%^ig%^BLUE%^htm%^MAGENTA%^a%^BLUE%^re%^GREEN%^!%^RESET%^",caster);
    caster->set_property("spelled", ({TO}));

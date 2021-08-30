@@ -124,6 +124,7 @@ void spell_effect(int prof)
     cont->set_prof(100);
     cont->set_spell(spell);
     cont->set_args(args);
+    cont->set_clevel(clevel);
     cont->set_spell_ob(TO);
     cont->move(caster);
 

@@ -31,6 +31,9 @@ void spell_effect()
     mapping info;
     string pname, wname, pposs;
 
+    if(!caster || !arg)
+        return;
+    
     weapon = present(arg, caster);
 
     if(!objectp(weapon))

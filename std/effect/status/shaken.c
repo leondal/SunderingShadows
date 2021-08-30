@@ -22,6 +22,11 @@ void status_effect()
         return;
     }
 
+    if (LIVING_D->immunity_check(target, "fear")) {
+        TO->remove();
+        return;
+    }
+
     if (target->query_property("mind_immunity")) {
         int roll = roll_dice(1, 20);
         if (roll < target->query_property("mind_immunity") && roll != 20) {

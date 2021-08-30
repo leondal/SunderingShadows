@@ -232,7 +232,7 @@ string file,myname;
    myname = TP->query_name();
    myname += "_";
    myname += str;
-   file = "/d/attaya/newseneca/obj/tattoos/"+myname+".c";
+   file = "/d/save/tattoos/"+myname+".c";
    if(file_exists(file)){
 tell_object(TP,"That file already exists!  Try ordering "+
    "again with a different file name.");

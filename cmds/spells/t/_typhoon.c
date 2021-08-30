@@ -28,7 +28,7 @@ void spell_effect(int prof)
 {
     tell_object(caster, "%^CYAN%^You raise your hand to the a%^BOLD%^i%^RESET%^%^CYAN%^r and clench your fist. A %^BOLD%^%^BLACK%^h%^RESET%^%^CYAN%^e%^BOLD%^l%^RESET%^%^CYAN%^ix of %^BOLD%^%^BLACK%^w%^RESET%^%^CYAN%^in%^BOLD%^d %^RESET%^%^CYAN%^and %^BOLD%^w%^RESET%^%^CYAN%^a%^BOLD%^t%^RESET%^%^CYAN%^er forms around it, quckly grows to cover the area.%^WHITE%^");
     tell_room(place, "%^CYAN%^" +caster->QCN+" raises " +caster->QP+" hand to the a%^BOLD%^i%^RESET%^%^CYAN%^r and clenches " +caster->QP+" fist. A %^BOLD%^%^BLACK%^h%^RESET%^%^CYAN%^e%^BOLD%^l%^RESET%^%^CYAN%^ix of %^BOLD%^%^BLACK%^w%^RESET%^%^CYAN%^in%^BOLD%^d %^RESET%^%^CYAN%^and %^BOLD%^w%^RESET%^%^CYAN%^a%^BOLD%^t%^RESET%^%^CYAN%^er forms around it, quckly grows to cover the area.%^WHITE%^", caster);
-    counter = clevel * 3 / 2;
+    counter = clevel * 3;
     addSpellToCaster();
     spell_successful();
     execute_attack();

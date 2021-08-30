@@ -7,10 +7,10 @@ void create()
 {
     ::create();
     feat_type("permanent");
-    feat_category("DamageResistance");
-    feat_name("damage reduction");
-    feat_prereq("Barbarian L10");
-    feat_desc("Starting at L10 barbarian will subtract a point for every six barbarian levels above level ten from damage taken from a weapon or natural attack.");
+    feat_category("RagePower");
+    feat_name("unrestrained rage");
+    feat_prereq("Barbarian");
+    feat_desc("While raging, the barbarian gains immunity to paralysis.");
     permanent(1);
 }
 
@@ -20,15 +20,13 @@ int prerequisites(object ob)
 {
     if(!objectp(ob)) { return 0; }
 
-    if(ob->query_class_level("barbarian") < 10)
+    if(!ob->is_class("barbarian"))
     {
         dest_effect();
         return 0;
     }
-
     return ::prerequisites(ob);
 }
-
 
 void execute_feat()
 {

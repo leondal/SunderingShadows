@@ -51,6 +51,20 @@ void spell_effect(int prof)
        
     spell_successful();
     
+    if(!objectp(target) || place != environment(target))
+        return;
+    
+    if(member_array(target, caster->query_attackers()) >= 0)
+    {
+        roll = (int)BONUS_D->process_hit(caster, target, 1, 0, 0, 1);
+    
+        if(roll < 1 && !caster->query_property("spectral_hand"))
+        {
+            tell_object(caster, "You try to grasp " + target->QCN + " but miss!");
+            return;
+        }
+    }
+    
     tell_object(caster, "%^ORANGE%^You reach out and grasp " + target->QCN + " with a glowing hand, imbuing them with the balance of law!%^RESET%^");
     tell_room(place, "%^ORANGE%^" + caster->QCN + " reaches out with " + caster->QP + " hand, grasping " + target->QCN + " with a swirl of balancing energy!%^RESET%^", ({ caster })); 
     

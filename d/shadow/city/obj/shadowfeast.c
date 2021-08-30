@@ -17,7 +17,7 @@ void create()
 		"From the color and quality, it was clearly gathered from tables across "+
 		"the city. The stall's constant use means that there is never time to "+
 		"clean up the many spills and crumbs that cover it. On top are "+
-		" woooden plates, wooden and clay bowls, more cloths for holding food, "+
+		" wooden plates, wooden and clay bowls, more cloths for holding food, "+
 		"and iron pots of bland soups, stews of strange tubers, and hard, plain bread."+
 		" Jugs of water and watered down wine dot the stall, refilling from wooden"+
 		" barrels sitting back near the volunteers and dead-eyed civil servants."+

@@ -293,7 +293,7 @@ int query_max_mon_dam(string limb, string b_type) {
 int can_fly(object ob)
 {
 
-    string* flyraces = ({ "deva", "faery"});
+    string* flyraces = ({ "deva", "faery", "nightwing"});
     string* flysubraces = ({ "fey'ri", "rock gnome", "trixie", "sildruath",});
     string* flyprofiles = ({ "druid_bird_999", "druid_dragon_999", "mage_red_dragon_999", "mage_demon_999", "vampire_bat_999", "vampire_vampire_999", "vampire_varghulf_999", "mage_pixie_999" });
 

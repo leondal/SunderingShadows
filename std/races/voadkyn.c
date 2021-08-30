@@ -127,7 +127,7 @@ mapping weight_values(string gender, int height)
     return map;
 }
 
-string *query_hair_colors(string who) { return ({"bald"}); }
+string *query_hair_colors(string who) { return ({"bald", "brown", "black", "auburn", "green", "ebony", "blonde"}); }
 
 string *query_eye_colors(string subrace) {
     string *choices = ({});

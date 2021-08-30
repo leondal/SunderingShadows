@@ -139,6 +139,15 @@ int cmd_cast(string str)
             return 1;
         }
     }
+    
+    if(type == "druid")
+    {
+        if(this_player()->query_property("negative energy affinity"))
+        {
+            tell_object(this_player(), "Your negative energy affinity has severed your tie to nature.");
+            return 1;
+        }
+    }
 
     if (type == "monk") {
         known = TP->query_ki_spells();

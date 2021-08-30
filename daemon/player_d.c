@@ -561,7 +561,7 @@ int* calc_weight(object play, int wpct)
 // 12/31/2003 - garrett
 string* night_races()
 {
-    return ({ "drow", "half-drow", "bugbear", "kobold", "hobgoblin", "gnoll", "orc", "lich", "ogre", "ogre-mage", "goblin", "minotaur", "ratkin", "troll"});
+    return ({ "drow", "half-drow", "bugbear", "kobold", "hobgoblin", "gnoll", "orc", "lich", "ogre", "ogre-mage", "goblin", "minotaur", "ratkin", "troll", "nightwing"});
 }
 
 string* list_base_classes()
@@ -804,7 +804,18 @@ int immunity_check(object obj, string type)
     }
     
     break;
-
+    
+    case "paralysis":
+    {
+        if(obj->is_class("barbarian"))
+        {
+            if(obj->query_property("raged") && FEATS_D->has_feat(obj, "unrestrained rage"))
+                return 1;
+        }
+    
+        return 0;
+    }
+    break;
 
     default:
         return 0;

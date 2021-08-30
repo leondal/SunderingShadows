@@ -44,6 +44,9 @@ void init()
 
 int wear_it()
 {
+    if(ETO->is_monster()){
+        return 1;
+    }
     if (member_array("%^BOLD%^%^RED%^Defeated the great red wyrm Klauth!%^RESET%^", ETO->query_mini_quests()) == -1) {
         tell_object(ETO, "You have not earned the right to make use of this item.");
         return 0;

@@ -273,7 +273,7 @@ int search_piles()
   object ob;
   if (!objectp(TO)||!objectp(TP)){return 0;}
   if (piles_searched>2) {
-   tell_object(TP,"The coice things have been taken from the piles"
+   tell_object(TP,"The choice things have been taken from the piles"
                  +" already");
    tell_room(TO, TPQCN + " searches through the piles of coin but doesn't"
                 +" seem to find anything of interest",TP);
