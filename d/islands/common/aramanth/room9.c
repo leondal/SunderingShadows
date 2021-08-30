@@ -62,7 +62,7 @@ int say(string str)
 {
     str = filter_array(str, "filter_colors",FILTERS_D);
     str = lower_case(str);
-    if(strsrch(str, "ashtar volkerps autarkis callista") != -1 || strsrch(str, "ashtar volkerps autarkis callista") != -1)
+    if(strsrch(str, "ashtar volkerps autarkis callista") != -1)
     {
         tell_object(TP, "You speak the names...\n""%^CYAN%^The ground begins to tremble.\n""%^BOLD%^%^BLUE%^Lightning strikes the "
             "four obelisks!\n""%^WHITE%^The disc begins to glow and you suddenly feen an intense heat!");
