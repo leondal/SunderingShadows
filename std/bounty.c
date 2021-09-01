@@ -67,9 +67,9 @@ int read(string str){
     }
     if (str == "sign") {
         write("%^BOLD%^The sign reads:");
-        write("%^RESET%^%^ORANGE%^To post a bounty on another player <issue bounty for (amount of gold) on (name)>.");
-        write("%^RESET%^%^ORANGE%^To remove a personal bounty upon someone's head <revoke bounty on(name)>");
-        write("%^RESET%^%^ORANGE%^To see what bounties are currently issued <read board>");
+        write("%^RESET%^%^ORANGE%^To post a bounty on another player %^BOLD%^<issue bounty for (amount of gold) on (name)>.");
+        write("%^RESET%^%^ORANGE%^To remove a personal bounty upon someone's head %^BOLD%^<revoke bounty on (name)>");
+        write("%^RESET%^%^ORANGE%^To see what bounties are currently issued %^BOLD%^<read board>%^RESET%^");
         tell_room(TO,TPQCN+" reads the sign!",TP);
         return 1;
     }
