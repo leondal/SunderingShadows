@@ -45,7 +45,7 @@ void create(){
     set_listen("default","You can hear the shuffle of feet and perhaps a low sobbing from one of the cells.");
     set_smell("default","You smell sweat, tobacco and just a whiff of a nauseating stench coming from the cells.");
     set_exits(([
-        //"east" : "",
+        "east" : "/d/tharis/newtharis/rooms/north6",
 		//"up" : "",
         "cell" : CELL,
         "grate" : CELL,
