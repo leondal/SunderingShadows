@@ -3191,7 +3191,7 @@ varargs int do_save(object targ, int mod)
     if (FEATS_D->usable_feat(caster, "surprise spells") &&
         (caster->query_invis() || caster->query_hidden()) &&
         environment(caster) == environment(targ)) {
-        caster_bonus += 3;
+        caster_bonus += 5;
     }
 
     //Telepath can power up a mental spell to higher DC

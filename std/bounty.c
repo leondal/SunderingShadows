@@ -67,12 +67,9 @@ int read(string str){
     }
     if (str == "sign") {
         write("%^BOLD%^The sign reads:");
-        write("%^BOLD%^%^ORANGE%^To post a bounty on another player");
-        write("%^BOLD%^%^ORANGE%^ \t\tissue bounty for <amount gold> on <name>.");
-        write("%^BOLD%^%^ORANGE%^To remove a personal bounty upon someone's head");
-        write("%^BOLD%^%^ORANGE%^\t\t type 'revoke bounty on <name>'  The cost is 3 times the bounty.");
-        write("%^BOLD%^%^ORANGE%^To see what bounties are currently issued");
-        write("%^BOLD%^%^ORANGE%^ \t\t read board");
+        write("%^RESET%^%^ORANGE%^To post a bounty on another player <issue bounty for (amount of gold) on (name)>.");
+        write("%^RESET%^%^ORANGE%^To remove a personal bounty upon someone's head <revoke bounty on(name)>");
+        write("%^RESET%^%^ORANGE%^To see what bounties are currently issued <read board>");
         tell_room(TO,TPQCN+" reads the sign!",TP);
         return 1;
     }
@@ -152,9 +149,7 @@ int revoke(string str){
     TP->force_me("save");
     tell_object(TP, "The bondsman laughs.\n");
     tell_object(TP, "The bondsman says:  How's it feel getting some easy money from those fool?\n");
-    message("broadcast",
-            "%^BOLD%^%^ORANGE%^The bounty on "+capitalize(who)+" has been revoked!\n",
-            users());
+    tell_object(TP, "%^BOLD%^%^ORANGE%^The bounty on "+capitalize(who)+" has been revoked!\n");
     log_file("bounties", "Personal bounty on "+who+" revoked by "+name+" at "+ctime(time())+".\n");
     KILLING_D->remove_personal_bounty(who);
     return 1;
