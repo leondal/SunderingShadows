@@ -99,15 +99,13 @@ protected int personal_bounty(object attacker, object victim) {
     map_delete(__Personal_Bounties, victim->query_name());
     SAVE();
 
-    exp = 1000;
-    if (present("special_assassin_object",attacker))
-        exp = (int)victim->query_lowest_level() * 5000;
+    exp = (int)victim->query_lowest_level() * 5000;
 
     // announce bounty collection, add money to attacker, set mini quest
     pbounty_shout((string)attacker->query_name(), (string)victim->query_name(), who);
     log_file("bounties",">>>"+capitalize(attacker->query_name())+" collected the personal bounty on "+capitalize(victim->query_name())+" posted by "+capitalize(who)+" at "+ctime(time())+"!\n");
     attacker->add_money("gold",money);
-    attacker->set_mini_quest("Captured "+capitalize(victim->query_name())+" for "+capitalize(who)+".",exp,"Captured "+capitalize(victim->query_name())+" for "+capitalize(who)+".");
+    attacker->set_mini_quest("Assassinated "+capitalize(victim->query_name())+" for the guild.",exp,"Assassinated "+capitalize(victim->query_name())+" for the guild.");
 }
 
 mixed add_personal_bounty(string name, object poster, int amount) {
