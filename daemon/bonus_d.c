@@ -463,6 +463,8 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
     //If it's still above 80, even more diminished
     if(AC > 80)
         AC = 80 + (AC - 80) / 3;
+    
+    AC += targ->query_property("sundered");
 
     if (!userp(who)) {
         if (objectp(PlayerBoss = who->query_property("minion"))) {
@@ -499,6 +501,7 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
     
     //if(attack_roll == 1) return -1;
     //does this change make AC less OP? - Saide, August 2017
+    //Might have to reconsider this since I added the change above to diminished returns - Tlaloc
     if ((bon + 15) < AC) {
         if (random(bon + AC + attack_roll) >= AC) {
             return attack_roll;

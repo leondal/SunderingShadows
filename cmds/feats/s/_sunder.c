@@ -62,6 +62,7 @@ void execute_feat() {
           return;
         }
     }
+    
     if(caster->query_property("shapeshifted") && !caster->query_property("altered")) in_shapeshift = 1;
     else in_shapeshift = 0;
     if(!sizeof(caster->query_wielded()) && !in_shapeshift) {
@@ -69,6 +70,13 @@ void execute_feat() {
         dest_effect();
         return;
     }
+    
+    if(target->query_property("sundered"))
+    {
+        tell_object(caster, "That target is already sundered.");
+        return;
+    }
+    
     if(sizeof(weapons) && weapons[0]->is_lrweapon() && !in_shapeshift) {
         ammo = present(weapons[0]->query_ammo(),caster);
         if(FEATS_D->usable_feat(caster,"point blank shot") && objectp(ammo) && ammo->use_shots()) fired = 1;
@@ -101,6 +109,13 @@ void execute_attack() {
         dest_effect();
         return;
     }
+    
+    if(target->query_property("sundered"))
+    {
+        tell_object(caster, "That target is already sundered.");
+        return;
+    }
+    
     if(caster->query_property("shapeshifted") && !caster->query_property("altered")) in_shapeshift = 1;
     else in_shapeshift = 0;
     if(!sizeof(caster->query_wielded()) && !in_shapeshift) {
@@ -139,7 +154,8 @@ void execute_attack() {
         }
     }
     mod = clevel/5 + sunder_bonus;
-    target->add_ac_bonus((-1)*mod);
+    //target->add_ac_bonus((-1)*mod);
+    target->set_property("sundered", -mod);
     call_out("refix",(ROUND_LENGTH*roll_dice(3,2)));
 }
 
@@ -147,7 +163,8 @@ void refix() {
     if(objectp(target)) {
         tell_object(target,"%^BOLD%^%^GREEN%^You manage to get your armor back into place.");
         tell_room(place,"%^BOLD%^%^GREEN%^"+target->QCN+" settles "+target->QP+" armor back into place.",target);
-        target->add_ac_bonus(mod);
+        //target->add_ac_bonus(mod);
+        target->remove_property("sundered");
     }
     dest_effect();
 }
