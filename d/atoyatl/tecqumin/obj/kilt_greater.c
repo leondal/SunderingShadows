@@ -66,7 +66,10 @@ void create() {
    set_size(-1);
    set_ac(0);
    set_value(2000);
-   set_property("enchantment",7);
+   while ((int)TO->query_property("enchantment") != 7) {
+       TO->remove_property("enchantment");
+       TO->set_property("enchantment", 7);
+   }
    set_wear( (: TO,"wear_func" :) );
    set_remove( (: TO,"remove_func" :) );
    set_struck((:TO,"strike_func":));

@@ -26,7 +26,10 @@ void create()
              + " slashing attack, and would leave a %^RED%^nasty wound"
              + "%^RESET%^%^ORANGE%^.");
     set_value(500);
-    set_property("enchantment", 4);
+    while ((int)TO->query_property("enchantment") != 7) {
+        TO->remove_property("enchantment");
+        TO->set_property("enchantment", 7);
+    }
     set_wield((: TO, "wield_func" :));
     set_unwield((: TO, "unwield_func" :));
     set_hit((: TO, "hit_func" :));
@@ -66,7 +69,7 @@ int hit_func(object target)
     if (!objectp(wielder) || !objectp(target) || !objectp(room)) {
         return 0;
     }
-    if (random(10) == 9) {
+    if (random(10) >= 6) {
         tell_object(wielder, "%^RED%^You swing the " + query_short() + " in a"
                     + " wide arc, cutting a swath along " + target->QCN
                     + "'s neck.%^RESET%^");
@@ -78,9 +81,9 @@ int hit_func(object target)
                   + " widely, cutting across " + target->QCN + "%^RESET%^"
                   + "%^RED%^'s neck, causing " + target->QO + " to double"
                   + " over in pain.%^RESET%^", wielder, target);
-        return roll_dice(3, 4) - 2;
+        return roll_dice(5,10);
     }
-    if (random(20) == 19) {
+    if (random(20) >= 18) {
         tell_object(wielder, "%^BLACK%^%^BOLD%^You step forward and jab the"
                     + " heavy point of the " + query_short() + " into "
                     + target->QCN + "'s gut%^RESET%^");
@@ -94,6 +97,7 @@ int hit_func(object target)
                   + " with the heavy point of the " + query_short()
                   + "%^BLACK%^%^BOLD%^, causing " + target->QO
                   + " to stagger back%^RESET%^", wielder, target);
-        target->set_paralyzed(6, "You are badly winded!");
+        target->set_paralyzed(roll_dice(3,6), "You are badly winded!");
+        return 1;
     }
 }

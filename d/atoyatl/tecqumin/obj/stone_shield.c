@@ -12,12 +12,13 @@ void create()
              + " it should be too heavy to lift, but the powerful enchantments cast upon it make it"
              + " light enough to wield. Staps of leather serve to hold it on the wearer's arm.");
     set_value(22950);
-    while ((int)TO->query_property("enchantment") != 6) {
+    while ((int)TO->query_property("enchantment") != 7) {
         TO->remove_property("enchantment");
-        TO->set_property("enchantment", 6);
+        TO->set_property("enchantment", 7);
     }
-    set_item_bonus("damage resistance", 5);
-    set_item_bonus("shieldMiss", 20);
+    set_item_bonus("damage resistance", 10);
+    set_item_bonus("spell damage resistance", 25);
+    set_item_bonus("shieldMiss", 30);
     set_wear((: TO, "wear_it" :));
     set_lore("The stone shields of the %^CYAN%^Tecqumin%^RESET%^ were carefully shaped."
              + " Mostly they were thin enough to be liftable, which significantly reduced their"

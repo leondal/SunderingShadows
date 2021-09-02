@@ -56,7 +56,7 @@ void create()
     set_size(-1);
     set_property("enchantment", 7);
     set_item_bonus("charisma", 6);
-    set_item_bonus("influence", 4);
+    set_item_bonus("influence", 6);
 }
 
 int wearme()
@@ -73,7 +73,7 @@ int wearme()
                 + " %^BOLD%^%^RED%^power%^RESET%^%^CYAN%^ and%^BOLD%^%^BLUE%^"
                 + " importance%^RESET%^%^CYAN%^ flows into you.");
     tell_room(EETO, ETO->QCN + "%^RESET%^%^CYAN%^ straightens as "
-              + ETO->QS + " places the " + query_short() + "%^RESET%^%^CYAN%^"
+              + ETO->QS + " places the " + query_obvious_short() + "%^RESET%^%^CYAN%^"
               + " onto " + ETO->QP + " head. " + ETO->QS + " seems to take on"
               + " an air of impressive authority.", ETO);
     return 1;
@@ -87,7 +87,7 @@ int removeme()
     tell_object(ETO, "" + query_short() + "You remove the headdress and"
                 + " feel slightly less important.");
     tell_room(EETO, ETO->query_cap_name() + " slumps a little and looks"
-              + " slightly less important after removing the " + query_short()
+              + " slightly less important after removing the " + query_obvious_short()
               + " from " + ETO->QP + " head.", ETO);
     return 1;
 }
