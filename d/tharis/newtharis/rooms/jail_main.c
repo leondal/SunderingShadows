@@ -11,9 +11,10 @@ inherit "/std/jail_main.c";
 
 void create(){
     ::create();
-    /*
+    
     if(!present("jailer"))
         new("/d/tharis/newtharis/mobs/jailer")->move(this_object());
+    /*
     if(!present("guard"))
         new("/d/tharis/newtharis/mobs/guard")->move(this_object());
     if(!present("guard 2"))
