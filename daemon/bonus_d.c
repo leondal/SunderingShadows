@@ -441,6 +441,7 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
 {
     object PlayerBoss;
     int attack_roll, bon, AC = 0, pFlag;
+    int ac_excess;
     if (!objectp(who)) {
         return 0;
     }
@@ -454,6 +455,14 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
         AC += effective_ac(targ);
     }
     AC += ac_bonus(targ, who);
+    
+    //Tlaloc added this cap 9/2/21 to address super high AC
+    //Diminished returns above 70
+    if(AC > 70)
+        AC = 70 + (AC - 70) / 2;
+    //If it's still above 80, even more diminished
+    if(AC > 80)
+        AC = 80 + (AC - 80) / 3;
 
     if (!userp(who)) {
         if (objectp(PlayerBoss = who->query_property("minion"))) {
