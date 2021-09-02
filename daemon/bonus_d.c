@@ -457,12 +457,12 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
     AC += ac_bonus(targ, who);
     
     //Tlaloc added this cap 9/2/21 to address super high AC
-    //Diminished returns above 70
-    if(AC > 70)
-        AC = 70 + (AC - 70) / 2;
-    //If it's still above 80, even more diminished
+    //Diminished returns above 80
     if(AC > 80)
-        AC = 80 + (AC - 80) / 3;
+        AC = 80 + (AC - 80) / 2;
+    //If it's still above 90, even more diminished
+    if(AC > 90)
+        AC = 90 + (AC - 90) / 4;
     
     AC += targ->query_property("sundered");
 
