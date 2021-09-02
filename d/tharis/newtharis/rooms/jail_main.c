@@ -14,12 +14,12 @@ void create(){
     
     if(!present("jailer"))
         new("/d/tharis/newtharis/mobs/jailer")->move(this_object());
-    /*
-    if(!present("guard"))
-        new("/d/tharis/newtharis/mobs/guard")->move(this_object());
-    if(!present("guard 2"))
-        new("/d/tharis/newtharis/mobs/guard")->move(TO);
-    */
+    
+    if(!present("golem"))
+        new("/d/tharis/newtharis/mobs/bladegolem")->move(this_object());
+    if(!present("golem 2"))
+        new("/d/tharis/newtharis/mobs/bladegolem")->move(TO);
+    
     set_jail_location("tharis");
     DESTD->clear_waystations("/d/tharis/newtharis/rooms/jail_main");
     DESTD->clear_waystations("/d/tharis/newtharis/rooms/jail_main");

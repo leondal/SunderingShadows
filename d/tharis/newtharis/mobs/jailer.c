@@ -18,7 +18,7 @@ void create()
     set_property("knock unconscious",1);
     set_id(({"jailer", "guard", "girard", "tharis jailer", CITYLAW}));
     set_name("tharis jailer");
-    set_short("%^MAGENTA%^BOLD%^Girard, the Tharis Jailer%^RESET%^");
+    set_short("%^CYAN%^BOLD%^Girard, the Tharis Jailer%^RESET%^");
     set_long(CRAYON_D->color_string("You see before you a man of a pale complexion and dark disposition. He is wearing a high-collared grey leather jacket, which extends down to his knees, just above his knee-length riding boots. He carries a single arming sword at his side, kept in a leaf-gilt fine leather scabbard. His face is serious and forebidding, with deep black eyes that stare at you with cold intensity. The shadows around him seem to seep into him, nourishing him with their dark caress.  He obviously takes his job as the city jailer VERY seriously.", "very black"));
     set_race("human");
     set_gender("male");
