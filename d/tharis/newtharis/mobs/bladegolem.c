@@ -23,7 +23,7 @@ void create()
   string rank;
         ::create();
         will_open_doors(1);
-        set_nogo( ({ "/d/tharis/newtharis/eroad2", "/d/tharis/newtharis/ngate2", "/d/magic/temples/shar_path5" }) );
+        set_nogo( ({ "/d/tharis/newtharis/eroad2", "/d/tharis/road/road8", "/d/magic/temples/shar_path5", "/d/tharis/road/wroad2" }) );
         set_name("golem");
         set_short("%^BOLD%^%^BLACK%^A mi%^RESET%^t%^BOLD%^h%^RESET%^r%^BOLD%^%^BLACK%^il-%^RESET%^%^CYAN%^p%^BOLD%^%^BLACK%^l%^RESET%^a%^BOLD%^t%^RESET%^e%^BOLD%^%^BLACK%^d %^RESET%^%^CYAN%^golem %^BOLD%^i%^BLACK%^nscr%^CYAN%^i%^BLACK%^bed with a%^CYAN%^r%^RESET%^%^CYAN%^c%^BOLD%^%^BLACK%^a%^CYAN%^n%^RESET%^%^CYAN%^e %^BOLD%^%^BLACK%^r%^CYAN%^u%^RESET%^%^CYAN%^n%^BOLD%^%^BLACK%^e%^RESET%^%^CYAN%^s%^WHITE%^");
         set_id(({"guard","golem","blade golem","tharis guard",CITYLAW, "guardsman of tharis","Tharis guard"}));
@@ -41,8 +41,8 @@ void create()
         set_race("golem");
         set_max_hp(roll_dice( query_hd(), 50));
         set_hp(query_max_hp());
-        set_alignment(1);
-        set_overall_ac(-30);
+        set_alignment(2);
+        set_overall_ac(-50);
         set_class("fighter");
         set_mlevel("fighter",50);
         set_level(50);

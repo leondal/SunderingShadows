@@ -39,5 +39,5 @@ void create(){
 
 void reset(){
     ::reset();
-    if(!present("hound")){new(MOBS"guard.c")->move(TO);}
+    if(!present("golem")){new("/d/tharis/newtharis/mobs/bladegolem.c")->move(TO);}
 }
