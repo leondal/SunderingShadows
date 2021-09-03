@@ -23,7 +23,8 @@ void create(){
     set_value(75);
     set_type("leather");
     set_limbs( ({ "torso" }) );
-    set_ac(5);
+    //set_ac(5);
+    set_ac(7);
 }
 
 int is_metal() { return 0; }

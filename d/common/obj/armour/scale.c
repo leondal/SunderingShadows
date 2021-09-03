@@ -15,7 +15,8 @@ void create() {
     set("value", 120);
     set_type("chain");
     set_limbs( ({ "torso" }) );
-    set_ac(4);
+    //set_ac(4);
+    set_ac(6);
 }
 
 int is_metal() { return 1; }

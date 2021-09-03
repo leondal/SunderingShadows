@@ -14,7 +14,8 @@ void create()
          "forarms.  The craftsmanship is rough as if they were created in haste.");
     set_weight(2);
     set_value(10);
-    set_ac(1);
+    //set_ac(1);
+    set_ac(3);
     set_size(2);
     set_type("armor");
     set_armor_prof("medium");
