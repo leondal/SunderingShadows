@@ -61,6 +61,8 @@ spell_effect(int prof) {
         tell_object(caster, "%^YELLOW%^" + target->QCN + " resists the psychic energy.");
     }
     
+    spell_kill(target, caster);
+    
     //damage_targ(target, target->return_target_limb(), damage,"mental");
     target->cause_typed_damage(target, target->return_target_limb(), sdamage, "mental");
     TO->dest_effect();
