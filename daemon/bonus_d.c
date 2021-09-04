@@ -497,6 +497,10 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
         return 20;
     }
     
+    //Point blank shot gives +1 to ranged touch attacks
+    if(flag)
+        mod += FEATS_D->usable_feat(who, "point blank shot");
+    
     attack_roll += mod;
     
     //if(attack_roll == 1) return -1;

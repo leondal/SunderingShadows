@@ -3344,7 +3344,7 @@ void internal_execute_attack(object who)
             {
                 if(!victim->cooldown("resilient body"))
                 {
-                    victim->add_cooldown("resilient body", 60);
+                    victim->add_cooldown("resilient body", 18);
                     tell_object(victim, "%^CYAN%^BOLD%^Your resilient body absorbs the critical hit!%^RESET%^");
                     critical_hit = 0;
                 }
