@@ -8,7 +8,7 @@ void create()
 {
     ::create();
     set_spell_name("hail of crystals");
-    set_spell_level(([ "psion" : 5 ]));
+    set_spell_level(([ "psion" : 6 ]));
     set_discipline("shaper");
     set_spell_sphere("metacreatvity");
     set_syntax("cast CLASS hail of crystals");
