@@ -62,7 +62,7 @@ int hit_stuff(object ob)
                     +" before stabbing through " + (string)ob->QCN
                     +" %^RESET%^%^ORANGE%^defenses!",({ob,ETO}));
     set_property("magic",1);
-    ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(1, 30) + 39, "piercing");
+    ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(6, 10), "piercing");
     remove_property("magic");
     break;
     return (0);
@@ -81,7 +81,7 @@ int hit_stuff(object ob)
                    +" re-appear, embedded deeply in " + (string)ob->QCN
                   +"'s  flesh!", ({ob,ETO}) );
     set_property("magic",1);
-    ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(1, 60) + 9, "piercing");
+    ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(6, 10) + 10, "piercing");
     remove_property("magic");
     break;
     return (0);
