@@ -28,7 +28,7 @@ void create(){
    set_travel(FRESH_BLAZE);
    set_name("%^RESET%^%^CYAN%^An underwater labyrinth%^RESET%^");
    set_short("%^RESET%^%^CYAN%^An underwater labyrinth%^RESET%^");
-   set_long((:TO,"ldesc":));
+   set_long(ldesc());
    set_smell("default","%^BOLD%^%^CYAN%^You can't smell anything.%^RESET%^");
    set_listen("default","%^RESET%^%^BLUE%^All you can hear is the sound of moving water.%^RESET%^");
    set_items(([
