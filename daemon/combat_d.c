@@ -103,6 +103,15 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
     if(attacker->true_seeing())
         MissChance = 0;
     
+    //Can't block with shield if paralyzed
+    if(victim->query_paralyzed())
+        ShieldMissChance = 0;
+    /* pending testing
+    if(victim->light_blind())
+        ShieldMissChance /= 2;
+    */
+    
+    
     //Ranger with wild hunter active sees through quarry's concealment
     if(attacker->query_property("quarry") == victim && FEATS_D->is_active(attacker, "wild hunter"))
         MissChance = 0;
