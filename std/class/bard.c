@@ -1,5 +1,7 @@
 // on board discussion, added med armor proficiency to streamline game functionality for the class. N, 9/12.
 #include <std.h>
+#include <daemons.h>
+
 inherit DAEMON;
 
 void create() { ::create(); }
@@ -43,7 +45,7 @@ string* class_feats(string myspec)
 }
 
 mapping class_featmap(string myspec) {
-    return ([ 1:({ "simple weapon proficiency", "martial weapon proficiency", "light armor proficiency","shield proficiency", "spell focus","inspire","inspire courage", "dodge", "countersong"}), 3:({"inspire competence"}), 5: ({ "indomitable" }), 7: ({ "force of personality" }), 8:({"dirge of doom"}), 9:({"inspire greatness"}), 10:({ "tools of the trade" }), 12:({"soothing song"}), 13: ({ "use magic device" }), 14:({"frightening tune"}), 15:({"inspire heroics"}), 20:({"deadly song"})]);
+    return ([ 1:({ "simple weapon proficiency", "martial weapon proficiency", "light armor proficiency","shield proficiency", "spell focus","inspire","inspire courage", "dodge", "countersong"}), 3:({"inspire competence"}), 5: ({ "indomitable" }), 7: ({ "force of personality" }), 8:({"dirge of doom"}), 9:({"inspire greatness"}), 10:({ "tools of the trade" }), 12:({"soothing song"}), 13: ({ "use magic device" }), 14:({"frightening tune"}), 15:({"inspire heroics"}), 20:({"deadly song"}), 21 : ({ "jack of all trades" }),]);
 }
 
 mapping query_cantrip_spells(object ob)
@@ -51,8 +53,11 @@ mapping query_cantrip_spells(object ob)
     return ([ "flare" : 1, "detect magic" : 1, "daze" : 1, "dancing lights" : 1, "resistance" : 1, "mending" : 1 ]);
 }
 
-string *class_skills()
+string *class_skills(object ob)
 {
+    if(FEATS_D->usable_feat(ob, "jack of all trades"))
+        return ({ "academics", "thievery", "influence", "spellcraft", "athletics", "dungeoneering", "healing", "perception", "stealth", "survival", "rope use", "endurance" });
+    
     return ({ "academics","thievery","influence","spellcraft","athletics" });
 }
 
