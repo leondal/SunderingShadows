@@ -20,7 +20,7 @@ void create()
         "secure and impervious to outside forces.  It offers temporary safety from the outside world.  To cast, a narrative "
         "reciting details of the cottage you are trying to summon, is required.
 
-Inside the selter you can:
+Inside the shelter you can:
 
 %^ORANGE%^<lock cottage>%^RESET%^
   This locks the door to the cottage, preventing anyone outside from entering.
