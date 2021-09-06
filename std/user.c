@@ -2001,6 +2001,16 @@ nomask void die()
 
         return;
     }
+    
+    if(this_object()->query_property("effect_fatigued"))
+        find_object("/std/effect/status/fatigued")->dest_effect(this_object());
+    if(this_object()->query_property("effect_dazzled"))
+        find_object("/std/effect/status/dazzled")->dest_effect(this_object());
+    if(this_object()->query_property("effect_exhausted"))
+        find_object("/std/effect/status/exhausted")->dest_effect(this_object());
+    if(this_object()->query_property("effect_sickened"))
+        find_object("/std/effect/status/sickened")->dest_effect(this_object());
+    
     ghost = 1;
     ob = TO;
     add_stuffed(25);
