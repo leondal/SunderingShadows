@@ -81,7 +81,7 @@ void execute_feat()
 
     tell_object(caster, "You use your meta magic knowledge to quicken your next spell.");
     caster->set_property("quicken spell", 1);
-    caster->add_cooldown("quicken spell", 1200);
+    caster->add_cooldown("quicken spell", 600);
 
     return;
 }

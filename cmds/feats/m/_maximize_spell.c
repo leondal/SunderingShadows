@@ -81,7 +81,7 @@ void execute_feat()
 
     tell_object(caster, "You use your meta magic knowledge to maximize your next spell.");
     caster->set_property("maximize spell", 1);
-    caster->add_cooldown("maximize spell", 1200);
+    caster->add_cooldown("maximize spell", 600);
 
     return;
 }
