@@ -79,13 +79,15 @@ int can_use_check(object caster, string spell, int level)
     
     if(!valid)
     {   
-        //Thieves can use a different roll based on thief level
-        if(FEATS_D->usable_feat(caster, "use magic device"))
+        //Thieves and bards can use a different roll based on thief level
+        rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
+        
+        if(FEATS_D->usable_feat(caster, "use magic device") && rogue_clevel > caster->query_skill("spellcraft"))
         {
             roll1 = roll_dice(1, 20);
             DC = level + lowest_spell_level;
 
-            rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
+            //rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
             
             if(rogue_clevel / 2 < lowest_spell_level)
             {

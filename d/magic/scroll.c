@@ -293,12 +293,14 @@ int use_scroll(string str)
     if(!valid)
     {   
         //Thieves/bards can use a different roll based on class levels
-        if(FEATS_D->usable_feat(this_player(), "use magic device"))
+        rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
+        
+        if(FEATS_D->usable_feat(this_player(), "use magic device") && rogue_clevel > this_player()->query_skill("spellcraft"))
         {
             int roll = roll_dice(1, 20);
             int DC = this_object()->query_clevel() + lowest_spell_level;
 
-            rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
+            //rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
             
             if(rogue_clevel / 2 < lowest_spell_level)
             {
