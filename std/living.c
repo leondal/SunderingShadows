@@ -1305,7 +1305,10 @@ string query_long(string unused)
     }
     stuff = "";
     extra = "";
-    stuff = describe_item_contents(({}));
+    
+    if(!this_object()->query_property("hidden inventory"))
+        stuff = describe_item_contents(({}));
+    
     if (stuff == "") {
         reg += sub + " are empty handed.\n";
     } else {

@@ -135,7 +135,7 @@ int cmd_steal(string str) {
         notify_fail("You cannot steal that!\n");
         return 0;
     }
-    if (ob->query_property("no steal") || ob->query_property("plot_item") || ob->query_property("soulbound")) {
+    if (ob->query_property("hidden inventory") || ob->query_property("no steal") || ob->query_property("plot_item") || ob->query_property("soulbound")) {
         write((string)victim->query_cap_name()+"'s "+(string)ob->query_name()+" cannot possibly be stolen.");
         return 1;
     }
