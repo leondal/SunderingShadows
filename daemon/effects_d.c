@@ -93,7 +93,11 @@ int can_use_check(object caster, string spell, int level)
                 return 0;
             }
             
-            rogue_clevel += BONUS_D->query_stat_bonus(caster, "intelligence");
+            if(this_player()->is_class("bard"))
+                rogue_clevel += BONUS_D->query_stat_bonus(this_player(), "charisma");
+            else
+                rogue_clevel += BONUS_D->query_stat_bonus(this_player(), "intelligence");
+            
             roll1 += rogue_clevel;
             
             if((roll1 < DC || roll1 == 1) && roll1 != 20)
