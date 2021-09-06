@@ -19,20 +19,20 @@ void create()
     set_item_bonus("intelligence", 6);
     set_item_bonus("wisdom", 6);
     set_item_bonus("will", 6);
-		set_property("quest required", "%^BOLD%^%^RED%^Defeated the great red wyrm Klauth!%^RESET%^");
-		set_property("level required", 35);
+	set_property("quest required", "%^BOLD%^%^RED%^Defeated the great red wyrm Klauth!%^RESET%^");
+	set_property("level required", 35);
 }
 
 int wear_func()
 {
-    tell_object(ETO, "The %^BOLD%^%^BLUE%^gem %^WHITE%^on the headband begins to softly %^CYAN%^glow %^WHITE%^as you place it upon your brow.%^RESET%^");
-    tell_room(EETO, "%^BOLD%^%^WHITE%^The %^BOLD%^%^BLUE%^gem %^WHITE%^on" + ETO->QCN + "'s headband begins to %^BOLD%^%^CYAN%^glow %^WHITE%^as " + ETO->QS + " places it upon " + ETO->QP + " brow.%^RESET%^", ETO);
+    tell_object(ETO, "The %^BOLD%^%^BLUE%^gem %^WHITE%^on the " + query_obvious_short() + " %^BOLD%^%^WHITE%^begins to softly %^CYAN%^glow %^WHITE%^as you place it upon your brow.%^RESET%^");
+    tell_room(EETO, "%^BOLD%^%^WHITE%^The %^BOLD%^%^BLUE%^gem %^WHITE%^on " + ETO->QCN + "'s " + query_obvious_short() + " %^BOLD%^%^WHITE%^begins to %^BOLD%^%^CYAN%^glow %^WHITE%^as " + ETO->QS + " places it upon " + ETO->QP + " brow.%^RESET%^", ETO);
     return 1;
 }
 
 int remove_func()
 {
-    tell_object(ETO, "The %^BOLD%^%^BLUE%^gem %^WHITE%^on the headband stops %^CYAN%^glowing %^WHITE%^as you remove it from your brow.%^RESET%^");
-    tell_room(EETO, "%^BOLD%^%^WHITE%^The %^BOLD%^%^BLUE%^gem %^WHITE%^on" + ETO->QCN + "'s headband stops %^BOLD%^%^CYAN%^glowing %^WHITE%^as " + ETO->QS + " removes it from " + ETO->QP + " brow.%^RESET%^", ETO);
+    tell_object(ETO, "The %^BOLD%^%^BLUE%^gem %^WHITE%^on the " + query_obvious_short() + " %^BOLD%^%^WHITE%^stops %^CYAN%^glowing %^WHITE%^as you remove it from your brow.%^RESET%^");
+    tell_room(EETO, "%^BOLD%^%^WHITE%^The %^BOLD%^%^BLUE%^gem %^WHITE%^on " + ETO->QCN + "'s " + query_obvious_short() + " %^BOLD%^%^WHITE%^stops %^BOLD%^%^CYAN%^glowing %^WHITE%^as " + ETO->QS + " removes it from " + ETO->QP + " brow.%^RESET%^", ETO);
     return 1;
 }
