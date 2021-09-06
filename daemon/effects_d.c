@@ -32,7 +32,7 @@ int spell_effect(object caster, object device, string command)
     }
     
     if(!can_use_check(caster, spell, level))
-        return notify_fail("You fail to get the wand working.\n");
+        return notify_fail("You fail to get the item working.\n");
 
     /* if (!(target = present(who, environment(caster)))) { */
     /*     return notify_fail("No such target.\n"); */
@@ -60,6 +60,16 @@ int can_use_check(object caster, string spell, int level)
     
     foreach(string cls in player_classes)
     {
+        string temp;
+        
+        temp = cls;
+        
+        if(temp == "sorcerer")
+            temp = "mage";
+        
+        if(temp == "oracle")
+            temp = "cleric";
+        
         if(member_array(cls, valid_classes) >= 0)
             valid = 1;
     }
@@ -75,11 +85,11 @@ int can_use_check(object caster, string spell, int level)
             roll1 = roll_dice(1, 20);
             DC = level + lowest_spell_level;
 
-            rogue_clevel = caster->query_prestige_level("thief");
+            rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
             
             if(rogue_clevel / 2 < lowest_spell_level)
             {
-                tell_object(caster, "The wand's spell is too complex to use.");
+                tell_object(caster, "The item's spell is too complex to use.");
                 return 0;
             }
             
