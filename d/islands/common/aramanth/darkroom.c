@@ -10,6 +10,7 @@ void create()
     ::create();
     set_light(2);
     set_property("no teleport",1);
+    set_property("no pocket space",1);
     set_terrain(STONE_BUILDING);
     set_travel(PAVED_ROAD);
     set_indoors(1);
