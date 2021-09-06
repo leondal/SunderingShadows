@@ -108,7 +108,7 @@ void heart_beat()
             return;
         }
     }
-    if(total_light(environment(this_object()) >= 3) {
+    if(total_light(environment(this_object())) >= 3) {
         remove_shadow();
         return;
     }
