@@ -14,6 +14,8 @@ string strip_colors(string str)
                          "GREEN" : "", "WHITE" : "", "BLACK" : "", "B_RED" : "", "B_ORANGE" : "",
                          "B_YELLOW" : "", "B_BLACK" : "", "B_CYAN" : "", "B_WHITE" : "", "B_GREEN" : "",
                          "B_MAGENTA" : "", "STATUS" : "", "WINDOW" : "", "INITTERM" : "", "B_BLUE" : "",
+                         "C100" : "", "C101" : "", "C102" : "", "C103" : "", "C104" : "", "C105" : "",
+                         "C106" : "", "C107" : "", "C108" : "", "C019" : "", "C110" : "", "C111" : "",
                          "ENDTERM" : ""]);
     ret = terminal_colour(str, Uncolor);
     return replace_string(ret, "\b", "");
