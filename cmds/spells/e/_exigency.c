@@ -14,7 +14,7 @@ void create() {
     ::create();
     set_spell_name("exigency");
     set_spell_level(([ "psion" : 6 ]));
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("psychoportation");
     set_syntax("cast CLASS exigency on ENCLAVE");
     set_description("Using this power, the psion can prepare a portion "
        "of her mind to execute a quick exit at a later time. The power "
