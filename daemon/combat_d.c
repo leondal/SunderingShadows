@@ -318,6 +318,10 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
     if (!damage) {
         return 0;
     }
+    
+    if(!strlen(type))
+        type = "untyped";
+    
     targ->set_magic_attack(0);
     targ->spell_attack(0);
     limb = targ->adjust_targeted_limb(attacker, limb);
@@ -1670,6 +1674,8 @@ void new_struck(int damage, object weapon, object attacker, string limb, object 
         if (strsrch(tmp, "damage bonus") != -1) {
             if (sscanf(tmp, "damage bonus %s %d", type, dam) == 2) {
                 if (objectp(victim)) {
+                    if(!strlen(type))
+                        type = "untyped";
                     victim->cause_typed_damage(victim, limb, dam, type);
                 }
             }
@@ -1681,6 +1687,8 @@ void new_struck(int damage, object weapon, object attacker, string limb, object 
         if (strsrch(tmp, "damage bonus") != -1) {
             if (sscanf(tmp, "damage bonus %s %d", type, dam) == 2) {
                 if (objectp(victim)) {
+                    if(!strlen(type))
+                        type = "untyped";
                     victim->cause_typed_damage(victim, limb, dam, type);
                 }
             }
@@ -1704,6 +1712,9 @@ void new_struck(int damage, object weapon, object attacker, string limb, object 
     if (objectp(shape = attacker->query_property("shapeshifted"))) {
         damage_type = (string)shape->get_new_damage_type();
     }
+    
+    if(!damage_type)
+        damage_type = "untyped";
 
     if (damage > 0) {
         damage_num = (int)victim->cause_typed_damage(victim, limb, damage, damage_type);
