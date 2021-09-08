@@ -1977,6 +1977,9 @@ nomask void die()
         TO->set("rage death avoided", time() + 7200);
         return;
     }
+    
+    if(this_object()->query_property("raged"))
+        command("rage");
 
     klr = TO->query_current_attacker();
     if ( (objectp(klr)) && (klr->is_guardsman()) ) // Added to remove local bounties if a guard kills the player -Ares 8/29/05
@@ -2000,7 +2003,7 @@ nomask void die()
         }
 
         return;
-    }
+    }   
     
     if(this_object()->query_property("effect_fatigued"))
         find_object("/std/effect/status/fatigued")->dest_effect(this_object());
@@ -2010,6 +2013,7 @@ nomask void die()
         find_object("/std/effect/status/exhausted")->dest_effect(this_object());
     if(this_object()->query_property("effect_sickened"))
         find_object("/std/effect/status/sickened")->dest_effect(this_object());
+    
     
     ghost = 1;
     ob = TO;
