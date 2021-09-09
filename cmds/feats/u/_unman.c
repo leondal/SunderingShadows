@@ -77,7 +77,8 @@ void execute_feat()
     }
     
     tell_object(caster, color("You lay into " + target->QCN + " with an epic verbal assault, attempting to break " + target->query_possessive() + " will to fight."));
-    tell_room(place, color(caster->QCN + " lays into " + target->QCN + " with an epic verbal assault, attempting to break " + target->query_possessive() + " will to fight."));
+    tell_object(target, color(caster->QCN + " lays into you with an epic verbal assault, attempting to break your will to fight."));
+    tell_room(place, color(caster->QCN + " lays into " + target->QCN + " with an epic verbal assault, attempting to break " + target->query_possessive() + " will to fight."), ({ caster, target}));
 
     mod = BONUS_D->query_stat_bonus(caster, "charisma");
     
@@ -87,12 +88,23 @@ void execute_feat()
         tell_room(place, target->QCN + " fumbles " + target->query_possessive() + " steps with self-conscious footing.", ({ target }));
         tell_object(target, "%^BOLD%^You fumble your steps with self-conscious footing.");
         load_object("/std/effect/status/staggered")->apply_effect(target, roll_dice(1, 6) + 1);
-    }    
+    }
+    else
+    {
+        tell_room(place, target->QCN + " is able to mantain his balance.", ({ target }));
+        tell_object(target, "%^BOLD%^You are able to maintain your balance.");
+    }
+    
     if(do_save(target, mod))
     {
         tell_room(place, target->QCN + " loses " + target->query_possessive() + " footing and falls down in a crumpled heap.", ({ target }));
         tell_object(target, "%^BOLD%^You lose your footing and fall down in a crumpled heap.");
         target->set_tripped(roll_dice(1, 6) + 1, "You are trying to regain your footing!");
+    }
+    else
+    {
+        tell_room(place, target->QCN + " keeps his footing.", ({ target }));
+        tell_object(target, "%^BOLD%^You keep your footing.");
     }
     
     set_save("will");
@@ -102,17 +114,34 @@ void execute_feat()
         tell_object(target, "%^BOLD%^You lose your grip on reality and swing wildly.");
         load_object("/std/effect/status/confused")->apply_effect(target, roll_dice(1, 6) + 1);
     }
+    else
+    {
+        tell_room(place, target->QCN + " shrugs off the confusion.", ({ target }));
+        tell_object(target, "%^BOLD%^You shrug off the confusion.");
+    }
+    
     if(do_save(target, mod))
     {
         tell_room(place, target->QCN + " grips " + target->query_possessive() + " head as the world becomes too big to handle.", ({ target }));
         tell_object(target, "%^BOLD%^You grip your head as the world becomes too big to handle.");
         load_object("/std/effect/status/panicked")->apply_effect(target, roll_dice(1, 6) + 1);
     }
+    else
+    {
+        tell_room(place, target->QCN + " pushes through the fear.", ({ target }));
+        tell_object(target, "%^BOLD%^You push through the fear.");
+    }
+    
     if(do_save(target, mod))
     {
         tell_room(place, target->QCN + " is frozen in place by the futility of " + target->query_possessive() + " existence.", ({ target }));
         tell_object(target, "%^BOLD%^You are frozen in place by the futility of your existence.");
         target->set_paralyzed((roll_dice(1, 6) + 1) * 6, "You are frozen in place by the futility of your existence.");
+    }
+    else
+    {
+        tell_room(place, target->QCN + " resists the paralysis.", ({ target }));
+        tell_object(target, "%^BOLD%^You resist the paralysis.");
     }
     
     set_save("fort");
@@ -121,13 +150,23 @@ void execute_feat()
         tell_room(place, target->QCN + " grabs " + target->query_possessive() + " stomach as self-loathing sets in.", ({ target }));
         tell_object(target, "%^BOLD%^You grab your stomach as self-loathing sets in.");
         load_object("/std/effect/status/sickened")->apply_effect(target, roll_dice(1, 6) + 1);
-    }     
+    }
+    else
+    {
+        tell_room(place, target->QCN + " seems to resist the sickness.", ({ target }));
+        tell_object(target, "%^BOLD%^You resist the sickness.");
+    }    
 
     if(do_save(target, mod))
     {
         tell_room(place, target->QCN + " scratches at " + target->query_possessive() + " skin, desperately trying to feel something, anything.", ({ target }));
         tell_object(target, "%^BOLD%^You scratch at your skin, desperately trying to feel something, anything.");
         target->set_property("rend", 6);
+    }
+    else
+    {
+        tell_room(place, target->QCN + " toughs out the damage.", ({ target }));
+        tell_object(target, "%^BOLD%^You tough out the damage.");
     }
 
     tell_object(caster, color("You finish your ultimate insult and observe the impact with glee."));

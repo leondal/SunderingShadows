@@ -57,7 +57,7 @@ string strip_colors(string str)
                          "C238" : "", "C239" : "", "C240" : "", "C241" : "", "C242" : "", "C243" : "",
                          "C244" : "", "C245" : "", "C246" : "", "C247" : "", "C248" : "", "C249" : "",
                          "C250" : "", "C251" : "", "C252" : "", "C253" : "", "C254" : "", "C255" : "",
-                         "C256" : "",
+                         "C256" : "", "CRST" : "",
                          "ENDTERM" : ""]);
     ret = terminal_colour(str, Uncolor);
     return replace_string(ret, "\b", "");
