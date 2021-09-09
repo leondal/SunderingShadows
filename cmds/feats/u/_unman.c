@@ -29,7 +29,11 @@ string color(string str)
 int prerequisites(object ob)
 {
 
-    if(!objectp(ob)) { return 0; }
+    if(!objectp(ob))
+    {
+        dest_effect();        
+        return 0;
+    }
 
     if(ob->query_class_level("bard") < 31)
     {
@@ -56,12 +60,16 @@ void execute_feat()
     object obj;
     string * elements;
     int power;
+    
+    /*
 
     if(!objectp(caster) || !target)
     {
         dest_effect();
         return;
     }
+    
+    */
 
     if(caster->cooldown("unman"))
     {
