@@ -441,6 +441,7 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
 {
     object PlayerBoss;
     int attack_roll, bon, AC = 0, pFlag;
+    int ac_excess;
     if (!objectp(who)) {
         return 0;
     }
@@ -454,6 +455,16 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
         AC += effective_ac(targ);
     }
     AC += ac_bonus(targ, who);
+    
+    //Tlaloc added this cap 9/2/21 to address super high AC
+    //Diminished returns above 80
+    if(AC > 80)
+        AC = 80 + (AC - 80) / 2;
+    //If it's still above 90, even more diminished
+    if(AC > 90)
+        AC = 90 + (AC - 90) / 4;
+    
+    AC += targ->query_property("sundered");
 
     if (!userp(who)) {
         if (objectp(PlayerBoss = who->query_property("minion"))) {
@@ -486,10 +497,15 @@ varargs int process_hit(object who, object targ, int attack_num, mixed current, 
         return 20;
     }
     
+    //Point blank shot gives +1 to ranged touch attacks
+    if(flag)
+        mod += FEATS_D->usable_feat(who, "point blank shot");
+    
     attack_roll += mod;
     
     //if(attack_roll == 1) return -1;
     //does this change make AC less OP? - Saide, August 2017
+    //Might have to reconsider this since I added the change above to diminished returns - Tlaloc
     if ((bon + 15) < AC) {
         if (random(bon + AC + attack_roll) >= AC) {
             return attack_roll;

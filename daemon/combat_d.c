@@ -103,6 +103,15 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
     if(attacker->true_seeing())
         MissChance = 0;
     
+    //Can't block with shield if paralyzed
+    if(victim->query_paralyzed())
+        ShieldMissChance = 0;
+    /* pending testing
+    if(victim->light_blind())
+        ShieldMissChance /= 2;
+    */
+    
+    
     //Ranger with wild hunter active sees through quarry's concealment
     if(attacker->query_property("quarry") == victim && FEATS_D->is_active(attacker, "wild hunter"))
         MissChance = 0;
@@ -309,6 +318,10 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
     if (!damage) {
         return 0;
     }
+    
+    if(!strlen(type))
+        type = "untyped";
+    
     targ->set_magic_attack(0);
     targ->spell_attack(0);
     limb = targ->adjust_targeted_limb(attacker, limb);
@@ -1661,6 +1674,8 @@ void new_struck(int damage, object weapon, object attacker, string limb, object 
         if (strsrch(tmp, "damage bonus") != -1) {
             if (sscanf(tmp, "damage bonus %s %d", type, dam) == 2) {
                 if (objectp(victim)) {
+                    if(!strlen(type))
+                        type = "untyped";
                     victim->cause_typed_damage(victim, limb, dam, type);
                 }
             }
@@ -1672,6 +1687,8 @@ void new_struck(int damage, object weapon, object attacker, string limb, object 
         if (strsrch(tmp, "damage bonus") != -1) {
             if (sscanf(tmp, "damage bonus %s %d", type, dam) == 2) {
                 if (objectp(victim)) {
+                    if(!strlen(type))
+                        type = "untyped";
                     victim->cause_typed_damage(victim, limb, dam, type);
                 }
             }
@@ -1695,6 +1712,9 @@ void new_struck(int damage, object weapon, object attacker, string limb, object 
     if (objectp(shape = attacker->query_property("shapeshifted"))) {
         damage_type = (string)shape->get_new_damage_type();
     }
+    
+    if(!damage_type)
+        damage_type = "untyped";
 
     if (damage > 0) {
         damage_num = (int)victim->cause_typed_damage(victim, limb, damage, damage_type);
@@ -3344,7 +3364,7 @@ void internal_execute_attack(object who)
             {
                 if(!victim->cooldown("resilient body"))
                 {
-                    victim->add_cooldown("resilient body", 60);
+                    victim->add_cooldown("resilient body", 18);
                     tell_object(victim, "%^CYAN%^BOLD%^Your resilient body absorbs the critical hit!%^RESET%^");
                     critical_hit = 0;
                 }

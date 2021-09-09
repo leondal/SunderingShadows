@@ -4,7 +4,7 @@
 
 #include <std.h>
 #include "../defs.h"
-inherit VAULT;
+inherit "/std/bounty.c";
 
 void create()
 {
@@ -39,7 +39,8 @@ void create()
    "%^BOLD%^%^BLACK%^empty%^RESET%^%^CYAN%^. A simple "+ 
    "%^BOLD%^%^BLACK%^cl%^WHITE%^o%^BLACK%^th m%^WHITE%^a%^BLACK%^sk "+ 
    "%^RESET%^%^CYAN%^hangs loosely from the corner, "+ 
-   "and all nearby candles have been snuffed out.%^RESET%^\n");
+   "and all nearby candles have been snuffed out."+
+   "\n%^BOLD%^There is a board here, accompanied by a small sign.\n");
    set_smell("default","%^RESET%^%^ORANGE%^The room smells of fine tobacco.%^RESET%^");
    set_listen("default","%^RESET%^%^CYAN%^You can hear the whispers of some distant conversation.%^RESET%^");
    set_items(([
@@ -103,6 +104,8 @@ void create()
 	  "%^BLACK%^Sh%^WHITE%^a%^BLACK%^d%^WHITE%^o%^BLACK%^w%^RESET%^%^CYAN%^'%^BOLD%^%^BLACK%^s "+ 
 	  "D%^WHITE%^u%^BLACK%^e%^WHITE%^%^RESET%^%^CYAN%^.%^RESET%^",
 	  ({"feather","symbol"}) : "There's a small plaque beneath the sigil. Maybe you can read it?",
+      ({"sign","board"}) : "%^RESET%^%^ORANGE%^The board is a list of bounties, and the sign details its use. You can read either for more details.%^RESET%^",
+      "plaques" : "%^RESET%^%^ORANGE%^There are names and dates printed on plaques near most of the knick knacks and trophies, but there is one lone plaque that stands alone. It is imprinted with the image of a hand, and an arrow pointing downwards.%^RESET%^",
    ]));
    set_exits(([
       "bar" : ROOMS"bestiary",
@@ -139,17 +142,3 @@ int make(string str){
 return 1;
 }
 
-int read(string str) {
-   if(str != "plaque") {
-   return 0;
-   }
-   if(TP->is_class("thief") || TP->is_class("bard") || TP->is_class("assassin")) {
-      tell_object(TP,"%^BOLD%^%^BLUE%^To gain entrance to the sewers, sign that you belong.");
-      return 1;
-   }
-   else{
-      tell_object(TP,"You can decipher no meaning from the scratches on the plaque!");
-      tell_room(ETP,""+TPQCN+" glances at the plaque and looks confused.",TP);
-      return 1;
-      }
-}

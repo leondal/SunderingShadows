@@ -49,3 +49,11 @@ void create(){
         "related to their travels or business..\n");
     }
 }
+
+void reset()
+{
+    ::reset();
+    if(!present("golem")){new(MOBS"bladegolem.c")->move(TO);}
+    if(!present("golem 2")){new(MOBS"bladegolem.c")->move(TO);}
+    if(!present("golem 3")){new(MOBS"bladegolem.c")->move(TO);}
+}

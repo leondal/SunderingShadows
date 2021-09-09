@@ -11,7 +11,7 @@ void create() {
     ::create();
     set_spell_name("ectoplasmic swarm");
     set_spell_level(([ "psion" : 5 ]));
-    set_spell_sphere("conjuration_summoning");
+    set_spell_sphere("metacreativity");
     set_syntax("cast CLASS ectoplasmic swarm");
     set_description("Manifesting this power creates a swarm of tiny "
        "ectoplasmic beings in the area around the psion. These beings "

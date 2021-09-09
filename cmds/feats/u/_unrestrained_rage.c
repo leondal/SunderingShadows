@@ -10,7 +10,7 @@ void create()
     feat_category("RagePower");
     feat_name("unrestrained rage");
     feat_prereq("Barbarian");
-    feat_desc("While raging, the barbarian gains immunity to paralysis.");
+    feat_desc("While raging, the barbarian gains greater protection against paralysis effects. Once every two minutes, when the raging barbarian is affected by a paralysis effect, they gain immunity to paralysis for four rounds.");
     permanent(1);
 }
 

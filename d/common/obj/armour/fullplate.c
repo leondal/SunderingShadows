@@ -1,3 +1,4 @@
+//Tlaloc slightly adjusted AC values up 9.3.21
 inherit "/std/plate";
 
 void create()
@@ -19,7 +20,8 @@ void create()
     set("value", 2000);
     set_type("armour");
     set_limbs(({ "torso" }));
-    set_ac(9);
+    //set_ac(9);
+    set_ac(11);
 }
 
 int is_metal()

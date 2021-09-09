@@ -10,14 +10,17 @@ void set_unwield_state();
 
 void create(){
   ::create();
-  set_id(({"knife","ethereal knife","amber knife","weapon", "shard", 
+  set_id(({"knife","ethereal knife","amber knife","weapon", "shard",
            "amber shard", "amber"}));
   set_short("%^ORANGE%^amb%^YELLOW%^e%^RESET%^%^ORANGE%^r"
            +"%^RESET%^ shard");
   set_unwield_state();
-  set_wield((:TO, "wield_knife":));          
-  set_unwield((:TO, "unwield_knife":));  
-  set_property("enchantment", 6);
+  set_wield((:TO, "wield_knife":));
+  set_unwield((:TO, "unwield_knife":));
+  while ((int)TO->query_property("enchantment") != 7) {
+      TO->remove_property("enchantment");
+      TO->set_property("enchantment", 7);
+  }
   set_item_bonus("spell damage resistance", 30);
   set_hit((:TO, "hit_stuff":));
 
@@ -30,11 +33,11 @@ string query_short(){
       set_unwield_state();
     }
   }
-  return ::query_short();    
+  return ::query_short();
 }
 
 int hit_stuff(object ob)
-{ 
+{
   int dam;
   if (!objectp(TO)||!objectp(ETO)||!objectp(ob)){return 0;}
   if (random(9)<5)
@@ -47,7 +50,7 @@ int hit_stuff(object ob)
     tell_object(ETO, "%^ORANGE%^Your " + query_name() + "%^RESET%^"
                     +"%^CYAN%^ fl%^BOLD%^%^WHITE%^i%^RESET%^%^CYAN%^ck"
                     +"%^RESET%^e%^CYAN%^rs%^ORANGE%^ and phases before"
-                    +" stabbing through " + (string)ob->QCN 
+                    +" stabbing through " + (string)ob->QCN
                     +"'s %^RESET%^%^ORANGE%^defenses!");
    tell_object(ob, (string)ETO->QCN + "'s %^ORANGE%^" + query_name()
                     +"%^RESET%^%^CYAN%^ fl%^BOLD%^%^WHITE%^i%^RESET%^"
@@ -56,29 +59,29 @@ int hit_stuff(object ob)
     tell_room(EETO, (string)ETO->QCN + "'s %^ORANGE%^" + query_name()
                     +"%^RESET%^%^CYAN%^ fl%^BOLD%^%^WHITE%^i%^RESET%^"
                     +"%^CYAN%^ck%^RESET%^e%^CYAN%^rs%^ORANGE%^ and phases"
-                    +" before stabbing through " + (string)ob->QCN 
+                    +" before stabbing through " + (string)ob->QCN
                     +" %^RESET%^%^ORANGE%^defenses!",({ob,ETO}));
     set_property("magic",1);
-    ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(1, 30) + 39, "piercing");
+    ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(6, 10), "piercing");
     remove_property("magic");
     break;
     return (0);
   case 5..8:
     tell_object(ETO, "The " + query_name() + " %^RESET%^%^CYAN%^"
                     +" disappears%^RESET%^ from your hand as you strike,"
-                    +" then re-appears, embedded deeply in " 
+                    +" then re-appears, embedded deeply in "
                     + (string)ob->QCN + "'s %^RESET%^flesh!");
-    tell_object(ob, (string)ETO->QCN +"'s %^RESET%^" + query_name() 
+    tell_object(ob, (string)ETO->QCN +"'s %^RESET%^" + query_name()
                    +" %^CYAN%^disappears%^RESET%^ from " + (string)ETO->QP
                    +" hand as " + (string)ETO->QS + " strikes, only to"
                    +" re-appear, embedded deeply in your flesh!");
-    tell_room(EETO, (string)ETO->QCN +"'s %^RESET%^" + query_name() 
+    tell_room(EETO, (string)ETO->QCN +"'s %^RESET%^" + query_name()
                    +" %^CYAN%^disappears%^RESET%^ from " + (string)ETO->QP
                    +" hand as " + (string)ETO->QS + " strikes, only to"
-                   +" re-appear, embedded deeply in " + (string)ob->QCN 
+                   +" re-appear, embedded deeply in " + (string)ob->QCN
                   +"'s  flesh!", ({ob,ETO}) );
     set_property("magic",1);
-    ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(1, 60) + 9, "piercing");
+    ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(6, 10) + 10, "piercing");
     remove_property("magic");
     break;
     return (0);
@@ -145,7 +148,7 @@ int unwield_knife()
                  +"%^RESET%^i%^CYAN%^ck%^RESET%^e%^CYAN%^r%^RESET%^i"
                  +"%^CYAN%^ng%^RESET%^ blade disappears, leaving "
                  + (string)ETO->QO +" once more with just a shard of"
-                 +" %^ORANGE%^amb%^YELLOW%^e%^RESET%^%^ORANGE%^r" 
+                 +" %^ORANGE%^amb%^YELLOW%^e%^RESET%^%^ORANGE%^r"
                  +"%^RESET%^",ETO);
   set_unwield_state();
   return 1;

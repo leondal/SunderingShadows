@@ -10,7 +10,8 @@ void create() {
     set("value", 30);
     set_type("chain");
     set_limbs( ({ "head" }) );
-    set_ac(1);
+    //set_ac(1);
+    set_ac(2);
     set_armor_prof("medium");
 }
 

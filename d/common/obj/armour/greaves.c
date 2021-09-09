@@ -14,7 +14,8 @@ void create()
     "look about them as if they were crafted in haste.");
     set_weight(3);
     set_value(12);
-    set_ac(1);
+    //set_ac(1);
+    set_ac(3);
     set_size(2);
     set_type("armor");
     set_armor_prof("medium");

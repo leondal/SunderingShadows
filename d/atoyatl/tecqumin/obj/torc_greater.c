@@ -1,7 +1,7 @@
 #include <std.h>
 #include <clock.h>
 
-inherit ARMOUR;
+inherit "/d/common/obj/jewelry/necklace";
 int uses;
 int head1, head2;
 
@@ -54,14 +54,9 @@ void create()
              + " Some of them were blessed with the powers of their particular gods."
              + " The high priests were rumoured to be gifted with torcs carrying"
              + " enchantments relating to more than one god.");
-    set_weight(3);
-    set_size(-1);
-    set_type("clothing");
-    set_limbs(({ "neck", }));
-    set_ac(0);
-    while ((int)TO->query_property("enchantment") != 6) {
+    while ((int)TO->query_property("enchantment") != 7) {
         TO->remove_property("enchantment");
-        TO->set_property("enchantment", 6);
+        TO->set_property("enchantment", 7);
     }
     switch (head1) {
     case 0:
@@ -134,7 +129,7 @@ int wear_it(string str)
                 + " against the %^MAGENTA%^U%^BLUE%^nf%^MAGENTA%^e%^BLUE%^tt%^MAGENTA%^e"
                 + "%^BLUE%^r%^MAGENTA%^e%^BLUE%^d");
     tell_room(environment(ETO), ETO->query_cap_name() + " fastens the "
-              + query_name() + " around " + ETO->query_possessive() + " neck.", ETO);
+              + query_obvious_short() + " around " + ETO->query_possessive() + " neck.", ETO);
     return 1;
 }
 

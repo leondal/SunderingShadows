@@ -19,7 +19,8 @@ void create() {
     set("value", 200);
     set_type("armour");
     set_limbs( ({ "torso" }) );
-    set_ac(6);     
+    //set_ac(6);
+    set_ac(8);
 }
 
 int is_metal() { return 1; }

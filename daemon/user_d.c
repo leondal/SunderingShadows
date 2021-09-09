@@ -9,6 +9,7 @@
 #include <monks.h>
 #include <favored_types.h>
 #define ANSI(p) sprintf("%c["+(p)+"m", 27)
+#define ANSI2(p) sprintf("%c[38;5;"+(p)+"m", 27)
 #define ESC(p) sprintf("%c"+(p), 27)
 
 inherit DAEMON;

@@ -134,8 +134,10 @@ void newbie_func(object who)
         ob2->move(ob);
     }
     ob->move(who);
+    /*
     tell_object(who, "%^BOLD%^%^WHITE%^You are given a spell tome, a bag for components, and a sack of scrolls "+
     "to help you out in the world of ShadowGate.%^RESET%^");
+    */
 }
 
 int caster_level_calcs(object player, string the_class)

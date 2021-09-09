@@ -1,7 +1,7 @@
 #include <std.h>
 #include <clock.h>
 
-inherit ARMOUR;
+inherit "/d/common/obj/jewelry/necklace";
 int uses;
 int head;
 
@@ -13,7 +13,7 @@ void create(){
                +" %^RESET%^of %^BOLD%^%^RED%^f%^BLUE%^ea%^RED%^th"
                +"%^BLUE%^e%^RED%^rs%^RESET%^", "a%^BOLD%^%^WHITE%^"
                +" snarling %^BOLD%^%^BLACK%^j%^RESET%^a%^BOLD%^"
-               +"%^BLACK%^g%^RESET%^%^BLUE%^u%^BOLD%^%^BLACK%^ar", 
+               +"%^BLACK%^g%^RESET%^%^BLUE%^u%^BOLD%^%^BLACK%^ar",
                 "a hero %^BOLD%^%^YELLOW%^wreathed %^RESET%^in"
                +" %^BOLD%^%^RED%^f%^YELLOW%^l%^RESET%^%^RED%^a"
                +"%^BOLD%^me%^RESET%^", "a %^BOLD%^%^GREEN%^tr"
@@ -21,9 +21,9 @@ void create(){
                +"i%^BOLD%^r%^RESET%^%^GREEN%^i%^BOLD%^t%^RESET%^",
                 "a %^BOLD%^%^YELLOW%^sun G%^RESET%^%^ORANGE%^o"
                +"%^BOLD%^d%^RESET%^"});
-    head_shorts = ({"%^BOLD%^%^GREEN%^serpent%^RESET%^", 
+    head_shorts = ({"%^BOLD%^%^GREEN%^serpent%^RESET%^",
       "%^BOLD%^%^BLACK%^j%^RESET%^a%^BOLD%^%^BLACK%^g%^RESET%^"
-     +"%^BLUE%^u%^BOLD%^%^BLACK%^ar", "%^ORANGE%^hero%^RESET%^", 
+     +"%^BLUE%^u%^BOLD%^%^BLACK%^ar", "%^ORANGE%^hero%^RESET%^",
       "%^GREEN%^tree", "%^BOLD%^%^YELLOW%^sun"});
     ::create();
     head = random(sizeof(heads));
@@ -34,7 +34,7 @@ void create(){
       +"%^BOLD%^%^WHITE%^r " +head_shorts[head] + " t%^RESET%^o%^BOLD%^"
       +"%^WHITE%^rc %^RESET%^of the %^CYAN%^Tecqumin");
     set_obvious_short("A %^BOLD%^%^WHITE%^S%^RESET%^i%^BOLD%^%^WHITE%^lv"
-      +"%^RESET%^e%^BOLD%^%^WHITE%^r " + head_shorts[head] 
+      +"%^RESET%^e%^BOLD%^%^WHITE%^r " + head_shorts[head]
       +" t%^RESET%^o%^BOLD%^%^WHITE%^rc%^RESET%^");
     set_long("This %^BOLD%^%^WHITE%^rigid s%^RESET%^i%^BOLD%^%^WHITE%^lv"
       +"%^RESET%^e%^BOLD%^%^WHITE%^r%^RESET%^ neck ring is of fine"
@@ -46,12 +46,6 @@ void create(){
       +" Some of them were blessed with the powers of their particular gods."
       +" The high priests were rumoured to be gifted with torcs carrying"
       +" enchantments relating to more than one god.");
-   set_weight(3);
-   set_size(-1);
-   set_type("clothing");
-   set_limbs(({"neck",}));
-   set_ac(0);
-//   set_item_bonus("enchantment", 6);
    set_property("enchantment",6);
    switch(head){
    case 0:
@@ -80,8 +74,8 @@ void create(){
 int wear_it(string str){
     tell_object(ETO,"You drag the ends of the torc apart far enough to get it"
       +" round your neck.");
-    tell_room(environment(ETO), ETO->query_cap_name()+ " fastens the " 
-      + query_name() + " around "+ETO->query_possessive()+" neck.",ETO);
+    tell_room(environment(ETO), ETO->query_cap_name()+ " fastens the "
+      + query_obvious_short() + " around "+ETO->query_possessive()+" neck.",ETO);
     return 1;
 }
 void init() {

@@ -17,7 +17,7 @@ void create() {
 	set_type("leather");
 // Must be type leather for thiefs to sneak in.
 	set_limbs(({"head"}));
-//        set_ac(1);
+    set_ac(1);
     set_armor_prof("light");
 }
 

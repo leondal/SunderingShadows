@@ -1,6 +1,6 @@
 #include <std.h>
 #include <daemons.h>
-inherit ROOM;
+inherit "/std/bounty.c";
 
 string *registered;
 
@@ -17,12 +17,13 @@ void create(){
 	set_long("%^RESET%^%^ORANGE%^This small dimly lit room is made for functionality rather than looks.  The "
 "walls are bare as is the stone floor.  A pretty young woman sits behind a small desk with several quill pens "
 "and a few papers scattered about.  There is also a message board on one wall, and at a second glance you do "
-"notice a few shadowy forms coming and going, or just milling about.%^RESET%^\n");
+"notice a few shadowy forms coming and going, or just milling about.\n%^BOLD%^There is a board here, accompanied by a small sign.%^RESET%^\n");
 	set_smell("default", "You smell ink and oiled leather.");
 	set_listen("default", "All you hear is a slight rustling of papers as the woman adjusts them on her "
 "desk.");
 	set_items(([
-	]));
+        ({"sign","board"}) : "%^RESET%^%^ORANGE%^The board is a list of bounties, and the sign details its use. You can read either for more details.%^RESET%^",
+    ]));
 
 	set_exits(([
 		"out" : "/d/dagger/Torm/city/thieves/vethor_trophy",

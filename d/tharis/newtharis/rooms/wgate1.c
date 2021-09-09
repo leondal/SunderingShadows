@@ -37,7 +37,7 @@ void create(){
 
 void reset(){
     ::reset();
-    if(!present("hound")){new(MOBS"guard.c")->move(TO);}
+    if(!present("golem")){new(MOBS"bladegolem.c")->move(TO);}
 }
 
 void init() {

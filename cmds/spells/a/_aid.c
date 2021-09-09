@@ -18,7 +18,7 @@ void create() {
 
 int query_fl_power()
 {
-    return 2;
+    return 1;
 }
 
 string query_casting_string()

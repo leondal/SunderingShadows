@@ -2,7 +2,7 @@
 #include <daemons.h>
 #include "/realms/grendel/grendel.h"
 #include "../tharis.h"
-inherit ROOM;
+inherit "/std/bounty.c";
 
 string *registered;
 
@@ -23,13 +23,15 @@ void create(){
 "%^RED%^couches %^ORANGE%^are arranged for members to sit, discuss, and negotiate. The walls are covered in "
 "%^GREEN%^rich, soft fabric %^ORANGE%^that seems to muffle any sound. Even though several conversations go on "
 "around you, it is surprisingly %^CYAN%^quiet %^ORANGE%^here. A large desk sits against the north wall where "
-"people can 'register' for membership in the guild.\n%^RESET%^");
+"people can 'register' for membership in the guild.\n%^BOLD%^There is a board here, accompanied by a small sign.\n%^RESET%^");
     set_exits(([
         "north" : ROOMS"thief_tailor",
         "store" : ROOMS"tstore",
         "down" : ROOMS"tunnel13",
       ]));
-
+    set_items(([
+        ({"sign","board"}) : "%^RESET%^%^ORANGE%^The board is a list of bounties, and the sign details its use. You can read either for more details.%^RESET%^",
+        ]));
     set_smell("default","The room has the dusky, stale smell common to long-term enclosed places.");
     set_listen("default","It's surprisingly quiet here.");
     set_pre_exit_functions(({"store"}),({"GoThroughDoor"}));

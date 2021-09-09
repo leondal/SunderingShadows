@@ -19,7 +19,8 @@ void create()
     set("value", 75);
     set_type("chain");
     set_limbs( ({ "torso" }) );
-    set_ac(5);
+    //set_ac(5);
+    set_ac(7);
     set_property("magic item",({"illuminate","extra_armor"}) );
 }
 

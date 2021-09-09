@@ -807,10 +807,19 @@ int immunity_check(object obj, string type)
     
     case "paralysis":
     {
-        if(obj->is_class("barbarian"))
+        if(obj->query_property("stun_immunity"))
+            return 1;
+        
+        if(obj->is_class("barbarian") && !obj->cooldown("unrestrained rage"))
         {
             if(obj->query_property("raged") && FEATS_D->has_feat(obj, "unrestrained rage"))
+            {
+                tell_object(obj, "%^YELLOW%^Your rage allows you to shake off the paralysis!%^RESET%^");
+                obj->add_coolown("unrestrained rage", 120);
+                obj->set_property("stun_immunity", 1);
+                call_out("remove_stun_immunity", 24, obj);
                 return 1;
+            }
         }
     
         return 0;
@@ -822,4 +831,9 @@ int immunity_check(object obj, string type)
     }
 
     return 0;
+}
+
+void remove_stun_immunity(object ob)
+{
+    ob && ob->remove_property("stun_immunity");
 }

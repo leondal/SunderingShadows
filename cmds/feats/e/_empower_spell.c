@@ -81,7 +81,7 @@ void execute_feat()
 
     tell_object(caster, "You use your meta magic knowledge to empower your next spell.");
     caster->set_property("empower spell", 1);
-    caster->add_cooldown("empower spell", 1200);
+    caster->add_cooldown("empower spell", 600);
 
     return;
 }

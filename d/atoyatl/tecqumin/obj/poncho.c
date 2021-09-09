@@ -6,6 +6,7 @@
 #define ASSASSIN 2
 #define CEREMONIAL 3
 #define TRACKER 4
+#define DIVINER 5
 #include <std.h>
 #include <daemons.h>
 #include "../tecqumin.h"
@@ -27,42 +28,20 @@ void create() {
    colour2 = COLOURS[col2];
    code1 = COLOUR_CODES[col1];
    code2 = COLOUR_CODES[col2];
-   set_obvious_short("%^RESET%^" + code1 + "a " + code2 + "c" + code1 + "o" + code2 
-     + "l" + code1 + "ou" + code2 + "rf" + code1 + "u" + code2 + "l " 
+   which = random(5) +1;
+   set_obvious_short("%^RESET%^" + code1 + "a " + code2 + "c" + code1 + "o" + code2
+     + "l" + code1 + "ou" + code2 + "rf" + code1 + "u" + code2 + "l "
      + code1 + "p" + code2 + "o" + code1 + "nch" + code2 + "o");
-   set_short("%^CYAN%^Tecqumin "+code1 + "sp" + code2 + "i" + code1 
+   set_short("%^CYAN%^Tecqumin "+code1 + "sp" + code2 + "i" + code1
      + "r" + code2 + "i" + code1 +"t p" + code2 + "o" + code1 + "nch"
      + code2 + "o");
-   set_long( (: TO, "long_desc" :) ); 
+   set_long(long_desc());
    set_lore("The poncho was one of the traditional pieces of dress of"
      +" the %^CYAN%^Tecqumin%^RESET%^ civilisation, and it is known"
      +" that a number of enchanted varieties were made. Sages have"
      +" speculated that since the downfall of the %^CYAN%^Tecqumin"
      +" %^RESET%^civilisation, some varieties may exist that have taken"
      +" on the ethereal characteristics of their cursed, ghostly owners.");
-   which = random(4) +1;
-   switch (which){
-   case WARRIOR:
-     set_long(query_long() +  ", and is %^BOLD%^%^WHITE%^embroidered%^RESET%^ with"
-       +" a small design representing a pair of %^BOLD%^%^WHITE%^cr%^RESET%^o"
-       +"%^BOLD%^%^WHITE%^ss%^RESET%^e%^BOLD%^%^WHITE%^d"
-       +" sw%^RESET%^o%^BOLD%^%^WHITE%^rds");
-     break;
-   case ASSASSIN: 
-     set_long(query_long() + ", and is %^BOLD%^%^BLACK%^embroidered%^RESET%^"
-       +" with a small motif of an unsheathed %^BOLD%^%^BLACK%^dagger%^RESET%^.");
-     break;
-   case CEREMONIAL:
-     set_long(query_long() + ", and is %^BOLD%^%^BLACK%^embroidered%^RESET%^"
-       +" with a small motif of a %^BOLD%^%^BLACK%^ragged black blindfold%^RESET%^");
-     break;
-   case TRACKER:
-     set_long(query_long() + ", and is %^BOLD%^%^GREEN%^embr%^RESET%^%^GREEN%^oi"
-       +"%^BOLD%^d%^RESET%^%^GREEN%^e%^BOLD%^r%^RESET%^%^GREEN%^e%^BOLD%^d%^RESET%^"
-       +" with a small motif of a %^BOLD%^%^GREEN%^ju%^RESET%^%^GREEN%^ngl%^RESET%^"
-       +"%^GREEN%^e %^ORANGE%^path%^RESET%^.");
-     break;
-   }
    set_weight(6);
    set_type("clothing");
    set_limbs(({"torso"}));
@@ -80,15 +59,9 @@ int wear_func() {
    do_bonuses();
    code1 = COLOUR_CODES[col1];
    code2 = COLOUR_CODES[col2];
-  if (!ETO->id("ghost") && EVENT_RECORDS_D->has_killed(ETO->query_name(), 
- MOB + "ghost_warrior", 10000000000)==-1
-    && EVENT_RECORDS_D->has_killed(ETO->query_name(), MOB + "ghost_priest", 10000000000)==-1){
-    tell_object(ETO, "The " + code1 + "p" + code2 + "o" + code1 + "nch" + code2 + "o%^RESET%^ refuses to settle over your shoulders");
-    return 0;
-  }
-  tell_object(ETO,"You slide the " + code1 + "p" + code2 + "o" + code1 + "nch" + code2 + "o%^RESET%^ over your head, and smooth it down over your shoulders");
+  tell_object(ETO,"You slide the " + query_obvious_short() + " %^RESET%^over your head, and smooth it down over your shoulders");
   if (objectp(EETO)){
-    tell_room(EETO, ETO->QCN + " slides the " + code1 + "p" + code2 + "o" + code1 + "nch" + code2 + "o%^RESET%^ over " + ETO->QP + " head, and smooths it down over " + ETO->QP + " shoulders", ETO );
+    tell_room(EETO, ETO->QCN + " slides the " + query_obvious_short() + " %^RESET%^over " + ETO->QP + " head, and smooths it down over " + ETO->QP + " shoulders", ETO );
   }
   return 1;
 }
@@ -115,21 +88,26 @@ string long_desc(){
      result = result + " It is %^BOLD%^%^WHITE%^embroidered%^RESET%^ with"
        +" a small design representing a pair of %^BOLD%^%^WHITE%^cr%^RESET%^o"
        +"%^BOLD%^%^WHITE%^ss%^RESET%^e%^BOLD%^%^WHITE%^d"
-       +" sw%^RESET%^o%^BOLD%^%^WHITE%^rds";
+       +" sw%^RESET%^o%^BOLD%^%^WHITE%^rds.";
      break;
-   case ASSASSIN: 
+   case ASSASSIN:
      result =  result + " It is %^BOLD%^%^BLACK%^embroidered%^RESET%^"
        +" with a small motif of an unsheathed %^BOLD%^%^BLACK%^dagger%^RESET%^.";
      break;
    case CEREMONIAL:
      result =  result + " It is %^BOLD%^%^BLACK%^embroidered%^RESET%^"
-       +" with a small motif of a %^BOLD%^%^BLACK%^ragged black blindfold%^RESET%^";
+       +" with a small motif of a %^BOLD%^%^BLACK%^ragged black blindfold%^RESET%^.";
      break;
    case TRACKER:
      result = result + " It is %^BOLD%^%^GREEN%^embr%^RESET%^%^GREEN%^oi"
        +"%^BOLD%^d%^RESET%^%^GREEN%^e%^BOLD%^r%^RESET%^%^GREEN%^e%^BOLD%^d%^RESET%^"
        +" with a small motif of a %^BOLD%^%^GREEN%^ju%^RESET%^%^GREEN%^ng%^BOLD%^l"
        +"%^RESET%^%^GREEN%^e %^ORANGE%^path%^RESET%^.";
+     break;
+   case DIVINER:
+     result = result + " It is %^BOLD%^%^ORANGE%^embr%^RESET%^%^ORANGE%^oi"
+       +"%^BOLD%^d%^RESET%^%^ORANGE%^e%^BOLD%^r%^RESET%^%^ORANGE%^e%^BOLD%^d%^RESET%^"
+       +" with a small motif of a %^ORANGE%^bl%^RESET%^%^ORANGE%^a%^BOLD%^zing s%^RESET%^%^ORANGE%^u%^BOLD%^n%^RESET%^.";
      break;
    }
    return result;
@@ -144,10 +122,13 @@ void do_bonuses(){
     set_item_bonus("dexterity", 6);
     break;
   case CEREMONIAL:
-    set_item_bonus("wisdom", 4);
+    set_item_bonus("wisdom", 6);
     break;
   case TRACKER:
-    set_item_bonus("survival", 5);
+    set_item_bonus("survival", 6);
+    break;
+  case DIVINER:
+    set_item_bonus("intelligence", 6);
     break;
   }
 }
@@ -156,7 +137,7 @@ int remove_func() {
    string code1, code2;
    code1 = COLOUR_CODES[col1];
    code2 = COLOUR_CODES[col2];
-   tell_object(ETO,"You lift the " + code1 + "p" + code2 + "o" + code1 + "nch" + code2 + "o%^RESET%^ off over your head");
+   tell_object(ETO,"You lift the " + query_obvious_short() + " %^RESET%^off over your head");
    return 1;
 }
 
@@ -178,12 +159,12 @@ int strike_func(int damage, object what, object who)
     if(!objectp(who)) return 0;
     if(random(6)<1)
     {
-        tell_room(EETO, ETOQCN + "'s " + code1 + "p" + code2 + "o" + code1 + "nch" + code2 + "o%^RESET%^ flickers, and " + ETO->QS + " becomes momentarily insubstantial, allowing " + who->QCN+" 's blow to pass right through " + ETO->QO, ({ETO, who}));
-        
-        tell_object(ETO, "Your poncho goes cold and you feel a strange shock as " + who->QCN + "'s attack passes right through, leaving you feeling weird but otherwise unharmed.");
-                                
-        tell_object(who,  ETOQCN + "'s " + code1 + "p" + code2 + "o" + code1 + "nch" + code2 + "o%^RESET%^ flickers, and " + ETO->QS + " becomes momentarily insubstantial, allowing your blow to pass right through " + ETO->QO);
-        return 0;        
-    }    
+        tell_room(EETO, ETOQCN + "'s " + query_obvious_short() + " %^RESET%^flickers, and " + ETO->QS + " becomes momentarily insubstantial, allowing " + who->QCN+" 's blow to pass right through " + ETO->QO, ({ETO, who}));
+
+        tell_object(ETO, "Your " + query_obvious_short() + " %^RESET%^goes cold and you feel a strange shock as " + who->QCN + "'s attack passes right through, leaving you feeling weird but otherwise unharmed.");
+
+        tell_object(who,  ETOQCN + "'s " + query_obvious_short() + " %^RESET%^flickers, and " + ETO->QS + " becomes momentarily insubstantial, allowing your blow to pass right through " + ETO->QO);
+        return 0;
+    }
     return damage;
 }

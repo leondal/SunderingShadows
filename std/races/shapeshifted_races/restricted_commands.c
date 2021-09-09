@@ -115,15 +115,15 @@ int allow_shifted_command(object player,string verb,string command)
             return 0;
         }
     }
-    if(!spam_buffer(player))
-    {
-        if(objectp(player)) { tell_object(player, "Too many commands entered in too short time: "+ctime(time())); }
-        if(interactive(player)) { log_file("spam",""+identify(player)+" exceeded command spam limit of 100 commands in 2 seconds, tried to enter command: "+verb+" "+command+"\n"); }
-        player->delete("no_commands_allowed");
-        player->set("no_commands_allowed",time() + 3);
-        player->set_paralyzed(2);
-        return 0;
-    }
+    // if(!spam_buffer(player))
+    // {
+    //     if(objectp(player)) { tell_object(player, "Too many commands entered in too short time: "+ctime(time())); }
+    //     if(interactive(player)) { log_file("spam",""+identify(player)+" exceeded command spam limit of 100 commands in 2 seconds, tried to enter command: "+verb+" "+command+"\n"); }
+    //     player->delete("no_commands_allowed");
+    //     player->set("no_commands_allowed",time() + 3);
+    //     player->set_paralyzed(2);
+    //     return 0;
+    // }
     if(avatarp(player)) { return 1; }
     if(!objectp(player)) { return 1; }
     if(!objectp(shape = player->query_property("shapeshifted"))) { return 1; }

@@ -55,6 +55,13 @@ spell_effect(int prof) {
     
     if(!do_save(target, 0))
         target->set_paralyzed(roll_dice(1, 4), "Your mind is wracked with psychic energy!");
+    else
+    {
+        tell_object(target, "You resist the psychic energies!");
+        tell_object(caster, "%^YELLOW%^" + target->QCN + " resists the psychic energy.");
+    }
+    
+    spell_kill(target, caster);
     
     //damage_targ(target, target->return_target_limb(), damage,"mental");
     target->cause_typed_damage(target, target->return_target_limb(), sdamage, "mental");

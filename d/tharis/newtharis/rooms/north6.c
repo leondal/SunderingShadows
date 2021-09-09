@@ -17,6 +17,7 @@ void create(){
 "it.%^RESET%^\n");
    set_exits(([
       "north" : ROOMS"north5",
+      "west" : "/d/tharis/newtharis/rooms/jail_main",
       "southeast" : "/d/magic/temples/lord_shadow/lord_shadowentry",
    ]));
    add_item("buildings","%^CYAN%^The buildings here seem to be quite new, some not even entirely "
