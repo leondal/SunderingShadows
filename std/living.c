@@ -639,16 +639,19 @@ nomask protected int cmd_hook(string cmd)
         return 1;
     }
 
-    if (objectp(shapeshift_restricted_commands = find_object_or_load("/std/races/shapeshifted_races/restricted_commands"))) {
-        if (!shapeshift_restricted_commands->allow_shifted_command(TO, verb, cmd)) {
-            if (!TO->query("no_commands_allowed")) {
-                if (cmd) {
-                    tell_object(TO, "You can't " + verb + " " + cmd + " while shapeshifted.");
-                }else {
-                    tell_object(TO, "You can't " + verb + " while shapeshifted.");
+    if(this_object()->query_property("shapeshifted"))
+    {
+        if (objectp(shapeshift_restricted_commands = find_object_or_load("/std/races/shapeshifted_races/restricted_commands"))) {
+            if (!shapeshift_restricted_commands->allow_shifted_command(TO, verb, cmd)) {
+                if (!TO->query("no_commands_allowed")) {
+                    if (cmd) {
+                        tell_object(TO, "You can't " + verb + " " + cmd + " while shapeshifted.");
+                    }else {
+                        tell_object(TO, "You can't " + verb + " while shapeshifted.");
+                    }
                 }
+                return 1;
             }
-            return 1;
         }
     }
 
