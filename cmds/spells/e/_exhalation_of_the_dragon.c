@@ -22,6 +22,7 @@ void create()
 {
     ::create();
     set_spell_name("exhalation of the dragon");
+    set_spell_sphere("psychokinesis");
     set_spell_level(([ "psywarrior" : 3 ]));
     set_syntax("cast CLASS exhalation of the dragon on TARGET as <type>");
     set_description("This power will allow the psionic character to manifest "

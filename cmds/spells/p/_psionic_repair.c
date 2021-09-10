@@ -5,15 +5,13 @@ inherit SPELL;
 void create()
 {
     ::create();
-    set_author("nienne");
-    set_spell_name("mending");
-    set_spell_level(([ "cantrip" : 1, "mage" : 1, "warlock" : 1, "magus" : 1 ]));
+    set_spell_name("psionic repair");
+    set_spell_level(([ "psion" : 1 ]));
     set_affixed_spell_level(3);
-    set_mystery(({ "life", "metal" }));
-    set_spell_sphere("alteration");
+    set_spell_sphere("metacreativity");
     set_syntax(
-        "cast CLASS mending on OBJECT
-        cast CLASS mending on OBJECT at PLAYER");
+        "cast CLASS psionic repair on OBJECT
+        cast CLASS psionic repair on OBJECT at PLAYER");
     set_description("This spell will attempt to repair the item in question. If a player target is not specified, it will default to items carried in the caster's inventory. Unlike normal repairs, the reliability of the spell is based upon the caster's power. The spell cannot be cast in combat.
 
 If used on a construct, this spell will repair it as efficiently as repair undead spell.");
@@ -21,12 +19,11 @@ If used on a construct, this spell will repair it as efficiently as repair undea
     set_somatic_comp();
     set_arg_needed();
     set_helpful_spell(1);
-    set_feats_required(([ "warlock" : "book of shadows"]));
 }
 
 string query_casting_string()
 {
-    return "%^BOLD%^%^BLUE%^" + caster->QCN + " utters a short %^GREEN%^r%^CYAN%^h%^GREEN%^ym%^CYAN%^e %^BLUE%^under " + caster->QP + " breath.";
+    return "%^BOLD%^%^CYAN%^" + caster->QCN + " places a finger to " + caster->query_possessive() + " head and concentrates.%^RESET%^";
 }
 
 int preSpell()
@@ -120,7 +117,7 @@ void spell_effect(int prof)
     ob->repairMe(variant);
 
     if (variant < 0) {   //failed
-        tell_room(place, "%^BOLD%^%^CYAN%^The " + what + " trembles as the spell passes over it, but it appears that more harm than good has been done by its effects.");
+        tell_room(place, "%^BOLD%^%^CYAN%^The " + what + " trembles as the psionic energy passes over it, but it appears that more harm than good has been done by its effects.");
         if (state == 0) {
             tell_room(place, "%^BOLD%^%^WHITE%^The " + what + " is too badly damaged and simply falls apart.");
             ob->remove();
@@ -129,16 +126,16 @@ void spell_effect(int prof)
         return;
     }
     if (variant == 0) {//no diff
-        tell_room(place, "%^BOLD%^%^CYAN%^The " + what + " trembles as the spell passes over it, but you can see no noticeable "
+        tell_room(place, "%^BOLD%^%^CYAN%^The " + what + " trembles as the psionic energy passes over it, but you can see no noticeable "
                   "improvement to it.");
         dest_effect();
         return;
     }
     if (state == 100) {
-        tell_room(place, "%^BOLD%^%^CYAN%^The " + what + " trembles as the spell passes over it, and it looks as "
+        tell_room(place, "%^BOLD%^%^CYAN%^The " + what + " trembles as the psionic energy passes over it, and it looks as "
                   "good as new.");
     }else {
-        tell_room(place, "%^BOLD%^%^CYAN%^The " + what + " trembles as the spell passes over it, and it appears to be in "
+        tell_room(place, "%^BOLD%^%^CYAN%^The " + what + " trembles as the psionic energy passes over it, and it appears to be in "
                   "better shape.");
     }
     dest_effect();

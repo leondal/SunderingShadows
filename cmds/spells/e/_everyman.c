@@ -19,7 +19,7 @@ void create()
 
     set_spell_name("everyman");
     set_spell_level( ([ "psion" : 2, "psywarrior" : 2 ]) );
-    set_spell_sphere("divination");
+    set_spell_sphere("clairsentience");
     set_syntax("cast CLASS everyman");
     set_bonus_type("circumstance");
     set_damage_desc("Clevel / 4 to stealth skill");

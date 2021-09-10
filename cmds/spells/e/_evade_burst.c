@@ -10,7 +10,7 @@ void create() {
     ::create();
     set_spell_name("evade burst");
     set_spell_level(([ "psywarrior" : 3, "psion" : 7 ]));
-    set_spell_sphere("alteration");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS evade burst");
     set_description("Using this power, the psionic character gains the ability to avoid damage from certain spells and powers as if they had the evasion feat. For more specific information, please see <help evasion>. This power does not stack with the evasion feat.");
     set_verbal_comp();
