@@ -14,7 +14,7 @@ void create() {
     set_spell_name("energy cone");
     set_spell_level(([ "psion" : 3 ]));
     set_discipline("kineticist");
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS energy cone on TARGET as <type>");
     set_description("Similar to energy bolt, this cone is a specialized version manifested by kineticists.  Unlike energy "
 "bolt, this cone strikes nearby targets as well, giving the kineticist additional power in battles against "

@@ -13,7 +13,7 @@ void create() {
     ::create();
     set_spell_name("energy wave");
     set_spell_level( ([ "psion" : 8 ]) );
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS energy wave on TARGET as <type>");
     set_description("The psionicist delves deep into their kinetic powers, produce a much more powerful energy cone that strikes their opponents with the fury of whichever TYPE of energy they choose.When manifesting this power, please choose one of the following types : fire, electricity, cold, acid, sonic or random.");
     set_verbal_comp();
