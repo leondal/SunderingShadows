@@ -13,7 +13,7 @@
 int get_phouse_tp_proof(string tpprooflevel)
 {
     int tp_proof_dc, base_tp_proof_dc;
-    base_tp_proof_dc = 13; //this base tp proof/poor DC
+    base_tp_proof_dc = 23; //this base tp proof/poor DC
     tp_proof_dc = base_tp_proof_dc;
     if (!stringp(tpprooflevel) || tpprooflevel == "" || tpprooflevel == " ") {
         tpprooflevel = "common";
@@ -57,7 +57,7 @@ int get_phouse_tp_proof(string tpprooflevel)
 int get_phouse_scry_proof(string scryprooflevel)
 {
     int scry_proof_dc, base_scry_proof_dc;
-    base_scry_proof_dc = 13;
+    base_scry_proof_dc = 23;
     scry_proof_dc = base_scry_proof_dc;
     if (!stringp(scryprooflevel) || scryprooflevel == "" || scryprooflevel == " ") {
         scryprooflevel = "common";
