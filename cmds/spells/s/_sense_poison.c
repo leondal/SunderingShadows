@@ -7,10 +7,10 @@ inherit SPELL;
 
 void create() {
     ::create();
-    set_spell_name("detect poison");
-    set_spell_level(([ "cantrip" : 1, "paladin" : 1, "ranger" : 1, "mage" : 1, "assassin" : 1 ]));
-    set_spell_sphere("divination");
-    set_syntax("cast CLASS detect poison on TARGET");
+    set_spell_name("sense poison");
+    set_spell_level(([ "psion" : 1 ]));
+    set_spell_sphere("clairsentience");
+    set_syntax("cast CLASS sense poison on TARGET");
     set_description("Will detect if any poisons are present on an "+
 	"object or a creature and if so, which poisons.");
     set_verbal_comp();
@@ -21,7 +21,7 @@ void create() {
 }
 
 string query_cast_string() {
-   return ""+YOU+" focuses on "+MINE+" holy symbol and chants softly.\n";
+   return ""+YOU+" focuses on "+MINE+" psionic powers.\n";
 }
 
 void DoPoisonDisplay(mixed poison)
@@ -65,7 +65,7 @@ void spell_effect(int prof)
 	  	{
 			DoPoisonDisplay(poison);	
 			//DoPoisonDisplay();		
-            	tell_room(PLACE, YOU+" detects poison in the area.",CASTER);
+            	tell_room(PLACE, YOU+" senses poison in the area.",CASTER);
 			if(interactive(TARGET))
 			{
                 tell_object(TARGET,YOU+" sniffed and found interesting smells on you.");
@@ -73,8 +73,8 @@ void spell_effect(int prof)
         } 
 		else 
 		{
-            tell_object(CASTER,"You detect no poison in "+HIM+".");
-            tell_room(PLACE,YOU+" detects no poison in the area.",CASTER);
+            tell_object(CASTER,"You sense no poison in "+HIM+".");
+            tell_room(PLACE,YOU+" senses no poison in the area.",CASTER);
 			if(interactive(TARGET)) 
 			{
             		tell_object(TARGET,YOU+" sniffed and found nothing of interest on you.");
@@ -87,7 +87,7 @@ void spell_effect(int prof)
         if (mapp(poison)) 
 		{
             DoPoisonDisplay(poison);	
-            tell_room(PLACE,YOU+" detects poison in the area.");
+            tell_room(PLACE,YOU+" senses poison in the area.");
             if(interactive(TARGET)) 
             {
 	            tell_object(TARGET,YOU+" sniffed and found interesting smells on you.");
@@ -95,7 +95,7 @@ void spell_effect(int prof)
         } 
         else 
         {
-            tell_room(PLACE,YOU+" detects no poison in the area.");
+            tell_room(PLACE,YOU+" senses no poison in the area.");
             if(interactive(TARGET)) 	
             {
                 tell_object(TARGET,YOU+" sniffed and found nothing of interest on you.");

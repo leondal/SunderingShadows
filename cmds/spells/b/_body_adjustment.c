@@ -8,7 +8,7 @@ void create()
     set_spell_name("body adjustment");
     set_affixed_spell_level(6); // alternative to heal
     set_spell_level(([ "psywarrior" : 2, "psion" : 3 ]));
-    set_spell_sphere("healing");
+    set_spell_sphere("psychometabolism");
     set_syntax("cast CLASS body adjustment");
     set_description("When using this power, the psionic character takes "
         "control of his own healing process and makes minor adjustments "

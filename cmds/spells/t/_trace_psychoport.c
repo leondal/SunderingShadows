@@ -6,19 +6,18 @@ inherit SPELL;
 void create()
 {
     ::create();
-    set_spell_name("trace teleport");
-    set_spell_level(([ "mage" : 5, "cleric" : 5 ]));
-    set_domains("knowledge");
-    set_spell_sphere("divination");
-    set_syntax("cast CLASS trace teleport");
-    set_description("This spell allows an arcanist to trace any recent teleportation from or out of the area and memorize the source or destination. This spell won't work on portal-like sources of travel.");
+    set_spell_name("trace psychoport");
+    set_spell_level(([ "psion" : 4 ]));
+    set_spell_sphere("psychoportation");
+    set_syntax("cast CLASS trace psychoport");
+    set_description("This spell allows a psionic manifester to trace any recent teleportation from or out of the area and memorize the source or destination. This spell won't work on portal-like sources of travel.");
     set_verbal_comp();
     set_somatic_comp();
 }
 
 string query_cast_string()
 {
-    return "%^BOLD%^%^WHITE%^" + caster->QCN + " closes the eyes chanting.%^RESET%^";
+    return "%^BOLD%^%^WHITE%^" + caster->QCN + " closes the eyes and concentrates.%^RESET%^";
 }
 
 void spell_effect()

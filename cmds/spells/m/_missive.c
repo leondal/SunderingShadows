@@ -1,3 +1,6 @@
+//Tlaloc reskinned sending as missive for psion
+//Spell sphere matters
+
 #include <priest.h>
 #define SENDOBJ "/d/magic/obj/send_ob"
 inherit SPELL;
@@ -7,10 +10,10 @@ string whoname, whocname, cname, Ccname;
 
 void create() {
     ::create();
-    set_spell_name("sending");
-    set_spell_level(([ "inquisitor" : 4, "mage" : 5, "cleric" : 4 ]));
-    set_spell_sphere("divination");
-    set_syntax("cast CLASS sending to TARGET");
+    set_spell_name("missive");
+    set_spell_level(([ "psion" : 1, ]));
+    set_spell_sphere("telepathy");
+    set_syntax("cast CLASS missive to TARGET");
     set_description("This power allows a brief message to be sent to the target.  The target cannot respond, and the "
 "telepath's message must be shorter than 200 characters.  If the message is too long, the power fails.  Likewise, if the "
 "target is ignoring the psion or incapacitated in some way, the power will fail.");

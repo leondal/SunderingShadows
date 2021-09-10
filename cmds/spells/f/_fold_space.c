@@ -8,7 +8,7 @@ void create()
 {
     ::create();
     set_spell_name("fold space");
-    set_spell_level(([ "psion" : 8, "psywarrior" : 4 ]));
+    set_spell_level(([ "psion" : 4, "psywarrior" : 4 ]));
     set_spell_sphere("psychoportation");
     set_syntax("cast CLASS fold space to <location>");
     set_description("This power will move the psion from his current location to one he has previously memorized.  The "

@@ -10,7 +10,7 @@ void create(){
     ::create();
     set_spell_name("stomp");
     set_spell_level(([ "psywarrior" : 1 ]));
-    set_spell_sphere("combat");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS stomp");
     set_description("Upon manifesting this power, the psionic character "
        "releases a stream of psychic energy to empower a stomp, creating a "
