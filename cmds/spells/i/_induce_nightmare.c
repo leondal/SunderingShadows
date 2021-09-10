@@ -6,10 +6,11 @@ inherit SPELL;
 void create()
 {
     ::create();
-    set_spell_name("nightmare");
-    set_spell_level(([ "mage" : 5, "bard":5, ]));
-    set_spell_sphere("illusion");
-    set_syntax("cast CLASS nightmare on TARGET");
+    set_spell_name("induce nightmare");
+    set_spell_level(([  "psion" : 5 ]));
+    set_spell_sphere("telepathy");
+    mental_spell();
+    set_syntax("cast CLASS induce nightmare on TARGET");
     set_damage_desc("mental, fatigue for clevel / 4 + 1  rounds");
     set_description("The nightmare prevents restful sleep and causes target to become fatigued for a very long period of time.");
     set_verbal_comp();
@@ -20,7 +21,7 @@ void create()
 
 string query_cast_string()
 {
-    return "%^BLUE%^" + caster->QCN + " makes a few passes in the air, whispering in dread undertones.%^RESET%^";
+    return "%^CYAN%^BOLD%^" + caster->QCN + " places a hand on the temple and concentrates.%^RESET%^";
 }
 
 spell_effect()
