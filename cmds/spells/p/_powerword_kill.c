@@ -88,6 +88,7 @@ void spell_effect(int prof)
         target && target->cause_typed_damage(target, target->return_target_limb(), sdamage/4,"untyped");
     }
     
+    spell_kill(target, caster);
     dest_effect();
 }
 
