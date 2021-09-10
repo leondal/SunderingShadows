@@ -344,9 +344,9 @@ void create() {
                       "C019":ANSI2(19),
                       "C020":ANSI2(20),
                       "C021":ANSI2(21),
-                      //"C022":ANSI2(22), //too dark
-                      //"C023":ANSI2(23), //too dark
-                      //"C024":ANSI2(24), //too dark
+                      "C022":ANSI2(22), 
+                      "C023":ANSI2(23), 
+                      "C024":ANSI2(24), 
                       "C025":ANSI2(25),
                       "C026":ANSI2(26),
                       "C027":ANSI2(27),
