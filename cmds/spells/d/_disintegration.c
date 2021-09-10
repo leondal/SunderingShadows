@@ -53,7 +53,7 @@ void spell_effect(int prof)
             "and pieces of your body simply disappear!");
         tell_room(place,""+target->QCN+" is unable to move in time, and is hit with the "
             "full destructive force of "+caster->QCN+"'s power!",({target,caster}));
-        target->set_property("rend", 3);
+        target->set_property("rend", 2);
         target->cause_typed_damage(target, target->return_target_limb(), sdamage, "force");
     }
     else
