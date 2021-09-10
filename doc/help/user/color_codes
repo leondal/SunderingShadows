@@ -21,6 +21,9 @@ The following color codes and their associated colors are available:
      %%%^^^RESET%%%^^^         Resets all colors and modifiers and sets color back to white.
 
 
+You can also use ANSI color codes, using the format of %%%^^^CXXX%%%^^^, where XXX is the three digit color code. %%%^^^CRST%%%^^^ can be used to return to the default text formatting, similar to the way %%%^^^RESET%%%^^^ works.
+
+
 %^CYAN%^SEE ALSO%^RESET%^
   
 adjective, describe, setenv, color, colors 	 

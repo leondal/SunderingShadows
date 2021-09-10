@@ -12,10 +12,10 @@ int FLAG;
 void create()
 {
     ::create();
-    set_spell_name("mind blank");
-    set_spell_level(([  "mage" : 8 ]));
-    set_spell_sphere("abjuration");
-    set_syntax("cast CLASS mind blank");
+    set_spell_name("barred mind");
+    set_spell_level(([ "psywarrior" : 6, "psion" : 7 ]));
+    set_spell_sphere("telepathy");
+    set_syntax("cast CLASS barred mind");
     set_description("This power shields the character's mind. The mental fortress provides the same benefits as the Escape Detection or Protection from scrying power as well as offering additional protection against mind-affecting spells and powers.");
     set_helpful_spell(1);
 }
@@ -32,7 +32,7 @@ int preSpell()
         else
         {
             tell_object(caster,"%^BOLD%^%^MAGENTA%^You are already "
-                "protected by mind blank!%^RESET%^");
+                "protected by blocking magic!%^RESET%^");
         }
         return 0;
     }

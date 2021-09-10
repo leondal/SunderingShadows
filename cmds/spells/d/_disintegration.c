@@ -45,7 +45,7 @@ void spell_effect(int prof)
     if(random((int)target->query_stats("dexterity") + 1) < roll_dice(1,20)) { check = 1; }
     else { check = 0; }
 
-    if(BONUS_D->process_hit(caster, enemy, 1, 0, 0, 1))
+    if(BONUS_D->process_hit(caster, target, 1, 0, 0, 1))
     {
         tell_object(caster,"%^BOLD%^%^RED%^"+target->QCN+" fails to escape the path of your "
             "terrible power and pieces of " + target->query_possessive() + " body simply disappear!");
@@ -59,10 +59,10 @@ void spell_effect(int prof)
     else
     {
         tell_object(caster,"%^ORANGE%^"+target->QCN+" manages to dodge to the side at the last "
-            "second, narrowly avoiding the full power of the destructive spell!");
-        tell_object(target,"%^ORANGE%^You manage to dodge aside at the last instant, dodging the "
-            "power of the destructive spell!");
-        tell_room(place,"%^ORANGE%^"+target->QCN+" manages to dodge aside at the last instant, "
+            "second, narrowly avoiding the full power of the destructive energy!");
+        tell_object(target,"%^ORANGE%^You manage to duck aside at the last instant, dodging the "
+            "power of the destructive energy!");
+        tell_room(place,"%^ORANGE%^"+target->QCN+" manages to duck aside at the last instant, dodging the power of the destructive energy.", ({ caster, target }));
     }
 
     spell_kill(target,caster);

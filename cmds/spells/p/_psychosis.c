@@ -9,13 +9,14 @@ int counter = 0;
 void create()
 {
     ::create();
-    set_spell_name("insanity");
-    set_spell_level(([ "mage" : 7, ]));
-    set_spell_sphere("enchantment_charm");
-    set_syntax("cast CLASS insanity on TARGET");
+    set_spell_name("psychosis");
+    set_spell_level(([ "psion" : 7 ]));
+    set_spell_sphere("telepathy");
+    set_syntax("cast CLASS psychosis on TARGET");
     set_damage_desc("continuously confuses target");
-    set_description("This spell repeatedly applies confusion to target.");
+    set_description("This psychic power repeatedly applies confusion to target.");
     set_verbal_comp();
+    mental_spell();
     set_somatic_comp();
     set_target_required(1);
     set_save("will");
@@ -23,7 +24,7 @@ void create()
 
 string query_cast_string()
 {
-    return "%^BLUE%^A dark aura threads its way around " + caster->QCN + " intones a spell.%^RESET%^";
+    return "%^CYAN%^BOLD%^Psychic energy coalesces as " + caster->QCN + " manifests a power.%^RESET%^";
 }
 
 void spell_effect(int prof)
@@ -31,8 +32,8 @@ void spell_effect(int prof)
     if (!objectp(target)) {
         dest_effect();
     }
-    tell_object(caster, "%^BLUE%^You send the dark aura towards " + target->QCN + "!");
-    tell_room(place, "%^BLUE%^" + caster->QCN + " sends the dark aura towards " + target->QCN + "!", caster);
+    tell_object(caster, "%^BLUE%^You send an assault of psychic energy at " + target->QCN + "!");
+    tell_room(place, "%^BLUE%^" + caster->QCN + " sends an assault of psychic energy at " + target->QCN + "!", caster);
 
     target->set_property("spelled", ({ TO }));
     addSpellToCaster();
