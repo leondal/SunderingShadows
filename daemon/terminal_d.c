@@ -659,8 +659,8 @@ void create() {
                       "C049":ANSI2(49),
                       "C050":ANSI2(50),
                       "C051":ANSI2(51),
-                      //"C052":ANSI2(52), //too dark
-                      //"C053":ANSI2(53), //too dark
+                      "C052":ANSI2(52),
+                      "C053":ANSI2(53),
                       "C054":ANSI2(54),
                       "C055":ANSI2(55),
                       "C056":ANSI2(56),
@@ -1153,7 +1153,7 @@ void create() {
                       "INITTERM":"",
                       "ENDTERM":"" ]),
                    "ansi-no-bg-no-black":
-                   ([ "RESET":ANSI("0;37;40"),
+                   ([ "RESET":ANSI("0;37;40") + ANSI2(0),
                       "BOLD":ANSI(1),
                       "ULINE":ANSI(4),
                       "FLASH":ANSI(5),
