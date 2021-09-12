@@ -22,7 +22,7 @@ void create()
     set_author("tlaloc");
     set_spell_name("apopsi");
     set_spell_level( ([ "psion" : 9 ]) );
-    set_spell_sphere("enchantment_charm");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS apopsi on TARGET");
     set_damage_desc("Destroys enemy power points or mental damage");
     set_description("With this power, a strong psion can dismantle an enemy's ability to use their psychic powers, resulting in severe damage to their power points pool. A failed save will result in the target's power pool being destroyed, cutting the psychic off from their powers. A successful save will result in half mental damage.");

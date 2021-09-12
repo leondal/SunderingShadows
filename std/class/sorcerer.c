@@ -144,11 +144,13 @@ void newbie_func(object who)
     int i;
     if(!objectp(who)) return;
 
+/*
     ob = new("/d/magic/comp_bag");
     ob->move(who);
 
     tell_object(who, "%^BOLD%^%^WHITE%^You are given a bag for components "+
     "to help you out in the world of ShadowGate.%^RESET%^");
+*/
 }
 
 int caster_level_calcs(object player, string the_class)

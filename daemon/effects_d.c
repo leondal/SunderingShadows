@@ -32,7 +32,7 @@ int spell_effect(object caster, object device, string command)
     }
     
     if(!can_use_check(caster, spell, level))
-        return notify_fail("You fail to get the wand working.\n");
+        return notify_fail("You fail to get the item working.\n");
 
     /* if (!(target = present(who, environment(caster)))) { */
     /*     return notify_fail("No such target.\n"); */
@@ -60,6 +60,16 @@ int can_use_check(object caster, string spell, int level)
     
     foreach(string cls in player_classes)
     {
+        string temp;
+        
+        temp = cls;
+        
+        if(temp == "sorcerer")
+            temp = "mage";
+        
+        if(temp == "oracle")
+            temp = "cleric";
+        
         if(member_array(cls, valid_classes) >= 0)
             valid = 1;
     }
@@ -69,21 +79,27 @@ int can_use_check(object caster, string spell, int level)
     
     if(!valid)
     {   
-        //Thieves can use a different roll based on thief level
-        if(FEATS_D->usable_feat(caster, "use magic device"))
+        //Thieves and bards can use a different roll based on thief level
+        rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
+        
+        if(FEATS_D->usable_feat(caster, "use magic device") && rogue_clevel > caster->query_skill("spellcraft"))
         {
             roll1 = roll_dice(1, 20);
             DC = level + lowest_spell_level;
 
-            rogue_clevel = caster->query_prestige_level("thief");
+            //rogue_clevel = this_player()->query_prestige_level("thief") + this_player()->query_prestige_level("bard");
             
             if(rogue_clevel / 2 < lowest_spell_level)
             {
-                tell_object(caster, "The wand's spell is too complex to use.");
+                tell_object(caster, "The item's spell is too complex to use.");
                 return 0;
             }
             
-            rogue_clevel += BONUS_D->query_stat_bonus(caster, "intelligence");
+            if(this_player()->is_class("bard"))
+                rogue_clevel += BONUS_D->query_stat_bonus(this_player(), "charisma");
+            else
+                rogue_clevel += BONUS_D->query_stat_bonus(this_player(), "intelligence");
+            
             roll1 += rogue_clevel;
             
             if((roll1 < DC || roll1 == 1) && roll1 != 20)

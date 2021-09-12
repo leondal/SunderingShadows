@@ -15,7 +15,7 @@ void create() {
      ::create();
      set_spell_name("energy bolt");
      set_spell_level(([ "psion" : 3 ]));
-     set_spell_sphere("invocation_evocation");
+     set_spell_sphere("psychokinesis");
      set_syntax("cast CLASS energy bolt on TARGET as TYPE");
      set_description("By manifesting this power, the psion calls on a reserve of energy that can materialize in a number of different ways to assault the target.  Valid energy types are fire, electricity, cold, acid, sonic, or random.");
      set_verbal_comp();

@@ -125,7 +125,7 @@ int step_5(string str) {
      switch((string)TP->query_race()) {
        case "beastman": case "gnoll": case "wemic": spoken = "beast"; break;
        case "bugbear": case "goblin": case "hobgoblin": spoken = "goblin"; break;
-       case "kobold": spoken = "kobold"; break;
+       case "kobold": spoken = "draconic"; break;
        case "ogre": case "half-ogre": case "ogre-mage": spoken = "ogrish"; break;
        case "orc": case "half-orc": spoken = "orcish"; break;
        case "drow": case "half-drow": spoken = "drow"; break;

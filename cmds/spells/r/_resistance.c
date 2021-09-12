@@ -10,7 +10,7 @@ void create()
 {
     ::create();
     set_spell_name("resistance");
-    set_spell_level(([ "cantrip" : 1, "paladin" : 1, "psywarrior" : 1, "psion" : 1 ]));
+    set_spell_level(([ "cantrip" : 1, "paladin" : 1, ]));
     set_spell_sphere("alteration");
     set_syntax("cast CLASS resistance");
     set_bonus_type(({ "resistance" }));

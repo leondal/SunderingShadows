@@ -82,12 +82,6 @@ int preSpell()
         tell_object(this_player(), "You may only cast psywarrior or psion spells with this power!");
         return 0;
     }
-    
-    if(!USER_D->spend_pool(caster, 1, "focus"))
-    {
-        tell_object(caster, "You must spend your focus to cast reality revision.");
-        return 0;
-    }
 
     max_level = MAX_PSI;
 
@@ -108,6 +102,12 @@ int preSpell()
     else
     {
         tell_object(this_player(),"This spell is too powerful for bend reality!");
+        return 0;
+    }
+
+    if(!USER_D->spend_pool(caster, 1, "focus"))
+    {
+        tell_object(caster, "You must spend your focus to cast reality revision.");
         return 0;
     }
 

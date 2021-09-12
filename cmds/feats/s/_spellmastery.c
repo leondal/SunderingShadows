@@ -97,12 +97,23 @@ int prerequisites(object ob){
     int i;
     if(!objectp(ob)) { return 0; }
 
+    //Single-class warlocks or warlocks + prestige have no use for this feat.
+    //Also true of psion/psywarrior
+    if(ob->query_level() == ob->query_prestige_level("warlock") ||
+       ob->query_level() == ob->query_prestige_level("psion") ||
+       ob->query_level() == ob->query_prestige_level("psywarrior"))
+    {
+        dest_effect();
+        return 0;
+    }
+
     classes = (string *)ob->query_classes();
     for(i=0;i<sizeof(classes);i++)
     {
         file = DIR_CLASSES+"/"+classes[i]+".c";
         if(file->caster_class()) { return ::prerequisites(ob); }
     }
+    
     return 0;
 }
 

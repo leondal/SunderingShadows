@@ -7,7 +7,7 @@ void create()
 {
     ::create();
     set_spell_name("trace teleport");
-    set_spell_level(([ "mage" : 5, "psion" : 4, "cleric" : 5 ]));
+    set_spell_level(([ "mage" : 5, "cleric" : 5 ]));
     set_domains("knowledge");
     set_spell_sphere("divination");
     set_syntax("cast CLASS trace teleport");

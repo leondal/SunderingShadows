@@ -25,7 +25,10 @@ int prerequisites(object ob)
         return 0;
     }
     //Single-class warlocks or warlocks + prestige have no use for this feat.
-    if(ob->query_level() == ob->query_prestige_level("warlock"))
+    //Also true of psion/psywarrior
+    if(ob->query_level() == ob->query_prestige_level("warlock") ||
+       ob->query_level() == ob->query_prestige_level("psion") ||
+       ob->query_level() == ob->query_prestige_level("psywarrior"))
     {
         dest_effect();
         return 0;

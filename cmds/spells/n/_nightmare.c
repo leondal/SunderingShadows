@@ -7,7 +7,7 @@ void create()
 {
     ::create();
     set_spell_name("nightmare");
-    set_spell_level(([ "mage" : 5, "bard":5, "psion":5]));
+    set_spell_level(([ "mage" : 5, "bard":5, ]));
     set_spell_sphere("illusion");
     set_syntax("cast CLASS nightmare on TARGET");
     set_damage_desc("mental, fatigue for clevel / 4 + 1  rounds");

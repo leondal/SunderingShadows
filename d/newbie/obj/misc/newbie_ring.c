@@ -99,7 +99,7 @@ void set_for(object myPlayer)
     isSetup = 1;
     if(member_array((string)myPlayer->query_race(), ({"bugbear", "hobgoblin",
     "goblin", "gnoll", "orc", "half-drow", "minotaur", "ogre", "ogre-mage", "half-ogre", 
-    "kobold", "drow"})) == -1)
+    "kobold", "drow", "troll"})) == -1)
     {
         
         set_name("lesser ring of light");

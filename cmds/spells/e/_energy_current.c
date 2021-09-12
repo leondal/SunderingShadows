@@ -15,7 +15,7 @@ void create() {
     ::create();
     set_spell_name("energy current");
     set_spell_level(([ "psion" : 5 ]));
-    set_spell_sphere("invocation_evocation");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS energy current as <type>");
     set_description("Upon manifesting this power, the kineticist generates a "
        "current of energy that lashes out at those around him. Feats such as "

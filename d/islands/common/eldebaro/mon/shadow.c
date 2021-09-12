@@ -7,14 +7,14 @@ inherit MONSTER;
 int lasts_for;
 object victim;
 
-void create() 
+void create()
 {
     object ob;
     :: create();
     set_name("shadow");
     set_id(({"shadow", "shadow of evil", "evil shadow", "shadow of something evil", "eldebaroshadowevil"}));
     set_short("%^BOLD%^%^BLACK%^A sh%^BOLD%^%^WHITE%^a%^BOLD%^%^BLACK%^d%^BOLD%^%^WHITE%^o%^BOLD%^%^BLACK%^w of something %^BOLD%^%^RED%^EVIL%^RESET%^");
-    
+
     set_long("%^BOLD%^%^BLACK%^This being is almost indiscernible, as if it does not really exists or if "+
     "it does, it exists in a plane of being different from this one. From what you can make out "+
     "it is horrendous. The mouth of the creature is stuck forever in a scowl and there are rows of "+
@@ -33,11 +33,11 @@ void create()
     set_size(4);
     set_max_hp(10);
     set_hp(10);
-    
+
     set_mob_magic_resistance("average");
     set_property("damage resistance", 1000000);
     set_spell_chance(105);
-    set_spells(({"lightning bolt", "acid arrow", "magic missile"}));  
+    set_spells(({"lightning bolt", "acid arrow", "magic missile"}));
     lasts_for = -1;
 }
 
@@ -70,11 +70,11 @@ void move_shadow()
     tell_room(ETO, query_short()+"%^BOLD%^%^WHITE%^ fades%^BOLD%^%^BLACK%^ away with one last insane %^BOLD%^%^GREEN%^CACKLE%^BOLD%^%^BLACK%^!%^RESET%^");
     TO->move(environment(victim));
     tell_object(victim, TO->query_short()+"%^BOLD%^%^WHITE%^ APPEARS%^BOLD%^%^BLACK%^ right beside you with an insane %^BOLD%^%^GREEN%^CACKLE%^BOLD%^%^BLACK%^!%^RESET%^");
-    
+
     tell_room(ETO, TO->query_short()+"%^BOLD%^%^WHITE%^ APPEARS%^BOLD%^%^BLACK%^ right beside "+victim->QCN+
     "%^BOLD%^%^BLACK%^ with an insane %^BOLD%^%^GREEN%^CACKLE%^BOLD%^%^BLACK%^!%^RESET%^", victim);
     TO->add_attacker(victim);
-    return;    
+    return;
 }
 
 void lasts_for(int x) { lasts_for = (x * ROUND_LENGTH); }
@@ -83,11 +83,11 @@ void check_environment()
 {
     if(!objectp(TO)) return;
     if(!objectp(victim)) { TO->remove_shadow(); return; }
-    if(objectp(victim)) 
+    if(objectp(victim))
     {
         if(environment(victim) != ETO) move_shadow();
     }
-    if(victim->query_ghost()) 
+    if(victim->query_ghost())
     {
         TO->remove_shadow();
         return;
@@ -102,11 +102,15 @@ void heart_beat()
     if(!objectp(TO)) return;
     if(!objectp(victim))
     {
-        if(lasts_for != -1) 
+        if(lasts_for != -1)
         {
             remove_shadow();
             return;
         }
+    }
+    if(total_light(environment(this_object())) >= 3) {
+        remove_shadow();
+        return;
     }
     if(lasts_for != -1)
     {
@@ -145,7 +149,7 @@ void interact()
         case 2:
             command("say this land will never submit to the control of another!!! Kayan Freeholm is the ONE TRUE KING!!!");
             break;
-        case 3: 
+        case 3:
             command("say it is **I** who controls this land and it HAS been all along!!!");
             break;
         case 4:
@@ -155,7 +159,7 @@ void interact()
             command("emote cackles insanely");
             command("say YOU will NEVER leave Eldebaro!! YOU will soon be MINE as well!");
             break;
-    }    
+    }
 }
 
 void die(object ob)

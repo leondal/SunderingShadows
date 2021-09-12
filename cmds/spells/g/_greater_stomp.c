@@ -15,7 +15,7 @@ void create()
     ::create();
     set_spell_name("greater stomp");
     set_spell_level(([ "psywarrior" : 5 ]));
-    set_spell_sphere("combat");
+    set_spell_sphere("psychokinesis");
     set_syntax("cast CLASS greater stomp");
     set_description("The psionic character releases a torrent of psychic "
                     "energy as she stomps upon the earth, causing tremors to ripple "

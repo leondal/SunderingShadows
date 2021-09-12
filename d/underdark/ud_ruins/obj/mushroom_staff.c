@@ -54,7 +54,7 @@ void create() {
     set_property("lore difficulty", 25);
     set_property("no alter", 1);
     set_property("enchantment", 3+random(2));
-    set_item_bonus("attack", 2);
+    set_item_bonus("attack bonus", 2);
 }
 
 void reset_bonuses() {

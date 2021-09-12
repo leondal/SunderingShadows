@@ -30,6 +30,8 @@ The following color codes and their associated colors are available on Sundering
   %%%^^^ULINE%%%^^^   Sets all text following this code to its %^ULINE%^underlined value%^RESET%^.
   %%%^^^RESET%%%^^^   Resets all colors and modifiers and sets color back to white.
 
+You can also use ANSI color codes, using the format of %%%^^^CXXX%%%^^^, where XXX is the three digit color code. %%%^^^CRST%%%^^^ can be used to return to the default text formatting, similar to the way %%%^^^RESET%%%^^^ works.
+
 %^CYAN%^%^ULINE%^Note%^RESET%^
 
  %^MAGENTA%^*%^RESET%^ Do not use plain black (%%%^^^BLACK%%%^^^). Plain black will meld into the background of most clients. Don't use it even with background colors as clients may disable background colors.

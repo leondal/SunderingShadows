@@ -106,7 +106,7 @@ int wear_func()
 
 int remove_func()
 {
-    tell_room(EETO, "%^MAGENTA%^"+ETO->QCN+" touches the greaves and they are simply in "+ETO->QP+" hand, already removed.%^RESET%^");
+    tell_room(EETO, "%^MAGENTA%^"+ETO->QCN+" touches the greaves and they are simply in "+ETO->QP+" hand, already removed.%^RESET%^",ETO);
     tell_object(ETO, "%^MAGENTA%^You touch the greaves and they are simply in your hand, already removed!%^RESET%^");
     return 1;
 }

@@ -93,7 +93,7 @@ void execute_feat(string str)
     }
     
     write("%^GREEN%^You look your quarry over, learning their scent, their habit and their weaknesses.%^RESET%^");
-    say(caster->QCN + " looks over their quarry, learning as much useful information as possible.");
+    //say(caster->QCN + " looks over their quarry, learning as much useful information as possible.");
     
     caster->remove_property("quarry");
     caster->set_property("quarry", target);
