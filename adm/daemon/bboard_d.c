@@ -124,7 +124,8 @@ int post_message(string id, string title) {
 
      read_by += ({ ({ (string)this_player()->query_name() }) });
     save_object(DIR_BOARDS+"/"+current);
-    IPC->ipc_send_all("CHAT:" + id + ":" + " " + ":" + this_player()->query_name() + ":" + strip_colors(body) + "\n");
+    //taking this out for now to see if it is crashing the bot
+    //IPC->ipc_send_all("CHAT:" + id + ":" + " " + ":" + this_player()->query_name() + ":" + strip_colors(body) + "\n");
     return BBOARD_OK;
 }
 
