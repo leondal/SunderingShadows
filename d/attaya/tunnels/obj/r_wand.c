@@ -104,7 +104,7 @@ void make_me()
     set_long("%^RESET%^A %^ORANGE%^c%^RED%^h%^ORANGE%^er%^RED%^r"
             +"%^ORANGE%^y w%^RED%^oo%^ORANGE%^d wand. A few faint"
             +" runes are carved into the side of the wand.");
-    set_short("%^RESET%^A %^ORANGE%^c%^RED%^h%^ORANGE%^r%^RED%^r"
+    set_short("%^RESET%^A %^ORANGE%^c%^RED%^he%^ORANGE%^r%^RED%^r"
              +"%^ORANGE%^y w%^RED%^oo%^ORANGE%^d wand of " + spell);
     set_obvious_short("%^ORANGE%^c%^RED%^h%^ORANGE%^r%^RED%^r"
                      +"%^ORANGE%^y w%^RED%^oo%^ORANGE%^d wand");
