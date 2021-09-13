@@ -49,3 +49,32 @@ void create()
     set_hit( (: this_object(), "hit_func" :) );
 }
 
+void init()
+{
+    object holder;
+    
+    ::init();
+    
+    holder = environment(this_object());
+    
+    if(!holder || !userp(holder))
+        return;
+    
+    hit_count = 0;
+    
+    if(!owner)
+    {
+        if((holder->query_true_align() != 1 &&
+           holder->query_true_align() != 4 &&
+           holder->query_true_align() != 7) ||
+           holder->query_character_level() < 40)
+        {
+            tell_object(holder, "The glowing shard burns your hand and you drop it!");
+            this_object()->move(environment(holder));
+            return;
+        }      
+               
+        owner = holder;
+        tell_object(holder, "As you lift glowing dagger, you feel it connect with the goodness in your soul.");
+    }
+}
