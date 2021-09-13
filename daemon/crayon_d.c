@@ -318,7 +318,7 @@ mapping add_word(string word, mapping map)
 // make sure bold, reset and base color don't get counted along with colors
 // probably should use a 50/50 chance for bold on a color, then once bold has been used
 // on a color once in a word, it should have a higher chance of being used on the same word
-string color_word(string word, string *common_colors, string *rare_colors, int scatter, string back_color)
+string color_word(string word, string *common_colors, string *rare_colors, int scatter, string back_color, int cancel_bold)
 {
     string *letters,*to_use=({}),start_color;
     int colors_used,base_chance,num_colors,i,*colors=({}),color,vowels,mod;
@@ -374,15 +374,18 @@ string color_word(string word, string *common_colors, string *rare_colors, int s
 
     // determines if the colors should be bolded or not
     // 50/50 chance
-    for(i=0;i<sizeof(colors);i++)
+    if(!cancel_bold)
     {
-        if(roll_dice(1,10) > 5)
+        for(i=0;i<sizeof(colors);i++)
         {
-            colors[i] = S + D + colors[i];
-        }
-        else
-        {
-            colors[i] = S + colors[i];
+            if(roll_dice(1,10) > 5)
+            {
+                colors[i] = S + D + colors[i];
+            }
+            else
+            {
+                colors[i] = S + colors[i];
+            }
         }
     }
 
@@ -445,7 +448,8 @@ string color_word(string word, string *common_colors, string *rare_colors, int s
     }
 
     word = implode(letters,"");
-    word = word + S + back_color;
+    if(!cancel_bold) word = word + S;
+    word = word + back_color;
     return word;
 }
 
@@ -458,7 +462,7 @@ int descending_size(string one, string two)
 }
 
 
-string color_words(string str, mapping map, mapping scheme)
+string color_words(string str, mapping map, mapping scheme, int cancel_bold)
 {
     string back_color,*common_colors, *rare_colors,*words,word;
     int scatter,i;
@@ -470,14 +474,16 @@ string color_words(string str, mapping map, mapping scheme)
     rare_colors = scheme["rare colors"];
     scatter = scheme["scatter"];
 
-    str = back_color + str + S;
+
+    str = back_color + str;
+    if(!cancel_bold) str + S;
     words = keys(map);
     words = sort_array(words,"descending_size");
 
     for(i=0;i<sizeof(words);i++)
     {
         word = words[i];
-        word = color_word(word, common_colors, rare_colors, scatter, back_color);
+        word = color_word(word, common_colors, rare_colors, scatter, back_color, cancel_bold);
         map[words[i]] = word;
     }
 
@@ -491,7 +497,7 @@ string color_words(string str, mapping map, mapping scheme)
 }
 
 
-varargs string color_string(string str, string scheme, string *special, mapping custom, string *exclude)
+varargs string color_string(string str, string scheme, string *special, mapping custom, string *exclude, int cancel_bold)
 {
     string *sentences,*words,sentence,first_word,final;
     mapping map=([]),color_scheme;
@@ -539,6 +545,6 @@ varargs string color_string(string str, string scheme, string *special, mapping 
     }
     else { color_scheme = custom; }
 
-    final = color_words(str,map,color_scheme);
+    final = color_words(str,map,color_scheme,cancel_bold);
     return final;
 }
