@@ -28,7 +28,7 @@ void create()
     
     set_name("scythe");
     set_id( ({ "indorak", "scythe", "chill of the grave", "indorak, the chill of the grave" }) );
-    set_short("Indorak, the Chill of the Grave");
+    set_short("%^BOLD%^%^BLACK%^I%^RESET%^%^GREEN%^n%^BOLD%^d%^BLACK%^o%^RESET%^%^CYAN%^r%^BOLD%^a%^BLACK%^k%^WHITE%^, %^BLACK%^the C%^RESET%^%^CYAN%^h%^BOLD%^i%^WHITE%^l%^BLACK%^l of the G%^RESET%^%^GREEN%^r%^BOLD%^a%^WHITE%^v%^BLACK%^e%^RESET%^");
     set_obvious_short("A chill-wrapped scythe");
     set_long("This is a large scythe, with a curved haft made of deep ebony wood. The blade of the scythe is long and jagged, with a bluish metal blade encased in a rime of ice. The entire weapon gives off the chill of death and icicles are formed, seeming to drip and solidify from almost the entire length of the weapon. There is a cold mist that seems to be wrapped around the scythe and a palpable aura of cold can be felt, even from 10 feet away.");
     set_lore("Indorak was made in the aftermath of the ritual which summoned the Nightwalker to this world from the Plane of Shadows. It is said that after the crafting of the ritual summoning blade, there were additional unused souls left over. The supplicants of Nilith took these unfortunate souls and formed a blade with a strong connection of the grave, that would be worthy of Nilith's champion in this world. A scythe was made and filled with the unfortunate souls, and permanently bound to the Plane of Shadows. The weapon became known as Indorak, the Chill of the Grave, and it's mere presence almost seems to suck the heat and life energy from those around it. It is said that only a being enconsed in the energies of the Shadow Plane can effectively wield this weapon.");

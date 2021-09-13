@@ -14,16 +14,16 @@ void create()
    set_terrain(CITY);
    set_travel(PAVED_ROAD);
    set_property("no kill",1);
-   set_short(" Alchemist Shop ");
+   set_short("The Shadow Scroll Shop");
    set_long("%^RESET%^%^ORANGE%^This is a %^RESET%^tidy%^ORANGE%^ little "+
    "shop where everything is neatly kept in its place. The shelves are lined "+
    "with canisters of various sizes, shapes and colors, "+ 
    "all holding the highest quality of components available "+
-   "to the local mage population. A small shrine to "+ 
-   "%^MAGENTA%^Kismet%^ORANGE%^ set into a wall is the "+ 
-   "only ornamentation to be found, "+
-   "and the counter which Meguile stands "+ 
-   "behind is impeccably clean.\n\n"+
+   "to the local mage population. A section of shelves feature various writing "+
+   "materials such as parchment and quills, while another features a grand "+
+   "assortment of scrolls and wands. A small shrine to %^MAGENTA%^Kismet%^ORANGE%^ "+
+   "set into a wall is the only ornamentation to be found, and the counter which "+
+   "Meguile stands behind is impeccably clean.\n\n"+
    "%^CYAN%^Type %^BOLD%^<help shop>%^RESET%^%^CYAN%^ for information on how to use the shop.\n");
    set_smell("default","You smell the odor of harsh chemicals");
    set_listen("default","You hear the sounds of bubbling liquids.");
