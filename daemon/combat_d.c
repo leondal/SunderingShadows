@@ -3302,7 +3302,7 @@ void internal_execute_attack(object who)
         {
             if(FEATS_D->usable_feat(who, "surprise accuracy"))
             {
-                if(200 + (who->query_class_level("barbarian") * 2) > random(1000))
+                if(150 + (who->query_class_level("barbarian") * 2) > random(1000))
                 {
                     surprise_accuracy = 1 + who->query_class_level("barbarian") / 10;
                 }
