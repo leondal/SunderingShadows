@@ -75,6 +75,81 @@ void init()
         }      
                
         owner = holder;
-        tell_object(holder, "As you lift glowing dagger, you feel it connect with the goodness in your soul.");
+        tell_object(holder, "As you lift the glowing dagger, you feel it connect with the goodness in your soul.");
     }
 }
+
+int hit_func(object target)
+{
+    int dam;
+    
+    if(!owner || !target)
+        return 0;
+    
+    hit_count++;
+    
+    if(hit_count < HIT_INTERVAL)
+        return 0;
+    
+    //This blade adds a sneak attack
+    if(!target->is_vulnerable_to(owner))
+        return 0;
+    
+    hit_count = 0;
+    
+    dam = roll_dice(owner->query_character_level() / 2, 6);
+    
+    if(FEATS_D->usable_feat(target, "mighty resilience"))
+        dam = 0;
+
+    //Armor bond sneak attack resistance
+    if(target->query_property("fortification 75"))
+        dam /= 4;
+    else if(target->query_property("fortification 50"))
+        dam /= 2;
+    else if(target->query_property("fortification 25"))
+        dam = (dam * 3) / 4;
+    if(FEATS_D->usable_feat(target, "undead graft"))
+        dam /= 2;
+
+    //Barbarians/Thieves with danger sense gain resistance to sneak attacks
+    if(FEATS_D->usable_feat(target, "danger sense") && target->query_level() + 4 > owner->query_level())
+        dam /= 2;
+
+    if(owner->query_blind() || owner->light_blind())
+    {
+        if(FEATS_D->usable_feat(owner, "blindfight"))
+            dam /= 2;
+        else
+            dam = 0;
+    }
+    
+    if(dam)
+    {
+        tell_object(owner, "%^WHITE%^%^BOLD%^You hit " + target->QCN + ".%^YELLOW%^[%^CYAN%^Sneak%^YELLOW%^]%^RESET%^");
+        tell_object(target, "%^WHITE%^%^BOLD%^" + owner->QCN + " hits you.%^YELLOW%^[%^CYAN%^Sneak%^YELLOW%^]%^RESET%^");
+        tell_room(envirnonment(owner), "%^WHITE%^%^BOLD%^" + owner->QCN + " hits " + target->QCN + ".%^YELLOW%^[%^CYAN%^Sneak%^YELLOW%^]%^RESET%^");
+        target->cause_typed_damage(target, target->return_target_limb(), dam, "divine");
+    }
+    
+    return 0;
+}
+
+int wield_func()
+{
+    if(environment(this_object()) != owner)
+    {
+        tell_object(environment(this_object()), "The holy shard rejects your touch!");
+        return 0;
+    }
+    
+    tell_object(owner, color("You feel the holy warmth of the shard seep into your skin!"));
+    tell_room(environment(owner), color(owner->QCN + "'s dagger glows with divine energy!"), owner);
+    return 1;
+}
+
+int unwield_func()
+{
+    owner && tell_object(owner, "%^CYAN%^You feel the warmth of the shard disappate as you release it.");
+    return 1;
+} 
