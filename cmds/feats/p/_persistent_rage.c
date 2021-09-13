@@ -6,7 +6,7 @@ void create()
 {
    ::create();
    feat_type("permanent");
-   feat_category("Rampage");
+   feat_category("RagePower");
    feat_name("persistent rage");
    feat_prereq("Barbarian L17");
    feat_desc("This feat allows the barbarian to rage at will without cooldown or duration limits.");

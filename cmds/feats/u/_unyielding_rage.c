@@ -6,7 +6,7 @@ void create()
 {
    ::create();
    feat_type("permanent");
-   feat_category("Rampage");
+   feat_category("RagePower");
    feat_name("unyielding rage");
    feat_prereq("Barbarian L20");
    feat_desc("This feat allows the barbarian to avoid death's door whilst raging. After avoiding mortal death the barbarian will be unable to do so again for some time.");
