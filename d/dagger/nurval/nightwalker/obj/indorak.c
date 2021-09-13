@@ -9,12 +9,18 @@
 #include <std.h>
 #include <daemons.h>
 
+//Hit interval instead of proc chance. Procs every 5 hits.
 #define HIT_INTERVAL 5
 
 inherit "/d/common/obj/weapon/scythe.c";
 
 object owner;
 int hit_count;
+
+string color(string str)
+{
+    return CRAYON_D->color_string(str, "ice blue");
+}
 
 void create()
 {
@@ -34,7 +40,10 @@ void create()
     set_property("able to cast", 1);
     set_property("enchantment", 7);
     
+    set_item_bonus("attack bonus", 7);
+    set_item_bonus("damage bonus", 7);
     set_item_bonus("negative energy resistance", -25);
+    set_item_bonus("cold resistance", 25);
     
     set_wield( (: this_object(), "wield_func" :) );
     set_unwield( (: this_object(), "unwield_func" :) );
@@ -85,25 +94,52 @@ void heart_beat()
     
     if(sizeof(enemies) && !random(5))
     {
-        tell_object(owner, "The chill aura of the scythe saps the heat from your enemies!");
+        tell_object(owner, color("The chill aura of the scythe saps the heat from your enemies!"));
         
         foreach(object ob in enemies)
         {
-            tell_object(ob, "The chill aura of the scythe saps the heat from you!");
+            if(ob->is_undead() || ob->is_shade())
+                continue;
+            
+            tell_object(ob, color("The chill aura of the scythe saps the heat from you!"));
             damage_done += ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(6, 10) + 10, "cold");
         }
         
         if(damage_done)
         {
-            tell_object(owner, "The stolen heat from the scythe restores some of your wounds.");
+            tell_object(owner, "%^BOLD%^GREEN%^The stolen heat from the scythe restores some of your wounds.%^RESET%^");
             owner->cause_typed_damage(owner, "torso", damage_done, "negative energy");
         }
     }
 }
 
+int hit_func(object target)
+{
+    int damage;
 
+    if(!target || !owner)
+        return 0;
+    
+    if(environment(target) != environment(owner))
+        return 0;
+    
+    hit_count++;
             
-        
+    if(hit_count < HIT_INTERVAL)
+        return 0;
+    
+    hit_count = 0;   
+    damage = roll_dice(10, 10) + 20;
+    
+    tell_object(owner, color("Your scythe shears deep into " + target->QCN + " and blasts " + target->query_objective() + " with an icy chill!"));
+    tell_object(target, color(owner->QCN + "'s scythe shears deep into you and blasts you with an icy chill!"));
+    tell_room(environment(owner), color(owner->QCN + "'s scythe shears deep into " + target->QCN + " and blasts " + target->query_objective() + " with an icy blase!"), ({ owner, target }));
+    target->cause_typed_damage(target, target->query_target_limb(), damage, "cold");
+    
+    return 0;
+}
+    
+    
     
     
     
