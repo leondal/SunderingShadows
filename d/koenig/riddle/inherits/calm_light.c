@@ -32,7 +32,7 @@ int play(string str) {
       return 1;
    }
     tell_room(ETP, ""+TPQCN+" plays a gentle melody.",TP);
-    new("/cmds/spells/l/_light")->use_spell(TP,TP,10,100,"cleric");
+    new("/cmds/spells/l/_light")->use_spell(TP,TP,10,100,"cantrip");
     TP->set_paralyzed(1,"You are busy creating a light.");
     return 1;
 }
