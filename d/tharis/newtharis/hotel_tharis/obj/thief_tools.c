@@ -25,7 +25,7 @@ void create(){
 }
 
 void break_picks(){
-    TO->set_id(({"tools","brokcen tool","lock picks","picks"}));
+    TO->set_id(({"tools","broken tool","lock picks","picks"}));
     TO->set_short("A leather case of broken tools");
     TO->set_long("This soft leather case has many pouches that were once filled with "+
         "tools. Now, however, many of the tools are missing or broken, making this set "+
