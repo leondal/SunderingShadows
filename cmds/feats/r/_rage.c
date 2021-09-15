@@ -7,7 +7,6 @@ inherit FEAT;
 string rage_class;
 int tireless_rage = 0;
 int spirit_warrior = 0;
-int save_bonus = 0;
 int unstop = 0;
 
 object* exclude = ({});
@@ -159,9 +158,6 @@ void activate_rage(int direction)
         break;
     }
 
-    if(!save_bonus)
-        save_bonus = FEATS_D->usable_feat(caster, "indomitable will") * 2;
-
     if(!unstop)
         unstop = FEATS_D->usable(caster, "unstoppable") * 2;
 
@@ -227,8 +223,9 @@ void greater_rage(int direction)
 
 void mighty_rage(int direction)
 {
-    int amount;
+    int amount, save_bonus;
     amount = 4 + FEATS_D->usable_feat(caster, "reckless abandon");
+    save_bonus = FEATS_D->usable_feat(caster, "indomitable will") * 2;
     /*
     caster->add_stat_bonus("strength", 8 * direction);
     caster->add_stat_bonus("constitution", 8 * direction);
