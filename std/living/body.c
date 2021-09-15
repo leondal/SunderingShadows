@@ -840,7 +840,7 @@ int query_resistance_percent(string res)
         }
 
         if(res == "fire" || res == "divine")
-            mod -= 25;
+            mod -= 15;
     }
         
     if (TO->is_undead()) {
