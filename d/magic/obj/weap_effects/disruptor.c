@@ -44,7 +44,8 @@ int disruptor_func(object obj)
                     tell_object(tp,"%^CYAN%^The fire on your weapon burns "+targ->QCN+"%^CYAN%^ as you strike "+targ->QO+"%^CYAN%^.%^RESET%^");
                     tell_object(targ,"%^CYAN%^The fire on "+tp->QCN+"%^CYAN%^'s "+obj->query_name()+"%^CYAN%^ burns as it strikes you!%^RESET%^");
                     tell_room(etp,"%^CYAN%^The fire on "+tp->QCN+"%^CYAN%^'s "+obj->query_name()+"%^CYAN%^ burns "+targ->QCN+"%^CYAN%^ as it strikes "+targ->QO+"%^CYAN%^.%^RESET%^",({tp,targ}));
-                    targ->do_damage(targ->return_target_limb(), roll_dice(1,12));
+                    targ->cause_typed_damage(targ, targ->return_target_limb(), roll_dice(1, 12), "fire");
+                    //targ->do_damage(targ->return_target_limb(), roll_dice(1,12));
                 }
 
     return 1;
