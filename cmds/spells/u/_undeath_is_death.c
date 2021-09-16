@@ -46,9 +46,8 @@ void spell_effect(int prof)
             continue;
         }
 
-        if (do_save(foe, 2) ||
-            foe->query_level() > caster->query_level() ||
-            foe->query_level() > clevel) {
+        if (do_save(foe, 0) ||
+            foe->query_level() > caster->query_level() + 10) {
             tell_object(foe, "%^ORANGE%^%^BOLD%^The light washes over you, but nothing happens!");
             continue;
         }
