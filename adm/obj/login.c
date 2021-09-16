@@ -67,6 +67,7 @@ protected void logon()
     message("logon", "  This game is for adults (18+)", this_object());
     message("logon", "\n",this_object());
     message("logon", "\nWhat name do you choose? ", this_object());
+    //telnet_ga();
     input_to("get_name");
 }
 

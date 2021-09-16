@@ -88,6 +88,7 @@ int deduct_brownie_points(mixed i) {
 
 private string save_file_name(string name) {
     return sprintf("%s/%s/%s", DIR_PACCT, name[0..0], name);
+}
 
 void set_password(string mypass) 
 {
@@ -149,7 +150,7 @@ void save_pacct(string name) {
   //	this_object()->compute_autoload_array(); /* Tru - 92/02/11 */
 
 	if( !name ) name = (string)this_object()->query_name();
-	actually_save_pacct(name)
+	actually_save_pacct(name);
 }
 
 void assure_save_dir_exists(string file) {
