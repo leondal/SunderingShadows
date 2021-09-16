@@ -1,8 +1,9 @@
 #include <std.h>
 #include <daemons.h>
+#include <security.h>
 
 inherit DAEMON;
-
+#define SAVE_FILE "/daemon/save/saved_schemes"
 #define CAPS "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 #define R "%^RED%^"
@@ -39,6 +40,81 @@ string COMMON = ({  "(wielded", "(worn)", "I", "after", "again", "all", "almost"
                     "yourself", "nearby", });
 
 
+mapping users, schemes;
+
+void create(){
+    ::create();
+    users = ([]);
+    schemes = ([]);
+    seteuid(UID_DAEMONSAVE);
+    restore_object(SAVE_FILE,1);
+    seteuid(getuid());
+}
+
+void save_scheme(string user, string scheme_name, mapping scheme) {
+    string *usernames, *scheme_names;
+
+    if(!mapp(users) || sizeof(users) < 1) users = ([]);
+
+    if(mapp(users) && sizeof(users) > 0) {
+        usernames = keys(users);
+        if (member_array(user, usernames) != -1) {
+            schemes = users[user];
+        }
+        else schemes = ([]);
+    }
+    else {
+        users = ([]);
+        schemes = ([]);
+    }
+
+    if(mapp(schemes) && sizeof(schemes) > 0) {
+        scheme_names = keys(schemes);
+        if(member_array(scheme, scheme_names) != -1) {
+            schemes = m_delete(schemes, scheme_name);
+        }
+    }
+
+    schemes[scheme_name] = scheme;
+    users[user] = schemes;
+    SAVE();
+}
+
+mapping query_schemes(string user) {
+    string *usernames;
+
+    if (!mapp(users) || sizeof(users) < 1) return ([]);
+    usernames = keys(users);
+    if (member_array(user, usernames) == -1) return ([]);
+    schemes = users[user];
+    if (!mapp(schemes) || sizeof(schemes) < 1) return ([]);
+
+    return schemes;
+}
+
+int remove_scheme(string user, string scheme_name){
+    string *usernames, *scheme_names;
+
+    if (!mapp(users) || sizeof(users) < 1) return 0;
+    usernames = keys(users);
+    if (member_array(user, usernames) == -1) return 0;
+    schemes = users[user];
+    if (!mapp(schemes) || sizeof(schemes) < 1) return 0;
+    scheme_names = keys(schemes);
+    if (member_array(scheme_name, scheme_names) ==- 1) return 0;
+
+    schemes = m_delete(schemes, scheme_name);
+    users[user] = schemes;
+    SAVE();
+
+    return 1;
+}
+
+void SAVE(){
+    seteuid(UID_DAEMONSAVE);
+    save_object(SAVE_FILE);
+    seteuid(getuid());
+}
 
 // will occasionally need to run better_list() function and replace common above, just filters out duplicate words and sorts alphabetically
 string *better_list()
@@ -225,12 +301,6 @@ mapping color_scheme(string scheme)
 
     return map;
 }
-
-void create()
-{
-    ::create();
-}
-
 
 void db(string str)
 {
