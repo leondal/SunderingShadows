@@ -216,7 +216,7 @@ For more examples and nifty ways to use emoteat, please visit our emoteat guide 
 
 %^CYAN%^SEE ALSO%^RESET%^
 
-emote, emoteat guide, emoteat codes, pose, colors, languages, recognize, say, whisper, yell, roleplaying
+emote, emoteat guide, emoteat codes, pose, colors, crayon, languages, recognize, say, whisper, yell, roleplaying
 OLI
     );
         return 1;

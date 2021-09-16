@@ -128,6 +128,6 @@ If you use %^ORANGE%^<emote sits down and relaxes.>%^RESET%^, everyone in the ro
 
 %^CYAN%^SEE ALSO%^RESET%^
 
-say, whisper, yell, emoteat, pose, colors, languages, emoteat guide
+say, whisper, yell, emoteat, pose, colors, crayon, languages, emoteat guide
 ");
 }
