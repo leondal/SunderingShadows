@@ -233,66 +233,7 @@ void execute_attack()
         adjust_combat_mapps("static vars", "attack count", 1, 1);
     }
     return;
-}
-
-protected void special_attacks()
-{
-    int damage;
-    object target;
-    string tname;
-    
-    target = query_current_attacker();
-    
-    if(!target)
-        return;
-    
-    tname = target->QCN;
-    
-    if(this_object()->is_class("barbarian"))
-    {
-        if(FEATS_D->usable_feat(this_object(), "animal fury") && this_object()->query_property("rage"))
-        {
-            if(BONUS_D->process_hit(this_object(), target))
-            {
-                damage = 1 + this_object()->query_prestige_level("barbarian") / 10;
-                damage = roll_dice(damage, 6);
-                damage += max( ({ BONUS_D->query_stat_bonus(this_object(), "strength"), BONUS_D->query_stat_bonus(this_object(), "dexterity") }) );
-                damage = target->cause_typed_damage(target, target->return_target_limb(), damage, "piercing");
-            
-                if(damage && target && this_object())
-                {
-                    tell_object(this_object(), "%^GREEN%^You bite into " + tname + " with your teeth!");
-                    tell_room(environment(this_object()), "%^GREEN%^" + this_object()->QCN + " bites into " + tname + " with their teeth!");
-                }
-            }
-        }
-            
-        //Two claw attacks for beast totem
-        if(FEATS_D->usable_feat(this_object(), "lesser beast totem") && this_object()->query_property("rage"))
-        {
-            if(BONUS_D->process_hit(this_object(), target))
-            {
-                damage = 1 + this_object()->query_prestige_level("barbarian") / 10;
-                damage = roll_dice(damage, 6);
-                damage += max( ({ BONUS_D->query_stat_bonus(this_object(), "strength"), BONUS_D->query_stat_bonus(this_object(), "dexterity") }) );
-                damage = target->cause_typed_damage(target, target->return_target_limb(), damage, "piercing");
-            
-                if(damage && target && this_object())
-                {
-                    tell_object(this_object(), "%^GREEN%^You tear into " + tname + " with your claws!");
-                    tell_room(environment(this_object()), "%^GREEN%^" + this_object()->QCN + " tears into " + tname + " with their claws!");
-                }
-            }
-        }
-    }
-    
-    if(!target)
-        return;
-    
-    //Put next set of special attacks here after target check
-}
-        
-    
+}   
 
 // this shouldn't get called by anything besides execute_attack.
 protected void internal_execute_attack() { return COMBAT_D->internal_execute_attack(TO); }
