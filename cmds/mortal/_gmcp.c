@@ -42,7 +42,7 @@ int cmd_gmcp(string str)
     }
     else
     {
-        write("<GMCP not enabled.>\n");
+        write("GMCP disabled.\n");
     }
     
     return 1;
