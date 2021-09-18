@@ -1,3 +1,5 @@
+//ACTIVELY USED
+
 #include <std.h>
 #include <daemons.h>
 #define CLASSES ({"fighter","thief","mage","cleric","monk"})

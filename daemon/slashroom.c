@@ -1,3 +1,5 @@
+//NOT USED
+
 #include <std.h>
 
 inherit ROOM;

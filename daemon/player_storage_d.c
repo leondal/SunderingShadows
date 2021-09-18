@@ -1,3 +1,5 @@
+//ACTIVELY USED
+
 /* /daemon/player_storage_d.c
 daemon for handling gear stored by players.  The environment of the player while
 they are using the functions for the daemon is used to determine where the location

@@ -1,3 +1,5 @@
+//NOT ACTIVELY USED
+
 //This way we can do TP->is_valid_skill(skillname)
 //to see if something is actually a valid skill or not - Saide
 int is_valid_skill(string str);

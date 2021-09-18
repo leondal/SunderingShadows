@@ -1,3 +1,5 @@
+//NOT ACTIVELY USED
+
 //	Network Screening Daemon [v0.1]
 //	Thorn@Shadowgate
 //	12/15/94

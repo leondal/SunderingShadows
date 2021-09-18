@@ -1,3 +1,5 @@
+//ACTIVELY USED
+
 // room_d.c
 //Updating this to allow for other use and to
 //make each thing (trainers/laerad caves/tharis forest, etc)

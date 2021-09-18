@@ -1,3 +1,5 @@
+//ACTIVELY USED BY A FEW MOBS
+//Should be phased out
 
 // saving throw daemon
 // mindlessly processed

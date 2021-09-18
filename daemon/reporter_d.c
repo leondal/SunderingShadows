@@ -1,3 +1,6 @@
+//ACTIVELY USED
+//Not sure why error() function isn't used instead, though...
+
 // PLEASE DON'T MOVE THIS FILE. IT'S NOT AREA-SPECIFIC. IT'S A GENERAL-USE DEBUGGING TOOL. Lots of my things break if you move it. Ta. Lujke
 // Lujke's new code reporter daemon.
 //
