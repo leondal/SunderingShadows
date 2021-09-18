@@ -1,3 +1,5 @@
+//NOT ACTIVELY USED
+
 // Charisma Daemon, Version 1.0
 // Garrett
 // Begun 15:23 on December 18th, 2001 (Anno Domini).

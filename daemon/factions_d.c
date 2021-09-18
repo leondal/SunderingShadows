@@ -1,3 +1,5 @@
+//NOT ACTIVELY USED
+
 // System to track player status in cities and regions, for smarter guard/NPC interaction.
 // Nienne, 08/08.
 //  be SURE to change the SAVE_FILE

@@ -1,3 +1,5 @@
+//ACTIVELY USED
+
 /*==============================================================================================================================================
 a daemon that handles calculating gear bonuses - in an attempt to make
 them easier to handle/degrade with gear damage

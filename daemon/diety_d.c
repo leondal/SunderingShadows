@@ -1,3 +1,6 @@
+//ACIVELY USED - By temple/church
+//Seems like this could be absorbed into something else
+
 #include <std.h>
 #include <dieties.h>
 

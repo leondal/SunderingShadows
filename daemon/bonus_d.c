@@ -175,7 +175,7 @@ int query_stance_bonus(object victim)
     int fnord = 0;
 
     fnord -= (int)victim->query_defensive_bonus();
-    fnord += (int)PO->query_offensive_bonus();
+    fnord += (int)previous_object()->query_offensive_bonus();
     return fnord;
 }
 
