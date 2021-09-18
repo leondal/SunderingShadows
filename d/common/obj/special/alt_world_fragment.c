@@ -152,6 +152,11 @@ void init()
     }
     if(userp(ETO) && !beingrewarded)
     {
+        foreach(object obj in ETO->query_attackers())
+        {
+            ETO->remove_attacker(obj);
+            obj->remove_attacker(ETO);
+        }
         beingrewarded = 1;
         reward_players();
         return;
