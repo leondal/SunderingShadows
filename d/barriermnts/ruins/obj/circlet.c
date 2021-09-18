@@ -58,7 +58,7 @@ int wear_fun(){
 
 int remove_fun(){
    int modifier;
-   if(member_array(ETO->query_race(),LIVING_D->night_races()) != -1) modifier = 2;
+   if(member_array(ETO->query_race(),PLAYER_D->night_races()) != -1) modifier = 2;
    else modifier = (-2);
    tell_room(EETO,"%^WHITE%^%^BOLD%^The near tangible aura fades from around "+ETOQCN+".%^RESET%^",ETO);
    tell_object(ETO,"%^WHITE%^%^BOLD%^The near tangible aura seems to fade from around you, as your "
