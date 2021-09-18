@@ -86,7 +86,7 @@ int retrieve_stuff(string str)
         return 1;
     }
     
-    return 0;
+    //return 0;
     
     if(regexp(str,"device"))
     {
