@@ -13,7 +13,7 @@ int cmd_forget(string str)
         return notify_fail("Forget what?\n");
     }
 
-    if (regexp(str, implode(LIVING_D->list_classes(), "|") + "|innate")) {
+    if (regexp(str, implode(PLAYER_D->list_classes(), "|") + "|innate")) {
         if (!sscanf(str, "%s %s", myclass, myspell)) {
             return notify_fail("Syntax: <forget CLASS SPELL>\n");
         }
