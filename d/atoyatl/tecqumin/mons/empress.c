@@ -447,8 +447,6 @@ void epithon3(){
 }
 
 void reply_func(string msg, object speaker){
-  //There is an efun for this
-  //msg = "/daemon/stripper_d"->stripcolors(msg);
   msg = strip_colors(msg);
   msg = lower_case(msg);
   if (interact("quali", msg)){

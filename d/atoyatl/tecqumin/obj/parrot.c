@@ -150,8 +150,6 @@ saylias2;
   report ("Hear 1");
   ks = keys (sayings);
   language = TP->query_language();
-  //There is an efun for this
-  //str = "/daemon/stripper_d"->stripcolors(str);
   str = strip_colors(str);
   sentences = sscanf(str, "%s.%s.%s.%s.%s.%s", sentence1, sentence2, sentence3, sentence4, sentence5, sentence6);
   switch (sentences){
@@ -188,7 +186,6 @@ saylias2;
       saylias = als["say"];
     }
     report ("Hear 2b");
-    //saylias = "/daemon/stripper_d"->stripcolors(saylias);
     saylias = strip_colors(saylias);
     saylias = saylias[4..strlen(saylias)-1];
     n = sscanf(saylias, "%s$*%s", saylias1, saylias2);

@@ -140,7 +140,6 @@ void squawk(){
         saylias = als["say"];
         if (stringp(saylias) && strlen("saylias")>0)
         {
-          //saylias = "/daemon/stripper_d"->stripcolors(saylias);
           saylias = strip_colors(saylias);
           saylias = saylias[4..strlen(saylias)-1];
           report ("sscanffing saylias: " + saylias);
@@ -234,7 +233,6 @@ void catch_say(string str){
   if (sizeof(sayings)>310) trim_sayings();
   else ks = ({});
   language = TP->query_language();
-  //if (catch(  str = "/daemon/stripper_d.c"->stripcolors(str))) return;
   if(catch(str = strip_colors(str)))
       return;
   
@@ -250,7 +248,6 @@ void catch_say(string str){
       {
         report("TP has an alias for 'say'");
         saylias = als["say"];
-        //if (catch( saylias = "/daemon/stripper_d.c"->stripcolors(saylias))) return;
         if(catch(saylias = strip_colors(saylias)))
             return;
         

@@ -45,7 +45,6 @@ line, temp;
       }
       num = sscanf(name, "%s %s", title, note);
       if (num<2) return help();
-      //plain_title = "/daemon/stripper_d.c"->stripcolors(title);
       plain_title = strip_colors(title);
       if (strlen(plain_title)>2) 
       {
@@ -64,7 +63,6 @@ entered: " + title);
       {
         for (i=0;i<count;i++)
         { 
-          //if ("/daemon/stripper_d.c"->stripcolors(titles[i])==plain_title)
           if(strip_colors(titles[i]) == plain_title)
           {
             tell_object (TP, "%^RESET%^This map already has a note with the title "
@@ -102,7 +100,6 @@ entered: " + title);
         return 1;
       }
       title = name;
-      //plain_title = "/daemon/stripper_d.c"->stripcolors(title);
       plain_title = strip_colors(title);
       if (strlen(plain_title)>2) 
       {
@@ -137,7 +134,6 @@ entered: " + title);
         return 1;
       }
       title = name;
-      //plain_title = "/daemon/stripper_d.c"->stripcolors(title);
       plain_title = strip_colors(title);
       if (strlen(plain_title)>2) 
       {

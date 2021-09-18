@@ -506,7 +506,6 @@ void reply_func(string msg, object speaker){
     return;
   }
   report("The speaker HAS discovered the madness of Quali");
-  //msg = "/daemon/stripper_d"->stripcolors(msg);
   msg = strip_colors(msg);
   msg = lower_case(msg);
   if ( interact("quali", msg) || interact ("jungle spirit", msg)

@@ -257,7 +257,7 @@ int remove_note(string user, string title){
   for (i=0;i<count;i++)
   {
     report ("checking whether " + notations[roomnames[i]][0] + " == " + title);
-    if ("/daemon/stripper_d"->stripcolors(notations[roomnames[i]][0])==title)
+    if(strip_colors(notations[roomnames[i]][0]) == title)
     {
       report ("It does! Deleting note...");
       notations = m_delete(notations, roomnames[i]);
@@ -268,7 +268,7 @@ int remove_note(string user, string title){
       report ("Note removed from map " + current_maps[user]);
     } else
     {
-      report ("/daemon/stripper_d"->stripcolors(notations[roomnames[i]][0]) + " != " + title);
+      report(strip_colors(notations[roomnames[i]][0]) + " != " + title);
     }
   }
 }
@@ -502,7 +502,7 @@ string query_note(string title){
   {
     title_note = notations[roomnames[i]];
     if (sizeof(title_note)<2) continue;
-    t = "/daemon/stripper_d.c"->stripcolors(title_note[0]);
+    t = strip_colors(title_note[0]);
     if (t == title) return title_note[1];
   }
   return "There does not seem to be a note to go with that title";
@@ -518,7 +518,7 @@ string query_room_with_note(string title){
   {
     title_note = notations[roomnames[i]];
     if (sizeof(title_note)<2) continue;
-    t = "/daemon/stripper_d.c"->stripcolors(title_note[0]);
+    t = strip_colors(title_note[0]);
     if (t == title) return roomnames[i];
   }
   return "none";

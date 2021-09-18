@@ -44,7 +44,6 @@ varargs int cmd_lmap(string str) {
       }
       num = sscanf(name, "%s %s", title, note);
       if (num<2) return help();
-      //plain_title = "/daemon/stripper_d.c"->stripcolors(title);
       plain_title = strip_colors(title);
       if (strlen(plain_title)>2) 
       {
@@ -62,7 +61,6 @@ varargs int cmd_lmap(string str) {
       {
         for (i=0;i<count;i++)
         { 
-          //if ("/daemon/stripper_d.c"->stripcolors(titles[i])==plain_title)
           if(strip_colors(titles[i]) == plain_title)
           {
             tell_object (TP, "%^RESET%^This map already has a note with the title "
@@ -100,7 +98,6 @@ varargs int cmd_lmap(string str) {
         return 1;
       }
       title = name;
-      //plain_title = "/daemon/stripper_d.c"->stripcolors(title);
       plain_title = strip_colors(title);
       if (strlen(plain_title)>2) 
       {
@@ -135,7 +132,7 @@ varargs int cmd_lmap(string str) {
         return 1;
       }
       title = name;
-      plain_title = "/daemon/stripper_d.c"->stripcolors(title);
+      plain_title = strip_colors(title);
       if (strlen(plain_title)>2) 
       {
         tell_object(TP, "%^RESET%^The title of your notes will be 2 characters or less (e.g. 'N1')");

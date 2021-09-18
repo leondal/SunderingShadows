@@ -2820,7 +2820,7 @@ void obey_command(string command, object commander){
     if (!objectp(commander)){
         return;
     }
-    command = (string)"/daemon/stripper_d"->stripcolors(command);
+    command = strip_colors(command);
     count = sscanf(command, "%s  %s, %s",lang, name, comm);
     if (count < 3){
       count = sscanf(command, " %s, %s", name, command);

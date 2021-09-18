@@ -309,7 +309,6 @@ string get_location_name(int type){
 varargs void surface_rumour(string str, string name, int type, string inst){
   string plainstr;
   report("surface rumour: type = " + type);
-  //plainstr = "/daemon/stripper_d"->stripcolors(str);
   plainstr = strip_colors(str);
   if (lower_case(plainstr) == "q")
   {
@@ -341,7 +340,6 @@ varargs void detailed_rumour(string str, string name, int type, string surface, 
     input_to("secret_info", 0, name, type, surface, str, inst);
     return;
   }
-  //plainstr = "/daemon/stripper_d"->stripcolors(str);
   plainstr = strip_colors(str);
   if (lower_case(plainstr) == "q"){
     tell_object(TP, "%^ORANGE%^Rumour edit abandoned");
@@ -711,7 +709,6 @@ void amend_surface(string str, string name, int type, string detail, string secr
     tell_object(ob, "%^ORANGE%^Rumour abandoned. Feel free to start over");
     return;
   } 
-  //plainstr = "/daemon/stripper_d"->stripcolors(str);
   plainstr = strip_colors(str);
   if (strlen(plainstr)>300)
   {
@@ -737,7 +734,6 @@ void amend_detail(string str, string name, int type, string surface, string secr
     tell_object(ob, "%^ORANGE%^Rumour abandoned. Feel free to start over");
     return;
   } 
-  //plainstr = "/daemon/stripper_d"->stripcolors(str);
   plainstr = strip_colors(str);
   if (strlen(plainstr)>600)
   {
@@ -763,7 +759,6 @@ void amend_secret(string str, string name, int type, string surface, string deta
     tell_object(ob, "%^ORANGE%^Rumour abandoned. Feel free to start over");
     return;
   } 
-  //plainstr = "/daemon/stripper_d"->stripcolors(str);
   plainstr = strip_colors(str);
   if (strlen(plainstr)>600)
   {
