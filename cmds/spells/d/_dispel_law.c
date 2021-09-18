@@ -5,11 +5,6 @@
 
 inherit SPELL;
 
-#define ALIGN_D "/daemon/alignment_d.c"
-#define CASTER_ALIGN "chaotic"
-
-int align_check(object caster,object targ);
-
 void create() {
     ::create();
     set_author("ares");
@@ -63,8 +58,15 @@ void spell_effect(int prof)
         dest_effect();
         return;
     }
-    if(!align_check(caster,target))
+    if(!is_chaotic(caster))
     {
+        tell_object(caster, "Only those of chaotic alignment may cast this spell.");
+        dest_effect();
+        return;
+    }
+    if(!is_lawful(target))
+    {
+        tell_object(target, "This spell only affects those of lawful alignment.");
         dest_effect();
         return;
     }
@@ -73,7 +75,6 @@ void spell_effect(int prof)
     tell_object(target,"%^BOLD%^%^MAGENTA%^You can feel your very soul wracked with"+
 		" an incredible pain at the chaotic tone of "+caster->QCN+"'s chant.");
     if(do_save(target,0))
-    //if("/daemon/saving_d"->saving_throw(target, "spell"))
         damage = sdamage / 2;
     else
         damage = sdamage;
@@ -82,53 +83,6 @@ void spell_effect(int prof)
     spell_successful();
     dest_effect();
     return;
-}
-
-// for ease of use, since there are 4 similar spells -Ares
-int align_check(object caster,object targ)
-{
-    if(!objectp(caster)) { return 0; }
-    if(!objectp(targ))   { return 0; }
-
-    switch(CASTER_ALIGN)
-    {
-    case "good":
-//        if(!ALIGN_D->is_good(caster)) {
-        if((int)caster->query_true_align()%3 != 1) {
-            tell_object(caster,"Only people of good alignment may cast this spell.");
-            return 0;
-        }
-        if(ALIGN_D->is_evil(targ)) { return 1; }
-        return 0;
-    case "evil":
-//        if(!ALIGN_D->is_evil(caster)) {
-        if((int)caster->query_true_align()%3 != 0) {
-            tell_object(caster,"Only people of evil alignment may cast this spell.");
-            return 0;
-        }
-        if(ALIGN_D->is_good(targ)) { return 1; }
-        return 0;
-    case "lawful":
-//        if(!ALIGN_D->is_lawful(caster)) {
-        if((int)caster->query_true_align() < 1 || (int)caster->query_true_align() > 3) {
-            tell_object(caster,"Only people of lawful alignment may cast this spell.");
-            return 0;
-        }
-        if(ALIGN_D->is_chaotic(targ)) { return 1; }
-        return 0;
-    case "chaotic":
-//        if(!ALIGN_D->is_chaotic(caster)) {
-        if((int)caster->query_true_align() < 7 || (int)caster->query_true_align() > 9) {
-            tell_object(caster,"Only people of chaotic alignment may cast this spell.");
-            return 0;
-        }
-        if(ALIGN_D->is_lawful(targ)) { return 1; }
-        return 0;
-    default:
-        tell_object(caster,"Something is broken, tell a wiz.");
-        return 0;
-    }
-    return 0;
 }
 
 void dest_effect()

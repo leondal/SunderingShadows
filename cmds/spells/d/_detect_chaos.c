@@ -2,8 +2,6 @@
 #include <priest.h>
 #include <daemons.h>
 
-#define ALIGN_D "/daemon/alignment_d.c"
-
 void create() {
     ::create();
     set_spell_name("detect chaos");
@@ -27,8 +25,7 @@ int preSpell(){
         tell_object(caster,"You need either a target or <room> for this spell.");
         return 0;
     }
-//    if(!ALIGN_D->is_lawful(caster)) {
-    if((int)caster->query_true_align() < 1 || (int)caster->query_true_align() > 3) {
+    if(!is_lawful(caster)) {
         tell_object(caster,"Only casters of lawful alignment may use this spell.");
         return 0;
     }
@@ -54,7 +51,7 @@ void spell_effect(int prof)
         for (i=0;i<sizeof(alive);i++) {
             if(alive[i]->query_invis()) continue;
             hits++;
-            if (ALIGN->is_chaotic(alive[i])) 
+            if (is_chaotic(alive[i])) 
             {
                 tell_object(CASTER,"%^BOLD%^%^RED%^You detect chaos in "+alive[i]->QCN+".");
             }else {
@@ -80,7 +77,7 @@ void spell_effect(int prof)
     } 
     else 
     {
-        if (ALIGN->is_chaotic(ob)) 
+        if (is_chaotic(ob)) 
         {
             tell_object(CASTER, "%^BOLD%^%^RED%^You detect chaos in "+ob->QCN+".");
         } 

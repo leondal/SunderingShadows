@@ -2,8 +2,6 @@
 #include <priest.h>
 #include <daemons.h>
 
-#define ALIGN_D "/daemon/alignment_d.c"
-
 void create()
 {
     ::create();
@@ -28,8 +26,7 @@ int preSpell()
         tell_object(caster, "You need either a target or <room> for this spell.");
         return 0;
     }
-//    if(!ALIGN_D->is_lawful(caster)) {
-    if ((int)caster->query_true_align() != 1 && (int)caster->query_true_align() != 4 && (int)caster->query_true_align() != 7) {
+    if(!is_lawful(caster)) {
         tell_object(caster, "Only casters of good alignment may use this spell.");
         return 0;
     }
@@ -59,7 +56,7 @@ void spell_effect(int prof)
                 continue;
             }
             hits++;
-            if (ALIGN->is_evil(alive[i])) {
+            if (is_evil(alive[i])) {
                 tell_object(CASTER, "%^BOLD%^%^RED%^You detect evil in " + alive[i]->QCN + ".");
             }else {
                 tell_object(CASTER, "%^BOLD%^%^BLUE%^You detect no evil in " + alive[i]->QCN + ".");
@@ -77,7 +74,7 @@ void spell_effect(int prof)
         dest_effect();
         return;
     }else {
-        if (ALIGN->is_evil(ob)) {
+        if (is_evil(ob)) {
             tell_object(CASTER, "%^BOLD%^%^RED%^You detect evil in " + ob->QCN + ".");
         }else {
             tell_object(CASTER, "%^BOLD%^%^BLUE%^You detect no evil in " + ob->QCN + ".");

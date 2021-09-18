@@ -9,8 +9,6 @@
 
 inherit SPELL;
 
-#define ALIGN_D "/daemon/alignment_d.c"
-
 void create(){
     ::create();
     set_author("ares");
@@ -30,8 +28,7 @@ void create(){
 }
 
 int preSpell(){
-//   if(!ALIGN_D->is_evil(caster)){
-   if((int)caster->query_true_align()%3 != 0) {
+   if(!is_evil(caster)){
       tell_object(caster,"Only those of evil intent may use this spell.");
       return 0;
    }
@@ -95,7 +92,7 @@ void spell_effect(int prof){
       }
    }
    else{
-      if(ALIGN->is_good(target)) {
+      if(is_good(target)) {
          tell_object(target,"%^BOLD%^%^BLACK%^The force of "+CASTER->QCN+"'s "+
             "spell slams into you!"+
             "%^RESET%^",({target,CASTER}));
@@ -123,7 +120,7 @@ void spell_effect(int prof){
             }
          }
       }
-      else if (ALIGN->is_neutral(target)){
+      else if (is_neutral(target)){
          tell_object(target,"%^BOLD%^%^BLACK%^The force of "+CASTER->QCN+"'s "+
             "spell slams into you!%^RESET%^",({target,CASTER}));
          tell_object(CASTER,"%^BOLD%^%^BLACK%^The hatred of your spell "+
@@ -142,7 +139,7 @@ void spell_effect(int prof){
             }
          }
       }
-      else if(ALIGN->is_evil(target)){
+      else if(is_evil(target)){
          tell_object(target,"%^BOLD%^%^BLACK%^The force of "+CASTER->QCN+"'s "+
             "spell strikes you!%^RESET%^",({target,CASTER}));
          tell_object(CASTER,"%^BOLD%^%^BLACK%^The hatred of your spell "+
