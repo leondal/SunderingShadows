@@ -146,7 +146,7 @@ int extra_wield(){
    if(((int)ETO->query_alignment() % 3)==0){
       write("%^BOLD%^%^BLACK%^The runes glow softly as you wrap your hand about the hilt.%^RESET%^");
       say("%^BOLD%^%^BLACK%^A set of runes etched upon the blade held by "+ETO->query_cap_name()+" glow softly.%^RESET%^");
-   if(member_array(ETO->query_race(),LIVING_D->night_races()) != -1) ETO->add_sight_bonus(-3);
+   if(member_array(ETO->query_race(),PLAYER_D->night_races()) != -1) ETO->add_sight_bonus(-3);
    else ETO->add_sight_bonus(3);
    ETO->set_property("evil item",1);
 	return 1;
@@ -159,7 +159,7 @@ int extra_wield(){
     }
 }
 int extra_unwield(){
-   if(member_array(ETO->query_race(),LIVING_D->night_races()) != -1) ETO->add_sight_bonus(3);
+   if(member_array(ETO->query_race(),PLAYER_D->night_races()) != -1) ETO->add_sight_bonus(3);
    else ETO->add_sight_bonus(-3);
    say("%^BOLD%^%^BLACK%^The runes dim as "+ETO->query_cap_name()+" unwields the blade.%^RESET%^");
    tell_object(ETO,"The runes dim as you remove the blade from your grasp.%^RESET%^");
