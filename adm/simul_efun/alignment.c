@@ -37,6 +37,26 @@ int is_evil(object ob)
     return 0;
 }
 
+int is_lawful(object ob)
+{
+    int align = ob->query_alignment();
+    
+    if(align == 1 || align == 2 || align == 3)
+        return 1;
+    
+   return 0;
+}
+
+int is_chaotic(object ob)
+{
+    int align = ob->query_alignment();
+    
+    if(align == 7 || align == 8 || align == 9)
+        return 1;
+    
+    return 0;
+}
+
 int opposed_alignment(object me, object you)
 {
     string *opposed;
