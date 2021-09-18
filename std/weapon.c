@@ -237,7 +237,7 @@ int query_damage()
         wepstatus = 100;
     }
 
-    damfloat = DICE_D->roll_dice(wc_num, wc_dice) + query_property("enchantment");
+    damfloat = roll_dice(wc_num, wc_dice) + query_property("enchantment");
     damfloat = damfloat * wepstatus / 100.0;
     return to_int(damfloat);
 }
@@ -254,10 +254,10 @@ int query_large_damage()
     }
 
     if (large_wc_dice) {
-        damfloat = DICE_D->roll_dice(large_wc_num, large_wc_dice) +
+        damfloat = roll_dice(large_wc_num, large_wc_dice) +
                    query_property("enchantment");
     }else {
-        damfloat = DICE_D->roll_dice(wc_num, wc_dice) +
+        damfloat = roll_dice(wc_num, wc_dice) +
                    query_property("enchantment");
     }
     damfloat = damfloat * wepstatus / 100.0;

@@ -43,7 +43,7 @@ string identify(mixed a);
 #include "/adm/simul_efun/absolute_value.c"
 #include "/adm/simul_efun/mud_info.c"
 #include "/adm/simul_efun/get_object.c"
-#include "/adm/simul_efun/alignment_ok.c"
+#include "/adm/simul_efun/alignment.c"
 #include "/adm/simul_efun/visible.c"
 #include "/adm/simul_efun/domain_master.c"
 #include "/adm/simul_efun/format_page.c"

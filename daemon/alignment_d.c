@@ -1,3 +1,6 @@
+//opposed_alignment exists in player_d
+//Rest of these can become efuns
+
 //alignment_d.c
 
 #include <std.h>

@@ -531,9 +531,9 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
 
                 reduction = (int)targ->query_property("damage resistance");
 
-                if(LIVING_D->check_aura(targ, "justification") == 2)
+                if(PLAYER_D->check_aura(targ, "justification") == 2)
                 {
-                    if(LIVING_D->opposed_alignment(targ, attacker))
+                    if(PLAYER_D->opposed_alignment(targ, attacker))
                     {
                         reduction += 5;
                         if(FEATS_D->usable_feat("champion"))
@@ -543,13 +543,13 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
 
                 if(targ->is_deva())
                 {
-                    if(LIVING_D->opposed_alignment(targ, attacker))
+                    if(PLAYER_D->opposed_alignment(targ, attacker))
                         reduction += 10;
                 }
 
                 if(targ->is_class("cleric"))
                 {
-                    if(LIVING_D->opposed_alignment(targ, attacker))
+                    if(PLAYER_D->opposed_alignment(targ, attacker))
                     {
                         if(member_array("good", targ->query_divine_domain()) >= 0)
                              reduction += 5;
@@ -1171,7 +1171,7 @@ varargs void calculate_damage(object attacker, object targ, object weapon, strin
             damage += BONUS_D->new_damage_bonus(attacker, attacker->query_stats("charisma"));
 
         //Aura of Fury adds smite bonus of +2 to rest of party for duration
-        if(LIVING_D->check_aura(attacker, "fury") == 2)
+        if(PLAYER_D->check_aura(attacker, "fury") == 2)
             damage += 2;
     }
 

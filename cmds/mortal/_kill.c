@@ -74,7 +74,6 @@ int cmd_kill(string str)
     }
     if(this_player()->is_deva())
     {
-        //if(!LIVING_D->opposed_alignment(this_player(), victim))
         //Cannot initiate combat against a non-evil enemy unless they are attacking a non-evil character themselves
         if(victim->query_true_align() % 3 &&
           (victim->query_current_attacker())->query_true_align() % 3)
