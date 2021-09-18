@@ -74,7 +74,7 @@ int wear_it(string str){
 	  "itself about "+ETO->query_objective()+" like a dark halo.%^RESET%^",ETO);
    myrace = ETO->query_race();
    if(myrace != "shade") { // adding this as it makes no RP sense for a cloak of shadows to bother a shadow-shrouded shade. N, 1/16.
-     if(member_array(ETO->query_race(),LIVING_D->night_races()) != -1) set_item_bonus("sight bonus",3);
+     if(member_array(ETO->query_race(),PLAYER_D->night_races()) != -1) set_item_bonus("sight bonus",3);
      else set_item_bonus("sight bonus",-3); // conveys the darkening effect regardless of race. N, 11/12
    }
    ETO->set_property("added short",({" %^BOLD%^%^BLACK%^(shrouded by shadows)%^RESET%^"}));
