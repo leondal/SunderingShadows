@@ -749,7 +749,8 @@ string colour_line(string line){
     ch = line[i..i];
 
     if (ch != " ") ch = substitute_character(ch);
-    bwch = "/daemon/stripper_d.c"->stripcolors(ch);
+    //bwch = "/daemon/stripper_d.c"->stripcolors(ch);
+    bwch = strip_colors(ch);
     if (bwch =="\\"||bwch =="|"||bwch =="/"||bwch =="-"||bwch =="V"||bwch =="^"||bwch == "_")
     {
       switch(flag)

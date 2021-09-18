@@ -1,3 +1,6 @@
+//ACTIVELY USED
+//Should just be a simul-efun
+
 //coded by Lujke August 2016
 //brute_insert_string("123456789", "hello", 4)
 // returns "1234hello56789"

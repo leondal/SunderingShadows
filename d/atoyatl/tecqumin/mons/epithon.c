@@ -281,7 +281,9 @@ void unfetter(object speaker){
 }
 
 void catch_tell(string str){
-  str = "/daemon/stripper_d"->stripcolors(str);
+  //There is an efun for this
+  //str = "/daemon/stripper_d"->stripcolors(str);
+  str = strip_colors(str);
   str = lower_case(str);
 
   if (interact("gives you", str) && interact( "shrunken human head", str)){

@@ -85,7 +85,9 @@ void init(){
 int instruct_func(string str){
   string name, command;
   int count;
-  str = "/daemon/stripper_d.c"->stripcolors(str);
+  //There is an efun for this
+  //str = "/daemon/stripper_d.c"->stripcolors(str);
+  str = strip_colors(str);
   count = sscanf(str, " %s to %s", name, command);
   if (count <2){
     return notify_fail("Try 'instruct <name> to <do something>'");
@@ -97,7 +99,8 @@ int instruct_func(string str){
 void catch_say(string msg){
   string name, command;
   int count;
-  msg = "/daemon/stripper_d.c"->stripcolors(msg);
+  //msg = "/daemon/stripper_d.c"->stripcolors(msg);
+  msg = strip_colors(msg);
   count = sscanf(msg, " %s %s", name, command);
   obey_command(name, command);
 }

@@ -1,3 +1,6 @@
+//ACTIVELY USED
+//Not sure why. There is already virtual area functionality in Nightmare 3.
+
 #include <std.h>
 #include <daemons.h>
 #include <security.h>

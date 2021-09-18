@@ -226,7 +226,9 @@ void base_reply_func(string msg, object speaker){
     force_me("emote looks disturbed by " + TO->QP + " surroundings, which"
             +" may well be broken");
   }
-  msg = "/daemon/stripper_d"->stripcolors(msg);
+  //There is an efun for this
+  //msg = "/daemon/stripper_d"->stripcolors(msg);
+  msg = strip_colors(msg);
   msg = lower_case(msg);
   if (!objectp(speaker)||!present(speaker, room)){
     return;

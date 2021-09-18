@@ -309,7 +309,8 @@ string get_location_name(int type){
 varargs void surface_rumour(string str, string name, int type, string inst){
   string plainstr;
   report("surface rumour: type = " + type);
-  plainstr = "/daemon/stripper_d"->stripcolors(str);
+  //plainstr = "/daemon/stripper_d"->stripcolors(str);
+  plainstr = strip_colors(str);
   if (lower_case(plainstr) == "q")
   {
     tell_object(TP, "%^ORANGE%^Rumour edit abandoned");
@@ -340,7 +341,8 @@ varargs void detailed_rumour(string str, string name, int type, string surface, 
     input_to("secret_info", 0, name, type, surface, str, inst);
     return;
   }
-  plainstr = "/daemon/stripper_d"->stripcolors(str);
+  //plainstr = "/daemon/stripper_d"->stripcolors(str);
+  plainstr = strip_colors(str);
   if (lower_case(plainstr) == "q"){
     tell_object(TP, "%^ORANGE%^Rumour edit abandoned");
     return;
@@ -709,7 +711,8 @@ void amend_surface(string str, string name, int type, string detail, string secr
     tell_object(ob, "%^ORANGE%^Rumour abandoned. Feel free to start over");
     return;
   } 
-  plainstr = "/daemon/stripper_d"->stripcolors(str);
+  //plainstr = "/daemon/stripper_d"->stripcolors(str);
+  plainstr = strip_colors(str);
   if (strlen(plainstr)>300)
   {
     tell_object(TP, "%^BOLD%^%^WHITE%^Sorry, that's too much information. Please try again, using 300 characters or fewer");
@@ -734,7 +737,8 @@ void amend_detail(string str, string name, int type, string surface, string secr
     tell_object(ob, "%^ORANGE%^Rumour abandoned. Feel free to start over");
     return;
   } 
-  plainstr = "/daemon/stripper_d"->stripcolors(str);
+  //plainstr = "/daemon/stripper_d"->stripcolors(str);
+  plainstr = strip_colors(str);
   if (strlen(plainstr)>600)
   {
     tell_object(TP, "%^BOLD%^%^WHITE%^Sorry, that's too much information, even for the deeper details of the rumour. Please try again, using 600 characters or fewer");
@@ -759,7 +763,8 @@ void amend_secret(string str, string name, int type, string surface, string deta
     tell_object(ob, "%^ORANGE%^Rumour abandoned. Feel free to start over");
     return;
   } 
-  plainstr = "/daemon/stripper_d"->stripcolors(str);
+  //plainstr = "/daemon/stripper_d"->stripcolors(str);
+  plainstr = strip_colors(str);
   if (strlen(plainstr)>600)
   {
     tell_object(TP, "%^BOLD%^%^WHITE%^Sorry, that's too much information, even for the secret details of the rumour. Please try again, using 600 characters or fewer");

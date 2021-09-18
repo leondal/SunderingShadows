@@ -1,3 +1,6 @@
+//ACTIVELY USED
+//This functionality already exists in the simul-efun arrange_string.c
+
 //Coded by Lujke. For stripping a string of its color codes. 
 //There may be easier ways to do this, but this should work.
 
