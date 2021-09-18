@@ -104,7 +104,7 @@ int do_post(){
       }
       return 1;
    }
-   if(member_array(TP->query_race(),LIVING_D->night_races()) != -1){
+   if(member_array(TP->query_race(),PLAYER_D->night_races()) != -1){
       if(!random(3)){
          tell_object(TP,"Your superior night vision allows you to easily avoid the post.");
       }
