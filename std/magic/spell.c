@@ -3350,8 +3350,7 @@ int combat_death_save(object foe, int casters_disadvantage)
         foe->query_property("no death") ||
         foe->query_level() > caster->query_level() ||
         foe->query_level() > clevel ||
-        (member_array("repose", foe->query_divine_domain()) + 1) ||
-        random(2);
+        (member_array("repose", foe->query_divine_domain()) + 1);
 }
 
 object* ob_party(object obj)
