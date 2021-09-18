@@ -1,3 +1,6 @@
+//NOT ACTIVELY USED
+//But could be potentially useful
+
 // Government Daemon
 // Keeps track of positions that are occupied by players
 // with power over certain areas.

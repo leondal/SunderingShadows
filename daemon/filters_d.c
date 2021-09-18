@@ -1,3 +1,7 @@
+//ACTIVELY USED
+//These functions should be efuns instead of a daemon
+//Some are already efuns.....
+
 // /daemon/filters.c
 // Centralized daemon for filters.
 // filter_array, sort_array, and other filters be found here.
@@ -73,7 +77,8 @@ string filter_colors(string str)
   // method of commerce...
   return str;
 }
-
+//If the following functions are not already efuns, they can be added as simul-efun
+//in a new alphabet.c file.
 string filter_alphanumeric(string str) {
   int iter=0;
 
@@ -124,6 +129,8 @@ int numerical_sort(mixed one, mixed two) {
   return (one - two);
 
 }
+
+//EFUN interactivep() already exists
 int __interactive(object fnord){
   if (!objectp(fnord))
     return 0;
@@ -132,6 +139,7 @@ int __interactive(object fnord){
   return 0;
 }
 
+//EFUN playerp()/userp() already exists
 int is_player(object fnord)
 {
     if (!objectp(fnord)) {
@@ -143,6 +151,7 @@ int is_player(object fnord)
     return 0;
 }
 
+//EFUN livingp() already exists
 int is_player_or_minion(object obj)
 {
     if (!objectp(obj)) {
@@ -156,6 +165,7 @@ int is_player_or_minion(object obj)
     return 0;
 }
 
+//EFUN avatarp(), creatorp(), adminp() already exists
 int is_non_immortal(object fnord)
 {
   if (!objectp(fnord)) return 0;
@@ -183,6 +193,7 @@ int is_non_player(object fnord)
     return 1;
 }
 
+//EFUN userp() exists
 int _does_user_exist(string luser) {
   if (!stringp(luser)) return 0;
   if (user_exists(luser)) return 1;
@@ -209,6 +220,7 @@ object * query_retired() {
   return retireds;
 }
 
+//EFUN livingp() exists
 int *is_living(object ob) {
   if (!objectp(ob)) return 0;
   if (living(ob)) return 1;

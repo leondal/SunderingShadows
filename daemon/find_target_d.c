@@ -1,3 +1,7 @@
+//ACTIVELY USED
+//This function be performed with existing efuns
+//find_object(), find_player()
+
 #include <std.h>
 #include <daemons.h>
 inherit DAEMON;

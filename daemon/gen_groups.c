@@ -1,3 +1,6 @@
+//ACTIVELY USED
+//Why can't this be actual simul-efuns?
+
 // Offline Simul-efuns
 // Gets the player object for those pesky people who are not logged in
 // when you need them to be.

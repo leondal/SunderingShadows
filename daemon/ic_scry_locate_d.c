@@ -1,3 +1,5 @@
+//ACTIVELY USED
+
 // In Character Srying and Location Broker Daemon
 // Initiates all legal magical location and scrying in character
 // to allow checks to be made for anti-scry or anti-location spells
