@@ -58,7 +58,7 @@ void spell_effect(int prof){
     } */
     duration = (ROUND_LENGTH * 20) * clevel;
 
-    if(member_array((string)caster->query_race(),LIVING_D->night_races()) != -1){
+    if(member_array((string)caster->query_race(),PLAYER_D->night_races()) != -1){
         modifier = -3;
     }else{ modifier = 2; }
 

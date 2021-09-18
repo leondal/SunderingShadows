@@ -80,7 +80,7 @@ spell_effect(int prof)
         if (do_save(this_target, 0) == 1 ) {
             resisted = 1;
         }
-        if (LIVING_D->immunity_check(this_target, "sleep") == 1) {
+        if (PLAYER_D->immunity_check(this_target, "sleep") == 1) {
             resisted = 1;
         }
         if (mind_immunity_check(this_target, "default") == 1) {

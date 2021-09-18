@@ -1733,7 +1733,7 @@ void add_the_bonus(object myplayer,string bonustype,int bonusvalue) {
 			myplayer->add_ac_bonus(bonusvalue);
 			break;
 		case "sight bonus":
-			if(member_array((string)myplayer->query_race(),LIVING_D->night_races()) != -1) myplayer->add_sight_bonus((-1)*bonusvalue);
+			if(member_array((string)myplayer->query_race(),PLAYER_D->night_races()) != -1) myplayer->add_sight_bonus((-1)*bonusvalue);
 			else myplayer->add_sight_bonus(bonusvalue);
 			break;
 		// misc bonuses held in set_property()

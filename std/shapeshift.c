@@ -423,7 +423,7 @@ void do_bonuses(object obj, string bonus,int amount)
 
     case "sight bonus":
 
-        if(member_array((string)obj->query_race(),LIVING_D->night_races()) != -1)
+        if(member_array((string)obj->query_race(),PLAYER_D->night_races()) != -1)
         {
             obj->add_sight_bonus(-amount);
         }

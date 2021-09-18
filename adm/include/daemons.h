@@ -52,6 +52,7 @@
 #define LANG_D               (DIR_SECURE_DAEMONS+"/lang_d")
 #define LAWBOUNTY_D          (DIR_SECURE_DAEMONS+"/lawbounty_d")
 #define LETTER_D             (DIR_DAEMONS+"/letter")
+#define LIVING_D             (DIR_DAEMONS + "/living_d")
 #define LIBRARY_D            (DIR_DAEMONS+"/library_d")
 #define LOCALPOST_D          (DIR_DAEMONS+"/localpost")
 #define MAGIC_D              (DIR_DAEMONS+"/magic_d")

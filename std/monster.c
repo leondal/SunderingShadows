@@ -2011,7 +2011,7 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
       tell_object(this_object(), "calc = " + calc);
   }
 
-  if (member_array(query_race(), LIVING_D->night_races()) != -1) {
+  if (member_array(query_race(), PLAYER_D->night_races()) != -1) {
       calc *= -1;
       _total_light *= -1;
   }

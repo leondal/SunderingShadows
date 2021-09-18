@@ -44,7 +44,7 @@ spell_effect(int prof) {
        }
     }
     if(objectp(target)){
-       if(member_array(target->query_race(),LIVING_D->night_races()) == -1){
+       if(member_array(target->query_race(),PLAYER_D->night_races()) == -1){
           target->add_sight_bonus(3);
        }else{
           target->add_sight_bonus(-3);

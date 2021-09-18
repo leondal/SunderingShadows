@@ -37,7 +37,7 @@ void spell_effect(int prof) {
     int duration;
     duration = (ROUND_LENGTH * 20) * (clevel + roll_dice(1, 20));
 
-    if(member_array((string)caster->query_race(),LIVING_D->night_races()) != -1) modifier = -10;
+    if(member_array((string)caster->query_race(),PLAYER_D->night_races()) != -1) modifier = -10;
     else modifier = 8;
     tell_room(place,"%^MAGENTA%^"+caster->QCN+"'s pupils dilate, their blackness overwhelming all color in the irises.%^RESET%^",caster);
     tell_object(caster,"%^MAGENTA%^The world around you drains of color and snaps into crystalline clarity.%^RESET%^");

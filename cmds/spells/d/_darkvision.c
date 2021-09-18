@@ -58,7 +58,7 @@ int preSpell() {
 void spell_effect(int prof) {
     int duration;
     target = caster;
-    if(member_array((string)target->query_race(),LIVING_D->night_races()) != -1) modifier = -10;
+    if(member_array((string)target->query_race(),PLAYER_D->night_races()) != -1) modifier = -10;
     else modifier = 8;
     if(spell_type == "ranger")
     {

@@ -357,7 +357,7 @@ void redo_my_languages() {
       set_lang("common", 100);
       set_lang(LANGS[race][0], 100);
   }else {
-      if (member_array(race, LIVING_D->night_races()) == -1) {
+      if (member_array(race, PLAYER_D->night_races()) == -1) {
           set_lang("common", 100);
       }else {
           set_lang("undercommon", 100);
@@ -643,7 +643,7 @@ void describe_current_room(int verbose)
     if ((light = light_blind(0)) || TO->query_blind()) {
         if (TO->query_blind()) {
             borg += "You have been blinded and cannot see anything.";
-        }else if (member_array(query_race(), (string)LIVING_D->night_races()) != -1) {
+        }else if (member_array(query_race(), (string)PLAYER_D->night_races()) != -1) {
             if (light >= 1) {
                 borg += "It is too dark to see.";
             }else if (light >= -1) {
@@ -4632,7 +4632,7 @@ int light_blind_remote(int actionbonus, object whichroom, int distance) {
       tell_object(this_object(), "calc = " + calc);
   }
 
-  if (member_array(query_race(), LIVING_D->night_races()) != -1) {
+  if (member_array(query_race(), PLAYER_D->night_races()) != -1) {
       calc *= -1;
       _total_light *= -1;
   }
@@ -4686,7 +4686,7 @@ string light_blind_fail_message(int blindlight)
     if (blindlight == 0) {
         return "";
     }
-    if (member_array(query_race(), (string)LIVING_D->night_races()) != -1) {
+    if (member_array(query_race(), (string)PLAYER_D->night_races()) != -1) {
         if (blindlight < 0) {
             return "The bright light burns your eyes too much to see!";
         }else {

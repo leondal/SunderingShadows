@@ -39,7 +39,7 @@ void spell_effect(int prof) {
     tell_room(place,"%^GREEN%^An e%^BOLD%^%^GREEN%^e%^BOLD%^%^CYAN%^r%^BOLD%^%^GREEN%^i%^RESET%^%^GREEN%^e g%^BOLD%^%^GREEN%^l%^BOLD%^%^CYAN%^o%^RESET%^%^GREEN%^w lights "+caster->QCN+"'s eyes.%^RESET%^",caster);
     tell_object(caster,"%^GREEN%^The world around you snaps into stark clarity, an e%^BOLD%^%^GREEN%^e%^BOLD%^%^CYAN%^r%^BOLD%^%^GREEN%^i%^RESET%^%^GREEN%^e g%^BOLD%^%^GREEN%^l%^BOLD%^%^CYAN%^o%^RESET%^%^GREEN%^w outlining each and every detail.%^RESET%^");
 
-    if(member_array((string)caster->query_race(),LIVING_D->night_races()) != -1) modifier = -10;
+    if(member_array((string)caster->query_race(),PLAYER_D->night_races()) != -1) modifier = -10;
     else modifier = 8;
     caster->set_detecting_invis(1);
     caster->add_sight_bonus(modifier);

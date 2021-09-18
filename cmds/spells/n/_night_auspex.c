@@ -41,7 +41,7 @@ void spell_effect()
     spell_successful();
     caster->add_bloodlust(-500);
 
-    if (member_array(caster->query_race(), LIVING_D->night_races()) != -1) {
+    if (member_array(caster->query_race(), PLAYER_D->night_races()) != -1) {
         bonus = -10;
     }else {
         bonus = 8;

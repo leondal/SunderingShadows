@@ -271,7 +271,7 @@ mixed gear_bonus(object who, string bonus, int flag)
         if(!actual_amt) continue;
         if(actual_amt < 0 || (WORLD_EVENTS_D->stacking_bonus_active(who) && !WORLD_EVENTS_D->stacking_bonus_active(who, -1)))
         {
-            if(bonus == "sight bonus" && member_array((string)who->query_race(),LIVING_D->night_races()) != -1) actual_amt = -1 * actual_amt;
+            if(bonus == "sight bonus" && member_array((string)who->query_race(),PLAYER_D->night_races()) != -1) actual_amt = -1 * actual_amt;
             total += actual_amt;
             if(!my_gear[bonus]) my_gear += ([bonus : ([ item : actual_amt ]), ]);
             else my_gear[bonus] += ([item : actual_amt]);
@@ -284,7 +284,7 @@ mixed gear_bonus(object who, string bonus, int flag)
         if(cond <= 70) actual_amt = (actual_amt * cond) / 100;
         if(actual_amt > amt && !WORLD_EVENTS_D->stacking_bonus_active(who, -1))
         {
-            if(bonus == "sight bonus" && member_array((string)who->query_race(),LIVING_D->night_races()) != -1) tmp = ([item : ([bonus : (actual_amt * -1)]),]);
+            if(bonus == "sight bonus" && member_array((string)who->query_race(),PLAYER_D->night_races()) != -1) tmp = ([item : ([bonus : (actual_amt * -1)]),]);
             else tmp = ([bonus : ([ item : actual_amt ]), ]);
             amt = actual_amt;
         }
@@ -301,7 +301,7 @@ mixed gear_bonus(object who, string bonus, int flag)
         }
         return my_gear;
     }
-    if(bonus == "sight bonus" && member_array((string)who->query_race(),LIVING_D->night_races()) != -1) amt = amt * -1;
+    if(bonus == "sight bonus" && member_array((string)who->query_race(),PLAYER_D->night_races()) != -1) amt = amt * -1;
     if(!flag && bonus != "temporary feats") return (total + amt);
     if(!flag && bonus == "temporary feats")
     {
