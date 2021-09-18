@@ -28,7 +28,7 @@ void status_effect()
         return;
     }
 
-    if (LIVING_D->immunity_check(target, "fatigue")) {
+    if (PLAYER_D->immunity_check(target, "fatigue")) {
         TO->remove();
         return;
     }

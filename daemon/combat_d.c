@@ -515,17 +515,10 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
                             return damage;
                         }
                     }
-                    //alignments, enemy_alignments, target_align, i
-                    alignments = ({ "alignment 147", "alignment 369", "alignment 123", "alignment 789" });
-                    enemy_alignments = ({ "369", "147", "789", "123" });
-                    if (attacker->query_property("weapon enhancement timer")) {
-                        for (i = 0; i < sizeof(alignments); i++)
-                        {
-                            if (attacker->query_property(alignments[i]) &&
-                                strsrch(enemy_alignments[i], target_align + "") + 1) {
-                                return damage;
-                            }
-                        }
+                    if (attacker->query_property("weapon enhancement timer"))
+                    {
+                        if(opposed_alignment(attacker, targ))
+                            return damage;
                     }
                 }
 
@@ -533,7 +526,7 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
 
                 if(PLAYER_D->check_aura(targ, "justification") == 2)
                 {
-                    if(PLAYER_D->opposed_alignment(targ, attacker))
+                    if(opposed_alignment(targ, attacker))
                     {
                         reduction += 5;
                         if(FEATS_D->usable_feat("champion"))
@@ -543,13 +536,13 @@ varargs int typed_damage_modification(object attacker, object targ, string limb,
 
                 if(targ->is_deva())
                 {
-                    if(PLAYER_D->opposed_alignment(targ, attacker))
+                    if(opposed_alignment(targ, attacker))
                         reduction += 10;
                 }
 
                 if(targ->is_class("cleric"))
                 {
-                    if(PLAYER_D->opposed_alignment(targ, attacker))
+                    if(opposed_alignment(targ, attacker))
                     {
                         if(member_array("good", targ->query_divine_domain()) >= 0)
                              reduction += 5;
@@ -768,8 +761,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                 target->cause_typed_damage(target, target->return_target_limb(), enhance_dmg, elements[i]);
             }
         }
-        alignments = ({ "alignment 147", "alignment 369", "alignment 123", "alignment 789" });
-        enemy_alignments = ({ "369", "147", "789", "123" });
+
         align_text = ({ "holy wrath", "unholy fury", "righteous justice", "rebellious might" });
         a_colors = ({ "ice blue", "fire red", "lightning yellow", "lightning yellow" });
         target_align = (string)target->query_true_align();
@@ -778,7 +770,7 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             effect_chance = !random(enhance_chance);
             if (attacker->query_property(alignments[i]) &&
                 effect_chance &&
-                strsrch(enemy_alignments[i], target_align + "") + 1) {
+                opposed_alignment(attacker, target)) {
                 enhance_msg = align_text[i];
                 enhance_dmg = weapon->query_wc() * (1 + effective_level / 10); //scaling as bane
                 tell_object(attacker, CRAYON_D->color_string("You unleash your " + enhance_msg + " at " + ename + "!", a_colors[i]));

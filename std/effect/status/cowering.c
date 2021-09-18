@@ -26,7 +26,7 @@ void status_effect()
         return;
     }
 
-    if (LIVING_D->immunity_check(target, "fear")) {
+    if (PLAYER_D->immunity_check(target, "fear")) {
         TO->remove();
         return;
     }
