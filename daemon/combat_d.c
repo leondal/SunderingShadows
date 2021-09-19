@@ -76,9 +76,9 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
         return 1;
     }
     
-    a_name = capitalize(attacker->query_name());
+    a_name = attacker->query_cap_name();
     a_poss = attacker->query_possessive();
-    v_name = capitalize(victim->query_name());
+    v_name = victim->query_cap_name();
     v_obj = victim->query_objective();
     v_poss = victim->query_possessive();
     
@@ -179,7 +179,7 @@ varargs int extra_hit_calcs(object attacker, object victim, object weapon, strin
                 defender = victim;
             }
             
-            v_name = capitalize(defender->query_name());
+            v_name = defender->query_cap_name();
             v_poss = defender->query_possessive();
             
             if (living(attacker)) {
@@ -309,9 +309,9 @@ varargs int damage_adjustment(object attacker, object victim, int damage)
                     damage = 0;
                 }
                 if (living(attacker)) {
-                    tell_object(attacker, capitalize(victim->query_name()) + "%^RESET%^%^BOLD%^ rolls with your attack, lessening its force!%^RESET%^");
+                    tell_object(attacker, victim->query_cap_name() + "%^RESET%^%^BOLD%^ rolls with your attack, lessening its force!%^RESET%^");
                     if (objectp(env)) {
-                        tell_room(env, capitalize(victim->query_name()) + "%^RESET%^%^BOLD%^ rolls with " + capitalize(attacker->query_name()) + "%^RESET%^%^BOLD%^'s attack, lessing its force!%^RESET%^");
+                        tell_room(env, victim->query_cap_name() + "%^RESET%^%^BOLD%^ rolls with " + attacker->query_cap_name() + "%^RESET%^%^BOLD%^'s attack, lessing its force!%^RESET%^");
                     }
                 }
                 tell_object(victim, "%^RESET%^%^BOLD%^You roll with the attack, lessening its force!%^RESET%^");
@@ -613,8 +613,8 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
         return;
     }
 
-    pname = capitalize(attacker->query_name());
-    ename = capitalize(target->query_name());
+    pname = attacker->query_cap_name();
+    ename = target->query_cap_name();
     room = environment(attacker);
 
     if (crit_hit) {
@@ -864,8 +864,8 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
                 {
                     //Can only cleave once per round
                     attacker->set_property("cleaving", 1);
-                    tell_object(attacker, "%^BOLD%^Your attack cleaves through your opponent and hits " + capitalize(att[0]->query_name()) + "!%^RESET%^");
-                    tell_room(room, "%^BOLD%^" + pname + "'s attack cleaves through and hits " + capitalize(att[0]->query_name()) + "!%^RESET%^", ({ attacker }));
+                    tell_object(attacker, "%^BOLD%^Your attack cleaves through your opponent and hits " + att[0]->query_cap_name() + "!%^RESET%^");
+                    tell_room(room, "%^BOLD%^" + pname + "'s attack cleaves through and hits " + att[0]->query_cap_name() + "!%^RESET%^", ({ attacker }));
                     att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
                 }
             }
@@ -878,8 +878,8 @@ void check_extra_abilities(object attacker, object target, object weapon, int cr
             {
                 if(!objectp(target) || target->query_hp() < 1)
                 {
-                    tell_object(attacker, "%^BOLD%^Your finishing attack cleaves through your opponent and hits " + capitalize(att[0]->query_name()) + "!%^RESET%^");
-                    tell_room(room, "%^BOLD%^" + pname + "'s finishing attack cleaves through and hits " + capitalize(att[0]->query_name()) + "!%^RESET%^", ({ attacker }));
+                    tell_object(attacker, "%^BOLD%^Your finishing attack cleaves through your opponent and hits " + att[0]->query_cap_name() + "!%^RESET%^");
+                    tell_room(room, "%^BOLD%^" + pname + "'s finishing attack cleaves through and hits " + att[0]->query_cap_name() + "!%^RESET%^", ({ attacker }));
                     att[0] && attacker->cause_typed_damage(att[0], att[0]->return_target_limb(), cleave_dmg, weapon->query_damage_type());
                 }
             }
@@ -921,9 +921,9 @@ int crit_damage(object attacker, object targ, object weapon, int size, int damag
     if(!objectp(targ) || !objectp(attacker))
         return 0;
     
-    a_name = capitalize(attacker->query_name());
+    a_name = attacker->query_cap_name();
     a_poss = attacker->query_possessive();
-    t_name = capitalize(targ->query_name());
+    t_name = targ->query_cap_name();
     t_poss = targ->query_possessive();
     
     mult = 2;
@@ -1323,7 +1323,7 @@ int damage_done(object attacker, object weap, int damage, int isranged)
         damage = absolute_value((damage * prof) / 100 + 1);
         attacker->cause_typed_damage(attacker, "torso", damage, weap->query_damage_type());
         tell_object(attacker, "You hurt yourself with your weapon because of your inexperience.");
-        tell_room(environment(attacker), capitalize(attacker->query_name()) + " hurts " + attacker->query_objective() + "self with " + attacker->query_possessive() + " weapon.", attacker);
+        tell_room(environment(attacker), attacker->query_cap_name() + " hurts " + attacker->query_objective() + "self with " + attacker->query_possessive() + " weapon.", attacker);
         return 0;
     }else {
         damage = (damage * prof) / 100;
@@ -1458,8 +1458,8 @@ void send_messages(object attacker, int magic, object weapon, string what, int x
         return;
     }
 
-    your_name = (string)capitalize(victim->query_name());
-    my_name = (string)capitalize(attacker->query_name());
+    your_name = victim->query_cap_name();
+    my_name = attacker->query_cap_name();
     my_poss = attacker->query_possessive();
     verbose = 0;
 
@@ -1804,11 +1804,11 @@ void do_fumble(object attacker, object weapon)
     case 18:
         if (objectp(weapon)) {
             tell_object(attacker, "%^GREEN%^You fumble your weapon badly, dropping it!");
-            tell_room(environment(attacker), "%^GREEN%^You see " + capitalize(attacker->query_name()) + " fumble " + attacker->QP + " weapon.", attacker);
+            tell_room(environment(attacker), "%^GREEN%^You see " + attacker->query_cap_name() + " fumble " + attacker->QP + " weapon.", attacker);
             attacker->force_me("drop " + ((string*)weapon->query_id())[0]);
         }else {
             tell_object(attacker, "%^GREEN%^You stumble as you wing at your opponent");
-            tell_room(environment(attacker), "%^GREEN%^You see " + capitalize(attacker->query_name()) + " stumble.", attacker);
+            tell_room(environment(attacker), "%^GREEN%^You see " + attacker->query_cap_name() + " stumble.", attacker);
             attacker->set_paralyzed(10, "You are recovering from having stumbled.");
         }
         break;
@@ -1854,7 +1854,7 @@ void miss(object attacker, int magic, object target, string type, string target_
     if(!pointerp(readers) || !sizeof(readers))
         readers = ({  });
     
-    a_name = capitalize(attacker->query_name());
+    a_name = attacker->query_cap_name();
     a_poss = attacker->query_possessive();
 
     if (objectp(target)) {
@@ -1862,7 +1862,7 @@ void miss(object attacker, int magic, object target, string type, string target_
             verbose = target->query_verbose_combat();
         }
         
-        t_name = capitalize(target->query_name());
+        t_name = target->query_cap_name();
 
         if (verbose) {
             !areader && tell_object(attacker, "%^RESET%^%^YELLOW%^You miss your attack on " + t_name + "%^RESET%^");
@@ -2177,7 +2177,7 @@ void iterate_combat(object who)
         return;
     }
     EWHO = environment(who);
-    who_name = capitalize(who->query_name());
+    who_name = who->query_cap_name();
     who_poss = who->query_possessive();
     
     //if (!who->ok_combat_vars()) who->initialize_combat_vars(); // there's a recursion error, not sure if it's caused here or not
@@ -2379,7 +2379,7 @@ varargs void set_tripped(object who, int severity, string message, int special)
         if (chance > roll_dice(1, 100)) {
             tell_object(who, "You avoid the attempt to trip you!");
             if (objectp(environment(who))) {
-                tell_room(environment(who), capitalize(who->query_name()) + " avoids the attempt to trip " + who->query_objective() + "!", who);
+                tell_room(environment(who), who->query_cap_name() + " avoids the attempt to trip " + who->query_objective() + "!", who);
             }
             return;
         }
@@ -2444,7 +2444,7 @@ void set_temporary_blinded(object who, int difficulty, string message)
     if (who->query_property("no blind")) {
         tell_object(who, "You are immune to blindness!");
         if (objectp(environment(who))) {
-            tell_room(environment(who), capitalize(who->query_name()) + " seems immune to the " +
+            tell_room(environment(who), who->query_cap_name() + " seems immune to the " +
                       "blindness attempt!", who);
         }
         return;
@@ -2482,7 +2482,7 @@ void set_paralyzed(object who, int x, string paralyze_msg)
     if (who->query_property("no paralyze") || PLAYER_D->immunity_check(who, "paralysis")) {
         message("my_action", "You are uneffected by the paralysis.", who);
         if (objectp(environment(who)) && !who->query_invis()) {
-            tell_room(environment(who), capitalize(who->query_name()) + " %^BOLD%^%^GREEN%^is totally uneffected by " +
+            tell_room(environment(who), who->query_cap_name() + " %^BOLD%^%^GREEN%^is totally uneffected by " +
                       "the paralysis attempt!%^RESET%^");
         }
         return;
@@ -2514,7 +2514,7 @@ void remove_paralyzed(object who)
     }
     tell_object(who, "You can move again.");
     if (!who->query_invis() && objectp(environment(who))) {
-        tell_room(environment(who), "%^BOLD%^%^GREEN%^You see " + capitalize(who->query_name()) + " is moving again.%^RESET%^", who);
+        tell_room(environment(who), "%^BOLD%^%^GREEN%^You see " + who->query_cap_name() + " is moving again.%^RESET%^", who);
     }
     return;
 }
@@ -2551,13 +2551,13 @@ object* doProtection(object player)
         }
         if ((int)pros[i]->query_hp_percent() < 30) {
             player->remove_protector(pros[i]);
-            tell_object(pros[i], "You are too weak to continue protecting " + capitalize(player->query_name()) + ".");
+            tell_object(pros[i], "You are too weak to continue protecting " + player->query_cap_name() + ".");
             pros[i]->set("protecting", 0);
             continue;
         }
         //if(random(query_highest_level()*2) > random((int)pros[i]->query_highest_level() + (int)player->query_lowest_level()))
         if (!random(7) && pros[i]->query("protecting")) {
-            tell_object(pros[i], "You are unable to defend " + capitalize(player->query_name()) + " this attack.");
+            tell_object(pros[i], "You are unable to defend " + player->query_cap_name() + " this attack.");
             pros[i]->set("protecting", 0);
             continue;
         }
@@ -2617,8 +2617,8 @@ void send_dodge(object who, object att)
         return;
     }
     
-    a_name = capitalize(att->query_name());
-    who_name = capitalize(who->query_name());
+    a_name = att->query_cap_name();
+    who_name = who->query_cap_name();
 
     verb = ({ "flip", "back flip", "jump", "dodge", "roll", "somersault", "dance", "spin", "scramble" });
     adverb = ({ "easily", "quickly", "barely", "poorly", "with agility", "deftly" });
@@ -2684,7 +2684,7 @@ int ok_to_kill(object who, object targ)
         return 1;
     }
     
-    t_name = capitalize(targ->query_name());
+    t_name = targ->query_cap_name();
 
     if (interactive(who) && interactive(targ)) {
         if (newbiep(who) && (!avatarp(targ))) {
@@ -2821,7 +2821,7 @@ void ok_to_wield(object who)
                 }
                 else {
                     tell_object(who, "In your attempt to wield two such weapons, you fumble and drop them.");
-                    tell_room(environment(who), capitalize(who->query_name()) + " fumbles with " + who->QP + " " + wielded[0]->query_name() + " and "
+                    tell_room(environment(who), who->query_cap_name() + " fumbles with " + who->QP + " " + wielded[0]->query_name() + " and "
                               "" + who->query_possessive() + " " + wielded[1]->query_name() + " and then drops them.", who);
                     if (!wielded[0]->query_property("enchantment") || (int)wielded[0]->query_property("enchantment") > 0) {
                         wielded[0]->move(environment(who));
@@ -2875,7 +2875,7 @@ void run_away(object who)
 
     tell_object(who, "You run away.");
     if (objectp(environment(who)) && !who->query_invis()) {
-        tell_room(environment(who), capitalize(who->query_name()) + " runs away!", who);
+        tell_room(environment(who), who->query_cap_name() + " runs away!", who);
     }
     wimpydir = who->query_wimpydir();
     if (member_array(wimpydir, str) != -1) {
@@ -2949,8 +2949,8 @@ int check_avoidance(object who, object victim)
         return 0;
     }
     
-    who_name = capitalize(who->query_name());
-    v_name = capitalize(victim->query_name());
+    who_name = who->query_cap_name();
+    v_name = victim->query_cap_name();
     v_poss = victim->query_possessive();
 
 // What kinds of avoidance are possible?
@@ -3155,7 +3155,7 @@ int check_avoidance(object who, object victim)
     case "TYPE_MOUNT":
         tell_object(rider, "%^RESET%^%^BOLD%^You direct your steed out of harm's way!%^RESET%^");
 
-        tell_room(EWHO, "%^RESET%^%^BOLD%^" + capitalize(rider->query_name()) + " directs " + rider->query_possessive() +
+        tell_room(EWHO, "%^RESET%^%^BOLD%^" + rider->query_cap_name() + " directs " + rider->query_possessive() +
                   "steed out of harm's way!%^RESET%^", rider);
         break;
 
@@ -3174,9 +3174,9 @@ void combined_attack(object who, object victim)
         return;
     }
     
-    v_name = capitalize(victim->query_name());
+    v_name = victim->query_cap_name();
     v_poss = victim->query_possessive();
-    who_name = capitalize(who->query_name());
+    who_name = who->query_cap_name();
     who_poss = who->query_possessive();
     who_obj = who->query_objective();
     
@@ -3244,7 +3244,7 @@ void internal_execute_attack(object who)
     }
     who->set_for_attack(); //sets attacking to 0 - this function will not get called until it is 0
     EWHO = environment(who);
-    who_name = capitalize(who->query_name());
+    who_name = who->query_cap_name();
     who_poss = who->query_possessive();
     who_obj = who->query_objective();
     
@@ -3301,7 +3301,7 @@ void internal_execute_attack(object who)
         return;
     }
     
-    v_name = capitalize(victim->query_name());
+    v_name = victim->query_cap_name();
     v_obj = victim->query_objective();
     v_poss = victim->query_possessive();
 
@@ -3609,7 +3609,7 @@ void spring_attack(object ob)
     }
     tell_object(ob, "%^BOLD%^%^CYAN%^You use the momentum of your dodge to "
                 "try and land another attack!");
-    tell_room(environment(ob), "%^BOLD%^%^CYAN%^" + capitalize(ob->query_name()) + " uses the momentum "
+    tell_room(environment(ob), "%^BOLD%^%^CYAN%^" + ob->query_cap_name() + " uses the momentum "
               "of " + ob->query_possessive() + " dodge to try and land another attack!", ob);
     ob->execute_attack();
     return;
@@ -3628,7 +3628,7 @@ void counter_attack(object ob)
     }
     tell_object(ob, "%^RESET%^%^BOLD%^%^GREEN%^You take advantage of the opening and "
                 "counter attack!%^RESET%^");
-    tell_room(environment(ob), "%^RESET%^%^BOLD%^%^GREEN%^" + capitalize(ob->query_name()) + " takes advantage "
+    tell_room(environment(ob), "%^RESET%^%^BOLD%^%^GREEN%^" + ob->query_cap_name() + " takes advantage "
               "of the opening and counter attacks!%^RESET%^", ob);
 
     counter_damage = ob->query_property("shieldwall") * 10;
@@ -3800,7 +3800,7 @@ int doPkill(object who)
     who->set_magic_hidden(0);
     tell_object(who, "%^BOLD%^%^RED%^You have fallen unconscious due to egregious wounds.");
     if (objectp(environment(who))) {
-        tell_room(environment(who), "%^BOLD%^%^RED%^" + capitalize(who->query_name()) + " falls unconscious due to horrible wounds.", who);
+        tell_room(environment(who), "%^BOLD%^%^RED%^" + who->query_cap_name() + " falls unconscious due to horrible wounds.", who);
     }
     return 1;
 }
@@ -3955,7 +3955,7 @@ varargs int check_death(object who, object pot)
                         if (userp(attackers[0]->query_caster())) {
                             who->add_death((string)attackers[0]->query_caster()->getParsableName());
                         }else {
-                            who->add_death((capitalize(attackers[0]->query_caster())->query_name()));
+                            who->add_death((attackers[0]->query_caster())->query_cap_name());
                         }
                     }
                     if (userp(attackers[0])) {
@@ -3993,7 +3993,7 @@ varargs int check_death(object who, object pot)
                 }
             }
             if (who->isPkill()) {
-                log_file("player/kills", "       " + capitalize(who->query_name()) + " was killed by " + capitalize(killedBy->query_name()) + "\n");
+                log_file("player/kills", "       " + who->query_cap_name() + " was killed by " + killedBy->query_cap_name() + "\n");
                 who->set("no pk", 1);
                 who->set("just_been_pkilled", 1);
                 who->set_pk_death_flag();
@@ -4093,22 +4093,22 @@ int kill_ob(object who, object victim, int which)
                         caster = previous_object()->query_caster();
                         if (objectp(caster)) {
                             if (member_array(caster, borg_people) == -1) {
-                                log_file("killers", " ##" + capitalize(caster->query_name()) + " "
-                                         "attacked " + capitalize(who->query_name()) + " at " + ctime(time()) + ".\n");
+                                log_file("killers", " ##" + caster->query_cap_name() + " "
+                                         "attacked " + who->query_cap_name() + " at " + ctime(time()) + ".\n");
                                 if (!avatarp(caster)) {
                                     KILLING_D->check_actions(caster, who);
                                 }
                             }
                         }else {
-                            log_file("killers", " ##" + capitalize(who->query_name()) + " attacked "
-                                     "" + capitalize(victim->query_name()) + ".\n");
+                            log_file("killers", " ##" + who->query_cap_name() + " attacked "
+                                     "" + victim->query_cap_name() + ".\n");
                             if (!avatarp(who)) {
                                 KILLING_D->check_actions(who, victim);
                             }
                         }
                     }else {
-                        log_file("killers", "  ##" + capitalize(who->query_name()) + " attacked "
-                                 "" + capitalize(victim->query_name()) + ".\n");
+                        log_file("killers", "  ##" + who->query_cap_name() + " attacked "
+                                 "" + victim->query_cap_name() + ".\n");
                         if (!avatarp(who)) {
                             KILLING_D->check_actions(who, victim);
                         }

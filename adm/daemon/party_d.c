@@ -231,7 +231,7 @@ void message_party(string str, string what) {
     sz = sizeof(party[str]);
 
     for(i=0; i<sz; i++) {
-           message("party","%^RESET%^"+capitalize(this_player()->query_name())+"  %^BOLD%^%^RED%^"+"<"+str+" info>: "+what+"\n",party[str][i]);
+           message("party","%^RESET%^"+this_player()->query_cap_name()+"  %^BOLD%^%^RED%^"+"<"+str+" info>: "+what+"\n",party[str][i]);
     }
 }
 

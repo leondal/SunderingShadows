@@ -323,7 +323,10 @@ void catch_say(string str){
     if (strlen(str)>1 && str[0..0] == " "){
       str = str[1..strlen(str)-1]; //remove any starting space from sentence
     }
-    if (catch(str = FILTERS_D->filter_colors(str))) return;
+    //if (catch(str = FILTERS_D->filter_colors(str))) return;
+    if(catch(str = strip_colors(str)))
+        return;
+    
     if (sizeof(ks)>0 &&  member_array(str, ks)!= -1){
       num = sayings[str][0];
       num++;
