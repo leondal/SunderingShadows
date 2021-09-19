@@ -1,6 +1,6 @@
 #include <std.h>
 #include <move.h>
-#include "../../tecqumin.h"
+#include "../tecqumin.h"
 
 
 inherit TECBASE + "ropebridge_base.c";
