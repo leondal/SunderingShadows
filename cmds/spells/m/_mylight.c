@@ -64,7 +64,7 @@ void dest_effect()
     {
        tell_object(target,"%^RESET%^%^ORANGE%^Your vision returns to normal "
        "as the psionic power fades from your sight.%^RESET%^");
-       if(member_array(target->query_race(),LIVING_D->night_races()) == -1){
+       if(member_array(target->query_race(),PLAYER_D->night_races()) == -1){
           target->add_sight_bonus(-3);
        }else
        {
