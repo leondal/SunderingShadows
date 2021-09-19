@@ -18,7 +18,7 @@ void create() {
      "The %^BOLD%^%^RED%^p%^BLUE%^a%^GREEN%^r%^YELLOW%^r%^GREEN%^o%^BLUE%^t%^RED%^s%^RESET%^ are flapping and playing happily in and around one large %^GREEN%^tree%^RESET%^ which bears some large %^BOLD%^%^RED%^r%^RESET%^%^RED%^e%^BOLD%^d fru%^BLACK%^i%^RED%^t%^RESET%^, many of which have fallen, %^ORANGE%^over-ripe%^RESET%^, to the ground. They look very happy indeed, and not at all concerned about danger. Perhaps you could coax one over to join you.",
      ({"fruit", "red fruit", "large red fruit"}) : "It's not a %^BOLD%^%^RED%^fru%^BLACK%^i%^RED%^t%^RESET%^ you have seen before, but it looks very %^BOLD%^%^RED%^ripe%^RESET%^ indeed. Curiously, the %^BOLD%^%^RED%^p%^BLUE%^a%^GREEN%^r%^YELLOW%^r%^GREEN%^o%^BLUE%^t%^RED%^s%^RESET%^ seem most interested in the ones that have fallen to the ground and look like they have been there for some time. Every now and then a %^BOLD%^%^RED%^p%^BLUE%^ar%^GREEN%^ro%^BLUE%^t%^RESET%^ will swoop down and eat a few morsels of one of the mushiest examples, then flap somewhat more unsteadily back into the branches. You could gather some for yourself, if you wanted."    ]) );
   set_search("gateway",(:TO, "gate_search":));
-  set_search("carved gaateway",(:TO, "gate_search":));
+  set_search("carved gateway",(:TO, "gate_search":));
   set_smell("default","The air is heavy with %^CYAN%^humidity%^ORANGE%^"
                     +" and the heady scent of %^GREEN%^j%^BOLD%^"
                     +"%^GREEN%^u%^RESET%^%^GREEN%^ngle %^ORANGE%^plant"
