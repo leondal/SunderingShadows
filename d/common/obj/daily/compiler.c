@@ -18,21 +18,39 @@
 //to do this. Without those funs, we will use a mapping instead.
 
 mapping cloned_rooms;
+object *active_travelers;
        
 string dest_room;
+string *monsters_to_use;
 
-void compile_plane()
+void compile_plane(object owner)
 {
     int x;
     string key, exit_key, short, long;
     object room;
     
+    if(!userp(owner))
+        owner = previous_object();
+    if(!userp(owner))
+    {
+        write("Owner identification failed!");
+        return;
+    }
+    
     x = 0;
     cloned_rooms = ([  ]);
 
     short = get_room_short();
+    monsters_to_use = shuffle(CHAMPION_D->retrieve_monster_list(owner->query_level()));
+    monsters_to_use = monsters_to_use[0..5];
     
-    //Clone the rooms
+    if(!sizeof(monsters_to_use))
+    {
+        write("Monster list compile fail...");
+        return;
+    }
+    
+    //Clone the rooms, clone the monsters
     while(get_eval_cost() > 10000 && x < MAX_WIDTH)
     {
         for(int y = 0; y < MAX_HEIGHT; y++)
@@ -58,6 +76,14 @@ void compile_plane()
             room->set_short(short);
             room->set_long(long);
             
+            //Add monsters
+            if(!check(new(monsters_to_use[random(sizeof(monsters_to_use) - 1)])->move(cloned_rooms[key])))
+                write("Monster cloning successful!");
+            else
+            {
+                write("Monster cloning failed!");
+                continue;
+            }
         }
         x++;       
     }
@@ -139,11 +165,14 @@ void compile_plane()
         
         x++;
     }
-
+    
     write("Area Compiled Successfully!");
+    
+    if(!check(owner->move(cloned_rooms["0x0"])))
+        write("Transfer of owner to area successful!");
 }
 
-void destroy_plane()
+void destroy_plane(object owner)
 {
     string file;
     
@@ -154,6 +183,8 @@ void destroy_plane()
         write("No rooms in the mapping.");
         return;
     }
+    
+    objectp(owner) && owner->move(PATH + "entrance");
     
     foreach(string str in keys(cloned_rooms))
     {
@@ -185,10 +216,10 @@ string get_room_file(int x, int y)
 
 string get_room_short()
 {
-    return CRAYON_D->color_string("Plane of Shadows", "very black");
+    return CRAYON_D->color_string("Strange Demiplane", "very black");
 }
 
 string get_room_long()
 {
-    return CRAYON_D->color_string("You are lost in the Plane of Shadows.", "dark black");
+    return CRAYON_D->color_string("You are lost in a strange Demiplane.", "dark black");
 }
