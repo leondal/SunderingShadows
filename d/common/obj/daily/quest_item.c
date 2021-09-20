@@ -8,7 +8,7 @@
 */
 
 #include <std.h>
-#include <dameons.h>
+#include <daemons.h>
 
 inherit OBJECT;
 
@@ -43,8 +43,42 @@ void init()
     
     if(!holder || !userp(holder))
         return;
+    
+    reward_player(holder);
 }
 
-
+void reward_player(object who)
+{
+    object compiler;
+    int money, exp;
+    
+    if(!userp(who))
+    {
+        ::remove();
+        return;
+    }
+    
+    compiler = who->query_property("demiplane compiler");
+    
+    if(!objectp(compiler))
+    {
+        tell_object(who, "There is a problem with the demiplane. Performing emergency teleport!");
+        who->move("/d/common/obj/daily/entrance");
+        ::remove();
+        return;
+    }
+    
+    tell_object(who, "You pick up the fragment and you feel the demiplane dissolve arround you.");
+    compiler->destroy_plane();
+    tell_object(who, "You are rewarded for your efforts!");
+    money = who->query_level() * (500 + random(101));
+    exp = exp_for_level(who->query_level() + 1) / 13;
+    tell_object(who, sprintf("You are awarded %d XP and %d gold!", exp, money));
+    
+    ::remove();
+}
+    
+    
+    
     
     

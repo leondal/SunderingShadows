@@ -18,6 +18,15 @@
   Essentially, this is a virtual object that clones a virtual area.
 */
 
+/* This system consists of several components:
+   -- This compiler object, which creates the rooms, adds the exits, and places monsters.
+      ->This object is a clone specific to the player using the demiplane.
+   -- The entrance room, or hub, where the player initiates the creation of the demiplane.
+   -- The quest item, which is the goal of the player. This will be placed on a boss monster.
+      ->When picked up, it will move the player to the hub and destroy the plane.
+   -- The boss monster, which will be holding the said quest item.
+*/
+
 #include <daemons.h>
 
 //X and Y Axis Limits
