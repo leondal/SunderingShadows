@@ -55,7 +55,7 @@ int finish_leave(string str)
     }
     
     write("You decide to leave the demiplane and you begin to see it fade around you.");
-    compiler = load_object("/d/common/obj/daily/compiler");
+    compiler = this_player()->query_property("demiplane compiler");
     
     if(objectp(compiler))
         compiler->destroy_plane(owner);

@@ -57,7 +57,7 @@ int open(string str)
         write("Perhaps you'd like to <open demiplane> ?");
         return 1;
     }
-    if(member_array(current_travelers, this_player()) >= 0)
+    if(member_array(this_player(), current_travelers) >= 0)
     {
         write("You already have a demiplane open. Type <close demiplane> to close it.");
         return 1;
@@ -79,6 +79,8 @@ int open(string str)
     this_player()->set_property("demiplane compiler", compiler);
     compiler->compile_plane(this_player());
     add_traveler(this_player());
+    //once per day
+    //this_player()->add_cooldown("daily demiplane", 86400);
     
     return 1;
 }
