@@ -10,15 +10,15 @@
 #include <daemons.h>
 
 //X and Y Axis Limits
-#define MAX_WIDTH 5
-#define MAX_HEIGHT 10
-#define PATH "/d/common/obj/special/daily/"
+#define MAX_WIDTH 2
+#define MAX_HEIGHT 5
+#define PATH "/d/common/obj/daily/"
 
 //rename_object() or compile() would have been the ideal method
 //to do this. Without those funs, we will use a mapping instead.
 
 mapping cloned_rooms;
-object *active_travelers;
+object *active_travelers = ({  });
        
 string dest_room;
 string *monsters_to_use;
@@ -64,11 +64,10 @@ void compile_plane(object owner)
             
             cloned_rooms += ([ key : room, ]);
                      
-            if(objectp(room))
-                write("Adding room : " + file_name(room) + " to ["+x+"]["+y+"]");                
-            else
+            if(!objectp(room))
             {
-                write("Error: Room add not successful.");
+                write("Adding room failed: ["+x+"] ["+y+"]");
+                //write("Adding room : " + file_name(room) + " to ["+x+"]["+y+"]");
                 continue;
             }
             
@@ -76,20 +75,24 @@ void compile_plane(object owner)
             room->set_short(short);
             room->set_long(long);
             
+            
             //Add monsters
-            if(!check(new(monsters_to_use[random(sizeof(monsters_to_use) - 1)])->move(cloned_rooms[key])))
-                write("Monster cloning successful!");
-            else
+            for(int z = 0; z < random(6); z++)
             {
-                write("Monster cloning failed!");
-                continue;
-            }
+                if(catch(new(monsters_to_use[random(sizeof(monsters_to_use) - 1)])->move(cloned_rooms[key])))
+                {
+                    write("Monster cloning failed!");
+                    continue;
+                }
+            }           
         }
         x++;       
     }
   
     x = 0;
 
+    write("Adding room exits...");
+    
     //Arrange exits
     while(get_eval_cost() > 10000 && x < MAX_WIDTH)
     {
@@ -106,7 +109,7 @@ void compile_plane(object owner)
             if(objectp(cloned_rooms[key]))
             {
             
-                write("Attempting to add exits to " + file_name(cloned_rooms[key]));
+                //write("Attempting to add exits to " + file_name(cloned_rooms[key]));
         
                 //North
                 if(y < MAX_HEIGHT - 1)
@@ -168,8 +171,10 @@ void compile_plane(object owner)
     
     write("Area Compiled Successfully!");
     
-    if(!check(owner->move(cloned_rooms["0x0"])))
+    if(!catch(owner->move(cloned_rooms["0x0"])))
         write("Transfer of owner to area successful!");
+    
+    add_active_traveler(owner);
 }
 
 void destroy_plane(object owner)
@@ -184,7 +189,11 @@ void destroy_plane(object owner)
         return;
     }
     
-    objectp(owner) && owner->move(PATH + "entrance");
+    if(objectp(owner))
+    {
+        owner->move(PATH + "entrance");
+        tell_object(owner, "You are whisked away as the Demiplane collapses!");
+    }
     
     foreach(string str in keys(cloned_rooms))
     {
@@ -199,6 +208,7 @@ void destroy_plane(object owner)
     }
     
     cloned_rooms = ([  ]);
+    remove_active_traveler(owner);   
 }
 
 mapping query_rooms()
@@ -222,4 +232,21 @@ string get_room_short()
 string get_room_long()
 {
     return CRAYON_D->color_string("You are lost in a strange Demiplane.", "dark black");
+}
+
+object add_active_traveler(object owner)
+{
+    active_travelers += ({ owner });
+    return active_travelers;
+}
+
+object remove_active_traveler(object owner)
+{
+    active_travelers -= ({ owner });
+    return active_travelers;
+}
+
+object query_active_travelers()
+{
+    return active_travelers;
 }
