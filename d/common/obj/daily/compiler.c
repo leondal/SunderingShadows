@@ -7,6 +7,17 @@
   -- Tlaloc -- 9.19.21
 */
 
+/*
+  This is, in my opinion, a simpler method of implementing an
+  alternate reality kind of quest.
+  
+  The idea here is that, in the entrance room, a command exists to
+  clone a compiler for that character and use it to build and destroy
+  the plane.
+  
+  Essentially, this is a virtual object that clones a virtual area.
+*/
+
 #include <daemons.h>
 
 //X and Y Axis Limits
@@ -18,7 +29,6 @@
 //to do this. Without those funs, we will use a mapping instead.
 
 mapping cloned_rooms;
-object *active_travelers = ({  });
        
 string dest_room;
 string *monsters_to_use;
@@ -74,6 +84,8 @@ void compile_plane(object owner)
             long = get_room_long();
             room->set_short(short);
             room->set_long(long);
+            room->set_owner(owner);
+            room->set_compiler(this_object());
             
             
             //Add monsters
@@ -173,8 +185,6 @@ void compile_plane(object owner)
     
     if(!catch(owner->move(cloned_rooms["0x0"])))
         write("Transfer of owner to area successful!");
-    
-    add_active_traveler(owner);
 }
 
 void destroy_plane(object owner)
@@ -203,12 +213,12 @@ void destroy_plane(object owner)
             write(str + " is not an object.");
             continue;
         }
-        write("Destroying : " + file_name(ob));
+        //write("Destroying : " + file_name(ob));
         destruct(ob);
     }
     
     cloned_rooms = ([  ]);
-    remove_active_traveler(owner);   
+    destruct(this_object());
 }
 
 mapping query_rooms()
@@ -232,21 +242,4 @@ string get_room_short()
 string get_room_long()
 {
     return CRAYON_D->color_string("You are lost in a strange Demiplane.", "dark black");
-}
-
-object add_active_traveler(object owner)
-{
-    active_travelers += ({ owner });
-    return active_travelers;
-}
-
-object remove_active_traveler(object owner)
-{
-    active_travelers -= ({ owner });
-    return active_travelers;
-}
-
-object query_active_travelers()
-{
-    return active_travelers;
 }
