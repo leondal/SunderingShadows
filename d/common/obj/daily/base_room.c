@@ -82,6 +82,11 @@ object set_compiler(object ob)
     return ob;
 }
 
+int is_demiplane_room()
+{
+    return 1;
+}
+
 void remove()
 {
     object *inv;

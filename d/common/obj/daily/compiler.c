@@ -185,6 +185,21 @@ void compile_plane(object owner)
     
     if(!catch(owner->move(cloned_rooms["0x0"])))
         write("Transfer of owner to area successful!");
+    
+    call_out("check_plane", 60, owner);
+}
+
+void check_plane(object owner)
+{
+    //Check if they're still logged in
+    if(!userp(owner))
+        destroy_plane(owner);
+    
+    //Check if they're still in the area
+    if(environment(owner)->query_owner() != owner)
+        destroy_plane(owner);        
+    
+    call_out("check_plane", 60, owner);
 }
 
 void destroy_plane(object owner)
@@ -199,10 +214,10 @@ void destroy_plane(object owner)
         return;
     }
     
-    if(objectp(owner))
+    if(objectp(owner) && environment(owner)->is_demiplane_room())
     {
         owner->move(PATH + "entrance");
-        tell_object(owner, "You are whisked away as the Demiplane collapses!");
+        tell_object(owner, "You are whisked away to safety as the plane collapses!");
     }
     
     foreach(string str in keys(cloned_rooms))
