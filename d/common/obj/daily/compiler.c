@@ -51,6 +51,7 @@ void compile_plane(object owner)
     cloned_rooms = ([  ]);
 
     short = get_room_short();
+    //This gives us a list of filenames for monsters, based on level
     monsters_to_use = shuffle(CHAMPION_D->retrieve_monster_list(owner->query_level()));
     monsters_to_use = monsters_to_use[0..5];
     
@@ -232,6 +233,8 @@ void destroy_plane(object owner)
         destruct(ob);
     }
     
+    owner->remove_property("demiplane compiler");
+    "/d/common/obj/daily/entrance"->remove_traveler(owner);
     cloned_rooms = ([  ]);
     destruct(this_object());
 }
