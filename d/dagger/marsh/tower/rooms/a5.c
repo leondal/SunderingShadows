@@ -92,7 +92,7 @@ int grab_fun(string str) {
         return 0;
     }
     write("%^GREEN%^You grab the figurine!%^RESET%^");
-    say("%^GREEN%^You get a bad feeling as "+TPQCN+ "grabs the figurine "
+    say("%^GREEN%^You get a bad feeling as "+TPQCN+ " grabs the figurine "
 	"from the pedestal.%^RESET%^"
     ,TP);
     new( OPATH "figurin1.c" )->move(TP);
