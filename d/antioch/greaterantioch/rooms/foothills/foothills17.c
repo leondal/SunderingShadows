@@ -13,7 +13,8 @@ void create()
     "north"	: FOOTHILLS"foothills16",
 		//"south"	: ROAD"road9",
 		//"west"	: ROAD"road10",
-		"east"	: FOOTHILLS"foothills3",
+                "east"  : FOOTHILLS"foothills3",
+                "northwest" : "/d/antioch/jarmila/rooms/1.c",
 ]));
 roomlong = FOOTHILLSINH->query_long();
    a_long = "\n\n%^BOLD%^%^CYAN%^The terrain continues to the west and south, however the"+
