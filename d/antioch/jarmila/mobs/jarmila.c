@@ -49,7 +49,8 @@ void create()
     set_mlevel("fighter", 80);
     set_mlevel("mage", 80);
     set_mlevel("cleric", 80);
-    set_alignment(9);
+   set_alignment(1);
+   set("aggressive", 31);
 
     set_hd(80, 10);
     set_hp(125000);
