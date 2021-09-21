@@ -163,15 +163,23 @@ void init()
     new("/cmds/spells/v/_vampiric_shadow_shield.c")->use_spell(this_object(), 0, 70, 100, "mage");
     new("/cmds/spells/s/_shadow_body.c")->use_spell(this_object(), 0, 70, 100, "mage");
     new("/cmds/spells/s/_shadowform.c")->use_spell(this_object(), 0, 70, 100, "mage");
-    new("/cmds/spells/f/_frightful_aspect.c")->use_spell(this_object(), 0, 70, 100, "mage");     
+    new("/cmds/spells/f/_frightful_aspect.c")->use_spell(this_object(), 0, 70, 100, "mage");
 }
 
 die(object ob)
 {
     tell_room(environment(this_object()), "%^BLACK%^BOLD%^The tendrils of shadow seem to collapse in on themselves. "
               "The darkness coalesces into a swirling miasma as it drains back into the Shadow Plane.%^RESET%^");
+    
+    foreach(object obj in this_object()->query_attackers())
+    {
+        userp(obj) && obj->set_mini_quest("Challenged the Avatar of Nilith", 1000000, "%^BOLD%^BLACK%^Challenged the Avatar of Nilith%^RESET%^");
+        userp(obj) && tell_object(obj, "%^BOLD%^BLACK%^You accomplished: Challenged the Avatar of Nilith.%^RESET%^");
+    }
+    /*          
     WORLD_EVENTS_D->kill_event("The Nightwalker has been defeated");
     WORLD_EVENTS_D->inject_event((["The Nightwalker has been defeated" : (["start message" : "%^BOLD%^%^BLACK%^The Nightwalker has been defeated!", "event type" : "exp bonus", "length" : 720, "notification" : "3% Bonus Exp", "event name" : "The Nightwalker has been defeated", "modifier" : 3, "announce" : 1, "announce to" : "world" ]), ]));
+    */
     return ::die();
 }
 
@@ -212,8 +220,11 @@ void heart_beat()
             tell_room(room, "%^BOLD%^BLACK%^Waves of necrotic energy pour off of the Nightwalker, tearing life energy from its enemies!");
             
             foreach(object ob in attackers)
-                ob->cause_typed_damage(ob, ob->return_target_limb(), 500, "negative energy");
+                ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(20, 20) + 100, "negative energy");
         }
+        
+        if(!present("corpse", room) && !random(5))
+            new("/cmds/spells/e/_exhume_corpses.c")->use_spell(this_object(), 0, 70, 100, "mage");
 
         if(!present("banshee", room) && !random(5))
         {
