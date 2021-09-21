@@ -16,9 +16,9 @@ void create()
     ::create();
     set_author("ares");
     set_spell_name("mindnet");
-    set_spell_level(([ "psion" : 8, "cleric" : 9 ]));
+    set_spell_level(([ "psion" : 8 ]));
     set_discipline("telepath");
-    set_spell_sphere("divination");
+    set_spell_sphere("telepathy");
     set_syntax("cast CLASS mindnet to TARGET");
     set_description("This power is otherwise known as mass telepathy. It will allow the psion to open a telepathy spell "
         "with more than one target at the same time.  Each target will be able to 'hear' the thoughts of the other targets in the "

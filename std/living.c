@@ -417,9 +417,11 @@ void heart_beat()
 
                 if(ob->query_mp() && !ob->query("no pk") && !wizardp(ob) && !avatarp(ob))
                 {
+                    /*
                     if(!random(5))
                         tell_object(ob, "%^MAGENTA%^You feel something pull on your mind.");
                     ob->add_mp(-1);
+                    */
                 }
             }
 
