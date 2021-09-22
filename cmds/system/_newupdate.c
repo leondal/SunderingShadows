@@ -76,7 +76,7 @@ int update_file(string str)
     }
     else
     {
-        seteuid(getuid(this_player()));
+        seteuid(getuid(previous_object()));
         destruct(file);
         call_other(find_object(path), "???");
         if(file != master())
