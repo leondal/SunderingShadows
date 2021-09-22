@@ -47,11 +47,20 @@ int cmd_hide_in_plain_sight(string str)
         return 0;
     }
 
+    if(this_player()->cooldown("hide in plain sight"))
+    {
+        tell_object(this_player(), "You need to wait to use hide in plain sight.");
+        dest_effect();
+        return 1;
+    }
+    
+    /*
     if (TP->query_property("hide_in_plain_sight") > time()) {
         tell_object(TP, "Hide in plain sight only once per round.");
         dest_effect();
         return 1;
     }
+    */
     TP->set_hidden(1);
     attackers = TP->query_attackers();
     attackers->remove_attacker(TP);
@@ -66,7 +75,8 @@ int cmd_hide_in_plain_sight(string str)
     if (TP->query_property("hide_in_plain_sight")) {
         TP->remove_property("hide_in_plain_sight");
     }
-    TP->set_property("hide_in_plain_sight", time() + ROUND_LENGTH);
+    this_player()->add_cooldown("hide in plain sight", 30);
+    //TP->set_property("hide_in_plain_sight", time() + ROUND_LENGTH);
     dest_effect();
     return 1;
 }

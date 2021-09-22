@@ -2,7 +2,7 @@
 #include <security.h>
 #include "../jarmila.h"
 
-inherit NPC;
+inherit MONSTER;
 
 void do_greeting();
 object bork_control;
