@@ -8,8 +8,9 @@ void create(){
     ::create();
     set_name("cracked sunstone");
     set_id(({"sunstone","cracked sunstone","stone"}));
-    set_short("%^cracked sunstone");
-    set_long(". \n");
+    set_short("%^C226%^c%^C186%^rac%^C226%^"+
+	"k%^C186%^ed su%^C226%^n%^C186%^sto%^C226%^n%^C186%^e (%^C196%^glowing%^C186%^)%^CRST%^");
+    set_long("%^C226%^This sunstone is much like all the rest around you, however it is hollow inside and could contain wonderous thingss!\n%^CRST%^");
     set_property("no_animate",1);
     set_weight(50000);
       set_value(0);

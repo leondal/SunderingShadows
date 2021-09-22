@@ -73,6 +73,9 @@ void create()
     set_property("no paralyze", 0);
     set_property("no stun", 0);
     set_property("no bows", 1);
+	set_property("no fear", 1);
+    set_property("cast and attack", 1);
+    set_property("function and attack", 1);
 
     set_monster_feats(({
 	        "spell penetration", "greater spell penetration", "perfect caster"

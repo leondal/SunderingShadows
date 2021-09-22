@@ -60,6 +60,7 @@ void create()
     set_damage(16, 7);
     set_attacks_num(5);
     set_property("no death", 1);
+    set_property("no fear", 1);
     set_property("no bows", 1);
     set_property("no knockdown", 1);
     set_property("no trip", 1);
@@ -169,7 +170,8 @@ void init()
 die(object ob)
 {
     tell_room(environment(this_object()), "%^BLACK%^BOLD%^The tendrils of shadow seem to collapse in on themselves. "
-              "The darkness coalesces into a swirling miasma as it drains back into the Shadow Plane.%^RESET%^");
+              "The darkness coalesces into a swirling miasma as it drains back into the Shadow Plane.%^RESET%^");              
+    message("broadcast", "%^BLACK%^BOLD%^A keening wail can be heard as a great evil is vanquished and returns to the Plane of Shadows!%^RESET%^", users());
     
     foreach(object obj in this_object()->query_attackers())
     {

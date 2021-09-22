@@ -29,7 +29,7 @@ void create()
     set_name("shard");
     set_id( ({ "shard", "dagger", "shard of the deliverer", "deliverer shard" }) );
     set_short("%^BOLD%^%^WHITE%^S%^CYAN%^h%^RESET%^%^CYAN%^a%^BOLD%^%^WHITE%^rd of the D%^CYAN%^e%^RESET%^%^CYAN%^l%^BOLD%^%^WHITE%^iv%^CYAN%^e%^RESET%^%^CYAN%^r%^BOLD%^%^WHITE%^er%^RESET%^");
-    set_obvious_short("glowing encased-shard dagger");
+    set_obvious_short(color("glowing encased-shard dagger"));
     set_long("This weapon is composed of shard of glowing material encased in the shell of a finely-wrought silver dagger.");
     set_lore("When Kyra, the stalwart paladin of Jarmila, was sacrificed one night in a foul ritual to the dark primordial Ashra, her soul was condemned to the Nightmare Realm to suffer for eternity. In a strange turn of fate, a group of heroes of the light banded together to save Kyra's soul from her torment, while simultaneously locking Ashra away from the world. Their efforts resulted in an astonishing success, achieving both of their aims. Kyra's soul, freed from the depths of the Nightmare, transcended beyond the wall to be with Jarmila once more. Her last act before this transcendence was to leave behind a shard of her essence, laying in wait for a hero, strong enough to vanquish the world's greatest evils, to bond with and assist in their holy mission.");
     set_value(100000);
