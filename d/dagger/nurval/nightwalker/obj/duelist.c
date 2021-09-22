@@ -9,7 +9,7 @@
 #include <std.h>
 #include <daemons.h>
 
-#define HIT_INTERVAL 5
+#define HIT_INTERVAL 4
 
 inherit "/d/common/obj/weapon/rapier.c";
 
