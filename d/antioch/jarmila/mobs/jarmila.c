@@ -128,7 +128,7 @@ void comet (object targ){
 
 int dam;
 //dam = random(500)+100;
-dam = roll_dice(25, 20) + 100;
+	dam = roll_dice(25, 20) + 200;
 
    if(!"/daemon/saving_throw_d.c"->dex_save(targ,40)){
 
@@ -181,7 +181,7 @@ void light (object targ){
 
 int dam;
 //dam = random(300)+100;
-dam = roll_dice(15, 20) + 100;
+	dam = roll_dice(15, 20) + 200;
 
    if(!"/daemon/saving_throw_d.c"->will_save(targ,40)){
 
@@ -244,7 +244,7 @@ void holy (object targ){
 
 int dam;
 //dam = random(500)+100;
-dam = roll_dice(25, 20) + 100;
+dam = roll_dice(25, 20) + 200;
 
    if(!"/daemon/saving_throw_d.c"->fort_save(targ,40)){
 
@@ -317,7 +317,8 @@ void die(object ob) {
     int i;
     object *att;
 
-    ETO->lockdown();
+       ETO->lockdown();
+       new(OBJ"cracked_sunstone")->move(TO);
     tell_room(ETO, "%^C160%^The phoenix bursts into an explosion "+
 	"of epic proportions and disappears, though the force of its "+
 	"death has cracked open one of the larger sunstones.%^CRST%^");
@@ -334,5 +335,4 @@ void die(object ob) {
 
     }
    TO->remove();
-   new(OBJ"cracked_sunstone")->move(TO);
 }

@@ -185,7 +185,7 @@ speak("I am glad you have came. The view is too beautiful to not share.");
         tell_room(ETO,"%^C226%^\nThe glow radiates from the paladin%^CRST%^\n");
         speak("Am I not what you expected from your climb?");
         tell_room(ETO,"%^C100%^\nShe chuckles and looks out on the horizon.%^CRST%^\n");
-		speak("Strength and love come in many packages, some unexpected. Lets do this, lets see your mettle.");
+                speak("You may not want to, but we need to fight. My death will bring her power and her love. She will fight you as well. To help your rebirth.");
 		tell_room(ETO,"%^C008%^\nShe tightens the clasps on her armor and waits for your move.%^CRST%^\n%^");
 	talked = 1;
     return 1;
