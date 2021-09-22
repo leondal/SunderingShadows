@@ -63,7 +63,7 @@ void reward_player(object who)
     if(!objectp(compiler))
     {
         tell_object(who, "There is a problem with the demiplane. Performing emergency teleport!");
-        who->move("/d/common/obj/daily/entrance");
+        who->move_player("/d/common/obj/daily/entrance");
         ::remove();
         return;
     }
