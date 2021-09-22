@@ -13,7 +13,7 @@
 
 inherit DAEMON;
 
-int cmd_update(string str)
+int cmd_newupdate(string str)
 {
     if(str)
         update_file(str);
@@ -39,7 +39,7 @@ int update_file(string str)
         
         foreach(string meh in files)
         {
-            set_euid(geteuid(this_player()));
+            seteuid(geteuid(this_player()));
             error = catch(file = find_object_or_load(path + "/" + meh));
             
             if(error)
@@ -49,8 +49,9 @@ int update_file(string str)
             else
             {
                 destruct(file);
-                load_object(file);
-                write(path + "/" + meh + " Updated Successfully!");
+                call_other(find_object(path + "/" + meh), "???");
+                //write(path + "/" + meh + " Updated Successfully!");
+                printf("%20s Updated Successfully!\n", path + "/" + meh);
             }
         }
         if(file != master())
@@ -66,8 +67,8 @@ int update_file(string str)
     }
     
     //Reload a file
-    set_euid(getuid(this_player()));  
-    error = catch(find_object_or_load(path));
+    seteuid(getuid(this_player()));  
+    error = catch(file = find_object_or_load(path));
     
     if(error)
     {
@@ -77,7 +78,7 @@ int update_file(string str)
     {
         seteuid(getuid(this_player()));
         destruct(file);
-        load_object(file);
+        call_other(find_object(path), "???");
         if(file != master())
             seteuid(UID_SYSTEM);
         write(path + " Updated Successfully!");
