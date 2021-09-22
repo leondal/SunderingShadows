@@ -823,8 +823,11 @@ int query_resistance(string res)
     
     if(this_object()->is_class("barbarian"))
     {
-        if(FEATS_D->usable_feat(this_object(), "unstoppable"))
-            myres += (this_object()->query_guild_level("barbarian") - 10) / 6 + 1;
+        if(FEATS_D->usable_feat(this_object(), "unstoppable") && this_object()->query_property("raged"))
+        {
+            if(res != "positive energy")
+                myres += (this_object()->query_guild_level("barbarian") - 10) / 6 + 4;
+        }
     }
     
     return (myres + EQ_D->gear_bonus(TO, res));
