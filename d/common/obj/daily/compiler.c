@@ -33,7 +33,7 @@
 #define MAX_WIDTH 2
 #define MAX_HEIGHT 5
 #define PATH "/d/common/obj/daily/"
-#define THEMES ({ "clockwork" })
+#define THEMES ({ "clockwork", "offal marsh", "deep caverns" })
 
 //rename_object() or compile() would have been the ideal method
 //to do this. Without those funs, we will use a mapping instead.
@@ -273,6 +273,14 @@ string get_room_short(string theme)
         case "clockwork":
             return "%^YELLOW%^Clockwork Demiplane%^RESET%^";
         break;
+        
+        case "offal marsh":
+            return "%^GREEN%^BOLD%^Offal Marsh Demiplane%^RESET%^";
+        break;
+        
+        case "deep caverns":
+            return "%^BOLD%^BLACK%^Deep Caverns Demiplane%^RESET%^";
+        break;
     }
     
     return CRAYON_D->color_string("Strange Demiplane", "very black");
@@ -287,6 +295,20 @@ string get_room_long(string theme)
                 return "%^RESET%^%^CRST%^%^C008%^S%^C007%^i%^C015%^lv%^C007%^e%^C008%^r%^CRST%^ %^C130%^and %^C149%^b%^C143%^r%^C137%^a%^C143%^s%^C149%^s %^C130%^cogs shine in the ambient light, a steady click and whirl of %^C156%^cl%^C150%^oc%^C144%^kw%^C156%^or%^C150%^k g%^C144%^ea%^C156%^rs %^C130%^shifting beneath the %^C007%^tr%^C015%^an%^C007%^sp%^C015%^ar%^C007%^en%^C015%^t g%^C007%^la%^C015%^ss %^CRST%^%^RESET%^%^C130%^floor. They move with a ponderous and methodical pace, like the heartbeat of some great mechanical being. Strange %^C149%^metal %^C143%^tubes %^C130%^run the length of these corridors, forming walls and junctions, rumbling and shaking with barely contained pressures. Vents periodically shutter open, the %^CRST%^%^C007%^s%^C008%^t%^C007%^e%^C008%^a%^C007%^m %^CRST%^%^C130%^screaming out as the cogs and tubing whirl about into new formations.%^RESET%^%^CRST%^";
             else
                 return "%^RESET%^%^CRST%^%^C130%^Bursts of %^CRST%^%^C007%^s%^C008%^t%^C007%^e%^C008%^a%^C007%^m %^CRST%^%^C130%^obscure most of the area, and the air is full of %^C149%^metal %^C143%^wheels %^C130%^running down slender tracks as the surrounding %^C156%^ma%^C150%^ch%^C144%^in%^C156%^er%^C150%^y %^C130%^fulfills some archaic function. The floor is %^CRST%^%^C007%^tr%^C015%^an%^C007%^sp%^C015%^ar%^C007%^en%^C015%^t%^RESET%^%^C130%^, revealing layer upon layer of mighty gears and cogs that are majestic in scale, ticking away in a grand procession. Small %^C208%^ga%^C202%^s l%^C196%^am%^C208%^ps %^C130%^protrude from a slender pipe, offering some meager light that flickers with each blast of steam.%^RESET%^%^CRST%^";
+        break;
+        
+        case "offal marsh":
+            if(random(2))
+                return "%^RESET%^%^CRST%^%^C065%^The slick uneven ground has a spongy composure, divided by rivulets of %^C107%^horrid %^C144%^ta%^C138%^in%^C132%^te%^C144%^d w%^C138%^at%^C132%^er%^C065%^, sluggishly carrying %^C130%^offal %^C065%^and %^C059%^waste%^C065%^. Clouds of %^CRST%^%^C008%^fli%^C007%^e%^C008%^s %^C065%^and other denizens of filth hover in sporadic swarms over the warm, wet surfaces. The air seems to shimmer and dance in the %^C071%^m%^C065%^o%^C059%^i%^C071%^s%^C065%^t %^C059%^h%^C071%^a%^C065%^z%^C059%^e%^RESET%^%^C065%^, and distant %^C142%^co%^C136%^rr%^C130%^up%^C142%^te%^C136%^d w%^C130%^at%^C142%^er%^C136%^fa%^C130%^ll%^C142%^s %^C065%^splatter and bubble and froth as more disgusting muck feeds into the area. Weak, blasted vegetation tries to survive here, but it is blackened with %^C059%^rot%^C065%^.%^RESET%^%^CRST%^";
+            else
+                return "%^RESET%^%^CRST%^%^C065%^This is a small copse of scrub brush, only the branches left as they rise up from the %^C142%^fe%^C136%^ti%^C130%^d m%^C142%^ar%^C136%^sh%^C065%^. The ground burbles and shudders as %^C070%^fo%^C064%^ul %^C058%^ga%^C070%^ss%^C064%^es %^C065%^erupt with a %^C059%^wet spatter%^C065%^, spraying its corruption onto the surrounding piles of %^C130%^offal%^C065%^, the semisolid surfaces swarming with writhing %^CRST%^%^C015%^ma%^C007%^g%^C015%^go%^C007%^t%^C015%^s%^RESET%^%^C065%^. The buzzing of stinging gnats and the sweltering heat give the air an oppressive weight, making the %^C144%^f%^C138%^i%^C132%^l%^C144%^t%^C138%^h %^C065%^palpable.%^RESET%^%^CRST%^";
+        break;
+        
+        case "deep caverns":
+            if(random(2))
+                return "%^RESET%^%^CRST%^%^C008%^Dark, %^C103%^slick %^C091%^stone %^C097%^comprises these caverns, the walls and ceilings dripping with %^C069%^mo%^C063%^is%^C057%^tu%^C069%^re%^C097%^. The ground is worn smooth down the center path, with %^C131%^rocky debris %^C097%^collecting along the periphery. Strange %^C030%^gl%^C036%^ow%^C042%^in%^C030%^g f%^C036%^un%^C042%^gi %^C097%^grow in patches here and there, their thin tendrils raising into the air and casting the area in a subtle %^C030%^am%^C036%^b%^C030%^ie%^C024%^n%^C030%^t l%^C036%^i%^C030%^gh%^C024%^t%^RESET%^%^C097%^. Things %^C089%^sl%^C095%^it%^C101%^he%^C089%^r %^C097%^and %^C089%^sc%^C095%^am%^C101%^pe%^C089%^r %^C097%^just out of sight further down these tunnels.%^RESET%^%^CRST%^";
+            else
+                return "%^RESET%^%^CRST%^%^C097%^The %^C030%^so%^C036%^f%^C030%^t g%^C024%^l%^C030%^ow %^C097%^afforded by patches of %^C030%^lu%^C036%^mi%^C042%^ne%^C030%^sc%^C036%^en%^C042%^t m%^C030%^os%^C036%^se%^C042%^s %^C097%^reveals a series of rocky caverns. %^C091%^Stalagtites %^C097%^descend from the ceiling, reaching tentatively for their mirror images rising from the floor, though a smooth unfettered %^C103%^path %^C097%^weaves down the center of each tunnel. The soft drip of %^C069%^co%^C063%^nd%^C057%^en%^C069%^sa%^C063%^ti%^C057%^on %^C097%^gathering and falling echoes in otherwise silence, %^C063%^sm%^C069%^a%^C063%^ll %^C057%^p%^C063%^oo%^C069%^l%^C063%^s %^C097%^forming in pockets of %^C131%^rock %^C097%^and rippling with each intrusion from above.%^RESET%^%^CRST%^";
         break;
     }
         
