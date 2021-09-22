@@ -34,7 +34,7 @@ void create() {
     set_long(
 @OLI
     %^BOLD%^%^GREEN%^You are perched upon a large branch%^RESET%^
-This outpost allows you too see quite a distance in several directions.
+This outpost allows you to see quite a distance in several directions.
 Guards often stand up here and shoot into any fights that might develop below.
 As you look out of this dark area, you see the grand forest stretch out as a
 perched bird might see it.  You are awed by its beauty.

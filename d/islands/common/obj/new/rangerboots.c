@@ -23,7 +23,7 @@ void create()
     set_lore("The footwear of the famed glory hunters are rumored to be amongst some of the best designed in the realms."
         " This is not only because of their superb craftsmanship and finest materials, but also because much care has been taken to embue them with "
         "magical qualities from master enchanters.  These particular boots especially have been rumored to be extraordinarily easy to move in, but were thought to have"
-        "disappeared along with the disappearance of the hunters.\n");        
+        " disappeared along with the disappearance of the hunters.\n");        
 
     set_value(124500);
 

@@ -22,7 +22,7 @@ void create()
                  (: TO, "view_gate" :)       ]));
     set_search("gate", (: TO, "gate_search" :));
     set_search("gateway", (: TO, "gate_search" :));
-    set_search("carved gaateway", (: TO, "gate_search" :));
+    set_search("carved gateway", (: TO, "gate_search" :));
     set_smell("default", "The air is heavy with %^CYAN%^humidity%^ORANGE%^"
               + " and the heady scent of %^GREEN%^j%^BOLD%^"
               + "%^GREEN%^u%^RESET%^%^GREEN%^ngle %^ORANGE%^plant"

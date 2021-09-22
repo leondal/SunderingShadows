@@ -23,7 +23,7 @@ void create() {
         +" recognise them, but somehow you seem to be able to read them.");
   set_search("gateway","You find some runes carved around the edge of the gateway. You don't"
         +" recognise them, but somehow you seem to be able to read them.");
-  set_search("carved gaateway","You find some runes carved around the edge of the gateway. You don't"
+  set_search("carved gateway","You find some runes carved around the edge of the gateway. You don't"
         +" recognise them, but somehow you seem to be able to read them.");
   set_smell("default","The air is heavy with %^CYAN%^humidity%^ORANGE%^"
                     +" and the heady scent of %^GREEN%^j%^BOLD%^"
