@@ -14,7 +14,7 @@ void create(){
 
 void reset(){
    ::reset();
-   if(!present("paladin")){
+   if(!present("avatar")){
       new(MOBS"paladin.c")->move(TO);
    }
 }

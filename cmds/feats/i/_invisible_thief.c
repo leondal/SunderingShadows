@@ -43,6 +43,12 @@ void execute_feat()
     int total;
     ::execute_feat();
     
+    if(this_player()->cooldown("invisible thief"))
+    {
+        tell_object(this_player(), "You need to wait to use invisible thief.");
+        dest_effect();
+        return;
+    }
     
     tell_object(caster,"%^CYAN%^You simply disappear from plain sight!%^RESET%^");
     total = caster->query_skill("spellcraft") + caster->query_skill("stealth");
@@ -57,6 +63,7 @@ void execute_feat()
     invisob->set_player_name(caster->query_name());
     invisob->set_mychance(total);
     invisob->move(caster);
+    this_player()->add_cooldown("invisible thief", 30);
     dest_effect();
     return;
 }

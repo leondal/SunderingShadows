@@ -50,7 +50,9 @@ void create()
     set_mlevel("mage", 80);
     set_mlevel("cleric", 80);
    set_alignment(1);
-   set("aggressive", 31);
+    set("aggressive",100);
+    set_property("full attacks",1);
+    set_true_seeing(1);
 
     set_hd(80, 10);
     set_hp(125000);

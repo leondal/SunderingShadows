@@ -16,7 +16,7 @@ void create()
 	talked=0;
     set_name("Rosalind de Montbard");
     set_id(({ "paladin", "guard", "paladin guard", "pguard", "Paladin",
-"guardian", "gate guard", "knight", "cerviel", "captain", "cerviel", }));
+"avatar",}));
     set_short("%^C229%^Ros%^C230%^a%^C229%^lind "+
 	"de M%^C230%^o%^C229%^ntb%^C230%^a%^C229%^rd, "+
 	"%^C252%^Paladin%^C229%^ of the %^C197%^Rose%^C229%^");

@@ -15,6 +15,7 @@ void create(){
    set_travel(GAME_TRACK);
    set_climate("temperate");
    set_property("light", 2);
+   set_property("no pocket space",1);
    set_name("narrow path on the hill");
    set_short("%^C046%^narrow %^C058%^path%^C046%^ "+
    "on the hill%^CRST%^");
