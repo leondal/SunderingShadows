@@ -62,7 +62,7 @@ int finish_leave(string str)
     else
     {
         write("You are transported elsewhere.");
-        this_player()->move("/d/common/obj/daily/entrance");
+        this_player()->move_player("/d/common/obj/daily/entrance");
     }
     
     return 1;

@@ -33,6 +33,7 @@
 #define MAX_WIDTH 2
 #define MAX_HEIGHT 5
 #define PATH "/d/common/obj/daily/"
+#define THEMES ({ "clockwork" })
 
 //rename_object() or compile() would have been the ideal method
 //to do this. Without those funs, we will use a mapping instead.
@@ -45,7 +46,7 @@ string *monsters_to_use;
 void compile_plane(object owner)
 {
     int x;
-    string key, exit_key, short, long;
+    string key, exit_key, short, long, theme;
     object room;
     
     if(!userp(owner))
@@ -69,6 +70,9 @@ void compile_plane(object owner)
         write("Monster list compile fail...");
         return;
     }
+
+    //Determine the demiplane theme
+    theme = THEMES[random(sizeof(THEMES))];
     
     //Clone the rooms, clone the monsters
     while(get_eval_cost() > 10000 && x < MAX_WIDTH)
@@ -91,7 +95,8 @@ void compile_plane(object owner)
                 continue;
             }
             
-            long = get_room_long();
+            long = get_room_long(theme);
+            short = get_room_short(theme);
             room->set_short(short);
             room->set_long(long);
             room->set_owner(owner);
@@ -193,7 +198,7 @@ void compile_plane(object owner)
     
     write("Area Compiled Successfully!");
     
-    if(!catch(owner->move(cloned_rooms["0x0"])))
+    if(!catch(owner->move_player(cloned_rooms["0x0"])))
         write("Transfer of owner to area successful!");
     
     call_out("check_plane", 60, owner);
@@ -261,12 +266,29 @@ string get_room_file(int x, int y)
     return file_name(cloned_rooms[key]);
 }
 
-string get_room_short()
+string get_room_short(string theme)
 {
+    switch(theme)
+    {
+        case "clockwork":
+            return "%^YELLOW%^Clockwork Demiplane%^RESET%^";
+        break;
+    }
+    
     return CRAYON_D->color_string("Strange Demiplane", "very black");
 }
 
-string get_room_long()
+string get_room_long(string theme)
 {
+    switch(theme)
+    {
+        case "clockwork":
+            if(random(2))
+                return "%^RESET%^%^CRST%^%^C008%^S%^C007%^i%^C015%^lv%^C007%^e%^C008%^r%^CRST%^ %^C130%^and %^C149%^b%^C143%^r%^C137%^a%^C143%^s%^C149%^s %^C130%^cogs shine in the ambient light, a steady click and whirl of %^C156%^cl%^C150%^oc%^C144%^kw%^C156%^or%^C150%^k g%^C144%^ea%^C156%^rs %^C130%^shifting beneath the %^C007%^tr%^C015%^an%^C007%^sp%^C015%^ar%^C007%^en%^C015%^t g%^C007%^la%^C015%^ss %^CRST%^%^RESET%^%^C130%^floor. They move with a ponderous and methodical pace, like the heartbeat of some great mechanical being. Strange %^C149%^metal %^C143%^tubes %^C130%^run the length of these corridors, forming walls and junctions, rumbling and shaking with barely contained pressures. Vents periodically shutter open, the %^CRST%^%^C007%^s%^C008%^t%^C007%^e%^C008%^a%^C007%^m %^CRST%^%^C130%^screaming out as the cogs and tubing whirl about into new formations.%^RESET%^%^CRST%^";
+            else
+                return "%^RESET%^%^CRST%^%^C130%^Bursts of %^CRST%^%^C007%^s%^C008%^t%^C007%^e%^C008%^a%^C007%^m %^CRST%^%^C130%^obscure most of the area, and the air is full of %^C149%^metal %^C143%^wheels %^C130%^running down slender tracks as the surrounding %^C156%^ma%^C150%^ch%^C144%^in%^C156%^er%^C150%^y %^C130%^fulfills some archaic function. The floor is %^CRST%^%^C007%^tr%^C015%^an%^C007%^sp%^C015%^ar%^C007%^en%^C015%^t%^RESET%^%^C130%^, revealing layer upon layer of mighty gears and cogs that are majestic in scale, ticking away in a grand procession. Small %^C208%^ga%^C202%^s l%^C196%^am%^C208%^ps %^C130%^protrude from a slender pipe, offering some meager light that flickers with each blast of steam.%^RESET%^%^CRST%^";
+        break;
+    }
+        
     return CRAYON_D->color_string("You are lost in a strange Demiplane.", "dark black");
 }
