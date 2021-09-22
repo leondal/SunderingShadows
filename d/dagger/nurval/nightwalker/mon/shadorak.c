@@ -30,7 +30,7 @@ void create()
     set_name("nightwalker");
     set_id(({ "nightwalker", "demigod", "shadow god", "night walker", "shadorak" }));
     set_short("%^BLACK%^BOLD%^Shadorak, Greater %^BOLD%^BLACK%^N%^RESET%^%^CYAN%^i%^BOLD%^g%^BLACK%^h%^RESET%^%^CYAN%^t%^BOLD%^w%^BLACK%^a%^RESET%^%^CYAN%^l%^BOLD%^k%^BLACK%^er of Nilith%^RESET%^");
-    set_long("%^BLACK%^BOLD%^This being is the stuff of nightmares. It is quite tall, towering over the nearby buildings with its lanky form. It is black and featureless, with a miasma of dark energies emanating from it. Upon its head are two shadow horns that sweep back and up away from its head, which is featureless save for two glowing azure eyes.");
+    set_long("%^BLACK%^BOLD%^This being is the stuff of nightmares. It is quite tall, towering over the nearby buildings with its lanky form. It is black and featureless, with a miasma of dark energies emanating from it. Upon its head are two shadow horns that sweep back and up away from its head, which is featureless save for two glowing azure eyes.%^RESET%^");
     set_body_type("humanoid");
     add_limb("tendril one", "torso", 0, 0, 0);
     add_limb("tendril two", "torso", 0, 0, 0);
@@ -222,7 +222,7 @@ void heart_beat()
             tell_room(room, "%^BOLD%^BLACK%^Waves of necrotic energy pour off of the Nightwalker, tearing life energy from its enemies!");
             
             foreach(object ob in attackers)
-                ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(20, 20) + 100, "negative energy");
+                ob->cause_typed_damage(ob, ob->return_target_limb(), roll_dice(20, 20) + 300, "negative energy");
         }
         
         if(!present("corpse", room) && !random(5))
