@@ -820,6 +820,13 @@ int query_resistance(string res)
     if (FEATS_D->usable_feat(TO, "no fear of the flame") && res == "fire") {
         myres += 30;
     }
+    
+    if(this_object()->is_class("barbarian"))
+    {
+        if(FEATS_D->usable_feat(this_object(), "unstoppable"))
+            myres += (this_object()->query_guild_level("barbarian") - 10) / 6 + 1;
+    }
+    
     return (myres + EQ_D->gear_bonus(TO, res));
 }
 
