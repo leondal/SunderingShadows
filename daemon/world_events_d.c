@@ -127,6 +127,13 @@ varargs int get_exp_modifier(object who)
         myEvent = events[x];
         if(WORLD_EVENTS[myEvent]["type"] == "exp bonus")
         {
+            if(sizeof(WORLD_EVENTS[myEvent]["alignments"]))
+            {
+                if(member_array(who->query_true_align(), WORLD_EVENTS[myEvent]["alignments"]) >= 0)
+                    mod += WORLD_EVENTS[myEvent]["modifier"];
+                
+                continue;
+            }   
             if(WORLD_EVENTS[myEvent]["announce to"] == "world")
             {
                 mod += WORLD_EVENTS[myEvent]["modifier"];
@@ -247,7 +254,7 @@ void kill_event(string eventName)
 varargs void inject_event(mapping eventMap, int flag)
 {
     string eventName, *events, eventType, announceTo, start_msg, end_msg, notification;
-    int x, len, announce, eChance;
+    int x, len, announce, eChance, *align;
     mixed mod;
     //old function - or enable to launch random functions - Saide, Feb 18, 2017
     //return;
@@ -271,6 +278,8 @@ varargs void inject_event(mapping eventMap, int flag)
         {
             end_msg = "%^BOLD%^%^RED%^The event "+eventName+" has ended!%^RESET%^";
         }
+        //Aligment-specific buffs
+        if(!pointerp(align = eventMap[eventName]["alignments"])) align = ({  });
         if(undefinedp(announce)) announce = 1;
         if(undefinedp(len)) len = 25 + random(31) + random(31);
         if(eventType == "monster modifications")
@@ -288,7 +297,7 @@ varargs void inject_event(mapping eventMap, int flag)
         }
         WORLD_EVENTS += ([eventName : (["type" : eventType, "end time": (time() + (len*60)),
         "event name" : eventName, "modifier" : mod, "announce" : announce, "announce to" : announceTo,
-        "announce start" : start_msg, "announce end" : end_msg, "notification" : notification, "announced" : 0]),]);
+        "announce start" : start_msg, "announce end" : end_msg, "notification" : notification, "announced" : 0, "alignments" : align ]),]);
         world_events_save();
         continue;
     }
